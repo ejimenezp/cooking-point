@@ -1,0 +1,192 @@
+// cooking point custom style sheet
+
+//
+// navigation bar font and size
+//
+
+$web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !default;
+@import url($web-font-path);
+
+.nav {
+
+	padding-left: 0px;
+  	@media screen and (min-width: $screen-sm-min) {
+		padding-left: 25px;
+		}
+  	z-index: 1;
+	
+	a {
+
+		font-family: $font-family-cooking-point;
+		font-size: $font-size-h4;
+	}	
+}
+
+h1, .call-to-action {
+	color: $brand-red;
+
+	.no-link a:link {
+		color: $brand-red;
+	}
+
+	.what {
+		text-align: right;
+		font-weight: bold;
+	}
+}
+
+.vertical-center {
+		position: relative;
+		top: 60px;
+		transform: translateY(-50%);
+}
+
+
+.no-gutter > [class*='col-'] {
+	    padding-right:0;
+	    padding-left:0	
+}
+
+.home-column {
+	overflow: hidden;
+	padding-bottom: 15px;
+}
+.home-logo {
+	margin-top: 15px;
+}
+
+.dropcap { 
+	float: left; 
+	line-height: 40px; 
+	padding-top: 4px; 
+	padding-right: 8px; 
+	padding-left: 3px; 
+ }
+
+.divider {
+  height: 1px;
+  width:100%;
+  display:block; /* for use on default inline elements like span */
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+.primary-color {
+	color: $brand-primary;
+}
+
+.home-headline {
+	font-size: 32px;
+  	@media screen and (min-width: $screen-sm-min) {
+		padding-left: 38px;
+		}
+	color: $brand-red;
+}
+
+.btn {
+	font-family: $font-family-cooking-point;
+}
+
+.sidebar-title {
+	color: #959595;
+	letter-spacing: 1px;
+	font-size: 12px;
+	font-weight: 700;
+	padding-top: 1.2em;
+	padding-bottom: 1.2em;
+}
+
+//
+// page slideshows
+//
+.cp-slideshow div {
+  background-color: white;
+  width: 100%;
+  display: inline-block;
+  display: none;
+}
+.cp-slideshow img {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  @media (max-width: $screen-sm-max) {
+    width: auto;
+      }
+}
+
+p {
+	text-align: justify;
+}
+
+#cp-calendar {	
+	table {
+		width: 100%;
+	}
+	thead td {
+		font-weight:	bold;
+		text-align: 	right;
+	}
+	.month {
+		text-align: center;
+	}
+	.today {
+		color: $navbar-default-link-hover-color;
+		background-color: $navbar-default-link-hover-bg;
+	}
+	tbody td {
+		text-align: right;
+	}
+}
+
+#cp-week {
+	td, th {
+		text-align: center;
+	}
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+
+#cp-week-buttons {
+	p, button {
+		display: inline-block;	
+	}
+}
+
+.cp-day {
+	&:hover { 
+		background-color: $navbar-default-link-hover-bg; 
+	}
+	a {
+    	display:block;
+    	text-decoration:none;
+		text-align: center;
+	}
+}
+
+.ui-datepicker {
+	background-color: white;
+	padding: 1%;
+	border-color: gray;
+	border: 1px solid;
+	z-index: 100;
+
+	
+	table {
+		font-size: inherit;
+	}
+	.ui-datepicker-current-day {
+		background-color: $navbar-default-link-hover-bg;
+	}
+
+	.ui-state-disabled {
+		color: #959595;
+	}
+
+	.ui-state-hover { 
+		background-color: $navbar-default-link-hover-bg; 
+	}
+
+}

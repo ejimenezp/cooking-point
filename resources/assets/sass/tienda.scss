@@ -1,0 +1,37 @@
+// TIENDA STYLE SHEET
+
+.boton-articulo, .boton-pagar {
+	padding: 8px;
+	margin: 4px;
+}
+
+
+
+#receipt {
+    font-size: 12px;
+}
+
+
+#screen_table, #items_table {
+  width: 90%;
+  margin: 0 auto;
+  tfoot td {
+    font-weight: bold;
+    height: 4em;
+  }
+}
+
+#screen_table {
+  font-size: 22px;
+  margin-bottom: 50px;
+}
+
+#tax_table {
+  width: 80%;
+  margin: 0 auto;
+  td, th {
+    text-align: right;
+  }
+}
+
+
