@@ -14,7 +14,7 @@ class TicketsController extends Controller
 {
     public function front()
     {
-    	$articulos = TiendaArticulo::where('visible', true)->get();
+    	$articulos = TiendaArticulo::where('visible', true)->orderBy('display_order')->get();
     	return view('tienda.frontend')->with('articulos', $articulos);
     }
 
