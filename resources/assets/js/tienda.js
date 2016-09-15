@@ -8,7 +8,7 @@ require('jquery-serializejson');
 require('printThis');
 
 
-require('jquery-ui');
+require('jquery-ui/ui/widgets/datepicker');
 
 $( document ).ready(function() {
 

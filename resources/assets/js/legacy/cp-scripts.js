@@ -2,7 +2,7 @@
  * 
  */
 window.$ = window.jQuery = require('jquery')
-require('jquery-ui');
+require('jquery-ui/ui/widgets/datepicker');
 
 jQuery(document).ready(function($) {
 
