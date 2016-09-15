@@ -7,9 +7,9 @@ var ftp = require( 'vinyl-ftp' );
 var git = require('gulp-git');
 var print = require('gulp-print');
 var jQuery = require('jquery');
-// var jqueryui = require('jquery-ui');
+// var jqueryui = require('jquery-ui-browserify');
 
-var vue = require('laravel-elixir-vue');
+// var vue = require('laravel-elixir-vue');
 
 /*
  |--------------------------------------------------------------------------
@@ -24,7 +24,7 @@ var vue = require('laravel-elixir-vue');
 
 elixir(mix => {
       mix.sass('app.scss')
-    	.webpack('app.js')
-    	.webpack('tienda.js')
-    	.webpack('legacy/cp-scripts.js')
+    	.browserify('app.js')
+    	.browserify('tienda.js')
+    	.browserify('legacy/cp-scripts.js')
 });
