@@ -217,7 +217,7 @@ switch (get_param('query'))
 	case "ALL_BOOKINGS":
 		$result = retrieve_all_bookings();
 		$myArray = array();
-		while($row = $result->fetch_array(MYSQL_ASSOC)) {
+		while($row = $result->fetch_array(MYSQLI_ASSOC)) {
 			$myArray[] = $row;
 		}
 		echo '{"data":'.json_encode($myArray).'}';
@@ -233,7 +233,7 @@ switch (get_param('query'))
 	case "BOOKING_LOG":
 		$result = booking_log(get_param('booking'));
 		$myArray = array();
-		while($row = $result->fetch_array(MYSQL_ASSOC)) {
+		while($row = $result->fetch_array(MYSQLI_ASSOC)) {
 			$myArray[] = $row;
 		}
 		echo '{"data":'.json_encode($myArray).'}';
