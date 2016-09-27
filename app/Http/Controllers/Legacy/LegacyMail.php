@@ -13,6 +13,7 @@ use Log;
 use Google_Client;
 use Google_Service_Gmail;
 use Google_Service_Gmail_Message;
+use Illuminate\Support\Facades\Storage;
 
 class LegacyMail {
 
@@ -85,33 +86,14 @@ class LegacyMail {
 
 	static function mail_to_user($r, $mail_template)
 	{
-
-		switch ($r['status']) {
-			case 'CR':
-			case 'NE':
-				$common_subject = "Inquiry Received";
-				break;
-			case 'PE':
-				$common_subject = "Your seat/s have been pre-booked";
-				break;
-			case 'PA':
-				$common_subject = "Payment received, your booking is now confirmed";
-				break;
-		}
-		
 		
 		$html_body = LegacyModel::set_booking_data($r, $mail_template . ".html");
 		$txt_body = LegacyModel::set_booking_data($r, $mail_template . ".txt");
 		
-		// localhost version
-		// error_log("mail sent to $r[email]. Text:");
-		// error_log($mail_body);
-		// return;
-		
 		// building mime message
 		$envelope["from"]= 'Cooking Point <info@cookingpoint.es>';
 		$envelope["to"]  = $r['email'];
-		$envelope["subject"]  = $common_subject;
+		$envelope["subject"]  = Storage::get($mail_template . ".subject.txt");
 		
 		$part1["type"] = TYPEMULTIPART;
 		$part1["subtype"] = "alternative";
@@ -134,6 +116,11 @@ class LegacyMail {
 		
 		$mime_message = imap_mail_compose($envelope, $body);
 		
+		// localhost version
+		Log::info("mail sent to $r[email]. Subject: {$envelope["subject"]}. Text:");
+		Log::info($txt_body);
+		return;
+
 		// Make the call to the gmail API
 		
 		try

@@ -193,6 +193,11 @@ jQuery(document).ready(function($) {
 					$("input[name='r[price]']").val(json.price);
 					$("#bookingfoodrestrictions").val(json.foodRestrictions);
 					$("#bookingcomments").val(json.comments);
+					if (json.crm == null) {
+						$("#bookingcrm").val("");
+					} else {
+					 	$("#bookingcrm").val(json.crm);
+					}
 					booking_log = $('#history').DataTable( {
 						"responsive": true,
 						"ajax": "cp-json-interface.php?query=BOOKING_LOG&booking=" + booking_param,

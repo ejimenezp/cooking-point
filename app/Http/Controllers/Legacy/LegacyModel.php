@@ -204,7 +204,7 @@ class LegacyModel {
 
 		$localDateTime = (new DateTime(null, new DateTimeZone('Europe/Madrid')))->format('Y-m-d H:i:s');
 		
-		$prev_booking = retrieve_booking($b['hash']);
+		$prev_booking = self::retrieve_booking($b['hash']);
 		
 		$log_details = "";
 		$log_details = $log_details . ($prev_booking['name'] != $b['name'] ? "name = {$b['name']}, " : "");
@@ -216,6 +216,7 @@ class LegacyModel {
 		$log_details = $log_details . ($prev_booking['numChildren'] != $b['numChildren'] ? "numChildren = {$b['numChildren']}, " : "");
 		$log_details = $log_details . ($prev_booking['foodRestrictions'] != $b['foodRestrictions'] ? "foodRestrictions = {$b['foodRestrictions']}, " : "");
 		$log_details = $log_details . ($prev_booking['comments'] != $b['comments'] ? "comments = {$b['comments']}, " : "");
+		$log_details = $log_details . ($prev_booking['crm'] != $b['crm'] ? "crm = {$b['crm']}, " : "");	
 		$log_details = $log_details . ($prev_booking['price'] != $b['price'] ? "price = {$b['price']}, " : "");
 		$log_details = $log_details . ($prev_booking['status'] != $b['status'] ? "status = {$b['status']}, " : "");
 		
@@ -231,6 +232,7 @@ class LegacyModel {
 					numChildren = {$b['numChildren']},
 					foodRestrictions = '{$b['foodRestrictions']}',
 					comments = '{$b['comments']}',
+					crm = '{$b['crm']}',
 					price = {$b['price']},
 					status = '{$b['status']}',
 					lastUpdate = '$localDateTime'
