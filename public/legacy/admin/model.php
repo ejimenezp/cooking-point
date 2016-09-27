@@ -274,6 +274,7 @@ function update_admin_booking($b)
 	$log_details = $log_details . ($prev_booking[numChildren] != $b[numChildren] ? "numChildren = $b[numChildren], " : "");
 	$log_details = $log_details . ($prev_booking[foodRestrictions] != $b[foodRestrictions] ? "foodRestrictions = $b[foodRestrictions], " : "");
 	$log_details = $log_details . ($prev_booking[comments] != $b[comments] ? "comments = $b[comments], " : "");
+	$log_details = $log_details . ($prev_booking['crm'] != $b['crm'] ? "crm = {$b['crm']}, " : "");
 	$log_details = $log_details . ($prev_booking[price] != $b[price] ? "price = $b[price], " : "");
 	$log_details = $log_details . ($prev_booking[status] != $b[status] ? "status = $b[status], " : "");
 	
@@ -289,6 +290,7 @@ function update_admin_booking($b)
 				numChildren = {$b[numChildren]},
 				foodRestrictions = '{$b[foodRestrictions]}',
 				comments = '{$b[comments]}',
+				crm = '{$b['crm']}',
 				price = {$b[price]},
 				status = '{$b[status]}',
 				lastUpdate = '$localDateTime'

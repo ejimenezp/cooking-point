@@ -122,9 +122,15 @@ Thank you for your confidence. We have availability for the class detailed below
 
 		<table class="cp-full-width" >
 			<tr>
-				<td class="cp-td-half"><strong>Food restrictions:</strong><br />
+				<td class="cp-td-third"><strong>CRM actions:</strong><br />
+					<select id="bookingcrm" name="r[crm]">
+						<option value="">(null)</option>
+						<option value="RE">Reminded</option>
+						<option value="NO">Don't Bother</option>
+					</select> </td>   
+				<td class="cp-td-third"><strong>Food restrictions:</strong><br />
 					<textarea id="bookingfoodrestrictions" name="r[foodRestrictions]" class="cp-full-width"></textarea>	 </td>   
-				<td class="cp-td-half"><strong>Comments:</strong><br />
+				<td class="cp-td-third"><strong>Comments:</strong><br />
 					<textarea id="bookingcomments" name="r[comments]" class="cp-full-width"></textarea></td>   
 			</tr>
 		</table>
