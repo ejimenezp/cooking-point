@@ -117,9 +117,9 @@ class LegacyMail {
 		$mime_message = imap_mail_compose($envelope, $body);
 		
 		// localhost version
-		Log::info("mail sent to $r[email]. Subject: {$envelope["subject"]}. Text:");
-		Log::info($txt_body);
-		return;
+		// Log::info("mail sent to $r[email]. Subject: {$envelope["subject"]}. Text:");
+		// Log::info($txt_body);
+		// return;
 
 		// Make the call to the gmail API
 		

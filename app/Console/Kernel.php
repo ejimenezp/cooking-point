@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\CookingPoint_cron::class,
+        Commands\CookingPointCron::class,
+        Commands\GmailCredentials::class,
     ];
 
     /**
