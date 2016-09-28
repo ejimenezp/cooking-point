@@ -134,9 +134,9 @@ class LegacyMail {
 			$message->setRaw($encoded);
 			$result = $service->users_messages->send($userId, $message);
 			// Log::info($mime_message);
-			if ($r['status'] == 'PE')
+			if ($r['status'] == 'PE' && array_key_exists('emailText', $r))
 			{
-				$details = 'emailText = '. $r[emailText];
+				$details = 'emailText = '. $r['emailText'];
 			}
 			else
 			{
