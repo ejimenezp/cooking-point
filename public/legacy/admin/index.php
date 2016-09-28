@@ -53,7 +53,7 @@
 
 $(document).ready(function() {
 	
-		$('#example').dataTable( {
+		var example_table = $('#example').dataTable( {
 		"responsive": true,
 		"autoWidth": false,
 		"ajax": 'cp-json-interface.php?query=ALL_BOOKINGS',		
@@ -89,7 +89,7 @@ $(document).ready(function() {
 					{"targets": [1, 5], "render": function ( data, type, row ) { return '<a target="cp-edit-booking" href="cp-edit-booking.php?booking=' + row['hash'] + '">'+data+'</a>' ;} },
            			{"targets": 4, "render": function ( data, type, row ) { var d = new Date(data); if (type === 'display') return d.format("dd mmm -- ddd"); else return data;} }]
 		 })
-        .columnFilter({
+		.columnFilter({
 	        sPlaceHolder: "head:before",
 	        aoColumns: [ 
 	                    null,
@@ -106,8 +106,13 @@ $(document).ready(function() {
 	                    null,
 	                    null ]});
 
-		
+    function refresh_table() {
+			example_table.api().ajax.reload();      	
+    };		
+
 } );
+
+
 
 </script>
 
@@ -118,30 +123,32 @@ $(document).ready(function() {
 
 <h3>Bookings Admin</h3>
 
-		<table id="admin_form_button" class="cp-full-width"><tr>
-			 <td style="margin:auto"><button class="myButton" onclick="location.href='/legacy/admin/cp-edit-booking.php'">New Booking</button></td>
+		<table id="admin_form_button" class="cp-full-width">
+			<tr>
+				 <td style="margin:auto"><button class="myButton" onclick="refresh_table();">Refresh</button></td>
+				 <td style="margin:auto"><button class="myButton" onclick="location.href='/legacy/admin/cp-edit-booking.php'">New Booking</button></td>
+			</tr>
+		</table>
 
-
-    				<table id="example" class="table table-bordered dt-responsive" cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th>Creation</th>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Act</th>
-							<th>Date</th>
-							<th>Status</th>
-							<th>Adults</th>
-							<th>Child</th>
-							<th>Price</th>
-							<th>PayDate</th>
-							<th>Food</th>
-							<th>Comments</th>
-							<th>Hash</th>
-							</tr>
-					</thead>
-
-				</table>
+		<table id="example" class="table table-bordered dt-responsive" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>Creation</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Act</th>
+					<th>Date</th>
+					<th>Status</th>
+					<th>Adults</th>
+					<th>Child</th>
+					<th>Price</th>
+					<th>PayDate</th>
+					<th>Food</th>
+					<th>Comments</th>
+					<th>Hash</th>
+					</tr>
+			</thead>
+		</table>
 </body>
 </html>
 

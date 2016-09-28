@@ -51,6 +51,8 @@ function get_param( $val, $default = "")
 
 <h3>One Booking Edit</h3>
 
+<button class="myButton text-center" onclick="location.href='/legacy/admin/'">All Bookings</button>
+
 <p><strong>Email text:</strong> (only for bookings with status PENDING)</p>
 	<textarea name="r[emailText]" id="emailText" class="cp-full-width" rows="4" >
 Thank you for your confidence. We have availability for the class detailed below. Please, proceed with the payment to secure your seat/s.
