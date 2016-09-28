@@ -86,7 +86,7 @@ $(document).ready(function() {
 																				return "-";	
 																			}
 																		} },
-					{"targets": [1, 5], "render": function ( data, type, row ) { return '<a target="cp-edit-booking" href="cp-edit-booking.php?booking=' + row['hash'] + '">'+data+'</a>' ;} },
+					{"targets": [1, 5], "render": function ( data, type, row ) { return '<a  href="cp-edit-booking.php?booking=' + row['hash'] + '">'+data+'</a>' ;} },
            			{"targets": 4, "render": function ( data, type, row ) { var d = new Date(data); if (type === 'display') return d.format("dd mmm -- ddd"); else return data;} }]
 		 })
 		.columnFilter({
@@ -106,9 +106,9 @@ $(document).ready(function() {
 	                    null,
 	                    null ]});
 
-    function refresh_table() {
+    $("#refresh").click(function () {
 			example_table.api().ajax.reload();      	
-    };		
+    });		
 
 } );
 
@@ -125,7 +125,7 @@ $(document).ready(function() {
 
 		<table id="admin_form_button" class="cp-full-width">
 			<tr>
-				 <td style="margin:auto"><button class="myButton" onclick="refresh_table();">Refresh</button></td>
+				 <td style="margin:auto"><button class="myButton" id="refresh">Refresh</button></td>
 				 <td style="margin:auto"><button class="myButton" onclick="location.href='/legacy/admin/cp-edit-booking.php'">New Booking</button></td>
 			</tr>
 		</table>
