@@ -33,9 +33,9 @@ class Reminder extends Job {
 		// para testing solo escribe en el log
 		Log::info('Cumple con la condición ' . $booking->name);
 
-	 	LegacyMail::mail_to_user(get_object_vars($booking), "legacy/reminder");
 	 	$booking->crm = "RE";
 	 	LegacyModel::update_admin_booking(get_object_vars($booking));
+	 	LegacyMail::mail_to_user(get_object_vars($booking), "legacy/reminder");
 	}
 }
 
