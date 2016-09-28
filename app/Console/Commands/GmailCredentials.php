@@ -3,22 +3,23 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Http\Controllers\Legacy\LegacyMail; 
 
-class CookingPoint_cron extends Command
+class GmailCredentials extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'cookingpoint:cron';
+    protected $signature = 'cookingpoint:gmail';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Cooking Point Cron Jobs';
+    protected $description = 'Refresh Gmail API credentials';
 
     /**
      * Create a new command instance.
@@ -37,8 +38,6 @@ class CookingPoint_cron extends Command
      */
     public function handle()
     {
-        // Remainder mail
-        $a = new Reminder;
-        if ($a->query()) { $a->exec(); }
+        LegacyMail::getClient();
     }
 }
