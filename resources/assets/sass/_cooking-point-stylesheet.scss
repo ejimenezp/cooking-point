@@ -188,5 +188,17 @@ p {
 	.ui-state-hover { 
 		background-color: $navbar-default-link-hover-bg; 
 	}
+	
+	.ui-icon {
+		all: unset;
+	}
+
+	.ui-datepicker-prev span, .ui-datepicker-next span {
+		left: unset;
+		margin-left: unset;
+		heigth: unset;
+		top: unset;
+		margin-top: 4px;
+	}
 
 }
