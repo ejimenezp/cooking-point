@@ -10,7 +10,7 @@ return [
 	'env' => [
 		'app_env' => 'testing',
 		'app_url' => 'http://bs2.cookingpoint.es',
-		'favicon' => 'favicon-test.ico'
+		'favicon' => '/favicon-test.ico'
 		],
 	'redsys' => [
 	    'firma' => 'TioXuMyEcpN34V4kO2hS36ru/4pl3rzv',
