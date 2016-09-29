@@ -23,8 +23,7 @@ class Reminder extends Job {
 
 		$this->condition = "SELECT * from legacy_bookings where 
 			status = 'PE' and 
-			crm <> 'NO' and 
-			crm <> 'RE' and
+			(crm = '' or crm is NULL) and 
 			activityDate >= '{$today}' and
 			activityDate <= '{$in2days}'";
 	}
