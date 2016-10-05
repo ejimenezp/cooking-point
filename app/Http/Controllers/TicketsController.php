@@ -37,14 +37,12 @@ class TicketsController extends Controller
 
     	$h->fecha = $request->date;
     	$h->total = $request->total;
-    	if (isset($request->bases[10])) {
-	    	$h->base10 = $request->bases[10];
-	    	$h->iva10 = $request->ivas[10];
-    	}  
-    	if (isset($request->bases[21])) {
-	    	$h->base21 = $request->bases[21];
-	    	$h->iva21 = $request->ivas[21];
-    	}  
+	    $h->base4 = $request->base4;
+	    $h->iva4 = $request->iva4;
+        $h->base10 = $request->base10;
+        $h->iva10 = $request->iva10;
+        $h->base21 = $request->base21;
+        $h->iva21 = $request->iva21;
     	$h->pago = $request->pago;
     	$h->anulado = false;
 
