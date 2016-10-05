@@ -129,9 +129,6 @@ $( document ).ready(function() {
     	} else if (ticket.total != 0) {
 	    	ticket.pago = $(this).data('pago')
             $("#forma_pago").html(ticket.pago)
-	    	$.post("/tienda/addticket", ticket, function(result){
-				$('#ticket_id').html(result)
-			})
             $.ajax({
                 type    : "POST",
                 url     : "/tienda/addticket",
