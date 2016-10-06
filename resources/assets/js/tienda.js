@@ -24,70 +24,93 @@ $( document ).ready(function() {
 		date 	: ticket_date,
 		total	: 0,
 		articulos: [],
-		bases	: [],
-		ivas	: [],
+        base4   : 0,
+        iva4    : 0,
+        base10  : 0,
+        iva10   : 0,
+        base21  :0,
+        iva21   :0,
 		pago	: ""
 	}
 	var articles = ""  // para imprimir los articulos en el ticket
-	var rates = []   // guarda qué ivas se han usado hasta el momento
 	var ticket_pagado = false
 
 	$("#ticket_date").html(ticket_date)
 
     $(".boton-articulo").click(function(){
 
+        if (ticket.articulos.length == 10) {
+            alert("Máximo 10 artículos por ticket")
+            return true;
+        }
     	if (ticket_pagado) {
-    		alert("este ticket ya está pagado. Limpia o recarga la página")
+    		alert("Este ticket ya está pagado. Limpia o recarga la página")
     		return true;
     	}
         var iva = $(this).data('iva')
         var pvp = $(this).data('pvp')
-    	if (rates[iva] === undefined) {  // inicializamos el acumulador de iva
-    		ticket.bases[iva] = 0
-    		ticket.ivas[iva] = 0
-    		rates[iva] = true
-    	}
+        var this_base = Number(pvp)/(1 + Number(iva)/100)
+        var this_iva = pvp - this_base
+
+        switch (iva) {
+            case 4:
+                ticket.base4 = ticket.base4 + this_base
+                ticket.iva4 = ticket.iva4 + this_iva
+                break;
+            case 10:
+                ticket.base10 = ticket.base10 + this_base
+                ticket.iva10 = ticket.iva10 + this_iva
+                break;
+            case 21:
+            default:
+                ticket.base21 = ticket.base21 + this_base
+                ticket.iva21 = ticket.iva21 + this_iva
+        }
 
 //    	articles = articles + '<tr><td>'+ $(this).data('nombre') + '</td><td>' + pvp +'</td></tr>'
         $('#items_table > tbody:last, #screen_table > tbody:last').append('<tr><td>'+ $(this).data('nombre') + '</td><td class="text-right">' + pvp +'</td></tr>');
         ticket.total = ticket.total + Number(pvp)
 
-    	var this_base = Number(pvp)/(1 + Number(iva)/100)
-    	var this_iva = pvp - this_base
         var impuestos = ""
-
-        ticket.bases[iva] = ticket.bases[iva] + this_base
-        ticket.ivas[iva] = ticket.ivas[iva] + this_iva
 
         // empty tax table before updating
         $("#tax_table > tbody").empty();
 
-        for (var i in ticket.bases) {
-        	impuestos = impuestos + ticket.bases[i].toFixed(2) + ' &nbsp ' + i + '% &nbsp ' + ticket.ivas[i].toFixed(2) + '<br/>'
-            $('#tax_table > tbody:last').append('<tr><td>'+ ticket.bases[i].toFixed(2) + '</td><td>' + i + '%</td><td>' + ticket.ivas[i].toFixed(2) +'</td></tr>');
+        if (ticket.base4) {
+        	impuestos = impuestos + ticket.base4.toFixed(2) + ' &nbsp ' + '4' + '% &nbsp ' + ticket.iva4.toFixed(2) + '<br/>'
+            $('#tax_table > tbody:last').append('<tr><td>'+ ticket.base4.toFixed(2) + '</td><td>' + '4' + '%</td><td>' + ticket.iva4.toFixed(2) +'</td></tr>');
+        }
+        if (ticket.base10) {
+            impuestos = impuestos + ticket.base10.toFixed(2) + ' &nbsp ' + '10' + '% &nbsp ' + ticket.iva10.toFixed(2) + '<br/>'
+            $('#tax_table > tbody:last').append('<tr><td>'+ ticket.base10.toFixed(2) + '</td><td>' + '10' + '%</td><td>' + ticket.iva10.toFixed(2) +'</td></tr>');
+        }
+        if (ticket.base21) {
+            impuestos = impuestos + ticket.base21.toFixed(2) + ' &nbsp ' + '21' + '% &nbsp ' + ticket.iva21.toFixed(2) + '<br/>'
+            $('#tax_table > tbody:last').append('<tr><td>'+ ticket.base21.toFixed(2) + '</td><td>' + '21' + '%</td><td>' + ticket.iva21.toFixed(2) +'</td></tr>');
         }
 
-//        $('.articles').html(articles)
         $('.total').html(ticket.total.toFixed(2))
-        // $('#impuestos').html(impuestos)
 
-        // rellenamos array para enviar a servidor
+        // añadimos el artículo en la lista
         ticket.articulos.push($(this).data('id'))
 
     });
 
 
     $("#boton-limpiar").click(function(){
-		ticket = {
-			date 	: ticket_date,
-			total	: 0,
-			articulos: [],
-			bases	: [],
-			ivas	: []
-		}
+        ticket = {
+            date    : ticket_date,
+            total   : 0,
+            articulos: [],
+            base4   : 0,
+            iva4    : 0,
+            base10  : 0,
+            iva10   : 0,
+            base21  : 0,
+            iva21   : 0,
+            pago    : ""
+        }
 		articles = "";  // para imprimir los articulos en el ticket
-		rates = [];   // guarda qué ivas se han usado hasta el momento
-    	var impuestos = ""
     	ticket_pagado = false
 
         $("#tax_table > tbody").empty();
@@ -106,9 +129,14 @@ $( document ).ready(function() {
     	} else if (ticket.total != 0) {
 	    	ticket.pago = $(this).data('pago')
             $("#forma_pago").html(ticket.pago)
-	    	$.post("/tienda/addticket", ticket, function(result){
-				$('#ticket_id').html(result)
-			})
+            $.ajax({
+                type    : "POST",
+                url     : "/tienda/addticket",
+                data    : ticket,
+                async   : false,
+                success : function(result){
+                    $('#ticket_id').html(result) }
+            })
 	    	ticket_pagado = true
             $("#receipt").printThis()
         }
