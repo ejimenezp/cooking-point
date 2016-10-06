@@ -42,5 +42,12 @@ class Job {
 		}
 	}
 
+	function escape($str)
+	{
+		$patterns = array("/'/", "/\"/");
+		$replacements = array("\\'", "\\\"");
+
+		return preg_replace($patterns, $replacements, $str);
+	}
 
 } 
