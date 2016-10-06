@@ -33,6 +33,10 @@ class Reminder extends Job {
 		Log::info('Cumple con la condición ' . $booking->name);
 
 	 	$booking->crm = "RE";
+	 	$booking->name = self::escape($booking->name);
+		$booking->foodRestrictions = self::escape($booking->foodRestrictions);
+		$booking->comments = self::escape($booking->comments);
+
 	 	LegacyModel::update_admin_booking(get_object_vars($booking));
 	 	LegacyMail::mail_to_user(get_object_vars($booking), "legacy/reminder");
 	}
