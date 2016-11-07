@@ -322,11 +322,8 @@ function getEventBookings(ce_id)
 // param i: index of month_schedule
 //
 function populateBookingList(i) {
-	if (typeof i === "undefined") {
-		i = $("#booking_table").data('i')
-	} else {
-		$("#booking_table").data('i', i)
-	}
+
+	$("#booking_table").data('i', i)
 
 	var clase = month_schedule[i].time.substring(0,5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type
 				+ '<span class="pull-right">Registrados: ' + month_schedule[i].registered +'</span>'
@@ -961,11 +958,19 @@ jQuery(document).ready(function($) {
 						// 	error_msg = 'Este evento ya no existe'
 						// }
 					}
-					var date_shown = moment($('input[name=date]').val())
+					var date_shown = moment($('input[name=date]').val()) 
 				    month_schedule = getMonthSchedule(date_shown)
 				    refreshDateShown(month_schedule, date_shown)
-					bookings = getEventBookings($('input[name=calendarevent_id]').val())	
-				    populateBookingList()
+				    var ce_id = $('input[name=calendarevent_id]').val()
+					bookings = getEventBookings(ce_id)	
+					var i
+					for (i = 0 ; i < month_schedule.length; i++) {
+						if (month_schedule[i].id == ce_id)
+							break
+					}
+					$("#admindatepicker").datepicker("setDate", month_schedule[i].date)
+					updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i)
+				    populateBookingList(i)
 			    	$('#modal_booking_title').html(modal_title)
 			    	$('#modal_booking_body').html(error_msg)
 				    $('#modal_booking').modal('show')
@@ -999,8 +1004,14 @@ jQuery(document).ready(function($) {
 			    	$('#modal_booking_body').html('Reserva borrada con éxito')
 				    month_schedule = getMonthSchedule(date_shown)
 				    refreshDateShown(month_schedule, date_shown)
-					bookings = getEventBookings($('input[name=calendarevent_id]').val())	
-				    populateBookingList()
+				    var ce_id = $('input[name=calendarevent_id]').val()
+					bookings = getEventBookings(ce_id)	
+					var i
+					for (i = 0 ; i < month_schedule.length; i++) {
+						if (month_schedule[i].id == ce_id)
+							break
+					}
+				    populateBookingList(i)
 				    $('#modal_booking').modal('show')
 				    $('.loading').hide();
 				}
