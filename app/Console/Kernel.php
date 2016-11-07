@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\CookingPointCron::class,
         Commands\GmailCredentials::class,
+        Commands\EventLoader::class,
+        Commands\LegacyBookingLoader::class,
     ];
 
     /**
