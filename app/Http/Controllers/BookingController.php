@@ -98,7 +98,7 @@ class BookingController extends Controller
             $bkg->source_id = $request->source_id;
             $bkg->status_major = $request->status_major;
             $bkg->status_minor = $request->status_minor;
-            $bkg->locator = $this->newLocator();
+            $bkg->locator = $request->locator;
             $bkg->name = $request->name;
             $bkg->email = $request->email;
             $bkg->phone = $request->phone;
