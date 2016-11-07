@@ -6074,8 +6074,7 @@ p {
 .ui-datepicker {
   background-color: white;
   padding: 1%;
-  border-color: gray;
-  border: 1px solid;
+  border: 1px solid #ddd;
   z-index: 100;
   margin: auto;
   margin-bottom: 5%; }
