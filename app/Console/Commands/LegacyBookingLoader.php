@@ -77,7 +77,7 @@ class LegacyBookingLoader extends Command
             $request->food_requirements = $booking['foodRestrictions'];
             $request->comments = $booking['comments'];
             $request->hash = $booking['hash'];
-            $request->crm = '';
+            $request->crm = 'YES';
             if ($controller->add($request) != 'ok') {
                 echo 'Failed adding booking (' . $booking['activityDate'] . ' ' . $booking['name'] .")\n";
             }
