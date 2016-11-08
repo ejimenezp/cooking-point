@@ -43,7 +43,8 @@ class LegacyBookingLoader extends Command
      */
     public function handle()
     {
-        $legacy_bookings = (include storage_path('app/cookingpoint_reservas.php'));
+        // bookings file has to start with return Array(....)
+        $legacy_bookings = include storage_path('app/legacy_bookings.php');
 
         $calendar = new CalendarEventController();
         $controller = new BookingController();
