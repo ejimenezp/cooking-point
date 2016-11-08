@@ -4,3 +4,4 @@
 
 *.map
 *.log
+storage/app/legacy_bookings.php
