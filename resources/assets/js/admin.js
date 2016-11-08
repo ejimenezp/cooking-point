@@ -86,7 +86,7 @@ function refreshDateShown(month_schedule, date_shown) {
 
 		if (month_schedule[i].date == date_shown.format('YYYY-MM-DD')) {
 			$('#calendarevent_table > tbody:last').append(
-				'<tr><td class="' + calendarevent_tr_class + '" data-i="' + i +'">'+ 
+				'<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i +'">'+ 
 				month_schedule[i].time.substring(0,5) + 
 				'<td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
 				month_schedule[i].type +
@@ -326,14 +326,14 @@ function populateBookingList(i) {
 	$("#booking_table").data('i', i)
 
 	var clase = month_schedule[i].time.substring(0,5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type
-				+ '<span class="pull-right">Registrados: ' + month_schedule[i].registered +'</span>'
+				+ '<span class="pull-right">Confirmados: ' + month_schedule[i].registered +'</span>'
 	$('.classshown').html(clase)
 	// 
 	$("#booking_table > tbody").empty()
 	
 	for (var j = 0; j < bookings.length; j++) {
 		$('#booking_table > tbody:last').append(
-			'<tr><td class="booking_line" data-j="' + j +'">'+ 
+			'<tr onclick=""><td class="booking_line" data-j="' + j +'">'+ 
 			bookings[j].adult +
 			((bookings[j].child > 0) ? (' + ' + bookings[j].child) : '') +
 			'<td class="booking_line" data-j="' + j +'">' + 
@@ -530,6 +530,13 @@ jQuery(document).ready(function($) {
  	  		month_changed = true }
 
 	});	
+
+	//
+	// toggle admindatepicker
+	//
+	$('#toggle_datepicker').click(function() {
+		$('#admindatepicker').toggle()
+	})
 
 	//
 	// show sections based on url and query string

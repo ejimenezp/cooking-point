@@ -20750,7 +20750,7 @@ function refreshDateShown(month_schedule, date_shown) {
 		var calendarevent_tr_class = user_role >= 2 ? 'calendarevent_line' : '';
 
 		if (month_schedule[i].date == date_shown.format('YYYY-MM-DD')) {
-			$('#calendarevent_table > tbody:last').append('<tr><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].time.substring(0, 5) + '<td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].type + '<td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + cookName(month_schedule[i].staff_id) + '<td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].registered + '</td>' + edit_button + '</tr>');
+			$('#calendarevent_table > tbody:last').append('<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].time.substring(0, 5) + '<td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].type + '<td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + cookName(month_schedule[i].staff_id) + '<td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].registered + '</td>' + edit_button + '</tr>');
 		}
 	}
 }
@@ -20976,19 +20976,16 @@ function getEventBookings(ce_id) {
 // param i: index of month_schedule
 //
 function populateBookingList(i) {
-	if (typeof i === "undefined") {
-		i = $("#booking_table").data('i');
-	} else {
-		$("#booking_table").data('i', i);
-	}
 
-	var clase = month_schedule[i].time.substring(0, 5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type + '<span class="pull-right">Registrados: ' + month_schedule[i].registered + '</span>';
+	$("#booking_table").data('i', i);
+
+	var clase = month_schedule[i].time.substring(0, 5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type + '<span class="pull-right">Confirmados: ' + month_schedule[i].registered + '</span>';
 	$('.classshown').html(clase);
 	// 
 	$("#booking_table > tbody").empty();
 
 	for (var j = 0; j < bookings.length; j++) {
-		$('#booking_table > tbody:last').append('<tr><td class="booking_line" data-j="' + j + '">' + bookings[j].adult + (bookings[j].child > 0 ? ' + ' + bookings[j].child : '') + '<td class="booking_line" data-j="' + j + '">' + bookings[j].name + '<td class="booking_line" data-j="' + j + '">' + bookings[j].status_major + '<td class="booking_line" data-j="' + j + '">' + bookings[j].food_requirements.substring(0, 20) + '<td class="booking_line" data-j="' + j + '">' + bookings[j].comments.substring(0, 20) + '</td></tr>');
+		$('#booking_table > tbody:last').append('<tr onclick=""><td class="booking_line" data-j="' + j + '">' + bookings[j].adult + (bookings[j].child > 0 ? ' + ' + bookings[j].child : '') + '<td class="booking_line" data-j="' + j + '">' + bookings[j].name + '<td class="booking_line" data-j="' + j + '">' + bookings[j].status_major + '<td class="booking_line" data-j="' + j + '">' + bookings[j].food_requirements.substring(0, 20) + '<td class="booking_line" data-j="' + j + '">' + bookings[j].comments.substring(0, 20) + '</td></tr>');
 	}
 }
 
@@ -21183,6 +21180,13 @@ jQuery(document).ready(function ($) {
 			month_changed = true;
 		}
 
+	});
+
+	//
+	// toggle admindatepicker
+	//
+	$('#toggle_datepicker').click(function () {
+		$('#admindatepicker').toggle();
 	});
 
 	//
@@ -21608,8 +21612,15 @@ jQuery(document).ready(function ($) {
 					var date_shown = moment($('input[name=date]').val());
 					month_schedule = getMonthSchedule(date_shown);
 					refreshDateShown(month_schedule, date_shown);
-					bookings = getEventBookings($('input[name=calendarevent_id]').val());
-					populateBookingList();
+					var ce_id = $('input[name=calendarevent_id]').val();
+					bookings = getEventBookings(ce_id);
+					var i;
+					for (i = 0; i < month_schedule.length; i++) {
+						if (month_schedule[i].id == ce_id) break;
+					}
+					$("#admindatepicker").datepicker("setDate", month_schedule[i].date);
+					updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i);
+					populateBookingList(i);
 					$('#modal_booking_title').html(modal_title);
 					$('#modal_booking_body').html(error_msg);
 					$('#modal_booking').modal('show');
@@ -21643,8 +21654,13 @@ jQuery(document).ready(function ($) {
 					$('#modal_booking_body').html('Reserva borrada con éxito');
 					month_schedule = getMonthSchedule(date_shown);
 					refreshDateShown(month_schedule, date_shown);
-					bookings = getEventBookings($('input[name=calendarevent_id]').val());
-					populateBookingList();
+					var ce_id = $('input[name=calendarevent_id]').val();
+					bookings = getEventBookings(ce_id);
+					var i;
+					for (i = 0; i < month_schedule.length; i++) {
+						if (month_schedule[i].id == ce_id) break;
+					}
+					populateBookingList(i);
 					$('#modal_booking').modal('show');
 					$('.loading').hide();
 				}
