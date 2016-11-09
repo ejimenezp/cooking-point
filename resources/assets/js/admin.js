@@ -866,10 +866,15 @@ jQuery(document).ready(function($) {
 			    url: '/api/calendarevent/delete/' + ce_id,
 			    async: false,
 			    success: function(msg){
+			    	if (msg.status == 'ok') {
+				    	$('#modal_calendarevent_title').html('Éxito')
+				    	$('#modal_calendarevent_body').html('Evento borrado con éxito')			    		
+			    	} else {
+				    	$('#modal_calendarevent_title').html('Error')
+				    	$('#modal_calendarevent_body').html('No se ha borrado')			    					    		
+			    	}
 				    month_schedule = getMonthSchedule(date_shown)
 				    refreshDateShown(month_schedule, date_shown)
-			    	$('#modal_calendarevent_title').html('Éxito')
-			    	$('#modal_calendarevent_body').html('Evento borrado con éxito')
 				    $('#modal_calendarevent').modal('show')
 			    	$('.loading').hide();
 				     }

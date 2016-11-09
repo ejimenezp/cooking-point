@@ -66,6 +66,8 @@ class CalendareventController extends Controller
         $ce = Calendarevent::find($id);
         if (!$ce) {
             return 'fail';
+        } elseif ($ce->bookings()->count() > 0) {
+            return 'fail';
         } else {
             $ce->delete();   
             return 'ok';
