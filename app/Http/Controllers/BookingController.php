@@ -109,6 +109,8 @@ class BookingController extends Controller
             $bkg->food_requirements = $request->food_requirements;
             $bkg->comments = $request->comments;
             $bkg->crm = $request->crm;
+            $bkg->iva = $request->iva;
+            $bkg->price = $request->price;
             $bkg->save();
             return 'ok';
         }
