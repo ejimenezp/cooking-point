@@ -19,17 +19,19 @@
 // FRONT-END
 //
 Route::get('/', function () { return view('pages.home', ['page' => 'home']); });
-Route::get('/bookings', 'Legacy\LegacyController@cp_bookings_plugin');
-Route::get('/bookings/{hash}', 'Legacy\LegacyController@cp_bookings_plugin');
-Route::post('/bookings/{hash}', 'Legacy\LegacyController@cp_bookings_plugin');
-Route::get('/bookings/{hash}/{tpvresult}', 'Legacy\LegacyController@cp_bookings_plugin');
+// Route::get('/bookings', 'Legacy\LegacyController@cp_bookings_plugin');
+// Route::get('/bookings/{hash}', 'Legacy\LegacyController@cp_bookings_plugin');
+// Route::post('/bookings/{hash}', 'Legacy\LegacyController@cp_bookings_plugin');
+// Route::get('/bookings/{hash}/{tpvresult}', 'Legacy\LegacyController@cp_bookings_plugin');
+
+Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
 Route::get('/classes', function () { return view('pages.home', ['page' => 'home']); });
 Route::get('/classes-paella-cooking-madrid-spain', function () { return view('pages.paella'); });
 Route::get('/classes-spanish-tapas-madrid-spain', function () { return view('pages.tapas'); });
 Route::get('/contact', function () { return view('pages.contact', ['page' => 'contact']); });
 Route::get('/faq', function () { return view('pages.faq'); });
 Route::get('/gallery', function () { return view('pages.gallery'); });
-Route::get('/pay/{hash}', 'TPVController@pay');
+Route::get('/pay/{id}', 'TPVController@pay')->name('pay');
 Route::post('/callback', 'TPVController@callback');
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
 Route::get('/school-madrid-spain', function () { return view('pages.school'); });

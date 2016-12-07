@@ -7,7 +7,7 @@
 
 <div class="row">
 	<div class="col-sm-4">
-		<div id="admindatepicker"></div>
+		<div class="admin" id="admindatepicker"></div>
 	</div>
 
 	<div class="col-sm-8">

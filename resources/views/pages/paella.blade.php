@@ -65,7 +65,7 @@
 </div>
 
 <div class="row text-center call-to-action">
-	<a href="bookings" class="btn btn-primary">Book Now</a>
+	<a href="booking?class=PAELLA" class="btn btn-primary">Book Now</a>
 </div>
 
 

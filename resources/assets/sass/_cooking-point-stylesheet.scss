@@ -55,6 +55,23 @@ h1, .call-to-action {
 	margin-top: 15px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+.align-top {
+  vertical-align: top;
+}
+
+.mandatory {
+  color: $brand-red
+}
+
+.day-unavailable {
+  color: gray !important
+}
+
+
 .dropcap { 
 	float: left; 
 	line-height: 40px; 
@@ -117,90 +134,166 @@ h1, .call-to-action {
       }
 }
 
+.availability-table {
+  width: 100%;
+  td:nth-child(1) {
+    line-height: 3em;
+  }
+}
+
+.voucher-table {
+  width: 100%;
+  td:nth-child(1) {
+    width: 25%;
+  }
+}
+
+//
+// global tags
+//
+
 p {
 	text-align: justify;
 }
 
-#cp-calendar {	
-	table {
-		width: 100%;
-	}
-	thead td {
-		font-weight:	bold;
-		text-align: 	right;
-	}
-	.month {
-		text-align: center;
-	}
-	.today {
-		color: $navbar-default-link-hover-color;
-		background-color: $navbar-default-link-hover-bg;
-	}
-	tbody td {
-		text-align: right;
-	}
+input, select, textarea {
+  width: 100%;
+  font-family: arial;
+  border: 1px solid #e1e1e1;
+  box-sizing: border-box;
+  padding: 8px 10px;
 }
 
-#cp-week {
-	td, th {
-		text-align: center;
-	}
-	table-layout: fixed;
-	word-wrap: break-word;
+
+.modal-body {
+  .help-table {
+    background-color: white;
+    border-collapse: separate;
+  }
+  .td-disabled {
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 18px;    
+    color: $navbar-default-link-disabled-color;
+    border: 3px solid white;
+  }
+  .td-available {
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 18px;    
+    background-color: $brand-primary;
+    border: 3px solid white;
+    color: white !important;
+  }
+  .td-last-seats {
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 18px;    
+    background-color: $brand-red;
+    border: 3px solid white;
+    color: white !important;
+  }
+  td:nth-child(2) {
+    padding-left: 5px;
+  }
 }
 
-#cp-week-buttons {
-	p, button {
-		display: inline-block;	
-	}
+// datepickers
+
+.online {
+  .ui-datepicker {
+    background-color: white;
+    padding: 1%;
+    border: 1px solid #ddd;
+    z-index: 100;
+    margin: auto;
+    margin-bottom: 5%;
+    font-size: 20px;    
+    table {
+      border-collapse: separate;
+    }
+    
+    .ui-icon {
+      all: unset;
+    }
+
+    .day-last-seats {
+      background-color: $brand-red;
+      border: 3px solid $brand-red;
+      a { color: white !important; }
+    }
+    
+    .day-available {
+      background-color: $brand-primary;
+      border: 3px solid $brand-primary;
+      a { color: white !important; }
+    }
+
+    .ui-state-disabled {
+      color: $navbar-default-link-disabled-color;
+      border: 3px solid white;
+
+    }
+
+    .ui-datepicker-current-day {
+      border: 3px solid #ccc;
+    }
+
+    .ui-datepicker-prev span, .ui-datepicker-next span {
+      left: unset;
+      margin-left: -2px;
+      heigth: unset;
+      top: unset;
+      margin-top: 4px;
+    }
+  }
 }
 
-.cp-day {
-	&:hover { 
-		background-color: $navbar-default-link-hover-bg; 
-	}
-	a {
-    	display:block;
-    	text-decoration:none;
-		text-align: center;
-	}
+.admin {
+  .ui-datepicker {
+  	background-color: white;
+  	padding: 1%;
+  	border: 1px solid #ddd;
+  	z-index: 100;
+  	margin: auto;
+  	margin-bottom: 5%;
+    font-size: 18px;    
+
+
+  	.ui-datepicker-current-day {
+  		border: 2px solid black;
+  	}
+
+  	.ui-state-disabled {
+  		color: #959595;
+  	}
+
+  	.ui-state-hover { 
+  		background-color: $navbar-default-link-hover-bg; 
+  	}
+  	
+  	.ui-icon {
+  		all: unset;
+  	}
+
+  	.ui-datepicker-prev span, .ui-datepicker-next span {
+  		left: unset;
+  		margin-left: unset;
+  		heigth: unset;
+  		top: unset;
+  		margin-top: 4px;
+  	}
+
+    .ui-datepicker-next span {
+      right: 0px;
+    }
+  }
 }
 
-.ui-datepicker {
-	background-color: white;
-	padding: 1%;
-	border: 1px solid #ddd;
-	z-index: 100;
-	margin: auto;
-	margin-bottom: 5%;
-	
-	table {
-		font-size: inherit;
-	}
-	.ui-datepicker-current-day {
-		background-color: $navbar-default-link-hover-bg;
-	}
-
-	.ui-state-disabled {
-		color: #959595;
-	}
-
-	.ui-state-hover { 
-		background-color: $navbar-default-link-hover-bg; 
-	}
-	
-	.ui-icon {
-		all: unset;
-	}
-
-	.ui-datepicker-prev span, .ui-datepicker-next span {
-		left: unset;
-		margin-left: unset;
-		heigth: unset;
-		top: unset;
-		margin-top: 4px;
-	}
-
+@media only screen and (max-width: 400px) {
+  .ui-datepicker {
+      font-size: 16px;
+      }
 }
 
 // spinner 

@@ -16,7 +16,7 @@ class TableCalendarevents extends Migration
         Schema::create('calendarevents', function ($table) {
         $table->increments('id');
         $table->string('type'); // PAELLA, TAPAS, GROUP, HOLIDAY, FILLER,...
-        $table->string('short_description');
+        $table->text('short_description');
         $table->date('date');
         $table->time('time');  
         $table->time('duration');  

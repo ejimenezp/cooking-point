@@ -46,6 +46,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'cp-locator' => \App\Http\Middleware\CheckLocator::class,
         'cp-auth' => \App\Http\Middleware\CheckAuth::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

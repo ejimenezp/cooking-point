@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Log;
 
-class CalendareventControllerOnline extends CalendareventController
+class CalendareventControllerApi extends CalendareventController
 {
     function add(Request $request)
     {
@@ -30,5 +30,9 @@ class CalendareventControllerOnline extends CalendareventController
     {
 	    return response()->json(['status'=>'ok', 'data' => $this->getIntervalSchedule($request->start, $request->end, $request->bookable_only)]);
     }
-    // el resto de metodos, ya definidos en la clase padre
+
+    function getAvailability(Request $request)
+    {
+        return response()->json(['status'=>'ok', 'data' => $this->getIntervalSchedule($request->start, $request->end, $request->bookable_only, $request->ce_type)]);
+    }
 }

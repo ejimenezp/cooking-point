@@ -16,15 +16,17 @@ use Illuminate\Http\Request;
 //
 // JSON BACK-END
 //
-Route::post('calendarevent/getschedule', 'CalendarEventControllerOnline@getSchedule');
-Route::post('calendarevent/add', 'CalendarEventControllerOnline@add');
-Route::post('calendarevent/update', 'CalendarEventControllerOnline@update');
-Route::get('calendarevent/delete/{id}', 'CalendarEventControllerOnline@delete');
+Route::post('calendarevent/getavailability', 'CalendarEventControllerApi@getAvailability');
+Route::post('calendarevent/getschedule', 'CalendarEventControllerApi@getSchedule');
+Route::post('calendarevent/add', 'CalendarEventControllerApi@add');
+Route::post('calendarevent/update', 'CalendarEventControllerApi@update');
+Route::get('calendarevent/delete/{id}', 'CalendarEventControllerApi@delete');
 
-Route::get('booking/index/{ce_id}', 'BookingControllerOnline@index');
-Route::post('booking/add', 'BookingControllerOnline@add');
-Route::post('booking/update', 'BookingControllerOnline@update');
-Route::get('booking/delete/{id}', 'BookingControllerOnline@delete');
+Route::get('booking/index/{ce_id}', 'BookingControllerApi@index');
+Route::post('booking/add', 'BookingControllerApi@add');
+Route::post('booking/update', 'BookingControllerApi@update');
+Route::get('booking/delete/{id}', 'BookingControllerApi@delete');
+Route::post('booking/findByLocator', 'BookingControllerApi@findByLocator');
 
 Route::get('staff/get', 'StaffController@getCooks');
 

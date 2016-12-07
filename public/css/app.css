@@ -3927,7 +3927,7 @@ tbody.collapse.in {
     color: #EF8401;
     background-color: #e6e6e6; }
   .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
-    color: #ccc;
+    color: #959595;
     background-color: transparent; }
   .navbar-default .navbar-toggle {
     border-color: #d9d9d9; }
@@ -3951,7 +3951,7 @@ tbody.collapse.in {
       color: #EF8401;
       background-color: #e6e6e6; }
     .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
-      color: #ccc;
+      color: #959595;
       background-color: transparent; } }
   .navbar-default .navbar-link {
     color: #EF8401; }
@@ -3964,7 +3964,7 @@ tbody.collapse.in {
     .navbar-default .btn-link[disabled]:hover, .navbar-default .btn-link[disabled]:focus,
     fieldset[disabled] .navbar-default .btn-link:hover,
     fieldset[disabled] .navbar-default .btn-link:focus {
-      color: #ccc; }
+      color: #959595; }
 
 .navbar-inverse {
   background-color: #772953;
@@ -5983,6 +5983,18 @@ h1, .call-to-action {
 .home-logo {
   margin-top: 15px; }
 
+.bold {
+  font-weight: bold; }
+
+.align-top {
+  vertical-align: top; }
+
+.mandatory {
+  color: #e42e28; }
+
+.day-unavailable {
+  color: gray !important; }
+
 .dropcap {
   float: left;
   line-height: 40px;
@@ -6034,66 +6046,118 @@ h1, .call-to-action {
   .container {
     width: auto; } }
 
+.availability-table {
+  width: 100%; }
+  .availability-table td:nth-child(1) {
+    line-height: 3em; }
+
+.voucher-table {
+  width: 100%; }
+  .voucher-table td:nth-child(1) {
+    width: 25%; }
+
 p {
   text-align: justify; }
 
-#cp-calendar table {
-  width: 100%; }
+input, select, textarea {
+  width: 100%;
+  font-family: arial;
+  border: 1px solid #e1e1e1;
+  box-sizing: border-box;
+  padding: 8px 10px; }
 
-#cp-calendar thead td {
-  font-weight: bold;
-  text-align: right; }
+.modal-body .help-table {
+  background-color: white;
+  border-collapse: separate; }
 
-#cp-calendar .month {
-  text-align: center; }
+.modal-body .td-disabled {
+  padding: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+  color: #959595;
+  border: 3px solid white; }
 
-#cp-calendar .today {
-  color: #EF8401;
-  background-color: #d9d9d9; }
+.modal-body .td-available {
+  padding: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+  background-color: #EF8401;
+  border: 3px solid white;
+  color: white !important; }
 
-#cp-calendar tbody td {
-  text-align: right; }
+.modal-body .td-last-seats {
+  padding: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+  background-color: #e42e28;
+  border: 3px solid white;
+  color: white !important; }
 
-#cp-week {
-  table-layout: fixed;
-  word-wrap: break-word; }
-  #cp-week td, #cp-week th {
-    text-align: center; }
+.modal-body td:nth-child(2) {
+  padding-left: 5px; }
 
-#cp-week-buttons p, #cp-week-buttons button {
-  display: inline-block; }
-
-.cp-day:hover {
-  background-color: #d9d9d9; }
-
-.cp-day a {
-  display: block;
-  text-decoration: none;
-  text-align: center; }
-
-.ui-datepicker {
+.online .ui-datepicker {
   background-color: white;
   padding: 1%;
   border: 1px solid #ddd;
   z-index: 100;
   margin: auto;
-  margin-bottom: 5%; }
-  .ui-datepicker table {
-    font-size: inherit; }
-  .ui-datepicker .ui-datepicker-current-day {
-    background-color: #d9d9d9; }
-  .ui-datepicker .ui-state-disabled {
-    color: #959595; }
-  .ui-datepicker .ui-state-hover {
-    background-color: #d9d9d9; }
-  .ui-datepicker .ui-icon {
+  margin-bottom: 5%;
+  font-size: 20px; }
+  .online .ui-datepicker table {
+    border-collapse: separate; }
+  .online .ui-datepicker .ui-icon {
     all: unset; }
-  .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+  .online .ui-datepicker .day-last-seats {
+    background-color: #e42e28;
+    border: 3px solid #e42e28; }
+    .online .ui-datepicker .day-last-seats a {
+      color: white !important; }
+  .online .ui-datepicker .day-available {
+    background-color: #EF8401;
+    border: 3px solid #EF8401; }
+    .online .ui-datepicker .day-available a {
+      color: white !important; }
+  .online .ui-datepicker .ui-state-disabled {
+    color: #959595;
+    border: 3px solid white; }
+  .online .ui-datepicker .ui-datepicker-current-day {
+    border: 3px solid #ccc; }
+  .online .ui-datepicker .ui-datepicker-prev span, .online .ui-datepicker .ui-datepicker-next span {
+    left: unset;
+    margin-left: -2px;
+    heigth: unset;
+    top: unset;
+    margin-top: 4px; }
+
+.admin .ui-datepicker {
+  background-color: white;
+  padding: 1%;
+  border: 1px solid #ddd;
+  z-index: 100;
+  margin: auto;
+  margin-bottom: 5%;
+  font-size: 18px; }
+  .admin .ui-datepicker .ui-datepicker-current-day {
+    border: 2px solid black; }
+  .admin .ui-datepicker .ui-state-disabled {
+    color: #959595; }
+  .admin .ui-datepicker .ui-state-hover {
+    background-color: #d9d9d9; }
+  .admin .ui-datepicker .ui-icon {
+    all: unset; }
+  .admin .ui-datepicker .ui-datepicker-prev span, .admin .ui-datepicker .ui-datepicker-next span {
     left: unset;
     margin-left: unset;
     heigth: unset;
     top: unset;
     margin-top: 4px; }
+  .admin .ui-datepicker .ui-datepicker-next span {
+    right: 0px; }
+
+@media only screen and (max-width: 400px) {
+  .ui-datepicker {
+    font-size: 16px; } }
 
 .loading {
   position: fixed;
@@ -6179,52 +6243,5 @@ p {
   margin: 0 auto; }
   #tax_table td, #tax_table th {
     text-align: right; }
-
-@CHARSET "UTF-8";
-.cp-td-half {
-  width: 50%;
-  padding: 1%; }
-
-.cp-td-third {
-  width: 33%;
-  padding: 1%; }
-
-.cp-full-width {
-  width: 100%;
-  font-size: 14px; }
-
-.cp-admin {
-  background-color: orange; }
-
-input, select, textarea {
-  width: 100%;
-  font-size: 14px;
-  font-family: arial;
-  border: 1px solid #e1e1e1;
-  box-sizing: border-box;
-  padding: 8px 10px; }
-
-.mandatory {
-  color: red; }
-
-.myButton {
-  background-color: #44c767;
-  border-radius: 20px;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  background-color: #5cbf2a;
-  font-family: Arial;
-  font-size: 14px;
-  padding: 8px 20px;
-  text-decoration: none;
-  display: block;
-  margin: auto;
-  margin-top: 20px; }
-
-@media only screen and (max-width: 600px) {
-  .cp-td-half, .cp-td-third {
-    display: block;
-    width: 100%; } }
 
 /*# sourceMappingURL=app.css.map */

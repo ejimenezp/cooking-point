@@ -77,6 +77,7 @@ class LegacyBookingLoader extends Command
             $request->pay_method = 'ONLINE';
             $request->food_requirements = $booking['foodRestrictions'];
             $request->comments = $booking['comments'];
+            $request->payment_date = $booking['paymentDate'];
             $request->hash = $booking['hash'];
             $request->crm = 'YES';
             if ($controller->add($request) != 'ok') {

@@ -28,6 +28,7 @@ class CalendareventController extends Controller
     	switch ($request->type) {
     		case 'PAELLA':
                 $ce->confirmed = false;
+                $ce->short_description = 'Paella Cooking Class';
     			$ce->time = '10:00:00';
     			$ce->duration = '04:00:00';
     			$ce->capacity = 12;
@@ -35,6 +36,7 @@ class CalendareventController extends Controller
     		
     		case 'TAPAS':
                 $ce->confirmed = false;
+                $ce->short_description = 'Tapas Cooking Class';
                 $ce->time = '17:30:00';
                 $ce->duration = '04:00:00';
                 $ce->capacity = 12;
