@@ -14,8 +14,53 @@ use Google_Client;
 use Google_Service_Gmail;
 use Google_Service_Gmail_Message;
 use Illuminate\Support\Facades\Storage;
+use Booking;
 
 class LegacyMail {
+
+	static function set_booking_data($bkg, $filename)
+	{
+		$activityDate = new DateTime($bkg->calendarevent->date);
+		$legibleDate = $activityDate->format('l, d F Y');
+		
+		$arr = explode(' ',trim($bkg->name));
+		
+		switch ($bkg->status_major) {
+			case 'PENDING':
+				$status = "Payment Required";
+				break;
+			case 'PAID':
+				$status = "Paid";
+				break;
+			case 'CANCELLED':
+				$status = "Cancelled";
+				break;
+			default:
+				$status = "Contact Us";
+			}
+				
+		// build html from template
+		$html = Storage::get($filename);
+		
+		// $html = str_replace('CP_EMAILTEXT', nl2br(stripslashes($r['emailText'])), $html); // only for PE
+		$html = str_replace('CP_HASH', $bkg->hash, $html);
+		$html = str_replace('CP_NAME', stripslashes($bkg->name), $html);
+		$html = str_replace('CP_FIRSTNAME', stripslashes($arr[0]), $html);
+		$html = str_replace('CP_EMAIL', $bkg->email, $html);
+		$html = str_replace('CP_PHONE', $bkg->phone, $html);
+		$html = str_replace('CP_ACTIVITY', $bkg->calendarevent->short_description, $html);
+		$html = str_replace('CP_ACTDATE', $legibleDate, $html);
+		$html = str_replace('CP_NUMADULTS', $bkg->adult, $html);
+		$html = str_replace('CP_NUMCHILDREN', $bkg->child, $html);
+		$html = str_replace('CP_PRICE', $bkg->price, $html);
+		$html = str_replace('CP_STATUS', $status, $html);
+		$html = str_replace('CP_FOODRESTRICTIONS', nl2br(stripslashes($bkg->food_requirements)), $html);
+		$html = str_replace('CP_COMMENTS', nl2br(stripslashes($bkg->comments)), $html);
+		$html = str_replace('APP_URL', config('cookingpoint.env.app_url'), $html);
+		
+		return $html;
+		
+	}
 
 	static function getClient() {
 		$client = new Google_Client();
@@ -84,15 +129,15 @@ class LegacyMail {
 
 
 
-	static function mail_to_user($r, $mail_template)
+	static function mail_to_user($bkg, $mail_template)
 	{
 		
-		$html_body = LegacyModel::set_booking_data($r, $mail_template . ".html");
-		$txt_body = LegacyModel::set_booking_data($r, $mail_template . ".txt");
+		$html_body = self::set_booking_data($bkg, $mail_template . ".html");
+		$txt_body = self::set_booking_data($bkg, $mail_template . ".txt");
 		
 		// building mime message
 		$envelope["from"]= 'Cooking Point <info@cookingpoint.es>';
-		$envelope["to"]  = $r['email'];
+		$envelope["to"]  = $$bkg->email;
 		$envelope["subject"]  = Storage::get($mail_template . ".subject.txt");
 		
 		$part1["type"] = TYPEMULTIPART;
@@ -134,15 +179,8 @@ class LegacyMail {
 			$message->setRaw($encoded);
 			$result = $service->users_messages->send($userId, $message);
 			// Log::info($mime_message);
-			if ($r['status'] == 'PE' && array_key_exists('emailText', $r))
-			{
-				$details = 'emailText = '. $r['emailText'];
-			}
-			else
-			{
-				$details = '';
-			}
-			LegacyModel::to_bookings_log($r['hash'],'EMAIL', $details);
+
+			// LegacyModel::to_bookings_log($bkg->hash,'EMAIL', $details);
 							
 		} 
 		catch (Exception $e) 
@@ -154,10 +192,10 @@ class LegacyMail {
 	}
 
 
-	static function mail_to_admin($r, $from_string, $to_string, $subject_string, $mail_template)
+	static function mail_to_admin($bkg, $from_string, $to_string, $subject_string, $mail_template)
 	{
 
-		$mail_body = LegacyModel::set_booking_data($r, $mail_template);
+		$mail_body = self::set_booking_data($bkg, $mail_template);
 
 		// localhost version
 		//error_log("mail sent to $r[email]. Text:");

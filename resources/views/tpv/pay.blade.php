@@ -13,6 +13,9 @@
 
 <?php
 
+use App\Booking;
+use App\http\Controllers\RedsysAPI;
+
 	function random_order()
 	{
 		$characters = '0123456789';
@@ -25,29 +28,25 @@
 		return $result;
 	}
 
-
-	use App\Http\Controllers\RedsysAPI;
-	use App\Http\Controllers\Legacy\LegacyModel;
-
 	$Secret = config('cookingpoint.redsys.firma');
 
-	$Ds_Merchant_ProductDescription = LegacyModel::activity_by_shortcode ( $reserva ['activity'] ) . " on {$reserva['activityDate']} for {$reserva['numAdults']} adults";
-	if ($reserva ['numChildren'] > 0) {
-		$Ds_Merchant_ProductDescription .= " + {$reserva['numChildren']} children";
+	$Ds_Merchant_ProductDescription = $bkg->short_description . " on {$bkg->date} for {$bkg->adult} adults";
+	if ($bkg->child > 0) {
+		$Ds_Merchant_ProductDescription .= " + {$bkg->child} children";
 	}
-	$Ds_Merchant_ProductDescription .= " under {$reserva['name']}";
+	$Ds_Merchant_ProductDescription .= " for {$bkg->name}";
 
-	$Ds_Merchant_Amount = $reserva['price'] * 100;
+	$Ds_Merchant_Amount = $bkg->price * 100;
 	$Ds_Merchant_Currency = '978';
 	$Ds_Merchant_Order = random_order();
 	$Ds_Merchant_MerchantURL = config('cookingpoint.redsys.merchanturl');
-	$Ds_Merchant_UrlOK = env('APP_URL' ,'http://cookingpoint.es'). "/bookings/" . $reserva ['hash'] . '/OK';
-	$Ds_Merchant_UrlKO = env('APP_URL' ,'http://cookingpoint.es'). "/bookings/" . $reserva ['hash'] . '/KO';
+	$Ds_Merchant_UrlOK = env('APP_URL' ,'http://cookingpoint.es'). "/booking/" . $bkg->locator . '/OK';
+	$Ds_Merchant_UrlKO = env('APP_URL' ,'http://cookingpoint.es'). "/booking/" . $bkg->locator . '/KO';
 	$Ds_Merchant_MerchantName = config('cookingpoint.redsys.nombrecomercio');
 	$Ds_Merchant_ConsumerLanguage = '002';
 	$Ds_Merchant_MerchantCode = config('cookingpoint.redsys.fuc');;
 	$Ds_Merchant_Terminal = '001';
-	$Ds_Merchant_MerchantData = $reserva['hash'];
+	$Ds_Merchant_MerchantData = $bkg->locator;
 	$Ds_Merchant_TransactionType = '0';
 	$Ds_Merchant_AuthorisationCode = '';
 
@@ -77,7 +76,7 @@
 	$signature = $myObj->createMerchantSignature($Secret);
 
 	// to the log
-	LegacyModel::to_tpv_log($Ds_Merchant_Order, $Ds_Merchant_ProductDescription, $Ds_Merchant_MerchantData, $Ds_Merchant_Amount);
+	// LegacyModel::to_tpv_log($Ds_Merchant_Order, $Ds_Merchant_ProductDescription, $Ds_Merchant_MerchantData, $Ds_Merchant_Amount);
 
 	// end php
 	?>  
@@ -94,7 +93,7 @@
 </body>
 
 <script>
-   document.TPVFORM.submit();
+   // document.TPVFORM.submit();
 </script>
 
 </html>

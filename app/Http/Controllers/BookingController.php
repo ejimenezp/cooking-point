@@ -36,7 +36,7 @@ class BookingController extends Controller
     	$bkg->pay_method = $request->pay_method;    	
     	$bkg->food_requirements = $request->food_requirements;
     	$bkg->comments = $request->comments;
-    	$bkg->crm = $request->crm;
+        $bkg->crm = (isset($request->hash) ? $request->crm : 'YES');
 
     	$source = Source::find($request->source_id);
     	$bkg->iva = $source->priceplan->iva;
@@ -44,7 +44,7 @@ class BookingController extends Controller
         // backwards compatibility
         $bkg->hash = (isset($request->hash) ? $request->hash : '');
     	$bkg->save();
-    	return 'ok';
+    	return ['status' => 'ok', 'data' => $bkg];
 
     }
 
@@ -57,6 +57,11 @@ class BookingController extends Controller
             $ce->delete();   
             return 'ok';
         }
+    }
+
+    function findByLocator(Request $request)
+    {
+        return Booking::where('locator', $request->locator)->first();
     }
 
     function index($ce_id)
@@ -92,11 +97,10 @@ class BookingController extends Controller
     {
         $bkg = Booking::find($request->id);
         if (!$bkg) {
-            return 'fail';
+            return ['status' => 'fail', 'data' => 'wrong bkg->id'];
         } else {
             $bkg->calendarevent_id = $request->calendarevent_id;
             $bkg->source_id = $request->source_id;
-            $bkg->status_major = $request->status_major;
             $bkg->status_minor = $request->status_minor;
             $bkg->locator = $request->locator;
             $bkg->name = $request->name;
@@ -112,7 +116,7 @@ class BookingController extends Controller
             $bkg->iva = $request->iva;
             $bkg->price = $request->price;
             $bkg->save();
-            return 'ok';
+            return ['status' => 'ok', 'data' => $bkg];
         }
     }
 

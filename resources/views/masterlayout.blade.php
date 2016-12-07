@@ -70,7 +70,7 @@
                     <a href="/gallery">Gallery</a>
                   </li>
                                     <li>
-                    <a href="/bookings">Bookings</a>
+                    <a href="/booking">Booking</a>
                   </li>
                                     <li>
                     <a href="/contact">Contact</a>
@@ -112,7 +112,7 @@
                   <a href="/gallery">Gallery</a>
                 </li>
                                   <li>
-                  <a href="/bookings">Bookings</a>
+                  <a href="/booking">Booking</a>
                 </li>
                                   <li>
                   <a href="/contact">Contact</a>
@@ -127,7 +127,7 @@
 
   </div>
         
-@if (isset($page) && ($page == 'home' || $page == 'contact'))
+@if (isset($page) && ($page == 'home' || $page == 'contact' || $page == 'booking'))
   <div class="container">
       <div class="divider"></div>
       @yield('content') 

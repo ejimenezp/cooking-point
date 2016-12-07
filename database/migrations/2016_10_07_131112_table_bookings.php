@@ -28,11 +28,12 @@ class TableBookings extends Migration
         $table->float('price'); // retail price
         $table->boolean('iva');
         $table->string('pay_method'); // online, viator, transfer, cash
-        $table->string('food_requirements');
-        $table->string('comments');
+        $table->text('food_requirements');
+        $table->text('comments');
         $table->string('crm');
-        // backwards compatibility
+        $table->datetime('payment_date');
         $table->string('hash');
+        $table->timestamps();
         });
 
     }  // class end

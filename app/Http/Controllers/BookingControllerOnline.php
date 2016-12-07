@@ -5,26 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Cookie;
+
+use Log;
 
 class BookingControllerOnline extends BookingController
 {
-    function add(Request $request)
+    function get(Request $request)
     {
-        return response()->json(['status'=> parent::add($request)]);
-    }
-
-    function delete($id)
-    {
-        return response()->json(['status'=> parent::delete($id)]);
-    }
-
-    function index($ce_id)
-    {
-        return response()->json(['status'=>'ok', 'data' => parent::index($ce_id)]);
-    }
-
-    function update(Request $request)
-    {
-        return response()->json(['status'=> parent::update($request)]);
+        if (!$request->locator){
+            $class = isset($request->class) ? $request->class : '';
+            return view('booking.index', ['page' => 'booking', 'tpv_result' => '', 'class' => $class]);
+        } else {
+            // $request = new Request;
+            // $request->locator = $locator;
+            $bkg = self::findByLocator($request);
+            if (!$bkg) {    
+                return view('errors.wrongLocator');          
+            } else {
+                $tpv_result = ($request->tpv_result) ? $request->tpv_result : '';
+                return response()->view('booking.index', ['page' => 'booking', 'bkg' => $bkg, 'tpv_result' => $tpv_result])->cookie('cplocator', $bkg->locator);
+            }
+        }
     }
 }

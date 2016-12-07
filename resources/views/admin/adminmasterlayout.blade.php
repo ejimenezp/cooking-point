@@ -27,14 +27,13 @@
 
 	<div class="container">
 		<div class="text-center">
-			<h4><a href="/admin/calendarevent">Inicio</a>&nbsp;&nbsp;<a href="/admin/logout">Salir</a>
+			<h4><a href="#" onclick="location.reload();return false">Actualizar</a>&nbsp;&nbsp;<a href="/admin/logout">Salir</a>
 				<span class="pull-right"><button id="toggle_datepicker" class="btn btn-xs btn-default">Calendario</button></span></h4>  	
 		</div>
 		<div class="divider"></div>
 
 <!-- main area -->
-
-@yield('content')
+		@yield('content')	
 
 	</div>
 
