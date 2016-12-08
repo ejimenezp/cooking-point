@@ -52,11 +52,16 @@ class EventLoader extends Command
                     $request['date'] = $line[0];
                     $request['type'] = $line[$j];
                     $request['staff_id'] = 2;
-                    $request['short_description'] = '';
-                    if ($request['type'] == 'PAELLA') { $request['time'] = '10:00:00'; }
-                    if ($request['type'] == 'TAPAS') { $request['time'] = '17:30:00'; }
-                    if ($request['type'] == 'HOLIDAY') { $request['time'] = '09:00:00';
-                                                         $request['duration'] = '00:00:00';}
+                    switch ($request['type']) {
+                        case 'HOLIDAY':
+                            $request['time'] = '09:00:00';
+                            $request['duration'] = '00:00:00';
+                            $request['short_description'] = '';                        
+                            break; 
+                        default:
+                            # code...
+                    }
+
 
 
                     // begin provision 

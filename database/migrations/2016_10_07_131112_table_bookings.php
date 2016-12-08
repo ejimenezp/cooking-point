@@ -31,7 +31,7 @@ class TableBookings extends Migration
         $table->text('food_requirements');
         $table->text('comments');
         $table->string('crm');
-        $table->datetime('payment_date');
+        $table->datetime('payment_date')->nullable();
         $table->string('hash');
         $table->timestamps();
         });

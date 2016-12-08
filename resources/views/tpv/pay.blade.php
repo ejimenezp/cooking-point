@@ -30,7 +30,7 @@ use App\http\Controllers\RedsysAPI;
 
 	$Secret = config('cookingpoint.redsys.firma');
 
-	$Ds_Merchant_ProductDescription = $bkg->short_description . " on {$bkg->date} for {$bkg->adult} adults";
+	$Ds_Merchant_ProductDescription = $bkg->calendarevent->short_description . " on {$bkg->date} for {$bkg->adult} adults";
 	if ($bkg->child > 0) {
 		$Ds_Merchant_ProductDescription .= " + {$bkg->child} children";
 	}

@@ -16,7 +16,7 @@ class CreateTableTiendaArticulos extends Migration
             $table->increments('id');
             $table->string('seccion', 30); // Promoted, Paella Pans, Food, Kitchenware, Other
             $table->string('nombre',30); // En inglés
-            $table->decimal('pvp', 4, 2);  // 
+            $table->decimal('pvp', 6, 2);  // 
             $table->integer('iva'); // 10 o 21%
             $table->integer('display_order'); 
             $table->boolean('visible');
@@ -28,8 +28,9 @@ class CreateTableTiendaArticulos extends Migration
             array(
                 'seccion' => 'Promoted',
                 'nombre' => 'Basurilla',
-                'pvp' => 100000,
-                'iva' => 10000,
+                'pvp' => 100,
+                'iva' => 10,
+                'display_order' => 0,
                 'visible' => false));
         DB::table('tienda_articulos')->insert(
             array(
@@ -37,6 +38,7 @@ class CreateTableTiendaArticulos extends Migration
                 'nombre' => 'OLD Saffron (1gr jar)',
                 'pvp' => 7.50,
                 'iva' => 10,
+                'display_order' => 0,
                 'visible' => false));
  
         DB::table('tienda_articulos')->insert(
@@ -72,6 +74,7 @@ class CreateTableTiendaArticulos extends Migration
                 'nombre' => 'OLD Paprika',
                 'pvp' => 3,
                 'iva' => 10,
+                'display_order' => 0,
                 'visible' => false));
         DB::table('tienda_articulos')->insert(
             array(
@@ -105,6 +108,7 @@ class CreateTableTiendaArticulos extends Migration
                 'nombre' => 'OLD 30cm / 12" Paella Pan',
                 'pvp' => 10,
                 'iva' => 21,
+                'display_order' => 0,
                 'visible' => false));
 
         DB::table('tienda_articulos')->insert(
@@ -121,6 +125,7 @@ class CreateTableTiendaArticulos extends Migration
                 'nombre' => 'OLD 34cm / 13.5" Paella Pan',
                 'pvp' => 15,
                 'iva' => 21,
+                'display_order' => 0,
                 'visible' => false));
 
         DB::table('tienda_articulos')->insert(
@@ -137,14 +142,15 @@ class CreateTableTiendaArticulos extends Migration
                 'nombre' => 'OLD 12cm Terracotta Pot',
                 'pvp' => 2.50,
                 'iva' => 21,
-                'visible' => true));
+                'display_order' => 0,
+                'visible' => false));
         DB::table('tienda_articulos')->insert(
             array(
                 'seccion' => 'Kitchenware',
                 'nombre' => '12cm Terracotta Pot',
                 'pvp' => 5,
                 'iva' => 21,
-                 'display_order' => 400,
+                'display_order' => 400,
                'visible' => true));
         DB::table('tienda_articulos')->insert(
             array(
@@ -152,6 +158,7 @@ class CreateTableTiendaArticulos extends Migration
                 'nombre' => 'OLD 14cm Terracotta Pot',
                 'pvp' => 3,
                 'iva' => 21,
+                'display_order' => 0,
                 'visible' => false));
         DB::table('tienda_articulos')->insert(
             array(
@@ -159,7 +166,7 @@ class CreateTableTiendaArticulos extends Migration
                 'nombre' => '14cm Terracotta Pot',
                 'pvp' => 6,
                 'iva' => 21,
-                 'display_order' => 410,
+                'display_order' => 410,
                 'visible' => true));
         DB::table('tienda_articulos')->insert(
             array(
@@ -167,6 +174,7 @@ class CreateTableTiendaArticulos extends Migration
                 'nombre' => 'OLD Mini Pan',
                 'pvp' => 3,
                 'iva' => 21,
+                'display_order' => 0,
                 'visible' => false));
         DB::table('tienda_articulos')->insert(
             array(

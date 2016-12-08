@@ -9,6 +9,7 @@ use App\Http\Controllers\CalendarEventController;
 use App\Http\Controllers\BookingController;
 use Illuminate\Http\Request;
 use App\Booking;
+use Carbon\Carbon;
 
 class LegacyBookingLoader extends Command
 {
@@ -77,10 +78,12 @@ class LegacyBookingLoader extends Command
             $request->pay_method = 'ONLINE';
             $request->food_requirements = $booking['foodRestrictions'];
             $request->comments = $booking['comments'];
-            $request->payment_date = $booking['paymentDate'];
+            if ($booking['paymentDate']) {
+                $request->payment_date = Carbon::createFromFormat('Y-m-d H:i:s', $booking['paymentDate']);
+            }
             $request->hash = $booking['hash'];
             $request->crm = 'YES';
-            if ($controller->add($request) != 'ok') {
+            if ($controller->add($request)['status'] != 'ok') {
                 echo 'Failed adding booking (' . $booking['activityDate'] . ' ' . $booking['name'] .")\n";
             }
             unset($request);
