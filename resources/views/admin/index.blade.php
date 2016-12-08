@@ -308,7 +308,7 @@
 								<option value="DEPOSIT">DEPÓSITO</option>
 								<option value="CONFIRMED">CONFIRMADA</option>
 								<option value="GUARANTEE">GARANTÍA</option>
-								<option value="PENDING">PENDIENTE CONFIRMAR</option>
+								<option value="PENDING">PENDIENTE PAGO</option>
 							</select>
 						</td>
 					</tr>

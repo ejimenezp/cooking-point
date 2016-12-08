@@ -8,7 +8,10 @@ use App\Http\Requests;
 use App\Booking;
 use Cookie;
 use Log;
-use RedsysAPI;
+// use App\Http\Controllers\RedsysAPI;
+
+use \DateTimeZone;
+use \DateTime;
 
 class TPVController extends Controller
 {
@@ -42,6 +45,7 @@ class TPVController extends Controller
     	$Secret = config('cookingpoint.redsys.firma');
 
 		$myObj = new RedsysAPI;
+		$bookingcontroller = new BookingController;
 
 		$expected_signature = $myObj->createMerchantSignatureNotif($Secret, $params);
 		$decodec = $myObj->decodeMerchantParameters($params);
@@ -55,11 +59,12 @@ class TPVController extends Controller
 		$Ds_AuthorisationCode = $myObj->getParameter('Ds_AuthorisationCode');
 
 		if ($expected_signature != $signatureRecibida) {
-			Log::error("Signature not valid (hash: $Ds_MerchantData");
+			Log::error("Signature not valid (locator: $Ds_MerchantData");
 			exit();
 		}
 
 		// to the log
+		Log::info("Redsys callback received: locator $Ds_MerchantData, response $Ds_Response");
 
 		$a = "$Ds_Date $Ds_Hour";
 		//error_log("la fecha y hora es: $a");
@@ -68,7 +73,7 @@ class TPVController extends Controller
 
 		// LegacyModel::to_tpv_log ( $Ds_Order, '', $Ds_MerchantData, $Ds_Amount, $Ds_Response, $Ds_AuthorisationCode, $tpvDate );
 
-        $bkg = self::findByLocator($Ds_MerchantData);
+        $bkg = $bookingcontroller->findBy($Ds_MerchantData);
         if ($Ds_Response < 100) {
             $bkg->status_major = 'PAID';
             $bkg->payment_date = $timestamp->format('Y-m-d H:i:s');
