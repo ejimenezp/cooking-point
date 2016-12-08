@@ -93,7 +93,7 @@ use App\Http\Controllers\RedsysAPI;
 </body>
 
 <script>
-   // document.TPVFORM.submit();
+   document.TPVFORM.submit();
 </script>
 
 </html>
