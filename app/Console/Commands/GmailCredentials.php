@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Http\Controllers\Legacy\LegacyMail; 
+use App\Http\Controllers\MailController; 
 
 class GmailCredentials extends Command
 {
@@ -38,6 +38,6 @@ class GmailCredentials extends Command
      */
     public function handle()
     {
-        LegacyMail::getClient();
+        MailController::getClient();
     }
 }

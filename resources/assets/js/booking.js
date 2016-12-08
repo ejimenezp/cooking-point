@@ -461,4 +461,24 @@ jQuery(document).ready(function($) {
     	$('.step4_voucher').clone().appendTo('#printer_voucher')
 		$('#printer').printThis()
 	})
+
+    $("#button_email_voucher").click(function() {
+		var response = $.ajax({
+	    type: 'POST', 
+	    url: '/api/booking/emailIt',
+	   	data: {locator: locator},
+	   	dataType: 'json',
+	    async: false,
+	    success: function(msg){
+	    	if (msg.status == 'fail') {
+	    		bkg = null
+	    	}
+	    }
+		}).responseText
+
+	    $('#modal_booking_title').html('Check your email')
+		$('#modal_booking_body').html('Voucher emailed to ' + $('.emailshown').html() + '.<br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime')
+    	$("#modal_booking").modal('show')
+    })
+
 }) // jQuery

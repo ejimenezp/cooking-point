@@ -53,9 +53,9 @@ class LegacyController extends Controller
 	 				else // ya se ha guardado, ahora mostrar como gift o clase regular
 	 				{
 	 						
-	 						LegacyMail::mail_to_user($nuevaReserva, ($nuevaReserva['status'] == 'PE' ? "legacy/status_PE" : "legacy/status_CR"));
+	 						MailController::mail_to_user($nuevaReserva, ($nuevaReserva['status'] == 'PE' ? "legacy/status_PE" : "legacy/status_CR"));
 	 						$admin_mail_subject = "{$nuevaReserva['activity']} on {$nuevaReserva['activityDate']} for {$nuevaReserva['numAdults']}+{$nuevaReserva['numChildren']}";
-	 						LegacyMail::mail_to_admin($nuevaReserva, 'New inquiry', 'info@cookingpoint.es', $admin_mail_subject, "legacy/admin_notice_CR.html");
+	 						MailController::mail_to_admin($nuevaReserva, 'New inquiry', 'info@cookingpoint.es', $admin_mail_subject, "legacy/admin_notice_CR.html");
 	 						// show_booking_details($nuevaReserva);
 	 						// show_booking_status($nuevaReserva);
 	 						return view('legacy.filledform')->with('reserva', $nuevaReserva)->with('status', 'NEW');

@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use \DateTime;
 use Log;
 
-use App\Http\Controllers\Legacy\LegacyMail;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\Legacy\LegacyModel;
 
 
@@ -38,7 +38,7 @@ class Reminder extends Job {
 		$booking->comments = self::escape($booking->comments);
 
 	 	LegacyModel::update_admin_booking(get_object_vars($booking));
-	 	LegacyMail::mail_to_user(get_object_vars($booking), "legacy/reminder");
+	 	MailController::mail_to_user(get_object_vars($booking), "legacy/reminder");
 	}
 }
 
