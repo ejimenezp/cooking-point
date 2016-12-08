@@ -342,7 +342,7 @@ jQuery(document).ready(function($) {
     switch ($("#step4").data('tpv_result')) {
     	case 'OK':
     		$('#modal_booking_title').html('Check your email')
-			$('#modal_booking_body').html('We have sent a confirmation email to ' + $('.emailshown').html() +'. Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime')
+			$('#modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime')
     		$("#modal_booking").modal('show')
     		break
     	case 'KO':
@@ -477,7 +477,7 @@ jQuery(document).ready(function($) {
 		}).responseText
 
 	    $('#modal_booking_title').html('Check your email')
-		$('#modal_booking_body').html('Voucher emailed to ' + $('.emailshown').html() + '.<br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime')
+		$('#modal_booking_body').html('Voucher emailed to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime')
     	$("#modal_booking").modal('show')
     })
 
