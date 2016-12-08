@@ -310,6 +310,8 @@ jQuery(document).ready(function($) {
 	// initial display
 	//
 
+	$('.loading').show()
+
 	var step1_first_time_displayed = true
 	window.history.pushState(null, 'nada', '/booking')
 
@@ -372,6 +374,8 @@ jQuery(document).ready(function($) {
 	});
 
 	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
+
+	$('.loading').hide()
 
 	// 
     // end initial display

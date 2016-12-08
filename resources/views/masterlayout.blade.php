@@ -36,6 +36,8 @@
   </head>
     
   <body>
+  <div class="loading" style="display:none">Loading&#8230;</div>
+
 	<div class="container">
 
     <div class="visible-xs">
