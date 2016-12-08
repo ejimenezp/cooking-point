@@ -20,7 +20,7 @@ class BookingControllerApi extends BookingController
 
     function findByLocator(Request $request)
     {
-        return response()->json(['status'=>'ok', 'data' => parent::findByLocator($request)]);
+        return response()->json(['status'=>'ok', 'data' => parent::findBy($request->locator)]);
     }
 
     function index($ce_id)

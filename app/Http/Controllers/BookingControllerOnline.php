@@ -17,9 +17,7 @@ class BookingControllerOnline extends BookingController
             $class = isset($request->class) ? $request->class : '';
             return view('booking.index', ['page' => 'booking', 'tpv_result' => '', 'class' => $class]);
         } else {
-            // $request = new Request;
-            // $request->locator = $locator;
-            $bkg = self::findByLocator($request);
+            $bkg = self::findBy($request->locator);
             if (!$bkg) {    
                 return view('errors.wrongLocator');          
             } else {

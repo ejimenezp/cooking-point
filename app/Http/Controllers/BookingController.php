@@ -60,9 +60,9 @@ class BookingController extends Controller
         }
     }
 
-    function findByLocator(Request $request)
+    function findBy($locator)
     {
-        return Booking::where('locator', $request->locator)->first();
+        return Booking::where('locator', $locator)->first();
     }
 
     function index($ce_id)

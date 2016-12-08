@@ -14,7 +14,7 @@
 <?php
 
 use App\Booking;
-use App\http\Controllers\RedsysAPI;
+use App\Http\Controllers\RedsysAPI;
 
 	function random_order()
 	{
