@@ -7,11 +7,6 @@
  */
 return [
 
-	'env' => [
-		'app_env' => 'testing',
-		'app_url' => 'http://bs2.cookingpoint.es',
-		'favicon' => '/favicon-test.ico'
-		],
 	'redsys' => [
 	    'firma' => 'TioXuMyEcpN34V4kO2hS36ru/4pl3rzv',
 	    'merchanturl' => 'http://bs2.cookingpoint.es/callback', // testing
