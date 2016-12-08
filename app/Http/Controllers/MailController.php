@@ -15,7 +15,8 @@ use Google_Service_Gmail;
 use Google_Service_Gmail_Message;
 use Illuminate\Support\Facades\Storage;
 use Booking;
-use \DateTime;
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
 
 class MailController {
 
@@ -145,8 +146,14 @@ class MailController {
 
 	static function set_booking_data($bkg, $filename) {
 
-		$activityDate = new DateTime($bkg->calendarevent->date);
+		$activityDate = new Carbon($bkg->calendarevent->date);
 		$legibleDate = $activityDate->format('l, d F Y');
+
+		$start_time = Carbon::createFromFormat('H:i:s', $bkg->calendarevent->time);
+		$bits = explode(':', $bkg->calendarevent->duration);
+		$duration = CarbonInterval::hours($bits[0])->minutes($bits[1]);
+		$end_time = (new Carbon($start_time))->add($duration);
+		$legibleTime = $start_time->format('g:i A') . ' - ' . $end_time->format('g:i A');
 		
 		$arr = explode(' ',trim($bkg->name));
 		
@@ -177,6 +184,7 @@ class MailController {
 		$html = str_replace('CP_CLASS', $bkg->calendarevent->short_description, $html);
 		$html = str_replace('CP_RAWDATE', $bkg->calendarevent->date, $html);
 		$html = str_replace('CP_DATE', $legibleDate, $html);
+		$html = str_replace('CP_TIME', $legibleTime, $html);
 		$html = str_replace('CP_ADULT', $bkg->adult, $html);
 		$html = str_replace('CP_CHILD', $bkg->child, $html);
 		$html = str_replace('CP_PRICE', $bkg->price, $html);

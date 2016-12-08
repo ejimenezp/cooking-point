@@ -9,7 +9,8 @@ return [
 
 	'redsys' => [
 	    'firma' => 'TioXuMyEcpN34V4kO2hS36ru/4pl3rzv',
-	    'merchanturl' => 'http://bs2.cookingpoint.es/callback', // testing
+	    // 'merchanturl' => 'http://bs2.cookingpoint.es/callback', // testing
+	    'merchanturl' => env('APP_URL', 'http://cookingpoint.es') . '/callback', 
 	    'nombrecomercio' => 'COOKING POINT (Madrid)',
 	    'fuc' => '333658318',
 	    'url' => 'https://sis.redsys.es/sis/realizarPago',  // production
