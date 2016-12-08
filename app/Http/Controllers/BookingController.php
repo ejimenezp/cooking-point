@@ -36,6 +36,7 @@ class BookingController extends Controller
     	$bkg->pay_method = $request->pay_method;    	
     	$bkg->food_requirements = $request->food_requirements;
     	$bkg->comments = $request->comments;
+        $bkg->payment_date = $request->payment_date;
         $bkg->crm = (isset($request->hash) ? $request->crm : 'YES');
 
     	$source = Source::find($request->source_id);

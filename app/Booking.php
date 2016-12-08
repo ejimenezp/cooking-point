@@ -9,7 +9,7 @@ class Booking extends Model
 {
     
     protected $table = 'bookings';
-	public $timestamps = false;
+	public $timestamps = true;
     protected $appends = array('type', 'date');
 
     function calendarevent()
