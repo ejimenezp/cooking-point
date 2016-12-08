@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 
 
-use App\Http\Controllers\CalendarEventController;
+use App\Http\Controllers\CalendareventController;
 use App\Http\Controllers\BookingController;
 use Illuminate\Http\Request;
 use App\Booking;
@@ -47,7 +47,7 @@ class LegacyBookingLoader extends Command
         // bookings file has to start with return Array(....)
         $legacy_bookings = include storage_path('app/legacy_bookings.php');
 
-        $calendar = new CalendarEventController();
+        $calendar = new CalendareventController();
         $controller = new BookingController();
 
         foreach ($legacy_bookings as $booking) {
