@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\Booking;
 use Cookie;
 use Log;
-// use App\Http\Controllers\RedsysAPI;
 
 use \DateTimeZone;
 use \DateTime;
@@ -82,9 +81,8 @@ class TPVController extends Controller
         }
         $bkg->save();
 
-		LegacyMail::mail_to_user($bkg, "legacy/status_PA");
-		 $admin_mail_subject = "$bkg->type on $bkg->date for $bkg->adult +$bkg->child";
-		LegacyMail::mail_to_admin($bkg, 'Payment', 'eduardo@cookingpoint.es', $admin_mail_subject, "legacy/admin_notice_PA.html");
+		MailController::send_email($bkg->email, $bkg, 'voucher');
+		MailController::send_email('eduardo@cookingpoint.es', $bkg, 'admin_notice_PA');
 
     	return view('tpv.callback');
     }

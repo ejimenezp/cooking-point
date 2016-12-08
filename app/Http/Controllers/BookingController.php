@@ -121,4 +121,9 @@ class BookingController extends Controller
         }
     }
 
+    function email($bkg) {
+        MailController::send_mail($bkg->email, $bkg, 'voucher');
+        MailController::send_mail('eduardo@cookingpoint.es', $bkg, 'admin_notice_PA');
+    }
+
 }

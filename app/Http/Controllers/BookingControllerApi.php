@@ -32,4 +32,9 @@ class BookingControllerApi extends BookingController
     {
         return response()->json(parent::update($request));
     }
+
+    function emailIt(Request $request)
+    {
+        return response()->json(parent::email(parent::findBy($request->locator)));
+    }
 }

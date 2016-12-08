@@ -1,0 +1,16 @@
+New Booking:
+
+- Name: CP_NAME
+- Email: CP_EMAIL
+- Phone: CP_PHONE
+- Activity: CP_CLASS
+- Date: CP_DATE
+- Adults: CP_ADULT
+- Children: CP_CHILD
+- Price: €CP_PRICE
+- Food Restrictions: CP_FOODREQUIREMENTS
+- Comments: CP_COMMENTS
+
+- Status: CP_STATUS
+
+ Admin: APP_URL/admin
