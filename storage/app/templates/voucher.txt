@@ -2,20 +2,24 @@ Dear CP_FIRSTNAME,
 
 Your booking is confirmed. We are looking forward to meeting you. Find details and directions below.
 
-VOUCHER:
+COOKING POINT VOUCHER:
+
+- Class: CP_CLASS
+- Date: CP_DATE
+- Time: CP_TIME
+- Locator: CP_LOCATOR
+- Adults: CP_ADULT
+- Children: CP_CHILD
+- Price: €CP_PRICE
+- Status: CP_STATUS
 
 - Name: CP_NAME
 - Email: CP_EMAIL
 - Phone: CP_PHONE
-- Activity: CP_CLASS
-- Date: CP_DATE
-- Adults: CP_ADULT
-- Children: CP_CHILD
-- Price: €CP_PRICE
-- Food Restrictions: CP_FOODREQUIREMENTS
-- Comments: CP_COMMENTS
-
-Status: CP_STATUS
+- Food Restrictions:
+  CP_FOODREQUIREMENTS
+- Comments:
+  CP_COMMENTS
 
 
 MEETING POINT:
@@ -24,7 +28,7 @@ Cooking Point
 Calle de Moratin, 11 28014 Madrid
 
 
-To modify/cancel your booking, please go to APP_URL/booking/CP_LOCATOR
+To print / modify / cancel your booking, please go to APP_URL/booking/CP_LOCATOR
 
 Should you have any question, please let us know.
 
