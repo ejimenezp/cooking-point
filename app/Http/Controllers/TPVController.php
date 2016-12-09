@@ -81,8 +81,8 @@ class TPVController extends Controller
         }
         $bkg->save();
 
-		MailController::send_email($bkg->email, $bkg, 'user_voucher');
-		MailController::send_email('eduardo@cookingpoint.es', $bkg, 'admin_new_booking');
+		MailController::send_mail($bkg->email, $bkg, 'user_voucher');
+		MailController::send_mail('eduardo@cookingpoint.es', $bkg, 'admin_new_booking');
 
     	return view('tpv.callback');
     }
