@@ -1,0 +1,8 @@
+Cancellation request:
+
+- Name: CP_NAME
+- Activity: CP_CLASS
+- Date: CP_DATE
+- Price: €CP_PRICE
+
+ Admin: APP_URL/admin
