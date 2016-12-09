@@ -10,8 +10,8 @@ var moment = require('moment')
 //
 // Global variables
 //
-var right_now = moment("2016-12-15 09:00")
-// var right_now = moment()
+// var right_now = moment("2016-12-15 09:00")
+var right_now = moment()
 var date_shown = right_now.clone()
 var form_changed = false
 var month_changed = false
