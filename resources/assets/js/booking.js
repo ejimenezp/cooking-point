@@ -10,8 +10,8 @@ var moment = require('moment')
 //
 // Global variables
 //
-// var right_now = moment("2016-12-15 09:00")
-var right_now = moment()
+var right_now = moment("2016-12-15 09:00")
+// var right_now = moment()
 var date_shown = right_now.clone()
 var form_changed = false
 var month_changed = false
@@ -235,6 +235,7 @@ function retrieveBooking(locator) {
 	form_changed = false
 	$(".update_class").addClass('hidden')
 	$(".update_contact").addClass('hidden')
+	return bkg
 }
 
 //
@@ -476,7 +477,9 @@ jQuery(document).ready(function($) {
 
     $('#booking_cancel').click(function() {
     	var start
-    	start = moment(month_availability[ce_i].date + ' ' + month_availability[ce_i].time)
+    	var bkg = retrieveBooking(locator)
+    	start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
+    	// console.log(start)
 		if (start.subtract(48, 'hours').isSameOrBefore(right_now)) {
     		$('.modal_booking_title').html("Cancellation Late Notice")
 			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us to should you have any questions.')
@@ -530,7 +533,7 @@ jQuery(document).ready(function($) {
 			    	if (msg.status == 'fail') {
 			    		bkg = null
 			    	} else {
-						alert('email sent')
+						// alert('email sent')
 			    	}
 			    }
 				}).responseText }
