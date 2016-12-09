@@ -71,8 +71,7 @@ class LegacyBookingLoader extends Command
             $request->phone = $booking['phone'];
             $request->calendarevent_id = $ce->id;
             $request->source_id = 1;
-            $request->status_major = ($booking['status'] == 'PA' ? 'PAID' : 'PENDING');
-            $request->status_minor = '';
+            $request->status = ($booking['status'] == 'PA' ? 'PAID' : 'PENDING');
             $request->adult = $booking['numAdults'];
             $request->child = $booking['numChildren'];
             $request->pay_method = 'ONLINE';

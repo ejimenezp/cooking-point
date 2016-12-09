@@ -22,7 +22,7 @@ class Calendarevent extends Model
 
     public function getRegisteredAttribute()
     {
-        $adults = $this->bookings->where('status_major', '<>', 'PENDING')->sum('adult');  
-        $children = $this->bookings->where('status_major', '<>', 'PENDING')->sum('child');  
+        $adults = $this->bookings->where('status_filter', 'REGISTERED')->sum('adult');  
+        $children = $this->bookings->where('status_filter', '<>', 'REGISTERED')->sum('child');  
         return $adults + $children;
     }}

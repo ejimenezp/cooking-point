@@ -25,8 +25,16 @@ class BookingController extends Controller
     	$bkg = new Booking();
     	$bkg->calendarevent_id = $request->calendarevent_id;
     	$bkg->source_id = $request->source_id;
-    	$bkg->status_major = $request->status_major;
-    	$bkg->status_minor = $request->status_minor;
+    	$bkg->status = $request->status;
+        switch ($bkg->status) {
+            case 'PENDING':
+            case 'CANCELLED':
+                $bkg->status_filter = 'DO_NOT_COUNT';
+                break;          
+            default:
+                $bkg->status_filter = 'REGISTERED';
+                break;
+        }
     	$bkg->locator = $this->newLocator();
     	$bkg->name = $request->name;
     	$bkg->email = $request->email;
@@ -102,7 +110,16 @@ class BookingController extends Controller
         } else {
             $bkg->calendarevent_id = $request->calendarevent_id;
             $bkg->source_id = $request->source_id;
-            $bkg->status_minor = $request->status_minor;
+            $bkg->status = $request->status;
+            switch ($bkg->status) {
+                case 'PENDING':
+                case 'CANCELLED':
+                    $bkg->status_filter = 'DO_NOT_COUNT';
+                    break;          
+                default:
+                    $bkg->status_filter = 'REGISTERED';
+                    break;
+            }
             $bkg->locator = $request->locator;
             $bkg->name = $request->name;
             $bkg->email = $request->email;
@@ -122,8 +139,12 @@ class BookingController extends Controller
     }
 
     function email($bkg) {
-        MailController::send_mail($bkg->email, $bkg, 'voucher');
-        MailController::send_mail('eduardo@cookingpoint.es', $bkg, 'admin_notice_PA');
+        MailController::send_mail($bkg->email, $bkg, 'user_voucher');
+        // MailController::send_mail('eduardo@cookingpoint.es', $bkg, 'admin_new_booking');
     }
 
+    function cancel($bkg) {
+        MailController::send_mail($bkg->email, $bkg, 'user_cancellation');
+        MailController::send_mail('eduardo@cookingpoint.es', $bkg, 'admin_cancel_request');
+    }
 }

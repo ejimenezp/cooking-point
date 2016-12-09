@@ -17,8 +17,8 @@ class TableBookings extends Migration
         $table->increments('id');
         $table->integer('calendarevent_id');  // calendarevent foreign key
         $table->integer('source_id');  // source foreign key
-        $table->string('status_major'); // CREATED, CANCELLED, PAID
-        $table->string('status_minor'); 
+        $table->string('status'); // CREATED, CANCELLED, PAID
+        $table->string('status_filter'); 
         $table->string('locator', 6);
         $table->string('name');  // client name
         $table->string('email');  // client email

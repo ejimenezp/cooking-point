@@ -28,6 +28,7 @@ Route::post('booking/update', 'BookingControllerApi@update');
 Route::get('booking/delete/{id}', 'BookingControllerApi@delete');
 Route::post('booking/findByLocator', 'BookingControllerApi@findByLocator');
 Route::post('booking/emailIt', 'BookingControllerApi@emailIt');
+Route::post('booking/cancelIt', 'BookingControllerApi@cancelIt');
 
 Route::get('staff/get', 'StaffController@getCooks');
 
