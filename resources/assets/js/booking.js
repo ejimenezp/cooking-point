@@ -331,7 +331,6 @@ jQuery(document).ready(function($) {
 
 	$('.loading').show()
 
-	var step1_first_time_displayed = true
 	window.history.pushState(null, 'nada', '/booking')
 
 	locator = $("input[name=locator]").val()
@@ -353,11 +352,7 @@ jQuery(document).ready(function($) {
 	 	    $('#step2').removeClass('hidden')    	   		
     	}
     } else {
-	    $('#step1').removeClass('hidden')
-	    if (step1_first_time_displayed) {
-	    	$('#modal_booking_help').modal('show')
-			step1_first_time_displayed = false
-	    }	    	
+	    $('#step1').removeClass('hidden')    	
     }
 
     switch ($("#step4").data('tpv_result')) {
