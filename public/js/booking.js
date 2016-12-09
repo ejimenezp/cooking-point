@@ -19356,7 +19356,7 @@ var moment = require('moment');
 //
 // Global variables
 //
-// var right_now = moment("2016-11-29 09:00")
+// var right_now = moment("2016-12-15 09:00")
 var right_now = moment();
 var date_shown = right_now.clone();
 var form_changed = false;
@@ -19516,7 +19516,7 @@ function refreshDataShown() {
 	$('.timeshown').html(start_time.format('h:mm A') + " - " + end_time.format('h:mm A'));
 
 	$(".typeshown").html($("select[name=type] :selected").text());
-	$(".statusshown").html($("input[name=status_major]").val());
+	$(".statusshown").html($("input[name=status]").val());
 	$(".adultshown").html($("select[name=adult]").val());
 	$(".childshown").html($("select[name=child]").val());
 	$(".priceshown").html($("input[name=price]").val());
@@ -19554,7 +19554,7 @@ function retrieveBooking(locator) {
 	$("select option[value='" + bkg.type + "']").attr("selected", "selected");
 	$("input[name=calendarevent_id]").val(bkg.calendarevent_id);
 	$("input[name=id]").val(bkg.id);
-	$("select[name=status_major]").val(bkg.status_major);
+	$("select[name=status]").val(bkg.status);
 	$("input[name=name]").val(bkg.name);
 	$("input[name=email]").val(bkg.email);
 	$("input[name=phone]").val(bkg.phone);
@@ -19577,6 +19577,28 @@ function retrieveBooking(locator) {
 	form_changed = false;
 	$(".update_class").addClass('hidden');
 	$(".update_contact").addClass('hidden');
+}
+
+//
+// Function: showModalBooking
+// helper function to streamline modal showing and subsequent actions
+//
+function showModalBooking(tthis, title, body, show_cancel, action) {
+	var new_modal = 'modal_booking_' + tthis.id;
+	var new_modal_id = '#' + new_modal;
+
+	$(new_modal_id).remove();
+	$('#modal_booking').clone().attr('id', new_modal).insertAfter('#modal_booking');
+
+	$(new_modal_id).find('.modal_booking_title').html(title);
+	$(new_modal_id).find('.modal_booking_body').html(body);
+	if (show_cancel) {
+		$(new_modal_id).find('.btn-cancel').removeClass('hidden');
+	} else {
+		$(new_modal_id).find('.btn-cancel').addClass('hidden');
+	}
+	$(new_modal_id).find('.btn-ok').unbind('click').click(action);
+	$(new_modal_id).modal('show');
 }
 
 //
@@ -19626,8 +19648,8 @@ function validateBookingForm() {
 		show_it = true;
 	}
 	if (show_it) {
-		$('#modal_booking_title').html(modal_title);
-		$('#modal_booking_body').html(modal_body);
+		$('.modal_booking_title').html(modal_title);
+		$('.modal_booking_body').html(modal_body);
 		$('#modal_booking').modal('show');
 		return false;
 	}
@@ -19659,7 +19681,7 @@ jQuery(document).ready(function ($) {
 
 	$('#booking_steps > div').addClass('hidden');
 	if (bkg) {
-		if (bkg.status_major != 'PENDING') {
+		if (bkg.status != 'PENDING') {
 			$('#step4').removeClass('hidden');
 			document.title = $(".typeshown").html() + " for " + $(".nameshown").html() + " on " + $(".dateshown").html();
 			$('select[name=adult] option:selected').siblings().attr('disabled', 'disabled');
@@ -19677,13 +19699,13 @@ jQuery(document).ready(function ($) {
 
 	switch ($("#step4").data('tpv_result')) {
 		case 'OK':
-			$('#modal_booking_title').html('Check your email');
-			$('#modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime');
+			$('.modal_booking_title').html('Check your email');
+			$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime');
 			$("#modal_booking").modal('show');
 			break;
 		case 'KO':
-			$('#modal_booking_title').html('Payment Failure');
-			$('#modal_booking_body').html('It seems you could not complete the transaction. Please, try it again');
+			$('.modal_booking_title').html('Payment Failure');
+			$('.modal_booking_body').html('It seems you could not complete the transaction. Please, try it again');
 			$("#modal_booking").modal('show');
 	}
 
@@ -19726,8 +19748,8 @@ jQuery(document).ready(function ($) {
 
 		if (!getDayAvailability(date_shown.toDate())[0]) {
 			console.log(date_shown.toDate());
-			$('#modal_booking_title').html('Class Not Available');
-			$('#modal_booking_body').html('Please, Select a Date with Availability');
+			$('.modal_booking_title').html('Class Not Available');
+			$('.modal_booking_body').html('Please, Select a Date with Availability');
 			$("#modal_booking").modal('show');
 		}
 	});
@@ -19766,8 +19788,8 @@ jQuery(document).ready(function ($) {
 
 	$(".update_class").click(function (e) {
 		if (!getDayAvailability(date_shown.toDate())[0]) {
-			$('#modal_booking_title').html('Not Available');
-			$('#modal_booking_body').html('Please, Select a Date with Availability');
+			$('.modal_booking_title').html('Not Available');
+			$('.modal_booking_body').html('Please, Select a Date with Availability');
 			$("#modal_booking").modal('show');
 		} else if ($(this).attr('checkout')) {
 			$('#booking_steps > div').addClass('hidden');
@@ -19792,6 +19814,26 @@ jQuery(document).ready(function ($) {
 		$('#modal_booking_edit').modal('show');
 	});
 
+	$('#booking_cancel').click(function () {
+		var start;
+		start = moment(month_availability[ce_i].date + ' ' + month_availability[ce_i].time);
+		if (start.subtract(48, 'hours').isSameOrBefore(right_now)) {
+			$('.modal_booking_title').html("Cancellation Late Notice");
+			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us to should you have any questions.');
+			$("#modal_booking").modal('show');
+			return;
+		}
+		showModalBooking(this, 'Cancel Booking', 'Please confirm you really want to cancel your booking and get it refunded.', true, function () {
+			var response = $.ajax({
+				type: 'POST',
+				url: '/api/booking/cancelIt',
+				data: { locator: locator },
+				dataType: 'json'
+			});
+			showModalBooking(this, 'Booking Cancellation', 'Sorry to hear it. We proceed to proceed with the refund.<br/><br/>We will email you as soon as we do it. It takes a few days to get your money back. Please, be patient.', false, function () {});
+		});
+	});
+
 	$("#button_print_voucher").click(function () {
 		$('#printer_voucher').empty();
 		$('.step4_voucher').clone().appendTo('#printer_voucher');
@@ -19799,22 +19841,22 @@ jQuery(document).ready(function ($) {
 	});
 
 	$("#button_email_voucher").click(function () {
-		var response = $.ajax({
-			type: 'POST',
-			url: '/api/booking/emailIt',
-			data: { locator: locator },
-			dataType: 'json',
-			async: false,
-			success: function success(msg) {
-				if (msg.status == 'fail') {
-					bkg = null;
+		showModalBooking(this, 'Send Voucher', 'We are about to send your voucher to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime', true, function () {
+			var response = $.ajax({
+				type: 'POST',
+				url: '/api/booking/emailIt',
+				data: { locator: locator },
+				dataType: 'json',
+				async: false,
+				success: function success(msg) {
+					if (msg.status == 'fail') {
+						bkg = null;
+					} else {
+						alert('email sent');
+					}
 				}
-			}
-		}).responseText;
-
-		$('#modal_booking_title').html('Check your email');
-		$('#modal_booking_body').html('Voucher emailed to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime');
-		$("#modal_booking").modal('show');
+			}).responseText;
+		});
 	});
 }); // jQuery
 

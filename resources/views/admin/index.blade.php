@@ -203,7 +203,7 @@
    				{{ csrf_field() }}
    				<input name="id" type="hidden" value="9999">
    				<input name="locator" type="hidden" value="AAA000">
-   				<input name="status_minor" type="hidden" value="(not used)">
+   				<input name="status_filter" type="hidden" value="">
    				<input name="calendarevent_id" type="hidden" value="9999">
 				<table id="booking" class="table">
 					<tr class="booking_date_input">
@@ -303,12 +303,13 @@
 							Estado:
 						</td>
 						<td class="value">
-							<select name="status_major">
+							<select name="status">
 								<option value="PAID">PAGADA</option>
 								<option value="DEPOSIT">DEPÓSITO</option>
 								<option value="CONFIRMED">CONFIRMADA</option>
 								<option value="GUARANTEE">GARANTÍA</option>
 								<option value="PENDING">PENDIENTE PAGO</option>
+								<option value="CANCELLED">CANCELADA</option>
 							</select>
 						</td>
 					</tr>

@@ -15,7 +15,8 @@
           <ul>
               <li><a href="#step1" class="step" data-dismiss="modal">Change Class Date or Type</a></li>
               <li><a href="#step2" class="step" data-dismiss="modal">Change Contact Details or Comments</a></li>
-              <li><a href="#step4" class="step" data-dismiss="modal">Cancel Booking</a></li>  
+              <li><a id="booking_cancel" data-dismiss="modal">Cancel Booking</a></li>  
+              <div class="hidden" id="booking_cancel_confirm"></div>  
           </ul>     
           </div>    
           <div class="modal-footer">             
@@ -94,7 +95,7 @@
 </div>
 
 
-<!-- Generic modal -->
+<!-- Generic modal  -->
 
 <div class="modal fade" id="modal_booking" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog">    
@@ -102,15 +103,17 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"><div id="modal_booking_title"></div></h4>
+          <h4 class="modal-title modal_booking_title"></h4>
         </div>
-        <div class="modal-body" id="modal_booking_body"></div>
+        <div class="modal-body modal_booking_body"></div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-default btn-cancel hidden" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">OK</button>
             </form>
        </div>
       </div>
   </div>
 </div>
+
 

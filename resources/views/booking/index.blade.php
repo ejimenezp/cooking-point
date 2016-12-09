@@ -18,13 +18,13 @@
 				<form id="booking_form_1">
 				<input type="hidden" name="source_id" value="1">
 				@if (isset($bkg))
-					<input type="hidden" name="status_major" value="{{ $bkg->status_major }}">
+					<input type="hidden" name="status" value="{{ $bkg->status }}">
 					<input type="hidden" name="locator" value="{{ $bkg->locator }}">
 				@else
-					<input type="hidden" name="status_major" value="PENDING">
+					<input type="hidden" name="status" value="PENDING">
 					<input type="hidden" name="locator" value="">
 				@endif				
-				<input type="hidden" name="status_minor" value="">
+				<input type="hidden" name="status_filter" value="">
 				<input type="hidden" name="pay_method" value="N/A">
 				<input type="hidden" name="calendarevent_id" value="">
 				<input type="hidden" name="id" value="">
@@ -100,7 +100,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="text-center">
-						@if (isset($bkg) && $bkg->status_major != 'PENDING') 
+						@if (isset($bkg) && $bkg->status != 'PENDING') 
 							<a id="button_booking_help" class="btn btn-link">Help</a>
 							<a href="#step4" class="step cancel btn btn-default">Cancel</a>
 							<a href="#step4" class="update_class btn btn-primary">Update Booking</a>
@@ -249,7 +249,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="text-center">
-						@if (isset($bkg) && $bkg->status_major != 'PENDING')
+						@if (isset($bkg) && $bkg->status != 'PENDING')
 							<a href="#step4" class="step cancel btn btn-default" >Cancel</a>
 							<a href="#step4" class="step update_contact btn btn-primary">Update Booking</a>
 						@else
@@ -440,11 +440,12 @@
 	</div>
 </div>
 
+@stop
+
 @section('modals')
 	@include('booking.modals')
 @stop
 
 @section('js')
 	<script async src="/js/booking.js"></script>
-@stop
 @stop
