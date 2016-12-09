@@ -26,7 +26,7 @@ class TPVController extends Controller
 			return view('errors.wrongLocator');	 		
 		} else {
 			Cookie::queue(Cookie::forever('cplocator', $bkg->locator));
-			if ($bkg->status_major != 'PENDING') {
+			if ($bkg->status != 'PENDING') {
 			return view('booking.index')->with('page', 'booking');
 			} else {
 				Log::info("llamamos a tpv.pay ");
@@ -74,15 +74,15 @@ class TPVController extends Controller
 
         $bkg = $bookingcontroller->findBy($Ds_MerchantData);
         if ($Ds_Response < 100) {
-            $bkg->status_major = 'PAID';
+            $bkg->status = 'PAID';
             $bkg->payment_date = $timestamp->format('Y-m-d H:i:s');
         } else {
-            $bkg->status_major = 'PENDING';
+            $bkg->status = 'PENDING';
         }
         $bkg->save();
 
-		MailController::send_email($bkg->email, $bkg, 'voucher');
-		MailController::send_email('eduardo@cookingpoint.es', $bkg, 'admin_notice_PA');
+		MailController::send_email($bkg->email, $bkg, 'user_voucher');
+		MailController::send_email('eduardo@cookingpoint.es', $bkg, 'admin_new_booking');
 
     	return view('tpv.callback');
     }

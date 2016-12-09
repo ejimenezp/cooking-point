@@ -88,13 +88,13 @@ class MailController {
 
 	static function send_mail($to, $bkg, $mail_template) {
 		
-		$html_body = self::set_booking_data($bkg, $mail_template . ".html");
-		$txt_body = self::set_booking_data($bkg, $mail_template . ".txt");
+		$html_body = self::set_booking_data($bkg, $mail_template . "/body.html");
+		$txt_body = self::set_booking_data($bkg, $mail_template . "/body.txt");
 		
 		// building mime message
-		$envelope["from"]= Storage::get('templates/' . $mail_template . ".from.txt");;
+		$envelope["from"]= self::set_booking_data($bkg, $mail_template . "/from.txt");;
 		$envelope["to"]  = $to;
-		$envelope["subject"]  = self::set_booking_data($bkg, $mail_template . ".subject.txt");
+		$envelope["subject"]  = self::set_booking_data($bkg, $mail_template . "/subject.txt");
 		
 		$part1["type"] = TYPEMULTIPART;
 		$part1["subtype"] = "alternative";
@@ -157,7 +157,7 @@ class MailController {
 		
 		$arr = explode(' ',trim($bkg->name));
 		
-		switch ($bkg->status_major) {
+		switch ($bkg->status) {
 			case 'PENDING':
 				$status = "Payment Required";
 				break;
@@ -174,7 +174,6 @@ class MailController {
 		// build html from template
 		$html = Storage::get('templates/' . $filename);
 		
-		// $html = str_replace('CP_EMAILTEXT', nl2br(stripslashes($r['emailText'])), $html); // only for PE
 		$html = str_replace('CP_HASH', $bkg->hash, $html);
 		$html = str_replace('CP_NAME', stripslashes($bkg->name), $html);
 		$html = str_replace('CP_FIRSTNAME', stripslashes($arr[0]), $html);

@@ -1,0 +1,21 @@
+Dear CP_FIRSTNAME,
+
+We have received your request to cancel your booking detailed below.
+
+Class: CP_CLASS
+Date: CP_DATE
+Adults: CP_ADULT
+Children: CP_CHILD
+Price: €CP_PRICE
+
+We'll immediately ask our bank to refund the amoung on your credit card. However, you should allow them a few days until that is done.
+
+Should you have any questions, please let us know.
+
+Thank you,
+cooking point team
+---
+Cooking Point
+(+34) 910 115 154
+cookingpoint.es
+

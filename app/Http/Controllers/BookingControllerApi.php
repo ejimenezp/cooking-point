@@ -37,4 +37,9 @@ class BookingControllerApi extends BookingController
     {
         return response()->json(parent::email(parent::findBy($request->locator)));
     }
+
+    function cancelIt(Request $request)
+    {
+        return response()->json(parent::cancel(parent::findBy($request->locator)));
+    }
 }
