@@ -825,9 +825,10 @@ jQuery(document).ready(function($) {
 			    	var error_msg
 			    	var modal_title
 			    	if (msg.status == 'ok'){
-			    		modal_title = 'Éxito'
-			    		error_msg = 'Operación realizada con éxito'
 				    	date_shown =  moment($('input[name=date]').val())
+				    	month_schedule = getMonthSchedule(date_shown)
+				    	refreshDateShown(month_schedule, date_shown)
+				    	$("#modal_button_calendarevent_ok").click()
 			    	} else {
 						modal_title = 'Error'
 						if (ce_id == 0 || typeof ce_id === "undefined") {
@@ -835,15 +836,14 @@ jQuery(document).ready(function($) {
 						} else {
 							error_msg = 'Este evento ya no existe'
 						}
+				    	month_schedule = getMonthSchedule(date_shown)
+				    	refreshDateShown(month_schedule, date_shown)
+			    		$('#modal_calendarevent_title').html(modal_title)
+			    		$('#modal_calendarevent_body').html(error_msg)
+				        $('#modal_calendarevent').modal('show')			    			    		
 					}	
-			    	month_schedule = getMonthSchedule(date_shown)
-			    	refreshDateShown(month_schedule, date_shown)
-		    		$('#modal_calendarevent_title').html(modal_title)
-		    		$('#modal_calendarevent_body').html(error_msg)
-			        $('#modal_calendarevent').modal('show')			    			    		
 			    	$('.loading').hide();
-			    	}
-
+			    }
 			})
 	    }
 	})
