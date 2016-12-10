@@ -35,7 +35,7 @@ class TableStaff extends Migration
 
         DB::table('staff')->insert(
             array(
-                'name' => '(no asignado)',
+                'name' => 'no asignado',
                 'auth_name' => 'eduardo-no-usar',
                 'role' => 'cook',
                 'auth_role' => 0,
@@ -57,7 +57,7 @@ class TableStaff extends Migration
                 'auth_name' => 'laura',
                 'role' => 'cook',
                 'auth_role' => 2,
-                'auth_password' => '1001',
+                'auth_password' => '1905',
                 'active' => true));
 
         DB::table('staff')->insert(
@@ -66,7 +66,7 @@ class TableStaff extends Migration
                 'auth_name' => 'ligia',
                 'role' => 'cook',
                 'auth_role' => 2,
-                'auth_password' => '1001',
+                'auth_password' => '2222',
                 'active' => true));
 
         DB::table('staff')->insert(
@@ -84,7 +84,7 @@ class TableStaff extends Migration
                 'auth_name' => 'paulina',
                 'role' => 'staff',
                 'auth_role' => 1,
-                'auth_password' => '1001',
+                'auth_password' => '2123',
                 'active' => true));
 
         DB::table('staff')->insert(
@@ -93,7 +93,7 @@ class TableStaff extends Migration
                 'auth_name' => 'dalia',
                 'role' => 'staff',
                 'auth_role' => 1,
-                'auth_password' => '1001',
+                'auth_password' => '2123',
                 'active' => true));
     }
 
