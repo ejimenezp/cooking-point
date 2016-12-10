@@ -960,16 +960,11 @@ jQuery(document).ready(function($) {
 			    success: function(msg){
 			    	var error_msg
 			    	var modal_title
+			    	var show_modal = false
 			    	if (msg.status == 'ok'){
-			    		modal_title = 'Éxito'
-			    		error_msg = 'Operación realizada con éxito'
 			    	} else {
 						modal_title = 'Error'
-						// if (ce_id == 0 || typeof ce_id === "undefined") {
-						// 	error_msg = 'Este evento ya existe'
-						// } else {
-						// 	error_msg = 'Este evento ya no existe'
-						// }
+						show_modal = true
 					}
 					var date_shown = moment($('input[name=date]').val()) 
 				    month_schedule = getMonthSchedule(date_shown)
@@ -984,9 +979,13 @@ jQuery(document).ready(function($) {
 					$("#admindatepicker").datepicker("setDate", month_schedule[i].date)
 					updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i)
 				    populateBookingList(i)
-			    	$('#modal_booking_title').html(modal_title)
-			    	$('#modal_booking_body').html(error_msg)
-				    $('#modal_booking').modal('show')
+				    if (show_modal) {
+				    	$('#modal_booking_title').html(modal_title)
+				    	$('#modal_booking_body').html(error_msg)
+					    $('#modal_booking').modal('show')				    	
+				    } else {
+				    	$('#modal_button_booking_ok').click()
+				    }
 				    $('.loading').hide();
 			    }			    			    					    	
 	    	})
