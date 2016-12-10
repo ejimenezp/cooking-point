@@ -75,9 +75,12 @@ class TPVController extends Controller
         $bkg = $bookingcontroller->findBy($Ds_MerchantData);
         if ($Ds_Response < 100) {
             $bkg->status = 'PAID';
+            $bkg->status_filter = 'REGISTERED';
+            $bkg->pay_method = 'ONLINE';
             $bkg->payment_date = $timestamp->format('Y-m-d H:i:s');
         } else {
             $bkg->status = 'PENDING';
+            $bkg->status_filter = 'DO_NOT_COUNT';
         }
         $bkg->save();
 
