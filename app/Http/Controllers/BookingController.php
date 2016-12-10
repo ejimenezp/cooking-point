@@ -76,9 +76,7 @@ class BookingController extends Controller
     function index($ce_id)
     {
     	return Booking::where('calendarevent_id', $ce_id)
-	    				->orderBy('adult', 'DESC')
-	    				->orderBy('child', 'DESC')
-	    				->orderBy('name', 'ASC')
+	    				->orderBy('created_at', 'ASC')
 	    				->get();
     }
 
