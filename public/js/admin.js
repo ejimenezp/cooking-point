@@ -20795,8 +20795,8 @@ function bookingEditShow(i, j) {
 		$("input[name=id]").val(0); // new booking
 		$("input[name=calendarevent_id]").val(month_schedule[i].id);
 		$("select[name=source_id]").val('2'); // user
-		$("select[name=status_major]").val('GUARANTEE');
-		$("input[name=status_minor]").val('');
+		$("select[name=status]").val('GUARANTEE');
+		$("input[name=status_filter]").val('REGISTERED');
 		$("input[name=name]").val('');
 		$("input[name=email]").val('');
 		$("input[name=phone]").val('');
@@ -20824,8 +20824,8 @@ function bookingEditShow(i, j) {
 		$("input[name=id]").val(bookings[j].id);
 		$("input[name=calendarevent_id]").val(bookings[j].calendarevent_id);
 		$("select[name=source_id]").val(bookings[j].source_id);
-		$("select[name=status_major]").val(bookings[j].status_major);
-		$("input[name=status_minor]").val(bookings[j].status_minor);
+		$("select[name=status]").val(bookings[j].status);
+		$("input[name=status_filter]").val(bookings[j].status_filter);
 		$("input[name=name]").val(bookings[j].name);
 		$("input[name=email]").val(bookings[j].email);
 		$("input[name=phone]").val(bookings[j].phone);
@@ -20979,13 +20979,13 @@ function populateBookingList(i) {
 
 	$("#booking_table").data('i', i);
 
-	var clase = month_schedule[i].time.substring(0, 5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type + '<span class="pull-right">Confirmados: ' + month_schedule[i].registered + '</span>';
+	var clase = month_schedule[i].time.substring(0, 5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type + ' (' + cookName(month_schedule[i].staff_id) + ') ' + '<span class="pull-right">Confirmados: ' + month_schedule[i].registered + '</span>';
 	$('.classshown').html(clase);
 	// 
 	$("#booking_table > tbody").empty();
 
 	for (var j = 0; j < bookings.length; j++) {
-		$('#booking_table > tbody:last').append('<tr onclick=""><td class="booking_line" data-j="' + j + '">' + bookings[j].adult + (bookings[j].child > 0 ? ' + ' + bookings[j].child : '') + '<td class="booking_line" data-j="' + j + '">' + bookings[j].name + '<td class="booking_line" data-j="' + j + '">' + bookings[j].status_major + '<td class="booking_line" data-j="' + j + '">' + bookings[j].food_requirements.substring(0, 20) + '<td class="booking_line" data-j="' + j + '">' + bookings[j].comments.substring(0, 20) + '</td></tr>');
+		$('#booking_table > tbody:last').append('<tr onclick=""><td class="booking_line" data-j="' + j + '">' + bookings[j].adult + (bookings[j].child > 0 ? ' + ' + bookings[j].child : '') + '<td class="booking_line" data-j="' + j + '">' + bookings[j].name + '<td class="booking_line" data-j="' + j + '">' + bookings[j].status + '<td class="booking_line" data-j="' + j + '">' + bookings[j].food_requirements.substring(0, 20) + '<td class="booking_line" data-j="' + j + '">' + bookings[j].comments.substring(0, 20) + '</td></tr>');
 	}
 }
 
@@ -21146,7 +21146,7 @@ jQuery(document).ready(function ($) {
 	//
 	$('select[name=source_id]').change(function () {
 		if ($(this).val() > 2) {
-			$('select[name=status_major]').val('CONFIRMED');
+			$('select[name=status]').val('CONFIRMED');
 			$('select[name=pay_method]').val('N/A');
 			$('.price').hide();
 		}

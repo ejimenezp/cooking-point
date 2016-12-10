@@ -326,6 +326,7 @@ function populateBookingList(i) {
 	$("#booking_table").data('i', i)
 
 	var clase = month_schedule[i].time.substring(0,5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type
+	 			+ ' (' + cookName(month_schedule[i].staff_id) + ') '
 				+ '<span class="pull-right">Confirmados: ' + month_schedule[i].registered +'</span>'
 	$('.classshown').html(clase)
 	// 
