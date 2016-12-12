@@ -471,6 +471,17 @@ jQuery(document).ready(function($) {
     	}
 	})
 
+    $("#button_booking_forget").click(function() {
+	    showModalBooking(
+	        this,
+	        'Clean-up Form',
+	  		'Confirm you want to clear the booking form',
+	  		true,
+	        function() { 
+	    		window.location.href = '/booking/forget'
+			})
+	})
+
     $("#button_booking_edit").click(function() {
 		$('#modal_booking_edit').modal('show')
 	})

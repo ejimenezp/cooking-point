@@ -404,6 +404,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="text-center">
+						<a id="button_booking_forget" class="btn btn-link">New Booking</a>
 						<a id="button_booking_edit" class="btn btn-primary">Edit Booking</a>
 						<a id="button_print_voucher" class="btn btn-primary">Print Voucher</a>
 						<a id="button_email_voucher" class="btn btn-primary">E-mail Voucher</a>

@@ -24,6 +24,7 @@ Route::get('/', function () { return view('pages.home', ['page' => 'home']); });
 // Route::post('/bookings/{hash}', 'Legacy\LegacyController@cp_bookings_plugin');
 // Route::get('/bookings/{hash}/{tpvresult}', 'Legacy\LegacyController@cp_bookings_plugin');
 
+Route::get('booking/forget', 'BookingControllerOnline@forget');
 Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
 Route::get('/classes', function () { return view('pages.home', ['page' => 'home']); });
 Route::get('/classes-paella-cooking-madrid-spain', function () { return view('pages.paella'); });
@@ -36,6 +37,7 @@ Route::post('/callback', 'TPVController@callback');
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
 Route::get('/school-madrid-spain', function () { return view('pages.school'); });
 Route::get('/wine-tasting-madrid-spain', function () { return view('pages.wine'); });
+
 
 
 //
