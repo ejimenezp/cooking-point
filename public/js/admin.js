@@ -21089,6 +21089,7 @@ function validBookingForm() {
 jQuery(document).ready(function ($) {
 
 	$('.loading').show();
+	// $('.loading').hide()
 	//
 	// initial load
 	//

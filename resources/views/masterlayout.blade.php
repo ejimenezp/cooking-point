@@ -36,7 +36,12 @@
   </head>
     
   <body>
-  <div class="loading" style="display:none">Loading&#8230;</div>
+
+  <div class="loading loading-backdrop" style="display:none">
+    <div class="progress-box">
+      <div class="progress"><div>Loading…</div></div>       
+    </div>
+  </div>
 
 	<div class="container">
 
