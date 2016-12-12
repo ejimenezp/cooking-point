@@ -1,10 +1,13 @@
 @extends('tienda.masterlayout') 
  
+@section('title', 'Sales')
+@section('description', 'Cooking Point Shop Sales')
+
 @section('content')
 
 <div class="container">
 
-<h2>Today Sales</h2>
+<h2>Sales</h2>
 
 <table id="table_tickets" class="table table-hover ">
 	<thead>
@@ -12,7 +15,8 @@
 			<th>#</th>
 			<th>Date</th>
 			<th>Total</th>
-			<th>Payment</th>
+			<th>Pay</th>
+			<th>Who</th>
 			<th>Item 1</th>
 			<th>Item 2</th>
 			<th>Item 3</th>
@@ -27,6 +31,7 @@
 				<td>{{ $ticket->fecha }}</td>
 				<td>{{ $ticket->total }}</td>
 				<td>{{ $ticket->pago }}</td>
+				<td>{{ $ticket->staff->name }}</td>
 				<td>{{ $ticket->linea0 ? $ticket->desc0->nombre :"" }}</td>
 				<td>{{ $ticket->linea1 ? $ticket->desc1->nombre :"" }}</td>
 				<td>{{ $ticket->linea2 ? $ticket->desc2->nombre :"" }}</td>
@@ -44,4 +49,5 @@
 
 </div>
 @stop
+
 

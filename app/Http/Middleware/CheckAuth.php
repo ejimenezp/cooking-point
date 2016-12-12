@@ -22,7 +22,7 @@ class CheckAuth
             $user = Staff::find($user_id);
             if ($user) {
                 // Log::debug('usuario: ' . $user->name . ' role: ' . $user->auth_role);            
-                $request->merge(['user_name' => $user->name, 'user_role' => $user->auth_role]);
+                $request->merge(['user_name' => $user->name, 'user_role' => $user->auth_role, 'cpuser' => $user_id]);
                 return $next($request);
             } else {
                return redirect()->route('login', ['redir' => $request->fullUrl()]);

@@ -14,4 +14,9 @@ class Staff extends Model
     {
         return $this->hasMany('App\CalendarEvent');
     }
+
+    public function tiendaventas()
+    {
+        return $this->hasMany('App\TiendaVentas');
+    }
 }

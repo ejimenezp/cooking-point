@@ -15129,7 +15129,23 @@ $(document).ready(function () {
         }
     });
 
-    var ticket_date = $("input[name=ticket_date]").val();
+    $("#admindatepicker").datepicker({
+        dateFormat: "DD, d MM yy",
+        altFormat: "yy-mm-dd",
+        altField: "#realDate",
+        firstDay: 1, // Start with Monday
+        onClose: function onClose(date) {
+            if (ticket_pagado) {
+                alert("Este ticket ya está pagado. Limpia antes de cambiar la fecha");
+            } else {
+                $("#pretty_date").html(date);
+            }
+        }
+    });
+
+    $("#admindatepicker").datepicker("setDate", new Date());
+    var pretty_date = $("input[name=pretty_date]").val();
+    var ticket_date = $("input[name=date]").val();
 
     var ticket = {
         date: ticket_date,
@@ -15146,7 +15162,7 @@ $(document).ready(function () {
     var articles = ""; // para imprimir los articulos en el ticket
     var ticket_pagado = false;
 
-    $("#ticket_date").html(ticket_date);
+    $("#pretty_date").html(pretty_date);
 
     $(".boton-articulo").click(function () {
 
@@ -15246,20 +15262,6 @@ $(document).ready(function () {
             });
             ticket_pagado = true;
             $("#receipt").printThis();
-        }
-    });
-
-    $("#jqueryuidatepicker").datepicker({
-        dateFormat: "yy-mm-dd",
-        firstDay: 1, // Start with Monday
-        onClose: function onClose(date) {
-            if (ticket_pagado) {
-                alert("Este ticket ya está pagado. Limpia antes de cambiar la fecha");
-            } else {
-                ticket_date = date;
-                ticket.date = date;
-                $("#ticket_date").html(date);
-            }
         }
     });
 });

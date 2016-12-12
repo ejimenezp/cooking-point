@@ -6256,8 +6256,8 @@ input, select, textarea {
   padding: 8px;
   margin: 4px; }
 
-#receipt {
-  font-size: 12px; }
+#receipt, #receipt > table {
+  font-size: 14px; }
 
 #screen_table, #items_table {
   width: 90%;

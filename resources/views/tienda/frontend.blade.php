@@ -1,15 +1,10 @@
 @extends('tienda.masterlayout') 
  
+@section('title', 'Cooking Point Shop')
+@section('description', 'Cooking Point Shop Page')
+
 @section('content')
 
-	<div class="container">
-        <h2>SHOP </h2>
-        <small><form>
-            <label>
-                Date: <input style="display:inline-block;" name="ticket_date" value="{{ date('Y-m-d') }}" id="jqueryuidatepicker">
-            </label>
-        </form></small>
-    </div>
 	<div class="container">
         <div class="row">
          	<div class="col-sm-6">
@@ -53,7 +48,7 @@
                         </table>
                         
 
-                        <p style="margin-bottom:0px"><br/><strong>Ticket #: <span id="ticket_id">--</span> &nbsp Date: <span id="ticket_date"></span></strong></p>
+                        <p style="margin-bottom:0px"><br/><strong>Ticket #: <span id="ticket_id">--</span> &nbsp; Date: <span id="pretty_date"></span></strong></p>
                          
                         <table id="items_table">
                             <thead><tr><th>Product</th><th class="text-right">Price</th></tr></thead>
@@ -76,10 +71,11 @@
                         <p class="text-center">Thank You!!<br/><br/>.</p>
                     </div>
                 </div>
-
+                <form role="form" action="/tienda/tickets">
+                <input type="hidden" name="date" id="realDate">
                 <div class="btn btn-lg btn-danger boton-pagar" data-pago="cash">Pay Cash</div>
                 <div class="btn btn-lg btn-danger boton-pagar" data-pago="credit card">Pay Card</div>
-                <button type="button" class="btn btn-xs btn-secondary" onclick="location.href='/tienda/tickets';">Anular Ticket</button>
+                <button type="submit" class="btn btn-xs btn-secondary">View Sales</button>
 
     		</div>   		
         </div>

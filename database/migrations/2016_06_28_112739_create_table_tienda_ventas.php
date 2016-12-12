@@ -14,26 +14,29 @@ class CreateTableTiendaVentas extends Migration
     {
         Schema::create('tienda_ventas', function ($table) {
             $table->increments('id');
-            $table->date('fecha', 30); 
+            $table->date('fecha'); 
+            $table->integer('staff_id');
             $table->boolean('anulado'); 
-            $table->decimal('total', 4, 2);
-            $table->decimal('base10', 4, 2);
-            $table->decimal('iva10', 4, 2);
-            $table->decimal('base21', 4, 2);
-            $table->decimal('iva21', 4, 2);
-            $table->string('pago', 10); // tarjeta, efectivo
+            $table->decimal('total', 6, 2);
+            $table->decimal('base4', 6, 2);
+            $table->decimal('iva4', 6, 2);
+            $table->decimal('base10', 6, 2);
+            $table->decimal('iva10', 6, 2);
+            $table->decimal('base21', 6, 2);
+            $table->decimal('iva21', 6, 2);
+            $table->string('pago'); // tarjeta, efectivo
             $table->integer('linea0');
-            $table->integer('linea1');
-            $table->integer('linea2');
-            $table->integer('linea3');
-            $table->integer('linea4');
-            $table->integer('linea5');
-            $table->integer('linea6');
-            $table->integer('linea7');
-            $table->integer('linea8');
-            $table->integer('linea9');
-            $table->date('created_at');
-            $table->date('updated_at');
+            $table->integer('linea1')->nullable();
+            $table->integer('linea2')->nullable();
+            $table->integer('linea3')->nullable();
+            $table->integer('linea4')->nullable();
+            $table->integer('linea5')->nullable();
+            $table->integer('linea6')->nullable();
+            $table->integer('linea7')->nullable();
+            $table->integer('linea8')->nullable();
+            $table->integer('linea9')->nullable();
+            $table->date('created_at'); 
+            $table->date('updated_at'); 
         });
     }
 
