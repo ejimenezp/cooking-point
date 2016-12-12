@@ -27,4 +27,8 @@ class TiendaVentas extends Model
         return $this->hasOne('App\TiendaArticulo', 'id', 'linea3');
     }
 
+    public function staff()
+    {
+        return $this->belongsTo('App\Staff');
+    }
 }

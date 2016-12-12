@@ -18,9 +18,9 @@ class TicketsController extends Controller
     	return view('tienda.frontend')->with('articulos', $articulos);
     }
 
-    public function index ()
+    public function index (Request $request)
     {
-    	$today = TiendaVentas::where('created_at', date('Y-m-d'))->where('anulado', false)->get();
+    	$today = TiendaVentas::where('fecha', $request->date)->where('anulado', false)->get();
     	return view('tienda.index')->with('tickets', $today);
     }
 
@@ -37,6 +37,7 @@ class TicketsController extends Controller
 
     	$h->fecha = $request->date;
     	$h->total = $request->total;
+        $h->staff_id = $request->cpuser;
 	    $h->base4 = $request->base4;
 	    $h->iva4 = $request->iva4;
         $h->base10 = $request->base10;

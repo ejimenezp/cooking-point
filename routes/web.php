@@ -19,10 +19,6 @@
 // FRONT-END
 //
 Route::get('/', function () { return view('pages.home', ['page' => 'home']); });
-// Route::get('/bookings', 'Legacy\LegacyController@cp_bookings_plugin');
-// Route::get('/bookings/{hash}', 'Legacy\LegacyController@cp_bookings_plugin');
-// Route::post('/bookings/{hash}', 'Legacy\LegacyController@cp_bookings_plugin');
-// Route::get('/bookings/{hash}/{tpvresult}', 'Legacy\LegacyController@cp_bookings_plugin');
 
 Route::get('booking/forget', 'BookingControllerOnline@forget');
 Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
@@ -40,22 +36,12 @@ Route::get('/wine-tasting-madrid-spain', function () { return view('pages.wine')
 
 
 
-//
-// TIENDA
-//
-Route::get('tienda', 'TicketsController@front');
-Route::get('tienda/tickets', 'TicketsController@index');
-Route::post('tienda/addticket', 'TicketsController@addticket');
-Route::get('tienda/deleteticket/{id}', 'TicketsController@deleteticket');
 
 
 //
 // ONLINE ADMIN
 //
-// Route::get('/admin', function () { return view('admin.main'); });
-// Route::get('/admin/calendarevent', function () { return view('admin.calendarevent.index'); })
-// 		->middleware('cp-auth')
-// 		;
+
 Route::get('/admin/login', 'AuthController@login')->name('login');
 Route::post('/admin/checklogin', 'AuthController@checklogin');
 Route::get('/admin/logout', 'AuthController@logout');
@@ -66,6 +52,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('booking', function() { return view('admin.index'); });
 });
 
+
+//
+// TIENDA
+//
+Route::group(['prefix' => 'tienda', 'middleware' => 'cp-auth'], function () {
+	Route::get('', 'TicketsController@front');
+	Route::get('tickets', 'TicketsController@index');
+	Route::post('addticket', 'TicketsController@addticket');
+	Route::get('deleteticket/{id}', 'TicketsController@deleteticket');
+});
 
 
 /*

@@ -95,6 +95,15 @@ class TableStaff extends Migration
                 'auth_role' => 1,
                 'auth_password' => '2123',
                 'active' => true));
+
+        DB::table('staff')->insert(
+            array(
+                'name' => 'Pruebas',
+                'auth_name' => 'pruebas',
+                'role' => 'staff',
+                'auth_role' => 1,
+                'auth_password' => '0000',
+                'active' => true));
     }
 
     /**
