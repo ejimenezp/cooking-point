@@ -440,6 +440,7 @@ jQuery(document).ready(function($) {
 
 
 	$('.loading').show()
+	// $('.loading').hide()
 	//
 	// initial load
 	//
@@ -805,7 +806,7 @@ jQuery(document).ready(function($) {
 	$("#button_calendarevent_save, #modal_button_calendarevent_save").click(function() {
 		var ce_id = $('input[name=id]').val()
 		var url
-		$('.loading').show();
+		$('.loading').show()
 		if (form_changed || ce_id == 0 || typeof ce_id === "undefined") {  // form changed or new event
 
 			$('#modal_calendarevent_close').modal('hide')
@@ -842,7 +843,7 @@ jQuery(document).ready(function($) {
 			    		$('#modal_calendarevent_body').html(error_msg)
 				        $('#modal_calendarevent').modal('show')			    			    		
 					}	
-			    	$('.loading').hide();
+			    	$('.loading').hide()
 			    }
 			})
 	    }
@@ -859,7 +860,7 @@ jQuery(document).ready(function($) {
 	$("#modal_button_calendarevent_delete").click(function() {
 
 		$('#modal_calendarevent_delete').modal('hide')
-		$('.loading').show();
+		$('.loading').show()
 		var ce_id = $('input[name=id]').val()
 		if (ce_id != 0) {
 			$.ajax({
@@ -877,8 +878,8 @@ jQuery(document).ready(function($) {
 				    month_schedule = getMonthSchedule(date_shown)
 				    refreshDateShown(month_schedule, date_shown)
 				    $('#modal_calendarevent').modal('show')
-			    	$('.loading').hide();
-				     }
+			    	$('.loading').hide()
+				}
 			})
 		}
 	})
