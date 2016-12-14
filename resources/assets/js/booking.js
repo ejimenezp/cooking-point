@@ -407,7 +407,6 @@ jQuery(document).ready(function($) {
 		$('.update_class').removeClass('hidden')
 
 	    if (!getDayAvailability(date_shown.toDate())[0]) {
-	    	console.log(date_shown.toDate())
     		$('.modal_booking_title').html('Class Not Available')
 			$('.modal_booking_body').html('Please, Select a Date with Availability')
     		$("#modal_booking").modal('show')
@@ -483,14 +482,23 @@ jQuery(document).ready(function($) {
 	})
 
     $("#button_booking_edit").click(function() {
-		$('#modal_booking_edit').modal('show')
+    	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
+		if (start.isSameOrBefore(right_now)) {
+    		$('.modal_booking_title').html("Past Class")
+			$('.modal_booking_body').html('This class has already taken place, no edition is allowed.')
+    		$("#modal_booking").modal('show')	
+	    } else if (start.subtract(11, 'hours').isSameOrBefore(right_now)) {
+    		$('.modal_booking_title').html("Edition not allowed")
+			$('.modal_booking_body').html('Class is too close to start, so no edition allowed.<br/><br/>Please contact us by phone should you have any question.')
+    		$("#modal_booking").modal('show')
+		} else {
+			$('#modal_booking_edit').modal('show')
+		}		
 	})
 
     $('#booking_cancel').click(function() {
-    	var start
     	var bkg = retrieveBooking(locator)
-    	start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
-    	// console.log(start)
+    	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
 		if (start.subtract(48, 'hours').isSameOrBefore(right_now)) {
     		$('.modal_booking_title').html("Cancellation Late Notice")
 			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us to should you have any questions.')
