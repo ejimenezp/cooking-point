@@ -7,9 +7,9 @@ COOKING POINT VOUCHER:
 - Class: CP_CLASS
 - Date: CP_DATE
 - Time: CP_TIME
-- Booking #: CP_LOCATOR
 - Adults: CP_ADULT
 - Children: CP_CHILD
+- Booking #: CP_LOCATOR
 - Price: €CP_PRICE
 - Status: CP_STATUS
 
