@@ -638,6 +638,8 @@ jQuery(document).ready(function($) {
 
 	});	
 
+	$('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
+
 	// 
 	// calendar event buttons
 	// we use .on() for dynamically created elements

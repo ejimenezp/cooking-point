@@ -290,41 +290,46 @@ input, select, textarea {
   }
 }
 
-.ui-datepicker {
-  background-color: white;
-  padding: 1%;
-  border: 1px solid #ddd;
-  z-index: 100;
-  margin: auto;
-  margin-bottom: 5%;
-  
-  table {
-    font-size: inherit;
-  }
-  .ui-datepicker-current-day {
-    background-color: $navbar-default-link-hover-bg;
-  }
+.admin-eventdatepicker {
 
-  .ui-state-disabled {
-    color: #959595;
-  }
+  .ui-datepicker {
+    background-color: white;
+    padding: 1%;
+    border: 1px solid #ddd;
+    z-index: 100;
+    margin: auto;
+    margin-bottom: 5%;
+    
+    table {
+      font-size: inherit;
+    }
 
-  .ui-state-hover { 
-    background-color: $navbar-default-link-hover-bg; 
-  }
-  
-  .ui-icon {
-    all: unset;
-  }
+  /*  .ui-datepicker-current-day {
+      background-color: $navbar-default-link-hover-bg;
+    }
+  */
+    .ui-state-disabled {
+      color: #959595;
+    }
 
-  .ui-datepicker-prev span, .ui-datepicker-next span {
-    left: unset;
-    margin-left: unset;
-    heigth: unset;
-    top: unset;
-    margin-top: 4px;
+  /*  .ui-state-hover { 
+      background-color: $navbar-default-link-hover-bg; 
+    }
+  */  
+    .ui-icon {
+      all: unset;
+    }
+
+    .ui-datepicker-prev span, .ui-datepicker-next span {
+      left: unset;
+      margin-left: unset;
+      heigth: unset;
+      top: unset;
+      margin-top: 4px;
+    }
   }
 }
+
 
 @media only screen and (max-width: 400px) {
   .ui-datepicker {
