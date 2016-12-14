@@ -30,7 +30,7 @@
 				<input type="hidden" name="id" value="">
 				<input type="hidden" name="price" value="70">
 				<input type="hidden" name="iva" value="">
-				<input type="hidden" name="crm" value="">
+				<input type="hidden" name="crm" value="YES">
 				<table class="availability-table">
 
 					<tr>
