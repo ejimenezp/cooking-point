@@ -1,1 +1,30 @@
-Class Reminder
+Dear CP_FIRSTNAME,
+
+This is kind reminder of your cooking class with us, which will take place in short. If you are still planning to come, please proceed with the payment as soon as possible. Otherwise, we will understand you are no longer interested and cancel your booking.
+
+Should you have any problem with the payment or in the case you intend to change any details of your booking, please reply to this email.
+
+BOOKING DETAILS:
+
+Name: CP_NAME
+Email: CP_EMAIL
+Phone: CP_PHONE
+Activity: CP_ACTIVITY
+Date: CP_ACTDATE
+Adults: CP_NUMADULTS
+Children: CP_NUMCHILDREN
+Price: €CP_PRICE
+Food Restrictions:
+CP_FOODRESTRICTIONS
+Comments:
+CP_COMMENTS
+
+Status: CP_STATUS
+
+Please, go to APP_URL/pay/CP_HASH to proceed with the payment
+ 
+Cancellation policy: Full refund until 48 hours before the event.
+
+Cooking Point
+(+34) 910 115 154
+cookingpoint.es

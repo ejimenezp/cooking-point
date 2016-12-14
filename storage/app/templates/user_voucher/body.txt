@@ -1,13 +1,13 @@
 Dear CP_FIRSTNAME,
 
-Your booking is confirmed. We are looking forward to meeting you. Find details and directions below.
+Your booking is confirmed. We are looking forward to meeting you. You will find details and directions for the selected class below.
 
 COOKING POINT VOUCHER:
 
 - Class: CP_CLASS
 - Date: CP_DATE
 - Time: CP_TIME
-- Locator: CP_LOCATOR
+- Booking #: CP_LOCATOR
 - Adults: CP_ADULT
 - Children: CP_CHILD
 - Price: €CP_PRICE

@@ -8,7 +8,7 @@ Adults: CP_ADULT
 Children: CP_CHILD
 Price: €CP_PRICE
 
-We'll immediately ask our bank to refund the amoung on your credit card. However, you should allow them a few days until that is done.
+We will immediately request our bank to refund the total amount of your booking on your credit card. Please notice it will take a few days to receive it into your bank account. Thank you for your patience.
 
 Should you have any questions, please let us know.
 
