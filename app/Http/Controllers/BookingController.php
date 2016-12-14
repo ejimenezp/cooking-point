@@ -45,13 +45,17 @@ class BookingController extends Controller
     	$bkg->food_requirements = $request->food_requirements;
     	$bkg->comments = $request->comments;
         $bkg->payment_date = $request->payment_date;
-        $bkg->crm = (isset($request->hash) ? $request->crm : 'YES');
+        $bkg->crm = $request->crm;
 
     	$source = Source::find($request->source_id);
     	$bkg->iva = $source->priceplan->iva;
     	$bkg->price = $source->priceplan->adult * $request->adult + $source->priceplan->child * $request->child;
         // backwards compatibility
-        $bkg->hash = (isset($request->hash) ? $request->hash : '');
+        if ($bkg->source_id == 1) {
+            $bkg->hash = $request->hash;
+            $bkg->price = $request->price;
+            $bkg->created_at = $request->created_at;
+        }
     	$bkg->save();
     	return ['status' => 'ok', 'data' => $bkg];
 

@@ -32,7 +32,7 @@ class TableBookings extends Migration
         $table->text('comments');
         $table->string('crm');
         $table->datetime('payment_date')->nullable();
-        $table->string('hash');
+        $table->string('hash')->nullable();
         $table->timestamps();
         });
 

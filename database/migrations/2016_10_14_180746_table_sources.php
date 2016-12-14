@@ -18,6 +18,11 @@ class TableSources extends Migration
 
         DB::table('sources')->insert(
             array(
+                'type' => 'Z LEGACY',
+                'name' => '(no usar)',
+                'priceplan_id' => 1));
+        DB::table('sources')->insert(
+            array(
                 'type' => 'ONLINE',
                 'name' => 'cookingpoint.es',
                 'priceplan_id' => 1));

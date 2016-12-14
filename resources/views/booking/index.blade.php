@@ -16,7 +16,7 @@
 			</div>
 			<div class="col-sm-6">
 				<form id="booking_form_1">
-				<input type="hidden" name="source_id" value="1">
+				<input type="hidden" name="source_id" value="2">
 				@if (isset($bkg))
 					<input type="hidden" name="status" value="{{ $bkg->status }}">
 					<input type="hidden" name="locator" value="{{ $bkg->locator }}">

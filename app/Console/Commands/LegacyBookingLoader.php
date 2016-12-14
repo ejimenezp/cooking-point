@@ -71,17 +71,40 @@ class LegacyBookingLoader extends Command
             $request->phone = $booking['phone'];
             $request->calendarevent_id = $ce->id;
             $request->source_id = 1;
-            $request->status = ($booking['status'] == 'PA' ? 'PAID' : 'PENDING');
+            switch ($booking['status']) {
+                case 'PA':
+                    $request->status = 'PAID';
+                    $request->pay_method = 'ONLINE';
+                    break;                
+                case 'PE':
+                default:
+                    $request->status = 'PENDING';
+                    $request->pay_method = 'N/A';
+            }
             $request->adult = $booking['numAdults'];
             $request->child = $booking['numChildren'];
-            $request->pay_method = 'ONLINE';
+            $request->price = $booking['price'];
             $request->food_requirements = $booking['foodRestrictions'];
             $request->comments = $booking['comments'];
+            $request->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $booking['creationDate']);
             if ($booking['paymentDate']) {
                 $request->payment_date = Carbon::createFromFormat('Y-m-d H:i:s', $booking['paymentDate']);
             }
             $request->hash = $booking['hash'];
-            $request->crm = 'YES';
+            switch($booking['crm']) {
+
+                case 'RE':
+                    $request->crm = 'REMINDED';
+                    break;
+                case 'NO':
+                    $request->crm = 'NO';
+                    break;
+                case '':
+                default:
+                    $request->crm = 'YES';
+                    break;
+            }
+
             if ($controller->add($request)['status'] != 'ok') {
                 echo 'Failed adding booking (' . $booking['activityDate'] . ' ' . $booking['name'] .")\n";
             }

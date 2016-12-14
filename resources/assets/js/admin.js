@@ -139,7 +139,7 @@ function bookingEditShow(i, j) {
 
 		$("input[name=id]").val(0)  // new booking
 		$("input[name=calendarevent_id]").val(month_schedule[i].id)
-		$("select[name=source_id]").val('2')  // user
+		$("select[name=source_id]").val('3')  // user
 		$("select[name=status]").val('GUARANTEE')
 		$("input[name=status_filter]").val('REGISTERED')
 		$("input[name=name]").val('')
