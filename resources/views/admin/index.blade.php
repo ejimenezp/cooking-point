@@ -72,6 +72,7 @@
 							</select>				
 						</td>
 					</tr>
+					<tr>
 						<td class="">
 							Cocinero/a:
 						</td>
@@ -206,34 +207,6 @@
    				<input name="status_filter" type="hidden" value="">
    				<input name="calendarevent_id" type="hidden" value="9999">
 				<table id="booking" class="table">
-					<tr class="booking_date_input">
-						<td class="">
-							Fecha:
-						</td>
-						<td class="value">
-							<input type="text" id="booking_date_edit">
-							<input type="hidden" name="date" id="bookingNewDate" >
-
-						</td>
-					</tr>
-					<tr class="booking_date_input">
-						<td class="">
-							Evento:
-						</td>
-						<td class="value">
-							<select id="dayeventlist" name="type">
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td class="">
-							Origen:
-						</td>
-						<td class="value">
-							<select id="sourcelist" name="source_id">
-							</select>
-						</td>
-					</tr>
 					<tr>
 						<td class="">
 							Nombre:
@@ -242,12 +215,19 @@
 							<input name="name" type="text" value="" >
 						</td>
 					</tr>
-					<tr>
+					<tr>					
 						<td class="">
-							Email:
+							Estado:
 						</td>
 						<td class="value">
-							<input name="email" type="text" value="" >
+							<select name="status">
+								<option value="PAID">PAGADA</option>
+								<option value="DEPOSIT">DEPÓSITO</option>
+								<option value="CONFIRMED">CONFIRMADA</option>
+								<option value="GUARANTEE">GARANTÍA</option>
+								<option value="PENDING">PENDIENTE PAGO</option>
+								<option value="CANCELLED">CANCELADA</option>
+							</select>
 						</td>
 					</tr>
 					<tr>
@@ -256,6 +236,14 @@
 						</td>
 						<td class="value">
 							<input name="phone" type="text" value="" >
+						</td>
+					</tr>
+					<tr>
+						<td class="">
+							Email:
+						</td>
+						<td class="value">
+							<input name="email" type="text" value="" >
 						</td>
 					</tr>
 					<tr>					
@@ -280,53 +268,7 @@
 								@for ($i = 0; $i <= 24; $i++)
 								<option value="{{ $i }}">{{ $i }}</option>
 								@endfor
-							</select>						</td>
-					</tr>
-					<tr class="price">
-						<td class="">
-							Precio:
-						</td>
-						<td>
-							<input type="text" name="price" >
-						</td>
-					</tr>
-					<tr class="price">
-						<td class="">
-							IVA:
-						</td>
-						<td class="value">
-							<input type="checkbox" name="iva" value="">
-						</td>
-					</tr>
-					<tr>					
-						<td class="">
-							Estado:
-						</td>
-						<td class="value">
-							<select name="status">
-								<option value="PAID">PAGADA</option>
-								<option value="DEPOSIT">DEPÓSITO</option>
-								<option value="CONFIRMED">CONFIRMADA</option>
-								<option value="GUARANTEE">GARANTÍA</option>
-								<option value="PENDING">PENDIENTE PAGO</option>
-								<option value="CANCELLED">CANCELADA</option>
 							</select>
-						</td>
-					</tr>
-
-					<tr>
-						<td class="">
-							Forma de pago:
-						</td>
-						<td class="value">
-							<select name="pay_method">
-								<option value="ONLINE">ONLINE</option>
-								<option value="CARD">TARJETA</option>
-								<option value="CASH">EFECTIVO</option>
-								<option value="TRANSFER">TRANSFERENCIA</option>
-								<option value="PAYPAL">PAYPAL</option>
-								<option value="N/A">(no aplica)</option>
-							</select>				
 						</td>
 					</tr>
 					<tr>
@@ -347,6 +289,14 @@
 					</tr>
 					<tr>
 						<td class="">
+							Referencia:
+						</td>
+						<td class="value">
+							<input name="locator" type="text" value="" >
+						</td>
+					</tr>
+					<tr>
+						<td class="">
 							Seguimiento:
 						</td>
 						<td class="value">
@@ -357,6 +307,65 @@
 								<option value="REVIEW_ASKED">REVIEW SOLICITADA</option>
 								<option value="CLICKED_THROUGH">POSIBLE REVIEW</option>
 							</select>				
+						</td>
+					</tr>
+					<tr>
+						<td class="">
+							Fuente:
+						</td>
+						<td class="value">
+							<select id="sourcelist" name="source_id">
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="">
+							Forma de pago:
+						</td>
+						<td class="value">
+							<select name="pay_method">
+								<option value="ONLINE">ONLINE</option>
+								<option value="CARD">TARJETA</option>
+								<option value="CASH">EFECTIVO</option>
+								<option value="TRANSFER">TRANSFERENCIA</option>
+								<option value="PAYPAL">PAYPAL</option>
+								<option value="N/A">(no aplica)</option>
+							</select>				
+						</td>
+					</tr>
+					<tr class="price">
+						<td class="">
+							Precio:
+						</td>
+						<td>
+							<input type="text" name="price" >
+						</td>
+					</tr>
+					<tr class="price">
+						<td class="">
+							IVA:
+						</td>
+						<td class="value">
+							<input type="checkbox" name="iva" value="">
+						</td>
+					</tr>
+					<tr class="booking_date_input">
+						<td class="">
+							Fecha:
+						</td>
+						<td class="value">
+							<input type="text" id="booking_date_edit">
+							<input type="hidden" name="date" id="bookingNewDate" >
+
+						</td>
+					</tr>
+					<tr class="booking_date_input">
+						<td class="">
+							Evento:
+						</td>
+						<td class="value">
+							<select id="dayeventlist" name="type">
+							</select>
 						</td>
 					</tr>
 				</table>

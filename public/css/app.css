@@ -6155,6 +6155,30 @@ input, select, textarea {
   .admin .ui-datepicker .ui-datepicker-next span {
     right: 0px; }
 
+.ui-datepicker {
+  background-color: white;
+  padding: 1%;
+  border: 1px solid #ddd;
+  z-index: 100;
+  margin: auto;
+  margin-bottom: 5%; }
+  .ui-datepicker table {
+    font-size: inherit; }
+  .ui-datepicker .ui-datepicker-current-day {
+    background-color: #d9d9d9; }
+  .ui-datepicker .ui-state-disabled {
+    color: #959595; }
+  .ui-datepicker .ui-state-hover {
+    background-color: #d9d9d9; }
+  .ui-datepicker .ui-icon {
+    all: unset; }
+  .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+    left: unset;
+    margin-left: unset;
+    heigth: unset;
+    top: unset;
+    margin-top: 4px; }
+
 @media only screen and (max-width: 400px) {
   .ui-datepicker {
     font-size: 16px; } }
