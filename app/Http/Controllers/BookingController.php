@@ -73,6 +73,11 @@ class BookingController extends Controller
         return Booking::where('locator', $locator)->first();
     }
 
+    function findByHash($hash)
+    {
+        return Booking::where('hash', $hash)->first();
+    }
+
     function index($ce_id)
     {
     	return Booking::where('calendarevent_id', $ce_id)

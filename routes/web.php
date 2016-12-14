@@ -20,6 +20,7 @@
 //
 Route::get('/', function () { return view('pages.home', ['page' => 'home']); });
 
+Route::get('bookings', 'BookingControllerOnline@legacyget');
 Route::get('booking/forget', 'BookingControllerOnline@forget');
 Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
 Route::get('/classes', function () { return view('pages.home', ['page' => 'home']); });
