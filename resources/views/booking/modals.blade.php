@@ -44,7 +44,7 @@
           </tr>
           <tr>
             <td class="td-last-seats">25</td>
-            <td>= Class gets almost full with your party</td>
+            <td>= Class almost complete with your party</td>
           </tr>
           <tr>
             <td class="td-disabled">25</td>
