@@ -147,11 +147,10 @@ class BookingController extends Controller
 
     function email($bkg) {
         MailController::send_mail($bkg->email, $bkg, 'user_voucher');
-        // MailController::send_mail('eduardo@cookingpoint.es', $bkg, 'admin_new_booking');
     }
 
     function cancel($bkg) {
         MailController::send_mail($bkg->email, $bkg, 'user_cancellation');
-        MailController::send_mail('eduardo@cookingpoint.es', $bkg, 'admin_cancel_request');
+        MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_cancel_request');
     }
 }
