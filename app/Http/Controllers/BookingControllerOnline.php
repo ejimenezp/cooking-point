@@ -27,6 +27,22 @@ class BookingControllerOnline extends BookingController
         }
     }
 
+
+    function legacyget(Request $request)
+    {
+        if (!$request->booking){
+            return redirect('/booking')->withCookie(Cookie::forget('cplocator'));
+        } else {
+            $bkg = self::findByHash($request->booking);
+            if (!$bkg) {    
+                return redirect('/booking')->withCookie(Cookie::forget('cplocator'));          
+            } else {
+                return redirect('/booking/'. $bkg->locator);
+            }
+        }
+    }
+
+
     function forget(Request $request)
     {
         return redirect('/booking')->withCookie(Cookie::forget('cplocator'));
