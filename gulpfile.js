@@ -26,6 +26,6 @@ elixir(mix => {
     	mix.sass('app.scss')
     	.browserify('app.js')
     	.browserify('tienda.js')
-    	.browserify('legacy/cp-scripts.js')
     	.browserify('admin.js')
+    	.browserify('booking.js')
 });
