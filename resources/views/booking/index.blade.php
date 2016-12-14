@@ -10,7 +10,7 @@
 
 		<div id="step1" class="hidden">
 			<h1>Booking: Availability</h1>
-			<p>Select date, desired class and party size to check the availability</p>
+			<p>Select the date, desired class and party size to check our availability</p>
 			<div class="col-sm-6">
 				<div class="online" id="bookingdatepicker"></div>
 			</div>
@@ -106,8 +106,8 @@
 							<a href="#step4" class="update_class btn btn-primary">Update Booking</a>
 						@else
 							<a id="button_booking_help" class="btn btn-link">Help</a>
-							<a class="booking_retrieve btn btn-primary">Use Locator</a>
-							<a href="#step2" class="update_class btn btn-primary" checkout="checkout">Check-out</a>
+							<a class="booking_retrieve btn btn-primary">Use Booking #</a>
+							<a href="#step2" class="update_class btn btn-primary" checkout="checkout">Checkout</a>
 						@endif
 					</div>
 				</div>
@@ -117,8 +117,8 @@
 		<div id="step2" class="hidden">
 			<div class="row">
 				<div class="col-sm-12">		
-					<h1>Booking: Check-out</h1>
-					<p>You are about to book the following activity:</p>
+					<h1>Booking: Checkout</h1>
+					<p>You are about to book the following class:</p>
 					<div class="col-sm-5">
 						<table class="voucher-table">
 							<tbody>
@@ -295,7 +295,7 @@
 								</tr>
 								<tr>
 									<td class="bold">
-										Locator:
+										Booking #:
 									</td>
 									<td>
 										<div class="locatorshown"></div>

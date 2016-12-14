@@ -19693,7 +19693,7 @@ jQuery(document).ready(function ($) {
 		} else {
 			if (!getDayAvailability(bkg.date)[0]) {
 				$('.modal_booking_title').html('Class Not Available Anymore');
-				$('.modal_booking_body').html('Please, Select a Date with Availability');
+				$('.modal_booking_body').html('Please, select a new date to check availability');
 				$("#modal_booking").modal('show');
 				$('#step1').removeClass('hidden');
 			} else {
@@ -19707,7 +19707,7 @@ jQuery(document).ready(function ($) {
 	switch ($("#step4").data('tpv_result')) {
 		case 'OK':
 			$('.modal_booking_title').html('Check your email');
-			$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime');
+			$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime');
 			$("#modal_booking").modal('show');
 			break;
 		case 'KO':
@@ -19755,7 +19755,7 @@ jQuery(document).ready(function ($) {
 
 		if (!getDayAvailability(date_shown.toDate())[0]) {
 			$('.modal_booking_title').html('Class Not Available');
-			$('.modal_booking_body').html('Please, Select a Date with Availability');
+			$('.modal_booking_body').html('Please, select a new date to check availability');
 			$("#modal_booking").modal('show');
 		}
 	});
@@ -19795,7 +19795,7 @@ jQuery(document).ready(function ($) {
 	$(".update_class").click(function (e) {
 		if (!getDayAvailability(date_shown.toDate())[0]) {
 			$('.modal_booking_title').html('Not Available');
-			$('.modal_booking_body').html('Please, Select a Date with Availability');
+			$('.modal_booking_body').html('Please, select a new date to check availability');
 			$("#modal_booking").modal('show');
 		} else if ($(this).attr('checkout')) {
 			$('#booking_steps > div').addClass('hidden');
@@ -19853,7 +19853,7 @@ jQuery(document).ready(function ($) {
 				data: { locator: locator },
 				dataType: 'json'
 			});
-			showModalBooking(this, 'Booking Cancellation', 'Sorry to hear it. We proceed to proceed with the refund.<br/><br/>We will email you as soon as we do it. It takes a few days to get your money back. Please, be patient.', false, function () {});
+			showModalBooking(this, 'Booking Cancellation', 'Sorry to hear you will not be able to attend the class. We will proceed to refund the total amount of your booking.<br/><br/>We will email you as soon as we have made the transfer. Please notice it will take a few days to receive it into your credit card. Thank you for your patience.', false, function () {});
 		});
 	});
 
@@ -19864,7 +19864,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	$("#button_email_voucher").click(function () {
-		showModalBooking(this, 'Send Voucher', 'We are about to send your voucher to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t see it, please check also the spam folder. You can modify your e-mail address anytime', true, function () {
+		showModalBooking(this, 'Send Voucher', 'We are about to send your voucher to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime', true, function () {
 			var response = $.ajax({
 				type: 'POST',
 				url: '/api/booking/emailIt',
