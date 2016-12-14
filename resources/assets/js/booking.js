@@ -349,8 +349,19 @@ jQuery(document).ready(function($) {
 		   	document.title =  $(".typeshown").html() + " for " + $(".nameshown").html() + " on " + $(".dateshown").html()
 		    $('select[name=adult] option:selected').siblings().attr('disabled','disabled')
 		    $('select[name=child] option:selected').siblings().attr('disabled','disabled')
+		    var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
+			if (start.isSameOrBefore(right_now)) {
+	    		$("#button_booking_edit").addClass('hidden')	
+	    	}
     	} else {
-	 	    $('#step2').removeClass('hidden')    	   		
+	 		if (!getDayAvailability(bkg.date)[0]) {
+	    		$('.modal_booking_title').html('Class Not Available Anymore')
+				$('.modal_booking_body').html('Please, Select a Date with Availability')
+	    		$("#modal_booking").modal('show')
+		 	    $('#step1').removeClass('hidden')
+	 		} else {
+		 	    $('#step2').removeClass('hidden')
+	 		}
     	}
     } else {
 	    $('#step1').removeClass('hidden')    	
