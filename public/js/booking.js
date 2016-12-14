@@ -19817,7 +19817,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	$("#button_booking_forget").click(function () {
-		showModalBooking(this, 'Clean-up Form', 'Confirm you want to clear the booking form', true, function () {
+		showModalBooking(this, 'Clean-up Form', 'Please confirm you want to clear the booking form', true, function () {
 			window.location.href = '/booking/forget';
 		});
 	});
@@ -19846,7 +19846,7 @@ jQuery(document).ready(function ($) {
 			$("#modal_booking").modal('show');
 			return;
 		}
-		showModalBooking(this, 'Cancel Booking', 'Please confirm you really want to cancel your booking and get it refunded.', true, function () {
+		showModalBooking(this, 'Cancel Booking', 'Please confirm you really want to cancel your booking.', true, function () {
 			var response = $.ajax({
 				type: 'POST',
 				url: '/api/booking/cancelIt',
