@@ -355,7 +355,7 @@ jQuery(document).ready(function($) {
 	    	}
     	} else {
 	 		if (!getDayAvailability(bkg.date)[0]) {
-	    		$('.modal_booking_title').html('Class Not Available Anymore')
+	    		$('.modal_booking_title').html('Class no longer available')
 				$('.modal_booking_body').html('Please, select a new date to check availability')
 	    		$("#modal_booking").modal('show')
 		 	    $('#step1').removeClass('hidden')
@@ -369,7 +369,7 @@ jQuery(document).ready(function($) {
 
     switch ($("#step4").data('tpv_result')) {
     	case 'OK':
-    		$('.modal_booking_title').html('Check your email')
+    		$('.modal_booking_title').html('Thank you for your booking a class with us!')
 			$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime')
     		$("#modal_booking").modal('show')
     		break
@@ -507,12 +507,24 @@ jQuery(document).ready(function($) {
 		}		
 	})
 
+    $("#date_edit").click(function() {
+    	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
+		if (start.subtract(24, 'hours').isSameOrBefore(right_now)) {
+    		$('.modal_booking_title').html("Class changes not allowed")
+			$('.modal_booking_body').html('Class is too close to change your date or type.<br/><br/>Please contact us by phone should you have any question.')
+    		$("#modal_booking").modal('show')
+		} else {
+	        $('#booking_steps > div').addClass('hidden')
+	        $('#step1').removeClass('hidden')
+		}		
+	})
+
     $('#booking_cancel').click(function() {
     	var bkg = retrieveBooking(locator)
     	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
 		if (start.subtract(48, 'hours').isSameOrBefore(right_now)) {
     		$('.modal_booking_title').html("Cancellation Late Notice")
-			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us to should you have any questions.')
+			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.')
     		$("#modal_booking").modal('show')
 			return
 		}
