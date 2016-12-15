@@ -17,19 +17,21 @@ class TPVController extends Controller
 
 	public function pay($id)
 	{
-		Log::info("llegados a pay, reserva con id $id");
-
-		$bkg = Booking::find($id);
+		// backwards compatibility
+		if (is_numeric($id)) {
+			$bkg = Booking::find($id);
+		} else {
+			$controller = new BookingController;
+			$bkg = $controller->findByHash($id);			
+		}
 		if (!$bkg) { 	
 			// esta reserva no está en la base de datos
-			Log::error("la reserva con id $id no existe");
 			return view('errors.wrongLocator');	 		
 		} else {
 			Cookie::queue(Cookie::forever('cplocator', $bkg->locator));
 			if ($bkg->status != 'PENDING') {
 			return view('booking.index')->with('page', 'booking');
 			} else {
-				Log::info("llamamos a tpv.pay ");
 				return view('tpv.pay')->with('bkg', $bkg);
 			}
     	}
