@@ -19706,7 +19706,7 @@ jQuery(document).ready(function ($) {
 
 	switch ($("#step4").data('tpv_result')) {
 		case 'OK':
-			$('.modal_booking_title').html('Thank you for your booking a class with us!');
+			$('.modal_booking_title').html('Thank you for booking a class with us!');
 			$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime');
 			$("#modal_booking").modal('show');
 			break;
