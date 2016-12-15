@@ -32,8 +32,14 @@ use App\Http\Controllers\RedsysAPI;
 
 	$Ds_Merchant_ProductDescription = $bkg->calendarevent->short_description . " on {$bkg->date}";
 	$Ds_Merchant_ProductDescription .= ($bkg->adult > 1) ? " for {$bkg->adult} adults" : " for {$bkg->adult} adult";
-	if ($bkg->child > 0) {
-		$Ds_Merchant_ProductDescription .= " + {$bkg->child} children";
+	switch ($bkg->child) {
+		case '0':
+			break;
+		case '1':
+			$Ds_Merchant_ProductDescription .= " + {$bkg->child} child";
+			break;		
+		default:
+			$Ds_Merchant_ProductDescription .= " + {$bkg->child} children";
 	}
 	$Ds_Merchant_ProductDescription .= " for {$bkg->name}";
 
