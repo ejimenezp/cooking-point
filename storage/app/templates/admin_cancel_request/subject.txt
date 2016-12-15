@@ -1,1 +1,1 @@
-CP_TYPE on CP_RAWDATE
+Cancellation CP_TYPE on CP_RAWDATE
