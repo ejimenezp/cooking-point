@@ -7,7 +7,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
-      <link rel="canonical" href="{{ url()->current() }}">
+      <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
       <style type="text/css">
           ul {
                 list-style-type: none;
