@@ -191,7 +191,7 @@ class MailController {
 		$html = str_replace('CP_LOCATOR', $bkg->locator, $html);
 		$html = str_replace('CP_FOODREQUIREMENTS', nl2br(stripslashes($bkg->food_requirements)), $html);
 		$html = str_replace('CP_COMMENTS', nl2br(stripslashes($bkg->comments)), $html);
-		$html = str_replace('APP_URL', env('APP_URL' ,'http://cookingpoint.es'), $html);
+		$html = str_replace('APP_URL', config('app.url'), $html);
 		
 		return $html;		
 	}
