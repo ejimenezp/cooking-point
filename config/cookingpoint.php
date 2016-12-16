@@ -7,6 +7,8 @@
  */
 return [
 
+	'favicon' => env('APP_FAVICON' , 'rubbish'),
+
 	'redsys' => [
 	    'firma' => 'TioXuMyEcpN34V4kO2hS36ru/4pl3rzv',
 	    // 'merchanturl' => 'http://bs2.cookingpoint.es/callback', // testing
