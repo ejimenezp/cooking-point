@@ -30,10 +30,10 @@ class BookingControllerOnline extends BookingController
 
     function legacyget(Request $request)
     {
-        if (!$request->booking){
+        if (!$request->hash){
             return redirect('/booking')->withCookie(Cookie::forget('cplocator'));
         } else {
-            $bkg = self::findByHash($request->booking);
+            $bkg = self::findByHash($request->hash);
             if (!$bkg) {    
                 return redirect('/booking')->withCookie(Cookie::forget('cplocator'));          
             } else {
