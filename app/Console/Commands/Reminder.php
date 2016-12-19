@@ -2,11 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Booking;
+
 use \DateTime;
 use Log;
 
 use App\Http\Controllers\MailController;
-use App\Http\Controllers\Legacy\LegacyModel;
 
 
 class Reminder extends Job {
@@ -16,29 +17,27 @@ class Reminder extends Job {
 		parent::__construct("<Reminder>");
 	}
 
-	protected function set_condition()
+	protected function run_query()
 	{
 		$today = $this->now->format('Y-m-d');
 		$in2days = $this->now->modify('+2 days')->format('Y-m-d');
 
-		$this->condition = "SELECT * from legacy_bookings where 
-			status = 'PE' and 
-			(crm = '' or crm is NULL) and 
-			activityDate >= '{$today}' and
-			activityDate <= '{$in2days}'";
+		return Booking::where('email', '<>', '')->
+						where('status', 'PENDING')->
+						where('crm', 'YES')->
+						whereHas('calendarevent', function($query) use ($today, $in2days) {
+            				$query->where('date', '>=', $today)->
+            						where('date', '<=', $in2days);
+            			})->get(); 
 	}
 
-	protected function action($booking) {
+	protected function action($bkg) {
 		// para testing solo escribe en el log
-		Log::info('Cumple con la condición ' . $booking->name);
+		Log::info('Cumple con la condición ' . $bkg->name);
 
-	 	$booking->crm = "RE";
-	 	$booking->name = self::escape($booking->name);
-		$booking->foodRestrictions = self::escape($booking->foodRestrictions);
-		$booking->comments = self::escape($booking->comments);
-
-	 	LegacyModel::update_admin_booking(get_object_vars($booking));
-	 	MailController::mail_to_user(get_object_vars($booking), "legacy/reminder");
+	 	MailController::send_mail($bkg->email, $bkg, 'user_reminder');
+	 	$bkg->crm = "REMINDED";
+	 	$bkg->save();
 	}
 }
 

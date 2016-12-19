@@ -10,7 +10,6 @@ use Log;
 class Job {
 
 	protected $jobname;
-	protected $condition;
 	protected $now;
 	protected $result;
 
@@ -24,14 +23,11 @@ class Job {
 
 	function query()
 	{	
-		$this->set_condition();
-		// Log::info($this->jobname . "query is = " . $this->condition);
-
-		if(!$r = DB::select($this->condition)) {
+		$this->result = $this->run_query();
+		if($this->result->isEmpty()) {
 			Log::info('No rows for ' . $this->jobname);
 			return false;
 		}
-		$this->result = $r;
 		return true;
 	}
 
