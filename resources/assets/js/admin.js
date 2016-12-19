@@ -179,7 +179,7 @@ function bookingEditShow(i, j) {
 		$("input[name=price]").val(bookings[j].price)
 		$("input[name=iva]").val(bookings[j].iva)
 		$("input[name=iva]").prop('checked', bookings[j].iva)
-		if (bookings[j].source_id > 2) 	{ $('.price').hide() }
+		if (bookings[j].source_id > 3) 	{ $('.price').hide() }
 		$("select[name=pay_method]").val(bookings[j].pay_method)
 		$("textarea[name=food_requirements]").val(bookings[j].food_requirements)
 		$("textarea[name=comments]").val(bookings[j].comments)
@@ -498,7 +498,7 @@ jQuery(document).ready(function($) {
 	// set status and pay_method based on source_id
 	//
 	$('select[name=source_id]').change(function() {
-		if ($(this).val() > 2 ) {
+		if ($(this).val() > 3 ) {
 			$('select[name=status]').val('CONFIRMED')
 			$('select[name=pay_method]').val('N/A')
 			$('.price').hide()
