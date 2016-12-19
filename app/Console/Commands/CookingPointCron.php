@@ -40,5 +40,9 @@ class CookingPointCron extends Command
         // Remainder mail
         $a = new Reminder;
         if ($a->query()) { $a->exec(); }
+
+        // Ask TripAdivsor review
+        $a = new ReviewUs;
+        if ($a->query()) { $a->exec(); }
     }
 }

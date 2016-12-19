@@ -188,6 +188,7 @@ class MailController {
 		$html = str_replace('CP_CHILD', $bkg->child, $html);
 		$html = str_replace('CP_PRICE', $bkg->price, $html);
 		$html = str_replace('CP_STATUS', $status, $html);
+		$html = str_replace('CP_COOK', $bkg->calendarevent->staff->name, $html);
 		$html = str_replace('CP_LOCATOR', $bkg->locator, $html);
 		$html = str_replace('CP_FOODREQUIREMENTS', nl2br(stripslashes($bkg->food_requirements)), $html);
 		$html = str_replace('CP_COMMENTS', nl2br(stripslashes($bkg->comments)), $html);
