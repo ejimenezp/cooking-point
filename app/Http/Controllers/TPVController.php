@@ -65,7 +65,7 @@ class TPVController extends Controller
 		}
 
 		// to the log
-		Log::info("Redsys callback received: locator $Ds_MerchantData, response $Ds_Response");
+		// Log::info("Redsys callback received: locator $Ds_MerchantData, response $Ds_Response");
 
 		$a = "$Ds_Date $Ds_Hour";
 		//error_log("la fecha y hora es: $a");
