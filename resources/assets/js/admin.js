@@ -145,12 +145,14 @@ function bookingEditShow(i, j) {
 		$("input[name=name]").val('')
 		$("input[name=email]").val('')
 		$("input[name=phone]").val('')
+		$("input[name=locator]").val('')
 		$('select[name=adult]').val(1)
 		$("select[name=child]").val(0)
 		$("input[name=price]").val($("select[name=adult]").val()*70 + $("select[name=child]").val()*35)
 		$("input[name=iva]").prop('checked', 1);
 		$("input[name=hide_price]").prop('checked', 0);
 		$("select[name=pay_method]").val('N/A')
+		$("input[name=payment_date]").val('')
 		$("textarea[name=food_requirements]").val('')
 		$("textarea[name=comments]").val('')
 		$("select[name=crm]").val('YES')
@@ -185,6 +187,7 @@ function bookingEditShow(i, j) {
 			$('.price').show()			
 		}
 		$("select[name=pay_method]").val(bookings[j].pay_method)
+		$("input[name=payment_date]").val(bookings[j].payment_date)
 		$("textarea[name=food_requirements]").val(bookings[j].food_requirements)
 		$("textarea[name=comments]").val(bookings[j].comments)
 		$("select[name=crm]").val(bookings[j].crm)

@@ -333,6 +333,14 @@
 							</select>				
 						</td>
 					</tr>
+					<tr>
+						<td class="">
+							Fecha pago (online):
+						</td>
+						<td class="value">
+							<input name="payment_date" type="text" value="" >
+						</td>			
+					</tr>
 					<tr class="price">
 						<td class="">
 							Precio:
