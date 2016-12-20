@@ -42,6 +42,7 @@ class BookingController extends Controller
     	$bkg->adult = $request->adult;
     	$bkg->child = $request->child;
     	$bkg->pay_method = $request->pay_method;    	
+        $bkg->payment_date = $request->payment_date;        
     	$bkg->food_requirements = $request->food_requirements;
     	$bkg->comments = $request->comments;
         $bkg->payment_date = $request->payment_date;
@@ -137,6 +138,7 @@ class BookingController extends Controller
             $bkg->child = $request->child;
             $bkg->phone = $request->phone;
             $bkg->pay_method = $request->pay_method;        
+            $bkg->payment_date = $request->payment_date;        
             $bkg->food_requirements = $request->food_requirements;
             $bkg->comments = $request->comments;
             $bkg->crm = $request->crm;
