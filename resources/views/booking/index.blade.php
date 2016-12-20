@@ -24,12 +24,13 @@
 					<input type="hidden" name="status" value="PENDING">
 					<input type="hidden" name="locator" value="">
 				@endif				
-				<input type="hidden" name="status_filter" value="">
+				<input type="hidden" name="status_filter" value="DO_NOT_COUNT">
 				<input type="hidden" name="pay_method" value="N/A">
 				<input type="hidden" name="calendarevent_id" value="">
 				<input type="hidden" name="id" value="">
 				<input type="hidden" name="price" value="70">
-				<input type="hidden" name="iva" value="">
+				<input type="hidden" name="iva" value="1">
+				<input type="hidden" name="hide_price" value="">
 				<input type="hidden" name="crm" value="YES">
 				<table class="availability-table">
 

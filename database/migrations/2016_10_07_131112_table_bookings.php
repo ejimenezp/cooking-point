@@ -17,6 +17,7 @@ class TableBookings extends Migration
         $table->increments('id');
         $table->integer('calendarevent_id');  // calendarevent foreign key
         $table->integer('source_id');  // source foreign key
+        $table->boolean('fixed_date')->default(0); // can't change calendarevent  
         $table->string('status'); // CREATED, CANCELLED, PAID
         $table->string('status_filter'); 
         $table->string('locator', 6);
@@ -26,7 +27,8 @@ class TableBookings extends Migration
         $table->integer('adult'); 
         $table->integer('child'); 
         $table->float('price'); // retail price
-        $table->boolean('iva');
+        $table->boolean('iva')->default(1);
+        $table->boolean('hide_price')->default(0);
         $table->string('pay_method'); // online, viator, transfer, cash
         $table->text('food_requirements');
         $table->text('comments');

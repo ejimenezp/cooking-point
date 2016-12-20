@@ -186,7 +186,7 @@ class MailController {
 		$html = str_replace('CP_TIME', $legibleTime, $html);
 		$html = str_replace('CP_ADULT', $bkg->adult, $html);
 		$html = str_replace('CP_CHILD', $bkg->child, $html);
-		$html = str_replace('CP_PRICE', $bkg->price, $html);
+		$html = str_replace('CP_PRICE', ($bkg->hide_price ? '--.--' : $bkg->price), $html);
 		$html = str_replace('CP_STATUS', $status, $html);
 		$html = str_replace('CP_COOK', $bkg->calendarevent->staff->name, $html);
 		$html = str_replace('CP_LOCATOR', $bkg->locator, $html);

@@ -215,6 +215,15 @@
 							<input name="name" type="text" value="" >
 						</td>
 					</tr>
+					<tr>
+						<td class="">
+							Fuente:
+						</td>
+						<td class="value">
+							<select id="sourcelist" name="source_id">
+							</select>
+						</td>
+					</tr>
 					<tr>					
 						<td class="">
 							Estado:
@@ -311,15 +320,6 @@
 					</tr>
 					<tr>
 						<td class="">
-							Fuente:
-						</td>
-						<td class="value">
-							<select id="sourcelist" name="source_id">
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td class="">
 							Forma de pago:
 						</td>
 						<td class="value">
@@ -346,7 +346,15 @@
 							IVA:
 						</td>
 						<td class="value">
-							<input type="checkbox" name="iva" value="">
+							<input type="checkbox" name="iva" value="1">
+						</td>
+					</tr>
+					<tr class="price">
+						<td class="">
+							Ocultar precio:
+						</td>
+						<td class="value">
+							<input type="checkbox" name="hide_price" value="1">
 						</td>
 					</tr>
 					<tr class="booking_date_input">
