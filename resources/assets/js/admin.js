@@ -148,8 +148,8 @@ function bookingEditShow(i, j) {
 		$('select[name=adult]').val(1)
 		$("select[name=child]").val(0)
 		$("input[name=price]").val($("select[name=adult]").val()*70 + $("select[name=child]").val()*35)
-		$("input[name=iva]").val(1)
-		$("input[name=iva]").prop('checked', true);
+		$("input[name=iva]").prop('checked', 1);
+		$("input[name=hide_price]").prop('checked', 0);
 		$("select[name=pay_method]").val('N/A')
 		$("textarea[name=food_requirements]").val('')
 		$("textarea[name=comments]").val('')
@@ -177,9 +177,13 @@ function bookingEditShow(i, j) {
 		$('select[name=adult]').val(bookings[j].adult)
 		$("select[name=child]").val(bookings[j].child)
 		$("input[name=price]").val(bookings[j].price)
-		$("input[name=iva]").val(bookings[j].iva)
 		$("input[name=iva]").prop('checked', bookings[j].iva)
-		if (bookings[j].source_id > 3) 	{ $('.price').hide() }
+		$("input[name=hide_price]").prop('checked', bookings[j].hide_price)
+		if (bookings[j].source_id > 3) { 
+			$('.price').hide()
+		} else {
+			$('.price').show()			
+		}
 		$("select[name=pay_method]").val(bookings[j].pay_method)
 		$("textarea[name=food_requirements]").val(bookings[j].food_requirements)
 		$("textarea[name=comments]").val(bookings[j].comments)
@@ -498,10 +502,11 @@ jQuery(document).ready(function($) {
 	// set status and pay_method based on source_id
 	//
 	$('select[name=source_id]').change(function() {
-		if ($(this).val() > 3 ) {
+		if ($(this).val() > 3 ) {  // marketplace or agency
 			$('select[name=status]').val('CONFIRMED')
 			$('select[name=pay_method]').val('N/A')
-			$('.price').hide()
+			$("input[name=hide_price]").prop('checked', 1);
+			// $('.price').hide()
 		}
 	})
 

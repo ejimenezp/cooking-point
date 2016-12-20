@@ -50,6 +50,8 @@ class BookingController extends Controller
     	$source = Source::find($request->source_id);
     	$bkg->iva = $source->priceplan->iva;
     	$bkg->price = $source->priceplan->adult * $request->adult + $source->priceplan->child * $request->child;
+        $bkg->hide_price = !empty($request->hide_price);
+
         // backwards compatibility
         if ($bkg->source_id == 1) {
             $bkg->hash = $request->hash;
@@ -140,6 +142,7 @@ class BookingController extends Controller
             $bkg->crm = $request->crm;
             $bkg->iva = $request->iva;
             $bkg->price = $request->price;
+            $bkg->hide_price = !empty($request->hide_price);
             $bkg->save();
             return ['status' => 'ok', 'data' => $bkg];
         }

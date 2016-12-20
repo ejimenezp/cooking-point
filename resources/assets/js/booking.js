@@ -173,11 +173,20 @@ function refreshDataShown()
 	var end_time = moment(month_availability[ce_i].time, "HH:mm:ss").add(duration)
 	$('.timeshown').html(start_time.format('h:mm A') + " - " + end_time.format('h:mm A'))
 
-	$(".typeshown").html($("select[name=type] :selected").text())
+	$(".typeshown").html(month_availability[ce_i].short_description)
 	$(".statusshown").html($("input[name=status]").val())
 	$(".adultshown").html($("select[name=adult]").val())
 	$(".childshown").html($("select[name=child]").val())
-	$(".priceshown").html($("input[name=price]").val())
+
+	if ( $("input[name=status_filter]").val() == 'REGISTERED') {
+		if (parseInt($("input[name=hide_price]").val())) {
+			$(".priceshown").html('--.--')
+		} else {
+			$(".priceshown").html($("input[name=price]").val())	
+		}	
+	} else {
+		$(".priceshown").html($("input[name=price]").val())				
+	}
 	$(".nameshown").html($("input[name=name]").val())
 	$(".emailshown").html($("input[name=email]").val())
 	$(".phoneshown").html($("input[name=phone]").val())
@@ -213,6 +222,7 @@ function retrieveBooking(locator) {
 	$("input[name=calendarevent_id]").val(bkg.calendarevent_id)
 	$("input[name=id]").val(bkg.id)
 	$("select[name=status]").val(bkg.status)
+	$("input[name=status_filter]").val(bkg.status_filter)
 	$("input[name=name]").val(bkg.name)
 	$("input[name=email]").val(bkg.email)
 	$("input[name=phone]").val(bkg.phone)
@@ -220,6 +230,7 @@ function retrieveBooking(locator) {
 	$("select[name=child]").val(bkg.child)
 	$("input[name=price]").val(bkg.price)
 	$("input[name=iva]").val(bkg.iva)
+	$("input[name=hide_price]").val(bkg.hide_price)
 	$("textarea[name=food_requirements]").val(bkg.food_requirements)
 	$("textarea[name=comments]").val(bkg.comments)
 	$("input[name=locator]").val(bkg.locator)
