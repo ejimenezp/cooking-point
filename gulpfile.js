@@ -22,10 +22,12 @@ var jQuery = require('jquery');
  |
  */
 
-elixir(mix => {
+elixir(function(mix) {
     	mix.sass('app.scss')
     	.browserify('app.js')
     	.browserify('tienda.js')
     	.browserify('admin.js')
     	.browserify('booking.js')
+
+    	mix.version(['css/app.css', 'js/app.js', 'js/tienda.js', 'js/admin.js', 'js/booking.js'])
 });

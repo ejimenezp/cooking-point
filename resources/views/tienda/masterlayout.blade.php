@@ -18,7 +18,7 @@
 			  }
 	  	</style>  
 		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
-		<script type='text/javascript' src='/js/tienda.js'></script>
+		<script type='text/javascript' src='{{ elixir('js/tienda.js') }}'></script>
 		<script src="https://use.fontawesome.com/c502308363.js"></script>
 	</head>
 	

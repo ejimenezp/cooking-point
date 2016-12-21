@@ -466,5 +466,5 @@
 @stop
 
 @section('js')
-	<script async src="/js/booking.js"></script>
+	<script async src="{{ elixir('js/booking.js') }}"></script>
 @stop
