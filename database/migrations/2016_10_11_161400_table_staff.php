@@ -45,10 +45,10 @@ class TableStaff extends Migration
         DB::table('staff')->insert(
             array(
                 'name' => 'Eduardo',
-                'auth_name' => 'eduardo-no-usar',
+                'auth_name' => 'eduardo-cook',
                 'role' => 'cook',
                 'auth_role' => 0,
-                'auth_password' => 'zdgsdgdg',
+                'auth_password' => '1001',
                 'active' => true));
 
         DB::table('staff')->insert(
