@@ -45,13 +45,14 @@ class BookingController extends Controller
         $bkg->payment_date = $request->payment_date;        
     	$bkg->food_requirements = $request->food_requirements;
     	$bkg->comments = $request->comments;
-        $bkg->payment_date = $request->payment_date;
+        $bkg->payment_date = (empty($request->payment_date)) ? null : $request->payment_date;
         $bkg->crm = $request->crm;
 
     	$source = Source::find($request->source_id);
-    	$bkg->iva = $source->priceplan->iva;
+        $bkg->iva = !empty($request->iva);
     	$bkg->price = $source->priceplan->adult * $request->adult + $source->priceplan->child * $request->child;
         $bkg->hide_price = !empty($request->hide_price);
+        $bkg->fixed_date = !empty($request->fixed_date);
 
         // backwards compatibility
         if ($bkg->source_id == 1) {
@@ -137,14 +138,15 @@ class BookingController extends Controller
             $bkg->adult = $request->adult;
             $bkg->child = $request->child;
             $bkg->phone = $request->phone;
-            $bkg->pay_method = $request->pay_method;        
-            $bkg->payment_date = $request->payment_date;        
+            $bkg->pay_method = $request->pay_method;                    
+            $bkg->payment_date = (empty($request->payment_date)) ? null : $request->payment_date;
             $bkg->food_requirements = $request->food_requirements;
             $bkg->comments = $request->comments;
             $bkg->crm = $request->crm;
-            $bkg->iva = $request->iva;
+            $bkg->iva = !empty($request->iva);
             $bkg->price = $request->price;
             $bkg->hide_price = !empty($request->hide_price);
+            $bkg->fixed_date = !empty($request->fixed_date);
             $bkg->save();
             return ['status' => 'ok', 'data' => $bkg];
         }

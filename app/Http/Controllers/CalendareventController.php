@@ -24,10 +24,10 @@ class CalendareventController extends Controller
         $ce->type = $request->type;
         $ce->staff_id = $request->staff_id;
         $ce->short_description = $request->short_description;
+        $ce->info = (empty($request->info)) ? '' : $request->info;
 
     	switch ($request->type) {
     		case 'PAELLA':
-                $ce->confirmed = false;
                 $ce->short_description = 'Paella Cooking Class';
     			$ce->time = '10:00:00';
     			$ce->duration = '04:00:00';
@@ -35,7 +35,6 @@ class CalendareventController extends Controller
     			break;
     		
     		case 'TAPAS':
-                $ce->confirmed = false;
                 $ce->short_description = 'Tapas Cooking Class';
                 $ce->time = '17:30:00';
                 $ce->duration = '04:00:00';
@@ -43,7 +42,6 @@ class CalendareventController extends Controller
     			break;
     		
     		case 'GROUP':
-                $ce->confirmed = isset($request->confirmed);
                 $ce->time = $request->time;
                 $ce->duration = $request->duration;
                 $ce->capacity = $request->capacity;
@@ -52,7 +50,6 @@ class CalendareventController extends Controller
     		case 'HOLIDAY':
             case 'FILLER':
             default:
-                $ce->confirmed = true;
                 $ce->time = $request->time;
                 $ce->duration = $request->duration;
                 $ce->capacity = 0;
@@ -93,10 +90,10 @@ class CalendareventController extends Controller
             $ce->type = $request->type;
             $ce->staff_id = $request->staff_id;
             $ce->short_description = $request->short_description;
-            $ce->confirmed = isset($request->confirmed);
             $ce->time = $request->time;
             $ce->duration = $request->duration;
             $ce->capacity = $request->capacity;
+            $ce->info = (empty($request->info)) ? '' : $request->info;
             $ce->save();
             return 'ok';
         }

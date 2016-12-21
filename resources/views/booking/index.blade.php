@@ -58,6 +58,9 @@
 							@else
 								<option value="TAPAS">Tapas Cooking Class</option>
 							@endif
+							<div class="hidden">
+								<option value="GROUP">Group Event</option>
+							</div>
 							</select>				
 						</td>
 					</tr>
@@ -66,12 +69,18 @@
 							Adults:
 						</td>
 						<td>
+						@if (isset($bkg) && $bkg->fixed_date)
+							<select name="adult">
+								<option value="{{ $bkg->adult }}">{{ $bkg->adult }}</option>
+							</select>
+						@else
 							<select name="adult">
 								@for ($i = 1; $i <= 8; $i++)
 								<option value="{{ $i }}">{{ $i }}</option>
 								@endfor
 								<option value="0" disabled>+8 please contact</option>
-							</select>					
+							</select>
+						@endif											
 						</td>
 					</tr>
 					<tr>
@@ -79,12 +88,18 @@
 							Children:&nbsp;
 						</td>
 						<td>
+						@if (isset($bkg) && $bkg->fixed_date)
+							<select name="child">
+								<option value="{{ $bkg->child }}">{{ $bkg->child }}</option>
+							</select>
+						@else
 							<select name="child">
 								@for ($i = 0; $i <= 4; $i++)
 								<option value="{{ $i }}">{{ $i }}</option>
 								@endfor
 								<option value="-1" disabled>+4 please contact</option>
 							</select>
+						@endif
 						</td>
 					</tr>
 					<tr>
@@ -253,9 +268,11 @@
 						@if (isset($bkg) && $bkg->status != 'PENDING')
 							<a href="#step4" class="step cancel btn btn-default" >Cancel</a>
 							<a href="#step4" class="step update_contact btn btn-primary">Update Booking</a>
+						@elseif (isset($bkg) && $bkg->fixed_date)
+							<a class="btn btn-primary" id="button_purchase" >Purchase</a>
 						@else
 							<a href="#step1" class="step btn btn-default">Change Class/Date</a>
-							<a class="btn btn-primary" id="button_purchase" >Purchase</a>
+							<a class="btn btn-primary" id="button_purchase" >Purchase</a>			
 						@endif
 					</div>
 				</div>

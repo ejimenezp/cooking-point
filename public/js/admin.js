@@ -20744,6 +20744,8 @@ function refreshDateShown(month_schedule, date_shown) {
 	for (var i = 0; i < month_schedule.length; i++) {
 		if (user_role >= 3) {
 			edit_button = '<td class=""><button class="btn btn-primary btn-xs button_calendarevent_edit" data-i="' + i + '">Detalles</button></td>';
+		} else if (user_role >= 2 && month_schedule[i].info != '') {
+			edit_button = '<td class=""><button class="btn btn-primary btn-xs button_calendarevent_info" data-i="' + i + '">+info</button></td>';
 		} else {
 			edit_button = '';
 		}
@@ -20809,7 +20811,7 @@ function bookingEditShow(i, j) {
 		$("select[name=pay_method]").val('N/A');
 		$("input[name=payment_date]").val('');
 		$("textarea[name=food_requirements]").val('');
-		$("textarea[name=comments]").val('');
+		$("textarea[name=info]").val('');
 		$("select[name=crm]").val('YES');
 		url_action = 'bkg_new';
 	} else {
@@ -20836,11 +20838,6 @@ function bookingEditShow(i, j) {
 		$("input[name=price]").val(bookings[j].price);
 		$("input[name=iva]").prop('checked', bookings[j].iva);
 		$("input[name=hide_price]").prop('checked', bookings[j].hide_price);
-		if (bookings[j].source_id > 3) {
-			$('.price').hide();
-		} else {
-			$('.price').show();
-		}
 		$("select[name=pay_method]").val(bookings[j].pay_method);
 		$("input[name=payment_date]").val(bookings[j].payment_date);
 		$("textarea[name=food_requirements]").val(bookings[j].food_requirements);
@@ -20850,6 +20847,7 @@ function bookingEditShow(i, j) {
 		url_action = 'bkg_edit';
 	}
 	updateUrl(parts, '/admin/booking', moment(booking_date), url_action, i, j);
+	showPrice();
 	$('#booking_edit').show();
 }
 
@@ -20876,6 +20874,7 @@ function calendarEventEditShow(month_schedule, date_shown, i) {
 		$("select[name=time]").val('10:00:00');
 		$("select[name=duration]").val('04:00:00');
 		$("input[name=capacity]").val(24);
+		$("textarea[name=info]").val('');
 		url_action = 'ce_new';
 	} else {
 		$("#calendarevent_edit h1").html("Editar Evento");
@@ -20890,9 +20889,7 @@ function calendarEventEditShow(month_schedule, date_shown, i) {
 		$("select[name=time]").val(month_schedule[i].time);
 		$("select[name=duration]").val(month_schedule[i].duration);
 		$("input[name=capacity]").val(month_schedule[i].capacity);
-		if (month_schedule[i].confirmed) {
-			$("input:checkbox[name=confirmed]").prop('checked', 'true');
-		}
+		$("input[name=info]").val(month_schedule[i].info);
 		url_action = 'ce_edit';
 	}
 	updateUrl(parts, '/admin/calendarevent', moment($("input[name=date]").val()), url_action, i);
@@ -21021,6 +21018,18 @@ function sourceName(id) {
 }
 
 //
+// Function: showPrice
+// display price based on roles and status 
+//
+function showPrice() {
+	if (user_role >= 3 || $('select[name=status]').val() == 'GUARANTEE') {
+		$('.price').show();
+	} else {
+		$('.price').hide();
+	}
+}
+
+//
 // Function: updateUrl
 // sets new path and querystring according to the screen displayed
 //
@@ -21079,9 +21088,9 @@ function validBookingForm() {
 		show_it = true;
 	}
 	if (show_it) {
-		$('#modal_booking_validation_title').html(modal_title);
-		$('#modal_booking_validation_body').html(modal_body);
-		$('#modal_booking_validation').modal('show');
+		$('.modal_admin_title').html(modal_title);
+		$('.modal_admin_body').html(modal_body);
+		$('#modal_admin').modal('show');
 		return false;
 	}
 	return true;
@@ -21156,8 +21165,8 @@ jQuery(document).ready(function ($) {
 			$('select[name=status]').val('CONFIRMED');
 			$('select[name=pay_method]').val('N/A');
 			$("input[name=hide_price]").prop('checked', 1);
-			// $('.price').hide()
 		}
+		showPrice();
 	});
 
 	//
@@ -21304,6 +21313,13 @@ jQuery(document).ready(function ($) {
 	$(document).on('click', '.button_calendarevent_edit', function () {
 		$('#calendarevent_index').hide();
 		calendarEventEditShow(month_schedule, date_shown, $(this).data('i'));
+	});
+
+	$(document).on('click', '.button_calendarevent_info', function () {
+		var i = $(this).data('i');
+		$('.modal_admin_title').html(month_schedule[i].short_description);
+		$('.modal_admin_body').html(month_schedule[i].info);
+		$('#modal_admin').modal('show');
 	});
 
 	$(document).on('click', '.calendarevent_line', function () {
@@ -21631,8 +21647,8 @@ jQuery(document).ready(function ($) {
 					updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i);
 					populateBookingList(i);
 					if (show_modal) {
-						$('#modal_booking_title').html(modal_title);
-						$('#modal_booking_body').html(error_msg);
+						$('.modal_booking_title').html(modal_title);
+						$('.modal_booking_body').html(error_msg);
 						$('#modal_booking').modal('show');
 					} else {
 						$('#modal_button_booking_ok').click();
@@ -21663,8 +21679,8 @@ jQuery(document).ready(function ($) {
 				url: '/api/booking/delete/' + bkg_id,
 				async: false,
 				success: function success(msg) {
-					$('#modal_booking_title').html('Éxito');
-					$('#modal_booking_body').html('Reserva borrada con éxito');
+					$('.modal_booking_title').html('Éxito');
+					$('.modal_booking_body').html('Reserva borrada con éxito');
 					month_schedule = getMonthSchedule(date_shown);
 					refreshDateShown(month_schedule, date_shown);
 					var ce_id = $('input[name=calendarevent_id]').val();
