@@ -28,9 +28,7 @@
 			    		<th>Tipo</th>
 			    		<th>Cocinero/a</th>
 			    		<th>Pax</th>
-@if (app('request')->input('user_role') >= 3)
 			    		<th></th>
-@endif
 		    		</tr>
 				</thead>
 			    <tbody>
@@ -50,19 +48,19 @@
    				<input name="id" type="hidden" value="9999">
 				<table id="ce" class="table">
 					<tr>
-						<td class="">
+						<td>
 							Fecha:
 						</td>
-						<td class="value">
+						<td>
 							<input type="text" id="eventdatepicker" >
 							<input type="hidden" name="date" id="realDate" >
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Tipo:
 						</td>
-						<td class="value">
+						<td>
 							<select name="type">
 								<option value="PAELLA">PAELLA</option>
 								<option value="TAPAS">TAPAS</option>
@@ -73,35 +71,27 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Cocinero/a:
 						</td>
-						<td class="value">
+						<td>
 							<select name="staff_id" id="cooklist">
 							</select>				
 						</td>
 					</tr>
 					<tr>
-						<td class="">
-							Detalles:
+						<td>
+							Descripción:
 						</td>
-						<td class="value">
+						<td>
 							<input name="short_description" type="text" value="" >
 						</td>
 					</tr>
 					<tr>
-						<td class="">
-							Confirmado:
-						</td>
-						<td class="value">
-							<input type="checkbox" name="confirmed">
-						</td>
-					</tr>
-					<tr>
-						<td class="">
+						<td>
 							Hora:
 						</td>
-						<td class="value">
+						<td>
 							<select name="time">
 								<option value="09:00:00">9:00am</option>
 								<option value="09:30:00">9:30am</option>
@@ -137,10 +127,10 @@
 						</td>
 					</tr>			
 					<tr>					
-						<td class="">
+						<td>
 							Duración:
 						</td>
-						<td class="value">
+						<td>
 							<select name="duration">
 								<option value="01:00:00">1 hora</option>
 								<option value="02:00:00">2 horas</option>
@@ -152,11 +142,19 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Capacidad:
 						</td>
-						<td class="value">
+						<td>
 							<input name="capacity" type="text" value="12" >
+						</td>
+					</tr>
+					<tr>
+						<td>
+							+ info:
+						</td>
+						<td>
+							<textarea name="info"></textarea>
 						</td>
 					</tr>
 				</table>
@@ -208,58 +206,57 @@
    				<input name="calendarevent_id" type="hidden" value="9999">
 				<table id="booking" class="table">
 					<tr>
-						<td class="">
+						<td>
 							Nombre:
 						</td>
-						<td class="value">
+						<td>
 							<input name="name" type="text" value="" >
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Fuente:
 						</td>
-						<td class="value">
+						<td>
 							<select id="sourcelist" name="source_id">
 							</select>
 						</td>
 					</tr>
 					<tr>					
-						<td class="">
+						<td>
 							Estado:
 						</td>
-						<td class="value">
+						<td>
 							<select name="status">
 								<option value="PAID">PAGADA</option>
-								<option value="DEPOSIT">DEPÓSITO</option>
 								<option value="CONFIRMED">CONFIRMADA</option>
 								<option value="GUARANTEE">GARANTÍA</option>
-								<option value="PENDING">PENDIENTE PAGO</option>
+								<option value="PENDING">NO FINALIZADA</option>
 								<option value="CANCELLED">CANCELADA</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Teléfono:
 						</td>
-						<td class="value">
+						<td>
 							<input name="phone" type="text" value="" >
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Email:
 						</td>
-						<td class="value">
+						<td>
 							<input name="email" type="text" value="" >
 						</td>
 					</tr>
 					<tr>					
-						<td class="">
+						<td>
 							Adultos:
 						</td>
-						<td class="value">
+						<td>
 							<select name="adult">
 								@for ($i = 1; $i <= 24; $i++)
 								<option value="{{ $i }}">{{ $i }}</option>
@@ -269,10 +266,10 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Niños:
 						</td>
-						<td class="value">
+						<td>
 							<select name="child">
 								@for ($i = 0; $i <= 24; $i++)
 								<option value="{{ $i }}">{{ $i }}</option>
@@ -281,34 +278,34 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Alergias:
 						</td>
-						<td class="value">
+						<td>
 							<textarea name="food_requirements"></textarea>
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Comentarios:
 						</td>
-						<td class="value">
+						<td>
 							<textarea name="comments"></textarea>
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Referencia:
 						</td>
-						<td class="value">
+						<td>
 							<input name="locator" type="text" value="" >
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Seguimiento:
 						</td>
-						<td class="value">
+						<td>
 							<select name="crm">
 								<option value="YES">SÍ</option>
 								<option value="NO">NO MOLESTAR</option>
@@ -319,10 +316,10 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="">
+						<td>
 							Forma de pago:
 						</td>
-						<td class="value">
+						<td>
 							<select name="pay_method">
 								<option value="ONLINE">ONLINE</option>
 								<option value="CARD">TARJETA</option>
@@ -334,52 +331,62 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="">
-							Fecha pago (online):
+						<td>
+							Fecha pago:
 						</td>
-						<td class="value">
+						<td>
 							<input name="payment_date" type="text" value="" >
 						</td>			
 					</tr>
 					<tr class="price">
-						<td class="">
+						<td>
 							Precio:
 						</td>
 						<td>
-							<input type="text" name="price" >
+							<input type="text" name="price">
 						</td>
 					</tr>
-					<tr class="price">
-						<td class="">
+				@if (app('request')->input('user_role') >= 3)
+					<tr>
+						<td>
 							IVA:
 						</td>
-						<td class="value">
+						<td>
 							<input type="checkbox" name="iva" value="1">
 						</td>
 					</tr>
-					<tr class="price">
-						<td class="">
+					<tr>
+						<td>
 							Ocultar precio:
 						</td>
-						<td class="value">
+						<td>
 							<input type="checkbox" name="hide_price" value="1">
 						</td>
 					</tr>
+					<tr>
+						<td>
+							Fecha fija:
+						</td>
+						<td>
+							<input type="checkbox" name="fixed_date" value="1">
+						</td>
+					</tr>
+				@endif
 					<tr class="booking_date_input">
-						<td class="">
+						<td>
 							Fecha:
 						</td>
-						<td class="value">
+						<td>
 							<input type="text" id="booking_date_edit">
 							<input type="hidden" name="date" id="bookingNewDate" >
 
 						</td>
 					</tr>
 					<tr class="booking_date_input">
-						<td class="">
+						<td>
 							Evento:
 						</td>
-						<td class="value">
+						<td>
 							<select id="dayeventlist" name="type">
 							</select>
 						</td>

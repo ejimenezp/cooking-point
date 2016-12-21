@@ -11,6 +11,13 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Edit Booking</h4>
         </div>
+        @if (isset($bkg) && $bkg->fixed_date)
+        <div class="modal-body">You can:
+          <ul>
+              <li><a href="#step2" class="step" data-dismiss="modal">Change contact details or comments</a></li>
+          </ul>     
+        </div>    
+        @else
         <div class="modal-body">You can modify any data except the number of participants
           <ul>
               <li><a id="date_edit" data-dismiss="modal">Change class date or type</a></li>
@@ -18,7 +25,8 @@
               <li><a id="booking_cancel" data-dismiss="modal">Cancel booking</a></li>  
               <div class="hidden" id="booking_cancel_confirm"></div>  
           </ul>     
-          </div>    
+        </div> 
+        @endif
           <div class="modal-footer">             
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           </div>

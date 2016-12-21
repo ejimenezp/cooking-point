@@ -22,7 +22,7 @@ class TableCalendarevents extends Migration
         $table->time('duration');  
         $table->integer('capacity');
         $table->integer('staff_id'); // Staff foreign key
-        $table->boolean('confirmed'); 
+        $table->text('info')->default('');
         });
 
     }

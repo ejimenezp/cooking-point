@@ -118,40 +118,21 @@
 </div>
 </div>
 
-<!-- Add / Update modal -->
+<!-- Generic modal  -->
 
-<div class="modal fade" id="modal_booking" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="modal_admin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog">    
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"><div id="modal_booking_title"></div></h4>
+          <h4 class="modal-title modal_admin_title"></h4>
         </div>
-        <div class="modal-body" id="modal_booking_body"></div>
+        <div class="modal-body modal_admin_body"></div>
         <div class="modal-footer">
             <form >
-                <button type="button" id="modal_button_booking_ok"  class="btn btn-primary">OK</button>
-            </form>
-       </div>
-      </div>
-  </div>
-</div>
-
-<!-- Add / Update modal -->
-
-<div class="modal fade" id="modal_booking_validation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog">    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"><div id="modal_booking_validation_title"></div></h4>
-        </div>
-        <div class="modal-body" id="modal_booking_validation_body"></div>
-        <div class="modal-footer">
-            <form >
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-default btn-cancel hidden" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">OK</button>
             </form>
        </div>
       </div>
