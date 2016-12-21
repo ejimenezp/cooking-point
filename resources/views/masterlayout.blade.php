@@ -16,7 +16,7 @@
               }
       </style>  
       <link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
-      <script type='text/javascript' src='/js/app.js'></script>
+      <script type='text/javascript' src='{{ elixir('js/app.js') }}'></script>
       <script src="https://use.fontawesome.com/c502308363.js"></script>
 
       @if (App::environment() == 'production')
