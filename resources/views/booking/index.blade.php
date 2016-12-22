@@ -58,9 +58,6 @@
 							@else
 								<option value="TAPAS">Tapas Cooking Class</option>
 							@endif
-							<div class="hidden">
-								<option value="GROUP">Group Event</option>
-							</div>
 							</select>				
 						</td>
 					</tr>
