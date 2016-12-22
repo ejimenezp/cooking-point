@@ -154,10 +154,11 @@ function bookingEditShow(i, j) {
 		$("input[name=price]").val($("select[name=adult]").val()*70 + $("select[name=child]").val()*35)
 		$("input[name=iva]").prop('checked', 1);
 		$("input[name=hide_price]").prop('checked', 0);
+		$("input[name=fixed_date]").prop('checked', 0);
 		$("select[name=pay_method]").val('N/A')
 		$("input[name=payment_date]").val('')
 		$("textarea[name=food_requirements]").val('')
-		$("textarea[name=info]").val('')
+		$("textarea[name=comments]").val('')
 		$("select[name=crm]").val('YES')
 		url_action = 'bkg_new'
 	} else {
@@ -184,6 +185,7 @@ function bookingEditShow(i, j) {
 		$("input[name=price]").val(bookings[j].price)
 		$("input[name=iva]").prop('checked', bookings[j].iva)
 		$("input[name=hide_price]").prop('checked', bookings[j].hide_price)
+		$("input[name=fixed_date]").prop('checked', bookings[j].fixed_date)
 		$("select[name=pay_method]").val(bookings[j].pay_method)
 		$("input[name=payment_date]").val(bookings[j].payment_date)
 		$("textarea[name=food_requirements]").val(bookings[j].food_requirements)
@@ -234,7 +236,7 @@ function calendarEventEditShow(month_schedule, date_shown, i) {
 		$("select[name=time]").val(month_schedule[i].time)
 		$("select[name=duration]").val(month_schedule[i].duration)
 		$("input[name=capacity]").val(month_schedule[i].capacity)
-		$("input[name=info]").val(month_schedule[i].info)
+		$("textarea[name=info]").val(month_schedule[i].info)
 		url_action = 'ce_edit'
 	}
 	updateUrl(parts, '/admin/calendarevent', moment($("input[name=date]").val()), url_action, i)
@@ -511,7 +513,7 @@ jQuery(document).ready(function($) {
 	}
 	$('#sourcelist').append(select)
 
-	//
+	// 
 	// set status and pay_method based on source_id
 	//
 	$('select[name=source_id]').change(function() {
@@ -670,7 +672,7 @@ jQuery(document).ready(function($) {
 	$(document).on('click', '.button_calendarevent_info', function() {
 		var i = $(this).data('i')
 		$('.modal_admin_title').html(month_schedule[i].short_description)
-    	$('.modal_admin_body').html(month_schedule[i].info)
+    	$('.modal_admin_body').html(month_schedule[i].info.replace(/\n/g, '<br\/>'))
 	    $('#modal_admin').modal('show')	
 	})
 
@@ -950,13 +952,13 @@ jQuery(document).ready(function($) {
 	//
 	// booking modal close, modal ok
 	//
-	$("#modal_button_booking_close, #modal_button_booking_ok").click(function() {
+	$("#modal_button_booking_close").click(function() {
 		form_changed = false
 		updateUrl(parts, '/admin/calendarevent', date_shown, 'bkg_index', parts.query.i)
 		$('#booking_index').show()
 		$('#booking_edit').hide()	
 		$('#modal_booking_close').modal('hide')
-		$('#modal_booking').modal('hide')
+		$('#modal_admin').modal('hide')
 	})
 
 	//
@@ -1008,11 +1010,11 @@ jQuery(document).ready(function($) {
 					updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i)
 				    populateBookingList(i)
 				    if (show_modal) {
-				    	$('.modal_booking_title').html(modal_title)
-				    	$('.modal_booking_body').html(error_msg)
-					    $('#modal_booking').modal('show')				    	
+				    	$('.modal_admin_title').html(modal_title)
+				    	$('.modal_admin_body').html(error_msg)
+					    $('#modal_admin').modal('show')				    	
 				    } else {
-				    	$('#modal_button_booking_ok').click()
+				    	$('#modal_button_booking_close').click()
 				    }
 				    $('.loading').hide();
 			    }			    			    					    	
@@ -1040,8 +1042,8 @@ jQuery(document).ready(function($) {
 			    url: '/api/booking/delete/' + bkg_id,
 			    async: false,
 			    success: function(msg){
-			    	$('.modal_booking_title').html('Éxito')
-			    	$('.modal_booking_body').html('Reserva borrada con éxito')
+			    	$('.modal_admin_title').html('Éxito')
+			    	$('.modal_admin_body').html('Reserva borrada con éxito')
 				    month_schedule = getMonthSchedule(date_shown)
 				    refreshDateShown(month_schedule, date_shown)
 				    var ce_id = $('input[name=calendarevent_id]').val()
@@ -1052,7 +1054,7 @@ jQuery(document).ready(function($) {
 							break
 					}
 				    populateBookingList(i)
-				    $('#modal_booking').modal('show')
+				    $('#modal_admin').modal('show')
 				    $('.loading').hide();
 				}
 			})
