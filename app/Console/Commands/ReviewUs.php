@@ -31,9 +31,9 @@ class ReviewUs extends Job {
 
 	protected function action($bkg) {
 		// para testing solo escribe en el log
-		Log::info('Cumple con la condición ' . $bkg->name);
+		Log::info('Enviado <ReviewUs> a ' . $bkg->name);
 
-	 	// MailController::send_mail($bkg->email, $bkg, 'user_review');
+	 	MailController::send_mail($bkg->email, $bkg, 'user_review');
 	 	$bkg->crm = "REVIEW_ASKED";
 	 	$bkg->save();
 
