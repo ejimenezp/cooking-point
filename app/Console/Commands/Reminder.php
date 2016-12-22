@@ -23,6 +23,7 @@ class Reminder extends Job {
 		$in2days = $this->now->modify('+2 days')->format('Y-m-d');
 
 		return Booking::where('email', '<>', '')->
+						where('hash', '<>', '')->
 						where('status', 'PENDING')->
 						where('crm', 'YES')->
 						whereHas('calendarevent', function($query) use ($today, $in2days) {
@@ -33,7 +34,7 @@ class Reminder extends Job {
 
 	protected function action($bkg) {
 		// para testing solo escribe en el log
-		Log::info('Cumple con la condición ' . $bkg->name);
+		Log::info('Enviado <Reminder> a ' . $bkg->name);
 
 	 	MailController::send_mail($bkg->email, $bkg, 'user_reminder');
 	 	$bkg->crm = "REMINDED";
