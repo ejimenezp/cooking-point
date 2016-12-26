@@ -200,6 +200,14 @@ input, select, textarea {
 
 // datepickers
 
+@mixin browser($browsers: Mozilla) {
+  @each $browser in $browsers {
+    html[data-browser*="#{$browser}"] & {
+      @content;
+    }
+  }
+}
+
 .online {
   .ui-datepicker {
     background-color: white;
@@ -215,6 +223,9 @@ input, select, textarea {
     
     .ui-icon {
       all: unset;
+      @include browser(".NET") {
+        display: inline;
+      }
     }
 
     .day-last-seats {
@@ -245,6 +256,10 @@ input, select, textarea {
       heigth: unset;
       top: unset;
       margin-top: 4px;
+      @include browser(".NET") {
+        display: inline;
+        position: static;
+      }
     }
   }
 }
