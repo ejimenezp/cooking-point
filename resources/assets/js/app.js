@@ -10,15 +10,10 @@ require('./bootstrap');
 window.$ = window.jQuery = require('jquery')
 require('bootstrap-sass'); // needed for menu drop-down
 
-// to allow sass mixins for different browsers
-document.documentElement.setAttribute("data-browser", navigator.userAgent);
-
 ///
 /// jquery for page slideshows
 ///
 $( document ).ready(function() {
-
-	console.log(navigator.userAgent)
 
 	var currentIndex = 0,
 	items = $('.cp-slideshow div'),

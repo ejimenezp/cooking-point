@@ -6108,8 +6108,6 @@ input, select, textarea {
     border-collapse: separate; }
   .online .ui-datepicker .ui-icon {
     all: unset; }
-    html[data-browser*=".NET"] .online .ui-datepicker .ui-icon {
-      display: inline; }
   .online .ui-datepicker .day-last-seats {
     background-color: #e42e28;
     border: 3px solid #e42e28; }
@@ -6131,9 +6129,6 @@ input, select, textarea {
     heigth: unset;
     top: unset;
     margin-top: 4px; }
-    html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-prev span, html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
-      display: inline;
-      position: static; }
 
 .admin .ui-datepicker {
   background-color: white;
