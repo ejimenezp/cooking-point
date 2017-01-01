@@ -15143,6 +15143,8 @@ $(document).ready(function () {
         }
     });
 
+    $('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
+
     $("#admindatepicker").datepicker("setDate", new Date());
     var pretty_date = $("input[name=pretty_date]").val();
     var ticket_date = $("input[name=date]").val();
