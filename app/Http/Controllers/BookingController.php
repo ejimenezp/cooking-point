@@ -49,7 +49,7 @@ class BookingController extends Controller
         $bkg->crm = $request->crm;
 
     	$source = Source::find($request->source_id);
-        $bkg->iva = !empty($request->iva);
+        $bkg->iva = $source->priceplan->iva;
     	$bkg->price = $source->priceplan->adult * $request->adult + $source->priceplan->child * $request->child;
         $bkg->hide_price = !empty($request->hide_price);
         $bkg->fixed_date = !empty($request->fixed_date);
