@@ -27,7 +27,8 @@ elixir(function(mix) {
     	.browserify('app.js')
     	.browserify('tienda.js')
     	.browserify('admin.js')
+    	.browserify('report.js')
     	.browserify('booking.js')
 
-    	mix.version(['css/app.css', 'js/app.js', 'js/tienda.js', 'js/admin.js', 'js/booking.js'])
+    	mix.version(['css/app.css', 'js/app.js', 'js/tienda.js', 'js/admin.js', 'js/report.js', 'js/booking.js'])
 });

@@ -51,6 +51,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('', function() { return view('admin.index'); });
     Route::get('calendarevent', function() { return view('admin.index'); });
     Route::get('booking', function() { return view('admin.index'); });
+    Route::get('report', function() { return view('admin.reportindex'); });
+    Route::post('report/{id}', 'ReportController@report');
 });
 
 
