@@ -19149,8 +19149,8 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 //
 // Global variables
 //
-// var right_now = moment("2016-12-15 09:00")
-var right_now = moment();
+var right_now = moment("2016-12-15 09:00");
+// var right_now = moment()
 var date_shown = right_now.clone();
 
 //
@@ -19184,7 +19184,7 @@ jQuery(document).ready(function ($) {
 
 	$('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
 
-	$('#startdatepicker').datepicker("setDate", date_shown.toDate());
+	$('#startdatepicker').datepicker("setDate", date_shown.clone().startOf('month').toDate());
 	$('#enddatepicker').datepicker("setDate", date_shown.clone().endOf('month').toDate());
 
 	// 
