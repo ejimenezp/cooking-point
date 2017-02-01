@@ -40,7 +40,7 @@ var tpv_result = null
 ///////////////////////////////////////////////////////////////////
 
 //
-// Function: getMonthAvailability
+// Function: getDayAvailability
 // Datepicker's beforeShowDay function
 //
 function getDayAvailability(day)
@@ -218,6 +218,9 @@ function retrieveBooking(locator) {
 	bkg = JSON.parse(response).data
 	date_shown = moment(bkg.date)
 	$("#bookingdatepicker").datepicker("setDate", bkg.date)
+	if (bkg.type === 'GROUP') {
+		$("select[name=type]:last").append('<option value="GROUP">Private Group Event</option>')
+	}
 	$("select[name=type]").val(bkg.type)
 	$("select option[value='"+bkg.type+"']").attr("selected","selected");
 	$("input[name=calendarevent_id]").val(bkg.calendarevent_id)
