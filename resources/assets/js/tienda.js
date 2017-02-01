@@ -6,59 +6,52 @@ window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
 require('jquery-serializejson');
 require('printThis');
-
-
 require('jquery-ui/ui/widgets/datepicker');
+var moment = require('moment')
+
+
+var pretty_date = moment().format('dddd, D MMMM YYYY')
+$("#pretty_date").html(pretty_date)
+
+var ticket = {
+    staff_id  : $("meta[name=cpuser]").attr('content'),
+    date    : moment().format('YYYY-MM-DD'),
+    total   : 0,
+    articulos: [],
+    base4   : 0,
+    iva4    : 0,
+    base10  : 0,
+    iva10   : 0,
+    base21  :0,
+    iva21   :0,
+    pago    : ""
+}
+var articles = ""  // para imprimir los articulos en el ticket
+var ticket_pagado = false
+
 
 $( document ).ready(function() {
-
-	$.ajaxSetup({
-	        headers: {
-	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	        }
-	});
-
-
 
     $( "#admindatepicker" ).datepicker({
         dateFormat: "DD, d MM yy" ,
         altFormat: "yy-mm-dd",
         altField: "#realDate",
         firstDay: 1, // Start with Monday
-        onClose: function (date) {
+        onSelect: function (s, i) {
             if (ticket_pagado) {
                 alert("Este ticket ya está pagado. Limpia antes de cambiar la fecha")
             } else {
-                $("#pretty_date").html(date)                
+                pretty_date = $(this).val()
+                $("#pretty_date").html(pretty_date)
+                ticket.date = $("#realDate").val()
+                console.log(ticket.date)
             }
 
         }
     });
     
     $('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
-
     $( "#admindatepicker" ).datepicker("setDate", new Date());
-    var pretty_date = $("input[name=pretty_date]").val()
-    var ticket_date = $("input[name=date]").val()
-
-    var ticket = {
-		date 	: ticket_date,
-		total	: 0,
-		articulos: [],
-        base4   : 0,
-        iva4    : 0,
-        base10  : 0,
-        iva10   : 0,
-        base21  :0,
-        iva21   :0,
-		pago	: ""
-	}
-	var articles = ""  // para imprimir los articulos en el ticket
-	var ticket_pagado = false
-
-
-
-	$("#pretty_date").html(pretty_date)
 
     $(".boton-articulo").click(function(){
 
@@ -121,8 +114,13 @@ $( document ).ready(function() {
 
 
     $("#boton-limpiar").click(function(){
+        pretty_date = moment().format('dddd, D MMMM YYYY')
+        $("#pretty_date").html(pretty_date)
+        $("input[name=pretty_date]").val(pretty_date)
+
         ticket = {
-            date    : ticket_date,
+            staff_id  : $("meta[name=cpuser]").attr('content'),
+            date    : moment().format('YYYY-MM-DD'),
             total   : 0,
             articulos: [],
             base4   : 0,
@@ -154,7 +152,7 @@ $( document ).ready(function() {
             $("#forma_pago").html(ticket.pago)
             $.ajax({
                 type    : "POST",
-                url     : "/tienda/addticket",
+                url     : "/api/tienda/addticket",
                 data    : ticket,
                 async   : false,
                 success : function(result){
