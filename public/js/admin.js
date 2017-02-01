@@ -21518,6 +21518,7 @@ jQuery(document).ready(function ($) {
 						$('#modal_calendarevent').modal('show');
 					}
 					$('.loading').hide();
+					$("#modal_button_calendarevent_ok").click();
 				}
 			});
 		}
@@ -21542,16 +21543,15 @@ jQuery(document).ready(function ($) {
 				url: '/api/calendarevent/delete/' + ce_id,
 				async: false,
 				success: function success(msg) {
-					if (msg.status == 'ok') {
-						$('#modal_calendarevent_title').html('Éxito');
-						$('#modal_calendarevent_body').html('Evento borrado con éxito');
-					} else {
-						$('#modal_calendarevent_title').html('Error');
-						$('#modal_calendarevent_body').html('No se ha borrado');
-					}
 					month_schedule = getMonthSchedule(date_shown);
 					refreshDateShown(month_schedule, date_shown);
-					$('#modal_calendarevent').modal('show');
+					if (msg.status != 'ok') {
+						$('#modal_calendarevent_title').html('No Eliminado');
+						$('#modal_calendarevent_body').html('Este evento tiene reservas');
+						$('#modal_calendarevent').modal('show');
+					} else {
+						$("#modal_button_calendarevent_close").click();
+					}
 					$('.loading').hide();
 				}
 			});
@@ -21681,8 +21681,6 @@ jQuery(document).ready(function ($) {
 				url: '/api/booking/delete/' + bkg_id,
 				async: false,
 				success: function success(msg) {
-					$('.modal_admin_title').html('Éxito');
-					$('.modal_admin_body').html('Reserva borrada con éxito');
 					month_schedule = getMonthSchedule(date_shown);
 					refreshDateShown(month_schedule, date_shown);
 					var ce_id = $('input[name=calendarevent_id]').val();
@@ -21692,7 +21690,7 @@ jQuery(document).ready(function ($) {
 						if (month_schedule[i].id == ce_id) break;
 					}
 					populateBookingList(i);
-					$('#modal_admin').modal('show');
+					$('#modal_button_booking_close').click();
 					$('.loading').hide();
 				}
 			});
