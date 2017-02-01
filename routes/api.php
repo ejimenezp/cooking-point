@@ -33,5 +33,3 @@ Route::post('booking/cancelIt', 'BookingControllerApi@cancelIt');
 Route::get('staff/get', 'StaffController@getCooks');
 
 Route::get('source/get', 'SourceController@get');
-
-Route::post('tienda/addticket', 'TicketsController@addticket');
