@@ -37,6 +37,10 @@
 		<p>We can adapt the length of the activity to fit your schedules taking advantage of our central location, close to major attractions in Madrid.</p>
 
 		<p>Tourist groups, student tours and hen/stag parties are common customers of us.</p>
+
+		<div class="text-center">
+			<a href="/eventos-privados-madrid" class="btn btn-primary">Eventos en español</a>
+		</div>
 	</div>
 </div>
 

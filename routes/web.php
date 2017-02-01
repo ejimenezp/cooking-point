@@ -32,6 +32,7 @@ Route::get('/gallery', function () { return view('pages.gallery'); });
 Route::get('/pay/{id}', 'TPVController@pay')->name('pay');
 Route::post('/callback', 'TPVController@callback');
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
+Route::get('/eventos-privados-madrid', function () { return view('pages.eventos'); });
 Route::get('/school-madrid-spain', function () { return view('pages.school'); });
 Route::get('/wine-tasting-madrid-spain', function () { return view('pages.wine'); });
 
