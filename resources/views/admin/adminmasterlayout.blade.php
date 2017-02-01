@@ -41,6 +41,9 @@
 <!-- main area -->
 		@yield('content')	
 
+		<br/>
+		<br/>
+
 	</div>
 
 <!-- modals specific for this page  -->
