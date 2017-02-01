@@ -37,7 +37,7 @@ class TicketsController extends Controller
 
     	$h->fecha = $request->date;
     	$h->total = $request->total;
-        $h->staff_id = $request->staff_id;
+        $h->staff_id = $request->cpuser;
 	    $h->base4 = $request->base4;
 	    $h->iva4 = $request->iva4;
         $h->base10 = $request->base10;
