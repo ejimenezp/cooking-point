@@ -92,7 +92,7 @@ class ReportController extends Controller
                             AND (linea7 is null OR linea7 <> 3 AND linea7 <> 4)
                             AND (linea8 is null OR linea8 <> 3 AND linea8 <> 4)
                             AND (linea9 is null OR linea9 <> 3 AND linea9 <> 4)
-                        ORDER BY id";
+                        ORDER BY fecha, id";
 
 
     							
