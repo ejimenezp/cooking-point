@@ -19419,6 +19419,10 @@ function getDayAvailability(day) {
 		}
 	}
 
+	if (bkg && bkg.type === 'GROUP') {
+		to_return = [true, 'day-available', 'Private Class'];
+	}
+
 	if (to_return) {
 		if (!to_return[0]) {
 			return to_return;
@@ -19497,11 +19501,24 @@ function purchase() {
 //
 function refreshDataShown() {
 	var a, i;
+	var found = false;
 	var type_shown = $("select[name=type]").val();
-	for (i = 0; i < month_availability.length; i++) {
-		a = moment(month_availability[i].date + ' ' + month_availability[i].time);
-		if (month_availability[i].type == type_shown && a.isAfter(date_shown)) {
-			break;
+
+	// if there is a locator, if looks up calendarevent data by its ce_id, instead of by date and time)
+	if (bkg) {
+		for (i = 0; i < month_availability.length; i++) {
+			if (month_availability[i].type == type_shown && month_availability[i].id == bkg.calendarevent_id) {
+				found = true;
+				break;
+			}
+		}
+	}
+	if (!found) {
+		for (i = 0; i < month_availability.length; i++) {
+			a = moment(month_availability[i].date + ' ' + month_availability[i].time);
+			if (month_availability[i].type == type_shown && a.isAfter(date_shown)) {
+				break;
+			}
 		}
 	}
 	if (i > month_availability.length) {
