@@ -388,7 +388,7 @@ jQuery(document).ready(function($) {
     	} else {
 	 		if (!getDayAvailability(bkg.date)[0]) {
 	    		$('.modal_booking_title').html('Class no longer available')
-				$('.modal_booking_body').html('Please, select a new date to check availability')
+				$('.modal_booking_body').html('Please, select a date with availability')
 	    		$("#modal_booking").modal('show')
 		 	    $('#step1').removeClass('hidden')
 	 		} else {
@@ -451,7 +451,7 @@ jQuery(document).ready(function($) {
 
 	    if (!getDayAvailability(date_shown.toDate())[0]) {
     		$('.modal_booking_title').html('Class Not Available')
-			$('.modal_booking_body').html('Please, select a new date to check availability')
+			$('.modal_booking_body').html('Please, select a date with availability')
     		$("#modal_booking").modal('show')
     	}
    	});
@@ -493,7 +493,7 @@ jQuery(document).ready(function($) {
     $(".update_class").click(function(e) {
     	if (!getDayAvailability(date_shown.toDate())[0]) {
     		$('.modal_booking_title').html('Not Available')
-			$('.modal_booking_body').html('Please, select a new date to check availability')
+			$('.modal_booking_body').html('Please, select a date with availability')
     		$("#modal_booking").modal('show')
 		} else if ($(this).attr('checkout')) {
 			$('#booking_steps > div').addClass('hidden')

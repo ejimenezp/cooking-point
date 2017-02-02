@@ -10,7 +10,7 @@
 
 		<div id="step1" class="hidden">
 			<h1>Booking: Availability</h1>
-			<p>Select the date, party size and desired class to check our availability</p>
+			<p>Select number of guests and desired class to check availability</p>
 			<div class="col-sm-6">
 				<div class="online" id="bookingdatepicker"></div>
 			</div>
