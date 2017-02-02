@@ -10,7 +10,7 @@
 
 		<div id="step1" class="hidden">
 			<h1>Booking: Availability</h1>
-			<p>Select the date, desired class and party size to check our availability</p>
+			<p>Select the date, party size and desired class to check our availability</p>
 			<div class="col-sm-6">
 				<div class="online" id="bookingdatepicker"></div>
 			</div>
@@ -42,25 +42,6 @@
 							<div class="dateshown"></div>
 						</td>
 					</tr>
-					<tr>
-						<td class="bold">
-							Class:
-						</td>
-						<td>
-							<select name="type">
-							@if (isset($class) && $class == 'PAELLA') 
-								<option value="PAELLA" selected="selected">Paella Cooking Class</option>
-							@else
-								<option value="PAELLA">Paella Cooking Class</option>
-							@endif
-							@if (isset($class) && $class == 'TAPAS') 
-								<option value="TAPAS" selected="selected">Tapas Cooking Class</option>
-							@else
-								<option value="TAPAS">Tapas Cooking Class</option>
-							@endif
-							</select>				
-						</td>
-					</tr>
 					<tr>					
 						<td class="bold">
 							Adults:
@@ -72,6 +53,7 @@
 							</select>
 						@else
 							<select name="adult">
+								<option value="99">-- select a number --</option>
 								@for ($i = 1; $i <= 8; $i++)
 								<option value="{{ $i }}">{{ $i }}</option>
 								@endfor
@@ -97,6 +79,25 @@
 								<option value="-1" disabled>+4 please contact</option>
 							</select>
 						@endif
+						</td>
+					</tr>
+					<tr>
+						<td class="bold">
+							Class:
+						</td>
+						<td>
+							<select name="type">
+							@if (isset($class) && $class == 'PAELLA') 
+								<option value="PAELLA" selected="selected">Paella Cooking Class</option>
+							@else
+								<option value="PAELLA">Paella Cooking Class</option>
+							@endif
+							@if (isset($class) && $class == 'TAPAS') 
+								<option value="TAPAS" selected="selected">Tapas Cooking Class</option>
+							@else
+								<option value="TAPAS">Tapas Cooking Class</option>
+							@endif
+							</select>				
 						</td>
 					</tr>
 					<tr>
