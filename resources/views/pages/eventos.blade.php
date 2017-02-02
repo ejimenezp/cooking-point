@@ -47,7 +47,7 @@
 		Cuando:<br/>
 		Horario:<br/>
 		Precio:<br/>
-		Include:<br/><br/>
+		Incluye:<br/><br/>
 	</div>
 	<div class="col-xs-9">
 		Bajo petición<br/>

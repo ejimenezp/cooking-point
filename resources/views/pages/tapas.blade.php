@@ -58,7 +58,7 @@
 		Monday to Saturday<br/>
 		5:30 pm - 9:30 pm<br/>
 		€70 adult / €35 children (5-12 yo)<br/>
-		cooking class, ingredients, recipes, lunch and drinks<br/><br/>
+		cooking class, ingredients, recipes, dinner and drinks<br/><br/>
 	</div>
 </div>
 
