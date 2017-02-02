@@ -44,7 +44,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Help</h4>
         </div>
-        <div class="modal-body">Please, select the desired date, class and number of guests. The calendar will update according to our availability:
+        <div class="modal-body">Please, select number of guests and desired class. The calendar will update according to our availability:
         <table class="help-table">
           <tr>
             <td class="td-available">25</td>
