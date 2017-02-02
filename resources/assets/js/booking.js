@@ -13,7 +13,7 @@ var moment = require('moment')
 //
 // var right_now = moment("2016-12-15 09:00")
 var right_now = moment()
-var date_shown = right_now.clone()
+var date_shown = right_now.clone().add(1, 'day')
 var form_changed = false
 var month_changed = false
 var month_availability = Array()
@@ -87,7 +87,7 @@ function getDayAvailability(day)
 			return [false, '', 'Admission Closed']			
 		} else if (class_type == 'TAPAS' && start.clone().subtract(8, 'hours').isSameOrBefore(right_now) && registered == 0) {
 			return [false, '', 'Admission Closed']			
-		} else if (class_type == 'PAELLA' && start.clone().subtract(11, 'hours').isSameOrBefore(right_now) && registered == 0) {
+		} else if (class_type == 'PAELLA' && start.clone().subtract(12, 'hours').isSameOrBefore(right_now) && registered == 0) {
 			return [false, '', 'Admission Closed']			
 		} else if (start.clone().subtract(24, 'hours').isSameOrBefore(right_now) && (adult+child) == 1 && registered == 0) {
 			return [false, '', 'Admission Closed']			
