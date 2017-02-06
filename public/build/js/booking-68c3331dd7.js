@@ -19356,9 +19356,9 @@ var moment = require('moment');
 //
 // Global variables
 //
-// var right_now = moment("2016-12-15 09:00")
+// var right_now = moment("2017-02-06 09:00")
 var right_now = moment();
-var date_shown = right_now.clone().add(1, 'day');
+var date_shown = right_now.clone();
 var form_changed = false;
 var month_changed = false;
 var month_availability = Array();
@@ -19829,8 +19829,14 @@ jQuery(document).ready(function ($) {
 			$('.modal_booking_body').html('Please, select a date with availability');
 			$("#modal_booking").modal('show');
 		} else if ($(this).attr('checkout')) {
-			$('#booking_steps > div').addClass('hidden');
-			$($(this).attr('href')).removeClass('hidden');
+			if (!parseInt($("select[name=adult]").val())) {
+				$('.modal_booking_title').html('Invalid number of guests');
+				$('.modal_booking_body').html('1 adult at least');
+				$("#modal_booking").modal('show');
+			} else {
+				$('#booking_steps > div').addClass('hidden');
+				$($(this).attr('href')).removeClass('hidden');
+			}
 		} else {
 			// booking already exist, and probably paid
 			updateBooking();

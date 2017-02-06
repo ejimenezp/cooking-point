@@ -19129,20 +19129,20 @@ var moment = require('moment');
 // datepicker locale
 //
 $.datepicker.regional['es'] = {
-	closeText: 'Cerrar',
-	prevText: '<<',
-	nextText: '>>',
-	currentText: 'Hoy',
-	monthNames: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
-	monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-	dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
-	dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
-	dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
-	weekHeader: 'Sm',
-	firstDay: 1,
-	isRTL: false,
-	showMonthAfterYear: false,
-	yearSuffix: '' };
+			closeText: 'Cerrar',
+			prevText: '<<',
+			nextText: '>>',
+			currentText: 'Hoy',
+			monthNames: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+			monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+			dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
+			dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+			dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+			weekHeader: 'Sm',
+			firstDay: 1,
+			isRTL: false,
+			showMonthAfterYear: false,
+			yearSuffix: '' };
 
 $.datepicker.setDefaults($.datepicker.regional['es']);
 
@@ -19159,53 +19159,53 @@ var date_shown = right_now.clone();
 
 jQuery(document).ready(function ($) {
 
-	//
-	// Booking Datepicker
-	//
-	$("#startdatepicker").datepicker({
-		language: 'es',
-		defaultDate: date_shown.toDate(),
-		dateFormat: "DD, d MM yy",
-		altFormat: "yy-mm-dd",
-		altField: "#start"
+			//
+			// Booking Datepicker
+			//
+			$("#startdatepicker").datepicker({
+						language: 'es',
+						defaultDate: date_shown.toDate(),
+						dateFormat: "DD, d MM yy",
+						altFormat: "yy-mm-dd",
+						altField: "#start"
 
-	});
+			});
 
-	$('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
+			$('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
 
-	$("#enddatepicker").datepicker({
-		language: 'es',
-		defaultDate: date_shown.toDate(),
-		dateFormat: "DD, d MM yy",
-		altFormat: "yy-mm-dd",
-		altField: "#end"
+			$("#enddatepicker").datepicker({
+						language: 'es',
+						defaultDate: date_shown.toDate(),
+						dateFormat: "DD, d MM yy",
+						altFormat: "yy-mm-dd",
+						altField: "#end"
 
-	});
+			});
 
-	$('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
+			$('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
 
-	$('#startdatepicker').datepicker("setDate", date_shown.clone().startOf('month').toDate());
-	$('#enddatepicker').datepicker("setDate", date_shown.clone().endOf('month').toDate());
+			$('#startdatepicker').datepicker("setDate", date_shown.clone().startOf('month').toDate());
+			$('#enddatepicker').datepicker("setDate", date_shown.clone().endOf('month').toDate());
 
-	// 
-	// end initial display
-	//
+			// 
+			// end initial display
+			//
 
-	//
-	// event-driven actions
-	//
+			//
+			// event-driven actions
+			//
 
 
-	$('.report').click(function (e) {
-		e.preventDefault();
-		$('#report_form').attr('action', '/admin/report/' + $(this).attr('report_id'));
-		$('#report_form').submit();
-	});
+			$('.report').click(function (e) {
+						e.preventDefault();
+						$('#report_form').attr('action', '/admin/report/' + $(this).attr('report_id'));
+						$('#report_form').submit();
+			});
 
-	$('.ir').click(function (e) {
-		e.preventDefault();
-		location.href = $(this).attr('href');
-	});
+			$('.ir').click(function (e) {
+						e.preventDefault();
+						location.href = $(this).attr('href');
+			});
 }); // jQuery
 
 },{"bootstrap-sass":1,"jquery":4,"jquery-serializejson":2,"jquery-ui/ui/widgets/datepicker":3,"moment":5}]},{},[6]);
