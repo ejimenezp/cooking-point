@@ -28,7 +28,7 @@
 				<input type="hidden" name="pay_method" value="N/A">
 				<input type="hidden" name="calendarevent_id" value="">
 				<input type="hidden" name="id" value="">
-				<input type="hidden" name="price" value="70">
+				<input type="hidden" name="price" value="0">
 				<input type="hidden" name="iva" value="1">
 				<input type="hidden" name="hide_price" value="">
 				<input type="hidden" name="crm" value="YES">
@@ -53,11 +53,11 @@
 							</select>
 						@else
 							<select name="adult">
-								<option value="99">-- select a number --</option>
+								<option value="0" selected="selected">0</option>
 								@for ($i = 1; $i <= 8; $i++)
 								<option value="{{ $i }}">{{ $i }}</option>
 								@endfor
-								<option value="0" disabled>+8 please contact</option>
+								<option value="-1" disabled>9+ please contact</option>
 							</select>
 						@endif											
 						</td>
@@ -76,7 +76,7 @@
 								@for ($i = 0; $i <= 4; $i++)
 								<option value="{{ $i }}">{{ $i }}</option>
 								@endfor
-								<option value="-1" disabled>+4 please contact</option>
+								<option value="-1" disabled>5+ please contact</option>
 							</select>
 						@endif
 						</td>
@@ -120,7 +120,7 @@
 							<a href="#step4" class="update_class btn btn-primary">Update Booking</a>
 						@else
 							<a id="button_booking_help" class="btn btn-link">Help</a>
-							<a class="booking_retrieve btn btn-primary">Use Booking #</a>
+							<a class="booking_retrieve btn btn-default">Use Booking #</a>
 							<a href="#step2" class="update_class btn btn-primary" checkout="checkout">Checkout</a>
 						@endif
 					</div>
