@@ -89,6 +89,7 @@ jQuery(document).ready(function($) {
 			var email_tab = $('<input name="edited" type="text" />')
 			email_tab.val(email)
 			$('tr:nth-child('+ (j+1) + ') td:nth-child(3)').html(email_tab)
+			email_tab.focus()
 			$(this).removeClass('btn-link').removeClass('btn-default').addClass('btn-primary')
 			$(this).html('Confirm')			
 		} else {
