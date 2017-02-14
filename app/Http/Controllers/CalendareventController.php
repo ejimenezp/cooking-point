@@ -73,6 +73,10 @@ class CalendareventController extends Controller
         }
     }
 
+    function find ($id)
+    {
+        return Calendarevent::find($id);
+    }
 
     function findByDateAndType ($date, $type)
     {

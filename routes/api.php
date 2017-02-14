@@ -20,6 +20,7 @@ Route::post('calendarevent/getavailability', 'CalendareventControllerApi@getAvai
 Route::post('calendarevent/getschedule', 'CalendareventControllerApi@getSchedule');
 Route::post('calendarevent/add', 'CalendareventControllerApi@add');
 Route::post('calendarevent/update', 'CalendareventControllerApi@update');
+Route::get('calendarevent/find/{id}', 'CalendareventControllerApi@find');
 Route::get('calendarevent/delete/{id}', 'CalendareventControllerApi@delete');
 
 Route::get('booking/index/{ce_id}', 'BookingControllerApi@index');

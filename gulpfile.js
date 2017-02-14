@@ -29,6 +29,7 @@ elixir(function(mix) {
     	.browserify('admin.js')
     	.browserify('report.js')
     	.browserify('booking.js')
+    	.browserify('classemails.js')
 
     	mix.version(['css/app.css', 'js/app.js', 'js/tienda.js', 'js/admin.js', 'js/report.js', 'js/booking.js'])
 });

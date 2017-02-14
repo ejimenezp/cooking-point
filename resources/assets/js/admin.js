@@ -73,17 +73,22 @@ function refreshDateShown(month_schedule, date_shown) {
 	$('.dateshown').html(date_shown_locale)	
 
 	// aqui, refrescar el index del día	
-	var edit_button
+	var edit_button, classemails_button
+
 	$("#calendarevent_table > tbody").empty();
 	for (var i = 0; i < month_schedule.length; i++) {
+		edit_button = ''
+		classemails_button = '<a class="btn btn-primary btn-xs" href="/admin/classemails?ce_id=' + month_schedule[i].id + '">E-mails</a>'
 		if (user_role >= 3) {
-			edit_button = '<td class=""><button class="btn btn-primary btn-xs button_calendarevent_edit" data-i="'
-					+ i + '">Detalles</button></td>'
+			edit_button = '<button class="btn btn-primary btn-xs button_calendarevent_edit" data-i="'
+					+ i + '">Detalles</button>'
 		} else if (user_role >= 2 && month_schedule[i].info != '') {
-			edit_button = '<td class=""><button class="btn btn-primary btn-xs button_calendarevent_info" data-i="'
-					+ i + '">+info</button></td>'			
+			edit_button = '<button class="btn btn-primary btn-xs button_calendarevent_info" data-i="'
+					+ i + '">+info</button>'			
+		} else if (user_role >= 2) {
+			edit_button = ''			
 		} else {
-			edit_button = ''
+			classemails_button = ''
 		}
 		var calendarevent_tr_class = (user_role >= 2) ? 'calendarevent_line' : ''
 
@@ -91,15 +96,16 @@ function refreshDateShown(month_schedule, date_shown) {
 			$('#calendarevent_table > tbody:last').append(
 				'<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i +'">'+ 
 				month_schedule[i].time.substring(0,5) + 
-				'<td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
+				'</td><td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
 				month_schedule[i].type +
-				'<td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
+				'</td><td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
 				cookName(month_schedule[i].staff_id) +
-				'<td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
+				'</td><td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
 				month_schedule[i].registered +
-				'</td>' +
+				'</td><td>' +
+				classemails_button + '&nbsp;&nbsp;' +
 				edit_button +
-				'</tr>');
+				'</td></tr>');
 		}
 	}
 }
