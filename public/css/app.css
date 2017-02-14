@@ -6309,4 +6309,10 @@ input, select, textarea {
   #tax_table td, #tax_table th {
     text-align: right; }
 
+#classemails_table {
+  font-size: 20px; }
+
+h4 {
+  color: #e42e28; }
+
 /*# sourceMappingURL=app.css.map */

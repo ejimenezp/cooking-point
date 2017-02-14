@@ -19,6 +19,10 @@ class CalendareventControllerApi extends CalendareventController
         return response()->json(['status'=> parent::delete($id)]);
     }
 
+    function find($id)
+    {
+        return response()->json(['status'=>'ok', 'data' => parent::find($id)]);
+    }
 
     function update(Request $request)
     {
