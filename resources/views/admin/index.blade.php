@@ -100,7 +100,7 @@
 								<option value="11:00:00">11:00am</option>
 								<option value="11:30:00">11:30am</option>
 								<option value="12:00:00">12:00pm</option>
-								<option value="12:30:00">11:30pm</option>
+								<option value="12:30:00">12:30pm</option>
 								<option value="13:00:00">1:00pm</option>
 								<option value="13:30:00">1:30pm</option>
 								<option value="14:00:00">2:00pm</option>
