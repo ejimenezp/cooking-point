@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Staff;
 use Log;
+use Cookie;
 
 class AuthController extends Controller
 {
@@ -29,14 +30,14 @@ class AuthController extends Controller
             return redirect()->route('login', ['redir'=> $request->redir]);
     		}
      		// aquí generar la cookie
-   		
-    		return redirect($request->redir)->cookie('cpuser', $user->id);
+
+    		return redirect($request->redir)->withCookie(Cookie::forever('cpuser', $user->id));
     	}
     }
 
     public function logout() 
     {
-    	\Cookie::queue(\Cookie::forget('cpuser'));
+    	Cookie::queue(Cookie::forget('cpuser'));
     	return redirect()->route('login');
     }
 
