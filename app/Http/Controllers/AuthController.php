@@ -37,7 +37,7 @@ class AuthController extends Controller
 
     public function logout() 
     {
-    	Cookie::queue(cookie('cpuser', 'removecookie', time() - 3600, '/admin'));
+    	Cookie::queue(cookie('cpuser', 'removecookie', -3600, '/admin'));
     	return redirect()->route('login');
     }
 
