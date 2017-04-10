@@ -42,8 +42,7 @@
 							</ol></li>
 							<li>Tienda
 							<ol>
-								<li><div class='report' report_id='vtienda'>Tickets</div></li>
-								<li><div class='report' report_id='ivatienda'>IVA</div></li>
+								<li><div class='report' report_id='vtienda'>Ventas</div></li>
 							</ol></li>
 						</ul>
 						@endif						
