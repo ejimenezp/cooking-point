@@ -22,7 +22,7 @@ class BookingControllerOnline extends BookingController
                 return view('errors.wrongLocator');          
             } else {
                 $tpv_result = ($request->tpv_result) ? $request->tpv_result : '';
-                return response()->view('booking.index', ['page' => 'booking', 'bkg' => $bkg, 'tpv_result' => $tpv_result])->cookie('cplocator', $bkg->locator);
+                return response()->view('booking.index', ['page' => 'booking', 'bkg' => $bkg, 'tpv_result' => $tpv_result])->cookie('cplocator', $bkg->locator, 525600);
             }
         }
     }
