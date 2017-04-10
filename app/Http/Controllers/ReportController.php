@@ -69,32 +69,40 @@ class ReportController extends Controller
 		}
     }
 
+    function create_temporary_table($request)
+    {
+
+        DB::statement("DROP TEMPORARY TABLE IF EXISTS tienda_report_1");
+        DB::statement("CREATE TEMPORARY TABLE tienda_report_1 (ticket_id int, fecha date, producto int, staff_id int, pago varchar(255)) AS (
+                SELECT id as ticket_id, fecha, linea0 as producto, staff_id, pago
+                    FROM tienda_ventas
+                        WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
+                        AND NOT anulado
+                        AND NOT (linea0 is null OR linea0 = 3 OR linea0 = 4))");
+
+        for ($i = 1; $i <= 9; $i++) { 
+            DB::statement("INSERT INTO tienda_report_1 SELECT id as ticket_id, fecha, linea{$i} as producto, staff_id, pago
+                    FROM tienda_ventas
+                        WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
+                        AND NOT anulado
+                        AND NOT (linea{$i} is null OR linea{$i} = 3 OR linea{$i} = 4)");                     
+         }
+   
+    }
 
     function R_vtienda($request)
 	{
     	
-    	$sqlString = "SELECT tienda_ventas.id,
-    						fecha,
-    						staff.name,    						
-    						replace(total, '.', ','),
-                            pago
-     					FROM tienda_ventas, staff
-     					WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
-                			AND NOT anulado
-                        	AND tienda_ventas.staff_id = staff.id 
-                            AND (linea0 is null OR linea0 <> 3 AND linea0 <> 4)
-                            AND (linea1 is null OR linea1 <> 3 AND linea1 <> 4)
-                            AND (linea2 is null OR linea2 <> 3 AND linea2 <> 4)
-                            AND (linea3 is null OR linea3 <> 3 AND linea3 <> 4)
-                            AND (linea4 is null OR linea4 <> 3 AND linea4 <> 4)
-                            AND (linea5 is null OR linea5 <> 3 AND linea5 <> 4)
-                            AND (linea6 is null OR linea6 <> 3 AND linea6 <> 4)
-                            AND (linea7 is null OR linea7 <> 3 AND linea7 <> 4)
-                            AND (linea8 is null OR linea8 <> 3 AND linea8 <> 4)
-                            AND (linea9 is null OR linea9 <> 3 AND linea9 <> 4)
-                        ORDER BY fecha, id";
+        // first, normalize tiendas_ventas
+        self::create_temporary_table($request);
 
-
+        $sqlString = "SELECT fecha, art.nombre, count(producto), art.pvp, art.iva, round(sum(art.pvp/(1+art.iva/100)), 2), round(sum(art.pvp)-sum(art.pvp/(1+art.iva/100)), 2), sum(art.pvp), pago, staff.name
+                        FROM tienda_report_1, staff, tienda_articulos as art
+                        WHERE producto = art.id AND
+                            staff_id = staff.id
+                            AND fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
+                        GROUP BY fecha, producto, art.nombre, art.pvp, art.iva, pago, staff.name
+                        ORDER BY fecha, pago";
     							
 		if(!$result = DB::select($sqlString))
 		{
@@ -105,7 +113,7 @@ class ReportController extends Controller
     	} else {
 			return [
     			'title' =>'Ventas Tienda, ' . $request->start_date . ' a '. $request->end_date ,
-    			'headers' => ['Ticket', 'Fecha','Empleado', 'Total', 'Forma Pago'],
+    			'headers' => ['Fecha','Artículo', 'Uds', 'P.Unit', '% IVA', 'Base', 'IVA', 'Total', 'Forma Pago', 'Staff'],
     			'lines' => $result ];
 		}
     }
@@ -114,12 +122,12 @@ class ReportController extends Controller
 	{
     	
     	$sqlString = "SELECT 
-    						replace(sum(base10), '.', ','),
-    						replace(sum(base21), '.', ','),
-    						replace(sum(base4), '.', ','),
-    						replace(sum(iva10), '.', ','),
-    						replace(sum(iva21), '.', ','),
-    						replace(sum(iva4), '.', ',')
+    						sum(base10),
+    						sum(base21),
+    						sum(base4),
+    						sum(iva10),
+    						sum(iva21),
+    						sum(iva4)
      					FROM tienda_ventas
      					WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
                 			AND NOT anulado
