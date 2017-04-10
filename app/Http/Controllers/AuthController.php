@@ -31,7 +31,7 @@ class AuthController extends Controller
     		}
      		// aquí generar la cookie
 
-    		return redirect($request->redir)->withCookie(Cookie::forever('cpuser', $user->id));
+    		return redirect($request->redir)->withCookie(cookie('cpuser', $user->id, 525600));
     	}
     }
 
