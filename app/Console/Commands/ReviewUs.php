@@ -25,15 +25,25 @@ class ReviewUs extends Job {
 					where('status_filter', 'REGISTERED')->
 					where('crm', 'YES')->
 					whereHas('calendarevent', function($query) use ($yesterday) {
-            			$query->where('date', $yesterday); 
+            			$query->where('date', $yesterday)
+            				  ->where('type', '<>', 'GROUP'); 
             		})->get();
 	}
 
 	protected function action($bkg) {
-		// para testing solo escribe en el log
-		Log::info('Enviado <ReviewUs> a ' . $bkg->name);
 
-	 	MailController::send_mail($bkg->email, $bkg, 'user_review');
+		Log::debug('checking ' . $bkg->name);
+		switch ($bkg->source->name) {
+			case 'Viator':
+				Log::info('Enviado <ReviewUs on Viator> a ' . $bkg->name);
+			 	MailController::send_mail($bkg->email, $bkg, 'review_viator');
+				break;
+			
+			default:
+				Log::info('Enviado <ReviewUs> a ' . $bkg->name);
+			 	MailController::send_mail($bkg->email, $bkg, 'user_review');
+				break;
+		}
 	 	$bkg->crm = "REVIEW_ASKED";
 	 	$bkg->save();
 
