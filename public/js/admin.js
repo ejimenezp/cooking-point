@@ -21079,7 +21079,7 @@ function validBookingForm() {
 	var modal_body = '';
 	var show_it = false;
 	if ($("input[name=name]").val() == '') {
-		modal_body += 'Intruduce un nombre<br/>';
+		modal_body += 'Introduce un nombre<br/>';
 		show_it = true;
 	}
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -21094,6 +21094,12 @@ function validBookingForm() {
 		modal_body += 'Introduce un teléfono válido<br/>';
 		show_it = true;
 	}
+
+	if ($("select[name=status]").val() == 'PAID' && $("select[name=pay_method]").val() == 'N/A') {
+		modal_body += 'Selecciona Forma de Pago<br/>';
+		show_it = true;
+	}
+
 	if (show_it) {
 		$('.modal_admin_title').html(modal_title);
 		$('.modal_admin_body').html(modal_body);
