@@ -98,6 +98,15 @@ class TableStaff extends Migration
 
         DB::table('staff')->insert(
             array(
+                'name' => 'Emails',
+                'auth_name' => 'emails',
+                'role' => 'staff',
+                'auth_role' => 1,
+                'auth_password' => '0000',
+                'active' => true));
+
+        DB::table('staff')->insert(
+            array(
                 'name' => 'Pruebas',
                 'auth_name' => 'pruebas',
                 'role' => 'staff',
