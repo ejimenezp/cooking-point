@@ -31,13 +31,13 @@ class AuthController extends Controller
     		}
      		// aquí generar la cookie
 
-    		return redirect($request->redir)->withCookie(cookie('cpuser', $user->id, 525600, '/admin'));
+    		return redirect($request->redir)->withCookie(cookie('cpuser', $user->id, 525600));
     	}
     }
 
     public function logout() 
     {
-    	Cookie::queue(cookie('cpuser', 'removecookie', -3600, '/admin'));
+    	Cookie::queue(cookie('cpuser', 'removecookie', -3600));
     	return redirect()->route('login');
     }
 
