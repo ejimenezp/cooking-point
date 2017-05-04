@@ -3,6 +3,28 @@
 @section('title', 'Tapas cooking in Madrid, Spain: Spanish Cooking classes in English')
 @section('description', 'Learn to make Spanish tapas in our school in Madrid')
 
+@section('google-structured-data')
+
+<script type="application/ld+json">
+[
+	@foreach ($events as $event)
+		@if ($event->registered < $event->capacity) 
+			{
+            "@context" : "http://schema.org",
+            "@type" : "Event",
+            "name" : "Tapas Cooking Class",
+            "url" : "https://cookingpoint.es/classes-spanish-tapas-madrid-spain",
+			"description" : "Hands-on cooking class to make 6 traditional Spanish tapas",
+			"startDate : "  {{ $event->dateatom }}
+			} ,
+		@endif
+	@endforeach
+	{}
+]
+</script>
+
+@stop
+
 @section('content')
 
 <div class="row">

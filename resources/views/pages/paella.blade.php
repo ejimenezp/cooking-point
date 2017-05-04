@@ -3,6 +3,28 @@
 @section('title', 'Paella cooking in Madrid: Spanish cooking classes in English')
 @section('description', 'Cooking School in Madrid, Spain: learn how to cook paella in English. Spanish Cooking for tourists on paella, gazpacho and tapas')
 
+@section('google-structured-data')
+
+<script type="application/ld+json">
+[
+	@foreach ($events as $event)
+		@if ($event->registered < $event->capacity) 
+			{
+            "@context" : "http://schema.org",
+            "@type" : "Event",
+            "name" : "Paella Cooking Class",
+            "url" : "https://cookingpoint.es/classes-paella-cooking-madrid-spain",
+			"description" : "Hands-on cooking class with market tour to make paella, gazpacho and sangria",
+			"startDate : "  {{ $event->dateatom }}
+			} ,
+		@endif
+	@endforeach
+	{}
+]
+</script>
+
+@stop
+
 @section('content')
 
 <div class="row">
