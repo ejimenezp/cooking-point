@@ -33,6 +33,8 @@
         <!-- no analytics here. Testing environment -->
       @endif
 
+      @yield('google-structured-data')
+      
   </head>
     
   <body>

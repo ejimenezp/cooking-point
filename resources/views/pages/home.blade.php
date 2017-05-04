@@ -3,6 +3,34 @@
 @section('title', 'Spanish Cooking Classes &amp; Wine Tastings in Madrid, Spain')
 @section('description', 'Spanish cooking classes and wine tastings everyday in Madrid. Cooking classes on paella and tapas in English in select culinary school in Spain')
 
+@section('google-structured-data')
+
+<script type="application/ld+json">
+[
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "Cooking Point",
+  "alternateName": "Spanish Cooking Classes in Madrid",
+  "url": "http://cookingpoint.es"
+},
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "Cooking Point",
+  "url": "http://cookingpoint.es",
+  "logo": "http://cookingpoint.es/images/cookingpoint_logox75.png",
+  "sameAs": [
+    "https://www.facebook.com/CookingPointSpain",
+    "http://instagram.com/cookingpoint",
+    "https://google.com/+CookingPointMadrid"
+  ]
+}
+]
+</script>
+
+@stop
+
 @section('content')
 
 <div class="row">
