@@ -15164,7 +15164,7 @@ $(document).ready(function () {
     var articles = ""; // para imprimir los articulos en el ticket
     var ticket_pagado = false;
 
-    $("#pretty_date").html(pretty_date);
+    $("#pretty_date").html(ticket_date);
 
     $(".boton-articulo").click(function () {
 
