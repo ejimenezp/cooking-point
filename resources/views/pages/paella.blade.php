@@ -15,8 +15,14 @@
             "name" : "Paella Cooking Class",
             "url" : "https://cookingpoint.es/classes-paella-cooking-madrid-spain",
 			"description" : "Hands-on cooking class with market tour to make paella, gazpacho and sangria",
-			"startDate : "  {{ $event->dateatom }}
-			} ,
+			"startDate" : "{{ $event->dateatom }}",
+			"location" : {
+       			"@type" : "Place",
+        		"name" : "Cooking Point",
+        		"address" : "Calle de Moratin, 11, 28014 Madrid",
+        		"sameAs": "http://cookingpoint.es" }
+
+        	},
 		@endif
 	@endforeach
 	{}
