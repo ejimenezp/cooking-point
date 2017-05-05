@@ -105,7 +105,7 @@ function refreshDateShown(month_schedule, date_shown) {
 				'</td><td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
 				month_schedule[i].registered +
 				'</td><td>' +
-				classemails_button + '&nbsp;&nbsp;' +
+				classemails_button +
 				edit_button +
 				'</td></tr>');
 		}
