@@ -20759,7 +20759,7 @@ function refreshDateShown(month_schedule, date_shown) {
 		var calendarevent_tr_class = user_role >= 2 ? 'calendarevent_line' : '';
 
 		if (month_schedule[i].date == date_shown.format('YYYY-MM-DD')) {
-			$('#calendarevent_table > tbody:last').append('<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].time.substring(0, 5) + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].type + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + cookName(month_schedule[i].staff_id) + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].registered + '</td><td>' + classemails_button + '&nbsp;&nbsp;' + edit_button + '</td></tr>');
+			$('#calendarevent_table > tbody:last').append('<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].time.substring(0, 5) + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].type + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + cookName(month_schedule[i].staff_id) + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].registered + '</td><td>' + classemails_button + edit_button + '</td></tr>');
 		}
 	}
 }
