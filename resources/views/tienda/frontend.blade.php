@@ -76,7 +76,7 @@
                 <div class="btn btn-lg btn-danger boton-pagar" data-pago="cash">Pay Cash</div>
                 <div class="btn btn-lg btn-danger boton-pagar" data-pago="credit card">Pay Card</div>
                 <button type="submit" class="btn btn-xs btn-secondary">View Sales</button>
-
+                </form>
     		</div>   		
         </div>
     		

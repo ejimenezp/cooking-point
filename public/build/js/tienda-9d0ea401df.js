@@ -15121,6 +15121,44 @@ require('printThis');
 
 require('jquery-ui/ui/widgets/datepicker');
 
+//
+// function to access date in querystring
+//
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return '';
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function refreshTicketTable(date) {
+
+    var response = $.ajax({
+        type: 'GET',
+        url: '/api/tienda/getTickets',
+        data: { date: date },
+        async: false,
+        success: function success(msg) {
+            if (msg.status == 'fail') {
+                alert('Error al acceder a los tickets');
+            }
+        }
+    }).responseText;
+    var ticket_list = JSON.parse(response);
+
+    $("#ticket_table > tbody").empty();
+    for (var j = 0; j < ticket_list.length; j++) {
+        $('#ticket_table > tbody:last').append('<tr><td>' + ticket_list[j].id + '</td><td>' + ticket_list[j].fecha + '</td><td>' + ticket_list[j].total + '</td><td>' + ticket_list[j].pago + '</td><td>' + ticket_list[j].quien + '</td><td>' + ticket_list[j].articulo0 + '</td><td>' + ticket_list[j].articulo1 + '</td><td>' + ticket_list[j].articulo2 + '</td><td>' + ticket_list[j].articulo3 + '</td><td>' + ticket_list[j].more + '</td><td>' + '<form role="form" action="/tienda/deleteticket"> \
+                    <input type="hidden" name="date" value="' + date + '"> \
+                    <input type="hidden" name="id" value="' + ticket_list[j].id + '"> \
+                    <button type="submiy" class="btn btn-primary btn-xs">Delete</button> \
+                </form>' + '</td></tr>');
+    }
+}
+
 $(document).ready(function () {
 
     $.ajaxSetup({
@@ -15139,15 +15177,17 @@ $(document).ready(function () {
                 alert("Este ticket ya está pagado. Limpia antes de cambiar la fecha");
             } else {
                 $("#pretty_date").html(date);
+                refreshTicketTable($("#realDate").val());
             }
         }
     });
 
     $('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
 
-    $("#admindatepicker").datepicker("setDate", new Date());
+    $("#admindatepicker").datepicker("setDate", new Date(getParameterByName('date')));
     var pretty_date = $("input[name=pretty_date]").val();
     var ticket_date = $("input[name=date]").val();
+    refreshTicketTable(ticket_date);
 
     var ticket = {
         date: ticket_date,
@@ -15252,6 +15292,7 @@ $(document).ready(function () {
             alert("Este ticket ya está pagado. Limpia o recarga la página");
         } else if (ticket.total != 0) {
             ticket.pago = $(this).data('pago');
+            ticket.date = $("#realDate").val();
             $("#forma_pago").html(ticket.pago);
             $.ajax({
                 type: "POST",

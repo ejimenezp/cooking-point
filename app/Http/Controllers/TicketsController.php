@@ -18,16 +18,15 @@ class TicketsController extends Controller
     	return view('tienda.frontend')->with('articulos', $articulos);
     }
 
-    public function index (Request $request)
+    public function getTickets (Request $request)
     {
-    	$today = TiendaVentas::where('fecha', $request->date)->where('anulado', false)->get();
-    	return view('tienda.index')->with('tickets', $today);
+        return TiendaVentas::where('fecha', $request->date)->where('anulado', false)->get();
     }
 
-    public function deleteticket ($id)
+    public function deleteticket (Request $request)
     {
-    	TiendaVentas::where('id', $id)->update(['anulado' => true]);
-    	return redirect('tienda/tickets');
+    	TiendaVentas::where('id', $request->id)->update(['anulado' => true]);
+    	return view('tienda.index')->with('date', $request->date);
     }
 
     public function addticket (Request $request)
