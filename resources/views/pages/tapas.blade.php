@@ -15,8 +15,14 @@
             "name" : "Tapas Cooking Class",
             "url" : "https://cookingpoint.es/classes-spanish-tapas-madrid-spain",
 			"description" : "Hands-on cooking class to make 6 traditional Spanish tapas",
-			"startDate : "  {{ $event->dateatom }}
-			} ,
+			"startDate" : "{{ $event->dateatom }}",
+			"location" : {
+       			"@type" : "Place",
+        		"name" : "Cooking Point",
+        		"address" : "Calle de Moratin, 11, 28014 Madrid",
+        		"sameAs": "http://cookingpoint.es" }
+
+        	},
 		@endif
 	@endforeach
 	{}

@@ -20,6 +20,7 @@
   "name": "Cooking Point",
   "url": "http://cookingpoint.es",
   "logo": "http://cookingpoint.es/images/cookingpoint_logox75.png",
+  "address" : "Calle de Moratin, 11, 28014 Madrid",
   "sameAs": [
     "https://www.facebook.com/CookingPointSpain",
     "http://instagram.com/cookingpoint",
