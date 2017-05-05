@@ -9,7 +9,7 @@
 
 <h2>Sales</h2>
 
-<table id="table_tickets" class="table table-hover ">
+<table id="ticket_table" class="table table-hover ">
 	<thead>
 		<tr>
 			<th>#</th>
@@ -25,7 +25,7 @@
 		</tr>
 	</thead>
 		<tbody>
-			@foreach ($tickets as $ticket)
+{{-- 			@foreach ($tickets as $ticket)
 			<tr>
 				<td>{{ $ticket->id }}</td>
 				<td>{{ $ticket->fecha }}</td>
@@ -40,12 +40,15 @@
 
 				<td><button type="button" class="btn btn-primary btn-xs" onclick="location.href='/tienda/deleteticket/{{ $ticket->id }}';">Delete</button></td>
 			</tr> 
-	        @endforeach 
+	        @endforeach  --}}
 		</tbody>
 </table>
 <p></p>
 
-<button type="button" class="btn btn-primary" onclick="location.href='/tienda'">Back</button>
+<form role="form" action="/tienda">
+	<input type="hidden" name="date" id="realDate">
+	<button type="submit" class="btn btn-primary">Back</button>
+</form>
 
 </div>
 @stop
