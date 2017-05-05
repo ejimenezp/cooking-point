@@ -44,8 +44,8 @@ class ReportController extends Controller
     						bookings.name as name,
     						calendarevents.type as curso,
     						bookings.adult+bookings.child as pax,
-    						replace(bookings.price, '.', ',') as pago,
-    						replace(round(bookings.price/(1+bookings.iva*0.21), 2), '.', ',') as `sin iva`,
+    						bookings.price as pago,
+    						round(bookings.price/(1+bookings.iva*0.21), 2) as `sin iva`,
                             bookings.pay_method as `forma pago`
      					FROM calendarevents, bookings, sources
      					WHERE calendarevents.date >= '$request->start_date' AND calendarevents.date <= '$request->end_date' 
