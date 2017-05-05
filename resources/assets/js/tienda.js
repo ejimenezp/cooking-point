@@ -58,7 +58,7 @@ $( document ).ready(function() {
 
 
 
-	$("#pretty_date").html(pretty_date)
+	$("#pretty_date").html(ticket_date)
 
     $(".boton-articulo").click(function(){
 
