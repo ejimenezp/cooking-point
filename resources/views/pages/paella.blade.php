@@ -15,27 +15,21 @@
             "name" : "Paella Cooking Class",
             "url" : "http://cookingpoint.es/classes-paella-cooking-madrid-spain",
 			"description" : "Hands-on cooking class with market tour to make paella, gazpacho and sangria",
-			"startDate" : "{{ $event->dateatom }}",
+			"startDate" : "{{ $event->startdateatom }}",
+			"endDate" : "{{ $event->enddateatom }}",
 			"location" : {
        			"@type" : "Place",
         		"name" : "Cooking Point",
         		"address" : "Calle de Moratin, 11, 28014 Madrid",
         		"sameAs": "http://cookingpoint.es" },
-        	"offers": [{
+        	"offers": {
 				    "@type": "Offer",
 				    "name": "Adult",
 				    "availability": "http://schema.org/InStock",
 				    "price": "70.00",
 				    "priceCurrency": "EUR",
 				    "url": "http://cookingpoint.es/classes-paella-cooking-madrid-spain"
-				  },
-				    "@type": "Offer",
-				    "name": "Child",
-				    "availability": "http://schema.org/InStock",
-				    "price": "35.00",
-				    "priceCurrency": "EUR",
-				    "url": "http://cookingpoint.es/classes-paella-cooking-madrid-spain"
-				  }]
+				  }
 			},
 		@endif
 	@endforeach

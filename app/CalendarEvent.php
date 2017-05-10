@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 use \DateTime;
 use \DateTimeZone;
+use \DateInterval;
 
 class Calendarevent extends Model
 {
     protected $table = 'calendarevents';
 	public $timestamps = false;
-    protected $appends = array('registered', 'dateatom');
+    protected $appends = array('registered', 'startdateatom', 'enddateatom');
 
     public function bookings()
     {
@@ -30,10 +31,18 @@ class Calendarevent extends Model
         return $adults + $children;
     }
 
-    public function getDateatomAttribute()
+    public function getStartdateatomAttribute()
     {
         $atom = new DateTime($this->date ." ". $this->time);
         $atom->setTimezone(new DateTimeZone('Europe/Madrid'));
+        return $atom->format(DATE_ATOM);
+    }
+
+    public function getEnddateatomAttribute()
+    {
+        $atom = new DateTime($this->date ." ". $this->time);
+        $atom->setTimezone(new DateTimeZone('Europe/Madrid'));
+        $atom->add(new DateInterval("PT4H"));
         return $atom->format(DATE_ATOM);
     }
 }
