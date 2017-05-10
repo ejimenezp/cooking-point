@@ -83,18 +83,36 @@
 		Time:<br/>
 		Price:<br/>
 		Includes:<br/><br/>
+		Upcoming events:<br/>
 	</div>
 	<div class="col-xs-9">
 		Monday to Saturday<br/>
 		10 am - 2 pm<br/>
 		€70 adult / €35 children (5-12 yo)<br/>
 		market tour, ingredients, cooking class, recipes, lunch and drinks<br/><br/>
+		<table class="table">
+				@php 
+					foreach ($events as $event) {
+						if ($event->registered < $event->capacity) {
+							$date = new DateTime($event->dateatom);
+							echo '<tr><td>';
+							echo $date->format("l, d M");
+							// echo '</td><td>';
+							// echo $date->format("g:i a");
+							echo '</td>';	
+							echo '<td><a href="booking?class=PAELLA" class="btn btn-xs btn-primary">Book</a></td>';
+							echo '</tr>';
+						}				
+		   			}
+		   			echo '<tr><td>Other dates</td><td><a href="booking?class=PAELLA" class="btn btn-xs btn-default">Book</a></td></tr>';
+				@endphp			
+		</table>
 	</div>
 </div>
 
-<div class="row text-center call-to-action">
+{{-- <div class="row text-center call-to-action">
 	<a href="booking?class=PAELLA" class="btn btn-primary">Book Now</a>
-</div>
+</div> --}}
 
 
 @stop
