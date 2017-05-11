@@ -108,11 +108,11 @@
 							// echo '</td><td>';
 							// echo $date->format("g:i a");
 							echo '</td>';	
-							echo '<td><a href="booking?class=PAELLA&date=' . $event->date . '" class="btn btn-xs btn-primary">Book</a></td>';
+							echo '<td><a href="booking?class=PAELLA&date=' . $event->date . '" class="btn btn-primary">Book</a></td>';
 							echo '</tr>';
 						}				
 		   			}
-		   			echo '<tr><td>More dates</td><td><a href="booking?class=PAELLA" class="btn btn-xs btn-default">Book</a></td></tr>';
+		   			echo '<tr><td>More dates</td><td><a href="booking?class=PAELLA" class="btn btn-default">Book</a></td></tr>';
 				@endphp			
 		</table>
 	</div>
