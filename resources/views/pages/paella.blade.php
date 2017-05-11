@@ -118,9 +118,4 @@
 	</div>
 </div>
 
-{{-- <div class="row text-center call-to-action">
-	<a href="booking?class=PAELLA" class="btn btn-primary">Book Now</a>
-</div> --}}
-
-
 @stop
