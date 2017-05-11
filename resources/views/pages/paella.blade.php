@@ -91,7 +91,7 @@
 		Time:<br/>
 		Price:<br/>
 		Includes:<br/><br/>
-		Upcoming events:<br/>
+		Upcoming classes:<br/>
 	</div>
 	<div class="col-xs-9">
 		Monday to Saturday<br/>
@@ -102,17 +102,17 @@
 				@php 
 					foreach ($events as $event) {
 						if ($event->registered < $event->capacity) {
-							$date = new DateTime($event->dateatom);
+							$date = new DateTime($event->startdateatom);
 							echo '<tr><td>';
 							echo $date->format("l, d M");
 							// echo '</td><td>';
 							// echo $date->format("g:i a");
 							echo '</td>';	
-							echo '<td><a href="booking?class=PAELLA" class="btn btn-xs btn-primary">Book</a></td>';
+							echo '<td><a href="booking?class=PAELLA&date=' . $event->date . '" class="btn btn-xs btn-primary">Book</a></td>';
 							echo '</tr>';
 						}				
 		   			}
-		   			echo '<tr><td>Other dates</td><td><a href="booking?class=PAELLA" class="btn btn-xs btn-default">Book</a></td></tr>';
+		   			echo '<tr><td>More dates</td><td><a href="booking?class=PAELLA" class="btn btn-xs btn-default">Book</a></td></tr>';
 				@endphp			
 		</table>
 	</div>

@@ -19358,7 +19358,7 @@ var moment = require('moment');
 //
 // var right_now = moment("2017-02-06 09:00")
 var right_now = moment();
-var date_shown = right_now.clone();
+var date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : right_now.clone();
 var form_changed = false;
 var month_changed = false;
 var month_availability = Array();
@@ -19465,6 +19465,20 @@ function getMonthAvailability(a_date) {
 	}).responseText;
 	var avail = JSON.parse(response).data;
 	return avail;
+}
+
+//
+// Function: getParameterByName
+// access date in querystring
+//
+function getParameterByName(name, url) {
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, "\\$&");
+	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	    results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 //

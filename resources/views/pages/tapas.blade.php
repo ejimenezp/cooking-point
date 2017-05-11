@@ -14,15 +14,23 @@
             "@type" : "Event",
             "name" : "Tapas Cooking Class",
             "url" : "https://cookingpoint.es/classes-spanish-tapas-madrid-spain",
-			"description" : "Hands-on cooking class to make 6 traditional Spanish tapas",
-			"startDate" : "{{ $event->dateatom }}",
+			"description" : "Hands-on cooking class to make traditional Spanish tapas and sangria",
+			"startDate" : "{{ $event->startdateatom }}",
+			"endDate" : "{{ $event->enddateatom }}",
 			"location" : {
        			"@type" : "Place",
         		"name" : "Cooking Point",
         		"address" : "Calle de Moratin, 11, 28014 Madrid",
-        		"sameAs": "http://cookingpoint.es" }
-
-        	},
+        		"sameAs": "http://cookingpoint.es" },
+        	"offers": {
+				    "@type": "Offer",
+				    "name": "Adult",
+				    "availability": "http://schema.org/InStock",
+				    "price": "70.00",
+				    "priceCurrency": "EUR",
+				    "url": "http://test.cookingpoint.es/classes-spanish-tapas-madrid-spain"
+				  }
+			},
 		@endif
 	@endforeach
 	{}
@@ -81,12 +89,30 @@
 		Time:<br/>
 		Price:<br/>
 		Includes:<br/><br/>
+		Upcoming classes:<br/>
 	</div>
 	<div class="col-xs-9">
 		Monday to Saturday<br/>
 		5:30 pm - 9:30 pm<br/>
 		€70 adult / €35 children (5-12 yo)<br/>
 		cooking class, ingredients, recipes, dinner and drinks<br/><br/>
+		<table class="table">
+				@php 
+					foreach ($events as $event) {
+						if ($event->registered < $event->capacity) {
+							$date = new DateTime($event->startdateatom);
+							echo '<tr><td>';
+							echo $date->format("l, d M");
+							// echo '</td><td>';
+							// echo $date->format("g:i a");
+							echo '</td>';	
+							echo '<td><a href="booking?class=TAPAS&date=' . $event->date . '" class="btn btn-xs btn-primary">Book</a></td>';
+							echo '</tr>';
+						}				
+		   			}
+		   			echo '<tr><td>More dates</td><td><a href="booking?class=TAPAS" class="btn btn-xs btn-default">Book</a></td></tr>';
+				@endphp			
+		</table>
 	</div>
 </div>
 
