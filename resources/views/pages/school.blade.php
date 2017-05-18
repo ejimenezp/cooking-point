@@ -19,7 +19,7 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<h1>The School</h1>
+		<h1 class="header1">The School</h1>
 	</div>
 </div>
 

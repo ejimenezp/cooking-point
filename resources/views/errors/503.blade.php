@@ -25,7 +25,7 @@
     </head>
     <body>
         <div class="container">
-            <a href="/"><img alt="cooking point logo" src="/images/cookingpoint_logox113.png" /></a>
+            <a href="/"><img alt="cooking point logo" src="/images/cookingpoint_logox75.png" /></a>
             <div class="title">Temporarily Unavailable</div>
             <p>Please, come back in 10 minutes.</p>
         </div>
