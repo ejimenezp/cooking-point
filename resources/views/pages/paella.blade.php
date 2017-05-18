@@ -54,7 +54,7 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<h1>Paella Cooking Class</h1>
+		<h1 class="header1">Paella Cooking Class</h1>
 	</div>
 </div>
 

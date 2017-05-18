@@ -10,7 +10,7 @@
  
 
 <div class="col-sm-12">
-	<h1>Locator Not Found</h1>
+	<h1 class="header1">Locator Not Found</h1>
 	<p>Sorry, but that locator does not correspond to any booking. Please enter a valid locator: </p>
 </div>
 

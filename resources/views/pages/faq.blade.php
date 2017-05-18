@@ -7,7 +7,7 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<h1>Frequently Asked Questions</h1>
+		<h1 class="header1">Frequently Asked Questions</h1>
 		<dl>
 			<dt><strong>I’m allergic to some ingredients, can I still take part?</strong></dt>
 			<dd>Sure, you just need to let the chef know who will find alternative ingredients (or even dishes) for you. As dishes are prepared in pairs, recipes are easily customized. All special requirements can be taken care of.</dd>

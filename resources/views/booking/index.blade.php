@@ -9,7 +9,7 @@
 	<div id="booking_steps" class="col-sm-12">
 
 		<div id="step1" class="hidden">
-			<h1>Booking: Availability</h1>
+			<h1 class="header1">Booking: Availability</h1>
 			<p>Select number of guests and desired class to check availability</p>
 			<div class="col-sm-6">
 				<div class="online" id="bookingdatepicker"></div>
@@ -131,7 +131,7 @@
 		<div id="step2" class="hidden">
 			<div class="row">
 				<div class="col-sm-12">		
-					<h1>Booking: Checkout</h1>
+					<h1 class="header1">Booking: Checkout</h1>
 					<p>You are about to book the following class:</p>
 					<div class="col-sm-5">
 						<table class="voucher-table">
@@ -278,7 +278,7 @@
 		</div>
 
 		<div id="step4" class="hidden" data-tpv_result="{{ $tpv_result }}">
-			<h1>Booking: Voucher</h1>
+			<h1 class="header1">Booking: Voucher</h1>
 			<div class='step4_voucher'>
 				<div class="row">
 					<div class="col-sm-5">
@@ -437,14 +437,14 @@
 			<div class="divider"></div>
 			<div class="divider"></div>
 			<div class="text-center">
-				 <img alt="Cooking Point logo" src="/images/cookingpoint_logox113.png" />				
+				 <img alt="Cooking Point logo" src="/images/cookingpoint_logox75.png" />				
 				<h2>Cooking Point Voucher</h2>
 			</div>
-			<h1>Details</h1>
+			<h1 class="header1">Details</h1>
 			<div id="printer_voucher"></div>
 		</div>
 		<div class="row">
-			<h1>Meeting Point</h1>
+			<p class="header1">Meeting Point</p>
 			<p>Cooking Point<br/>
 			Calle de Moratin, 11 28014 Madrid<br/>
 			tel. (+34) 910 115 154<br /><br /></p>
