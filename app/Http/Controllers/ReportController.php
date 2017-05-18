@@ -164,7 +164,7 @@ class ReportController extends Controller
     	
     	$sqlString = "SELECT calendarevents.type,
     						sum(bookings.adult+bookings.child),
-    						replace(sum(round(bookings.price/(1+bookings.iva*0.21), 2)), '.', ',')
+    						sum(round(bookings.price/(1+bookings.iva*0.21), 2))
      					FROM calendarevents, bookings
      					WHERE calendarevents.date >= '$request->start_date' AND calendarevents.date <= '$request->end_date' 
                 			AND bookings.status_filter = 'REGISTERED'
