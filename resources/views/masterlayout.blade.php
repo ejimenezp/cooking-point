@@ -50,10 +50,10 @@
     <div class="visible-xs">
       <div class="row ">   
           <div class="col-xs-3">
-            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_logox75.png" /></a>
+            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_logox50.png" /></a>
           </div> 
           <div class="col-xs-9">
-            <a class="menu-header" data-toggle="collapse" data-target="#navbar" href="#">
+            <a class="menu-header-xs" data-toggle="collapse" data-target="#navbar" href="#">
               Menu <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
             <div id="navbar" class="navbar-collapse collapse">

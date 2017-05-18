@@ -5958,13 +5958,13 @@ button.close {
     font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 22px; }
 
-.decorated, .header1, .menu-header, .header2, .header3, .header4, .header5 {
+.decorated, .header1, .menu-header-xs, .header2, .header3, .header4, .header5 {
   font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   text-decoration: none;
   line-height: 1.1; }
 
-.header1, .menu-header {
+.header1, .menu-header-xs {
   font-size: 30px;
   color: #e42e28; }
 
@@ -5985,8 +5985,11 @@ button.close {
   font-style: italic;
   font-size: 18px; }
 
-.menu-header {
-  text-align: right; }
+.menu-header-xs {
+  position: relative;
+  top: 20px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
 
 h1, .call-to-action {
   color: #e42e28; }
