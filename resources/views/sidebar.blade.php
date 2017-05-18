@@ -7,17 +7,14 @@
 </div>
 
 <div class="row text-center">
-	<div id="TA_selfserveprop520" class="TA_selfserveprop">
- 		<ul id="3d3bqaZrk" class="TA_links 5q8tCIzP">
-			<li id="Ihzogw09uTQ" class="7Br3uJEh"><a target="_blank"
-				href="http://www.tripadvisor.com/"><img
-					src="http://www.tripadvisor.com/img/cdsi/img2/branding/150_logo-11900-2.png"
-					alt="TripAdvisor" /></a></li>
+	<div id="TA_selfserveprop303" class="TA_selfserveprop">
+		<ul id="SXDXQixNMb" class="TA_links GXwk5o">
+			<li id="DYEKjmOffr" class="4nr557i9g4">
+			<a target="_blank" href="https://www.tripadvisor.com/"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
+			</li>
 		</ul>
 	</div>
-	<script
-		src="http://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=520&amp;locationId=4888426&amp;lang=en_US&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=false&amp;iswide=false&amp;border=false&amp;display_version=2">
-	</script>
+	<script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=303&amp;locationId=4888426&amp;lang=en_US&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
 </div>
 
 <div class="row text-center">

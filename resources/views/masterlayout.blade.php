@@ -53,8 +53,8 @@
             <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_logox75.png" /></a>
           </div> 
           <div class="col-xs-9">
-            <a class="text-right" data-toggle="collapse" data-target="#navbar" href="#">
-              <h1>Menu <i class="fa fa-bars" aria-hidden="true"></i></h1>
+            <a class="menu-header" data-toggle="collapse" data-target="#navbar" href="#">
+              Menu <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -65,7 +65,6 @@
                       <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">Classes <i class="fa fa-caret-down"></i></a>
                       <ul class="dropdown-menu" aria-labelledby="themes">
                         <li><a href="/classes-paella-cooking-madrid-spain">Paella Cooking Class</a></li>
-                        <li><a href="/wine-tasting-madrid-spain">Wine Tasting</a></li>
                         <li><a href="/classes-spanish-tapas-madrid-spain">Tapas Cooking Class</a></li>
                       </ul>
                   </li>
@@ -96,7 +95,7 @@
     <div class="visible-sm visible-md visible-lg">
       <div class="row no-gutter">   
           <div class="col-sm-1">
-            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_logox113.png" /></a>
+            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_logox75.png" /></a>
           </div> 
           <div class="col-sm-11">
             <ul class="vertical-center nav navbar-nav">
@@ -107,7 +106,6 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">Classes <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="themes">
                       <li><a href="/classes-paella-cooking-madrid-spain">Paella Cooking Class</a></li>
-                      <li><a href="/wine-tasting-madrid-spain">Wine Tasting</a></li>
                       <li><a href="/classes-spanish-tapas-madrid-spain">Tapas Cooking Class</a></li>
                     </ul>
                 </li>
