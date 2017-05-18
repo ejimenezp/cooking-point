@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Spanish Cooking Classes &amp; Wine Tastings in Madrid, Spain')
-@section('description', 'Spanish cooking classes and wine tastings everyday in Madrid. Cooking classes on paella and tapas in English in select culinary school in Spain')
+@section('title', 'Cooking Point - Top Rated Spanish Cooking Classes in Madrid')
+@section('description', 'Spanish cooking classes every day in first rated cooking school in downtown Madrid. With two people per cooktop, prepare your own paella or tapas following our local chef instructions in English.')
 
 @section('google-structured-data')
 
@@ -42,41 +42,60 @@
             <div><img src="/images/slider-home-042.jpg" ></div>
             <div><img src="/images/slider-home-01.jpg" ></div>
     </div>
-    <h1 style="text-align: center;"><span style="color: #000000;"><strong>Wondering what to do in Madrid?</strong></span></h1>
-    <h1 style="text-align: center;"><span class="home-headline" style="color: #e42e28;">Enjoy a <strong><span style="color: #ef8401;">cooking class</span></strong> during your stay in Madrid</span></h1>
+
+
+    <div style="position:relative;">
+        {{-- <img alt="paella cooking class in Madrid, Spain" src="/images/cooking-point-class.png" height="150" /> --}}
+        <h1 class="home-headline">#1 Cooking Classes in Madrid</h1>
+    </div>
+  
+
+
 </div>
 
-<div class="row text-center">
+{{-- <div class="row text-center">
           <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html"><img alt="tripadvisor certificate of excellence" src="/images/tripadvisorCE.png" /></a>
-</div>
+</div> --}}
 
 
 <div class="row">
-    <div class="col-sm-12">
-        <p style="text-align: center;">Cooking Point is a <strong>hands-on cooking school</strong> where you can learn how to cook traditional Spanish cuisine dishes. Our classes are taught <strong>in English</strong> and they are designed for either tourists who want to get immersed in the Spanish gastronomy culture or anyone who lives in <strong>Madrid</strong> and would like to get closer to such an important aspect of the Spanish culture.</p>
-        <p style="text-align: center;">Are you planning your next cooking vacations? Are you coming for a short trip to Madrid? Are you wondering how to cook the paella, gazpacho, etc..? Come and join our Cooking Point school in the heart of Madrid and learn from our chef the techniques of the Spanish gastronomy.</p>
+    <div class="col-sm-offset-1 col-sm-10">
+        <p></p>
+        <p class="header5 text-center">Coking Point is a cooking school downtown Madrid designed for either individual travelers or groups that want to get immersed in the Spanish gastronomy culture</p>
     </div>
 </div>
 
-<div class="row">
+<div class="divider"></div>
 
+<div class="row">
+    <div class="col-sm-12 header3">Why to choose us</div>
+
+    <div class="col-sm-4">
+        <h4 class="header4">Fun &amp; Memorable</h4>
+        <p>Get off the beaten tours and attractions, and have a great time cooking and enjoying your Spanish meal in a nice setup. Know through practice more about Spain’s food, culture and traditions.</p>
+    </div>
+
+    <div class="col-sm-4">
+        <h4 class="header4">Truly Hands-on</h4>
+        <p>Two people per cooktop, twelve per class. Follow our local chef instructions to get your meal done. No worries, no cooking experience is required. Also, take home your learnings with our recipe booklet.</p>
+    </div>
+
+    <div class="col-sm-4">
+        <h4 class="header4">TripAdvisor's #1 Cooking School in Madrid</h4>
+        <p>For third year in a row our school is <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html">1st on TripAdvisor</a> ranking of Classes and Workshops in Madrid, backed by +300 reviews from real clients.</p>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="row">
+    <div class="col-sm-12 header3">Our Activities<br><br></div>
     <div class="col-sm-4 home-column">
         <a href="classes-paella-cooking-madrid-spain"><img class="img-responsive center-block" alt="paella cooking class in Madrid, Spain" src="/images/home-en-paella.jpg" /></a>
-        <h1><a href="classes-paella-cooking-madrid-spain">Paella Cooking Class</a></h1>
+        <h2 class="header2"><a href="classes-paella-cooking-madrid-spain">Paella Cooking Class</a></h2>
         <p>Learn in our cooking classes how to cook the most famous Spanish dish: Paella (a rice based dish with seafood. meat and vegetables). Following the instructions of our chef, you will prepare your own full menu consisting of paella, gazpacho (cold tomato soup) and sangria.</p>
         <div class="text-center">
-            <a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">More info</a>
-        </div>
-    </div>
-
-    <div class="divider visible-xs"></div>
-
-    <div class="col-sm-4 home-column">
-           <a href="wine-tasting-madrid-spain"><img class="img-responsive center-block" title="wine tasting madrid cooking school" alt="wine tasting class in Madrid, Spain" src="/images/home-en-cata.jpg" /></a>
-        <h1><a href="wine-tasting-madrid-spain">Wine Tasting</a></h1>
-        <p>Discover why Spain is leader in wine quality. Our wine tasting concept is led by our somellier who will teach you how to appreaciate its aromas and flavors. Taste and discover an important part of the Spanish culture through its vineyards and type of grapes!</p>
-        <div class="text-center">
-            <a href="wine-tasting-madrid-spain" class="btn btn-primary">More info</a>
+            <a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">Paella Class</a>
         </div>
     </div>
 
@@ -84,12 +103,23 @@
 
     <div class="col-sm-4 home-column">
             <a href="classes-spanish-tapas-madrid-spain"><img class="img-responsive center-block" title="spanish cooking school in madrid" alt="cooking school madrid spain" src="/images/home-en-tapas.jpg" /></a>
-        <h1><a href="classes-spanish-tapas-madrid-spain">Tapas Cooking Class</a></h1>
+        <h2 class="header2"><a href="classes-spanish-tapas-madrid-spain">Tapas Cooking Class</a></h2>
         <p>The Spanish word "tapas" refers to nearly any food in bite-size pieces, served in small plates to share by a group of friends or family. In our Spanish tapas cooking class you will learn to prepare up to 6 traditional tapas, ranging from Spanish potato omelet to shrimps with garlic, all of them typical from different regions of Spain.</p>
         <div class="text-center">
-            <a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">More info</a>
+            <a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">Tapas Class</a>
         </div>
     </div>
+
+    <div class="col-sm-4 home-column">
+           <a href="private-cooking-events-madrid-spain"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/home-en-cata.jpg" /></a>
+        <h2 class="header2"><a href="private-cooking-events-madrid-spain">Private Events</a></h2>
+        <p>We can customize our classes as private events for corporate groups, team buildings, hen or stag parties, school trips or just group of friend that want to have a different lunch or dinner in Madrid.<p>
+        <div class="text-center">
+            <a href="private-cooking-events-madrid-spain" class="btn btn-primary">Private Events</a>
+        </div>
+    </div>
+
+    <div class="divider visible-xs"></div>
 </div>
 
 <div class="divider"></div>
@@ -100,8 +130,8 @@
         <p>Because of its central location, Madrid receives influences from every corner of Spain, what has made of it the best city to learn Spanish cuisine. The Madridian open and conciliatory character will let you discover Spanish wine and food excellences no matter their region of origin.</p>   
     </div>
     <div class="col-sm-6">
-        <p>In our cooking classes you will learning not just about the Spanish food but also how to make it, what offers the perfect 'take-home' experience that will stay with you forever. So, you will get a broad knowledge of paella and tapas and other typical Spanish food like cured ham, olive oil, saffron, paprika,... and how important they are in the Spanish culinary culture.</p>
-        <p>If you are looking for different things to do in Madrid for your holiday, an alternative to sightseeing attractions, whether you are a travelling alone, as a couple or in a corporate event, then consider Cooking Point's cooking classes or wine tastings to get to the very heart of the local culture.</p>
+        <p>In our cooking classes you will learn not just about the Spanish food but also how to make it, what offers the perfect 'take-home' experience that will stay with you forever. So, you will get a broad knowledge of paella and tapas and other typical Spanish food like cured ham, olive oil, saffron, paprika,... and how important they are in the Spanish culinary culture.</p>
+        <p>If you are looking for different things to do in Madrid for your holiday, an alternative to sightseeing attractions, whether you are a travelling alone, as a couple or in a corporate event, then consider Cooking Point's cooking classes to get to the very heart of the local culture.</p>
     </div>
 </div>
 
