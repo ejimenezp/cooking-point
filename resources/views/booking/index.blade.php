@@ -437,14 +437,15 @@
 			<div class="divider"></div>
 			<div class="divider"></div>
 			<div class="text-center">
-				 <img alt="Cooking Point logo" src="/images/cookingpoint_logox75.png" />				
-				<h2>Cooking Point Voucher</h2>
+				<img alt="Cooking Point logo" src="/images/cookingpoint_logox75.png" />				
+				<div class="divider"></div>
+				<p class="header1 text-center">Cooking Point Voucher</p>
 			</div>
-			<h1 class="header1">Details</h1>
+			<p class="header2">Details</p>
 			<div id="printer_voucher"></div>
 		</div>
 		<div class="row">
-			<p class="header1">Meeting Point</p>
+			<p class="header2">Meeting Point</p>
 			<p>Cooking Point<br/>
 			Calle de Moratin, 11 28014 Madrid<br/>
 			tel. (+34) 910 115 154<br /><br /></p>

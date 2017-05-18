@@ -19,7 +19,7 @@
 	                <button class="button_day_selector btn btn-primary" data-d="next">>></button>
 	            </form>
 	       </div>
-			<h1><div class="dateshown"></div></h1>
+			<h1 class="header1"><div class="dateshown"></div></h1>
 
 			<table class="table table-hover" id="calendarevent_table">
 			    <thead>
@@ -42,7 +42,7 @@
 
 @if (app('request')->input('user_role') >= 3)
 		<div id="calendarevent_edit">
-			<h1>Editar Evento</h1>
+			<h1 class="header1">Editar Evento</h1>
 			<form id="form_calendarevent" class="form-horizontal" role="form" onsubmit="return false;">
    				{{ csrf_field() }}
    				<input name="id" type="hidden" value="9999">
@@ -175,7 +175,7 @@
 	                <button class="button_calendarevent_selector btn btn-primary" data-d="next">>></button>
 	            </form>
 	       </div>
-			<h1><div class="dateshown"></div></h1>
+			<h1 class="header1"><div class="dateshown"></div></h1>
 			<h4><div class="classshown"></div></h4>
 			<table class="table table-hover" id="booking_table">
 			    <thead>
@@ -195,7 +195,7 @@
 		</div>
 
 		<div id="booking_edit">
-			<h1>Editar Reserva</h1>
+			<h1 class="header1">Editar Reserva</h1>
 			<h4><div class="dateshown"></div>
 			<div class="classshown"></div></h4>
 			<form id="form_booking" class="form-horizontal" role="form" onsubmit="return false;">

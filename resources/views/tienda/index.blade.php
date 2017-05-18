@@ -7,7 +7,7 @@
 
 <div class="container">
 
-<h2>Sales</h2>
+<h1 class="header1">Sales</h1>
 
 <table id="ticket_table" class="table table-hover ">
 	<thead>

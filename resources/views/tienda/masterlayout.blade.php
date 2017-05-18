@@ -27,8 +27,8 @@
 	<div class="container">
 		<table class="table">
 		<tr>
-			<td><h2><a href="/tienda">SHOP</a></div></h2></td>
-			<td><h2><div class="text-center">{{ app('request')->input('user_name') }}&nbsp;&nbsp;<a href="/admin/logout">Logout</a></div></h2></td>
+			<td><a class="header1" href="/tienda">SHOP</a></div></td>
+			<td><div class="header1 text-center">{{ app('request')->input('user_name') }}&nbsp;&nbsp;<a href="/admin/logout">Logout</a></div></td>
 			<td style="vertical-align: middle;"><input type="text" name="pretty_date" id="admindatepicker"></td>
 		</tr>
 		</table>

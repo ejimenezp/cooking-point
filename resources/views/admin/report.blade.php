@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="col-sm-offset-1 col-sm-10">
-		<h1>{{ $title }}</h1>
+		<h1 class="header1">{{ $title }}</h1>
 		<form id="csv_form" method="post" action="{{ app('request')->input('id') }}">
 			{{ csrf_field() }}
 			<input type="hidden" name="start_date" value="{{ app('request')->input('start_date') }}" >
