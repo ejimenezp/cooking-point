@@ -61,7 +61,7 @@
 <div class="row">
     <div class="col-sm-offset-1 col-sm-10">
         <p></p>
-        <p class="header5 text-center">Coking Point is a cooking school downtown Madrid designed for either individual travelers or groups that want to get immersed in the Spanish gastronomy culture</p>
+        <p class="header5 text-center">Cooking Point is a cooking school downtown Madrid designed for either individual travelers or groups that want to get immersed in the Spanish gastronomy culture</p>
     </div>
 </div>
 
