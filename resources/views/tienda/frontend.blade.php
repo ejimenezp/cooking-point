@@ -13,7 +13,7 @@
         foreach ($articulos as $articulo) {
             if ($articulo['seccion'] != $seccion) {
                 $seccion = $articulo['seccion'];
-                echo '<h1>'. $seccion . '</h1>';                
+                echo '<h1 class="header1">'. $seccion . '</h1>';                
             }
             echo '<div class="btn btn-lg btn-primary boton-articulo" data-id="'. $articulo['id'] .
             '" data-nombre="'. htmlspecialchars($articulo['nombre']) .
@@ -25,7 +25,7 @@
 
     		</div>
   			<div class="col-sm-6">
-                <h1>Ticket   <div class="btn btn-danger" id="boton-limpiar">Clean Ticket</div></h1>
+                <h1 class="header1">Ticket   <div class="btn btn-danger" id="boton-limpiar">Clean Ticket</div></h1>
                 <div class="screen">
                     <table id="screen_table">
                         <thead><tr><th>Product</th><th class="text-right">Price</th></tr></thead>
