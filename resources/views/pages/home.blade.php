@@ -82,7 +82,7 @@
 
     <div class="col-sm-4">
         <h4 class="header4">TripAdvisor's #1 Cooking School in Madrid</h4>
-        <p>For third year in a row our school is <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html">1st on TripAdvisor</a> ranking of Classes and Workshops in Madrid, backed by +300 reviews from real clients.</p>
+        <p>For third year in a row our school is <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html">1st on TripAdvisor</a> ranking of Classes &amp; Workshops in Madrid, backed by +300 reviews from real clients.</p>
     </div>
 </div>
 

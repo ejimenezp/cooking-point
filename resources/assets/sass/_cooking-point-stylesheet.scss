@@ -61,9 +61,11 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
   font-size: 18px;
 }
 
-.menu-header {
+.menu-header-xs {
   @extend .header1;
-  text-align: right;
+  position: relative;
+  top: 20px;
+  transform: translateY(-50%);
 }
 
 
