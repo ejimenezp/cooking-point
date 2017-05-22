@@ -98,8 +98,9 @@
 		cooking class, ingredients, recipes, dinner and drinks<br/><br/>
 		<table class="table">
 				@php 
+					$i = 0;
 					foreach ($events as $event) {
-						if ($event->registered < $event->capacity) {
+						if ($event->registered < $event->capacity && $i < 3) {
 							$date = new DateTime($event->startdateatom);
 							echo '<tr><td>';
 							echo $date->format("l, d M");
@@ -108,6 +109,7 @@
 							echo '</td>';	
 							echo '<td><a href="booking?class=TAPAS&date=' . $event->date . '" class="btn btn-primary">Book</a></td>';
 							echo '</tr>';
+							$i++;
 						}				
 		   			}
 		   			echo '<tr><td>More dates</td><td><a href="booking?class=TAPAS" class="btn btn-default">Book</a></td></tr>';
