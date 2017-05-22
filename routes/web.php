@@ -33,7 +33,7 @@ Route::post('/callback', 'TPVController@callback');
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
 Route::get('/eventos-privados-madrid', function () { return view('pages.eventos'); });
 Route::get('/school-madrid-spain', function () { return view('pages.school'); });
-Route::get('/wine-tasting-madrid-spain', function () { return redirect('/'); });
+Route::get('/wine-tasting-madrid-spain', function () { return redirect('/', 301); });
 
 
 
