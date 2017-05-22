@@ -18,12 +18,11 @@
 //
 // FRONT-END
 //
-Route::get('/', function () { return view('pages.home', ['page' => 'home']); });
+Route::get('/', 'CalendareventControllerOnline@home');
 
 Route::get('/bookings/{hash?}', 'BookingControllerOnline@legacyget');
 Route::get('/booking/forget', 'BookingControllerOnline@forget');
 Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
-Route::get('/classes', function () { return view('pages.home', ['page' => 'home']); });
 Route::get('/classes-paella-cooking-madrid-spain', 'CalendareventControllerOnline@paella');
 Route::get('/classes-spanish-tapas-madrid-spain', 'CalendareventControllerOnline@tapas');
 Route::get('/contact', function () { return view('pages.contact', ['page' => 'contact']); });

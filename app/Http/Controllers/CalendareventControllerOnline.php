@@ -35,4 +35,14 @@ class CalendareventControllerOnline extends CalendareventController
         return view('pages.tapas', ['events' => $events] );
     }
 
+    function home()
+    {
+        $now = new DateTime(null, new DateTimeZone('Europe/Madrid'));
+        $today = $now->format('Y-m-d');
+        $in15days = $now->modify('+15 days')->format('Y-m-d');
+
+        $events = $this->getIntervalSchedule($today, $in15days, true)->whereIn('type', ['PAELLA', 'TAPAS']);
+
+        return view('pages.home', ['events' => $events] );
+    }
 }

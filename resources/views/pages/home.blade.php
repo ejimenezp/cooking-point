@@ -26,7 +26,45 @@
     "http://instagram.com/cookingpoint",
     "https://google.com/+CookingPointMadrid"
   ]
-}
+},
+
+    @foreach ($events as $event)
+        @if ($event->registered < $event->capacity) 
+            {
+            "@context" : "http://schema.org",
+            "@type" : "Event",
+            @if ($event->type == 'PAELLA')                
+            "name" : "Paella Cooking Class",
+            "url" : "http://cookingpoint.es/classes-paella-cooking-madrid-spain",
+            "description" : "Hands-on cooking class with market tour to make paella, gazpacho and sangria",
+            @else
+            "name" : "Tapas Cooking Class",
+            "url" : "https://cookingpoint.es/classes-spanish-tapas-madrid-spain",
+            "description" : "Hands-on cooking class to make traditional Spanish tapas and sangria",
+            @endif            
+            "startDate" : "{{ $event->startdateatom }}",
+            "endDate" : "{{ $event->enddateatom }}",
+            "location" : {
+                "@type" : "Place",
+                "name" : "Cooking Point",
+                "address" : "Calle de Moratin, 11, 28014 Madrid",
+                "sameAs": "http://cookingpoint.es" },
+            "offers": {
+                    "@type": "Offer",
+                    "name": "Adult",
+                    "availability": "http://schema.org/InStock",
+                    "price": "70.00",
+                    "priceCurrency": "EUR",
+                    @if ($event->type == 'PAELLA')                
+                    "url": "http://cookingpoint.es/classes-paella-cooking-madrid-spain"
+                    @else
+                    "url" : "https://cookingpoint.es/classes-spanish-tapas-madrid-spain"
+                    @endif
+                  }
+            },
+        @endif
+    @endforeach
+    {}
 ]
 </script>
 
