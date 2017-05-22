@@ -17,9 +17,9 @@ class CalendareventControllerOnline extends CalendareventController
     {
         $now = new DateTime(null, new DateTimeZone('Europe/Madrid'));
         $today = $now->format('Y-m-d');
-        $in5days = $now->modify('+5 days')->format('Y-m-d');
+        $in15days = $now->modify('+15 days')->format('Y-m-d');
 
-        $events = $this->getIntervalSchedule($today, $in5days, true)->where('type', 'PAELLA');
+        $events = $this->getIntervalSchedule($today, $in15days, true)->where('type', 'PAELLA');
 
         return view('pages.paella', ['events' => $events] );
     }
@@ -28,9 +28,9 @@ class CalendareventControllerOnline extends CalendareventController
     {
         $now = new DateTime(null, new DateTimeZone('Europe/Madrid'));
         $today = $now->format('Y-m-d');
-        $in5days = $now->modify('+5 days')->format('Y-m-d');
+        $in15days = $now->modify('+15 days')->format('Y-m-d');
 
-        $events = $this->getIntervalSchedule($today, $in5days, true)->where('type', 'TAPAS');
+        $events = $this->getIntervalSchedule($today, $in15days, true)->where('type', 'TAPAS');
 
         return view('pages.tapas', ['events' => $events] );
     }
