@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
 @section('title', 'Cooking Point - Top Rated Spanish Cooking Classes in Madrid')
-@section('description', 'Spanish cooking classes every day in first rated cooking school in downtown Madrid. With two people per cooktop, prepare your own paella or tapas following our local chef instructions in English.')
+@section('description', 'Spanish cooking classes every day in Madrid. Hands-on classes of paella and tapas in English at top rated culinary school. Two people per cooktop. Instant confirmation.')
 
 @section('google-structured-data')
 
