@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Cooking Point School Description')
-@section('description', 'We can hold events for up to 24 people.')
+@section('title', 'Kitchen Description')
+@section('description', 'We can hold events of up to 24 people.')
 
 @section('content')
 
