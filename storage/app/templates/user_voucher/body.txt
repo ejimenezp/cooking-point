@@ -26,6 +26,7 @@ MEETING POINT:
 
 Cooking Point
 Calle de Moratin, 11 28014 Madrid
+Metro Anton Martin (Line 1), exit Calle de Amor de Dios
 
 
 To print / modify / cancel your booking, please go to APP_URL/booking/CP_LOCATOR
