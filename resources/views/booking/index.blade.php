@@ -1,6 +1,6 @@
 @extends('masterlayout')
 
-@section('title', 'Booking Form')
+@section('title', 'Booking')
 @section('description', 'Cooking Point booking form. Pay online and get instant confirmation.')
 
 @section('content')
