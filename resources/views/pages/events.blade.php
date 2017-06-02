@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Private cooking classes for companies and groups')
-@section('description', 'Private cooking parties for small groups, hen/stag parties, corporate team building events and tours visiting Madrid')
+@section('title', 'Private Cooking Classes for Companies and Groups')
+@section('description', 'Private cooking parties for small groups, hen/stag parties, corporate team building events and tours visiting Madrid.')
 
 @section('content')
 

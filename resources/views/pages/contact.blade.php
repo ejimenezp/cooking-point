@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Cooking Point address and contact information, Madrid, Spain')
-@section('description', 'Cooking School in Madrid, Spain. Contact Cooking Point by email, phone or visit us in the school directly')
+@section('title', 'Address and Directions')
+@section('description', 'Located in Barrio de Huertas, within walking distance of major hotel areas and museums. Metro Anton Martin, Line 1.')
 
 @section('content')
 

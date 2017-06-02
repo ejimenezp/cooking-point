@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Booking Form for Cooking School Madrid, Spain: Spanish Cuisine Courses')
-@section('description', 'Cooking courses school schedules and contact form: cooking classes calendar in madrid, Spain. Plan your cooking school vacations')
+@section('title', 'Booking Form')
+@section('description', 'Cooking Point booking form. Pay online and get instant confirmation.')
 
 @section('content')
 

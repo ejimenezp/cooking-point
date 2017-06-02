@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Cooking School Madrid Photos: cooking courses of Spanish cuisine')
-@section('description', 'Cooking School Madrid Photo Gallery: Spanish cooking courses and wine tasting classes. Plan your cooking vacations with Cooking Point!')
+@section('title', 'Photo Gallery')
+@section('description', 'Photos from our clients.')
 
 @section('content')
 

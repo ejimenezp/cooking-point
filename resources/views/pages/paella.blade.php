@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Paella cooking in Madrid: Spanish cooking classes in English')
-@section('description', 'Cooking School in Madrid, Spain: learn how to cook paella in English. Spanish Cooking for tourists on paella, gazpacho and tapas')
+@section('title', 'Paella Cooking Class and Market Tour at Cooking Point, Madrid')
+@section('description', 'Paella cooking classes in English every morning in Madrid. Hands-on class of paella includes market tour. Two people per cooktop.')
 
 @section('google-structured-data')
 
