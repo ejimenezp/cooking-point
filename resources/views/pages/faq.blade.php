@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Frequently Asked Questions Cooking Point School, Madrid in Spain')
-@section('description', 'Questions and answers of our cooking school located in madrid, Spain. Come and enjoy cooking Spanish cuisine with friends')
+@section('title', 'Frequently Asked Questions')
+@section('description', 'Information about dietary requirements, cancellation policy and more.')
 
 @section('content')
 
@@ -39,8 +39,8 @@
 		</dl>
 
 		<dl>
-			<dt><strong>I'm a vegetarian, gluten-free, halal, etc. can I book?</strong></dt>
-			<dd>Yes, you can prepare a vegetarian paella and most of our tapas have alternative ingredients. Anyway, don’t forget the cooking is done in pairs. You both need to agree on the vegetarian option. Also, when you book, please let us know your exact dietary requirements.</dd>
+			<dt><strong>I have some dietary requirements, can I book?</strong></dt>
+			<dd>Yes, we are ready to deal with most dietary requirements and allergies: gluten-free, seafood allergy, vegetarian, vegan,... Anyway, don’t forget the cooking is done in pairs. You both need to agree on the alternative option. Also, when you book, please let us know your exact food restrictions.</dd>
 		</dl>
 	</div>
 

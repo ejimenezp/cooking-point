@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Cooking School in Madrid, Spain')
-@section('description', 'Cooking School located in Barrio de Huertas, Madrid, Spain. Plan your cooking school vacation in Madrid and learn how to make paella and tapas')
+@section('title', 'Cooking Point School Description')
+@section('description', 'We can hold events for up to 24 people.')
 
 @section('content')
 
