@@ -195,8 +195,8 @@ function refreshDataShown()
 			}
 		}
 	}
-	if (i > month_availability.length) {
-		i = month_availability.length
+	if (i == month_availability.length) {
+		i = month_availability.length - 1
 	}
 	var ce_i = i
 	$("input[name=calendarevent_id]").val(month_availability[ce_i].id)
