@@ -19356,8 +19356,8 @@ var moment = require('moment');
 //
 // Global variables
 //
-// var right_now = moment("2017-02-06 09:00")
-var right_now = moment();
+var right_now = moment("2017-11-30 00:00");
+// var right_now = moment()
 var date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : right_now.clone();
 var form_changed = false;
 var month_changed = false;
@@ -19535,8 +19535,8 @@ function refreshDataShown() {
 			}
 		}
 	}
-	if (i > month_availability.length) {
-		i = month_availability.length;
+	if (i == month_availability.length) {
+		i = month_availability.length - 1;
 	}
 	var ce_i = i;
 	$("input[name=calendarevent_id]").val(month_availability[ce_i].id);
