@@ -173,25 +173,37 @@
     </div>
 </div>
 
-{{-- <style>
-    .google-maps {
-        position: relative;
-        padding-bottom: 33%; // This is the aspect ratio
-        height: 0;
-        overflow: hidden;
-    }
-    .google-maps iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100% !important;
-        height: 100% !important;
-    }
-</style>
-<div class="google-maps">
-<iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.840368337607!2d-3.6974950000000173!3d40.412387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422629f0ad9215%3A0xbfa70f0e9ca1618!2sCooking+Point!5e0!3m2!1ses!2ses!4v1399652339472" height="305" width="960" frameborder="0"></iframe>
+<div class="divider"></div>
+
+<div class="row">
+    <div class="col-sm-12 header3">Upcoming Classes<br><br></div>
+    <div class="col-xs-offset-2 col-xs-6">
+        <table class="table">
+                @php 
+                    $i = 0;
+                    foreach ($events as $event) {
+                        if ($event->registered < $event->capacity && $i < 5) {
+                            $date = new DateTime($event->startdateatom);
+                            switch ($event->type) {
+                                case 'PAELLA' :
+                                    echo '<small>Paella Cooking Class</small>';
+                                    echo '</td><td><a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">See Details</a></td>';
+                                    break;
+                                case 'TAPAS' :
+                                    echo '<small>Tapas Cooking Class</small>';
+                                    echo '</td><td><a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">See Details</a></td>';
+                                    break;
+                                default :
+                                    continue;
+                            }
+                            echo '</tr>';
+                            $i++;
+                        }               
+                    }
+                @endphp         
+        </table>
+    </div>
 </div>
-&nbsp; --}}
 
 <div class="divider"></div>
 
