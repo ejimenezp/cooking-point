@@ -177,7 +177,7 @@
 
 <div class="row">
     <div class="col-sm-12 header3">Upcoming Classes<br><br></div>
-    <div class="col-xs-offset-2 col-xs-6">
+    <div class="col-sm-offset-2 col-sm-6 col-xs-12">
         <table class="table">
                 @php 
                     $i = 0;
