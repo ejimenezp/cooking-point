@@ -19611,6 +19611,11 @@ function retrieveBooking(locator) {
 	$("textarea[name=comments]").val(bkg.comments);
 	$("input[name=locator]").val(bkg.locator);
 	$("input[name=crm]").val(bkg.crm);
+	$("input[name=source_id]").val(bkg.source_id);
+	$("input[name=pay_method]").val(bkg.pay_method);
+	$("input[name=payment_date]").val(bkg.payment_date);
+	$("input[name=hide_price]").val(bkg.hide_price);
+	$("input[name=fixed_date]").val(bkg.fixed_date);
 
 	var start_time = moment(bkg.calendarevent.time, "HH:mm:ss");
 	var duration = moment.duration(bkg.calendarevent.duration, "HH:mm:ss");

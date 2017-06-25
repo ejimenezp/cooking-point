@@ -137,7 +137,6 @@ class BookingController extends Controller
             $bkg->phone = $request->phone;
             $bkg->adult = $request->adult;
             $bkg->child = $request->child;
-            $bkg->phone = $request->phone;
             $bkg->pay_method = $request->pay_method;                    
             $bkg->payment_date = (empty($request->payment_date)) ? null : $request->payment_date;
             $bkg->food_requirements = $request->food_requirements;

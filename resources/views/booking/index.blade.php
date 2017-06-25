@@ -31,6 +31,8 @@
 				<input type="hidden" name="price" value="0">
 				<input type="hidden" name="iva" value="1">
 				<input type="hidden" name="hide_price" value="">
+				<input type="hidden" name="payment_date" value="">
+				<input type="hidden" name="fixed_date" value="">
 				<input type="hidden" name="crm" value="YES">
 				<table class="availability-table">
 
