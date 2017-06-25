@@ -184,12 +184,15 @@
                     foreach ($events as $event) {
                         if ($event->registered < $event->capacity && $i < 5) {
                             $date = new DateTime($event->startdateatom);
+                            echo '<tr>';
                             switch ($event->type) {
                                 case 'PAELLA' :
+                                    echo '<td><div class="header4">' . $date->format("l, d M") . '</div>';
                                     echo '<small>Paella Cooking Class</small>';
                                     echo '</td><td><a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">See Details</a></td>';
                                     break;
                                 case 'TAPAS' :
+                                    echo '<td><div class="header4">' . $date->format("l, d M") . '</div>';
                                     echo '<small>Tapas Cooking Class</small>';
                                     echo '</td><td><a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">See Details</a></td>';
                                     break;
