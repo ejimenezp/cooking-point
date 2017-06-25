@@ -30,7 +30,8 @@
           ga('send', 'pageview');
         </script>
       @else
-        <!-- no analytics here. Testing environment -->
+        <!-- no analytics or crawling here. Testing environment -->
+        <meta name="robots" content="noindex,nofollow">
       @endif
 
       @yield('google-structured-data')
