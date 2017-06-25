@@ -43,6 +43,6 @@ class CalendareventControllerOnline extends CalendareventController
 
         $events = $this->getIntervalSchedule($today, $in15days, true)->whereIn('type', ['PAELLA', 'TAPAS']);
 
-        return view('pages.home', ['events' => $events] );
+        return view('pages.home', ['events' => $events, 'page' => 'home'] );
     }
 }
