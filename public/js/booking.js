@@ -19519,14 +19519,18 @@ function refreshDataShown() {
 	var type_shown = $("select[name=type]").val();
 
 	// if there is a locator, if looks up calendarevent data by its ce_id, instead of by date and time)
-	if (bkg) {
-		for (i = 0; i < month_availability.length; i++) {
-			if (month_availability[i].type == type_shown && month_availability[i].id == bkg.calendarevent_id) {
-				found = true;
-				break;
-			}
-		}
-	}
+	// 	if (bkg) {
+	// 		console.log("primer bucle")
+	// 	for (i = 0; i < month_availability.length; i++) {
+	// 		console.log(i)
+	// 	if (month_availability[i].type == type_shown && month_availability[i].id == bkg.calendarevent_id) { 
+	// 		console.log('found!')
+	// 		console.log(bkg.calendarevent_id)
+	// 		found = true
+	// 		break
+	// 	}
+	// } 		
+	// 	}
 	if (!found) {
 		for (i = 0; i < month_availability.length; i++) {
 			a = moment(month_availability[i].date + ' ' + month_availability[i].time);
@@ -19540,6 +19544,7 @@ function refreshDataShown() {
 	}
 	var ce_i = i;
 	$("input[name=calendarevent_id]").val(month_availability[ce_i].id);
+	console.log('input[name=calendarevent_id] es ' + month_availability[ce_i].id);
 	$('.dateshown').html(date_shown.format('dddd, D MMMM YYYY'));
 	var start_time = moment(month_availability[ce_i].time, "HH:mm:ss");
 	var duration = moment.duration(month_availability[ce_i].duration, "HH:mm:ss");
