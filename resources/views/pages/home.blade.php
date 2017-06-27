@@ -12,14 +12,14 @@
   "@type": "WebSite",
   "name": "Cooking Point",
   "alternateName": "Spanish Cooking Classes in Madrid",
-  "url": "http://cookingpoint.es"
+  "url": "https://cookingpoint.es"
 },
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "Cooking Point",
-  "url": "http://cookingpoint.es",
-  "logo": "http://cookingpoint.es/images/cookingpoint_logox75.png",
+  "url": "https://cookingpoint.es",
+  "logo": "https://cookingpoint.es/images/cookingpoint_logox75.png",
   "address" : "Calle de Moratin, 11, 28014 Madrid",
   "sameAs": [
     "https://www.facebook.com/CookingPointSpain",
@@ -35,7 +35,7 @@
             "@type" : "Event",
             @if ($event->type == 'PAELLA')                
             "name" : "Paella Cooking Class",
-            "url" : "http://cookingpoint.es/classes-paella-cooking-madrid-spain",
+            "url" : "https://cookingpoint.es/classes-paella-cooking-madrid-spain",
             "description" : "Hands-on cooking class with market tour to make paella, gazpacho and sangria",
             @else
             "name" : "Tapas Cooking Class",
@@ -48,7 +48,7 @@
                 "@type" : "Place",
                 "name" : "Cooking Point",
                 "address" : "Calle de Moratin, 11, 28014 Madrid",
-                "sameAs": "http://cookingpoint.es" },
+                "sameAs": "https://cookingpoint.es" },
             "offers": {
                     "@type": "Offer",
                     "name": "Adult",
@@ -56,7 +56,7 @@
                     "price": "70.00",
                     "priceCurrency": "EUR",
                     @if ($event->type == 'PAELLA')                
-                    "url": "http://cookingpoint.es/classes-paella-cooking-madrid-spain"
+                    "url": "https://cookingpoint.es/classes-paella-cooking-madrid-spain"
                     @else
                     "url" : "https://cookingpoint.es/classes-spanish-tapas-madrid-spain"
                     @endif
