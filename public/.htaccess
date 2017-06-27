@@ -1,44 +1,44 @@
 #redirects
 
 # bookings
-redirect 301 /en/bookings http://cookingpoint.es/bookings
-redirect 301 /calendar http://cookingpoint.es/bookings
-redirect 301 /en/calendar http://cookingpoint.es/bookings
+redirect 301 /en/bookings https://cookingpoint.es/bookings
+redirect 301 /calendar https://cookingpoint.es/bookings
+redirect 301 /en/calendar https://cookingpoint.es/bookings
 
 # contact
-redirect 301 /es/contacto http://cookingpoint.es/contact
-redirect 301 /es/donde-estamos http://cookingpoint.es/contact
-redirect 301 /en/where-we-are http://cookingpoint.es/contact
-redirect 301 /about-us http://cookingpoint.es/contact
+redirect 301 /es/contacto https://cookingpoint.es/contact
+redirect 301 /es/donde-estamos https://cookingpoint.es/contact
+redirect 301 /en/where-we-are https://cookingpoint.es/contact
+redirect 301 /about-us https://cookingpoint.es/contact
 
 # gallery
-redirect 301 /en/gallery http://cookingpoint.es/gallery
+redirect 301 /en/gallery https://cookingpoint.es/gallery
 
 # tapas
-redirect 301 /activities/tapas-workshop http://cookingpoint.es/classes-spanish-tapas-madrid-spain
-redirect 301 /es/actividades/curso-tapas http://cookingpoint.es/classes-spanish-tapas-madrid-spain
+redirect 301 /activities/tapas-workshop https://cookingpoint.es/classes-spanish-tapas-madrid-spain
+redirect 301 /es/actividades/curso-tapas https://cookingpoint.es/classes-spanish-tapas-madrid-spain
 
 # paella
-redirect 301 /new/classes-paella-cooking-madrid http://cookingpoint.es/classes-paella-cooking-madrid-spain
+redirect 301 /new/classes-paella-cooking-madrid https://cookingpoint.es/classes-paella-cooking-madrid-spain
 
 # faq
-redirect 301 /en/frequent-questions http://cookingpoint.es/faq
-redirect 301 /frequent-questions http://cookingpoint.es/faq
+redirect 301 /en/frequent-questions https://cookingpoint.es/faq
+redirect 301 /frequent-questions https://cookingpoint.es/faq
 
 # events
-redirect 301 /group-events http://cookingpoint.es/private-cooking-events-madrid-spain
-redirect 301 /eventos-empresa-cursos-cocina http://cookingpoint.es/private-cooking-events-madrid-spain
+redirect 301 /group-events https://cookingpoint.es/private-cooking-events-madrid-spain
+redirect 301 /eventos-empresa-cursos-cocina https://cookingpoint.es/private-cooking-events-madrid-spain
 
 # home
-redirect 301 /home http://cookingpoint.es
-redirect 301 /escuela-cocina-madrid http://cookingpoint.es
-redirect 301 /cursos-cocina-madrid http://cookingpoint.es
-redirect 301 /curso-de-cupcakes-madrid http://cookingpoint.es
-redirect 301 /masterchef-takes-highest-cooking-fever-spain http://cookingpoint.es
+redirect 301 /home https://cookingpoint.es
+redirect 301 /escuela-cocina-madrid https://cookingpoint.es
+redirect 301 /cursos-cocina-madrid https://cookingpoint.es
+redirect 301 /curso-de-cupcakes-madrid https://cookingpoint.es
+redirect 301 /masterchef-takes-highest-cooking-fever-spain https://cookingpoint.es
 
 
-RedirectMatch 301 ^/es/(.*)$ http://cookingpoint.es
-RedirectMatch 301 ^/en/(.*)$ http://cookingpoint.es
+RedirectMatch 301 ^/es/(.*)$ https://cookingpoint.es
+RedirectMatch 301 ^/en/(.*)$ https://cookingpoint.es
 
 
 <IfModule mod_rewrite.c>
@@ -50,7 +50,11 @@ RedirectMatch 301 ^/en/(.*)$ http://cookingpoint.es
 
     # Remove www from URL
     RewriteCond %{HTTP_HOST} ^www.cookingpoint.es$ [NC]
-    RewriteRule ^(.*)$ http://cookingpoint.es/$1 [R=301,L]
+    RewriteRule ^(.*)$ https://cookingpoint.es/$1 [R=301,L]
+
+    # redirect to https://
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d

@@ -21,7 +21,7 @@
        			"@type" : "Place",
         		"name" : "Cooking Point",
         		"address" : "Calle de Moratin, 11, 28014 Madrid",
-        		"sameAs": "http://cookingpoint.es" },
+        		"sameAs": "https://cookingpoint.es" },
         	"offers": {
 				    "@type": "Offer",
 				    "name": "Adult",
