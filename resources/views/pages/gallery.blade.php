@@ -8,7 +8,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<h1 class="header1">Gallery</h1>
-		<p>We always encourage our clients to share their experiences on the internet. See some of the pictures uploaded by them.<br/><br/></p>
+		<p>We always encourage our clients to share their experiences on the internet. See their pictures posted to some social networks.<br/><br/></p>
 	</div>
 </div>
 
