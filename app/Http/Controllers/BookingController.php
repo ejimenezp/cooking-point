@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 use App\Http\Requests;
 use App\Booking;
+use App\Calendarevent;
 use App\Source;
 
 use Log;
@@ -159,4 +161,29 @@ class BookingController extends Controller
         MailController::send_mail($bkg->email, $bkg, 'user_cancellation');
         MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_cancel_request');
     }
+
+    function viatorCancel($locator, $cdate)
+    {
+
+        $canceldate = new Carbon ($cdate);
+
+        $bkg = Booking::where('locator', $locator)->first();
+        if (!$bkg) {
+            return ['status' => 'fail', 'reason' => 'OTHER', 'details' => 'Wrong Supplier Confirmation Number'];
+        } else {
+            Log::debug('travel: ' . $bkg->calendarevent->date . ' cancel ' . $cdate);
+            $traveldate = new Carbon($bkg->calendarevent->date);
+            if ($canceldate->gt($traveldate)) {
+                return ['status' => 'fail', 'reason' => 'PAST_TOUR_DATE', 'details' => 'Tour Already Done'];
+            } elseif ($canceldate->addDays(2)->gt($traveldate)) {
+                return ['status' => 'fail', 'reason' => 'PAST_CANCEL_DATE', 'details' => 'Too Late to Cancel'];
+            } else {
+                $bkg->status = 'CANCELLED';
+                $bkg->status_filter = 'DO_NOT_COUNT';
+                $bkg->save();
+                return ['status' => 'ok'];
+            }
+        }
+    }
+
 }
