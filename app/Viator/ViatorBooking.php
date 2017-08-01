@@ -1,11 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Viator;
 
 class ViatorBooking 
 {
-    public $TransactionStatus;
-
     function __construct() {
     	$this->TransactionStatus = new \stdClass();
     }
