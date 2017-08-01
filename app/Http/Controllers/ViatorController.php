@@ -61,8 +61,11 @@ class ViatorController extends Controller
                 break;
 
             default:
-                # code...
-                break;
+                $error = new ViatorRequestStatus;
+                $error->Status = 'ERROR';
+                $error->Error->ErrorCode = 'UNSUPPORTED_API';
+                $error->Error->ErrorMessage = 'Function Not Supported (' . $request->requestType . ')';
+                $this->resp->data->RequestStatus = $error;
         }
         return response()->json($this->resp);
     }
@@ -280,7 +283,7 @@ class ViatorController extends Controller
             $this->resp->data->RequestStatus = $error;
             return;
         }
-        
+
         $laravelrequest->id = $laravelbkg->id;
 
         $ce = $calendareventcontroller->findByDateAndType($traveldate, $requestdata['SupplierProductCode']);
