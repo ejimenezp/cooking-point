@@ -10,10 +10,12 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
 .nav {
 
 	padding-left: 0px;
-  	@media screen and (min-width: $screen-sm-min) {
-		padding-left: 25px;
-		}
-  	z-index: 1;
+  padding-top: 15px;
+  z-index: 1;
+  @media screen and (min-width: $screen-sm-min) {
+    padding-left: 25px;
+	}
+
 	
 	a {
 
