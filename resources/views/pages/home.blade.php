@@ -157,7 +157,6 @@
         </div>
     </div>
 
-    <div class="divider visible-xs"></div>
 </div>
 
 <div class="divider"></div>
