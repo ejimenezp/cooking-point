@@ -5959,6 +5959,30 @@ button.close {
     font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 22px; }
 
+.blog ul {
+  list-style: none; }
+
+.blog ul > li::before {
+  content: "•";
+  color: #EF8401;
+  display: inline-block;
+  width: 1em;
+  margin-left: 1em; }
+
+.blog ol {
+  list-style: none;
+  counter-reset: li; }
+
+.blog ol > li::before {
+  content: counter(li);
+  color: #EF8401;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.5em; }
+
+.blog ol > li {
+  counter-increment: li; }
+
 .decorated, .header1, .menu-header-xs, .header2, .header3, .header4, .header5 {
   font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
