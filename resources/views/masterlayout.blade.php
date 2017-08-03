@@ -59,33 +59,26 @@
             </a>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                  <li>
-                      <a href="/">Home</a>
-                    </li>
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">Classes <i class="fa fa-caret-down"></i></a>
-                      <ul class="dropdown-menu" aria-labelledby="themes">
-                        <li><a href="/classes-paella-cooking-madrid-spain">Paella Cooking Class</a></li>
-                        <li><a href="/classes-spanish-tapas-madrid-spain">Tapas Cooking Class</a></li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="/private-cooking-events-madrid-spain">Events</a>
-                  </li>
-                  <li>
-                    <a href="/school-madrid-spain">The School</a>
-                  </li>
-                                    <li>
-                    <a href="/gallery">Gallery</a>
-                  </li>
-                                    <li>
-                    <a href="/booking">Booking</a>
-                  </li>
-                                    <li>
-                    <a href="/contact">Contact</a>
-                  </li>
-                                    <li>
-                    <a href="/faq">FAQ</a>
+                <li>
+                  <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+                </li>
+                <li>
+                  <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+                </li>
+                 <li>
+                  <a href="/private-cooking-events-madrid-spain">Private Events</a>
+                </li>
+                <li>
+                  <a href="/gallery">Gallery</a>
+                </li>
+                <li>
+                  <a href="/booking">Booking</a>
+                </li>
+                <li>
+                  <a href="/contact">Contact</a>
+                </li>
+                <li>
+                  <a href="/faq">FAQ</a>
                   </li>
               </ul> 
             </div>
@@ -100,34 +93,27 @@
           </div> 
           <div class="col-sm-11">
             <ul class="vertical-center nav navbar-nav">
-                <li>
-                    <a href="/">Home</a>
-                  </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">Classes <span class="caret"></span></a>
-                    <ul class="dropdown-menu" aria-labelledby="themes">
-                      <li><a href="/classes-paella-cooking-madrid-spain">Paella Cooking Class</a></li>
-                      <li><a href="/classes-spanish-tapas-madrid-spain">Tapas Cooking Class</a></li>
-                    </ul>
-                </li>
-                <li>
-                  <a href="/private-cooking-events-madrid-spain">Events</a>
-                </li>
-                <li>
-                  <a href="/school-madrid-spain">The School</a>
-                </li>
-                                  <li>
-                  <a href="/gallery">Gallery</a>
-                </li>
-                                  <li>
-                  <a href="/booking">Booking</a>
-                </li>
-                                  <li>
-                  <a href="/contact">Contact</a>
-                </li>
-                                  <li>
-                  <a href="/faq">FAQ</a>
-                </li>
+              <li>
+                <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+              </li>
+              <li>
+                <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+              </li>
+               <li>
+                <a href="/private-cooking-events-madrid-spain">Private Events</a>
+              </li>
+              <li>
+                <a href="/gallery">Gallery</a>
+              </li>
+              <li>
+                <a href="/booking">Booking</a>
+              </li>
+              <li>
+                <a href="/contact">Contact</a>
+              </li>
+              <li>
+                <a href="/faq">FAQ</a>
+              </li>
             </ul> 
           </div>
       </div>      

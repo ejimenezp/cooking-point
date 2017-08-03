@@ -5950,6 +5950,7 @@ button.close {
 
 .nav {
   padding-left: 0px;
+  padding-top: 15px;
   z-index: 1; }
   @media screen and (min-width: 768px) {
     .nav {
