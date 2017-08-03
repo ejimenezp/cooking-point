@@ -35,6 +35,7 @@ redirect 301 /escuela-cocina-madrid https://cookingpoint.es
 redirect 301 /cursos-cocina-madrid https://cookingpoint.es
 redirect 301 /curso-de-cupcakes-madrid https://cookingpoint.es
 redirect 301 /masterchef-takes-highest-cooking-fever-spain https://cookingpoint.es
+redirect 301 /school-madrid-spain https://cookingpoint.es
 
 
 RedirectMatch 301 ^/es/(.*)$ https://cookingpoint.es
