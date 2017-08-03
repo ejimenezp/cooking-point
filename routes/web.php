@@ -35,7 +35,10 @@ Route::get('/eventos-privados-madrid', function () { return view('pages.eventos'
 Route::get('/school-madrid-spain', function () { return view('pages.school'); });
 Route::get('/wine-tasting-madrid-spain', function () { return redirect('/', 301); });
 
-
+//
+// blog entries
+//
+Route::get('/paella-fish-stock', function () { return view('blog.fish-stock'); });
 
 
 
