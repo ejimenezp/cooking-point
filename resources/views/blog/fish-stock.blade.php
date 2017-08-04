@@ -20,6 +20,7 @@
 <div class="header2">Ingredients</div>
 <p></p>
 <p>For 1.5 liters of stock:</p>
+
 <ul>
 	<li>0.5 - 1 kg white fish heads and/or bones (monkfish, hake, haddock, cod, flounder, sole, turbot…)</li>
 	<li>8 prawns</li>

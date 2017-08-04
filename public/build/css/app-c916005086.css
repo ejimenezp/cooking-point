@@ -5960,14 +5960,15 @@ button.close {
     font-size: 22px; }
 
 .blog ul {
+  padding-left: 40px;
   list-style: none; }
 
 .blog ul > li::before {
-  content: "•";
+  content: "\2022";
   color: #EF8401;
   display: inline-block;
   width: 1em;
-  margin-left: 1em; }
+  margin-left: -1em; }
 
 .blog ol {
   list-style: none;
@@ -5978,7 +5979,7 @@ button.close {
   color: #EF8401;
   display: inline-block;
   width: 1em;
-  margin-left: -1.5em; }
+  margin-left: -1em; }
 
 .blog ol > li {
   counter-increment: li; }

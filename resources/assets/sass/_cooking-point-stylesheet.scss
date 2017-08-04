@@ -25,14 +25,17 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
 }
 
 .blog {
-  ul {list-style: none}
+  ul {
+    padding-left: 40px;
+    list-style: none;
+  }
 
   ul > li::before {
-    content: "•";
+    content: "\2022";
     color: $brand-primary;
     display: inline-block;
     width: 1em;
-    margin-left: 1em;
+    margin-left: -1em;
   }
   ol {list-style: none; counter-reset: li}
 
@@ -41,7 +44,7 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
     color: $brand-primary;
     display: inline-block; 
     width: 1em;
-    margin-left: -1.5em
+    margin-left: -1em;
   }
   ol > li {counter-increment: li}
 }
