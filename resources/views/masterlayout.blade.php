@@ -69,17 +69,28 @@
                   <a href="/private-cooking-events-madrid-spain">Private Events</a>
                 </li>
                 <li>
-                  <a href="/gallery">Gallery</a>
+                  <a href="/contact">Contact</a>
                 </li>
                 <li>
                   <a href="/booking">Booking</a>
                 </li>
-                <li>
-                  <a href="/contact">Contact</a>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <i class="fa fa-caret-down"></i></a>
+                    <ul class="dropdown-menu" aria-labelledby="themes">
+                      <li>
+                        <a href="/school-madrid-spain">The School</a>
+                      </li>
+                      <li>
+                        <a href="/gallery">Gallery</a>
+                      </li>
+                      <li>
+                        <a href="/blog">Blog</a>
+                      </li>
+                      <li>
+                        <a href="/faq">FAQ</a>
+                      </li>
+                    </ul>
                 </li>
-                <li>
-                  <a href="/faq">FAQ</a>
-                  </li>
               </ul> 
             </div>
           </div>
@@ -103,17 +114,29 @@
                 <a href="/private-cooking-events-madrid-spain">Private Events</a>
               </li>
               <li>
-                <a href="/gallery">Gallery</a>
-              </li>
-              <li>
+                <a href="/contact">Contact</a>
+              </li>            
+               <li>
                 <a href="/booking">Booking</a>
               </li>
-              <li>
-                <a href="/contact">Contact</a>
+              <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <span class="caret"></span></a>
+                  <ul class="dropdown-menu" aria-labelledby="themes">
+                      <li>
+                        <a href="/school-madrid-spain">The School</a>
+                      </li>
+                      <li>
+                        <a href="/gallery">Gallery</a>
+                      </li>
+                      <li>
+                        <a href="/blog">Blog</a>
+                      </li>
+                      <li>
+                        <a href="/faq">FAQ</a>
+                      </li>
+                  </ul>
               </li>
-              <li>
-                <a href="/faq">FAQ</a>
-              </li>
+
             </ul> 
           </div>
       </div>      
@@ -121,7 +144,7 @@
 
   </div>
         
-@if (isset($page) && ($page == 'home' || $page == 'contact' || $page == 'booking'))
+@if (isset($page) && ($page == 'home' || $page == '' || $page == 'booking'))
   <div class="container">
       <div class="divider"></div>
       @yield('content') 
