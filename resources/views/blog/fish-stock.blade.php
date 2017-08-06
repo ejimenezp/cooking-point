@@ -49,6 +49,10 @@
 
 <p>You can use similar process to make chicken stock. In that case, use a chicken quarter, sauteing before adding the vegetables. That way, you will get the pan flavoured with the skin fat.</p>
 
+		<div class="text-center">
+			<a href="/blog" class="btn btn-primary">More Blog Posts</a>
+        </div>
+
 	</div>
 </div>
 

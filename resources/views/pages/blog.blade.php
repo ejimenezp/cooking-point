@@ -14,7 +14,7 @@
     <div class="col-sm-6">
         <h4 class="header4"></h4>
 		<a href="/iberian-ham"><img class="img-responsive center-block" alt="iberian pig" src="/images/blog/iberian-pig.jpg" /></a>
-		<h2 class="header2"><a href="/iberian-ham">What is Iberian Ham</a></h2>
+		<h2 class="header2"><a href="/iberian-ham">What Is Iberian Ham?</a></h2>
 		<p>What makes so special the Iberian Ham? This particular breed, only found in Spain and Portugal has unexpected benefits for your health.</p>
 		<div class="text-center">
 			<a href="/iberian-ham" class="btn btn-primary">Read More</a>
