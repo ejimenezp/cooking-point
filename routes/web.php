@@ -40,7 +40,7 @@ Route::get('/wine-tasting-madrid-spain', function () { return redirect('/', 301)
 //
 Route::get('/blog', function () { return view('pages.blog'); });
 Route::get('/paella-fish-stock', function () { return view('blog.fish-stock'); });
-Route::get('/iberian-ham', function () { return view('blog.iberian-ham'); });
+Route::get('/iberico-ham', function () { return view('blog.iberico-ham'); });
 
 
 
