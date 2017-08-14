@@ -30,15 +30,9 @@ redirect 301 /group-events https://cookingpoint.es/private-cooking-events-madrid
 redirect 301 /eventos-empresa-cursos-cocina https://cookingpoint.es/private-cooking-events-madrid-spain
 
 # home
-redirect 301 /home https://cookingpoint.es
-redirect 301 /escuela-cocina-madrid https://cookingpoint.es
-redirect 301 /cursos-cocina-madrid https://cookingpoint.es
-redirect 301 /curso-de-cupcakes-madrid https://cookingpoint.es
-redirect 301 /masterchef-takes-highest-cooking-fever-spain https://cookingpoint.es
+RedirectMatch 301 ^/(es|en)$ https://cookingpoint.es
 
-RedirectMatch 301 ^/es/(.*)$ https://cookingpoint.es
-RedirectMatch 301 ^/en/(.*)$ https://cookingpoint.es
-
+RedirectMatch 301 ^/(activities/|author|bookings-|category/|classes/|classes$|contacto|curso|escuela|galeria|hola-mundo|home|images/panorama|lorem|masterchef|other-events|partner-services|portfolio|reserva|sponsors|where) https://cookingpoint.es
 
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
