@@ -10,8 +10,6 @@ use App\Http\Controllers\CalendareventController;
 
 use App\Viator\ViatorRequestStatus;
 use App\Viator\ViatorTourAvailability;
-use App\Viator\ViatorBooking;
-use App\Viator\ViatorTour;
 
 use Log;
 
@@ -33,8 +31,12 @@ class ViatorController extends Controller
         $this->resp->data->ApiKey = $requestdata['ApiKey'];
         $this->resp->data->ResellerId = $requestdata['ResellerId'];
         $this->resp->data->SupplierId = $requestdata['SupplierId'];
-        $this->resp->data->ExternalReference = $requestdata['ExternalReference'];
-        $this->resp->data->Timestamp = (new \DateTime)->format(DATE_ATOM);
+        if (isset($requestdata['ExternalReference']))
+            $this->resp->data->ExternalReference = $requestdata['ExternalReference'];
+        $atom_time = (new \DateTime)->format(DATE_ATOM);
+        $micro = microtime(true);
+        $milliseconds = sprintf('%03d', round(($micro - floor($micro)) * 1000));
+        $this->resp->data->Timestamp = str_replace('+', ".{$milliseconds}+", $atom_time);
         $this->resp->data->RequestStatus['Status'] = 'SUCCESS';
 
         if (isset($requestdata['StartDate']) && !isset($requestdata['EndDate']))
@@ -80,51 +82,46 @@ class ViatorController extends Controller
         $calendareventcontroller = new CalendareventController;
         $hoy = Carbon::now('Europe/Madrid');
 
-        if (!is_array($requestdata['SupplierProductCode'])) {
-            $requestdata['SupplierProductCode'] = (array) $requestdata['SupplierProductCode'];
+        $ce_type = $requestdata['SupplierProductCode'];
+        if (!in_array($ce_type, ['PAELLA', 'TAPAS'])) {
+            $error = new ViatorRequestStatus;
+            $error->Status = 'ERROR';
+            $error->Error->ErrorCode = 'WRONG_SUPPLIER_PRODUCT_CODE';
+            $error->Error->ErrorMessage = 'Product Code Does Not Exist (' . $ce_type . ')';
+            $this->resp->data->RequestStatus = $error;
+            return;
+        } else {
+            $this->resp->data->SupplierProductCode = $requestdata['SupplierProductCode'];
         }
 
         for ($date = $start; $date->diffInDays($end, false) >= 0; $date->addDay())
         {
-            foreach ($requestdata['SupplierProductCode'] as $ce_type)
-            {
-                if (!in_array($ce_type, ['PAELLA', 'TAPAS'])) {
-                    $error = new ViatorRequestStatus;
-                    $error->Status = 'ERROR';
-                    $error->Error->ErrorCode = 'WRONG_SUPPLIER_PRODUCT_CODE';
-                    $error->Error->ErrorMessage = 'Product Code Does Not Exist (' . $ce_type . ')';
-                    $this->resp->data->RequestStatus = $error;
-                    return;
-                }
-
-                $availability = new ViatorTourAvailability;
-                $availability->Date = $date->toDateString();
-                $availability->SupplierProductCode = $ce_type;
-                // Log::debug('fecha ' . $date . ' type ' . $ce_type);
-                if ($date->lt($hoy)) {
-                    $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                    $availability->AvailabilityStatus->UnavailabilityReason = 'PAST_CUTOFF_DATE';
-                    $this->resp->data->ViatorTourAvailability[] = $availability;
-                    continue;
-                }
-                $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
-                if ($ce) {
-                    if ($ce->registered >= $ce->capacity) {
-                        $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                        $availability->AvailabilityStatus->UnavailabilityReason = 'SOLD_OUT';
-                    } elseif ($ce->registered + $travellers > $ce->capacity) {
-                        $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                        $availability->AvailabilityStatus->UnavailabilityReason = 'TRAVELLER_MISMATCH';
-                    } else {
-                        $availability->AvailabilityStatus->Status = 'AVAILABLE';
-                    }
-                }
-                else {
-                    $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                    $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
-                }
-                $this->resp->data->ViatorTourAvailability[] = $availability;
+            $availability = new ViatorTourAvailability;
+            $availability->Date = $date->toDateString();
+            // Log::debug('fecha ' . $date . ' type ' . $ce_type);
+            if ($date->lt($hoy)) {
+                $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
+                $availability->AvailabilityStatus->UnavailabilityReason = 'PAST_CUTOFF_DATE';
+                $this->resp->data->TourAvailability[] = $availability;
+                continue;
             }
+            $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
+            if ($ce) {
+                if ($ce->registered >= $ce->capacity) {
+                    $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
+                    $availability->AvailabilityStatus->UnavailabilityReason = 'SOLD_OUT';
+                } elseif ($ce->registered + $travellers > $ce->capacity) {
+                    $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
+                    $availability->AvailabilityStatus->UnavailabilityReason = 'TRAVELLER_MISMATCH';
+                } else {
+                    $availability->AvailabilityStatus->Status = 'AVAILABLE';
+                }
+            }
+            else {
+                $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
+                $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
+            }
+            $this->resp->data->TourAvailability[] = $availability;
         }
 
     }
@@ -138,7 +135,9 @@ class ViatorController extends Controller
         $calendareventcontroller = new CalendareventController;
         $hoy = Carbon::now('Europe/Madrid');
 
-        if (!is_array($requestdata['SupplierProductCode'])) {
+        if (!isset($requestdata['SupplierProductCode'])) {
+            $requestdata['SupplierProductCode'] = ['PAELLA', 'TAPAS'];   
+        } elseif (!is_array($requestdata['SupplierProductCode'])) {
             $requestdata['SupplierProductCode'] = (array) $requestdata['SupplierProductCode'];
         }
 
@@ -161,7 +160,7 @@ class ViatorController extends Controller
                 if ($date->lt($hoy)) {
                     $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                     $availability->AvailabilityStatus->UnavailabilityReason = 'PAST_CUTOFF_DATE';
-                    $this->resp->data->ViatorTourAvailability[] = $availability;
+                    $this->resp->data->BatchTourAvailability[] = $availability;
                     continue;
                 }
                 $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
@@ -180,7 +179,7 @@ class ViatorController extends Controller
                     $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                     $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
                 }
-                $this->resp->data->ViatorTourAvailability[] = $availability;
+                $this->resp->data->BatchTourAvailability[] = $availability;
             }
         }
     }
@@ -189,7 +188,6 @@ class ViatorController extends Controller
     {
         $this->resp->responseType = 'BookingResponse';
 
-        $viatorbooking = new ViatorBooking;
         $laravelrequest = new Request;
         $calendareventcontroller = new CalendareventController;
         $bookingcontroller = new BookingController;
@@ -211,9 +209,9 @@ class ViatorController extends Controller
         if ($ce) {
 
             if ($ce->registered + $travellers > $ce->capacity) {
-                $viatorbooking->TransactionStatus->Status = 'REJECTED';
-                $viatorbooking->TransactionStatus->RejectedReason = 'BOOKED_OUT_ALT_DATES';
-                $viatorbooking->TransactionStatus->RejectedReasonDetails = 'Please, check other dates';
+                $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
+                $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
+                $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
             } else {
                 // new booking
                 $laravelrequest->calendarevent_id = $ce->id;
@@ -241,23 +239,21 @@ class ViatorController extends Controller
 
                 $controllerresponse = $bookingcontroller->add($laravelrequest);
 
-                $viatorbooking->TransactionStatus->Status = 'CONFIRMED';
-                $viatorbooking->SupplierConfirmationNumber = $controllerresponse['data']['locator'];
+                $this->resp->data->TransactionStatus['Status'] = 'CONFIRMED';
+                $this->resp->data->SupplierConfirmationNumber = $controllerresponse['data']['locator'];
 
             }
         } else {
-            $viatorbooking->TransactionStatus->Status = 'REJECTED';
-            $viatorbooking->TransactionStatus->RejectedReason = 'NOT_OPERATING';
-            $viatorbooking->TransactionStatus->RejectedReasonDetails = 'Please, check other dates';
+            $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
+            $this->resp->data->TransactionStatus['RejectedReason'] = 'NOT_OPERATING';
+            $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
         }
-        $this->resp->data->BookingResponse = $viatorbooking;
     }
 
     private function bookingamendmentrequest ($requestdata)
     {
         $this->resp->responseType = 'BookingAmendmentResponse';
 
-        $viatorbooking = new ViatorBooking;
         $laravelrequest = new Request;
         $calendareventcontroller = new CalendareventController;
         $bookingcontroller = new BookingController;
@@ -295,9 +291,9 @@ class ViatorController extends Controller
                 $registered = $registered - $laravelbkg->adult - $laravelbkg->child;
             }
             if ($registered + $travellers > $ce->capacity) {
-                $viatorbooking->TransactionStatus->Status = 'REJECTED';
-                $viatorbooking->TransactionStatus->RejectedReason = 'BOOKED_OUT_ALT_DATES';
-                $viatorbooking->TransactionStatus->RejectedReasonDetails = 'Please, check other dates';
+                $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
+                $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
+                $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
             } else {
                 $laravelrequest->calendarevent_id = $ce->id;
                 $laravelrequest->source_id = 5; // MARKETPLACE: Viator (sources DB table)
@@ -323,16 +319,15 @@ class ViatorController extends Controller
 
                 $controllerresponse = $bookingcontroller->update($laravelrequest);
 
-                $viatorbooking->TransactionStatus->Status = 'CONFIRMED';
-                $viatorbooking->SupplierConfirmationNumber = $controllerresponse['data']['locator'];
+                $this->resp->data->TransactionStatus['Status'] = 'CONFIRMED';
+                $this->resp->data->SupplierConfirmationNumber = $controllerresponse['data']['locator'];
 
             }
         } else {
-            $viatorbooking->TransactionStatus->Status = 'REJECTED';
-            $viatorbooking->TransactionStatus->RejectedReason = 'NOT_OPERATING';
-            $viatorbooking->TransactionStatus->RejectedReasonDetails = 'Please, check other dates';
+            $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
+            $this->resp->data->TransactionStatus['RejectedReason'] = 'NOT_OPERATING';
+            $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
         }
-        $this->resp->data->BookingResponse = $viatorbooking;
     }
 
     private function bookingcancellationrequest ($requestdata)
@@ -366,34 +361,31 @@ class ViatorController extends Controller
     {
         $this->resp->responseType = 'TourListResponse';
 
-        $paella = new ViatorTour;
-        $tapas = new ViatorTour;
-
-        $paella->SupplierProductCode = 'PAELLA';
-        $paella->SupplierProductName = 'Paella Cooking Class';
-        $paella->language->LanguageCode = 'EN';
-        $paella->language->LanguageOption = 'GUIDE';
-        $paella->CountryCode = 'ES';
-        $paella->DestinationCode ='MAD';
-        $paella->DestinationName ='Madrid';
-        $paella->TourDescription = 'Market Tour + Hands-on cooking class of paella, gazpacho and sangria + Lunch';
-        $paella->TourDepartureTime = '09:00:00';
-        $paella->TourDuration = 'P4H';
+        $paella['SupplierProductCode'] = 'PAELLA';
+        $paella['SupplierProductName'] = 'Paella Cooking Class';
+        $paella['Language']['LanguageCode'] = 'EN';
+        $paella['Language']['LanguageOption'] = 'GUIDE';
+        $paella['CountryCode'] = 'ES';
+        $paella['DestinationCode'] ='MAD';
+        $paella['DestinationName'] ='Madrid';
+        $paella['TourDescription'] = 'Market Tour + Hands-on cooking class of paella, gazpacho and sangria + Lunch';
+        $paella['TourDepartureTime'] = '09:00:00';
+        $paella['TourDuration'] = 'PT4H';
 
 
-        $tapas->SupplierProductCode = 'TAPAS';
-        $tapas->SupplierProductName = 'Tapas Cooking Class';
-        $tapas->language->LanguageCode = 'EN';
-        $tapas->language->LanguageOption = 'GUIDE';
-        $tapas->CountryCode = 'ES';
-        $tapas->DestinationCode ='MAD';
-        $tapas->DestinationName ='Madrid';
-        $tapas->TourDescription = 'Hands-on cooking class of 6 traditional tapas and sangria + Dinner';
-        $tapas->TourDepartureTime = '17:30:00';
-        $tapas->TourDuration = 'P4H';
+        $tapas['SupplierProductCode'] = 'TAPAS';
+        $tapas['SupplierProductName'] = 'Tapas Cooking Class';
+        $tapas['Language']['LanguageCode'] = 'EN';
+        $tapas['Language']['LanguageOption'] = 'GUIDE';
+        $tapas['CountryCode'] = 'ES';
+        $tapas['DestinationCode'] ='MAD';
+        $tapas['DestinationName'] ='Madrid';
+        $tapas['TourDescription'] = 'Hands-on cooking class of 6 traditional tapas and sangria + Dinner';
+        $tapas['TourDepartureTime'] = '17:30:00';
+        $tapas['TourDuration'] = 'PT4H';
 
-        $this->resp->data->tour[0] = $paella;
-        $this->resp->data->tour[1] = $tapas;
+        $this->resp->data->Tour[0] = $paella;
+        $this->resp->data->Tour[1] = $tapas;
 
     }
 
