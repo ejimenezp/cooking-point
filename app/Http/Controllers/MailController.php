@@ -171,6 +171,14 @@ class MailController {
 				$status = "Contact Us";
 			}
 				
+		switch ($bkg->source_id) {
+			case 5:
+				$source = "VIATOR";
+				break;
+			default:
+				$source = "ONLINE";
+			}
+
 		// build html from template
 		$html = Storage::get('templates/' . $filename);
 		
@@ -188,6 +196,7 @@ class MailController {
 		$html = str_replace('CP_CHILD', $bkg->child, $html);
 		$html = str_replace('CP_PRICE', ($bkg->hide_price ? '--.--' : $bkg->price), $html);
 		$html = str_replace('CP_STATUS', $status, $html);
+		$html = str_replace('CP_SOURCE', $source, $html);
 		$html = str_replace('CP_COOK', $bkg->calendarevent->staff->name, $html);
 		$html = str_replace('CP_LOCATOR', $bkg->locator, $html);
 		$html = str_replace('CP_FOODREQUIREMENTS', nl2br(stripslashes($bkg->food_requirements)), $html);

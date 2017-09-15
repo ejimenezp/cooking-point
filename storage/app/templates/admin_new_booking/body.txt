@@ -1,5 +1,6 @@
 New Booking:
 
+- Source: CP_SOURCE
 - Name: CP_NAME
 - Email: CP_EMAIL
 - Phone: CP_PHONE
