@@ -238,6 +238,11 @@ class ViatorController extends Controller
                 $laravelrequest->hide_price = 'YES';
 
                 $controllerresponse = $bookingcontroller->add($laravelrequest);
+                
+                $bkg = $bookingcontroller->findBy($controllerresponse['data']['locator']);
+                if ($bkg) {
+                    MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_booking');
+                }
 
                 $this->resp->data->TransactionStatus['Status'] = 'CONFIRMED';
                 $this->resp->data->SupplierConfirmationNumber = $controllerresponse['data']['locator'];
