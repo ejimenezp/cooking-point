@@ -6164,10 +6164,13 @@ input, select, textarea {
   background-color: white;
   padding: 1%;
   border: 1px solid #ddd;
+  border-radius: 7px;
   z-index: 100;
   margin: auto;
   margin-bottom: 5%;
   font-size: 20px; }
+  .online .ui-datepicker td {
+    border-radius: 7px; }
   .online .ui-datepicker table {
     border-collapse: separate; }
   .online .ui-datepicker .ui-icon {
@@ -6176,19 +6179,21 @@ input, select, textarea {
       display: inline; }
   .online .ui-datepicker .day-last-seats {
     background-color: #e42e28;
-    border: 3px solid #e42e28; }
+    border: 3px solid white; }
     .online .ui-datepicker .day-last-seats a {
       color: white !important; }
   .online .ui-datepicker .day-available {
     background-color: #EF8401;
-    border: 3px solid #EF8401; }
+    border: 3px solid white; }
     .online .ui-datepicker .day-available a {
       color: white !important; }
   .online .ui-datepicker .ui-state-disabled {
     color: #959595;
-    border: 3px solid white; }
+    border: 3px solid white;
+    background-color: white !important; }
   .online .ui-datepicker .ui-datepicker-current-day {
-    border: 3px solid #ccc; }
+    border: 3px solid #ccc;
+    background-color: limegreen; }
   .online .ui-datepicker .ui-datepicker-prev span, .online .ui-datepicker .ui-datepicker-next span {
     left: unset;
     margin-left: -2px;

@@ -298,10 +298,16 @@ input, select, textarea {
     background-color: white;
     padding: 1%;
     border: 1px solid #ddd;
+    border-radius: 7px;
     z-index: 100;
     margin: auto;
     margin-bottom: 5%;
-    font-size: 20px;    
+    font-size: 20px;
+
+    td {
+        border-radius: 7px;
+
+    }    
     table {
       border-collapse: separate;
     }
@@ -315,24 +321,25 @@ input, select, textarea {
 
     .day-last-seats {
       background-color: $brand-red;
-      border: 3px solid $brand-red;
+      border: 3px solid white;
       a { color: white !important; }
     }
     
     .day-available {
       background-color: $brand-primary;
-      border: 3px solid $brand-primary;
+      border: 3px solid white;
       a { color: white !important; }
     }
 
     .ui-state-disabled {
       color: $navbar-default-link-disabled-color;
       border: 3px solid white;
-
+      background-color: white !important;
     }
 
     .ui-datepicker-current-day {
       border: 3px solid #ccc;
+      background-color: limegreen;
     }
 
     .ui-datepicker-prev span, .ui-datepicker-next span {
