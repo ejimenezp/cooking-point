@@ -11,10 +11,10 @@
 		<div id="step1" class="hidden">
 			<h1 class="header1">Booking: Availability</h1>
 			<p>Select number of guests and desired class to check availability</p>
-			<div class="col-sm-6">
+			<div class="col-sm-6" style="padding-left: 0px;">
 				<div class="online" id="bookingdatepicker"></div>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-6" style="padding-left: 0px;">
 				<form id="booking_form_1">
 				<input type="hidden" name="source_id" value="2">
 				@if (isset($bkg))
