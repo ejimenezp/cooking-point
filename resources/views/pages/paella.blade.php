@@ -59,17 +59,25 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-6">
+	<div class="col-sm-12">
 		<p>Which dish says Spain more than the Paella? From humble beginnings, paella evolved from a simple rice dish into a feast of rice with mixed meat and seafood. Traditionally it is cooked and eaten in the open air and is served directly from the paella to a large group at family gatherings or fiestas. But it is not exclusive to experienced Spanish cooks or to Spanish restaurants, you can make paella at home and this class will show you how.</p>
+	</div>
+</div>
 
+<div class="row">
+	<div class="col-sm-12">
+		<h2 class="header2">Lesson Details</h2>
+	</div>
+	<div class="col-sm-6">
 		<p>Our class starts visiting the <strong>Antón Martín market</strong> (200 m away, open all days except Sundays and holidays) to buy the groceries we will need to cook our menu. We’ll buy vegetables, seafood and perhaps ham, cold cuts, cheese, olives, pastry&#8230; the offering and colouring of this traditional way of shopping daily supplies is endless.</p>
 
-		<p>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> (yes, finally you will know the way to make it), and your the starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
+		<p>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your the starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
 
+		<p>And then, we will start cooking the <strong>paella</strong>. Along the preparation, our chef will tell the story of this typical Spanish dish including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
 	</div>
 
 	<div class="col-sm-6">
-		<p>And then, we will start cooking the <strong>paella</strong>. Along the preparation, our chef will tell the story of this typical Spanish dish including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
+
 
 		<p>Our Paella classes are <strong>4 hours long</strong>; 3 hours to go shopping, prepare your gazpacho and cook the paella, and 1 hour to enjoy your creations with the sangría you made at the beginning of the class. Note: on holidays, we&#8217;ll prepare one additional tapa, as market is closed.</p>
 
