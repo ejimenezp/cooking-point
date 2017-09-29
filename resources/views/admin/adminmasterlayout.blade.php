@@ -32,10 +32,50 @@
 
 
 	<div class="container">
-		<div class="text-center">
-			<h4><a href="#" onclick="location.reload();return false">Actualizar</a>&nbsp;&nbsp;<a href="/admin/logout">Salir</a>
-				<span class="pull-right"><button id="toggle_datepicker" class="btn btn-xs btn-default">Calendario</button></span></h4>  	
-		</div>
+		<div class="visible-xs">
+			<p></p>
+		    <a class="header2" data-toggle="collapse" data-target="#navbar" href="#">
+              Menu <i class="fa fa-bars" aria-hidden="true"></i>
+            </a>
+            <span class="pull-right"><button id="toggle_datepicker" class="btn btn-xs btn-default">Calendario</button></span>
+	    	<div id="navbar" class="navbar-collapse collapse">
+	          	<ul class="nav navbar-nav">
+		            <li>
+		              <a href="/admin">Admin</a>
+		            </li>
+		            <li>
+		              <a href="/admin/report">Reports</a>
+		            </li>
+		            <li>
+		              <a href="#" onclick="location.reload();return false">Actualizar</a>
+		            </li>
+		            <li>
+		              <a href="/admin/logout">Salir</a>
+		            </li>
+          		</ul>
+          	</div>
+        </div>
+
+		<div class="visible-sm visible-md visible-lg">
+			<div class="row">
+	          	<ul class="nav navbar-nav">
+		            <li>
+		              <a href="/admin">Admin</a>
+		            </li>
+		            <li>
+		              <a href="/admin/report">Reports</a>
+		            </li>
+		            <li>
+		              <a href="#" onclick="location.reload();return false">Actualizar</a>
+		            </li>
+		            <li>
+		              <a href="/admin/logout">Salir</a>
+		            </li>
+           		</ul>
+
+	        </div>
+        </div>
+
 		<div class="divider"></div>
 
 <!-- main area -->

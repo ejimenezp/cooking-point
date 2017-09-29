@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Response;
 use DB;
+use Carbon\Carbon;
 
 class ReportController extends Controller
 {
@@ -184,6 +185,62 @@ class ReportController extends Controller
     			'headers' => ['Clase', 'Registrados','Ingresos'],
     			'lines' => $result ];
 		}
+    }
+
+    function R_turnos($request)
+    {
+        
+        $sqlString = "SELECT    calendarevents.date as date,
+                                calendarevents.time as time, 
+                                calendarevents.type as type,
+                                staff.name as cook
+                        FROM calendarevents, staff
+                        WHERE calendarevents.date >= '$request->start_date' 
+                            AND calendarevents.date <= '$request->end_date'
+                            AND calendarevents.staff_id = staff.id
+                        ORDER BY date, time ";
+
+                                
+        if(!$dbresult = DB::select($sqlString))
+        {
+            return [
+                'title' =>'No hay resultados' ,
+                'headers' => [],
+                'lines' => $dbresult ];   
+        } 
+
+        $start_date = new Carbon($request->start_date);
+        $end_date = new Carbon($request->end_date);
+        $end_date->addDay();
+
+        $result = [];
+
+        for ($date = clone $start_date; $date->diffInDays($end_date)>0; $date->addDay()) {
+
+            $line = new \stdClass();
+            $line->date = $date->formatLocalized('%d %b, %a');
+
+            foreach ($dbresult as $event) {
+
+                if ($event->date == $date->toDateString()) {
+                    if ($event->time <= '14:00:00') {
+                        $line->morning = $event->cook;
+                    } elseif (isset($line->morning)) {
+                        $line->evening = $event->cook;
+                    } else {
+                        $line->morning = ' ';
+                        $line->evening = $event->cook;                        
+                    }
+                }
+            }
+            array_push($result, $line);
+        }
+
+        return [
+            'title' =>'Turnos, ' . $request->start_date . ' a '. $request->end_date ,
+            'headers' => ['Fecha', 'Mañana', 'Tarde'],
+            'lines' => $result ];
+
     }
 
 }
