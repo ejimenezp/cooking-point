@@ -26,7 +26,7 @@
 
 		<dl>
 			<dt><strong>What is the cancellation policy?</strong></dt>
-			<dd>We refund 100% if you cancel up to 48 hours before the event.</dd>
+			<dd>We refund 100% if you cancel up to 24 hours before the event.</dd>
 		</dl>
 
 		<dl>

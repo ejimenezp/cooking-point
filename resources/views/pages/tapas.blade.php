@@ -59,19 +59,24 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-6">
-		<p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of fino, a tapa (meaning lid) of cheese or ham was used to cover the glass. People got used to it and bartenders would take advantage of the salty, thirst-inducing snacks to sell more drink. It’s also said that it was encouraged to curb drunken behaviour as the food would slow the effects of alcohol.</p>
+	<div class="col-sm-12">
+		<p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of fino, a tapa (meaning lid) of cheese or ham was used to cover the glass. Since then, tapas has embarked on a remarkable journey of social mobility and is now centre stage and among the most popular and fashionable cuisines in the world. Tapas is now an art in itself. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
+	</div>
+</div>
 
-		<p>Since then, tapas has embarked on a remarkable journey of social mobility. Gone are the saucers of simple olives or boquerones (fresh anchovies) served as a by-product in local bars, tapas is now centre stage and among the most popular and fashionable cuisines in the world with top restaurants to prove it. Tapas is now an art in itself. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
+<div class="row">
+	<div class="col-sm-12">
+		<h2 class="header2">Lesson Details</h2>
+	</div>
+	<div class="col-sm-6">
+		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 traditional recipes</strong>: 5 tapas, one dessert and sangría. Traditional tapas like the popular tortilla de patatas (Spanish potato omelet), chorizos a la sidra (sausage in cider sauce), gambas al ajillo (garlic shrimp), patatas bravas (potatoes with spicy sauce) and pa amb tomàquet (tomato bread with cured ham), all rounded by a crema catalana (crème brûleé).</p>
 	</div>
 
 	<div class="col-sm-6">
 
-	<p>In this practical lesson you’ll prepare to <strong>5 traditional tapas and 1 dessert</strong>, like the popular tortilla de patatas (Spanish potato omelet), chorizos a la sidra (sausage in cider sauce), gambas al ajillo (garlic shrimp), patatas bravas (potatoes with spicy sauce) and pa amb tomàquet (tomato bread with cured ham), all rounded by a crema catalana (crème brûleé).</p>
+		<p>Our Tapas class are <strong>4 hours long</strong>; 3 hours to prepare your tapas, 1 hour to enjoy your creations with the sangría you made during the class.</p>
 
-	<p>Our Tapas class are <strong>4 hours long</strong>; 3 hours to prepare your tapas, 1 hour to enjoy your creations with the <strong>sangría</strong>, also made during the class.</p>
-
-	<p>Tapas are <strong>prepared in pairs</strong> under the guidance of our experienced chef. All lessons are <strong>in English</strong> and no cooking experience is required.</p>
+		<p>Tapas are <strong>prepared in pairs</strong> under the guidance of our experienced chef. All lessons are <strong>in English</strong> and no cooking experience is required.</p>
 
 		<p>Class is subject to a minimum attendance of 2 people.</p>
 

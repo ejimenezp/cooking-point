@@ -106,27 +106,6 @@
 <div class="divider"></div>
 
 <div class="row">
-    <div class="col-sm-12 header3">Why to choose us</div>
-
-    <div class="col-sm-4">
-        <h4 class="header4">Fun &amp; Memorable</h4>
-        <p>Get off the beaten tours and attractions, and have a great time cooking and enjoying your Spanish meal in a nice setup. Know through practice more about Spain’s food, culture and traditions.</p>
-    </div>
-
-    <div class="col-sm-4">
-        <h4 class="header4">Truly Hands-on</h4>
-        <p>Two people per cooktop, twelve per class. Follow our local chef instructions to get your meal done. No worries, no cooking experience is required. Also, take home your learnings with our recipe booklet.</p>
-    </div>
-
-    <div class="col-sm-4">
-        <h4 class="header4">TripAdvisor's #1 Cooking School in Madrid</h4>
-        <p>For third year in a row our school is <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html">1st on TripAdvisor</a> ranking of Classes &amp; Workshops in Madrid, backed by +300 reviews from real clients.</p>
-    </div>
-</div>
-
-<div class="divider"></div>
-
-<div class="row">
     <div class="col-sm-12 header3">Our Activities<br><br></div>
     <div class="col-sm-4 home-column">
         <a href="classes-paella-cooking-madrid-spain"><img class="img-responsive center-block" alt="paella cooking class in Madrid, Spain" src="/images/home-en-paella.jpg" /></a>
@@ -156,7 +135,27 @@
             <a href="private-cooking-events-madrid-spain" class="btn btn-primary">Private Events</a>
         </div>
     </div>
+</div>
 
+<div class="divider"></div>
+
+<div class="row">
+    <div class="col-sm-12 header3">Why to choose us</div>
+
+    <div class="col-sm-4">
+        <h4 class="header4">Fun &amp; Memorable</h4>
+        <p>Get off the beaten tours and attractions, and have a great time cooking and enjoying your Spanish meal in a nice setup. Know through practice more about Spain’s food, culture and traditions.</p>
+    </div>
+
+    <div class="col-sm-4">
+        <h4 class="header4">Truly Hands-on</h4>
+        <p>Two people per cooktop, maximum twelve per class. Follow our local chef instructions to get your meal done. No worries, no cooking experience is required. Also, take home your learnings with our recipe booklet.</p>
+    </div>
+
+    <div class="col-sm-4">
+        <h4 class="header4">TripAdvisor's #1 Cooking School in Madrid</h4>
+        <p>For third year in a row our school is <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html">1st on TripAdvisor</a> ranking of Classes &amp; Workshops in Madrid, backed by +300 reviews from real clients.</p>
+    </div>
 </div>
 
 <div class="divider"></div>
