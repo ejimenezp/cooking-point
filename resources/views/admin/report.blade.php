@@ -12,7 +12,7 @@
 			<input type="hidden" name="start_date" value="{{ app('request')->input('start_date') }}" >
 			<input type="hidden" name="end_date" value="{{ app('request')->input('end_date') }}" >
 			<input type="hidden" name="output" value="csv" >
-		    <button class="ir btn btn-default" href="javascript:history.back()">Atrás</button>
+		    <button class="ir btn btn-default" href="/admin/report">Atrás</button>
 		    <button type="submit" class='btn btn-primary'>Descargar</button>
 
 			<table class='table'>

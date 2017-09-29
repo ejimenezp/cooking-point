@@ -46,6 +46,16 @@
 							</ol></li>
 						</ul>
 						@endif						
+						@if (app('request')->input('user_role') >= 2)
+						<ul>
+							<li>Turnos
+							<ol>
+								<li><div class='report' report_id='turnos'>Detalle</div></li>
+							</ol>
+							</li>
+						</ul>
+						@endif						
+
 					</td>
 				</tr>
 			</table>
