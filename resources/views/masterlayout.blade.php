@@ -46,7 +46,7 @@
     </div>
   </div>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-collapse navbar-fixed-top">
 	<div class="container">
 
     <div class="visible-xs">
@@ -58,7 +58,7 @@
             <a class="menu-header-xs" data-toggle="collapse" data-target="#navbar" href="#">
               Menu <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
-            <div id="navbar" class="navbar-collapse collapse">
+            <div id="navbar" class="collapse">
               <ul class="nav navbar-nav">
                 <li>
                   <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
