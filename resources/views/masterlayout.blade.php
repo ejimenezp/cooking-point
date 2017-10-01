@@ -46,6 +46,7 @@
     </div>
   </div>
 
+<nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 
     <div class="visible-xs">
@@ -143,17 +144,16 @@
     </div>
 
   </div>
+</nav>
         
 @if (isset($page) && ($page == 'home' || $page == '' || $page == 'booking'))
   <div class="container">
-      <div class="divider"></div>
       @yield('content') 
       @yield('footer')
   </div>
 @else
 	<div class="container">
     <div class="row">
-        <div class="divider"></div>
 			 <div class="col-sm-9">
         @yield('content')
         @yield('footer')
