@@ -20,7 +20,7 @@
 //
 Route::get('/', 'CalendareventControllerOnline@home');
 
-Route::get('/kirupa', function () { return view('pages.kirupa'); });
+// Route::get('/kirupa', function () { return view('pages.kirupa'); });
 
 Route::get('/bookings/{hash?}', 'BookingControllerOnline@legacyget');
 Route::get('/booking/forget', 'BookingControllerOnline@forget');
