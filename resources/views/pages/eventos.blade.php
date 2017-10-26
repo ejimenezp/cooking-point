@@ -5,24 +5,25 @@
 
 @section('content')
 
-<div class="row">
-    <div class="cp-slideshow">
-            <div style="display: inline-block;"><img src="/images/slider-events-01.jpg" ></div>
-            <div><img src="/images/slider-events-02.jpg" ></div>
-    </div>
+<div class="visible-xs wide">
+	<img class="cp-slideshow" src="/images/cliffs.jpg" >
 </div>
 
+<div class="visible-sm visible-md visible-lg">
+	<img class="cp-slideshow" src="/images/cliffs.jpg" >
+</div>
+
+<h1 class="header1">Eventos Privados</h1>
 
 <div class="row">
 	<div class="col-sm-12">
-		<h1 class="header1">Eventos Privados</h1>
 		<p>Ponemos a vuestra disposición nuestras instalaciones y equipo para realizar eventos corporativos o particulares. En todos los casos, los participantes se dividen en pequeños equipos para preparar el menú acordado. La actividad termina con la cena de lo que se ha preparado durante la clase.</p>
 	</div>
 
 </div>
 
-<div class="row">
-	<div class="col-sm-6">
+<div class="no-gutter">
+	<div class="col-md-6">
 		<h2 class="header2">Eventos de empresa</h2>
 		<p>Una cocina es un excelente marco para un evento de team building. Los participantes deben preparar su propio menú siguiendo las instrucciones de nuestro chef, lo cual da pie a situaciones divertidas a la vez que aprenden a cocinar platos no tan habituales.</p>
 
@@ -39,26 +40,16 @@
 
 <div class="divider"></div>
 
-<div class="row call-to-action">
-	<div class="col-xs-12 col-sm-1 text-center">
- 		<i class="brand-red fa fa-4x fa-info-circle"></i><br/>
-	</div>
-	<div class="col-xs-3 col-sm-2 what">
-		Cuando:<br/>
-		Horario:<br/>
-		Precio:<br/>
-		Incluye:<br/><br/>
-	</div>
-	<div class="col-xs-9">
-		Bajo petición<br/>
-		3 horas (recomendado), en turno de comida o cena<br/>
-		Consultar<br/>
-		Clase de cocina, recetas, comida y bebida<br/><br/>
-	</div>
-</div>
-
-<div class="row text-center call-to-action">
-	<a href="mailto:info@cookingpoint.es" class="btn btn-primary">Escríbenos</a>
+<div class="row">
+	<div class="cp-class-details col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+		<strong>Cuando:</strong> Bajo petición<br/>
+		<strong>Duración:</strong> 3 horas (recomendado), turno comida o cena<br/>
+		<strong>Precio: </strong>En función del tamaño de grupo. Consultar<br/>
+		<strong>Incluye: </strong>Clase de cocina, recetas, comida y bebida<br/><br/>
+		<div class="text-center">
+			<a href="mailto:info@cookingpoint.es" class="btn btn-primary">Escríbenos</a>
+		</div>
+	</div>	
 </div>
 
 @stop

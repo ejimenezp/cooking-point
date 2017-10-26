@@ -41,38 +41,35 @@
 
 @section('content')
 
-<div class="row">
-    <div class="cp-slideshow">
-            <div style="display: inline-block;"><img src="/images/slider-tapas-05.jpg" ></div>
-            <div><img src="/images/slider-tapas-01.jpg" ></div>
-            <div><img src="/images/slider-tapas-03.jpg" ></div>
-            <div><img src="/images/slider-tapas-02.jpg" ></div>
-            <div><img src="/images/slider-tapas-04.jpg" ></div>
-	</div>
+<div class="visible-xs wide">
+	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
+</div>
+
+<div class="visible-sm visible-md visible-lg">
+	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
 </div>
 
 
+<h1 class="header1">Tapas Cooking Class</h1>
+
 <div class="row">
-	<div class="col-sm-12">
-		<h1 class="header1">Tapas Cooking Class</h1>
-	</div>
+	<div class="cp-class-details col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+		<strong>When:</strong> Monday to Saturday<br/>
+		<strong>Time:</strong> 5:30 pm - 9:30 pm<br/>
+		<strong>Price: </strong>€70 adult / €35 children (5-12 yo)<br/>
+		<strong>Includes: </strong>cooking class, ingredients, recipes, dinner and drinks<br/>
+	</div>	
 </div>
 
-<div class="row">
-	<div class="col-sm-12">
-		<p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of fino, a tapa (meaning lid) of cheese or ham was used to cover the glass. Since then, tapas has embarked on a remarkable journey of social mobility and is now centre stage and among the most popular and fashionable cuisines in the world. Tapas is now an art in itself. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
-	</div>
-</div>
 
-<div class="row">
-	<div class="col-sm-12">
-		<h2 class="header2">Lesson Details</h2>
-	</div>
-	<div class="col-sm-6">
-		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 traditional recipes</strong>: 5 tapas, one dessert and sangría. Traditional tapas like the popular tortilla de patatas (Spanish potato omelet), chorizos a la sidra (sausage in cider sauce), gambas al ajillo (garlic shrimp), patatas bravas (potatoes with spicy sauce) and pa amb tomàquet (tomato bread with cured ham), all rounded by a crema catalana (crème brûleé).</p>
+<div class="no-gutter">
+	<div class="col-md-6">
+		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 traditional recipes</strong>: 5 tapas, one dessert and sangría.</p>
+
+		<p>Traditional tapas like the popular tortilla de patatas (Spanish potato omelet), chorizos a la sidra (sausage in cider sauce), gambas al ajillo (garlic shrimp), patatas bravas (potatoes with spicy sauce) and pa amb tomàquet (tomato bread with cured ham), all rounded by a crema catalana (crème brûleé).</p>
 	</div>
 
-	<div class="col-sm-6">
+	<div class="col-md-6">
 
 		<p>Our Tapas class are <strong>4 hours long</strong>; 3 hours to prepare your tapas, 1 hour to enjoy your creations with the sangría you made during the class.</p>
 
@@ -81,46 +78,36 @@
 		<p>Class is subject to a minimum attendance of 2 people.</p>
 
 	</div>
-	<div class="divider"></div>
+</div>	
+<div class="divider"></div>
 
+<h2 class="header2">Upcoming Classes</h2>
+
+
+<div class="col-sm-offset-3 col-sm-6">
+	<table class="table">
+			@php 
+				$i = 0;
+				foreach ($events as $event) {
+					if ($event->registered < $event->capacity && $i < 3) {
+						$date = new DateTime($event->startdateatom);
+						echo '<tr><td>';
+						echo $date->format("l, d M");
+						// echo '</td><td>';
+						// echo $date->format("g:i a");
+						echo '</td>';	
+						echo '<td><a href="booking?class=TAPAS&date=' . $event->date . '" class="btn btn-primary">Book</a></td>';
+						echo '</tr>';
+						$i++;
+					}				
+	   			}
+	   			echo '<tr><td>More dates</td><td><a href="booking?class=TAPAS" class="btn btn-primary">Book</a></td></tr>';
+			@endphp			
+	</table>
 </div>
 
-<div class="row call-to-action">
-	<div class="col-xs-12 col-sm-1 text-center">
- 		<i class="brand-red fa fa-4x fa-info-circle"></i><br/>
-	</div>
-	<div class="col-xs-3 col-sm-2 what">
-		When:<br/>
-		Time:<br/>
-		Price:<br/>
-		Includes:<br/><br/>
-		Upcoming classes:<br/>
-	</div>
-	<div class="col-xs-9">
-		Monday to Saturday<br/>
-		5:30 pm - 9:30 pm<br/>
-		€70 adult / €35 children (5-12 yo)<br/>
-		cooking class, ingredients, recipes, dinner and drinks<br/><br/>
-		<table class="table">
-				@php 
-					$i = 0;
-					foreach ($events as $event) {
-						if ($event->registered < $event->capacity && $i < 3) {
-							$date = new DateTime($event->startdateatom);
-							echo '<tr><td>';
-							echo $date->format("l, d M");
-							// echo '</td><td>';
-							// echo $date->format("g:i a");
-							echo '</td>';	
-							echo '<td><a href="booking?class=TAPAS&date=' . $event->date . '" class="btn btn-primary">Book</a></td>';
-							echo '</tr>';
-							$i++;
-						}				
-		   			}
-		   			echo '<tr><td>More dates</td><td><a href="booking?class=TAPAS" class="btn btn-default">Book</a></td></tr>';
-				@endphp			
-		</table>
-	</div>
-</div>
+<div class="divider"></div>
+
+<p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of fino, a tapa (meaning lid) of cheese or ham was used to cover the glass. Since then, tapas has embarked on a remarkable journey of social mobility and is now centre stage and among the most popular and fashionable cuisines in the world. Tapas is now an art in itself. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
 
 @stop

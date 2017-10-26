@@ -18,24 +18,24 @@ document.documentElement.setAttribute("data-browser", navigator.userAgent);
 ///
 $( document ).ready(function() {
 
-	console.log(navigator.userAgent)
+	// console.log(navigator.userAgent)
 
-	var currentIndex = 0,
-	items = $('.cp-slideshow div'),
-	itemAmt = items.length;
+	// var currentIndex = 0,
+	// items = $('.cp-slideshow div'),
+	// itemAmt = items.length;
 	
-	function cycleItems() {
-	var item = $('.cp-slideshow div').eq(currentIndex);
-	items.hide();
-	item.css('display','inline-block');
-	}
+	// function cycleItems() {
+	// var item = $('.cp-slideshow div').eq(currentIndex);
+	// items.hide();
+	// item.css('display','inline-block');
+	// }
 	
-	var autoSlide = setInterval(function() {
-	currentIndex += 1;
-	if (currentIndex > itemAmt - 1) {
-	  currentIndex = 0;
-	}
-	cycleItems();
-	}, 4000);
+	// var autoSlide = setInterval(function() {
+	// currentIndex += 1;
+	// if (currentIndex > itemAmt - 1) {
+	//   currentIndex = 0;
+	// }
+	// cycleItems();
+	// }, 4000);
 
 });

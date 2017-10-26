@@ -41,34 +41,30 @@
 
 @section('content')
 
-<div class="row">
-    <div class="cp-slideshow">
-            <div style="display: inline-block;"><img src="/images/slider-paella-02.jpg" ></div>
-            <div><img src="/images/slider-paella-01.jpg" ></div>
-            <div><img src="/images/slider-paella-03.jpg" ></div>
-            <div><img src="/images/slider-paella-04.jpg" ></div>
-            <div><img src="/images/slider-paella-05.jpg" ></div>
-	</div>
+
+<div class="visible-xs wide">
+	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
+</div>
+
+<div class="visible-sm visible-md visible-lg">
+	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
 </div>
 
 
-<div class="row">
-	<div class="col-sm-12">
-		<h1 class="header1">Paella Cooking Class</h1>
-	</div>
-</div>
+<h1 class="header1">Paella Cooking Class</h1>
 
 <div class="row">
-	<div class="col-sm-12">
-		<p>Which dish says Spain more than the Paella? From humble beginnings, paella evolved from a simple rice dish into a feast of rice with mixed meat and seafood. Traditionally it is cooked and eaten in the open air and is served directly from the paella to a large group at family gatherings or fiestas. But it is not exclusive to experienced Spanish cooks or to Spanish restaurants, you can make paella at home and this class will show you how.</p>
-	</div>
+	<div class="cp-class-details col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+		<strong>When:</strong> Monday to Saturday<br/>
+		<strong>Time:</strong> 10:00 am - 2:00 pm<br/>
+		<strong>Price: </strong>€70 adult / €35 children (5-12 yo)<br/>
+		<strong>Includes: </strong>market tour, cooking class, ingredients, recipes, lunch and drinks<br/>
+	</div>	
 </div>
 
-<div class="row">
-	<div class="col-sm-12">
-		<h2 class="header2">Lesson Details</h2>
-	</div>
-	<div class="col-sm-6">
+<div class="no-gutter">
+	
+	<div class="col-md-6" >
 		<p>Our class starts visiting the <strong>Antón Martín market</strong> (200 m away, open all days except Sundays and holidays) to buy the groceries we will need to cook our menu. We’ll buy vegetables, seafood and perhaps ham, cold cuts, cheese, olives, pastry&#8230; the offering and colouring of this traditional way of shopping daily supplies is endless.</p>
 
 		<p>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your the starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
@@ -76,8 +72,7 @@
 		<p>And then, we will start cooking the <strong>paella</strong>. Along the preparation, our chef will tell the story of this typical Spanish dish including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
 	</div>
 
-	<div class="col-sm-6">
-
+	<div class="col-md-6">
 
 		<p>Our Paella classes are <strong>4 hours long</strong>; 3 hours to go shopping, prepare your gazpacho and cook the paella, and 1 hour to enjoy your creations with the sangría you made at the beginning of the class. Note: on holidays, we&#8217;ll prepare one additional tapa, as market is closed.</p>
 
@@ -86,46 +81,38 @@
 		<p>Class is subject to a minimum attendance of 2 people.</p>
 
 	</div>
-	<div class="divider"></div>
 
 </div>
 
-<div class="row call-to-action">
-	<div class="col-xs-12 col-sm-1 text-center">
- 		<i class="brand-red fa fa-4x fa-info-circle"></i><br/>
-	</div>
-	<div class="col-xs-3 col-sm-2 what">
-		When:<br/>
-		Time:<br/>
-		Price:<br/>
-		Includes:<br/><br/>
-		Upcoming classes:<br/>
-	</div>
-	<div class="col-xs-9">
-		Monday to Saturday<br/>
-		10 am - 2 pm<br/>
-		€70 adult / €35 children (5-12 yo)<br/>
-		market tour, ingredients, cooking class, recipes, lunch and drinks<br/><br/>
-		<table class="table">
-				@php 
-					$i = 0;
-					foreach ($events as $event) {
-						if ($event->registered < $event->capacity && $i < 3) {
-							$date = new DateTime($event->startdateatom);
-							echo '<tr><td>';
-							echo $date->format("l, d M");
-							// echo '</td><td>';
-							// echo $date->format("g:i a");
-							echo '</td>';	
-							echo '<td><a href="booking?class=PAELLA&date=' . $event->date . '" class="btn btn-primary">Book</a></td>';
-							echo '</tr>';
-							$i++;
-						}				
-		   			}
-		   			echo '<tr><td>More dates</td><td><a href="booking?class=PAELLA" class="btn btn-default">Book</a></td></tr>';
-				@endphp			
-		</table>
-	</div>
+<div class="divider"></div>
+
+<h2 class="header2">Upcoming Classes</h2>
+
+
+<div class="col-sm-offset-3 col-sm-6">
+	<table class="table">
+			@php 
+				$i = 0;
+				foreach ($events as $event) {
+					if ($event->registered < $event->capacity && $i < 3) {
+						$date = new DateTime($event->startdateatom);
+						echo '<tr><td>';
+						echo $date->format("l, d M");
+						// echo '</td><td>';
+						// echo $date->format("g:i a");
+						echo '</td>';	
+						echo '<td><a href="booking?class=PAELLA&date=' . $event->date . '" class="btn btn-primary">Book</a></td>';
+						echo '</tr>';
+						$i++;
+					}				
+	   			}
+	   			echo '<tr><td>More dates</td><td><a href="booking?class=PAELLA" class="btn btn-primary">Book</a></td></tr>';
+			@endphp			
+	</table>
 </div>
+<div class="divider"></div>
+
+<p>Which dish says Spain more than the Paella? From humble beginnings, paella evolved from a simple rice dish into a feast of rice with mixed meat and seafood. Traditionally it is cooked and eaten in the open air and is served directly from the paella to a large group at family gatherings or fiestas. But it is not exclusive to experienced Spanish cooks or to Spanish restaurants, you can make paella at home and this class will show you how.</p>
+
 
 @stop
