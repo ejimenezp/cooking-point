@@ -20,6 +20,8 @@
 //
 Route::get('/', 'CalendareventControllerOnline@home');
 
+Route::get('/kirupa', function () { return view('pages.kirupa'); });
+
 Route::get('/bookings/{hash?}', 'BookingControllerOnline@legacyget');
 Route::get('/booking/forget', 'BookingControllerOnline@forget');
 Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
@@ -41,6 +43,7 @@ Route::get('/wine-tasting-madrid-spain', function () { return redirect('/', 301)
 Route::get('/blog', function () { return view('pages.blog'); });
 Route::get('/paella-fish-stock', function () { return view('blog.fish-stock'); });
 Route::get('/iberico-ham', function () { return view('blog.iberico-ham'); });
+Route::get('/denominacion-de-origen-protegida', function () { return view('blog.dop'); });
 
 
 
