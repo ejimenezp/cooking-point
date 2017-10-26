@@ -125,6 +125,7 @@
 							<a class="booking_retrieve btn btn-default">Use Booking #</a>
 							<a href="#step2" class="update_class btn btn-primary" checkout="checkout">Checkout</a>
 						@endif
+						<p></p>
 					</div>
 				</div>
 			</div>
@@ -203,7 +204,7 @@
 				<div class="col-sm-12">		
 					<br/>
 					<p>Please, enter your contact info:   <small>(<span style="color:red">*</span> = mandatory)</small></p>
-					<div class="col-sm-5">
+					<div class="col-sm-6">
 						<form id="booking_form_2">
 						<table class="availability-table">
 							<tbody>
@@ -235,7 +236,7 @@
 						</table>
 						</form>	
 					</div>				
-					<div class="col-sm-7">
+					<div class="col-sm-6">
 						<form id="booking_form_3">				
 						<table class="availability-table">
 							<tbody>
@@ -274,6 +275,7 @@
 							<a href="#step1" class="step btn btn-default">Change Class/Date</a>
 							<a class="btn btn-primary" id="button_purchase" >Purchase</a>			
 						@endif
+						<p></p>
 					</div>
 				</div>
 			</div>
@@ -426,6 +428,7 @@
 						<a id="button_booking_edit" class="btn btn-primary">Edit Booking</a>
 						<a id="button_print_voucher" class="btn btn-primary">Print Voucher</a>
 						<a id="button_email_voucher" class="btn btn-primary">E-mail Voucher</a>
+						<p></p>
 					</div>
 				</div>
 			</div>

@@ -5,25 +5,26 @@
 
 @section('content')
 
-<div class="row">
-    <div class="cp-slideshow">
-            <div style="display: inline-block;"><img src="/images/slider-events-01.jpg" ></div>
-            <div><img src="/images/slider-events-02.jpg" ></div>
-    </div>
+<div class="visible-xs wide">
+	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
 </div>
 
+<div class="visible-sm visible-md visible-lg">
+	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
+</div>
+
+<h1 class="header1">Private Events</h1>
 
 <div class="row">
 	<div class="col-sm-12">
-		<h1 class="header1">Private Events</h1>
 		<p>Here at Cooking Point, flexibility is something we value. We know that our class schedules may not fit with yours, especially if you are a large group. So we can tailor our classes to fit around you. We can host events for groups of 8-24 people to deliver a Madrid experience like no other. </p>
 
 		<p>In our classes, participants prepare in small teams their own meal, which is enjoyed at the end of the class. All cooking is done under the guidance of our experienced chef. Instructions are in English and no cooking experience is required. Recipes are provided at the end of the class.</p>
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-sm-6">
+<div class="no-gutter">
+	<div class="col-md-6">
 		<h2 class="header2">Corporate Team Building Events</h2>
 		<p>For the corporate guest, cooking classes and wine tastings are an ideal setting for team-building events or corporate outings. Our kitchen and classroom can also be used for business meetings and presentations to your client-it's ideal for doing food and beverage-based business.</p>
 
@@ -40,32 +41,23 @@
 
 		<div class="text-center">
 			<a href="/eventos-privados-madrid" class="btn btn-primary">Eventos en español</a>
+			<p></p>
 		</div>
 	</div>
 </div>
 
 <div class="divider"></div>
 
-<div class="row call-to-action">
-	<div class="col-xs-12 col-sm-1 text-center">
- 		<i class="brand-red fa fa-4x fa-info-circle"></i><br/>
-	</div>
-	<div class="col-xs-3 col-sm-2 what">
-		When:<br/>
-		Time:<br/>
-		Price:<br/>
-		Includes:<br/><br/>
-	</div>
-	<div class="col-xs-9">
-		On Request<br/>
-		3 hours (recommended), in the morning or evening<br/>
-		Ask for a quotation<br/>
-		Cooking class, recipes, lunch or dinner and drinks<br/><br/>
-	</div>
-</div>
-
-<div class="row text-center call-to-action">
-	<a href="mailto:info@cookingpoint.es" class="btn btn-primary">Email Us</a>
+<div class="row">
+	<div class="cp-class-details col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+		<strong>When:</strong> On Request<br/>
+		<strong>Time:</strong> 3 hours (recommended), in the morning or evening<br/>
+		<strong>Price: </strong>Ask for quotation<br/>
+		<strong>Includes: </strong>Cooking class, recipes, lunch or dinner and drinks<br/><br/>
+		<div class="text-center">
+			<a href="mailto:info@cookingpoint.es" class="btn btn-primary">Email Us</a>
+		</div>
+	</div>	
 </div>
 
 @stop

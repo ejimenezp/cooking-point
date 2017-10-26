@@ -1,4 +1,4 @@
-<div class="row text-center">
+<div class="text-center">
 
 <div class="divider visible-xs"></div>
 
@@ -6,7 +6,7 @@
           <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html"><img alt="tripadvisor certificate of excellence" src="/images/tripadvisorCE.png" /></a>
 </div>
 
-<div class="row text-center">
+<div class="text-center">
 	<div id="TA_selfserveprop303" class="TA_selfserveprop">
 		<ul id="SXDXQixNMb" class="TA_links GXwk5o">
 			<li id="DYEKjmOffr" class="4nr557i9g4">
@@ -17,11 +17,11 @@
 	<script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=303&amp;locationId=4888426&amp;lang=en_US&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
 </div>
 
-<div class="row text-center">
+<div class="text-center">
 
 <div class="sidebar-title"><br/>OUR LOCATION</div>
 
-<a href="https://www.google.com/maps/place/Cooking+Point/@40.412387,-3.697495,15z/data=!4m5!3m4!1s0x0:0xbfa70f0e9ca1618!8m2!3d40.4123866!4d-3.6974954?hl=en" target="_blank"><img src="/images/plano-sidebar.png" /></a>
+<a href="https://www.google.com/maps/place/Cooking+Point/@40.412387,-3.697495,15z/data=!4m5!3m4!1s0x0:0xbfa70f0e9ca1618!8m2!3d40.4123866!4d-3.6974954?hl=en" target="_blank"><img src="/images/plano-sidebar.png" style="width: 100%" /></a>
 
 </div>
 
