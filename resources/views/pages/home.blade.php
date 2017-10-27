@@ -57,6 +57,7 @@ function toggleAudio() {
 function toggleVideo() {
   var audioElm = document.getElementById('video-home');
   var muteIcon = document.getElementById('pause');
+  alert('video toggled')
   if (!audioElm.paused)  { 
     audioElm.pause(); 
     muteIcon.classList.remove('fa-pause')
@@ -76,8 +77,9 @@ function toggleVideo() {
 <div id="wide-video">
     {{-- <img class="cp-slideshow" src="/images/cliffs.jpg" >         --}}
   <div id="featured">
-    <video id="video-home" autoplay="true" controls="controls" onclick="toggleVideo(); return false" >
+    <video id="video-home" autoplay poster="/images/cliffs.jpg" onclick="toggleVideo(); return false" >
       <source src="/images/Cooking_point.mp4" type="video/mp4" />
+      <p>Sorry, your browser does not support HTML5 video.</p>
     </video>
 </div>
 
