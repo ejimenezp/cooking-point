@@ -52,7 +52,7 @@ body {
   }
 }
 
-@media screen and (max-width: $screen-xs-max)
+@media screen and (max-width: $screen-sm-max)
 {
 // css for mobiles
   .home-headline {
@@ -64,9 +64,12 @@ body {
     margin-right: -15px;
     text-align: center;
   }
+  body {
+    font-size: 20px !important;
+  }
 }
 
-@media screen and (min-width: $screen-sm-min)
+@media screen and (min-width: $screen-md-min)
 {
 // rest of screens
   .home-headline {
