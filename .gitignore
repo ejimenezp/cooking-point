@@ -11,3 +11,4 @@ storage/app/~$eventbatch.xlsx
 public/download.csv
 public/images/cooking-point-class.png
 public/images/Cooking_point.mp4
+*.mp4
