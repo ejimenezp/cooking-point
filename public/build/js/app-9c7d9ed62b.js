@@ -40786,29 +40786,30 @@ document.documentElement.setAttribute("data-browser", navigator.userAgent);
 
 $(document).ready(function () {
 
-	if (/iPhone|iPad/i.test(navigator.userAgent)) {
-		$("#banner").append('<img id="image-home" src="/images/cliffs.jpg" >');
-	} else {
-		$("#banner").append('<div class="video-container"> \
+  if (/iPhone|iPad/i.test(navigator.userAgent)) {
+    $("#banner").append('<img id="image-home" src="/images/cliffs.jpg" >');
+  } else {
+    $("#banner").append('<div class="video-container"> \
 	    <video id="video-home" autoplay loop> \
 	     	<source src="images/small.mp4" type="video/mp4"> \
 	    </video> \
 	</div>');
-	}
+  }
 
-	$("#image-home").click(function () {
-		// show hi-res full screen video
-	});
+  $("#image-home").click(function () {
+    // show hi-res full screen video
+    $('#modal-video').modal('show');
+  });
 
-	$("#close-video").click(function () {
-		var player = videojs('hires-video');
-		player.dispose();
-	});
+  $("#close-video").click(function () {
+    var player = videojs('hires-video');
+    player.dispose();
+  });
 
-	$("#video-home").click(function () {
-		this.pause();
-		$('#modal-video').modal('show');
-	});
+  $("#video-home").click(function () {
+    this.pause();
+    $('#modal-video').modal('show');
+  });
 }); // end jQuery
 
 },{"./bootstrap":8,"bootstrap-sass":1,"jquery":2}],8:[function(require,module,exports){
