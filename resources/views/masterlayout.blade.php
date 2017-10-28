@@ -64,7 +64,7 @@
 <nav class="navbar navbar-default navbar-collapse navbar-fixed-top">
 	<div class="container-fluid">
 
-    <div class="visible-xs">
+    <div class="visible-xs visible-sm">
       <div class="row ">   
           <div class="col-xs-3">
             <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_logox50.png" /></a>
@@ -113,7 +113,7 @@
       </div>       
     </div>
 
-    <div class="visible-sm">
+{{--     <div class="visible-sm">
       <div class="row no-gutter">   
           <div class="col-sm-1">
             <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_logox50.png" /></a>
@@ -156,7 +156,7 @@
             </ul> 
           </div>
       </div>      
-    </div>
+    </div> --}}
     <div class="visible-md">
       <div class="row no-gutter">   
           <div class="col-sm-1">
@@ -243,51 +243,50 @@
   </div>
 </nav>
 
-<div class="visible-xs visible-sm visible-md visible-lg">
   
-  @if (isset($page) && ($page == 'home' || $page == '' || $page == 'booking'))
+@if (isset($page) && ($page == 'home' || $page == '' || $page == 'booking'))
 
-  <div class="container-fluid">
-    @yield('banner')
-    <div class="no-gutter">
-      <div class="col-sm-12 col-lg-offset-1 col-lg-10">
-            @yield('content')           
-          </div>  
-      </div>
-    <div class="row">
-      <div class="divider"></div>
-      <div class="col-sm-12">
-        @yield('footer')
-      </div> 
+<div class="container-fluid">
+  @yield('banner')
+  <div class="no-gutter">
+    <div class="col-sm-12 col-lg-offset-1 col-lg-10">
+          @yield('content')           
+        </div>  
     </div>
+  <div class="row">
+    <div class="divider"></div>
+    <div class="col-sm-12">
+      @yield('footer')
+    </div> 
   </div>
-
-  @else
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="no-gutter">
-        <div class="col-sm-9 col-lg-offset-1 col-lg-8">
-            <div class="container-fluid">
-                @yield('content')           
-            </div>
-        </div>      
-      </div>
-      <div class="col-sm-3 col-lg-2">
-          @include('sidebar')
-      </div>    
-    </div>
-    <div class="row">
-      <div class="divider"></div>
-      <div class="col-sm-12">
-        @yield('footer')
-      </div> 
-    </div>
-  </div>
-
-  @endif
-
 </div>
+
+@else
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="no-gutter">
+      <div class="col-sm-9 col-lg-offset-1 col-lg-8">
+          <div class="container-fluid">
+              @yield('content')           
+          </div>
+      </div>      
+    </div>
+    <div class="col-sm-3 col-lg-2">
+        @include('sidebar')
+    </div>    
+  </div>
+  <div class="row">
+    <div class="divider"></div>
+    <div class="col-sm-12">
+      @yield('footer')
+    </div> 
+  </div>
+</div>
+
+@endif
+
+
 
 {{-- <div class="visible-lg">
   
