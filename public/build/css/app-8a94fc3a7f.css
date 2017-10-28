@@ -5973,7 +5973,7 @@ body {
   body {
     padding-top: 0px; } }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   .home-headline {
     font-size: 6vw;
     font-weight: bold;
@@ -5981,9 +5981,11 @@ body {
     text-shadow: 0.05em 0.05em lightGray;
     margin-left: -15px;
     margin-right: -15px;
-    text-align: center; } }
+    text-align: center; }
+  body {
+    font-size: 20px !important; } }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .home-headline {
     font-size: 3vw;
     font-weight: bold;
