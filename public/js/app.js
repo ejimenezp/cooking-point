@@ -40782,29 +40782,34 @@ document.documentElement.setAttribute("data-browser", navigator.userAgent);
 ///
 /// jquery for page slideshows
 ///
+
+
 $(document).ready(function () {
 
-	// console.log(navigator.userAgent)
+	if (/iPhone|iPad/i.test(navigator.userAgent)) {
+		$("#banner").append('<img id="image-home" src="/images/cliffs.jpg" >');
+	} else {
+		$("#banner").append('<div class="video-container"> \
+	    <video id="video-home" autoplay loop> \
+	     	<source src="images/small.mp4" type="video/mp4"> \
+	    </video> \
+	</div>');
+	}
 
-	// var currentIndex = 0,
-	// items = $('.cp-slideshow div'),
-	// itemAmt = items.length;
+	$("#image-home").click(function () {
+		// show hi-res full screen video
+	});
 
-	// function cycleItems() {
-	// var item = $('.cp-slideshow div').eq(currentIndex);
-	// items.hide();
-	// item.css('display','inline-block');
-	// }
+	$("#close-video").click(function () {
+		var player = videojs('hires-video');
+		player.dispose();
+	});
 
-	// var autoSlide = setInterval(function() {
-	// currentIndex += 1;
-	// if (currentIndex > itemAmt - 1) {
-	//   currentIndex = 0;
-	// }
-	// cycleItems();
-	// }, 4000);
-
-});
+	$("#video-home").click(function () {
+		this.pause();
+		$('#modal-video').modal('show');
+	});
+}); // end jQuery
 
 },{"./bootstrap":8,"bootstrap-sass":1,"jquery":2}],8:[function(require,module,exports){
 'use strict';

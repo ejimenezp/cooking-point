@@ -18,6 +18,7 @@
       <link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
       <script type='text/javascript' src='{{ elixir('js/app.js') }}'></script>
       <script src="https://use.fontawesome.com/c502308363.js"></script>
+      <link href="http://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
 
       @if (App::environment() == 'production')
         <script>
@@ -35,97 +36,6 @@
       @endif
 
       @yield('google-structured-data')
-
-      <style type="text/css">
-
-        /* para móviles */
-/*        .home-headline {
-          position: absolute;
-          color: #EF8401;
-          font-size: 10vw;
-          text-shadow: 0.05em 0.05em white;
-          top: 15%;
-          text-align: center;
-        }
-
-#featured {
-    width: 100%;
-    overflow:hidden;
-    display:block;
-    height: 202px;
-
-}
-
-video {
-    margin-top: -150px;
-    margin-left: -220px;
-}
-
-.video-control {
-  font-size: 6vw;
-  z-index: 1000;
-  position: absolute;
-  top: 70%;
-  right: 2%;
-  color: #EF8401;
-}
-
-        #wide-video{
-          position: relative;
-          height: 30vh;
-          overflow: hidden;
-          margin-left: -15px;
-          margin-right: -15px;
-        }
-*/
-        /* fin de para móviles */
-
-/*        .home-headline {
-          font-size: 5vw;
-          font-weight: bold;
-          color: #EF8401;
-          text-shadow: 0.05em 0.05em white;
-          top: 35%;
-          left: -32vw;
-        }
-
-        #wide{
-          position: relative;
-          height: 50vh;
-          overflow: hidden;
-          margin-left: -15px;
-          margin-right: -15px;
-        }
-
-        .video-control {
-          font-size: 2vw;
-          z-index: 1000;
-          position: absolute;
-          top: 80%;
-          right: 2%;
-          color: #EF8401;
-        }
-
-        #featured {
-          position: absolute;
-          width: calc(100vh * (720 / 404));    
-          height: calc(100vw * (404 / 720));  
-          min-width: 100%;
-          min-height: 100%;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-
-        video {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }*/
-
-      </style>
       
   </head>
     

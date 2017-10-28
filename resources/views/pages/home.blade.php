@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Madrid Cooking Classes - Cooking Point School')
-@section('description', 'Madrid cooking classes every day. Hands-on classes of paella and tapas in English at top rated Spanish culinary school. Two people per cooktop. Instant confirmation.')
+@section('title', 'Spanish Cooking Classes in Madrid - Cooking Point')
+@section('description', 'Spanish cooking classes every day. Hands-on classes of paella and tapas in English at top rated Spanish culinary school. Two people per cooktop. Instant confirmation.')
 
 @section('google-structured-data')
 
@@ -30,68 +30,58 @@
 ]
 </script>
 
-<script type="text/javascript">
-function goFullscreen(id) {
-  var element = document.getElementById(id);       
-  if (element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if (element.webkitRequestFullScreen) {
-    element.webkitRequestFullScreen();
-  }  
-}
-
-function toggleAudio() {
-  var audioElm = document.getElementById('video-home');
-  var muteIcon = document.getElementById('mute');
-  if (!audioElm.muted)  { 
-    audioElm.muted = true; 
-    muteIcon.classList.remove('fa-volume-up')
-    muteIcon.classList.add('fa-volume-off')
-  } else { 
-    audioElm.muted = false; 
-    muteIcon.classList.remove('fa-volume-off')
-    muteIcon.classList.add('fa-volume-up')
-  }
-}
-
-function toggleVideo() {
-  var audioElm = document.getElementById('video-home');
-  var muteIcon = document.getElementById('pause');
-  alert('video toggled')
-  if (!audioElm.paused)  { 
-    audioElm.pause(); 
-    muteIcon.classList.remove('fa-pause')
-    muteIcon.classList.add('fa-play')
-  } else { 
-    audioElm.play(); 
-    muteIcon.classList.remove('fa-play')
-    muteIcon.classList.add('fa-pause')
-  }
-}
-</script>
 
 @stop
 
 @section('banner')
 
-<div id="wide-video">
-    {{-- <img class="cp-slideshow" src="/images/cliffs.jpg" >         --}}
-  <div id="featured">
-    <video id="video-home" autoplay poster="/images/cliffs.jpg" onclick="toggleVideo(); return false" >
-      <source src="/images/Cooking_point.mp4" type="video/mp4" />
-      <p>Sorry, your browser does not support HTML5 video.</p>
-    </video>
-</div>
-
 
 <h1 class="home-headline">Spanish Cooking Classes in Madrid</h1>
 
-<div class="video-control">
+<div class="wide">
+  <div id="banner"></div>
+  <div id="slogan"></div>
+</div>
+
+
+
+{{-- <div class="video-control">
   <i id="pause" class="fa fa-pause" aria-hidden="true" onclick="toggleVideo(); return false"></i>
   <i id="mute" class="fa fa-volume-up" aria-hidden="true" onclick="toggleAudio(); return false"></i>
   <i class="fa fa-arrows-alt" aria-hidden="true" onclick="goFullscreen('featured'); return false"></i>
+</div> --}}
+
 </div>
 
+@stop
+
+@section('js')
+  <script src="http://vjs.zencdn.net/6.2.8/video.js"></script>
+@stop
+
+@section('modals')
+
+
+<!-- MODAL -->
+<div class="modal fade" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="modal-video-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-video">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <video autoplay controls tabindex="0">
+                        <source src="images/Cooking_point.mp4" type="video/mp4" >
+                      </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @stop
