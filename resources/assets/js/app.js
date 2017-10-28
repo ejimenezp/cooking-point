@@ -33,6 +33,7 @@ if( /iPhone|iPad/i.test(navigator.userAgent) ) {
 
 $("#image-home").click(function() {
     // show hi-res full screen video
+    $('#modal-video').modal('show')
 });
 
 $("#close-video").click(function() {
