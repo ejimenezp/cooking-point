@@ -77,7 +77,7 @@ body {
     font-weight: bold;
     color: #EF8401;
     margin-top: 0;
-    text-shadow: 0.05em 0.05em lightGray;
+    // text-shadow: 0.05em 0.05em lightGray;
     left: 8vw;
     text-align: center;
   }
@@ -91,17 +91,20 @@ body {
   }
 
   .video-control {
-    font-size: 2vw;
+    font-size: 4vw;
+    font-family: $font-family-cooking-point;
+    font-weight: bold;
     z-index: 1000;
+    left: 15vw;
     position: absolute;
-    top: 80%;
-    right: 2%;
-    color: #EF8401;
+    top: 40%;
+    text-align: center;
+    color: darkRed;
   }
 
   .video-container {
-    width: calc(100vh * (720 / 404));    
-    height: calc(100vw * (404 / 720));  
+    width: calc(100vh * (720 / 100));    
+    height: calc(100vw * (100 / 720));  
     min-width: 100%;
     min-height: 100%;
 //    top: 50%;

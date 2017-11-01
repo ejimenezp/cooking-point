@@ -37,6 +37,7 @@
 
 
 <h1 class="home-headline">Spanish Cooking Classes in Madrid</h1>
+<div class="video-control">Learn With Us to Cook Spanish Food</div>
 
 <div class="wide">
   <div id="banner"></div>
@@ -74,9 +75,7 @@
             <div class="modal-body">
                 <div class="modal-video">
                     <div class="embed-responsive embed-responsive-16by9">
-                      <video autoplay controls tabindex="0">
-                        <source src="images/Cooking_point.mp4" type="video/mp4" >
-                      </video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LlBZ32RIB_U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
