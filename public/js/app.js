@@ -40786,14 +40786,14 @@ document.documentElement.setAttribute("data-browser", navigator.userAgent);
 
 $(document).ready(function () {
 
-  if (/iPhone|iPad/i.test(navigator.userAgent)) {
-    $("#banner").append('<img id="image-home" src="/images/cliffs.jpg" >');
+  if (/iPhone|iPad/i.test(navigator.userAgent) || $(window).width() <= 768) {
+    $("#banner").append('<img id="image-home" src="/images/home-01.jpg" >');
+    $("#section-banner").append('<img class="img-responsive center-block" src="/images/cliffs-sm.jpg" >');
   } else {
-    $("#banner").append('<div class="video-container"> \
-	    <video id="video-home" autoplay loop> \
+    $("#banner").append('<video id="video-home" autoplay loop> \
 	     	<source src="images/small.mp4" type="video/mp4"> \
-	    </video> \
-	</div>');
+	   	 </video>');
+    $("#section-banner").append('<img class="img-responsive center-block" src="/images/cliffs.jpg" >');
   }
 
   $("#image-home").click(function () {
@@ -40801,14 +40801,15 @@ $(document).ready(function () {
     $('#modal-video').modal('show');
   });
 
-  $("#close-video").click(function () {
-    var player = videojs('hires-video');
-    player.dispose();
+  $(".home-youtube-button").click(function () {
+    $('#modal-video').modal('show');
   });
 
-  $("#video-home").click(function () {
-    this.pause();
-    $('#modal-video').modal('show');
+  $('#modal-video').on('hidden.bs.modal', function () {
+    $('#youtube-video').remove();
+    $('.modal-video').append('<div id="youtube-video" class="embed-responsive embed-responsive-16by9"> \
+								<iframe src="https://www.youtube.com/embed/LlBZ32RIB_U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> \
+                    		</div>');
   });
 }); // end jQuery
 

@@ -18,7 +18,6 @@
       <link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
       <script type='text/javascript' src='{{ elixir('js/app.js') }}'></script>
       <script src="https://use.fontawesome.com/c502308363.js"></script>
-      <link href="http://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
 
       @if (App::environment() == 'production')
         <script>
@@ -70,7 +69,7 @@
             <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_logox50.png" /></a>
           </div> 
           <div class="col-xs-9">
-            <a class="menu-header-xs" data-toggle="collapse" data-target="#navbar" href="#">
+            <a class="menu-header-xs menu-header-xs" data-toggle="collapse" data-target="#navbar" href="#">
               Menu <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
             <div id="navbar" class="collapse">
@@ -90,22 +89,17 @@
                 <li>
                   <a class="cp-bkg-button" href="/booking">Booking</a>
                 </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <i class="fa fa-caret-down"></i></a>
-                    <ul class="dropdown-menu" aria-labelledby="themes">
-                      <li>
-                        <a href="/school-madrid-spain">The School</a>
-                      </li>
-                      <li>
-                        <a href="/gallery">Gallery</a>
-                      </li>
-                      <li>
-                        <a href="/blog">Blog</a>
-                      </li>
-                      <li>
-                        <a href="/faq">FAQ</a>
-                      </li>
-                    </ul>
+                <li>
+                  <a href="/school-madrid-spain">The School</a>
+                </li>
+                <li>
+                  <a href="/gallery">Gallery</a>
+                </li>
+                <li>
+                  <a href="/blog">Blog</a>
+                </li>
+                <li>
+                  <a href="/faq">FAQ</a>
                 </li>
               </ul> 
             </div>
@@ -113,50 +107,6 @@
       </div>       
     </div>
 
-{{--     <div class="visible-sm">
-      <div class="row no-gutter">   
-          <div class="col-sm-1">
-            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_logox50.png" /></a>
-          </div> 
-          <div class="col-sm-11">
-            <ul class=" nav navbar-nav">
-              <li>
-                <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
-              </li>
-              <li>
-                <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-              </li>
-               <li>
-                <a href="/private-cooking-events-madrid-spain">Private Events</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
-              </li>            
-               <li>
-                <a class="cp-bkg-button" href="/booking">Booking</a>
-              </li>
-              <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <span class="caret"></span></a>
-                  <ul class="dropdown-menu" aria-labelledby="themes">
-                      <li>
-                        <a href="/school-madrid-spain">The School</a>
-                      </li>
-                      <li>
-                        <a href="/gallery">Gallery</a>
-                      </li>
-                      <li>
-                        <a href="/blog">Blog</a>
-                      </li>
-                      <li>
-                        <a href="/faq">FAQ</a>
-                      </li>
-                  </ul>
-              </li>
-
-            </ul> 
-          </div>
-      </div>      
-    </div> --}}
     <div class="visible-md">
       <div class="row no-gutter">   
           <div class="col-sm-1">
@@ -253,7 +203,7 @@
           @yield('content')           
         </div>  
     </div>
-  <div class="row">
+  <div class="">
     <div class="divider"></div>
     <div class="col-sm-12">
       @yield('footer')
@@ -265,6 +215,8 @@
 
 <div class="container-fluid">
   <div class="row">
+    <div id="section-banner">
+    </div>
     <div class="no-gutter">
       <div class="col-sm-9 col-lg-offset-1 col-lg-8">
           <div class="container-fluid">
@@ -285,53 +237,6 @@
 </div>
 
 @endif
-
-
-
-{{-- <div class="visible-lg">
-  
-  @if (isset($page) && ($page == 'home' || $page == '' || $page == 'booking'))
-
-  <div class="container-fluid">
-    @yield('banner')
-    <div class="no-gutter">
-      <div class="col-sm-12 col-lg-offset-1 col-lg-10">
-            @yield('content')           
-          </div>  
-      </div>
-    <div class="row">
-      <div class="divider"></div>
-      <div class="col-sm-12">
-        @yield('footer')
-      </div> 
-    </div>
-  </div>
-
-  @else
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="no-gutter">
-        <div class="col-sm-9 col-lg-offset-1 col-lg-8">
-            <div class="container-fluid">
-                @yield('content')           
-            </div>
-        </div>      
-      </div>
-      <div class="col-sm-3 col-lg-2">
-          @include('sidebar')
-      </div>    
-    </div>
-    <div class="row">
-      <div class="divider"></div>
-      <div class="col-sm-12">
-        @yield('footer')
-      </div> 
-    </div>
-  </div>
-  @endif
-
-</div> --}}
 
 <!-- modals specific for this page  -->
 @yield('modals')
