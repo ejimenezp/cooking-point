@@ -5974,48 +5974,86 @@ body {
     padding-top: 0px; } }
 
 @media screen and (max-width: 991px) {
-  .home-headline {
+  body {
+    font-size: 20px !important; }
+  video {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .home-preheadline {
     font-size: 6vw;
     font-weight: bold;
     color: #EF8401;
-    text-shadow: 0.05em 0.05em lightGray;
-    margin-left: -15px;
-    margin-right: -15px;
+    left: 8vw;
     text-align: center; }
-  body {
-    font-size: 20px !important; } }
+  .home-headline {
+    font-size: 10vw;
+    font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    z-index: 1000;
+    left: 3vw;
+    top: 30%;
+    text-align: center;
+    color: #EF8401; }
+  .home-youtube-button {
+    background-color: #e42e28;
+    border-radius: 7px;
+    padding: 0.2em 0.3em 0.2em 0.3em;
+    font-size: 4vw;
+    font-weight: bold;
+    position: absolute;
+    z-index: 1000;
+    left: 60vw;
+    top: 80%;
+    text-align: center;
+    color: white; }
+  .video-container {
+    height: calc(100vw / 720 * 100);
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%; } }
 
 @media screen and (min-width: 992px) {
-  .home-headline {
+  .modal-xl {
+    width: 60%;
+    max-width: 1200px; }
+  .home-preheadline {
     font-size: 3vw;
     font-weight: bold;
     color: #EF8401;
     margin-top: 0;
     left: 8vw;
     text-align: center; }
-  #wide-video {
-    position: relative;
-    height: 50vh;
-    overflow: hidden;
-    margin-left: -15px;
-    margin-right: -15px; }
-  .video-control {
+  .home-headline {
     font-size: 4vw;
     font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
+    position: absolute;
     z-index: 1000;
     left: 15vw;
-    position: absolute;
-    top: 40%;
+    top: 45%;
     text-align: center;
-    color: darkRed; }
+    color: #EF8401; }
+  .home-youtube-button {
+    background-color: #e42e28;
+    border-radius: 7px;
+    padding: 0.2em 0.3em 0.2em 0.3em;
+    font-size: 1.5vw;
+    font-weight: bold;
+    position: absolute;
+    z-index: 1000;
+    left: 80vw;
+    top: 80%;
+    text-align: center;
+    color: white; }
   .video-container {
-    width: calc(100vh * (720 / 100));
-    height: calc(100vw * (100 / 720));
+    height: calc(100vw / 720 * 100);
+    width: 100%;
     min-width: 100%;
     min-height: 100%; }
   video {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -6065,7 +6103,7 @@ body {
 
 .cp-bkg-button {
   background-color: #EF8401;
-  color: #e5e5e5 !important; }
+  color: white !important; }
 
 .header1, .menu-header-xs {
   font-size: 30px;

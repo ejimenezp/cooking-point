@@ -35,13 +35,11 @@
 
 @section('banner')
 
-
-<h1 class="home-headline">Spanish Cooking Classes in Madrid</h1>
-<div class="video-control">Learn With Us to Cook Spanish Food</div>
-
 <div class="wide">
+  <h1 class="home-preheadline">Spanish Cooking Classes in Madrid</h1>
+  <div class="home-headline">Learn With Us to Cook Spanish Food</div>
+  <div class="home-youtube-button"><i class="fa fa-lg fa-youtube-play"></i> Full-size Video</div>
   <div id="banner"></div>
-  <div id="slogan"></div>
 </div>
 
 
@@ -57,15 +55,13 @@
 @stop
 
 @section('js')
-  <script src="http://vjs.zencdn.net/6.2.8/video.js"></script>
 @stop
 
 @section('modals')
 
-
 <!-- MODAL -->
 <div class="modal fade" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="modal-video-label">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -74,8 +70,8 @@
             </div>
             <div class="modal-body">
                 <div class="modal-video">
-                    <div class="embed-responsive embed-responsive-16by9">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LlBZ32RIB_U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                    <div id="youtube-video" class="embed-responsive embed-responsive-16by9">
+<iframe src="https://www.youtube.com/embed/LlBZ32RIB_U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -93,7 +89,7 @@
 
 <div class="row">
     <div class="col-md-4 home-column">
-        <a href="classes-paella-cooking-madrid-spain"><img class="img-responsive center-block" alt="paella cooking class in Madrid, Spain" src="/images/home-en-paella.jpg" /></a>
+        <a href="classes-paella-cooking-madrid-spain"><img class="img-responsive center-block" alt="paella cooking class in Madrid, Spain" src="/images/home-paella-sm.jpg" /></a>
         <h2 class="header2"><a href="classes-paella-cooking-madrid-spain">Paella Cooking Class</a></h2>
         <p>Learn in our cooking classes how to cook the most famous Spanish dish: Paella (a rice based dish with seafood. meat and vegetables). Following the instructions of our chef, you will prepare your own full menu consisting of paella, gazpacho (cold tomato soup) and sangria.</p>
         <div class="text-center">
@@ -104,7 +100,7 @@
     <div class="divider visible-xs"></div>
 
     <div class="col-md-4 home-column">
-            <a href="classes-spanish-tapas-madrid-spain"><img class="img-responsive center-block" title="spanish cooking school in madrid" alt="cooking school madrid spain" src="/images/home-en-tapas.jpg" /></a>
+            <a href="classes-spanish-tapas-madrid-spain"><img class="img-responsive center-block" title="spanish cooking school in madrid" alt="cooking school madrid spain" src="/images/home-tapas-sm.jpg" /></a>
         <h2 class="header2"><a href="classes-spanish-tapas-madrid-spain">Tapas Cooking Class</a></h2>
         <p>The Spanish word "tapas" refers to nearly any food in bite-size pieces, served in small plates to share by a group of friends or family. In our Spanish tapas cooking class you will learn to prepare up to 6 traditional tapas, ranging from Spanish potato omelet to shrimps with garlic, all of them typical from different regions of Spain.</p>
         <div class="text-center">
@@ -113,7 +109,7 @@
     </div>
 
     <div class="col-md-4 home-column">
-           <a href="private-cooking-events-madrid-spain"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/home-en-cata.jpg" /></a>
+           <a href="private-cooking-events-madrid-spain"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/home-events-sm.jpg" /></a>
         <h2 class="header2"><a href="private-cooking-events-madrid-spain">Private Events</a></h2>
         <p>We can customize our classes as private events for corporate groups, team buildings, hen or stag parties, school trips or just group of friend that want to have a different lunch or dinner in Madrid.<p>
         <div class="text-center">

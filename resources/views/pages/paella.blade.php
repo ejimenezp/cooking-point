@@ -41,16 +41,6 @@
 
 @section('content')
 
-
-<div class="visible-xs wide">
-	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
-
-<div class="visible-sm visible-md visible-lg">
-	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
-
-
 <h1 class="header1">Paella Cooking Class</h1>
 
 <div class="row">
