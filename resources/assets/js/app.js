@@ -21,7 +21,7 @@ document.documentElement.setAttribute("data-browser", navigator.userAgent);
 
 $( document ).ready(function() {
 
-if( /iPhone|iPad/i.test(navigator.userAgent) || $(window).width() <= 768) {
+if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 	$("#banner").append('<img id="image-home" src="/images/home-01.jpg" >')
 	$("#section-banner").append('<img class="img-responsive center-block" src="/images/cliffs-sm.jpg" >')
 } else {
