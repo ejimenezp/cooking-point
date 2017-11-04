@@ -3,17 +3,9 @@
 @section('title', 'Kitchen Description')
 @section('description', 'We can hold events of up to 24 people.')
 
+@section('page', 'school')
+
 @section('content')
-
-<div class="visible-xs wide">
-	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
-
-<div class="visible-sm visible-md visible-lg">
-	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
-
-
 
 <h1 class="header1">The School</h1>
 

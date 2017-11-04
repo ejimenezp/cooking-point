@@ -3,6 +3,8 @@
 @section('title', 'Paella Cooking Class and Market Tour at Cooking Point, Madrid')
 @section('description', 'Paella cooking classes in English every morning in Madrid. Hands-on class of paella includes market tour. Two people per cooktop.')
 
+@section('page', 'paella')
+
 @section('google-structured-data')
 
 <script type="application/ld+json">
@@ -71,6 +73,7 @@
 		<p>Class is subject to a minimum attendance of 2 people.</p>
 
 	</div>
+	<div class="col-md-12"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/paella-slider-sm-01x72dpi.jpg" /></div>
 
 </div>
 

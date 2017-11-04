@@ -3,6 +3,8 @@
 @section('title', 'Tapas Cooking Class in English at Cooking Point, Madrid')
 @section('description', 'Tapas cooking classes in English every evening in Madrid. Hands-on class of 6 traditional tapas. Two people per cooktop.')
 
+@section('page', 'tapas')
+
 @section('google-structured-data')
 
 <script type="application/ld+json">
@@ -40,14 +42,6 @@
 @stop
 
 @section('content')
-
-<div class="visible-xs wide">
-	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
-
-<div class="visible-sm visible-md visible-lg">
-	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
 
 
 <h1 class="header1">Tapas Cooking Class</h1>
