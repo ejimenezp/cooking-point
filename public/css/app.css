@@ -5965,6 +5965,8 @@ body {
       .nav a {
         font-size: 18px;
         padding: 10px 9px !important; } }
+  .nav .active {
+    background-color: #e6e6e6; }
 
 @media screen and (min-width: 768px) {
   .navbar-fixed-top {
@@ -6102,7 +6104,7 @@ body {
     /* no underline */ }
 
 .cp-bkg-button {
-  background-color: #EF8401;
+  background-color: green;
   color: white !important; }
 
 .header1, .menu-header-xs {
@@ -6296,7 +6298,7 @@ input, select, textarea {
     background-color: white !important; }
   .online .ui-datepicker .ui-datepicker-current-day {
     border: 3px solid #ccc;
-    background-color: limegreen; }
+    background-color: green; }
   .online .ui-datepicker .ui-datepicker-prev span, .online .ui-datepicker .ui-datepicker-next span {
     left: unset;
     margin-left: -2px;

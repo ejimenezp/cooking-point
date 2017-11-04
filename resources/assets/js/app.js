@@ -38,6 +38,8 @@ if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 
 }
 
+$('.nav li a[href="' + this.location.pathname + '"]').addClass('active')
+
 $("#image-home").click(function() {
     // show hi-res full screen video
     $('#modal-video').modal('show')
