@@ -15,6 +15,10 @@
                 margin: 0;
                 padding: 0;
               }
+          #map {
+                height: 50vh;
+                width: 100%;
+              }
       </style>  
       <link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
       <script type='text/javascript' src='{{ elixir('js/app.js') }}'></script>
@@ -85,13 +89,10 @@
                   <a href="/private-cooking-events-madrid-spain">Private Events</a>
                 </li>
                 <li>
-                  <a href="/contact">Contact</a>
+                  <a href="/location">Location</a>
                 </li>
                 <li>
                   <a class="cp-bkg-button" href="/booking">Booking</a>
-                </li>
-                <li>
-                  <a href="/school-madrid-spain">The School</a>
                 </li>
                 <li>
                   <a href="/gallery">Gallery</a>
@@ -125,7 +126,7 @@
                 <a href="/private-cooking-events-madrid-spain">Private Events</a>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <a href="/location">Location</a>
               </li>            
                <li>
                 <a class="cp-bkg-button" href="/booking">Booking</a>
@@ -133,9 +134,6 @@
               <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <span class="caret"></span></a>
                   <ul class="dropdown-menu" aria-labelledby="themes">
-                      <li>
-                        <a href="/school-madrid-spain">The School</a>
-                      </li>
                       <li>
                         <a href="/gallery">Gallery</a>
                       </li>
@@ -170,13 +168,10 @@
                 <a href="/private-cooking-events-madrid-spain">Private Events</a>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <a href="/location">Location</a>
               </li>            
               <li>
                 <a class="cp-bkg-button" href="/booking">Booking</a>
-              </li>
-              <li>
-                <a href="/school-madrid-spain">The School</a>
               </li>
               <li>
                 <a href="/gallery">Gallery</a>
