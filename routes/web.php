@@ -27,7 +27,7 @@ Route::get('/booking/forget', 'BookingControllerOnline@forget');
 Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
 Route::get('/classes-paella-cooking-madrid-spain', 'CalendareventControllerOnline@paella');
 Route::get('/classes-spanish-tapas-madrid-spain', 'CalendareventControllerOnline@tapas');
-Route::get('/contact', function () { return view('pages.contact', ['page' => 'contact']); });
+Route::get('/location', function () { return view('pages.location', ['page' => 'location']); });
 Route::get('/faq', function () { return view('pages.faq'); });
 Route::get('/gallery', function () { return view('pages.gallery'); });
 Route::get('/pay/{id}', 'TPVController@pay')->name('pay');
