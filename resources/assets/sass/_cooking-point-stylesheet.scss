@@ -32,6 +32,10 @@ body {
       padding: 10px 9px !important;
     }    
 	}	
+
+  .active {
+    background-color: $navbar-default-link-active-bg;
+  }
 }
 
 
@@ -216,7 +220,7 @@ body {
 
 .cp-bkg-button {
   @extend .cp-class-details;
-  background-color: $brand-primary;
+  background-color: green;
   color: white !important;
 }
 
@@ -489,7 +493,7 @@ input, select, textarea {
 
     .ui-datepicker-current-day {
       border: 3px solid #ccc;
-      background-color: limegreen;
+      background-color: green;
     }
 
     .ui-datepicker-prev span, .ui-datepicker-next span {

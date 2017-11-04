@@ -73,8 +73,8 @@
 		<p>Class is subject to a minimum attendance of 2 people.</p>
 
 	</div>
-	<div class="col-md-12"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/paella-slider-sm-01x72dpi.jpg" /></div>
-
+{{-- 	<div class="col-md-12"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/paella-slider-sm-01x72dpi.jpg" /></div>
+ --}}
 </div>
 
 <div class="divider"></div>
