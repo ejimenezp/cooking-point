@@ -21,14 +21,20 @@ document.documentElement.setAttribute("data-browser", navigator.userAgent);
 
 $( document ).ready(function() {
 
+var page = $("meta[name=page]").attr("content")
+
 if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
-	$("#banner").append('<img id="image-home" src="/images/home-01.jpg" >')
-	$("#section-banner").append('<img class="img-responsive center-block" src="/images/cliffs-sm.jpg" >')
+	$("#banner").append('<img id="image-home" src="/images/home-banner-sm.jpg" >')
+	if (page !== undefined){
+		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner-sm.jpg" >')
+	}
 } else {
 	$("#banner").append('<video id="video-home" autoplay loop> \
 	     	<source src="images/small.mp4" type="video/mp4"> \
 	   	 </video>')
-	$("#section-banner").append('<img class="img-responsive center-block" src="/images/cliffs.jpg" >')
+	if (page !== ''){
+		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner.jpg" >')
+	}
 
 }
 

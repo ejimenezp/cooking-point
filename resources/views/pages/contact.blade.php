@@ -5,9 +5,8 @@
 
 @section('content')
 
-<div class="visible-xs wide">
-	<img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
+@section('page', 'contact')
+
 
 <div class="visible-sm visible-md visible-lg">
 	<a href="https://www.google.com/maps/place/Cooking+Point/@40.412387,-3.697495,15z/data=!4m5!3m4!1s0x0:0xbfa70f0e9ca1618!8m2!3d40.4123866!4d-3.6974954?hl=en" target="_blank"><img class="cp-slideshow" src="/images/plano-web.png" /></a>
