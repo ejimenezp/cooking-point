@@ -63,6 +63,10 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
     padding: calc(10vh * 0.1) calc(10vh * 0.2) calc(10vh * 0.85) calc(10vh * 0.2);
   }
 
+  .navbar-header {
+    height: calc(10vh*1.2);
+  }
+
   .vertical-center {
     padding-top: calc(10vh*0.3);
   }
