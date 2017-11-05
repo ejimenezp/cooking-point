@@ -40790,7 +40790,7 @@ $(document).ready(function () {
 
 	if (/iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 		$("#banner").append('<img id="image-home" src="/images/home-banner-sm.jpg" >');
-		if (page !== undefined) {
+		if (page !== '') {
 			$("#section-banner").append('<img class="banner" src="/images/' + page + '-banner-sm.jpg" >');
 		}
 	} else {
