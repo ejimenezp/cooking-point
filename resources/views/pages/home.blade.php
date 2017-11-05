@@ -37,7 +37,7 @@
 
 <div class="wide">
   <h1 class="home-preheadline">Spanish Cooking Classes in Madrid</h1>
-  <div class="home-headline">Learn With Us to Cook Spanish Food</div>
+  <div class="home-headline">Make Cooking Your Highlight of Madrid</div>
   <div class="home-youtube-button"><i class="fa fa-lg fa-youtube-play"></i> Full-size Video</div>
   <div id="banner"></div>
 </div>
