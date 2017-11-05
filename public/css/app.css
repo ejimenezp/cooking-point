@@ -5987,6 +5987,7 @@ button.close {
   .home-preheadline {
     font-size: 6vw;
     color: #EF8401;
+    margin-top: calc(10vh*1.2);
     left: 8vw;
     text-align: center; }
   .home-headline {
