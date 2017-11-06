@@ -4,6 +4,7 @@
 @section('description', 'Paella cooking classes in English every morning in Madrid. Hands-on class of paella includes market tour. Two people per cooktop.')
 
 @section('page', 'paella')
+@section('banner-caption', 'paella cooking class madrid')
 
 @section('google-structured-data')
 
@@ -73,8 +74,6 @@
 		<p>Class is subject to a minimum attendance of 2 people.</p>
 
 	</div>
-{{-- 	<div class="col-md-12"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/paella-slider-sm-01x72dpi.jpg" /></div>
- --}}
 </div>
 
 <div class="divider"></div>

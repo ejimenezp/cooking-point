@@ -4,6 +4,7 @@
 @section('description', 'Private cooking parties for small groups, hen/stag parties, corporate team building events and tours visiting Madrid.')
 
 @section('page', 'events')
+@section('banner-caption', 'hen do at cooking point')
 
 @section('content')
 
