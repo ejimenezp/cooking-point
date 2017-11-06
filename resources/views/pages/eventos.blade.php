@@ -3,15 +3,9 @@
 @section('title', 'Eventos de empresa')
 @section('description', 'Eventos de team-building para empresas y cooking parties para grupos privados')
 
+@section('page', 'eventos')
+
 @section('content')
-
-<div class="visible-xs wide">
-	<img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
-
-<div class="visible-sm visible-md visible-lg">
-	<img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
 
 <h1 class="header1">Eventos Privados</h1>
 

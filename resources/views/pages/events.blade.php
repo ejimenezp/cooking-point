@@ -3,15 +3,9 @@
 @section('title', 'Private Cooking Classes for Companies and Groups')
 @section('description', 'Private cooking parties for small groups, hen/stag parties, corporate team building events and tours visiting Madrid.')
 
+@section('page', 'events')
+
 @section('content')
-
-<div class="visible-xs wide">
-	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
-
-<div class="visible-sm visible-md visible-lg">
-	       <img class="cp-slideshow" src="/images/cliffs.jpg" >
-</div>
 
 <h1 class="header1">Private Events</h1>
 

@@ -96,7 +96,7 @@
     </div>
 
     <div class="col-md-4 home-column">
-           <a href="private-cooking-events-madrid-spain"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/home-events.jpg" /></a>
+           <a href="private-cooking-events-madrid-spain"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/events-banner-sm.jpg" /></a>
         <h2 class="header2"><a href="private-cooking-events-madrid-spain">Private Events</a></h2>
         <p>We can customize our classes as private events for corporate groups, team buildings, hen or stag parties, school trips or just group of friend that want to have a different lunch or dinner in Madrid.<p>
         <div class="text-center">
