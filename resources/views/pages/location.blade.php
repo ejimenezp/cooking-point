@@ -3,9 +3,9 @@
 @section('title', 'Address and Directions')
 @section('description', 'Located in Barrio de Huertas, within walking distance of major hotel areas and museums. Metro Anton Martin, Line 1.')
 
-@section('content')
-
 @section('page', 'location')
+
+@section('content')
 
 <h1 class="header1">Location</h1>
 
