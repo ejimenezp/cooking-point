@@ -22,18 +22,19 @@ document.documentElement.setAttribute("data-browser", navigator.userAgent);
 $( document ).ready(function() {
 
 var page = $("meta[name=page]").attr("content")
+var caption = $("meta[name=page]").attr("caption")
 
 if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 	$("#banner").append('<img id="image-home" src="/images/home-banner-sm.jpg" >')
 	if (page !== ''){
-		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner-sm.jpg" >')
+		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >')
 	}
 } else {
 	$("#banner").append('<video id="video-home" autoplay loop> \
 	     	<source src="images/small.mp4" type="video/mp4"> \
 	   	 </video>')
 	if (page !== ''){
-		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner.jpg" >')
+		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner.jpg" alt="'+caption+'" >')
 	}
 
 }

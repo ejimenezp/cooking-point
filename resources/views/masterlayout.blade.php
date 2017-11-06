@@ -3,7 +3,7 @@
   <head>
       <title>@yield('title')</title>
       <meta name="description" content="@yield('description')" >
-      <meta name="page" content="@yield('page')" >
+      <meta name="page" content="@yield('page')" caption="@yield('banner-caption', 'cooking point')">
       
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">

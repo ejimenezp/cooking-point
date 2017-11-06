@@ -4,6 +4,7 @@
 @section('description', 'Tapas cooking classes in English every evening in Madrid. Hands-on class of 6 traditional tapas. Two people per cooktop.')
 
 @section('page', 'tapas')
+@section('banner-caption', 'tapas cooking class madrid')
 
 @section('google-structured-data')
 

@@ -4,6 +4,7 @@
 @section('description', 'Eventos de team-building para empresas y cooking parties para grupos privados')
 
 @section('page', 'eventos')
+@section('banner-caption', 'evento de empresa en cooking point')
 
 @section('content')
 
