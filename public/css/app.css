@@ -5991,12 +5991,12 @@ button.close {
     left: 8vw;
     text-align: center; }
   .home-headline {
-    font-size: 9vw;
+    font-size: 8vw;
     font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
     position: absolute;
     z-index: 1000;
-    top: 35%;
+    top: 40%;
     text-align: center;
     color: #f8f1ac;
     text-shadow: 0em 0.05em black; }
@@ -6027,6 +6027,14 @@ button.close {
     padding-top: calc(7vh*0.3); }
   #section-banner {
     margin-top: 0 !important; }
+  .home-preheadline {
+    font-size: 6vw;
+    color: #EF8401;
+    margin-top: 0;
+    left: 8vw;
+    text-align: center; }
+  .navbar-header {
+    height: inherit; }
   .navbar a {
     font-size: inherit; } }
 

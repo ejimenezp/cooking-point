@@ -85,13 +85,13 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
   }
 
   .home-headline {
-    font-size: 9vw;
+    font-size: 8vw;
     font-family: $font-family-cooking-point;
     font-weight: bold;
     position: absolute;
     z-index: 1000;
     //left: 3vw;
-    top: 35%;
+    top: 40%;
     text-align: center;
     color: #f8f1ac;
     text-shadow: 0em 0.05em black;
@@ -138,6 +138,19 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
 
   #section-banner {
     margin-top: 0 !important;
+  }
+
+  .home-preheadline {
+    font-size: 6vw;
+    //font-weight: bold;
+    color: $brand-primary;
+    margin-top: 0;
+    left: 8vw;
+    text-align: center;
+  }
+
+  .navbar-header {
+    height: inherit;
   }
 
   .navbar a {
