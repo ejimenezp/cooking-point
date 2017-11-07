@@ -5998,7 +5998,7 @@ button.close {
     z-index: 1000;
     top: 40%;
     text-align: center;
-    color: #f8f1ac;
+    color: white;
     text-shadow: 0em 0.05em black; }
   .home-youtube-button {
     background-color: #e42e28;
@@ -6064,7 +6064,7 @@ button.close {
     left: 3vw;
     top: 40%;
     text-align: center;
-    color: #f8f1ac;
+    color: white;
     text-shadow: 0em 0.05em black; }
   .home-youtube-button {
     background-color: #e42e28;
@@ -6119,6 +6119,22 @@ button.close {
   font-weight: 500;
   text-decoration: none;
   line-height: 1.1; }
+
+.home-notice {
+  background-color: darkorange;
+  color: white;
+  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  text-align: center;
+  border-radius: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px; }
+  .home-notice a {
+    color: inherit;
+    text-decoration: inherit;
+    /* no underline */ }
 
 .cp-class-details, .cp-bkg-button {
   background-color: #e5e5e5;
