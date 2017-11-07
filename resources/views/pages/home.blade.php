@@ -58,14 +58,14 @@
             <div class="modal-body">
                 <div class="modal-video">
                     <div id="youtube-video" class="embed-responsive embed-responsive-16by9">
-<iframe src="https://www.youtube.com/embed/LlBZ32RIB_U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+https://youtu.be/qsQVbrSjBow
 @stop
 
 @section('content')
