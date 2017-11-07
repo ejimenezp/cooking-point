@@ -196,9 +196,11 @@
   @yield('banner')
   <div class="no-gutter">
     <div class="col-sm-12 col-lg-offset-1 col-lg-10">
-          @yield('content')           
-        </div>  
-    </div>
+      <div class="no-gutter">
+          @yield('content')                  
+      </div>
+    </div>  
+  </div>
   <div class="">
     <div class="divider"></div>
     <div class="col-sm-12">
