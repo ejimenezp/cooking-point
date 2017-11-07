@@ -50,7 +50,7 @@
 	<div class="cp-class-details col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
 		<strong>When:</strong> Monday to Saturday<br/>
 		<strong>Time:</strong> 10:00 am - 2:00 pm<br/>
-		<strong>Price: </strong>€70 adult / €35 children (5-12 yo)<br/>
+		<strong>Price: </strong>€70 adult / €35 children (5-12 year old)<br/>
 		<strong>Includes: </strong>market tour, cooking class, ingredients, recipes, <span style="text-decoration: underline;">welcome gift</span><span style="">*</span>, lunch and drinks<br/>
 		<span style="font-size:small;">Note: One gift per adult signed up for any class by Jan&nbsp31,&nbsp2018</span><br>
 	</div>	
