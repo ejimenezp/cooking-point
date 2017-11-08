@@ -10,14 +10,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/images/favicon-admin.ico">
 		<link rel="canonical" href="{{ url()->current() }}">
+		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
 		<style type="text/css">
 		  ul {
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
 			  }
+		  	body {
+    			font-size: 16px !important;
+  			}
 	  	</style>  
-		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
 		<script type='text/javascript' src='{{ elixir('js/admin.js') }}'></script>
 		<script src="https://use.fontawesome.com/c502308363.js"></script>
 	</head>
