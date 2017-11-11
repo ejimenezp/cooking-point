@@ -30,7 +30,7 @@ if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >')
 	}
 } else {
-	$("#banner").append('<video id="video-home" autoplay loop> \
+	$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay loop> \
 	     	<source src="images/small.mp4" type="video/mp4"> \
 	   	 </video>')
 	if (page !== ''){
@@ -48,13 +48,16 @@ $("#image-home").click(function() {
 
 
 $(".home-youtube-button").click(function() {
-    $('#modal-video').modal('show')
+  $('.modal-video').append('<div id="youtube-video" class="embed-responsive embed-responsive-16by9"> \
+								<iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> \
+                    		</div>')
+  $('#modal-video').modal('show')
 });
 
 $('#modal-video').on('hidden.bs.modal', function () {
   $('#youtube-video').remove();
   $('.modal-video').append('<div id="youtube-video" class="embed-responsive embed-responsive-16by9"> \
-								<iframe src="https://www.youtube.com/embed/LlBZ32RIB_U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> \
+								<iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> \
                     		</div>')
 })
 

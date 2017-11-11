@@ -56,11 +56,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="modal-video">
-                    <div id="youtube-video" class="embed-responsive embed-responsive-16by9">
-<iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
+                <div class="modal-video"></div>
             </div>
         </div>
     </div>
