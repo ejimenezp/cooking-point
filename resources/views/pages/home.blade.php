@@ -56,12 +56,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="modal-video"></div>
+                <div class="yt-video"></div>
             </div>
         </div>
     </div>
 </div>
-https://youtu.be/qsQVbrSjBow
+
 @stop
 
 @section('content')
