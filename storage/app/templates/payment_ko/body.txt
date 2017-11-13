@@ -1,0 +1,17 @@
+Dear CP_FIRSTNAME,
+
+Your payment transaction has not finished properly, so that your booking is not confirmed yet.
+
+To recover your booking and re-try the payment again, go to APP_URL/booking/CP_LOCATOR . We will keep your booking inquiry for the next 48 hours.
+
+If you are having problems with the payment and still want to attend the class, please reply to this email confirming your interest and we'll get back to you as soon as we can.
+
+Should you have any other questions, please let us know.
+
+Thank you,
+cooking point team
+---
+Cooking Point
+(+34) 910 115 154
+cookingpoint.es
+
