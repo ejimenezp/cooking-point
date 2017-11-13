@@ -48,17 +48,14 @@ $("#image-home").click(function() {
 
 
 $(".home-youtube-button").click(function() {
-  $('.modal-video').append('<div id="youtube-video" class="embed-responsive embed-responsive-16by9"> \
+  $('.yt-video').append('<div id="youtube-video" class="embed-responsive embed-responsive-16by9"> \
 								<iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> \
                     		</div>')
   $('#modal-video').modal('show')
 });
 
 $('#modal-video').on('hidden.bs.modal', function () {
-  $('#youtube-video').remove();
-  $('.modal-video').append('<div id="youtube-video" class="embed-responsive embed-responsive-16by9"> \
-								<iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> \
-                    		</div>')
+  $('.yt-video').empty();
 })
 
 
