@@ -19,17 +19,27 @@ class Reminder extends Job {
 
 	protected function run_query()
 	{
-		$today = $this->now->format('Y-m-d');
-		$in2days = $this->now->modify('+2 days')->format('Y-m-d');
 
-		return Booking::where('email', '<>', '')->
-						where('hash', '<>', '')->
-						where('status', 'PENDING')->
-						where('crm', 'YES')->
-						whereHas('calendarevent', function($query) use ($today, $in2days) {
-            				$query->where('date', '>=', $today)->
-            						where('date', '<=', $in2days);
-            			})->get(); 
+		$yesterday = $this->now->modify('-1 days')->format('Y-m-d');
+
+		$pending = Booking::where('email','<>', '')
+					->whereDate('created_at', $yesterday)
+					->where('status', 'PENDING')
+					->where('crm', 'YES')->get()->unique('email');
+
+		$pending->each(function($pen, $key) use ($pending) {
+			$already_booked = Booking::where('email', $pen->email)
+						->where('calendarevent_id', $pen->calendarevent_id)
+						->where('status_filter', 'REGISTERED')->count();
+			if ($already_booked) {
+				$pending->forget($key);
+				Booking::find($pen->id)->delete();
+			} else {
+				// Log::info( 'Reminder a '. $pen->email );
+			}
+
+		});
+		return $pending;
 	}
 
 	protected function action($bkg) {
