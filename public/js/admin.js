@@ -21679,7 +21679,15 @@ jQuery(document).ready(function ($) {
 	//
 
 	$("#button_booking_delete").click(function () {
-		$('#modal_booking_delete').modal('show');
+
+		var bkg_status_filter = $('input[name=status_filter]').val();
+		if (bkg_status_filter == 'REGISTERED') {
+			$('.modal_admin_title').html('Reserva Confirmada');
+			$('.modal_admin_body').html('Atención, esta reserva está confirmada. Cancela antes de borrar');
+			$('#modal_admin').modal('show');
+		} else {
+			$('#modal_booking_delete').modal('show');
+		}
 	});
 
 	$("#modal_button_booking_delete").click(function () {
