@@ -70,7 +70,7 @@
     <div class="container-fluid">
       <div class="navbar-header">   
           <div class="navbar-brand">
-            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
+            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
           </div>
           <a class="menu-header-xs" data-toggle="collapse" data-target="#myNavbar" href="#">
               Menu <i class="fa fa-bars" aria-hidden="true"></i>
