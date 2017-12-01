@@ -15,6 +15,11 @@
 		<p>Ponemos a vuestra disposición nuestras instalaciones y equipo para realizar eventos corporativos o particulares. En todos los casos, los participantes se dividen en pequeños equipos para preparar el menú acordado. La actividad termina con la cena de lo que se ha preparado durante la clase.</p>
 	</div>
 
+    <div class="home-notice col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+        <strong>Especial Navidad</strong><br/>
+        Prepara y disfruta con tu equipo de un menú de Navidad de 5 estrellas. Pregúntanos.<br/>
+    </div>  
+
 </div>
 
 <div class="no-gutter">
