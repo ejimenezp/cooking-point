@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
 @section('title', 'Eventos de empresa')
-@section('description', 'Eventos de team-building para empresas y cooking parties para grupos privados')
+@section('description', 'Organizamos team-building de cocina para empresas y cooking parties para grupos privados. Estamos en el centro de Madrid.')
 
 @section('page', 'eventos')
 @section('banner-caption', 'evento de empresa en cooking point')
@@ -12,11 +12,11 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<p>Ponemos a vuestra disposición nuestras instalaciones y equipo para realizar eventos corporativos o particulares. En todos los casos, los participantes se dividen en pequeños equipos para preparar el menú acordado. La actividad termina con la cena de lo que se ha preparado durante la clase.</p>
+		<p>Ponemos a vuestra disposición nuestras instalaciones y equipo para realizar eventos corporativos o particulares. En todos los casos, los participantes se dividen en pequeños equipos para preparar el menú acordado. La actividad termina con la comida o cena de lo que se ha preparado durante la clase.</p>
 	</div>
 
     <div class="home-notice col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
-        <strong>Especial Navidad</strong><br/>
+        <strong>Especial Navidad para Empresas</strong><br/>
         Prepara y disfruta con tu equipo de un menú de Navidad de 5 estrellas. Pregúntanos.<br/>
     </div>  
 
