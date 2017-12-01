@@ -21,16 +21,20 @@ redirect 301 /es/actividades/curso-tapas https://cookingpoint.es/classes-spanish
 # paella
 redirect 301 /new/classes-paella-cooking-madrid https://cookingpoint.es/classes-paella-cooking-madrid-spain
 
+# school
+redirect 301 /school-madrid-spain https://cookingpoint.es/location
+
 # faq
 redirect 301 /en/frequent-questions https://cookingpoint.es/faq
 redirect 301 /frequent-questions https://cookingpoint.es/faq
 
 # events
 redirect 301 /group-events https://cookingpoint.es/private-cooking-events-madrid-spain
-redirect 301 /eventos-empresa-cursos-cocina https://cookingpoint.es/private-cooking-events-madrid-spain
+redirect 301 /eventos-empresa-cursos-cocina https://cookingpoint.es/eventos-privados-madrid
 
 # home
 RedirectMatch 301 ^/(es|en)$ https://cookingpoint.es
+redirect 301 /wine-tasting-madrid-spain https://cookingpoint.es
 
 RedirectMatch 301 ^/(activities/|author|bookings-|category/|classes/|classes$|contacto|curso|escuela|galeria|hola-mundo|home|images/panorama|lorem|masterchef|other-events|partner-services|portfolio|reserva|sponsors|where) https://cookingpoint.es
 

@@ -20,8 +20,6 @@
 //
 Route::get('/', 'CalendareventControllerOnline@home');
 
-Route::get('/kirupa', function () { return view('pages.kirupa'); });
-
 Route::get('/bookings/{hash?}', 'BookingControllerOnline@legacyget');
 Route::get('/booking/forget', 'BookingControllerOnline@forget');
 Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
@@ -34,8 +32,6 @@ Route::get('/pay/{id}', 'TPVController@pay')->name('pay');
 Route::post('/callback', 'TPVController@callback');
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
 Route::get('/eventos-privados-madrid', function () { return view('pages.eventos'); });
-Route::get('/school-madrid-spain', function () { return view('pages.school'); });
-Route::get('/wine-tasting-madrid-spain', function () { return redirect('/', 301); });
 
 //
 // blog entries
