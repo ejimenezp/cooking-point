@@ -53,7 +53,7 @@
 		<strong>Time:</strong> 5:30 pm - 9:30 pm<br/>
 		<strong>Price: </strong>€70 adult / €35 children (5-12 year old)<br/>
 		<strong>Includes: </strong>cooking class, ingredients, recipes, <span style="text-decoration: underline;">welcome gift</span><span style="">*</span>, dinner and drinks<br/>
-		<span style="font-size:small;">Note: One gift per adult signed up for any class by Jan&nbsp31,&nbsp2018</span><br>	</div>	
+		<span style="font-size:small;">Note: One bottle of premium extra virgin olive oil per adult registered for any class by Jan&nbsp31,&nbsp2018</span><br>	</div>	
 </div>
 
 

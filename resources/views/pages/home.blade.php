@@ -1,7 +1,9 @@
 @extends('masterlayout')
 
 @section('title', 'Spanish Cooking Classes in Madrid - Cooking Point')
-@section('description', 'Spanish cooking classes every day. Hands-on classes of paella and tapas in English at top rated Spanish culinary school. Two people per cooktop. Instant confirmation.')
+{{-- @section('description', 'Spanish cooking classes every day. Hands-on classes of paella and tapas in English at top rated Spanish culinary school. Two people per cooktop. Instant confirmation.')
+ --}}
+@section('description', 'Enjoy an unforgettable cooking class shopping and making a delicious paella, or a fun class making tapas and sangria. Truly hands-on. Every day. Welcome gift.')
 
 @section('google-structured-data')
 
@@ -38,7 +40,7 @@
 <div class="wide">
   <h1 class="home-preheadline">Spanish Cooking Classes in Madrid</h1>
   <div class="home-headline">Make Cooking Your Highlight of Madrid</div>
-  <div class="home-youtube-button"><i class="fa fa-lg fa-youtube-play"></i> Full-size Video</div>
+  <div class="home-youtube-button"><i class="fa fa-lg fa-youtube-play"></i> Watch Video</div>
   <div id="banner"></div>
 </div>
 
@@ -68,12 +70,13 @@
 
 <div class="row">
     <div class="home-notice col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
-        <strong>Welcome Gift</strong><br/>
-        Book any class by Jan.&nbsp31,&nbsp2018 and get free a<br/>
-        Premium Spanish Product<br/>
-{{--         Book any class before Jan.&nbsp31,&nbsp2018 and get a<br/>
-        Free Bottle of Premium Spanish Olive Oil<br/>
- --}}    </div>  
+{{--         <strong>Welcome Gift</strong><br/>
+        Book any class by Jan.&nbsp31,&nbsp2018 and get free<br/>
+        Premium Spanish Olive Oil<br/> --}}
+        <strong>Welcome Gift !!</strong><br/>
+        Book any class before Jan.&nbsp31,&nbsp2018 and get free<br/>
+        Premium Spanish Olive Oil<br/>
+    </div>  
 </div>
 
 <div class="col-md-12">
@@ -84,7 +87,7 @@
     <div class="col-md-4 home-column">
         <a href="classes-paella-cooking-madrid-spain"><img class="img-responsive center-block" alt="paella cooking class in Madrid" src="/images/home-paella.jpg" /></a>
         <h2 class="header2"><a href="classes-paella-cooking-madrid-spain">Paella Cooking Class</a></h2>
-        <p>Learn in our cooking classes how to cook the most famous Spanish dish: Paella (a rice based dish with seafood. meat and vegetables). Following the instructions of our chef, you will prepare your own full menu consisting of paella, gazpacho (cold tomato soup) and sangria.</p>
+        <p>Enjoy an unforgettable morning shopping and cooking a delicious paella with the instructions of our local chef. Great start to know more about Spanish food while you make one of our most representative dishes.</p>
         <div class="text-center">
             <a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">Paella Class</a>
         </div>
@@ -95,7 +98,7 @@
     <div class="col-md-4 home-column">
             <a href="classes-spanish-tapas-madrid-spain"><img class="img-responsive center-block" title="spanish cooking school in madrid" alt="tapas cooking class in madrid" src="/images/home-tapas.jpg" /></a>
         <h2 class="header2"><a href="classes-spanish-tapas-madrid-spain">Tapas Cooking Class</a></h2>
-        <p>The Spanish word "tapas" refers to nearly any food in bite-size pieces, served in small plates to share by a group of friends or family. In our Spanish tapas cooking class you will learn to prepare up to 6 traditional tapas, ranging from Spanish potato omelet to shrimps with garlic, all of them typical from different regions of Spain.</p>
+        <p>Spend a fun evening making tapas and sangria. Ranging from Spanish potato omelet to shrimps with garlic, all of them typical from different regions of Spain. The perfect introduction to Spanish food and culture!</p>
         <div class="text-center">
             <a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">Tapas Class</a>
         </div>
@@ -118,7 +121,7 @@
 <div class="row">
     <div class="col-md-4">
         <h4 class="header4">Fun &amp; Memorable</h4>
-        <p>Get off the beaten tours and attractions, and have a great time cooking and enjoying your Spanish meal in a nice setup. Know through practice more about Spain’s food, culture and traditions.</p>
+        <p>Have a fun immersion into Spain’s food culture. Great start of your trip or end of your stay in Madrid.</p>
     </div>
 
     <div class="col-md-4">
