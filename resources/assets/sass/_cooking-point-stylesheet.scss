@@ -95,21 +95,18 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
     text-align: center;
     color: white;
     text-shadow: 0em 0.05em black;
+
   }
 
-  .home-youtube-button {
-    background-color: $brand-red;
-    border-radius: 7px;
-    padding: 0.2em 0.3em 0.2em 0.3em;
+  .home-pause-button {
+    display: none;
     font-size: 4vw;
-    font-weight: bold;
     position: absolute;
     z-index: 1000;
-    left: 60vw;
+    left: 90%;
     top: 80%;
-    text-align: center;
     color: white;
-  }
+    }
 
   .video-container {
     height: calc(100vw / 720 * 100 ); 
@@ -200,21 +197,17 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
     text-align: center;
     color: white;
     text-shadow: 0em 0.05em black;
+
   }
 
-  .home-youtube-button {
-    background-color: $brand-red;
-    border-radius: 7px;
-    padding: 0.2em 0.3em 0.2em 0.3em;
-    font-size: 1.5vw;
-    font-weight: bold;
+  .home-pause-button {
+    font-size: 2vw;
     position: absolute;
     z-index: 1000;
-    left: 80vw;
+    left: 90%;
     top: 80%;
-    text-align: center;
     color: white;
-  }
+    }
 
   .video-container {
     height: calc(100vw / 720 * 100 ); 

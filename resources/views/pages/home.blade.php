@@ -40,31 +40,12 @@
 <div class="wide">
   <h1 class="home-preheadline">Spanish Cooking Classes in Madrid</h1>
   <div class="home-headline">Make Cooking Your Highlight of Madrid</div>
-  <div class="home-youtube-button"><i class="fa fa-lg fa-youtube-play"></i> Watch Video</div>
+  <div class="home-pause-button"><i class="fa fa-pause"></i></div>
   <div id="banner"></div>
 </div>
 
 @stop
 
-@section('modals')
-
-<!-- MODAL -->
-<div class="modal fade" id="modal-video" tabindex="-1" role="dialog" aria-labelledby="modal-video-label">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="yt-video"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@stop
 
 @section('content')
 
@@ -110,6 +91,18 @@
         <p>We can customize our classes as private events for corporate groups, team buildings, hen or stag parties, school trips or just group of friend that want to have a different lunch or dinner in Madrid.<p>
         <div class="text-center">
             <a href="private-cooking-events-madrid-spain" class="btn btn-primary">Private Events</a>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="header3">Video: Class Highlights<br><br></div>
+
+<div class="row">
+    <div class="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+        <div class="embed-responsive embed-responsive-16by9"> 
+            <iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 </div>
