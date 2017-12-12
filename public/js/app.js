@@ -40795,7 +40795,7 @@ $(document).ready(function () {
 			$("#section-banner").append('<img class="banner" src="/images/' + page + '-banner-sm.jpg" alt="' + caption + '" >');
 		}
 	} else {
-		$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" height="100" autoplay loop> \
+		$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay loop> \
 	     	<source src="images/small.mp4" type="video/mp4"> \
 	   	 </video>');
 		if (page !== '') {
@@ -40803,23 +40803,22 @@ $(document).ready(function () {
 		}
 	}
 
+	// to highlight selected menubar option
 	$('.nav li a[href="' + this.location.pathname + '"]').addClass('active');
 
-	$("#image-home").click(function () {
-		// show hi-res full screen video
-		$('#modal-video').modal('show');
-	});
-
-	$(".home-youtube-button").click(function () {
-		$('.yt-video').append('<div id="youtube-video" class="embed-responsive embed-responsive-16by9"> \
-								<iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> \
-                    		</div>');
-		$('#modal-video').modal('show');
-	});
-
-	$('#modal-video').on('hidden.bs.modal', function () {
-		$('.yt-video').empty();
-	});
+	function toggleVideo() {
+		var myVideo = $('#video-home').get(0);
+		if (myVideo.paused) {
+			myVideo.play();
+			$('.home-pause-button').html('<i class="fa fa-pause"></i>');
+			setTimeout(toggleVideo, 30 * 1000);
+		} else {
+			myVideo.pause();
+			$('.home-pause-button').html('<i class="fa fa-play"></i>');
+		}
+	}
+	$('.home-pause-button').click(toggleVideo);
+	setTimeout(toggleVideo, 30 * 1000);
 }); // end jQuery
 
 },{"./bootstrap":8,"bootstrap-sass":1,"jquery":2}],8:[function(require,module,exports){
