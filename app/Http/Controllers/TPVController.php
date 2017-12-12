@@ -87,7 +87,14 @@ class TPVController extends Controller
             $bkg->status = 'PENDING';
             $bkg->status_filter = 'DO_NOT_COUNT';
 	        $bkg->save();
-			MailController::send_mail($bkg->email, $bkg, 'payment_ko');
+	        // send recovery mail only first time
+            if ($bkg->crm != 'NO') {
+            	if ($bkg->crm != 'PAYMENT_KO') {
+            			MailController::send_mail($bkg->email, $bkg, 'payment_ko');
+            			$bkg->crm = 'PAYMENT_KO';
+            			$bkg->save();
+            	}
+            }
         }
     	return view('tpv.callback');
     }

@@ -25,7 +25,10 @@ class Reminder extends Job {
 		$pending = Booking::where('email','<>', '')
 					->whereDate('created_at', $yesterday)
 					->where('status', 'PENDING')
-					->where('crm', 'YES')->get()->unique('email');
+					->where(function ($query) {
+                		$query->where('crm', 'YES')
+                      			->orWhere('crm', 'PAYMENT_KO');
+						})->get()->unique('email');
 
 		$pending->each(function($pen, $key) use ($pending) {
 			$already_booked = Booking::where('email', $pen->email)
@@ -43,7 +46,7 @@ class Reminder extends Job {
 	}
 
 	protected function action($bkg) {
-		// para testing solo escribe en el log
+
 		Log::info('Enviado <Reminder> a ' . $bkg->name);
 
 	 	MailController::send_mail($bkg->email, $bkg, 'user_reminder');
