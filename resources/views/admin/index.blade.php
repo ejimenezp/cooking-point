@@ -309,9 +309,9 @@
 							<select name="crm">
 								<option value="YES">SÍ</option>
 								<option value="NO">NO MOLESTAR</option>
-								<option value="REMINDED">RECORDATORIO</option>
-								<option value="REVIEW_ASKED">REVIEW SOLICITADA</option>
-								<option value="CLICKED_THROUGH">POSIBLE REVIEW</option>
+								<option value="PAYMENT_KO">FALLO PAGO TARJETA</option>
+								<option value="REMINDED">ENVIADO RECORDATORIO</option>
+								<option value="REVIEW_ASKED">SOLICITADA REVIEW</option>
 							</select>				
 						</td>
 					</tr>
