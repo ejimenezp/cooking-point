@@ -100,7 +100,7 @@
 <div class="header3">Video: Class Highlights<br><br></div>
 
 <div class="row">
-    <div class="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+    <div class="col-md-offset-2 col-md-8">
         <div class="embed-responsive embed-responsive-16by9"> 
             <iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0" frameborder="0" allowfullscreen></iframe>
         </div>
