@@ -948,6 +948,21 @@ jQuery(document).ready(function($) {
 	//
 	
 	//
+	//  copy to clipboard
+	$("#button_booking_copy").click(function() {
+		var textArea = document.createElement("textarea")
+		textArea.value = "https://cookingpoint.es/booking/" + $("input[name=locator]").val()
+		document.body.appendChild(textArea)
+		textArea.select()
+		try {
+		    document.execCommand('copy')
+		} catch (err) {
+			console.log('Oops, unable to copy')
+		}
+		document.body.removeChild(textArea)
+	})
+
+	//
 	// booking close
 	//
 	$("#button_booking_close").click(function() {
