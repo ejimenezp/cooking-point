@@ -10,6 +10,13 @@
 
 		<div id="step1" class="hidden">
 			<h1 class="header1">Booking: Availability</h1>
+
+<div class="row">
+    <div class="home-notice col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+        Sorry, we'll be closed from February 5<sup>th</sup> to 19<sup>th</sup><br/>
+        for a well deserved annual leave
+    </div>  
+</div>
 			<p>Select number of guests and desired class to check availability</p>
 			<div class="col-sm-6" style="padding-left: 0px;">
 				<div class="online" id="bookingdatepicker"></div>
