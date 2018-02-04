@@ -49,17 +49,6 @@
 
 @section('content')
 
-<div class="row">
-    <div class="home-notice col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
-{{--         <strong>Welcome Gift</strong><br/>
-        Book any class by Jan.&nbsp31,&nbsp2018 and get free<br/>
-        Premium Spanish Olive Oil<br/> --}}
-        <strong>Welcome Gift !!</strong><br/>
-        Book any class before Jan.&nbsp31,&nbsp2018 and get free<br/>
-        Premium Spanish Olive Oil<br/>
-    </div>  
-</div>
-
 <div class="col-md-12">
 <div class="divider"></div>
 <div class="header3">Our Classes<br><br></div>
