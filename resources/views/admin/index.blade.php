@@ -298,7 +298,7 @@
 							Referencia:
 						</td>
 						<td>
-							<input name="locator" style="width:70%;" type="text" value="" >&nbsp
+							<input name="locator" style="width:50%;" type="text" value="" >&nbsp
 							<button id="button_booking_copy" class="btn btn-primary btn-xs">Copiar</button
 						</td>
 					</tr>
