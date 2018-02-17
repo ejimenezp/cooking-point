@@ -3,7 +3,7 @@
 @section('title', 'Spanish Cooking Classes in Madrid - Cooking Point')
 {{-- @section('description', 'Spanish cooking classes every day. Hands-on classes of paella and tapas in English at top rated Spanish culinary school. Two people per cooktop. Instant confirmation.')
  --}}
-@section('description', 'Enjoy an unforgettable cooking class shopping and making a delicious paella, or a fun class making tapas and sangria. Truly hands-on. Every day.')
+@section('description', 'Enjoy an unforgettable cooking class in Madrid. Visit the market and make delicious paella, or a fun class making tapas and sangria. Truly hands-on. Every day.')
 
 @section('google-structured-data')
 
