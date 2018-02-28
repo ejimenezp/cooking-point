@@ -3,6 +3,21 @@
 @section('title', 'Booking')
 @section('description', 'Cooking Point booking form. Pay online and get instant confirmation.')
 
+@section('adwords-event-snippet')
+	@if ($tpv_result === 'OK')
+	<!-- Event snippet for reservar conversion page -->
+	<script>
+	  gtag('event', 'conversion', {
+	      'send_to': 'AW-985592263/mDIBCN3enHcQx-P71QM',
+	      'value': {{ round($bkg->price/1.21 , 2) }},
+	      'currency': 'EUR',
+	      'transaction_id': "{{$bkg->locator}}"
+	  });
+	</script>
+	<!-- End event snippet -->
+	@endif
+@stop
+
 @section('content')
 
 <div class="row">

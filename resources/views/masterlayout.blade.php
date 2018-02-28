@@ -36,6 +36,19 @@
           ga('send', 'pageview');
         </script>
         <!-- End Google Analytics -->
+
+        <!-- Global site tag (gtag.js) - Google AdWords: 985592263 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-985592263"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-985592263');
+        </script>
+        <!-- End Global site tag -->
+
+        @yield('adwords-event-snippet')
+
         <!-- Facebook Pixel Code -->
         <script>
         !function(f,b,e,v,n,t,s)
