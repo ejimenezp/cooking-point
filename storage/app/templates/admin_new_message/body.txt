@@ -1,0 +1,9 @@
+Solicitud de evento privado:
+
+De: CP_NAME
+E-mail: CP_EMAIL
+
+Texto:
+
+CP_COMMENTS
+
