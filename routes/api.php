@@ -38,3 +38,6 @@ Route::get('source/get', 'SourceController@get');
 Route::get('tienda/getTickets', 'TicketsController@getTickets');
 
 Route::post('viator', 'ViatorController@main');
+
+Route::post('contact/contactoeventos', 'ContactControllerApi@contactoeventos');
+

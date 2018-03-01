@@ -47,7 +47,7 @@
 		<strong>Precio: </strong>En función del tamaño de grupo. Consultar<br/>
 		<strong>Incluye: </strong>Clase de cocina, recetas, comida y bebida<br/><br/>
 		<div class="text-center">
-			<a href="mailto:info@cookingpoint.es" class="btn btn-primary">Escríbenos</a>
+			<a href="/contacto-eventos-privados" class="btn btn-primary">Solicita Información</a>
 		</div>
 	</div>	
 </div>
