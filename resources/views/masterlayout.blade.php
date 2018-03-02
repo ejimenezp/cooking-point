@@ -47,8 +47,6 @@
         </script>
         <!-- End Global site tag -->
 
-        @yield('adwords-event-snippet')
-
       @else
         <!-- no analytics or crawling here. Testing environment -->
         <meta name="robots" content="noindex,nofollow">

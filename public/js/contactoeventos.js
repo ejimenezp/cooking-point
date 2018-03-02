@@ -12520,6 +12520,22 @@ function validateContactoForm() {
 	return true;
 }
 
+// Event snippet for solicitar info eventos conversion page
+// In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+
+function gtag_report_conversion(url) {
+	var callback = function callback() {
+		if (typeof url != 'undefined') {
+			window.location = url;
+		}
+	};
+	gtag('event', 'conversion', {
+		'send_to': 'AW-985592263/lSg_CPW5gX4Qx-P71QM',
+		'event_callback': callback
+	});
+	return false;
+}
+
 $(document).ready(function () {
 
 	$('#button_contacto_form').click(function () {
@@ -12538,7 +12554,7 @@ $(document).ready(function () {
 
 		if (response == 'ok') {
 			showModalBooking(this, 'Solicitud Recibida', 'Gracias por contactarnos. En breve recibirás noticias nuestras.', false, function () {
-				window.location.href = '/eventos-privados-madrid';
+				gtag_report_conversion('/eventos-privados-madrid');
 			});
 		} else {
 			showModalBooking(this, 'Ups! ', 'Parece que hay problemas. Por favor, envíanos un correo a info@cookingpoint.es', false, function () {});
