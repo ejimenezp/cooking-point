@@ -32,5 +32,5 @@ elixir(function(mix) {
     	.browserify('classemails.js')
     	.browserify('contactoeventos.js')
 
-    	mix.version(['css/app.css', 'js/app.js', 'js/tienda.js', 'js/admin.js', 'js/report.js', 'js/booking.js', 'js/classemails.js'])
+    	mix.version(['css/app.css', 'js/app.js', 'js/tienda.js', 'js/admin.js', 'js/report.js', 'js/booking.js', 'js/classemails.js', 'js/contactoeventos.js'])
 });
