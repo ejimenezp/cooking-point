@@ -51,8 +51,7 @@
 		<strong>When:</strong> Monday to Saturday<br/>
 		<strong>Time:</strong> 10:00 am - 2:00 pm<br/>
 		<strong>Price: </strong>€70 adult / €35 children (5-12 year old)<br/>
-		<strong>Includes: </strong>market tour, cooking class, ingredients, recipes, <span style="text-decoration: underline;">welcome gift</span><span style="">*</span>, lunch and drinks<br/>
-		<span style="font-size:small;">Note: One bottle of premium extra virgin olive oil per adult registered for any class by Jan&nbsp31,&nbsp2018</span><br>
+		<strong>Includes: </strong>market tour, cooking class, ingredients, recipes, lunch and drinks<br/>
 	</div>	
 </div>
 
