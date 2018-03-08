@@ -11,9 +11,7 @@ var moment = require('moment')
 //
 // Global variables
 //
-// var right_now = moment("2017-02-06 09:00")
-var right_now = moment()
-var date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : right_now.clone()
+var date_shown = null
 var form_changed = false
 var month_changed = false
 var month_availability = Array()
@@ -49,6 +47,7 @@ function getDayAvailability(day)
 	var adult = parseInt($("select[name=adult]").val())
 	var child = parseInt($("select[name=child]").val())
 	var a_day = moment(day)
+	var right_now = rightNow()
 	var i, registered, capacity, n, class_type, start
 	var to_return = null
 
@@ -204,7 +203,6 @@ function refreshDataShown()
 	}
 	var ce_i = i
 	$("input[name=calendarevent_id]").val(month_availability[ce_i].id)
-	console.log('input[name=calendarevent_id] es ' + month_availability[ce_i].id)
 	$('.dateshown').html(date_shown.format('dddd, D MMMM YYYY'))
 	var start_time = moment(month_availability[ce_i].time, "HH:mm:ss")
 	var duration = moment.duration(month_availability[ce_i].duration, "HH:mm:ss")
@@ -293,6 +291,18 @@ function retrieveBooking(locator) {
 	$(".update_class").addClass('hidden')
 	$(".update_contact").addClass('hidden')
 	return bkg
+}
+
+//
+// Function: rightNow
+// fresh datetime everytime the time is required
+//
+// var fake_now = prompt("entrar fecha", "2018-03-14 22:01:00")
+
+function rightNow()
+{
+	// return moment(fake_now)
+	return moment()
 }
 
 //
@@ -389,6 +399,7 @@ jQuery(document).ready(function($) {
 
 	$('.loading').show()
 
+	date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone()
 	window.history.pushState(null, 'nada', '/booking')
 
 	locator = $("input[name=locator]").val()
@@ -407,7 +418,7 @@ jQuery(document).ready(function($) {
 		    $('select[name=adult] option:selected').siblings().attr('disabled','disabled')
 		    $('select[name=child] option:selected').siblings().attr('disabled','disabled')
 		    var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
-			if (start.isSameOrBefore(right_now)) {
+			if (start.isSameOrBefore(rightNow())) {
 	    		$("#button_booking_edit").addClass('hidden')	
 	    	}
     	} else {
@@ -556,6 +567,7 @@ jQuery(document).ready(function($) {
 	})
 
     $("#button_booking_edit").click(function() {
+    	var right_now = rightNow()
     	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
 		if (start.isSameOrBefore(right_now)) {
     		$('.modal_booking_title').html("Past Class")
@@ -572,7 +584,7 @@ jQuery(document).ready(function($) {
 
     $("#date_edit").click(function() {
     	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
-		if (start.subtract(24, 'hours').isSameOrBefore(right_now)) {
+		if (start.subtract(24, 'hours').isSameOrBefore(rightNow())) {
     		$('.modal_booking_title').html("Class changes not allowed")
 			$('.modal_booking_body').html('Class is too close to change your date or type.<br/><br/>Please contact us by phone should you have any question.')
     		$("#modal_booking").modal('show')
@@ -585,7 +597,7 @@ jQuery(document).ready(function($) {
     $('#booking_cancel').click(function() {
     	var bkg = retrieveBooking(locator)
     	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
-		if (start.subtract(48, 'hours').isSameOrBefore(right_now)) {
+		if (start.subtract(48, 'hours').isSameOrBefore(rightNow())) {
     		$('.modal_booking_title').html("Cancellation Late Notice")
 			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.')
     		$("#modal_booking").modal('show')
