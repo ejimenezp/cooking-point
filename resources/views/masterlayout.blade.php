@@ -33,6 +33,7 @@
           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
           ga('create', 'UA-43676257-1', 'auto');
+          @yield('analytics-ecommerce-tracking')
           ga('send', 'pageview');
         </script>
         <!-- End Google Analytics -->
