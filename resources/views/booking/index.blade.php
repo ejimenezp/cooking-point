@@ -3,6 +3,34 @@
 @section('title', 'Booking')
 @section('description', 'Cooking Point booking form. Pay online and get instant confirmation.')
 
+@section('analytics-ecommerce-tracking')
+	@if ($tpv_result === 'OK' && ($bkg->calendarevent->type === 'PAELLA' || $bkg->calendarevent->type === 'TAPAS'))
+	<!-- ecommerce tracking snippet -->
+	ga('require', 'ec')
+	@if ($bkg->adult)
+	ga('ec:addProduct', {
+	  'id': "{{ $bkg->calendarevent->type }}" ,
+	  'name': "{{ $bkg->calendarevent->type }}",
+	  'variant': 'adult',
+	  'quantity': {{ $bkg->adult }}
+	})
+	@endif
+	@if ($bkg->child)
+	ga('ec:addProduct', {
+	  'id': "{{ $bkg->calendarevent->type }}" ,
+	  'name': "{{ $bkg->calendarevent->type }}",
+	  'variant': 'child',
+	  'quantity': {{ $bkg->child }}
+	})
+	@endif
+	ga('ec:setAction', 'purchase', {
+			id: "{{$bkg->locator}}",
+			revenue: "{{ round($bkg->price/1.21 , 2) }}"
+	})
+	<!-- End ecommerce snippet -->
+	@endif
+@stop
+
 @section('adwords-event-snippet')
 	@if ($tpv_result === 'OK')
 	<!-- Event snippet for reservar conversion page -->
