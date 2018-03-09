@@ -97,13 +97,13 @@ class ReportController extends Controller
         // first, normalize tiendas_ventas
         self::create_temporary_table($request);
 
-        $sqlString = "SELECT fecha, art.nombre, count(producto), art.pvp, art.iva, round(sum(art.pvp/(1+art.iva/100)), 2), round(sum(art.pvp)-sum(art.pvp/(1+art.iva/100)), 2), sum(art.pvp), pago, staff.name
+        $sqlString = "SELECT fecha, ticket_id, art.nombre, count(producto), art.pvp, art.iva, round(sum(art.pvp/(1+art.iva/100)), 2), round(sum(art.pvp)-sum(art.pvp/(1+art.iva/100)), 2), sum(art.pvp), pago, staff.name
                         FROM tienda_report_1, staff, tienda_articulos as art
                         WHERE producto = art.id AND
                             staff_id = staff.id
                             AND fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
-                        GROUP BY fecha, producto, art.nombre, art.pvp, art.iva, pago, staff.name
-                        ORDER BY fecha, pago";
+                        GROUP BY fecha, ticket_id, producto, art.nombre, art.pvp, art.iva, pago, staff.name
+                        ORDER BY fecha, ticket_id, pago";
     							
 		if(!$result = DB::select($sqlString))
 		{
@@ -114,7 +114,7 @@ class ReportController extends Controller
     	} else {
 			return [
     			'title' =>'Ventas Tienda, ' . $request->start_date . ' a '. $request->end_date ,
-    			'headers' => ['Fecha','Artículo', 'Uds', 'P.Unit', '% IVA', 'Base', 'IVA', 'Total', 'Forma Pago', 'Staff'],
+    			'headers' => ['Fecha', 'Ticket#', 'Artículo', 'Uds', 'P.Unit', '% IVA', 'Base', 'IVA', 'Total', 'Forma Pago', 'Staff'],
     			'lines' => $result ];
 		}
     }
