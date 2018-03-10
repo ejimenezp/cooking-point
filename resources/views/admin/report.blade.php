@@ -28,15 +28,10 @@
 						<tr>
 							@php
 								 $line_array = get_object_vars($line);
+								 foreach ($line_array as $td) {
+								 	echo '<td>' . $td . '</td>';								 	
+								 }
 							@endphp
-
-							@if (isset($line_array))
-								<td>{{ current($line_array) }}</td>					
-							@endif
-
-							@while(array_shift($line_array) )
-								<td>{{ current($line_array) }}</td>
-							@endwhile
 						</tr>
 					@endforeach				
 				</tbody>
