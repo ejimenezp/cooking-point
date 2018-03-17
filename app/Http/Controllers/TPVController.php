@@ -80,6 +80,9 @@ class TPVController extends Controller
             $bkg->status_filter = 'REGISTERED';
             $bkg->pay_method = 'ONLINE';
             $bkg->payment_date = $timestamp->format('Y-m-d H:i:s');
+            if ($bkg->crm != 'NO') {
+            	$bkg->crm = 'YES';
+            }
 	        $bkg->save();
 			MailController::send_mail($bkg->email, $bkg, 'user_voucher');
 			MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_booking');
