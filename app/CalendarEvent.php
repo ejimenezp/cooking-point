@@ -24,6 +24,11 @@ class Calendarevent extends Model
         return $this->belongsTo('App\Staff');
     }
 
+    public function secondstaff()
+    {
+        return $this->belongsTo('App\Staff');
+    }
+
     public function getRegisteredAttribute()
     {
         $adults = $this->bookings->where('status_filter', 'REGISTERED')->sum('adult');  

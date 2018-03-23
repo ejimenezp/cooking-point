@@ -93,15 +93,18 @@ function refreshDateShown(month_schedule, date_shown) {
 		} 
 
 		var calendarevent_tr_class = (user_role >= 2) ? 'calendarevent_line' : ''
+		var secondstaff_name
 
 		if (month_schedule[i].date == date_shown.format('YYYY-MM-DD')) {
+			
+			secondstaff_name = (month_schedule[i].secondstaff_id == 2 ? "" : ", " + cookName(month_schedule[i].secondstaff_id) )
 			$('#calendarevent_table > tbody:last').append(
 				'<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i +'">'+ 
 				month_schedule[i].time.substring(0,5) + 
 				'</td><td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
 				month_schedule[i].type +
 				'</td><td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
-				cookName(month_schedule[i].staff_id) +
+				cookName(month_schedule[i].staff_id) + secondstaff_name +
 				'</td><td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
 				month_schedule[i].registered +
 				'</td><td>' +
@@ -226,6 +229,7 @@ function calendarEventEditShow(month_schedule, date_shown, i) {
 		$("select[name=type]").val('GROUP')
 		$("input[name=short_description]").val('')
 		$("select[name=staff_id]").val(2)  // not assigned yet
+		$("select[name=secondstaff_id]").val(2)  // not assigned yet
 		$("select[name=time]").val('10:00:00')
 		$("select[name=duration]").val('04:00:00')
 		$("input[name=capacity]").val(24)
@@ -241,6 +245,7 @@ function calendarEventEditShow(month_schedule, date_shown, i) {
 		$("select[name=type]").val(month_schedule[i].type)
 		$("input[name=short_description]").val(month_schedule[i].short_description)
 		$("select[name=staff_id]").val(month_schedule[i].staff_id)
+		$("select[name=secondstaff_id]").val(month_schedule[i].secondstaff_id)
 		$("select[name=time]").val(month_schedule[i].time)
 		$("select[name=duration]").val(month_schedule[i].duration)
 		$("input[name=capacity]").val(month_schedule[i].capacity)
@@ -339,9 +344,9 @@ function getEventBookings(ce_id)
 function populateBookingList(i) {
 
 	$("#booking_table").data('i', i)
-
+	var secondstaff_name = (month_schedule[i].secondstaff_id == 2 ? "" : ", " + cookName(month_schedule[i].secondstaff_id) )
 	var clase = month_schedule[i].time.substring(0,5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type
-	 			+ ' (' + cookName(month_schedule[i].staff_id) + ') '
+	 			+ ' (' + cookName(month_schedule[i].staff_id) + secondstaff_name + ') '
 				+ '<span class="pull-right">Confirmados: ' + month_schedule[i].registered +'</span>'
 	$('.classshown').html(clase)
 	// 
@@ -498,11 +503,11 @@ jQuery(document).ready(function($) {
 	}).responseText
 	cook = JSON.parse(response).data
 	var select = ''
-	$('#cooklist').empty()
+	$('.cooklist').empty()
 	for (var ii = 0; ii < cook.length; ii++) {
 		select += '<option value="'+ cook[ii].id +'">' + cook[ii].name + '</option>'
 	}
-	$('#cooklist').append(select)
+	$('.cooklist').append(select)
 
 	//
 	// load source list

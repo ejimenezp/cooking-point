@@ -193,11 +193,13 @@ class ReportController extends Controller
         $sqlString = "SELECT    calendarevents.date as date,
                                 calendarevents.time as time, 
                                 calendarevents.type as type,
-                                staff.name as cook
-                        FROM calendarevents, staff
+                                stf.name as cook,
+                                scnd.name as second
+                        FROM calendarevents, staff as stf, staff as scnd
                         WHERE calendarevents.date >= '$request->start_date' 
                             AND calendarevents.date <= '$request->end_date'
-                            AND calendarevents.staff_id = staff.id
+                            AND calendarevents.staff_id = stf.id
+                            AND calendarevents.secondstaff_id = scnd.id
                         ORDER BY date, time ";
 
                                 
@@ -222,14 +224,15 @@ class ReportController extends Controller
 
             foreach ($dbresult as $event) {
 
+                $second_cook = ($event->second == "n.a." ? "" : ", " . $event->second);
                 if ($event->date == $date->toDateString()) {
                     if ($event->time <= '14:00:00') {
-                        $line->morning = $event->cook;
+                        $line->morning = $event->cook . $second_cook;
                     } elseif (isset($line->morning)) {
-                        $line->evening = $event->cook;
+                        $line->evening = $event->cook . $second_cook;
                     } else {
                         $line->morning = ' ';
-                        $line->evening = $event->cook;                        
+                        $line->evening = $event->cook . $second_cook;                        
                     }
                 }
             }

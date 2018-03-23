@@ -23,6 +23,7 @@ class CalendareventController extends Controller
         $ce->date = $request->date;
         $ce->type = $request->type;
         $ce->staff_id = $request->staff_id;
+        $ce->secondstaff_id = $request->secondstaff_id;
         $ce->short_description = $request->short_description;
         $ce->info = (empty($request->info)) ? '' : $request->info;
 
@@ -93,6 +94,7 @@ class CalendareventController extends Controller
             $ce->date = $request->date;
             $ce->type = $request->type;
             $ce->staff_id = $request->staff_id;
+            $ce->secondstaff_id = $request->secondstaff_id;
             $ce->short_description = $request->short_description;
             $ce->time = $request->time;
             $ce->duration = $request->duration;

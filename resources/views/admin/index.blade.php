@@ -75,7 +75,16 @@
 							Cocinero/a:
 						</td>
 						<td>
-							<select name="staff_id" id="cooklist">
+							<select name="staff_id" class="cooklist">
+							</select>				
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Ayudante:
+						</td>
+						<td>
+							<select name="secondstaff_id" class="cooklist">
 							</select>				
 						</td>
 					</tr>
