@@ -6080,6 +6080,26 @@ button.close {
     width: 100%;
     height: 100%; } }
 
+.Eduardo {
+  color: red;
+  background-color: lightpink;
+  padding: inherit; }
+
+.Laura {
+  color: green;
+  background-color: lightgreen;
+  padding: inherit; }
+
+.Lily {
+  color: darkred;
+  background-color: lightsalmon;
+  padding: inherit; }
+
+.Angel {
+  color: darkblue;
+  background-color: lightblue;
+  padding: inherit; }
+
 .blog ul {
   padding-left: 40px;
   list-style: none; }
