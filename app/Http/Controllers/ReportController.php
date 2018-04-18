@@ -224,15 +224,16 @@ class ReportController extends Controller
 
             foreach ($dbresult as $event) {
 
-                $second_cook = ($event->second == "n.a." ? "" : ", " . $event->second);
+                $cook = '<span class="' . $event->cook . '">' . $event->cook . '</span>';
+                $second_cook = ($event->second == "n.a." ? "" : " , " . '<span class="' . $event->second . '">' . $event->second . '</span>');
                 if ($event->date == $date->toDateString()) {
                     if ($event->time <= '14:00:00') {
-                        $line->morning = $event->cook . $second_cook;
+                        $line->morning = $cook . $second_cook;
                     } elseif (isset($line->morning)) {
-                        $line->evening = $event->cook . $second_cook;
+                        $line->evening = $cook . $second_cook;
                     } else {
                         $line->morning = ' ';
-                        $line->evening = $event->cook . $second_cook;                        
+                        $line->evening = $cook . $second_cook;                        
                     }
                 }
             }
