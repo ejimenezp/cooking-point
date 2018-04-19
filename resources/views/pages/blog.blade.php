@@ -44,6 +44,15 @@
         </div>
     </div>
 
+    <div class="col-sm-6">
+        <h4 class="header4"></h4>
+		<a href="/spanish-potato-omelet"><img class="img-responsive center-block" alt="Spanish Potato Omelet" src="/images/blog/spanish-omelet-at-cooking-point.jpg" /></a>
+		<h2 class="header2"><a href="/spanish-potato-omelet">Tortilla de Patatas</a></h2>
+		<p>All you should know about Tortilla: recipe, customs, history, best tortillas in Madrid, ...</p>
+		<div class="text-center">
+			<a href="/spanish-potato-omelet" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
 </div>
 
 @stop
