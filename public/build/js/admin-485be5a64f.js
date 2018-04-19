@@ -20823,7 +20823,7 @@ function bookingEditShow(i, j) {
 		$("input[name=payment_date]").val('');
 		$("textarea[name=food_requirements]").val('');
 		$("textarea[name=comments]").val('');
-		$("select[name=crm]").val('YES');
+		$("select[name=crm]").val('NO');
 		$("input[name=invoice]").val('');
 		url_action = 'bkg_new';
 	} else {
