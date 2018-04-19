@@ -27,8 +27,20 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+
+        $schedule->command('cookingpoint:cron')->dailyAt('04:00');
+
+        $schedule->call(function () {
+            // Fill-in Payment method paella
+            $a = new PaymentMethod('PAELLA');
+            if ($a->query()) { $a->exec(); }
+        })->dailyAt('06:00');       
+
+        $schedule->call(function () {
+            // Fill-in Payment method paella
+            $a = new PaymentMethod('TAPAS');
+            if ($a->query()) { $a->exec(); }
+        })->dailyAt('13:00'); 
     }
 
     /**

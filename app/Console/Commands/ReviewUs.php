@@ -32,7 +32,6 @@ class ReviewUs extends Job {
 
 	protected function action($bkg) {
 
-		Log::debug('checking ' . $bkg->name);
 		switch ($bkg->source->name) {
 			case 'Viator':
 				Log::info('Enviado <ReviewUs on Viator> a ' . $bkg->name);
