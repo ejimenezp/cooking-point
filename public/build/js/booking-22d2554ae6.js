@@ -14881,88 +14881,6 @@ return jQuery;
 } );
 
 },{}],5:[function(require,module,exports){
-//! moment.js locale configuration
-//! locale : Spanish [es]
-//! author : Julio Napurí : https://github.com/julionc
-
-;(function (global, factory) {
-   typeof exports === 'object' && typeof module !== 'undefined'
-       && typeof require === 'function' ? factory(require('../moment')) :
-   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
-   factory(global.moment)
-}(this, function (moment) { 'use strict';
-
-
-    var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split('_'),
-        monthsShort = 'ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic'.split('_');
-
-    var es = moment.defineLocale('es', {
-        months : 'enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre'.split('_'),
-        monthsShort : function (m, format) {
-            if (/-MMM-/.test(format)) {
-                return monthsShort[m.month()];
-            } else {
-                return monthsShortDot[m.month()];
-            }
-        },
-        monthsParseExact : true,
-        weekdays : 'domingo_lunes_martes_miércoles_jueves_viernes_sábado'.split('_'),
-        weekdaysShort : 'dom._lun._mar._mié._jue._vie._sáb.'.split('_'),
-        weekdaysMin : 'do_lu_ma_mi_ju_vi_sá'.split('_'),
-        weekdaysParseExact : true,
-        longDateFormat : {
-            LT : 'H:mm',
-            LTS : 'H:mm:ss',
-            L : 'DD/MM/YYYY',
-            LL : 'D [de] MMMM [de] YYYY',
-            LLL : 'D [de] MMMM [de] YYYY H:mm',
-            LLLL : 'dddd, D [de] MMMM [de] YYYY H:mm'
-        },
-        calendar : {
-            sameDay : function () {
-                return '[hoy a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
-            },
-            nextDay : function () {
-                return '[mañana a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
-            },
-            nextWeek : function () {
-                return 'dddd [a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
-            },
-            lastDay : function () {
-                return '[ayer a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
-            },
-            lastWeek : function () {
-                return '[el] dddd [pasado a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
-            },
-            sameElse : 'L'
-        },
-        relativeTime : {
-            future : 'en %s',
-            past : 'hace %s',
-            s : 'unos segundos',
-            m : 'un minuto',
-            mm : '%d minutos',
-            h : 'una hora',
-            hh : '%d horas',
-            d : 'un día',
-            dd : '%d días',
-            M : 'un mes',
-            MM : '%d meses',
-            y : 'un año',
-            yy : '%d años'
-        },
-        ordinalParse : /\d{1,2}º/,
-        ordinal : '%dº',
-        week : {
-            dow : 1, // Monday is the first day of the week.
-            doy : 4  // The week that contains Jan 4th is the first week of the year.
-        }
-    });
-
-    return es;
-
-}));
-},{"../moment":6}],6:[function(require,module,exports){
 //! moment.js
 //! version : 2.15.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -19197,1532 +19115,265 @@ return jQuery;
     return _moment;
 
 }));
-},{}],7:[function(require,module,exports){
-(function (global){
-/*! https://mths.be/punycode v1.4.1 by @mathias */
-;(function(root) {
+},{}],6:[function(require,module,exports){
+/*
+ * printThis v1.5
+ * @desc Printing plug-in for jQuery
+ * @author Jason Day
+ *
+ * Resources (based on) :
+ *              jPrintArea: http://plugins.jquery.com/project/jPrintArea
+ *              jqPrint: https://github.com/permanenttourist/jquery.jqprint
+ *              Ben Nadal: http://www.bennadel.com/blog/1591-Ask-Ben-Print-Part-Of-A-Web-Page-With-jQuery.htm
+ *
+ * Licensed under the MIT licence:
+ *              http://www.opensource.org/licenses/mit-license.php
+ *
+ * (c) Jason Day 2014
+ *
+ * Usage:
+ *
+ *  $("#mySelector").printThis({
+ *      debug: false,               * show the iframe for debugging
+ *      importCSS: true,            * import page CSS
+ *      importStyle: false,         * import style tags
+ *      printContainer: true,       * grab outer container as well as the contents of the selector
+ *      loadCSS: "path/to/my.css",  * path to additional css file - us an array [] for multiple
+ *      pageTitle: "",              * add title to print page
+ *      removeInline: false,        * remove all inline styles from print elements
+ *      printDelay: 333,            * variable print delay
+ *      header: null,               * prefix to html
+ *      formValues: true            * preserve input/form values
+ *  });
+ *
+ * Notes:
+ *  - the loadCSS will load additional css (with or without @media print) into the iframe, adjusting layout
+ */
+;
+(function($) {
+    var opt;
+    $.fn.printThis = function(options) {
+        opt = $.extend({}, $.fn.printThis.defaults, options);
+        var $element = this instanceof jQuery ? this : $(this);
+
+        var strFrameName = "printThis-" + (new Date()).getTime();
+
+        if (window.location.hostname !== document.domain && navigator.userAgent.match(/msie/i)) {
+            // Ugly IE hacks due to IE not inheriting document.domain from parent
+            // checks if document.domain is set by comparing the host name against document.domain
+            var iframeSrc = "javascript:document.write(\"<head><script>document.domain=\\\"" + document.domain + "\\\";</script></head><body></body>\")";
+            var printI = document.createElement('iframe');
+            printI.name = "printIframe";
+            printI.id = strFrameName;
+            printI.className = "MSIE";
+            document.body.appendChild(printI);
+            printI.src = iframeSrc;
 
-	/** Detect free variables */
-	var freeExports = typeof exports == 'object' && exports &&
-		!exports.nodeType && exports;
-	var freeModule = typeof module == 'object' && module &&
-		!module.nodeType && module;
-	var freeGlobal = typeof global == 'object' && global;
-	if (
-		freeGlobal.global === freeGlobal ||
-		freeGlobal.window === freeGlobal ||
-		freeGlobal.self === freeGlobal
-	) {
-		root = freeGlobal;
-	}
-
-	/**
-	 * The `punycode` object.
-	 * @name punycode
-	 * @type Object
-	 */
-	var punycode,
-
-	/** Highest positive signed 32-bit float value */
-	maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
-
-	/** Bootstring parameters */
-	base = 36,
-	tMin = 1,
-	tMax = 26,
-	skew = 38,
-	damp = 700,
-	initialBias = 72,
-	initialN = 128, // 0x80
-	delimiter = '-', // '\x2D'
-
-	/** Regular expressions */
-	regexPunycode = /^xn--/,
-	regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
-	regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
-
-	/** Error messages */
-	errors = {
-		'overflow': 'Overflow: input needs wider integers to process',
-		'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
-		'invalid-input': 'Invalid input'
-	},
-
-	/** Convenience shortcuts */
-	baseMinusTMin = base - tMin,
-	floor = Math.floor,
-	stringFromCharCode = String.fromCharCode,
-
-	/** Temporary variable */
-	key;
-
-	/*--------------------------------------------------------------------------*/
-
-	/**
-	 * A generic error utility function.
-	 * @private
-	 * @param {String} type The error type.
-	 * @returns {Error} Throws a `RangeError` with the applicable error message.
-	 */
-	function error(type) {
-		throw new RangeError(errors[type]);
-	}
-
-	/**
-	 * A generic `Array#map` utility function.
-	 * @private
-	 * @param {Array} array The array to iterate over.
-	 * @param {Function} callback The function that gets called for every array
-	 * item.
-	 * @returns {Array} A new array of values returned by the callback function.
-	 */
-	function map(array, fn) {
-		var length = array.length;
-		var result = [];
-		while (length--) {
-			result[length] = fn(array[length]);
-		}
-		return result;
-	}
-
-	/**
-	 * A simple `Array#map`-like wrapper to work with domain name strings or email
-	 * addresses.
-	 * @private
-	 * @param {String} domain The domain name or email address.
-	 * @param {Function} callback The function that gets called for every
-	 * character.
-	 * @returns {Array} A new string of characters returned by the callback
-	 * function.
-	 */
-	function mapDomain(string, fn) {
-		var parts = string.split('@');
-		var result = '';
-		if (parts.length > 1) {
-			// In email addresses, only the domain name should be punycoded. Leave
-			// the local part (i.e. everything up to `@`) intact.
-			result = parts[0] + '@';
-			string = parts[1];
-		}
-		// Avoid `split(regex)` for IE8 compatibility. See #17.
-		string = string.replace(regexSeparators, '\x2E');
-		var labels = string.split('.');
-		var encoded = map(labels, fn).join('.');
-		return result + encoded;
-	}
-
-	/**
-	 * Creates an array containing the numeric code points of each Unicode
-	 * character in the string. While JavaScript uses UCS-2 internally,
-	 * this function will convert a pair of surrogate halves (each of which
-	 * UCS-2 exposes as separate characters) into a single code point,
-	 * matching UTF-16.
-	 * @see `punycode.ucs2.encode`
-	 * @see <https://mathiasbynens.be/notes/javascript-encoding>
-	 * @memberOf punycode.ucs2
-	 * @name decode
-	 * @param {String} string The Unicode input string (UCS-2).
-	 * @returns {Array} The new array of code points.
-	 */
-	function ucs2decode(string) {
-		var output = [],
-		    counter = 0,
-		    length = string.length,
-		    value,
-		    extra;
-		while (counter < length) {
-			value = string.charCodeAt(counter++);
-			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
-				// high surrogate, and there is a next character
-				extra = string.charCodeAt(counter++);
-				if ((extra & 0xFC00) == 0xDC00) { // low surrogate
-					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
-				} else {
-					// unmatched surrogate; only append this code unit, in case the next
-					// code unit is the high surrogate of a surrogate pair
-					output.push(value);
-					counter--;
-				}
-			} else {
-				output.push(value);
-			}
-		}
-		return output;
-	}
-
-	/**
-	 * Creates a string based on an array of numeric code points.
-	 * @see `punycode.ucs2.decode`
-	 * @memberOf punycode.ucs2
-	 * @name encode
-	 * @param {Array} codePoints The array of numeric code points.
-	 * @returns {String} The new Unicode string (UCS-2).
-	 */
-	function ucs2encode(array) {
-		return map(array, function(value) {
-			var output = '';
-			if (value > 0xFFFF) {
-				value -= 0x10000;
-				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
-				value = 0xDC00 | value & 0x3FF;
-			}
-			output += stringFromCharCode(value);
-			return output;
-		}).join('');
-	}
-
-	/**
-	 * Converts a basic code point into a digit/integer.
-	 * @see `digitToBasic()`
-	 * @private
-	 * @param {Number} codePoint The basic numeric code point value.
-	 * @returns {Number} The numeric value of a basic code point (for use in
-	 * representing integers) in the range `0` to `base - 1`, or `base` if
-	 * the code point does not represent a value.
-	 */
-	function basicToDigit(codePoint) {
-		if (codePoint - 48 < 10) {
-			return codePoint - 22;
-		}
-		if (codePoint - 65 < 26) {
-			return codePoint - 65;
-		}
-		if (codePoint - 97 < 26) {
-			return codePoint - 97;
-		}
-		return base;
-	}
-
-	/**
-	 * Converts a digit/integer into a basic code point.
-	 * @see `basicToDigit()`
-	 * @private
-	 * @param {Number} digit The numeric value of a basic code point.
-	 * @returns {Number} The basic code point whose value (when used for
-	 * representing integers) is `digit`, which needs to be in the range
-	 * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
-	 * used; else, the lowercase form is used. The behavior is undefined
-	 * if `flag` is non-zero and `digit` has no uppercase form.
-	 */
-	function digitToBasic(digit, flag) {
-		//  0..25 map to ASCII a..z or A..Z
-		// 26..35 map to ASCII 0..9
-		return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
-	}
-
-	/**
-	 * Bias adaptation function as per section 3.4 of RFC 3492.
-	 * https://tools.ietf.org/html/rfc3492#section-3.4
-	 * @private
-	 */
-	function adapt(delta, numPoints, firstTime) {
-		var k = 0;
-		delta = firstTime ? floor(delta / damp) : delta >> 1;
-		delta += floor(delta / numPoints);
-		for (/* no initialization */; delta > baseMinusTMin * tMax >> 1; k += base) {
-			delta = floor(delta / baseMinusTMin);
-		}
-		return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
-	}
-
-	/**
-	 * Converts a Punycode string of ASCII-only symbols to a string of Unicode
-	 * symbols.
-	 * @memberOf punycode
-	 * @param {String} input The Punycode string of ASCII-only symbols.
-	 * @returns {String} The resulting string of Unicode symbols.
-	 */
-	function decode(input) {
-		// Don't use UCS-2
-		var output = [],
-		    inputLength = input.length,
-		    out,
-		    i = 0,
-		    n = initialN,
-		    bias = initialBias,
-		    basic,
-		    j,
-		    index,
-		    oldi,
-		    w,
-		    k,
-		    digit,
-		    t,
-		    /** Cached calculation results */
-		    baseMinusT;
-
-		// Handle the basic code points: let `basic` be the number of input code
-		// points before the last delimiter, or `0` if there is none, then copy
-		// the first basic code points to the output.
-
-		basic = input.lastIndexOf(delimiter);
-		if (basic < 0) {
-			basic = 0;
-		}
-
-		for (j = 0; j < basic; ++j) {
-			// if it's not a basic code point
-			if (input.charCodeAt(j) >= 0x80) {
-				error('not-basic');
-			}
-			output.push(input.charCodeAt(j));
-		}
-
-		// Main decoding loop: start just after the last delimiter if any basic code
-		// points were copied; start at the beginning otherwise.
-
-		for (index = basic > 0 ? basic + 1 : 0; index < inputLength; /* no final expression */) {
-
-			// `index` is the index of the next character to be consumed.
-			// Decode a generalized variable-length integer into `delta`,
-			// which gets added to `i`. The overflow checking is easier
-			// if we increase `i` as we go, then subtract off its starting
-			// value at the end to obtain `delta`.
-			for (oldi = i, w = 1, k = base; /* no condition */; k += base) {
-
-				if (index >= inputLength) {
-					error('invalid-input');
-				}
-
-				digit = basicToDigit(input.charCodeAt(index++));
-
-				if (digit >= base || digit > floor((maxInt - i) / w)) {
-					error('overflow');
-				}
-
-				i += digit * w;
-				t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
-
-				if (digit < t) {
-					break;
-				}
-
-				baseMinusT = base - t;
-				if (w > floor(maxInt / baseMinusT)) {
-					error('overflow');
-				}
-
-				w *= baseMinusT;
-
-			}
-
-			out = output.length + 1;
-			bias = adapt(i - oldi, out, oldi == 0);
-
-			// `i` was supposed to wrap around from `out` to `0`,
-			// incrementing `n` each time, so we'll fix that now:
-			if (floor(i / out) > maxInt - n) {
-				error('overflow');
-			}
-
-			n += floor(i / out);
-			i %= out;
-
-			// Insert `n` at position `i` of the output
-			output.splice(i++, 0, n);
-
-		}
-
-		return ucs2encode(output);
-	}
-
-	/**
-	 * Converts a string of Unicode symbols (e.g. a domain name label) to a
-	 * Punycode string of ASCII-only symbols.
-	 * @memberOf punycode
-	 * @param {String} input The string of Unicode symbols.
-	 * @returns {String} The resulting Punycode string of ASCII-only symbols.
-	 */
-	function encode(input) {
-		var n,
-		    delta,
-		    handledCPCount,
-		    basicLength,
-		    bias,
-		    j,
-		    m,
-		    q,
-		    k,
-		    t,
-		    currentValue,
-		    output = [],
-		    /** `inputLength` will hold the number of code points in `input`. */
-		    inputLength,
-		    /** Cached calculation results */
-		    handledCPCountPlusOne,
-		    baseMinusT,
-		    qMinusT;
-
-		// Convert the input in UCS-2 to Unicode
-		input = ucs2decode(input);
-
-		// Cache the length
-		inputLength = input.length;
-
-		// Initialize the state
-		n = initialN;
-		delta = 0;
-		bias = initialBias;
-
-		// Handle the basic code points
-		for (j = 0; j < inputLength; ++j) {
-			currentValue = input[j];
-			if (currentValue < 0x80) {
-				output.push(stringFromCharCode(currentValue));
-			}
-		}
-
-		handledCPCount = basicLength = output.length;
-
-		// `handledCPCount` is the number of code points that have been handled;
-		// `basicLength` is the number of basic code points.
-
-		// Finish the basic string - if it is not empty - with a delimiter
-		if (basicLength) {
-			output.push(delimiter);
-		}
-
-		// Main encoding loop:
-		while (handledCPCount < inputLength) {
-
-			// All non-basic code points < n have been handled already. Find the next
-			// larger one:
-			for (m = maxInt, j = 0; j < inputLength; ++j) {
-				currentValue = input[j];
-				if (currentValue >= n && currentValue < m) {
-					m = currentValue;
-				}
-			}
-
-			// Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
-			// but guard against overflow
-			handledCPCountPlusOne = handledCPCount + 1;
-			if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
-				error('overflow');
-			}
-
-			delta += (m - n) * handledCPCountPlusOne;
-			n = m;
-
-			for (j = 0; j < inputLength; ++j) {
-				currentValue = input[j];
-
-				if (currentValue < n && ++delta > maxInt) {
-					error('overflow');
-				}
-
-				if (currentValue == n) {
-					// Represent delta as a generalized variable-length integer
-					for (q = delta, k = base; /* no condition */; k += base) {
-						t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
-						if (q < t) {
-							break;
-						}
-						qMinusT = q - t;
-						baseMinusT = base - t;
-						output.push(
-							stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))
-						);
-						q = floor(qMinusT / baseMinusT);
-					}
-
-					output.push(stringFromCharCode(digitToBasic(q, 0)));
-					bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
-					delta = 0;
-					++handledCPCount;
-				}
-			}
-
-			++delta;
-			++n;
-
-		}
-		return output.join('');
-	}
-
-	/**
-	 * Converts a Punycode string representing a domain name or an email address
-	 * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
-	 * it doesn't matter if you call it on a string that has already been
-	 * converted to Unicode.
-	 * @memberOf punycode
-	 * @param {String} input The Punycoded domain name or email address to
-	 * convert to Unicode.
-	 * @returns {String} The Unicode representation of the given Punycode
-	 * string.
-	 */
-	function toUnicode(input) {
-		return mapDomain(input, function(string) {
-			return regexPunycode.test(string)
-				? decode(string.slice(4).toLowerCase())
-				: string;
-		});
-	}
-
-	/**
-	 * Converts a Unicode string representing a domain name or an email address to
-	 * Punycode. Only the non-ASCII parts of the domain name will be converted,
-	 * i.e. it doesn't matter if you call it with a domain that's already in
-	 * ASCII.
-	 * @memberOf punycode
-	 * @param {String} input The domain name or email address to convert, as a
-	 * Unicode string.
-	 * @returns {String} The Punycode representation of the given domain name or
-	 * email address.
-	 */
-	function toASCII(input) {
-		return mapDomain(input, function(string) {
-			return regexNonASCII.test(string)
-				? 'xn--' + encode(string)
-				: string;
-		});
-	}
-
-	/*--------------------------------------------------------------------------*/
-
-	/** Define the public API */
-	punycode = {
-		/**
-		 * A string representing the current Punycode.js version number.
-		 * @memberOf punycode
-		 * @type String
-		 */
-		'version': '1.4.1',
-		/**
-		 * An object of methods to convert from JavaScript's internal character
-		 * representation (UCS-2) to Unicode code points, and back.
-		 * @see <https://mathiasbynens.be/notes/javascript-encoding>
-		 * @memberOf punycode
-		 * @type Object
-		 */
-		'ucs2': {
-			'decode': ucs2decode,
-			'encode': ucs2encode
-		},
-		'decode': decode,
-		'encode': encode,
-		'toASCII': toASCII,
-		'toUnicode': toUnicode
-	};
-
-	/** Expose `punycode` */
-	// Some AMD build optimizers, like r.js, check for specific condition patterns
-	// like the following:
-	if (
-		typeof define == 'function' &&
-		typeof define.amd == 'object' &&
-		define.amd
-	) {
-		define('punycode', function() {
-			return punycode;
-		});
-	} else if (freeExports && freeModule) {
-		if (module.exports == freeExports) {
-			// in Node.js, io.js, or RingoJS v0.8.0+
-			freeModule.exports = punycode;
-		} else {
-			// in Narwhal or RingoJS v0.7.0-
-			for (key in punycode) {
-				punycode.hasOwnProperty(key) && (freeExports[key] = punycode[key]);
-			}
-		}
-	} else {
-		// in Rhino or a web browser
-		root.punycode = punycode;
-	}
-
-}(this));
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],8:[function(require,module,exports){
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-'use strict';
-
-// If obj.hasOwnProperty has been overridden, then calling
-// obj.hasOwnProperty(prop) will break.
-// See: https://github.com/joyent/node/issues/1707
-function hasOwnProperty(obj, prop) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-}
-
-module.exports = function(qs, sep, eq, options) {
-  sep = sep || '&';
-  eq = eq || '=';
-  var obj = {};
-
-  if (typeof qs !== 'string' || qs.length === 0) {
-    return obj;
-  }
-
-  var regexp = /\+/g;
-  qs = qs.split(sep);
-
-  var maxKeys = 1000;
-  if (options && typeof options.maxKeys === 'number') {
-    maxKeys = options.maxKeys;
-  }
-
-  var len = qs.length;
-  // maxKeys <= 0 means that we should not limit keys count
-  if (maxKeys > 0 && len > maxKeys) {
-    len = maxKeys;
-  }
-
-  for (var i = 0; i < len; ++i) {
-    var x = qs[i].replace(regexp, '%20'),
-        idx = x.indexOf(eq),
-        kstr, vstr, k, v;
-
-    if (idx >= 0) {
-      kstr = x.substr(0, idx);
-      vstr = x.substr(idx + 1);
-    } else {
-      kstr = x;
-      vstr = '';
-    }
-
-    k = decodeURIComponent(kstr);
-    v = decodeURIComponent(vstr);
-
-    if (!hasOwnProperty(obj, k)) {
-      obj[k] = v;
-    } else if (isArray(obj[k])) {
-      obj[k].push(v);
-    } else {
-      obj[k] = [obj[k], v];
-    }
-  }
-
-  return obj;
-};
-
-var isArray = Array.isArray || function (xs) {
-  return Object.prototype.toString.call(xs) === '[object Array]';
-};
-
-},{}],9:[function(require,module,exports){
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-'use strict';
-
-var stringifyPrimitive = function(v) {
-  switch (typeof v) {
-    case 'string':
-      return v;
-
-    case 'boolean':
-      return v ? 'true' : 'false';
-
-    case 'number':
-      return isFinite(v) ? v : '';
-
-    default:
-      return '';
-  }
-};
-
-module.exports = function(obj, sep, eq, name) {
-  sep = sep || '&';
-  eq = eq || '=';
-  if (obj === null) {
-    obj = undefined;
-  }
-
-  if (typeof obj === 'object') {
-    return map(objectKeys(obj), function(k) {
-      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
-      if (isArray(obj[k])) {
-        return map(obj[k], function(v) {
-          return ks + encodeURIComponent(stringifyPrimitive(v));
-        }).join(sep);
-      } else {
-        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
-      }
-    }).join(sep);
-
-  }
-
-  if (!name) return '';
-  return encodeURIComponent(stringifyPrimitive(name)) + eq +
-         encodeURIComponent(stringifyPrimitive(obj));
-};
-
-var isArray = Array.isArray || function (xs) {
-  return Object.prototype.toString.call(xs) === '[object Array]';
-};
-
-function map (xs, f) {
-  if (xs.map) return xs.map(f);
-  var res = [];
-  for (var i = 0; i < xs.length; i++) {
-    res.push(f(xs[i], i));
-  }
-  return res;
-}
-
-var objectKeys = Object.keys || function (obj) {
-  var res = [];
-  for (var key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) res.push(key);
-  }
-  return res;
-};
-
-},{}],10:[function(require,module,exports){
-'use strict';
-
-exports.decode = exports.parse = require('./decode');
-exports.encode = exports.stringify = require('./encode');
-
-},{"./decode":8,"./encode":9}],11:[function(require,module,exports){
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-'use strict';
-
-var punycode = require('punycode');
-var util = require('./util');
-
-exports.parse = urlParse;
-exports.resolve = urlResolve;
-exports.resolveObject = urlResolveObject;
-exports.format = urlFormat;
-
-exports.Url = Url;
-
-function Url() {
-  this.protocol = null;
-  this.slashes = null;
-  this.auth = null;
-  this.host = null;
-  this.port = null;
-  this.hostname = null;
-  this.hash = null;
-  this.search = null;
-  this.query = null;
-  this.pathname = null;
-  this.path = null;
-  this.href = null;
-}
-
-// Reference: RFC 3986, RFC 1808, RFC 2396
-
-// define these here so at least they only have to be
-// compiled once on the first module load.
-var protocolPattern = /^([a-z0-9.+-]+:)/i,
-    portPattern = /:[0-9]*$/,
-
-    // Special case for a simple path URL
-    simplePathPattern = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/,
-
-    // RFC 2396: characters reserved for delimiting URLs.
-    // We actually just auto-escape these.
-    delims = ['<', '>', '"', '`', ' ', '\r', '\n', '\t'],
-
-    // RFC 2396: characters not allowed for various reasons.
-    unwise = ['{', '}', '|', '\\', '^', '`'].concat(delims),
-
-    // Allowed by RFCs, but cause of XSS attacks.  Always escape these.
-    autoEscape = ['\''].concat(unwise),
-    // Characters that are never ever allowed in a hostname.
-    // Note that any invalid chars are also handled, but these
-    // are the ones that are *expected* to be seen, so we fast-path
-    // them.
-    nonHostChars = ['%', '/', '?', ';', '#'].concat(autoEscape),
-    hostEndingChars = ['/', '?', '#'],
-    hostnameMaxLen = 255,
-    hostnamePartPattern = /^[+a-z0-9A-Z_-]{0,63}$/,
-    hostnamePartStart = /^([+a-z0-9A-Z_-]{0,63})(.*)$/,
-    // protocols that can allow "unsafe" and "unwise" chars.
-    unsafeProtocol = {
-      'javascript': true,
-      'javascript:': true
-    },
-    // protocols that never have a hostname.
-    hostlessProtocol = {
-      'javascript': true,
-      'javascript:': true
-    },
-    // protocols that always contain a // bit.
-    slashedProtocol = {
-      'http': true,
-      'https': true,
-      'ftp': true,
-      'gopher': true,
-      'file': true,
-      'http:': true,
-      'https:': true,
-      'ftp:': true,
-      'gopher:': true,
-      'file:': true
-    },
-    querystring = require('querystring');
-
-function urlParse(url, parseQueryString, slashesDenoteHost) {
-  if (url && util.isObject(url) && url instanceof Url) return url;
-
-  var u = new Url;
-  u.parse(url, parseQueryString, slashesDenoteHost);
-  return u;
-}
-
-Url.prototype.parse = function(url, parseQueryString, slashesDenoteHost) {
-  if (!util.isString(url)) {
-    throw new TypeError("Parameter 'url' must be a string, not " + typeof url);
-  }
-
-  // Copy chrome, IE, opera backslash-handling behavior.
-  // Back slashes before the query string get converted to forward slashes
-  // See: https://code.google.com/p/chromium/issues/detail?id=25916
-  var queryIndex = url.indexOf('?'),
-      splitter =
-          (queryIndex !== -1 && queryIndex < url.indexOf('#')) ? '?' : '#',
-      uSplit = url.split(splitter),
-      slashRegex = /\\/g;
-  uSplit[0] = uSplit[0].replace(slashRegex, '/');
-  url = uSplit.join(splitter);
-
-  var rest = url;
-
-  // trim before proceeding.
-  // This is to support parse stuff like "  http://foo.com  \n"
-  rest = rest.trim();
-
-  if (!slashesDenoteHost && url.split('#').length === 1) {
-    // Try fast path regexp
-    var simplePath = simplePathPattern.exec(rest);
-    if (simplePath) {
-      this.path = rest;
-      this.href = rest;
-      this.pathname = simplePath[1];
-      if (simplePath[2]) {
-        this.search = simplePath[2];
-        if (parseQueryString) {
-          this.query = querystring.parse(this.search.substr(1));
         } else {
-          this.query = this.search.substr(1);
+            // other browsers inherit document.domain, and IE works if document.domain is not explicitly set
+            var $frame = $("<iframe id='" + strFrameName + "' name='printIframe' />");
+            $frame.appendTo("body");
         }
-      } else if (parseQueryString) {
-        this.search = '';
-        this.query = {};
-      }
-      return this;
-    }
-  }
 
-  var proto = protocolPattern.exec(rest);
-  if (proto) {
-    proto = proto[0];
-    var lowerProto = proto.toLowerCase();
-    this.protocol = lowerProto;
-    rest = rest.substr(proto.length);
-  }
 
-  // figure out if it's got a host
-  // user@server is *always* interpreted as a hostname, and url
-  // resolution will treat //foo/bar as host=foo,path=bar because that's
-  // how the browser resolves relative URLs.
-  if (slashesDenoteHost || proto || rest.match(/^\/\/[^@\/]+@[^@\/]+/)) {
-    var slashes = rest.substr(0, 2) === '//';
-    if (slashes && !(proto && hostlessProtocol[proto])) {
-      rest = rest.substr(2);
-      this.slashes = true;
-    }
-  }
+        var $iframe = $("#" + strFrameName);
 
-  if (!hostlessProtocol[proto] &&
-      (slashes || (proto && !slashedProtocol[proto]))) {
+        // show frame if in debug mode
+        if (!opt.debug) $iframe.css({
+            position: "absolute",
+            width: "0px",
+            height: "0px",
+            left: "-600px",
+            top: "-600px"
+        });
 
-    // there's a hostname.
-    // the first instance of /, ?, ;, or # ends the host.
-    //
-    // If there is an @ in the hostname, then non-host chars *are* allowed
-    // to the left of the last @ sign, unless some host-ending character
-    // comes *before* the @-sign.
-    // URLs are obnoxious.
-    //
-    // ex:
-    // http://a@b@c/ => user:a@b host:c
-    // http://a@b?@c => user:a host:c path:/?@c
 
-    // v0.12 TODO(isaacs): This is not quite how Chrome does things.
-    // Review our test case against browsers more comprehensively.
+        // $iframe.ready() and $iframe.load were inconsistent between browsers    
+        setTimeout(function() {
 
-    // find the first instance of any hostEndingChars
-    var hostEnd = -1;
-    for (var i = 0; i < hostEndingChars.length; i++) {
-      var hec = rest.indexOf(hostEndingChars[i]);
-      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd))
-        hostEnd = hec;
-    }
+            var $doc = $iframe.contents(),
+                $head = $doc.find("head"),
+                $body = $doc.find("body");
 
-    // at this point, either we have an explicit point where the
-    // auth portion cannot go past, or the last @ char is the decider.
-    var auth, atSign;
-    if (hostEnd === -1) {
-      // atSign can be anywhere.
-      atSign = rest.lastIndexOf('@');
-    } else {
-      // atSign must be in auth portion.
-      // http://a@b/c@d => host:b auth:a path:/c@d
-      atSign = rest.lastIndexOf('@', hostEnd);
-    }
+            // add base tag to ensure elements use the parent domain
+            $head.append('<base href="' + document.location.protocol + '//' + document.location.host + '">');
 
-    // Now we have a portion which is definitely the auth.
-    // Pull that off.
-    if (atSign !== -1) {
-      auth = rest.slice(0, atSign);
-      rest = rest.slice(atSign + 1);
-      this.auth = decodeURIComponent(auth);
-    }
+            // import page stylesheets
+            if (opt.importCSS) $("link[rel=stylesheet]").each(function() {
+                var href = $(this).attr("href");
+                if (href) {
+                    var media = $(this).attr("media") || "all";
+                    $head.append("<link type='text/css' rel='stylesheet' href='" + href + "' media='" + media + "'>")
+                }
+            });
+            
+            // import style tags
+            if (opt.importStyle) $("style").each(function() {
+                $(this).clone().appendTo($head);
+                //$head.append($(this));
+            });
 
-    // the host is the remaining to the left of the first non-host char
-    hostEnd = -1;
-    for (var i = 0; i < nonHostChars.length; i++) {
-      var hec = rest.indexOf(nonHostChars[i]);
-      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd))
-        hostEnd = hec;
-    }
-    // if we still have not hit it, then the entire thing is a host.
-    if (hostEnd === -1)
-      hostEnd = rest.length;
+            //add title of the page
+            if (opt.pageTitle) $head.append("<title>" + opt.pageTitle + "</title>");
 
-    this.host = rest.slice(0, hostEnd);
-    rest = rest.slice(hostEnd);
-
-    // pull out port.
-    this.parseHost();
-
-    // we've indicated that there is a hostname,
-    // so even if it's empty, it has to be present.
-    this.hostname = this.hostname || '';
-
-    // if hostname begins with [ and ends with ]
-    // assume that it's an IPv6 address.
-    var ipv6Hostname = this.hostname[0] === '[' &&
-        this.hostname[this.hostname.length - 1] === ']';
-
-    // validate a little.
-    if (!ipv6Hostname) {
-      var hostparts = this.hostname.split(/\./);
-      for (var i = 0, l = hostparts.length; i < l; i++) {
-        var part = hostparts[i];
-        if (!part) continue;
-        if (!part.match(hostnamePartPattern)) {
-          var newpart = '';
-          for (var j = 0, k = part.length; j < k; j++) {
-            if (part.charCodeAt(j) > 127) {
-              // we replace non-ASCII char with a temporary placeholder
-              // we need this to make sure size of hostname is not
-              // broken by replacing non-ASCII by nothing
-              newpart += 'x';
-            } else {
-              newpart += part[j];
+            // import additional stylesheet(s)
+            if (opt.loadCSS) {
+               if( $.isArray(opt.loadCSS)) {
+                    jQuery.each(opt.loadCSS, function(index, value) {
+                       $head.append("<link type='text/css' rel='stylesheet' href='" + this + "'>");
+                    });
+                } else {
+                    $head.append("<link type='text/css' rel='stylesheet' href='" + opt.loadCSS + "'>");
+                }
             }
-          }
-          // we test again with ASCII char only
-          if (!newpart.match(hostnamePartPattern)) {
-            var validParts = hostparts.slice(0, i);
-            var notHost = hostparts.slice(i + 1);
-            var bit = part.match(hostnamePartStart);
-            if (bit) {
-              validParts.push(bit[1]);
-              notHost.unshift(bit[2]);
+
+            // print header
+            if (opt.header) $body.append(opt.header);
+
+            // grab $.selector as container
+            if (opt.printContainer) $body.append($element.outer());
+
+            // otherwise just print interior elements of container
+            else $element.each(function() {
+                $body.append($(this).html());
+            });
+
+            // capture form/field values
+            if (opt.formValues) {
+                // loop through inputs
+                var $input = $element.find('input');
+                if ($input.length) {
+                    $input.each(function() {
+                        var $this = $(this),
+                            $name = $(this).attr('name'),
+                            $checker = $this.is(':checkbox') || $this.is(':radio'),
+                            $iframeInput = $doc.find('input[name="' + $name + '"]'),
+                            $value = $this.val();
+
+                        //order matters here
+                        if (!$checker) {
+                            $iframeInput.val($value);
+                        } else if ($this.is(':checked')) {
+                            if ($this.is(':checkbox')) {
+                                $iframeInput.attr('checked', 'checked');
+                            } else if ($this.is(':radio')) {
+                                $doc.find('input[name="' + $name + '"][value=' + $value + ']').attr('checked', 'checked');
+                            }
+                        }
+
+                    });
+                }
+
+                //loop through selects
+                var $select = $element.find('select');
+                if ($select.length) {
+                    $select.each(function() {
+                        var $this = $(this),
+                            $name = $(this).attr('name'),
+                            $value = $this.val();
+                        $doc.find('select[name="' + $name + '"]').val($value);
+                    });
+                }
+
+                //loop through textareas
+                var $textarea = $element.find('textarea');
+                if ($textarea.length) {
+                    $textarea.each(function() {
+                        var $this = $(this),
+                            $name = $(this).attr('name'),
+                            $value = $this.val();
+                        $doc.find('textarea[name="' + $name + '"]').val($value);
+                    });
+                }
+            } // end capture form/field values
+
+            // remove inline styles
+            if (opt.removeInline) {
+                // $.removeAttr available jQuery 1.7+
+                if ($.isFunction($.removeAttr)) {
+                    $doc.find("body *").removeAttr("style");
+                } else {
+                    $doc.find("body *").attr("style", "");
+                }
             }
-            if (notHost.length) {
-              rest = '/' + notHost.join('.') + rest;
-            }
-            this.hostname = validParts.join('.');
-            break;
-          }
-        }
-      }
+
+            setTimeout(function() {
+                if ($iframe.hasClass("MSIE")) {
+                    // check if the iframe was created with the ugly hack
+                    // and perform another ugly hack out of neccessity
+                    window.frames["printIframe"].focus();
+                    $head.append("<script>  window.print(); </script>");
+                } else {
+                    // proper method
+                    $iframe[0].contentWindow.focus();
+                    $iframe[0].contentWindow.print();
+                }
+
+                //remove iframe after print
+                if (!opt.debug) {
+                    setTimeout(function() {
+                        $iframe.remove();
+                    }, 1000);
+                }
+
+            }, opt.printDelay);
+
+        }, 333);
+
+    };
+
+    // defaults
+    $.fn.printThis.defaults = {
+        debug: false,           // show the iframe for debugging
+        importCSS: true,        // import parent page css
+        importStyle: false,     // import style tags
+        printContainer: true,   // print outer container/$.selector
+        loadCSS: "",            // load an additional css file - load multiple stylesheets with an array []
+        pageTitle: "",          // add title to print page
+        removeInline: false,    // remove all inline styles
+        printDelay: 333,        // variable print delay
+        header: null,           // prefix to html
+        formValues: true        // preserve input/form values
+    };
+
+    // $.selector container
+    jQuery.fn.outer = function() {
+        return $($("<div></div>").html(this.clone())).html()
     }
+})(jQuery);
 
-    if (this.hostname.length > hostnameMaxLen) {
-      this.hostname = '';
-    } else {
-      // hostnames are always lower case.
-      this.hostname = this.hostname.toLowerCase();
-    }
-
-    if (!ipv6Hostname) {
-      // IDNA Support: Returns a punycoded representation of "domain".
-      // It only converts parts of the domain name that
-      // have non-ASCII characters, i.e. it doesn't matter if
-      // you call it with a domain that already is ASCII-only.
-      this.hostname = punycode.toASCII(this.hostname);
-    }
-
-    var p = this.port ? ':' + this.port : '';
-    var h = this.hostname || '';
-    this.host = h + p;
-    this.href += this.host;
-
-    // strip [ and ] from the hostname
-    // the host field still retains them, though
-    if (ipv6Hostname) {
-      this.hostname = this.hostname.substr(1, this.hostname.length - 2);
-      if (rest[0] !== '/') {
-        rest = '/' + rest;
-      }
-    }
-  }
-
-  // now rest is set to the post-host stuff.
-  // chop off any delim chars.
-  if (!unsafeProtocol[lowerProto]) {
-
-    // First, make 100% sure that any "autoEscape" chars get
-    // escaped, even if encodeURIComponent doesn't think they
-    // need to be.
-    for (var i = 0, l = autoEscape.length; i < l; i++) {
-      var ae = autoEscape[i];
-      if (rest.indexOf(ae) === -1)
-        continue;
-      var esc = encodeURIComponent(ae);
-      if (esc === ae) {
-        esc = escape(ae);
-      }
-      rest = rest.split(ae).join(esc);
-    }
-  }
-
-
-  // chop off from the tail first.
-  var hash = rest.indexOf('#');
-  if (hash !== -1) {
-    // got a fragment string.
-    this.hash = rest.substr(hash);
-    rest = rest.slice(0, hash);
-  }
-  var qm = rest.indexOf('?');
-  if (qm !== -1) {
-    this.search = rest.substr(qm);
-    this.query = rest.substr(qm + 1);
-    if (parseQueryString) {
-      this.query = querystring.parse(this.query);
-    }
-    rest = rest.slice(0, qm);
-  } else if (parseQueryString) {
-    // no query string, but parseQueryString still requested
-    this.search = '';
-    this.query = {};
-  }
-  if (rest) this.pathname = rest;
-  if (slashedProtocol[lowerProto] &&
-      this.hostname && !this.pathname) {
-    this.pathname = '/';
-  }
-
-  //to support http.request
-  if (this.pathname || this.search) {
-    var p = this.pathname || '';
-    var s = this.search || '';
-    this.path = p + s;
-  }
-
-  // finally, reconstruct the href based on what has been validated.
-  this.href = this.format();
-  return this;
-};
-
-// format a parsed object into a url string
-function urlFormat(obj) {
-  // ensure it's an object, and not a string url.
-  // If it's an obj, this is a no-op.
-  // this way, you can call url_format() on strings
-  // to clean up potentially wonky urls.
-  if (util.isString(obj)) obj = urlParse(obj);
-  if (!(obj instanceof Url)) return Url.prototype.format.call(obj);
-  return obj.format();
-}
-
-Url.prototype.format = function() {
-  var auth = this.auth || '';
-  if (auth) {
-    auth = encodeURIComponent(auth);
-    auth = auth.replace(/%3A/i, ':');
-    auth += '@';
-  }
-
-  var protocol = this.protocol || '',
-      pathname = this.pathname || '',
-      hash = this.hash || '',
-      host = false,
-      query = '';
-
-  if (this.host) {
-    host = auth + this.host;
-  } else if (this.hostname) {
-    host = auth + (this.hostname.indexOf(':') === -1 ?
-        this.hostname :
-        '[' + this.hostname + ']');
-    if (this.port) {
-      host += ':' + this.port;
-    }
-  }
-
-  if (this.query &&
-      util.isObject(this.query) &&
-      Object.keys(this.query).length) {
-    query = querystring.stringify(this.query);
-  }
-
-  var search = this.search || (query && ('?' + query)) || '';
-
-  if (protocol && protocol.substr(-1) !== ':') protocol += ':';
-
-  // only the slashedProtocols get the //.  Not mailto:, xmpp:, etc.
-  // unless they had them to begin with.
-  if (this.slashes ||
-      (!protocol || slashedProtocol[protocol]) && host !== false) {
-    host = '//' + (host || '');
-    if (pathname && pathname.charAt(0) !== '/') pathname = '/' + pathname;
-  } else if (!host) {
-    host = '';
-  }
-
-  if (hash && hash.charAt(0) !== '#') hash = '#' + hash;
-  if (search && search.charAt(0) !== '?') search = '?' + search;
-
-  pathname = pathname.replace(/[?#]/g, function(match) {
-    return encodeURIComponent(match);
-  });
-  search = search.replace('#', '%23');
-
-  return protocol + host + pathname + search + hash;
-};
-
-function urlResolve(source, relative) {
-  return urlParse(source, false, true).resolve(relative);
-}
-
-Url.prototype.resolve = function(relative) {
-  return this.resolveObject(urlParse(relative, false, true)).format();
-};
-
-function urlResolveObject(source, relative) {
-  if (!source) return relative;
-  return urlParse(source, false, true).resolveObject(relative);
-}
-
-Url.prototype.resolveObject = function(relative) {
-  if (util.isString(relative)) {
-    var rel = new Url();
-    rel.parse(relative, false, true);
-    relative = rel;
-  }
-
-  var result = new Url();
-  var tkeys = Object.keys(this);
-  for (var tk = 0; tk < tkeys.length; tk++) {
-    var tkey = tkeys[tk];
-    result[tkey] = this[tkey];
-  }
-
-  // hash is always overridden, no matter what.
-  // even href="" will remove it.
-  result.hash = relative.hash;
-
-  // if the relative url is empty, then there's nothing left to do here.
-  if (relative.href === '') {
-    result.href = result.format();
-    return result;
-  }
-
-  // hrefs like //foo/bar always cut to the protocol.
-  if (relative.slashes && !relative.protocol) {
-    // take everything except the protocol from relative
-    var rkeys = Object.keys(relative);
-    for (var rk = 0; rk < rkeys.length; rk++) {
-      var rkey = rkeys[rk];
-      if (rkey !== 'protocol')
-        result[rkey] = relative[rkey];
-    }
-
-    //urlParse appends trailing / to urls like http://www.example.com
-    if (slashedProtocol[result.protocol] &&
-        result.hostname && !result.pathname) {
-      result.path = result.pathname = '/';
-    }
-
-    result.href = result.format();
-    return result;
-  }
-
-  if (relative.protocol && relative.protocol !== result.protocol) {
-    // if it's a known url protocol, then changing
-    // the protocol does weird things
-    // first, if it's not file:, then we MUST have a host,
-    // and if there was a path
-    // to begin with, then we MUST have a path.
-    // if it is file:, then the host is dropped,
-    // because that's known to be hostless.
-    // anything else is assumed to be absolute.
-    if (!slashedProtocol[relative.protocol]) {
-      var keys = Object.keys(relative);
-      for (var v = 0; v < keys.length; v++) {
-        var k = keys[v];
-        result[k] = relative[k];
-      }
-      result.href = result.format();
-      return result;
-    }
-
-    result.protocol = relative.protocol;
-    if (!relative.host && !hostlessProtocol[relative.protocol]) {
-      var relPath = (relative.pathname || '').split('/');
-      while (relPath.length && !(relative.host = relPath.shift()));
-      if (!relative.host) relative.host = '';
-      if (!relative.hostname) relative.hostname = '';
-      if (relPath[0] !== '') relPath.unshift('');
-      if (relPath.length < 2) relPath.unshift('');
-      result.pathname = relPath.join('/');
-    } else {
-      result.pathname = relative.pathname;
-    }
-    result.search = relative.search;
-    result.query = relative.query;
-    result.host = relative.host || '';
-    result.auth = relative.auth;
-    result.hostname = relative.hostname || relative.host;
-    result.port = relative.port;
-    // to support http.request
-    if (result.pathname || result.search) {
-      var p = result.pathname || '';
-      var s = result.search || '';
-      result.path = p + s;
-    }
-    result.slashes = result.slashes || relative.slashes;
-    result.href = result.format();
-    return result;
-  }
-
-  var isSourceAbs = (result.pathname && result.pathname.charAt(0) === '/'),
-      isRelAbs = (
-          relative.host ||
-          relative.pathname && relative.pathname.charAt(0) === '/'
-      ),
-      mustEndAbs = (isRelAbs || isSourceAbs ||
-                    (result.host && relative.pathname)),
-      removeAllDots = mustEndAbs,
-      srcPath = result.pathname && result.pathname.split('/') || [],
-      relPath = relative.pathname && relative.pathname.split('/') || [],
-      psychotic = result.protocol && !slashedProtocol[result.protocol];
-
-  // if the url is a non-slashed url, then relative
-  // links like ../.. should be able
-  // to crawl up to the hostname, as well.  This is strange.
-  // result.protocol has already been set by now.
-  // Later on, put the first path part into the host field.
-  if (psychotic) {
-    result.hostname = '';
-    result.port = null;
-    if (result.host) {
-      if (srcPath[0] === '') srcPath[0] = result.host;
-      else srcPath.unshift(result.host);
-    }
-    result.host = '';
-    if (relative.protocol) {
-      relative.hostname = null;
-      relative.port = null;
-      if (relative.host) {
-        if (relPath[0] === '') relPath[0] = relative.host;
-        else relPath.unshift(relative.host);
-      }
-      relative.host = null;
-    }
-    mustEndAbs = mustEndAbs && (relPath[0] === '' || srcPath[0] === '');
-  }
-
-  if (isRelAbs) {
-    // it's absolute.
-    result.host = (relative.host || relative.host === '') ?
-                  relative.host : result.host;
-    result.hostname = (relative.hostname || relative.hostname === '') ?
-                      relative.hostname : result.hostname;
-    result.search = relative.search;
-    result.query = relative.query;
-    srcPath = relPath;
-    // fall through to the dot-handling below.
-  } else if (relPath.length) {
-    // it's relative
-    // throw away the existing file, and take the new path instead.
-    if (!srcPath) srcPath = [];
-    srcPath.pop();
-    srcPath = srcPath.concat(relPath);
-    result.search = relative.search;
-    result.query = relative.query;
-  } else if (!util.isNullOrUndefined(relative.search)) {
-    // just pull out the search.
-    // like href='?foo'.
-    // Put this after the other two cases because it simplifies the booleans
-    if (psychotic) {
-      result.hostname = result.host = srcPath.shift();
-      //occationaly the auth can get stuck only in host
-      //this especially happens in cases like
-      //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
-      var authInHost = result.host && result.host.indexOf('@') > 0 ?
-                       result.host.split('@') : false;
-      if (authInHost) {
-        result.auth = authInHost.shift();
-        result.host = result.hostname = authInHost.shift();
-      }
-    }
-    result.search = relative.search;
-    result.query = relative.query;
-    //to support http.request
-    if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
-      result.path = (result.pathname ? result.pathname : '') +
-                    (result.search ? result.search : '');
-    }
-    result.href = result.format();
-    return result;
-  }
-
-  if (!srcPath.length) {
-    // no path at all.  easy.
-    // we've already handled the other stuff above.
-    result.pathname = null;
-    //to support http.request
-    if (result.search) {
-      result.path = '/' + result.search;
-    } else {
-      result.path = null;
-    }
-    result.href = result.format();
-    return result;
-  }
-
-  // if a url ENDs in . or .., then it must get a trailing slash.
-  // however, if it ends in anything else non-slashy,
-  // then it must NOT get a trailing slash.
-  var last = srcPath.slice(-1)[0];
-  var hasTrailingSlash = (
-      (result.host || relative.host || srcPath.length > 1) &&
-      (last === '.' || last === '..') || last === '');
-
-  // strip single dots, resolve double dots to parent dir
-  // if the path tries to go above the root, `up` ends up > 0
-  var up = 0;
-  for (var i = srcPath.length; i >= 0; i--) {
-    last = srcPath[i];
-    if (last === '.') {
-      srcPath.splice(i, 1);
-    } else if (last === '..') {
-      srcPath.splice(i, 1);
-      up++;
-    } else if (up) {
-      srcPath.splice(i, 1);
-      up--;
-    }
-  }
-
-  // if the path is allowed to go above the root, restore leading ..s
-  if (!mustEndAbs && !removeAllDots) {
-    for (; up--; up) {
-      srcPath.unshift('..');
-    }
-  }
-
-  if (mustEndAbs && srcPath[0] !== '' &&
-      (!srcPath[0] || srcPath[0].charAt(0) !== '/')) {
-    srcPath.unshift('');
-  }
-
-  if (hasTrailingSlash && (srcPath.join('/').substr(-1) !== '/')) {
-    srcPath.push('');
-  }
-
-  var isAbsolute = srcPath[0] === '' ||
-      (srcPath[0] && srcPath[0].charAt(0) === '/');
-
-  // put the host back
-  if (psychotic) {
-    result.hostname = result.host = isAbsolute ? '' :
-                                    srcPath.length ? srcPath.shift() : '';
-    //occationaly the auth can get stuck only in host
-    //this especially happens in cases like
-    //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
-    var authInHost = result.host && result.host.indexOf('@') > 0 ?
-                     result.host.split('@') : false;
-    if (authInHost) {
-      result.auth = authInHost.shift();
-      result.host = result.hostname = authInHost.shift();
-    }
-  }
-
-  mustEndAbs = mustEndAbs || (result.host && srcPath.length);
-
-  if (mustEndAbs && !isAbsolute) {
-    srcPath.unshift('');
-  }
-
-  if (!srcPath.length) {
-    result.pathname = null;
-    result.path = null;
-  } else {
-    result.pathname = srcPath.join('/');
-  }
-
-  //to support request.http
-  if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
-    result.path = (result.pathname ? result.pathname : '') +
-                  (result.search ? result.search : '');
-  }
-  result.auth = relative.auth || result.auth;
-  result.slashes = result.slashes || relative.slashes;
-  result.href = result.format();
-  return result;
-};
-
-Url.prototype.parseHost = function() {
-  var host = this.host;
-  var port = portPattern.exec(host);
-  if (port) {
-    port = port[0];
-    if (port !== ':') {
-      this.port = port.substr(1);
-    }
-    host = host.substr(0, host.length - port.length);
-  }
-  if (host) this.hostname = host;
-};
-
-},{"./util":12,"punycode":7,"querystring":10}],12:[function(require,module,exports){
-'use strict';
-
-module.exports = {
-  isString: function(arg) {
-    return typeof(arg) === 'string';
-  },
-  isObject: function(arg) {
-    return typeof(arg) === 'object' && arg !== null;
-  },
-  isNull: function(arg) {
-    return arg === null;
-  },
-  isNullOrUndefined: function(arg) {
-    return arg == null;
-  }
-};
-
-},{}],13:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 window.$ = window.jQuery = require('jquery');
 require('jquery-ui/ui/widgets/datepicker');
 require('bootstrap-sass');
 require('jquery-serializejson');
+require('printThis');
 
 var moment = require('moment');
-require('moment/locale/es');
-var url = require('url');
 
 //
 // Global variables
 //
-var hoy = moment();
-var date_shown = hoy.clone();
+var date_shown = null;
 var form_changed = false;
-var cook = Array();
-var source = Array();
-var bookings = Array();
-var month_schedule = Array();
-var user_name;
-var user_role;
-
-var stateObj = { foo: "bar" };
-var current_url = window.location.href;
-var parts = url.parse(current_url, true);
+var month_changed = false;
+var month_availability = Array();
+var ce_i = 0; // index of ce within month_availability
+var bkg = null;
+var locator = null;
+var tpv_result = null;
 
 //
-// token protection
+// Initialization
 //
-$.ajaxSetup({
-	headers: {
-		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	}
-});
+// $.ajaxSetup({
+//     headers: {
+//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//     }
+// });
 
-//
-// datepicker locale
-//
-$.datepicker.regional['es'] = {
-	closeText: 'Cerrar',
-	prevText: '<<',
-	nextText: '>>',
-	currentText: 'Hoy',
-	monthNames: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
-	monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-	dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
-	dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
-	dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
-	weekHeader: 'Sm',
-	firstDay: 1,
-	isRTL: false,
-	showMonthAfterYear: false,
-	yearSuffix: '' };
-
-$.datepicker.setDefaults($.datepicker.regional['es']);
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -20731,230 +19382,77 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
 ///////////////////////////////////////////////////////////////////
 
 //
-// Function: refreshDateShown
-// refresh all selectors with the new date's data
+// Function: getDayAvailability
+// Datepicker's beforeShowDay function
 //
-function refreshDateShown(month_schedule, date_shown) {
-	var date_shown_locale = date_shown.format('dddd, D MMMM YYYY');
-	$('.dateshown').html(date_shown_locale);
+function getDayAvailability(day) {
+	var type_shown = $("select[name=type]").val();
+	var adult = parseInt($("select[name=adult]").val());
+	var child = parseInt($("select[name=child]").val());
+	var a_day = moment(day);
+	var right_now = rightNow();
+	var i, registered, capacity, n, class_type, start;
+	var to_return = null;
 
-	// aqui, refrescar el index del día	
-	var edit_button, classemails_button;
+	for (i = 0; i < month_availability.length; i++) {
+		registered = parseInt(month_availability[i].registered);
+		capacity = parseInt(month_availability[i].capacity);
+		class_type = month_availability[i].type;
+		start = moment(month_availability[i].date + ' ' + month_availability[i].time);
+		n = registered + adult + child;
 
-	$("#calendarevent_table > tbody").empty();
-	for (var i = 0; i < month_schedule.length; i++) {
-		edit_button = '';
-		classemails_button = '';
-		if (user_role >= 3) {
-			edit_button = '<button class="btn btn-primary btn-xs button_calendarevent_edit" data-i="' + i + '">Detalles</button>';
-		} else if (user_role >= 2 && month_schedule[i].info != '') {
-			edit_button = '<button class="btn btn-primary btn-xs button_calendarevent_info" data-i="' + i + '">+info</button>';
-		} else {
-			edit_button = '';
-		}
-		if (user_name == 'Emails') {
-			classemails_button = '<a class="btn btn-primary btn-xs" href="/admin/classemails?ce_id=' + month_schedule[i].id + '">E-mails</a>';
-		}
-
-		var calendarevent_tr_class = user_role >= 2 ? 'calendarevent_line' : '';
-		var secondstaff_name;
-
-		if (month_schedule[i].date == date_shown.format('YYYY-MM-DD')) {
-
-			secondstaff_name = month_schedule[i].secondstaff_id == 2 ? "" : ", " + cookName(month_schedule[i].secondstaff_id);
-			$('#calendarevent_table > tbody:last').append('<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].time.substring(0, 5) + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].type + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + cookName(month_schedule[i].staff_id) + secondstaff_name + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].registered + '</td><td>' + classemails_button + edit_button + '</td></tr>');
-		}
-	}
-}
-
-//
-// Function: addSlashes
-// escape input fields to prevent sql statements break
-//
-
-// function addSlashes(string) {
-
-//     return string.replace(/\\/g, '').
-//       replace(/\u0008/g, '\\b').
-//        replace(/\t/g, '\\t').
-//         replace(/\n/g, '<br\/>').
-//         replace(/\f/g, '\\f').
-//         replace(/\r/g, '\\r').
-//       replace(/'/g, '\\\'').
-//        replace(/"/g, '\\"');
-// }
-
-//
-// Function: bookingEditShow
-// populate and show screen to add new or edit 
-//
-function bookingEditShow(i, j) {
-
-	var url_action;
-	var booking_date;
-	var booking_moment;
-
-	if (j < 0) {
-		// nueva reserva
-		$('#booking_edit h1').html('Nueva Reserva');
-		$('#button_booking_delete').hide();
-		$('.dateshown, .classshown').show();
-		booking_date = month_schedule[i].date;
-		booking_moment = moment(booking_date);
-		$("input[name=date]").val(booking_date);
-		$('.booking_date_input').hide();
-
-		$("input[name=id]").val(0); // new booking
-		$("input[name=calendarevent_id]").val(month_schedule[i].id);
-		$("select[name=source_id]").val('3'); // user
-		$("select[name=status]").val('GUARANTEE');
-		$("input[name=status_filter]").val('REGISTERED');
-		$("input[name=name]").val('');
-		$("input[name=email]").val('');
-		$("input[name=phone]").val('');
-		$("input[name=locator]").val('');
-		$('select[name=adult]').val(1);
-		$("select[name=child]").val(0);
-		$("input[name=price]").val($("select[name=adult]").val() * 70 + $("select[name=child]").val() * 35);
-		$("input[name=iva]").prop('checked', 1);
-		$("input[name=hide_price]").prop('checked', 0);
-		$("input[name=fixed_date]").prop('checked', 0);
-		$("select[name=pay_method]").val('N/A');
-		$("input[name=payment_date]").val('');
-		$("textarea[name=food_requirements]").val('');
-		$("textarea[name=comments]").val('');
-		$("select[name=crm]").val('YES');
-		url_action = 'bkg_new';
-	} else {
-		$("#booking_edit h1").html("Editar Reserva");
-		$('#button_booking_delete').show();
-		$('.booking_date_input').show();
-		$('.dateshown, .classshown').show();
-		booking_date = month_schedule[i].date;
-		booking_moment = moment(booking_date);
-		$("#booking_date_edit").val(booking_moment.format('dddd, D MMMM YYYY'));
-		$("input[name=date]").val(booking_date);
-		populateSelect_dayeventlist();
-		$("#dayeventlist").val(bookings[j].calendarevent_id);
-		$("input[name=id]").val(bookings[j].id);
-		$("input[name=calendarevent_id]").val(bookings[j].calendarevent_id);
-		$("select[name=source_id]").val(bookings[j].source_id);
-		$("select[name=status]").val(bookings[j].status);
-		$("input[name=status_filter]").val(bookings[j].status_filter);
-		$("input[name=name]").val(bookings[j].name);
-		$("input[name=email]").val(bookings[j].email);
-		$("input[name=phone]").val(bookings[j].phone);
-		$('select[name=adult]').val(bookings[j].adult);
-		$("select[name=child]").val(bookings[j].child);
-		$("input[name=price]").val(bookings[j].price);
-		$("input[name=iva]").prop('checked', parseInt(bookings[j].iva));
-		$("input[name=hide_price]").prop('checked', parseInt(bookings[j].hide_price));
-		$("input[name=fixed_date]").prop('checked', parseInt(bookings[j].fixed_date));
-		$("select[name=pay_method]").val(bookings[j].pay_method);
-		$("input[name=payment_date]").val(bookings[j].payment_date);
-		$("textarea[name=food_requirements]").val(bookings[j].food_requirements);
-		$("textarea[name=comments]").val(bookings[j].comments);
-		$("select[name=crm]").val(bookings[j].crm);
-		$("input[name=locator]").val(bookings[j].locator);
-		url_action = 'bkg_edit';
-	}
-	updateUrl(parts, '/admin/booking', moment(booking_date), url_action, i, j);
-	showPrice();
-	$('#booking_edit').show();
-}
-
-//
-// Function: calendarEventEditShow
-// populate and show calendar event screen to add new or edit 
-//
-function calendarEventEditShow(month_schedule, date_shown, i) {
-
-	var ce_id;
-	var url_action;
-
-	if (i < 0) {
-		// nuevo evento
-		$('#calendarevent_edit h1').html('Nuevo Evento');
-		$('#button_calendarevent_delete').hide();
-		ce_id = 0;
-		$("input[name=id]").val(ce_id);
-		$("input[name=date]").val(date_shown.format('YYYY-MM-DD'));
-		$("#eventdatepicker").val(date_shown.format('dddd, D MMMM YYYY'));
-		$("select[name=type]").val('GROUP');
-		$("input[name=short_description]").val('');
-		$("select[name=staff_id]").val(2); // not assigned yet
-		$("select[name=secondstaff_id]").val(2); // not assigned yet
-		$("select[name=time]").val('10:00:00');
-		$("select[name=duration]").val('04:00:00');
-		$("input[name=capacity]").val(24);
-		$("textarea[name=info]").val('');
-		url_action = 'ce_new';
-	} else {
-		$("#calendarevent_edit h1").html("Editar Evento");
-		$('#button_calendarevent_delete').show();
-		ce_id = month_schedule[i].id;
-		$("input[name=id]").val(ce_id);
-		$("input[name=date]").val(month_schedule[i].date);
-		$("#eventdatepicker").val(date_shown.format('dddd, D MMMM YYYY'));
-		$("select[name=type]").val(month_schedule[i].type);
-		$("input[name=short_description]").val(month_schedule[i].short_description);
-		$("select[name=staff_id]").val(month_schedule[i].staff_id);
-		$("select[name=secondstaff_id]").val(month_schedule[i].secondstaff_id);
-		$("select[name=time]").val(month_schedule[i].time);
-		$("select[name=duration]").val(month_schedule[i].duration);
-		$("input[name=capacity]").val(month_schedule[i].capacity);
-		$("textarea[name=info]").val(month_schedule[i].info);
-		url_action = 'ce_edit';
-	}
-	updateUrl(parts, '/admin/calendarevent', moment($("input[name=date]").val()), url_action, i);
-	$('#calendarevent_edit').show();
-}
-
-//
-// Function: cookName
-// return the cook from the cook list retrieved on load 
-//
-function cookName(id) {
-	for (var i = 0; i < cook.length; i++) {
-		if (cook[i].id == id) {
-			return cook[i].name;
-		}
-	}
-}
-
-//
-// Function: getDaySchedule
-// retrieve events for a date (string YYYY-MM-DD)
-//
-function getDaySchedule(a_date) {
-	var response = $.ajax({
-		type: 'POST',
-		url: '/api/calendarevent/getschedule',
-		data: { start: a_date, end: a_date, bookable_only: 1 },
-		dataType: 'json',
-		async: false,
-		success: function success(msg) {
-			if (msg.status == 'fail') {
-				alert('Error al acceder al calendario');
+		if (a_day.isSame(start, 'day') && start.isSameOrAfter(right_now) && class_type == type_shown) {
+			if (registered >= capacity) {
+				to_return = [false, '', 'Class Full'];
+				break;
+			} else if (n > capacity) {
+				to_return = [false, '', 'Not Enough Room'];
+				break;
+			} else if (n > 8) {
+				to_return = [true, 'day-last-seats', 'Last Seats'];
+				break;
+			} else {
+				to_return = [true, 'day-available', 'Available'];
+				break;
 			}
 		}
-	}).responseText;
-	return JSON.parse(response).data;
-}
+	}
 
+	if (bkg && bkg.type === 'GROUP') {
+		to_return = [true, 'day-available', 'Private Class'];
+	}
+
+	if (to_return) {
+		if (!to_return[0]) {
+			return to_return;
+		} else if (start.clone().subtract(2, 'hours').isSameOrBefore(right_now)) {
+			return [false, '', 'Admission Closed'];
+		} else if (class_type == 'TAPAS' && start.clone().subtract(8, 'hours').isSameOrBefore(right_now) && registered == 0) {
+			return [false, '', 'Admission Closed'];
+		} else if (class_type == 'PAELLA' && start.clone().subtract(12, 'hours').isSameOrBefore(right_now) && registered == 0) {
+			return [false, '', 'Admission Closed'];
+		} else if (start.clone().subtract(24, 'hours').isSameOrBefore(right_now) && adult + child == 1 && registered == 0) {
+			return [false, '', 'Admission Closed'];
+		} else {
+			return to_return;
+		}
+	} else {
+		return [false, '', 'No Class'];
+	}
+}
 //
-// Function: getMonthSchedule
+// Function: getMonthAvailability
 // retrieve events for the full month of a date (moment)
 //
-function getMonthSchedule(a_date) {
+function getMonthAvailability(a_date) {
 	// clone aDate to avoid side-efects
 	var local_date = moment(JSON.parse(JSON.stringify(a_date)));
 
-	var month_start = local_date.startOf('month').format('YYYY-MM-DD');
-	var month_end = local_date.endOf('month').format('YYYY-MM-DD');
+	var month_start = local_date.clone().startOf('month').format('YYYY-MM-DD');
+	var month_end = local_date.clone().endOf('month').format('YYYY-MM-DD');
 	var response = $.ajax({
 		type: 'POST',
-		url: '/api/calendarevent/getschedule',
+		url: '/api/calendarevent/getavailability',
 		data: { start: month_start, end: month_end, bookable_only: 0 },
 		dataType: 'json',
 		async: false,
@@ -20964,805 +19462,512 @@ function getMonthSchedule(a_date) {
 			}
 		}
 	}).responseText;
-	return JSON.parse(response).data;
+	var avail = JSON.parse(response).data;
+	return avail;
 }
 
 //
-// Function: getEventBookings
-// retrieve bookings of an calendarevent
+// Function: getParameterByName
+// access date in querystring
 //
-function getEventBookings(ce_id) {
+function getParameterByName(name, url) {
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, "\\$&");
+	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	    results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+//
+// Function: purchase
+// add and/or check booking status and display accordingly
+//
+function purchase() {
+
+	if (!bkg) {
+		$.ajax({
+			type: 'POST',
+			url: '/api/booking/add',
+			data: $("#booking_form_1").serialize() + '&' + $("#booking_form_2").serialize() + '&' + $("#booking_form_3").serialize(),
+			dataType: 'json',
+			async: false,
+			success: function success(msg) {
+				if (msg.status == 'ok') {
+					window.location.href = "/pay/" + msg.data.id;
+				}
+			}
+		});
+	} else if (form_changed) {
+		updateBooking();
+		window.location.href = "/pay/" + bkg.id;
+	} else {
+		window.location.href = "/pay/" + bkg.id;
+	}
+}
+
+//
+// Function: refreshDataShown
+// update all fields displayed on screen based on input form and/or booking fields
+// require month_availability[] updated with date_shown's month
+//
+function refreshDataShown() {
+	var a, i;
+	var found = false;
+	var type_shown = $("select[name=type]").val();
+
+	// if there is a locator, if looks up calendarevent data by its ce_id, instead of by date and time)
+	// 	if (bkg) {
+	// 		console.log("primer bucle")
+	// 	for (i = 0; i < month_availability.length; i++) {
+	// 		console.log(i)
+	// 	if (month_availability[i].type == type_shown && month_availability[i].id == bkg.calendarevent_id) { 
+	// 		console.log('found!')
+	// 		console.log(bkg.calendarevent_id)
+	// 		found = true
+	// 		break
+	// 	}
+	// } 		
+	// 	}
+	if (!found) {
+		for (i = 0; i < month_availability.length; i++) {
+			a = moment(month_availability[i].date + ' ' + month_availability[i].time);
+			if (month_availability[i].type == type_shown && a.isAfter(date_shown)) {
+				break;
+			}
+		}
+	}
+	if (i == month_availability.length) {
+		i = month_availability.length - 1;
+	}
+	var ce_i = i;
+	$("input[name=calendarevent_id]").val(month_availability[ce_i].id);
+	$('.dateshown').html(date_shown.format('dddd, D MMMM YYYY'));
+	var start_time = moment(month_availability[ce_i].time, "HH:mm:ss");
+	var duration = moment.duration(month_availability[ce_i].duration, "HH:mm:ss");
+	var end_time = moment(month_availability[ce_i].time, "HH:mm:ss").add(duration);
+	$('.timeshown').html(start_time.format('h:mm A') + " - " + end_time.format('h:mm A'));
+
+	$(".typeshown").html(month_availability[ce_i].short_description);
+	$(".statusshown").html($("input[name=status]").val());
+	$(".adultshown").html($("select[name=adult]").val());
+	$(".childshown").html($("select[name=child]").val());
+
+	if ($("input[name=status_filter]").val() == 'REGISTERED') {
+		if (parseInt($("input[name=hide_price]").val())) {
+			$(".priceshown").html('--.--');
+		} else {
+			$(".priceshown").html($("input[name=price]").val());
+		}
+	} else {
+		$(".priceshown").html($("input[name=price]").val());
+	}
+	$(".nameshown").html($("input[name=name]").val());
+	$(".emailshown").html($("input[name=email]").val());
+	$(".phoneshown").html($("input[name=phone]").val());
+	$(".foodshown").html($("textarea[name=food_requirements]").val());
+	$(".commentsshown").html($("textarea[name=comments]").val());
+	$(".locatorshown").html($("input[name=locator]").val());
+
+	$("#bookingdatepicker").datepicker("refresh");
+}
+
+//
+// Function: retrieveBooking
+// retrieve booking data from a locator
+//
+function retrieveBooking(locator) {
 	var response = $.ajax({
-		type: 'GET',
-		url: '/api/booking/index/' + ce_id,
+		type: 'POST',
+		url: '/api/booking/findByLocator',
+		data: { locator: locator },
 		dataType: 'json',
 		async: false,
 		success: function success(msg) {
 			if (msg.status == 'fail') {
-				alert('Error al acceder a las reservas');
+				bkg = null;
 			}
 		}
 	}).responseText;
-	return JSON.parse(response).data;
-}
-
-//
-// Function: populateBookingList
-// populate booking table with current event's
-// param i: index of month_schedule
-//
-function populateBookingList(i) {
-
-	$("#booking_table").data('i', i);
-	var secondstaff_name = month_schedule[i].secondstaff_id == 2 ? "" : ", " + cookName(month_schedule[i].secondstaff_id);
-	var clase = month_schedule[i].time.substring(0, 5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type + ' (' + cookName(month_schedule[i].staff_id) + secondstaff_name + ') ' + '<span class="pull-right">Confirmados: ' + month_schedule[i].registered + '</span>';
-	$('.classshown').html(clase);
-	// 
-	$("#booking_table > tbody").empty();
-
-	for (var j = 0; j < bookings.length; j++) {
-		$('#booking_table > tbody:last').append('<tr onclick=""><td class="booking_line" data-j="' + j + '">' + bookings[j].adult + (bookings[j].child > 0 ? ' + ' + bookings[j].child : '') + '<td class="booking_line" data-j="' + j + '">' + bookings[j].name + '<td class="booking_line" data-j="' + j + '">' + bookings[j].status + '<td class="booking_line" data-j="' + j + '">' + bookings[j].food_requirements.substring(0, 20) + '<td class="booking_line" data-j="' + j + '">' + bookings[j].comments.substring(0, 20) + '</td></tr>');
+	bkg = JSON.parse(response).data;
+	date_shown = moment(bkg.date);
+	$("#bookingdatepicker").datepicker("setDate", bkg.date);
+	if (bkg.type === 'GROUP') {
+		$("select[name=type]:last").append('<option value="GROUP">Private Group Event</option>');
 	}
+	$("select[name=type]").val(bkg.type);
+	$("select option[value='" + bkg.type + "']").attr("selected", "selected");
+	$("input[name=calendarevent_id]").val(bkg.calendarevent_id);
+	$("input[name=id]").val(bkg.id);
+	$("select[name=status]").val(bkg.status);
+	$("input[name=status_filter]").val(bkg.status_filter);
+	$("input[name=name]").val(bkg.name);
+	$("input[name=email]").val(bkg.email);
+	$("input[name=phone]").val(bkg.phone);
+	$('select[name=adult]').val(bkg.adult);
+	$("select[name=child]").val(bkg.child);
+	$("input[name=price]").val(bkg.price);
+	$("input[name=iva]").val(bkg.iva);
+	$("input[name=hide_price]").val(bkg.hide_price);
+	$("textarea[name=food_requirements]").val(bkg.food_requirements);
+	$("textarea[name=comments]").val(bkg.comments);
+	$("input[name=locator]").val(bkg.locator);
+	$("input[name=crm]").val(bkg.crm);
+	$("input[name=source_id]").val(bkg.source_id);
+	$("input[name=pay_method]").val(bkg.pay_method);
+	$("input[name=payment_date]").val(bkg.payment_date);
+	$("input[name=hide_price]").val(bkg.hide_price);
+	$("input[name=fixed_date]").val(bkg.fixed_date);
+	$("input[name=invoice]").val(bkg.invoice);
+
+	var start_time = moment(bkg.calendarevent.time, "HH:mm:ss");
+	var duration = moment.duration(bkg.calendarevent.duration, "HH:mm:ss");
+	var end_time = moment(bkg.calendarevent.time, "HH:mm:ss").add(duration);
+
+	$('.dateshown').html(date_shown.format('dddd, D MMMM YYYY'));
+	$('.timeshown').html(start_time.format('h:mm A') + " - " + end_time.format('h:mm A'));
+
+	form_changed = false;
+	$(".update_class").addClass('hidden');
+	$(".update_contact").addClass('hidden');
+	return bkg;
 }
 
 //
-// Function: populateSelect_dayeventlist
-// populate #dayeventlist with available events 
+// Function: rightNow
+// fresh datetime everytime the time is required
 //
-function populateSelect_dayeventlist(i) {
-	var dayEvent = getDaySchedule($('#bookingNewDate').val());
-	var select = '';
-	$('#dayeventlist').empty();
-	for (var ii = 0; ii < dayEvent.length; ii++) {
-		select += '<option value="' + dayEvent[ii].id + '">' + dayEvent[ii].type + '</option>';
+// var fake_now = prompt("entrar fecha", "2018-03-14 22:01:00")
+
+function rightNow() {
+	// return moment(fake_now)
+	return moment();
+}
+
+//
+// Function: showModalBooking
+// helper function to streamline modal showing and subsequent actions
+//
+function showModalBooking(tthis, title, body, show_cancel, action) {
+	var new_modal = 'modal_booking_' + tthis.id;
+	var new_modal_id = '#' + new_modal;
+
+	$(new_modal_id).remove();
+	$('#modal_booking').clone().attr('id', new_modal).insertAfter('#modal_booking');
+
+	$(new_modal_id).find('.modal_booking_title').html(title);
+	$(new_modal_id).find('.modal_booking_body').html(body);
+	if (show_cancel) {
+		$(new_modal_id).find('.btn-cancel').removeClass('hidden');
+	} else {
+		$(new_modal_id).find('.btn-cancel').addClass('hidden');
 	}
-	$('#dayeventlist').append(select);
+	$(new_modal_id).find('.btn-ok').unbind('click').click(action);
+	$(new_modal_id).modal('show');
 }
 
 //
-// Function: sourceName
-// return the source from the source list retrieved on load 
+// Function: update
+// update booking on server with updated form fields
 //
-function sourceName(id) {
-	for (var i = 0; i < source.length; i++) {
-		if (source[i].id == id) {
-			return source[i].name;
+function updateBooking() {
+	$.ajax({
+		type: 'POST',
+		url: '/api/booking/update',
+		data: $("#booking_form_1").serialize() + '&' + $("#booking_form_2").serialize() + '&' + $("#booking_form_3").serialize(),
+		dataType: 'json',
+		async: false,
+		success: function success(msg) {
+			form_changed = false;
+			$(".update").addClass('hidden');
 		}
-	}
+	});
 }
 
 //
-// Function: showPrice
-// display price based on roles and status 
-//
-function showPrice() {
-	if (user_role >= 3 || $('select[name=status]').val() == 'GUARANTEE') {
-		$('.price').show();
-	} else {
-		$('.price').hide();
-	}
-}
-
-//
-// Function: updateUrl
-// sets new path and querystring according to the screen displayed
-//
-function updateUrl(parts, path, date, action) {
-	var month_schedule_i = arguments.length <= 4 || arguments[4] === undefined ? -1 : arguments[4];
-	var bookings_j = arguments.length <= 5 || arguments[5] === undefined ? -1 : arguments[5];
-
-	if (path) {
-		parts.pathname = path;
-	}
-	if (date) {
-		parts.query.date = date.format('YYYY-MM-DD');
-	}
-	if (action) {
-		parts.query.action = action;
-	}
-	if (month_schedule_i < 0) {
-		delete parts.query.i;
-	} else {
-		parts.query.i = month_schedule_i;
-	}
-	if (bookings_j < 0) {
-		delete parts.query.j;
-	} else {
-		parts.query.j = bookings_j;
-	}
-
-	delete parts.search;
-	window.history.pushState(stateObj, 'nada', url.format(parts));
-}
-
-//
-// Function: validBookingForm
+// Function: validateBookingForm
 // validates input fields and returns accordingly
 //
-function validBookingForm() {
-	// 
-
-	var modal_title = 'Error';
+function validateBookingForm() {
+	var modal_title = 'Form Validation Error';
 	var modal_body = '';
 	var show_it = false;
 	if ($("input[name=name]").val() == '') {
-		modal_body += 'Introduce un nombre<br/>';
+		modal_body += 'Enter a name<br/>';
+		show_it = true;
+	}
+	if ($("input[name=email]").val() == '') {
+		modal_body += 'Enter an e-mail<br/>';
 		show_it = true;
 	}
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	var mail = $("input[name=email]").val();
 	if (mail != "" && !filter.test(mail)) {
-		modal_body += 'Introduce un email válido<br/>';
+		modal_body += 'Enter a valid e-mail<br/>';
 		show_it = true;
 	}
 	filter = /^[0-9 \(\)\-\+]+$/;
 	var phone = $("input[name=phone]").val();
 	if (phone != "" && !filter.test(phone)) {
-		modal_body += 'Introduce un teléfono válido<br/>';
+		modal_body += 'Enter a valid phone number<br/>';
 		show_it = true;
 	}
-
-	if ($("select[name=status]").val() == 'PAID' && $("select[name=pay_method]").val() == 'N/A') {
-		modal_body += 'Selecciona Forma de Pago<br/>';
-		show_it = true;
-	}
-
 	if (show_it) {
-		$('.modal_admin_title').html(modal_title);
-		$('.modal_admin_body').html(modal_body);
-		$('#modal_admin').modal('show');
+		$('.modal_booking_title').html(modal_title);
+		$('.modal_booking_body').html(modal_body);
+		$('#modal_booking').modal('show');
 		return false;
 	}
 	return true;
 }
 
 //
-// comienzo del jquery(document).ready
+// Begin jquery(document).ready
 //
 
 jQuery(document).ready(function ($) {
 
+	//
+	// initial display
+	//
+
 	$('.loading').show();
-	// $('.loading').hide()
-	//
-	// initial load
-	//
-	user_name = $('meta[name=user_name]').attr('content');
-	user_role = $('meta[name=user_role]').attr('content');
-	var month_changed = false;
 
-	//
-	// load cook list
-	//
-	var response = $.ajax({
-		type: 'GET',
-		url: '/api/staff/get',
-		dataType: 'json',
-		async: false,
-		success: function success(msg) {
-			if (msg.status == 'fail') {
-				alert('Error al acceder al calendario');
+	date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone();
+	window.history.pushState(null, 'nada', '/booking');
+
+	locator = $("input[name=locator]").val();
+	if (locator != '') {
+		retrieveBooking(locator);
+	}
+	month_availability = getMonthAvailability(date_shown);
+
+	refreshDataShown();
+
+	$('#booking_steps > div').addClass('hidden');
+	if (bkg) {
+		if (bkg.status != 'PENDING') {
+			$('#step4').removeClass('hidden');
+			document.title = $(".typeshown").html() + " for " + $(".nameshown").html() + " on " + $(".dateshown").html();
+			$('select[name=adult] option:selected').siblings().attr('disabled', 'disabled');
+			$('select[name=child] option:selected').siblings().attr('disabled', 'disabled');
+			var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
+			if (start.isSameOrBefore(rightNow())) {
+				$("#button_booking_edit").addClass('hidden');
+			}
+		} else {
+			if (!getDayAvailability(bkg.date)[0]) {
+				$('.modal_booking_title').html('Class no longer available');
+				$('.modal_booking_body').html('Please, select a date with availability');
+				$("#modal_booking").modal('show');
+				$('#step1').removeClass('hidden');
+			} else {
+				$('#step2').removeClass('hidden');
 			}
 		}
-	}).responseText;
-	cook = JSON.parse(response).data;
-	var select = '';
-	$('.cooklist').empty();
-	for (var ii = 0; ii < cook.length; ii++) {
-		select += '<option value="' + cook[ii].id + '">' + cook[ii].name + '</option>';
+	} else {
+		$('#step1').removeClass('hidden');
 	}
-	$('.cooklist').append(select);
 
-	//
-	// load source list
-	//
-	response = $.ajax({
-		type: 'GET',
-		url: '/api/source/get',
-		dataType: 'json',
-		async: false,
-		success: function success(msg) {
-			if (msg.status == 'fail') {
-				alert('Error al acceder a los sources');
-			}
-		}
-	}).responseText;
-	source = JSON.parse(response).data;
-
-	select = '';
-	$('#sourcelist').empty();
-	for (var ii = 0; ii < source.length; ii++) {
-		select += '<option value="' + source[ii].id + '">' + source[ii].type + ' - ' + source[ii].name + '</option>';
+	switch ($("#step4").data('tpv_result')) {
+		case 'OK':
+			$('.modal_booking_title').html('Thank you for booking a class with us!');
+			$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime');
+			$("#modal_booking").modal('show');
+			break;
+		case 'KO':
+			$('.modal_booking_title').html('Payment Failure');
+			$('.modal_booking_body').html('It seems you could not complete the transaction. Please, try it again');
+			$("#modal_booking").modal('show');
 	}
-	$('#sourcelist').append(select);
-
-	// 
-	// set status and pay_method based on source_id
-	//
-	$('select[name=source_id]').change(function () {
-		if ($(this).val() > 3) {
-			// marketplace or agency
-			$('select[name=status]').val('CONFIRMED');
-			$('select[name=pay_method]').val('N/A');
-			$("input[name=hide_price]").prop('checked', 1);
-		}
-		showPrice();
-	});
 
 	//
-	// sidebar datepicker
+	// Booking Datepicker
 	//
-	$("#admindatepicker").datepicker({
-		language: 'es',
+	$("#bookingdatepicker").datepicker({
+		minDate: 0,
+		beforeShowDay: getDayAvailability,
 		dateFormat: 'yy-mm-dd',
 		onSelect: function onSelect(s, i) {
-			var new_date = moment($(this).val());
-			if (month_changed) {
-				month_schedule = getMonthSchedule(new_date);
-				month_changed = false;
-			}
-			date_shown = new_date;
-			refreshDateShown(month_schedule, new_date);
-			if (form_changed) {
-				$('#button_calendarevent_close').trigger('click');
-			} else {
-				updateUrl(parts, '/admin/calendarevent', new_date, 'ce_index', -1);
-				$('#calendarevent_index').show();
-				$('#calendarevent_edit').hide();
-				$('#booking_index').hide();
-				$('#booking_edit').hide();
-			}
+			date_shown = moment($(this).val());
+			refreshDataShown();
+			form_changed = true;
+			$(".update_class").removeClass('hidden');
 		},
 		onChangeMonthYear: function onChangeMonthYear(year, month, inst) {
-			month_changed = true;
+			var new_date = moment({ y: year, M: month - 1, d: 1 });
+			month_availability = getMonthAvailability(new_date);
 		}
-
 	});
 
-	//
-	// toggle admindatepicker
-	//
-	$('#toggle_datepicker').click(function () {
-		$('#admindatepicker').toggle();
-	});
-
-	//
-	// show sections based on url and query string
-	//
-	if (typeof parts.query.date === "undefined") {
-		date_shown = hoy.clone();
-	} else {
-		date_shown = moment(parts.query.date);
-	}
-	$("#admindatepicker").datepicker("setDate", date_shown.toDate());
-	month_schedule = getMonthSchedule(date_shown);
-	refreshDateShown(month_schedule, date_shown);
-	var i = parts.query.i;
-	var j = parts.query.j;
-
-	switch (parts.pathname) {
-		case '/admin/calendarevent':
-			switch (parts.query.action) {
-				case 'ce_new':
-					i = -1;
-				case 'ce_edit':
-					calendarEventEditShow(month_schedule, date_shown, i);
-					$('#calendarevent_index').hide();
-					$('#calendarevent_edit').show();
-					$('#booking_index').hide();
-					$('#booking_edit').hide();
-					break;
-
-				case 'bkg_index':
-					bookings = getEventBookings(month_schedule[i].id);
-					populateBookingList(i);
-					$('#calendarevent_index').hide();
-					$('#calendarevent_edit').hide();
-					$('#booking_index').show();
-					$('#booking_edit').hide();
-					break;
-
-				case 'ce_index':
-				default:
-					$('#calendarevent_index').show();
-					$('#calendarevent_edit').hide();
-					$('#booking_index').hide();
-					$('#booking_edit').hide();
-					break;
-
-			}
-			break;
-
-		case '/admin/booking':
-			bookings = getEventBookings(month_schedule[i].id);
-			bookingEditShow(i, j);
-			switch (parts.query.action) {
-				case 'bkg_new':
-					j = -1;
-				case 'bkg_edit':
-					$('#calendarevent_index').hide();
-					$('#calendarevent_edit').hide();
-					$('#booking_index').hide();
-					$('#booking_edit').show();
-					break;
-
-				default:
-					$('#calendarevent_index').hide();
-					$('#calendarevent_edit').hide();
-					$('#booking_index').show();
-					$('#booking_edit').hide();
-					break;
-			}
-			break;
-
-		default:
-			$('#calendarevent_index').show();
-			$('#calendarevent_edit').hide();
-			$('#booking_index').hide();
-			$('#booking_edit').hide();
-			break;
-	}
+	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate());
 
 	$('.loading').hide();
 
+	// 
+	// end initial display
 	//
-	// check form change
+
 	//
-	$("#form_calendarevent :input, #form_booking :input").change(function () {
+	// event-driven actions
+	//
+	$("select[name=adult], select[name=child], select[name=type]").change(function () {
+
+		$("input[name=price]").val($("select[name=adult]").val() * 70 + $("select[name=child]").val() * 35);
+		refreshDataShown();
 		form_changed = true;
-	});
+		$('.update_class').removeClass('hidden');
 
-	//
-	// calendar event new/edit datepicker
-	//
-	$("#eventdatepicker").datepicker({
-		language: 'es',
-		defaultDate: date_shown.toDate(),
-		dateFormat: "DD, d MM yy",
-		altFormat: "yy-mm-dd",
-		altField: "#realDate"
-
-	});
-
-	$('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
-
-	// 
-	// calendar event buttons
-	// we use .on() for dynamically created elements
-	//
-	$(document).on('click', '.button_calendarevent_edit', function () {
-		$('#calendarevent_index').hide();
-		calendarEventEditShow(month_schedule, date_shown, $(this).data('i'));
-	});
-
-	$(document).on('click', '.button_calendarevent_info', function () {
-		var i = $(this).data('i');
-		$('.modal_admin_title').html(month_schedule[i].short_description);
-		$('.modal_admin_body').html(month_schedule[i].info.replace(/\n/g, '<br\/>'));
-		$('#modal_admin').modal('show');
-	});
-
-	$(document).on('click', '.calendarevent_line', function () {
-		var i = $(this).data('i');
-		// var clase = month_schedule[i].time.substring(0,5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type
-		// 			+ '<span class="pull-right">Registrados: ' + month_schedule[i].registered +'</span>'
-		// $('#classshown').html(clase)
-		$('#calendarevent_index').hide();
-		bookings = getEventBookings(month_schedule[i].id);
-		populateBookingList(i);
-		updateUrl(parts, '/admin/calendarevent', '', 'bkg_index', i);
-		$('#booking_index').show();
-	});
-
-	$(".button_day_selector").click(function () {
-		var new_date;
-		switch ($(this).data("d")) {
-			case "prev":
-				new_date = date_shown.subtract(1, 'days');
-				break;
-			case "next":
-				new_date = date_shown.add(1, 'days');
-				break;
-			case "today":
-				new_date = hoy;
-		}
-		$("#admindatepicker").datepicker("setDate", new_date.toDate());
-		updateUrl(parts, '/admin/calendarevent', new_date, 'ce_index', -1);
-		if (month_changed) {
-			month_schedule = getMonthSchedule(new_date);
-			month_changed = false;
-		}
-		date_shown = new_date;
-		refreshDateShown(month_schedule, new_date);
-
-		if (form_changed) {
-			$('#button_calendarevent_close').trigger('click');
-		} else {
-			$('#calendarevent_index').show();
-			$('#calendarevent_edit').hide();
-			$('#booking_index').hide();
-			$('#booking_edit').hide();
-		}
-		return false;
-	});
-
-	$(".button_calendarevent_selector").click(function () {
-		var new_date;
-		var i = $("#booking_table").data('i');
-		switch ($(this).data("d")) {
-			case "prev":
-				if (i == 0) {
-					month_schedule = getMonthSchedule(date_shown.subtract(1, 'months'));
-					i = month_schedule.length - 1;
-				} else {
-					i--;
-				}
-				new_date = moment(month_schedule[i].date);
-				$("#admindatepicker").datepicker("setDate", new_date.toDate());
-				updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i);
-				month_changed = false;
-				date_shown = new_date;
-				break;
-			case "next":
-				if (i == month_schedule.length - 1) {
-					month_schedule = getMonthSchedule(date_shown.add(1, 'months'));
-					i = 0;
-				} else {
-					i++;
-				}
-				new_date = moment(month_schedule[i].date);
-				$("#admindatepicker").datepicker("setDate", new_date.toDate());
-				updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i);
-				month_changed = false;
-				date_shown = new_date;
-				break;
-			case "now":
-				hoy = moment();
-				new_date = hoy;
-				$("#admindatepicker").datepicker("setDate", new_date.toDate());
-				updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i);
-				if (month_changed) {
-					month_schedule = getMonthSchedule(new_date);
-					month_changed = false;
-				}
-				// date_shown = new_date
-				var a;
-				for (i = 0; i < month_schedule.length; i++) {
-					a = moment(month_schedule[i].date + ' ' + month_schedule[i].time);
-					a.add(moment.duration(month_schedule[i].duration));
-					if (a.isAfter(hoy)) {
-						// console.log('i vale ' + i)
-						break;
-					}
-				}
-				new_date = moment(month_schedule[i].date);
-				$("#admindatepicker").datepicker("setDate", new_date.toDate());
-				updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i);
-				if (month_changed) {
-					month_schedule = getMonthSchedule(new_date);
-					month_changed = false;
-				}
-				date_shown = new_date;
-
-		}
-		var date_shown_locale = date_shown.format('dddd, D MMMM YYYY');
-		$('.dateshown').html(date_shown_locale);
-
-		$('#calendarevent_index').hide();
-		bookings = getEventBookings(month_schedule[i].id);
-		populateBookingList(i);
-
-		if (form_changed) {
-			$('#button_calendarevent_close').trigger('click');
-		} else {
-			$('#calendarevent_index').hide();
-			$('#calendarevent_edit').hide();
-			$('#booking_index').show();
-			$('#booking_edit').hide();
-		}
-		return false;
-	});
-	//
-	// #form_calendarvent_edit buttons
-	//
-
-	//
-	// close
-	//
-	$("#button_calendarevent_close").click(function () {
-		if (form_changed) {
-			$('#modal_calendarevent_close').modal('show');
-		} else {
-			updateUrl(parts, '/admin/calendarevent', date_shown, 'ce_index');
-			$('#calendarevent_index').show();
-			$('#calendarevent_edit').hide();
+		if (!getDayAvailability(date_shown.toDate())[0]) {
+			$('.modal_booking_title').html('Class Not Available');
+			$('.modal_booking_body').html('Please, select a date with availability');
+			$("#modal_booking").modal('show');
 		}
 	});
 
-	//
-	// modal close, modal ok
-	//
-	$("#modal_button_calendarevent_close, #modal_button_calendarevent_ok").click(function () {
-		form_changed = false;
-		updateUrl(parts, '/admin/calendarevent', date_shown, 'ce_index');
-		$('#calendarevent_index').show();
-		$('#calendarevent_edit').hide();
-		$('#modal_calendarevent_close').modal('hide');
-		$('#modal_calendarevent').modal('hide');
+	$("#booking_form_2 :input, #booking_form_3 :input").keypress(function () {
+		form_changed = true;
+		$(".update_contact").removeClass('hidden');
 	});
 
-	//
-	// save, modal save i.e. add, update calendarevent
-	//
-	$("#button_calendarevent_save, #modal_button_calendarevent_save").click(function () {
-		var ce_id = $('input[name=id]').val();
-		var url;
-		$('.loading').show();
-		if (form_changed || ce_id == 0 || typeof ce_id === "undefined") {
-			// form changed or new event
+	$('.step').click(function (e) {
+		e.preventDefault();
+		$('#booking_steps > div').addClass('hidden');
+		$($(this).attr('href')).removeClass('hidden');
+	});
 
-			$('#modal_calendarevent_close').modal('hide');
+	$(".cancel").click(function () {
+		retrieveBooking($("input[name=locator]").val());
+		refreshDataShown();
+	});
 
-			if (ce_id == 0 || typeof ce_id === "undefined") {
-				url = "/api/calendarevent/add";
+	$(".update_contact").click(function (e) {
+		updateBooking();
+		retrieveBooking($("input[name=locator]").val());
+		refreshDataShown();
+		$('#booking_steps > div').addClass('hidden');
+		$($(this).attr('href')).removeClass('hidden');
+	});
+
+	$("#button_booking_help").click(function () {
+		$('#modal_booking_help').modal('show');
+	});
+
+	$(".booking_retrieve").click(function () {
+		$('#modal_booking_retrieve').modal('show');
+	});
+
+	$(".update_class").click(function (e) {
+		if (!getDayAvailability(date_shown.toDate())[0]) {
+			$('.modal_booking_title').html('Not Available');
+			$('.modal_booking_body').html('Please, select a date with availability');
+			$("#modal_booking").modal('show');
+		} else if ($(this).attr('checkout')) {
+			if (!parseInt($("select[name=adult]").val())) {
+				$('.modal_booking_title').html('Invalid number of guests');
+				$('.modal_booking_body').html('1 adult at least');
+				$("#modal_booking").modal('show');
 			} else {
-				url = "/api/calendarevent/update";
+				$('#booking_steps > div').addClass('hidden');
+				$($(this).attr('href')).removeClass('hidden');
 			}
-			$.ajax({
+		} else {
+			// booking already exist, and probably paid
+			updateBooking();
+			retrieveBooking($("input[name=locator]").val());
+			refreshDataShown();
+			$('#booking_steps > div').addClass('hidden');
+			$($(this).attr('href')).removeClass('hidden');
+		}
+	});
+
+	$("#button_purchase").click(function () {
+		if (validateBookingForm()) {
+			purchase();
+		}
+	});
+
+	$("#button_booking_forget").click(function () {
+		showModalBooking(this, 'Clean-up Form', 'Please confirm you want to clear the booking form', true, function () {
+			window.location.href = '/booking/forget';
+		});
+	});
+
+	$("#button_booking_edit").click(function () {
+		var right_now = rightNow();
+		var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
+		if (start.isSameOrBefore(right_now)) {
+			$('.modal_booking_title').html("Past Class");
+			$('.modal_booking_body').html('This class has already taken place, no edition is allowed.');
+			$("#modal_booking").modal('show');
+		} else if (start.subtract(11, 'hours').isSameOrBefore(right_now)) {
+			$('.modal_booking_title').html("Edition not allowed");
+			$('.modal_booking_body').html('Class is too close to start, so no edition allowed.<br/><br/>Please contact us by phone should you have any question.');
+			$("#modal_booking").modal('show');
+		} else {
+			$('#modal_booking_edit').modal('show');
+		}
+	});
+
+	$("#date_edit").click(function () {
+		var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
+		if (start.subtract(24, 'hours').isSameOrBefore(rightNow())) {
+			$('.modal_booking_title').html("Class changes not allowed");
+			$('.modal_booking_body').html('Class is too close to change your date or type.<br/><br/>Please contact us by phone should you have any question.');
+			$("#modal_booking").modal('show');
+		} else {
+			$('#booking_steps > div').addClass('hidden');
+			$('#step1').removeClass('hidden');
+		}
+	});
+
+	$('#booking_cancel').click(function () {
+		var bkg = retrieveBooking(locator);
+		var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
+		if (start.subtract(48, 'hours').isSameOrBefore(rightNow())) {
+			$('.modal_booking_title').html("Cancellation Late Notice");
+			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.');
+			$("#modal_booking").modal('show');
+			return;
+		}
+		showModalBooking(this, 'Cancel Booking', 'Please confirm you really want to cancel your booking.', true, function () {
+			var response = $.ajax({
 				type: 'POST',
-				url: url,
-				data: $("#form_calendarevent").serialize(),
+				url: '/api/booking/cancelIt',
+				data: { locator: locator },
+				dataType: 'json'
+			});
+			showModalBooking(this, 'Booking Cancellation', 'Sorry to hear you will not be able to attend the class. We will proceed to refund the total amount of your booking.<br/><br/>We will email you as soon as we have made the transfer. Please notice it will take a few days to receive it into your credit card. Thank you for your patience.', false, function () {});
+		});
+	});
+
+	$("#button_print_voucher").click(function () {
+		$('#printer_voucher').empty();
+		$('.step4_voucher').clone().appendTo('#printer_voucher');
+		$('#printer').printThis();
+	});
+
+	$("#button_email_voucher").click(function () {
+		showModalBooking(this, 'Send Voucher', 'We are about to send your voucher to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime', true, function () {
+			var response = $.ajax({
+				type: 'POST',
+				url: '/api/booking/emailIt',
+				data: { locator: locator },
 				dataType: 'json',
 				async: false,
 				success: function success(msg) {
-					var error_msg;
-					var modal_title;
-					if (msg.status == 'ok') {
-						date_shown = moment($('input[name=date]').val());
-						month_schedule = getMonthSchedule(date_shown);
-						refreshDateShown(month_schedule, date_shown);
-						$("#modal_button_calendarevent_ok").click();
+					if (msg.status == 'fail') {
+						bkg = null;
 					} else {
-						modal_title = 'Error';
-						if (ce_id == 0 || typeof ce_id === "undefined") {
-							error_msg = 'Este evento ya existe';
-						} else {
-							error_msg = 'Este evento ya no existe';
-						}
-						month_schedule = getMonthSchedule(date_shown);
-						refreshDateShown(month_schedule, date_shown);
-						$('#modal_calendarevent_title').html(modal_title);
-						$('#modal_calendarevent_body').html(error_msg);
-						$('#modal_calendarevent').modal('show');
+						// alert('email sent')
 					}
-					$('.loading').hide();
-					$("#modal_button_calendarevent_ok").click();
 				}
-			});
-		}
-	});
-
-	//
-	// delete, modal delete
-	//
-
-	$("#button_calendarevent_delete").click(function () {
-		$('#modal_calendarevent_delete').modal('show');
-	});
-
-	$("#modal_button_calendarevent_delete").click(function () {
-
-		$('#modal_calendarevent_delete').modal('hide');
-		$('.loading').show();
-		var ce_id = $('input[name=id]').val();
-		if (ce_id != 0) {
-			$.ajax({
-				type: 'GET',
-				url: '/api/calendarevent/delete/' + ce_id,
-				async: false,
-				success: function success(msg) {
-					month_schedule = getMonthSchedule(date_shown);
-					refreshDateShown(month_schedule, date_shown);
-					if (msg.status != 'ok') {
-						$('#modal_calendarevent_title').html('No Eliminado');
-						$('#modal_calendarevent_body').html('Este evento tiene reservas');
-						$('#modal_calendarevent').modal('show');
-					} else {
-						$("#modal_button_calendarevent_close").click();
-					}
-					$('.loading').hide();
-				}
-			});
-		}
-	});
-
-	//
-	//
-	// booking buttons
-	//
-	//
-
-	// 
-	// booking buttons
-	// we use .on() for dynamically created elements
-	//
-	$(document).on('click', '.booking_line, .button_booking_edit', function () {
-		$('#booking_index').hide();
-		bookingEditShow($("#booking_table").data('i'), $(this).data('j'));
-	});
-
-	//
-	// #form_booking_edit buttons
-	//
-
-	//
-	//  copy to clipboard
-	$("#button_booking_copy").click(function () {
-		var textArea = document.createElement("textarea");
-		textArea.value = "https://cookingpoint.es/booking/" + $("input[name=locator]").val();
-		document.body.appendChild(textArea);
-		textArea.select();
-		try {
-			document.execCommand('copy');
-		} catch (err) {
-			console.log('Oops, unable to copy');
-		}
-		document.body.removeChild(textArea);
-	});
-
-	//
-	// booking close
-	//
-	$("#button_booking_close").click(function () {
-		if (form_changed) {
-			$('#modal_booking_close').modal('show');
-		} else {
-			updateUrl(parts, '/admin/calendarevent', date_shown, 'bkg_index', parts.query.i);
-			$('#booking_index').show();
-			$('#booking_edit').hide();
-		}
-	});
-
-	//
-	// booking modal close, modal ok
-	//
-	$("#modal_button_booking_close").click(function () {
-		form_changed = false;
-		updateUrl(parts, '/admin/calendarevent', date_shown, 'bkg_index', parts.query.i);
-		$('#booking_index').show();
-		$('#booking_edit').hide();
-		$('#modal_booking_close').modal('hide');
-		$('#modal_admin').modal('hide');
-	});
-
-	//
-	// booking save, modal save i.e. add, update 
-	//
-	$("#button_booking_save, #modal_button_booking_save").click(function () {
-		var bkg_id = $('input[name=id]').val();
-		var url;
-
-		if (form_changed || bkg_id == 0 || typeof bkg_id === "undefined") {
-			// form changed or new booking
-
-			if (!validBookingForm()) return true;
-
-			$('#modal_booking_close').modal('hide');
-			$('.loading').show();
-
-			if (bkg_id == 0 || typeof bkg_id === "undefined") {
-				url = "/api/booking/add";
-			} else {
-				url = "/api/booking/update";
-			}
-			$.ajax({
-				type: 'POST',
-				url: url,
-				data: $("#form_booking").serialize(),
-				dataType: 'json',
-				async: false,
-				success: function success(msg) {
-					var error_msg;
-					var modal_title;
-					var show_modal = false;
-					if (msg.status == 'ok') {} else {
-						modal_title = 'Error';
-						show_modal = true;
-					}
-					var date_shown = moment($('input[name=date]').val());
-					month_schedule = getMonthSchedule(date_shown);
-					refreshDateShown(month_schedule, date_shown);
-					var ce_id = $('input[name=calendarevent_id]').val();
-					bookings = getEventBookings(ce_id);
-					var i;
-					for (i = 0; i < month_schedule.length; i++) {
-						if (month_schedule[i].id == ce_id) break;
-					}
-					$("#admindatepicker").datepicker("setDate", month_schedule[i].date);
-					updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i);
-					populateBookingList(i);
-					if (show_modal) {
-						$('.modal_admin_title').html(modal_title);
-						$('.modal_admin_body').html(error_msg);
-						$('#modal_admin').modal('show');
-					} else {
-						$('#modal_button_booking_close').click();
-					}
-					$('.loading').hide();
-				}
-			});
-		}
-	});
-
-	//
-	// booking delete, modal delete
-	//
-
-	$("#button_booking_delete").click(function () {
-
-		var bkg_status_filter = $('input[name=status_filter]').val();
-		if (bkg_status_filter == 'REGISTERED') {
-			$('.modal_admin_title').html('Reserva Confirmada');
-			$('.modal_admin_body').html('Atención, esta reserva está confirmada. Cancela antes de borrar');
-			$('#modal_admin').modal('show');
-		} else {
-			$('#modal_booking_delete').modal('show');
-		}
-	});
-
-	$("#modal_button_booking_delete").click(function () {
-
-		$('#modal_booking_delete').modal('hide');
-		$('.loading').show();
-
-		var bkg_id = $('input[name=id]').val();
-		if (bkg_id != 0) {
-			$.ajax({
-				type: 'GET',
-				url: '/api/booking/delete/' + bkg_id,
-				async: false,
-				success: function success(msg) {
-					month_schedule = getMonthSchedule(date_shown);
-					refreshDateShown(month_schedule, date_shown);
-					var ce_id = $('input[name=calendarevent_id]').val();
-					bookings = getEventBookings(ce_id);
-					var i;
-					for (i = 0; i < month_schedule.length; i++) {
-						if (month_schedule[i].id == ce_id) break;
-					}
-					populateBookingList(i);
-					$('#modal_button_booking_close').click();
-					$('.loading').hide();
-				}
-			});
-		}
-	});
-
-	//
-	// booking edit datepicker
-	//
-	$("#booking_date_edit").datepicker({
-		language: 'es',
-		// defaultDate: date_shown.toDate(), 
-		dateFormat: "DD, d MM yy",
-		altFormat: "yy-mm-dd",
-		altField: "#bookingNewDate",
-		onSelect: function onSelect(dateText, inst) {
-			form_changed = true;
-			populateSelect_dayeventlist();
-			$("input[name=date]").val($('#bookingNewDate').val());
-			$("input[name=calendarevent_id]").val($('#dayeventlist').val());
-		}
-	});
-
-	// 
-	// booking edit new calendar event
-	//
-	$('#dayeventlist').change(function () {
-		$("input[name=calendarevent_id]").val($(this).val());
+			}).responseText;
+		});
 	});
 }); // jQuery
 
-},{"bootstrap-sass":1,"jquery":4,"jquery-serializejson":2,"jquery-ui/ui/widgets/datepicker":3,"moment":6,"moment/locale/es":5,"url":11}]},{},[13]);
+},{"bootstrap-sass":1,"jquery":4,"jquery-serializejson":2,"jquery-ui/ui/widgets/datepicker":3,"moment":5,"printThis":6}]},{},[7]);
 
-//# sourceMappingURL=admin.js.map
+//# sourceMappingURL=booking.js.map

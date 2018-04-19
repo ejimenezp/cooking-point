@@ -381,6 +381,14 @@
 							<input type="checkbox" name="fixed_date" value="1">
 						</td>
 					</tr>
+					<tr>
+						<td>
+							Factura:
+						</td>
+						<td>
+							<input type="text" name="invoice" value="">
+						</td>
+					</tr>
 				@endif
 					<tr class="booking_date_input">
 						<td>

@@ -47,7 +47,8 @@ class ReportController extends Controller
     						bookings.adult+bookings.child as pax,
     						bookings.price as pago,
     						round(bookings.price/(1+bookings.iva*0.21), 2) as `sin iva`,
-                            bookings.pay_method as `forma pago`
+                            bookings.pay_method as `forma pago`,
+                            bookings.invoice as invoice
      					FROM calendarevents, bookings, sources
      					WHERE calendarevents.date >= '$request->start_date' AND calendarevents.date <= '$request->end_date' 
                 			AND bookings.status_filter = 'REGISTERED'
@@ -65,7 +66,7 @@ class ReportController extends Controller
    		} else {
 			return [
     			'title' =>'Detalle Ventas, ' . $request->start_date . ' a '. $request->end_date ,
-    			'headers' => ['Fecha', 'Fuente','Nombre', 'Clase', 'Pax', 'Pago', 'Sin IVA', 'Forma Pago'],
+    			'headers' => ['Fecha', 'Fuente','Nombre', 'Clase', 'Pax', 'Pago', 'Sin IVA', 'Forma Pago', 'Factura'],
     			'lines' => $result ];
 		}
     }
