@@ -78,6 +78,7 @@
 				<input type="hidden" name="payment_date" value="">
 				<input type="hidden" name="fixed_date" value="">
 				<input type="hidden" name="crm" value="YES">
+				<input type="hidden" name="invoice" value="">
 				<table class="availability-table">
 
 					<tr>

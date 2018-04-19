@@ -55,6 +55,7 @@ class BookingController extends Controller
     	$bkg->price = $source->priceplan->adult * $request->adult + $source->priceplan->child * $request->child;
         $bkg->hide_price = !empty($request->hide_price);
         $bkg->fixed_date = !empty($request->fixed_date);
+        $bkg->invoice = $request->invoice;
 
         // backwards compatibility
         if ($bkg->source_id == 1) {
@@ -148,6 +149,7 @@ class BookingController extends Controller
             $bkg->price = $request->price;
             $bkg->hide_price = !empty($request->hide_price);
             $bkg->fixed_date = !empty($request->fixed_date);
+            $bkg->invoice = $request->invoice;
             $bkg->save();
             return ['status' => 'ok', 'data' => $bkg];
         }

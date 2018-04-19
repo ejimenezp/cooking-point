@@ -19619,6 +19619,7 @@ function retrieveBooking(locator) {
 	$("input[name=payment_date]").val(bkg.payment_date);
 	$("input[name=hide_price]").val(bkg.hide_price);
 	$("input[name=fixed_date]").val(bkg.fixed_date);
+	$("input[name=invoice]").val(bkg.invoice);
 
 	var start_time = moment(bkg.calendarevent.time, "HH:mm:ss");
 	var duration = moment.duration(bkg.calendarevent.duration, "HH:mm:ss");

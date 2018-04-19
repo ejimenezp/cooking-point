@@ -171,6 +171,7 @@ function bookingEditShow(i, j) {
 		$("textarea[name=food_requirements]").val('')
 		$("textarea[name=comments]").val('')
 		$("select[name=crm]").val('YES')
+		$("input[name=invoice]").val('')
 		url_action = 'bkg_new'
 	} else {
 		$("#booking_edit h1").html("Editar Reserva")
@@ -203,6 +204,7 @@ function bookingEditShow(i, j) {
 		$("textarea[name=comments]").val(bookings[j].comments)
 		$("select[name=crm]").val(bookings[j].crm)
 		$("input[name=locator]").val(bookings[j].locator)
+		$("input[name=invoice]").val(bookings[j].invoice)
 		url_action = 'bkg_edit'
 	}
 	updateUrl(parts, '/admin/booking', moment(booking_date), url_action, i, j)
