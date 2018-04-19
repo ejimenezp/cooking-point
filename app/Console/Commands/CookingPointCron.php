@@ -44,5 +44,9 @@ class CookingPointCron extends Command
         // Ask TripAdivsor review
         $a = new ReviewUs;
         if ($a->query()) { $a->exec(); }
+
+        // Update PaymentMethod of guaranteed bookings
+        $a = new PaymentMethod('PAELLA');
+        if ($a->query()) { $a->exec(); }
     }
 }
