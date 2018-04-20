@@ -11,7 +11,7 @@
 
 <div class="col-sm-12">
 <h1 class="header1">Tortilla de Patatas</h1>
-<address class="header3">Eduardo | <time datetime="2018-04-19">19 April 2018</time></address>
+<address class="header3">Madrid | <time datetime="2018-04-19">19 April 2018</time></address>
 
 
 <img class="img-responsive center-block" alt="cooking tortilla de patatas at cooking point" src="/images/blog/cooking-tortilla-de-patatas.jpg" />
