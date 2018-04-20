@@ -2,7 +2,7 @@ Hola CP_COOK,
 
 Por favor, actualiza en la herramienta la forma de pago de las reservas de la clase de CP_TYPE de hoy (CP_DATE) que están en estado GARANTÍA. Por favor, no esperes a que se te olvide.
 
-Recuerda, tienes que poner el campo Status a PAGADA y el campo Forma de pago a lo que corresponda.
+Recuerda, tienes que poner el campo Status a PAGADA y el campo Forma de pago a lo que corresponda. No es necesario introducir la fecha de pago.
 
 Gracias,
 Eduardo
