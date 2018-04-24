@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -235,6 +236,7 @@ class ViatorController extends Controller
                 }
                 $laravelrequest->payment_date = '';
                 $laravelrequest->crm = 'YES';
+                $laravelrequest->invoice = '';
                 $laravelrequest->hide_price = 'YES';
 
                 $controllerresponse = $bookingcontroller->add($laravelrequest);
@@ -320,6 +322,7 @@ class ViatorController extends Controller
                 $laravelrequest->locator = $laravelbkg->locator;
                 $laravelrequest->payment_date = $laravelbkg->payment_date;
                 $laravelrequest->crm = $laravelbkg->crm;
+                $laravelrequest->invoice = $laravelbkg->invoice;
                 $laravelrequest->hide_price = $laravelbkg->hide_price;
 
                 $controllerresponse = $bookingcontroller->update($laravelrequest);
