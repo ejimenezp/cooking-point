@@ -1,0 +1,8 @@
+Cancellation request:
+
+- From: CP_CLASS
+- Subject: CP_NAME
+- Booking: CP_DATE
+- Amount: €CP_PRICE
+
+ Admin: APP_URL/admin

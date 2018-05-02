@@ -34,6 +34,7 @@ Route::get('/private-cooking-events-madrid-spain', function () { return view('pa
 Route::get('/eventos-privados-madrid', function () { return view('pages.eventos'); });
 Route::get('/contacto-eventos-privados', function () { return view('pages.contactoeventos'); });
 Route::get('/oferta-para-agencias', function () { return view('pages.agencias'); });
+Route::get('/3rdpartypayment/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
 
 //
 // blog entries

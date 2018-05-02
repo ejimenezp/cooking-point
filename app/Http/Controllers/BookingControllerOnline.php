@@ -43,6 +43,18 @@ class BookingControllerOnline extends BookingController
     }
 
 
+    function thirdpartypaymentget(Request $request)
+    {
+        $bkg = self::findBy($request->locator);
+        if (!$bkg) {    
+            return view('errors.wrongLocator');          
+        } else {
+            $tpv_result = ($request->tpv_result) ? $request->tpv_result : '';
+            return response()->view('pages.3rdpartypayment', ['bkg' => $bkg, 'tpv_result' => $tpv_result]);
+        }
+    }
+
+
     function forget(Request $request)
     {
         return redirect('/booking')->withCookie(Cookie::forget('cplocator'));
