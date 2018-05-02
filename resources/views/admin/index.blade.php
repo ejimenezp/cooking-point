@@ -67,6 +67,7 @@
 								<option value="GROUP">GROUP</option>
 								<option value="HOLIDAY">HOLIDAY</option>
 								<option value="FILLER">FILLER</option>
+								<option value="PAYREQUEST">PAYMENT REQUEST</option>
 							</select>				
 						</td>
 					</tr>

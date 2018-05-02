@@ -30,7 +30,11 @@ class TPVController extends Controller
 		} else {
 			Cookie::queue(Cookie::forever('cplocator', $bkg->locator));
 			if ($bkg->status != 'PENDING') {
-			return view('booking.index')->with('page', 'booking');
+				if ($bkg->calendarevent->type == 'PAYREQUEST') {
+					return view('pages.3rdpartypayment')->with('bkg', $bkg);
+				} else {
+					return view('booking.index')->with('page', 'booking');
+				}
 			} else {
 				return view('tpv.pay')->with('bkg', $bkg);
 			}
@@ -84,8 +88,12 @@ class TPVController extends Controller
             	$bkg->crm = 'YES';
             }
 	        $bkg->save();
-			MailController::send_mail($bkg->email, $bkg, 'user_voucher');
-			MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_booking');
+	        if ($bkg->calendarevent->type == 'PAYREQUEST') {
+				MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_3rdpartypayment');
+	        } else {
+				MailController::send_mail($bkg->email, $bkg, 'user_voucher');
+				MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_booking');
+	        }
         } else {
             $bkg->status = 'PENDING';
             $bkg->status_filter = 'DO_NOT_COUNT';
