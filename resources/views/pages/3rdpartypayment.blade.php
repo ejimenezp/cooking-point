@@ -42,7 +42,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 
-				@if ($tpv_result === 'OK')
+				@if ($tpv_result === 'OK' || $bkg->status === 'PAID')
 					<h1 class="header1">Thank You</h1>
 					<p>The payment has been processed. You can print this page as a receipt.<br/></p>
 				@elseif ($tpv_result === 'KO')
@@ -111,7 +111,7 @@
 					
 				</div>
 
-		@if ($tpv_result === 'OK')
+		@if ($tpv_result === 'OK' || $bkg->status === 'PAID')
 
 			</div>
 			<div class="row text-center">
