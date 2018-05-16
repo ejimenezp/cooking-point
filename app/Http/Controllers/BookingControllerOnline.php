@@ -21,7 +21,7 @@ class BookingControllerOnline extends BookingController
             if (!$bkg) {    
                 return view('errors.wrongLocator');          
             } else {
-                $tpv_result = ($request->tpv_result) ? $request->tpv_result : '';
+                $tpv_result = isset($request->tpv_result) ? $request->tpv_result : '';
                 return response()->view('booking.index', ['page' => 'booking', 'bkg' => $bkg, 'tpv_result' => $tpv_result])->cookie('cplocator', $bkg->locator, 525600);
             }
         }
@@ -49,7 +49,7 @@ class BookingControllerOnline extends BookingController
         if (!$bkg) {    
             return view('errors.wrongLocator');          
         } else {
-            $tpv_result = ($request->tpv_result) ? $request->tpv_result : '';
+            $tpv_result = isset($request->tpv_result) ? $request->tpv_result : '';
             return response()->view('pages.3rdpartypayment', ['bkg' => $bkg, 'tpv_result' => $tpv_result]);
         }
     }
