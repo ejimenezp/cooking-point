@@ -107,6 +107,9 @@
             <a href="/location">Location</a>
           </li>
           <li>
+            <a href="/about-us">About Us</a>
+          </li>
+          <li>
             <a class="cp-bkg-button" href="/booking">Booking</a>
           </li>
           <li>
@@ -145,6 +148,9 @@
         <li>
           <a href="/location">Location</a>
         </li>            
+        <li>
+          <a href="/about-us">About Us</a>
+        </li>
         <li>
           <a class="cp-bkg-button" href="/booking">Booking</a>
         </li>
@@ -188,6 +194,9 @@
         <li>
           <a href="/location">Location</a>
         </li>            
+        <li>
+          <a href="/about-us">About Us</a>
+        </li>
         <li>
           <a class="cp-bkg-button" href="/booking">Booking</a>
         </li>

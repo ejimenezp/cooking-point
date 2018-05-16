@@ -35,6 +35,7 @@ Route::get('/eventos-privados-madrid', function () { return view('pages.eventos'
 Route::get('/contacto-eventos-privados', function () { return view('pages.contactoeventos'); });
 Route::get('/oferta-para-agencias', function () { return view('pages.agencias'); });
 Route::get('/3rdpartypayment/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
+Route::get('/about-us', function () { return view('pages.aboutus'); });
 
 //
 // blog entries
