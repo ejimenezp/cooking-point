@@ -5,10 +5,11 @@ redirect 301 /en/bookings https://cookingpoint.es/bookings
 redirect 301 /calendar https://cookingpoint.es/bookings
 redirect 301 /en/calendar https://cookingpoint.es/bookings
 
-# contact
-redirect 301 /es/contacto https://cookingpoint.es/contact
-redirect 301 /es/donde-estamos https://cookingpoint.es/contact
-redirect 301 /en/where-we-are https://cookingpoint.es/contact
+# location
+redirect 301 /es/contacto https://cookingpoint.es/location
+redirect 301 /es/donde-estamos https://cookingpoint.es/location
+redirect 301 /en/where-we-are https://cookingpoint.es/location
+redirect 301 /contact https://cookingpoint.es/location
 
 # gallery
 redirect 301 /en/gallery https://cookingpoint.es/gallery
