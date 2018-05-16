@@ -9,7 +9,6 @@ redirect 301 /en/calendar https://cookingpoint.es/bookings
 redirect 301 /es/contacto https://cookingpoint.es/contact
 redirect 301 /es/donde-estamos https://cookingpoint.es/contact
 redirect 301 /en/where-we-are https://cookingpoint.es/contact
-redirect 301 /about-us https://cookingpoint.es/contact
 
 # gallery
 redirect 301 /en/gallery https://cookingpoint.es/gallery
