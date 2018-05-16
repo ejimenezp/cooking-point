@@ -34,7 +34,12 @@ class Job {
 	function exec()
 	{
 		foreach ($this->result as $item) {
-			$this->action($item);
+			try {
+				$this->action($item);				
+			} catch (Exception $e) {
+				Log::error('Google_Service_Exception: ' . $e->getMessage());
+			}
+
 		}
 	}
 
