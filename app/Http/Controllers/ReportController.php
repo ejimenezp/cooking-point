@@ -165,8 +165,8 @@ class ReportController extends Controller
 	{
     	
     	$sqlString = "SELECT calendarevents.type,
-    						sum(bookings.adult+bookings.child),
-    						sum(round(bookings.price/(1+bookings.iva*0.21), 2))
+    						sum(bookings.adult+bookings.child) as registered,
+    						sum(round(bookings.price/(1+bookings.iva*0.21), 2)) as revenue
      					FROM calendarevents, bookings
      					WHERE calendarevents.date >= '$request->start_date' AND calendarevents.date <= '$request->end_date' 
                 			AND bookings.status_filter = 'REGISTERED'
@@ -181,6 +181,14 @@ class ReportController extends Controller
     			'headers' => [],
     			'lines' => $result ];	
     	} else {
+            $registered = 0;
+            $revenue = 0;
+            foreach ($result as $i) {
+                $registered += $i->registered;
+                $revenue += $i->revenue;
+            }
+            array_push($result, (object) ['type' => 'TOTAL', 'registered' => $registered, 'revenue' => $revenue]);
+
 			return [
     			'title' =>'KPI Clientes ' . $request->start_date . ' a '. $request->end_date ,
     			'headers' => ['Clase', 'Registrados','Ingresos'],
