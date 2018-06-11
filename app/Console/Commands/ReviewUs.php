@@ -43,7 +43,7 @@ class ReviewUs extends Job {
 
 		$this->strategy->each(function ($item, $key) use ($bkg) {
    			if (eval("return " . $item->check_expression . ";")) {
-   				if (($item->cummulated / max($this->total_sent, 1)) * 100 < $item->target_pct) {
+   				if (($item->cummulated / max($this->total_sent, 1)) * 100 < $item->maximum_pct) {
 					MailController::send_mail($bkg->email, $bkg, $item->template);
 					Log::info("Enviado ReviewUs (" . $item->template . ") a " . $bkg->name);
 					// echo "Enviado ReviewUs " . $item->template . " a " . $bkg->name . "\r\n";
