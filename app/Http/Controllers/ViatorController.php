@@ -221,7 +221,11 @@ class ViatorController extends Controller
                 for ($i = count($requestdata['Traveller'])-1; !$requestdata['Traveller'][$i]['LeadTraveller'] && $i >= 0; $i--) {
                     # code...
                 }
-                $laravelrequest->name = $requestdata['Traveller'][$i]['GivenName'].' '.$requestdata['Traveller'][$i]['Surname'];
+                if (array_key_exists('GivenName', $requestdata['Traveller'])) {
+                    $laravelrequest->name = $requestdata['Traveller'][$i]['GivenName'].' '.$requestdata['Traveller'][$i]['Surname'];
+                } else {
+                     $laravelrequest->name = $requestdata['Traveller'][$i]['Surname'];
+                }
 
                 $laravelrequest->email = $requestdata['ContactDetail']['ContactType'] == 'EMAIL' ? $requestdata['ContactDetail']['ContactValue'] : '';
                 $laravelrequest->phone = $requestdata['ContactDetail']['ContactType'] == 'MOBILE' ? $requestdata['ContactDetail']['ContactValue'] : '';
@@ -305,7 +309,11 @@ class ViatorController extends Controller
                 $laravelrequest->source_id = 5; // MARKETPLACE: Viator (sources DB table)
                 $laravelrequest->status = 'CONFIRMED';
 
-                $laravelrequest->name = $requestdata['Traveller']['GivenName'].' '.$requestdata['Traveller']['Surname'];
+                if (array_key_exists('GivenName', $requestdata['Traveller'])) {
+                    $laravelrequest->name = $requestdata['Traveller']['GivenName'].' '.$requestdata['Traveller']['Surname'];
+                } else {
+                    $laravelrequest->name = $requestdata['Traveller']['Surname'];                    
+                }
 
                 $laravelrequest->email = $requestdata['ContactDetail']['ContactType'] == 'EMAIL' ? $requestdata['ContactDetail']['ContactValue'] : '';
                 $laravelrequest->phone = $requestdata['ContactDetail']['ContactType'] == 'MOBILE' ? $requestdata['ContactDetail']['ContactValue'] : '';
