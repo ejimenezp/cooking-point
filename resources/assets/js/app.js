@@ -30,7 +30,7 @@ if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >')
 	}
 } else {
-	$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay loop> \
+	$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay muted loop> \
 	     	<source src="images/small.mp4" type="video/mp4"> \
 	   	 </video>')
 	if (page !== ''){
@@ -47,7 +47,7 @@ function toggleVideo () {
 	if (myVideo.paused) {
 		myVideo.play()
 		$('.home-pause-button').html('<i class="fa fa-pause"></i>')
-		setTimeout(toggleVideo, 30*1000)
+		setTimeout(toggleVideo, 45*1000)
 	} else {
 		myVideo.pause()
 		$('.home-pause-button').html('<i class="fa fa-play"></i>')
@@ -55,6 +55,6 @@ function toggleVideo () {
 
 }
 $('.home-pause-button').click(toggleVideo)
-setTimeout(toggleVideo, 30*1000)
+setTimeout(toggleVideo, 45*1000)
 
 }); // end jQuery
