@@ -40795,7 +40795,7 @@ $(document).ready(function () {
 			$("#section-banner").append('<img class="banner" src="/images/' + page + '-banner-sm.jpg" alt="' + caption + '" >');
 		}
 	} else {
-		$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay muted loop> \
+		$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted loop> \
 	     	<source src="images/small.mp4" type="video/mp4"> \
 	   	 </video>');
 		if (page !== '') {
@@ -40811,14 +40811,14 @@ $(document).ready(function () {
 		if (myVideo.paused) {
 			myVideo.play();
 			$('.home-pause-button').html('<i class="fa fa-pause"></i>');
-			setTimeout(toggleVideo, 45 * 1000);
+			setTimeout(toggleVideo, 90 * 1000);
 		} else {
 			myVideo.pause();
 			$('.home-pause-button').html('<i class="fa fa-play"></i>');
 		}
 	}
 	$('.home-pause-button').click(toggleVideo);
-	setTimeout(toggleVideo, 45 * 1000);
+	setTimeout(toggleVideo, 90 * 1000);
 }); // end jQuery
 
 },{"./bootstrap":8,"bootstrap-sass":1,"jquery":2}],8:[function(require,module,exports){
