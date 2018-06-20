@@ -33,6 +33,15 @@ if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 	$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted loop> \
 	     	<source src="images/small.mp4" type="video/mp4"> \
 	   	 </video>')
+
+	// workaround to force autoplay on Safari browsers (iPad)
+	if ( /Safari/i.test(navigator.userAgent) ) {
+		console.log('iPad landscape')
+		var myVideo = $('#video-home').get(0)
+		setTimeout(function() { myVideo.play()}, 50)
+	}
+	// end workaround
+
 	if (page !== ''){
 		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner.jpg" alt="'+caption+'" >')
 	}
