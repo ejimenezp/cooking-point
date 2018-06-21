@@ -102,8 +102,13 @@
 
 <div class="row">
     <div class="col-md-4">
+        <h4 class="header4">Top Rated Cooking School in Madrid</h4>
+        <p>Five years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html" target="_blank">the First Cooking School in Madrid</a>. Also, we are recommended by media like The Guardian, Forbes, and others.</p>
+    </div>
+
+    <div class="col-md-4">
         <h4 class="header4">Fun &amp; Memorable</h4>
-        <p>Have a fun immersion into Spain’s food culture. Great start of your trip or end of your stay in Madrid.</p>
+        <p>Have a fun immersion into Spain’s food culture. Our classes are a great start of your trip or end of your stay in Madrid. You will get insights and tips to get the most of Spanish food, during your trip and back home.</p>
     </div>
 
     <div class="col-md-4">
@@ -111,11 +116,6 @@
         <p>Two people per cooktop, maximum twelve per class. Follow our local chef instructions to get your meal done. No worries, no cooking experience is required. Also, take home your learnings with our recipe booklet.</p>
     </div>
 
-    <div class="col-md-4">
-        <h4 class="header4">TripAdvisor's #1 Cooking School in Madrid</h4>
-        <p>For 3 years we have been ranked in <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html">TripAdvisor</a> #1 Classes &amp; Workshops in Madrid, backed by +400 reviews from real clients.</p>
-    </div>
-    
 </div>
 
 <div class="divider"></div>
