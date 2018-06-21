@@ -41,3 +41,7 @@ $navbar-default-link-active-bg:            darken($navbar-default-bg, 10%);
 $navbar-default-link-disabled-color:       #959595 !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
+// responsive nav-bar size
+$coef-xs-device:				20vw;
+$coef-sm-md-device:				10vw;
+$coef-lg-device:				10vw;
