@@ -18,7 +18,7 @@
 			<img class="text-center" src="/images/eduardo.jpg" alt="eduardo" />
 		</div>
 		<p class="header2">Eduardo</p>
-		<p>Born and raised in Madrid, Eduardo decided to quit his engineering and marketing career to teach the recipes he learned from his mum when he was a child. He believes gastronomy and the way people enjoy food say a lot about each country, feels like fish in water at the market or cooking something on the stove.
+		<p>Born and raised in Madrid, Eduardo decided to quit his engineering and marketing career to found Cooking Point in 2013 to teach the recipes he learned from his mum when he was a child. He believes gastronomy and the way people enjoy food say a lot about each country, feels like fish in water at the market or cooking something on the stove.
 </p>
 	</div>
 	<div class="col-sm-6">
