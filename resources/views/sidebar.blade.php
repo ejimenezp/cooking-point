@@ -3,7 +3,7 @@
 <div class="divider visible-xs"></div>
 
 <div class="sidebar-title">SEE OUR REVIEWS ON TRIPADVISOR</div>
-          <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html"><img alt="tripadvisor certificate of excellence" src="/images/tripadvisorCE.png" /></a>
+          <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html"><img alt="tripadvisor certificate of excellence" src="/images/tripadvisorCE_2018.png" /></a>
 </div>
 
 <div class="text-center">
