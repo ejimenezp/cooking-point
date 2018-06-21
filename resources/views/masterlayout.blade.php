@@ -127,7 +127,53 @@
   </nav>
 </div>
 
-<div class="visible-sm visible-md">
+<div class="visible-sm">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">   
+          <div class="navbar-brand">
+            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
+          </div> 
+      </div>
+      <ul class="vertical-center nav navbar-nav">
+        <li>
+          <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+        </li>
+        <li>
+          <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+        </li>
+        <li>
+          <a href="/private-cooking-events-madrid-spain">Private Events</a>
+        </li>
+        <li>
+          <a href="/location">Location</a>
+        </li>            
+        <li>
+          <a class="cp-bkg-button" href="/booking">Booking</a>
+        </li>
+          <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                  <li>
+                    <a href="/about-us">About Us</a>
+                  </li>
+                  <li>
+                    <a href="/gallery">Gallery</a>
+                  </li>
+                  <li>
+                    <a href="/blog">Blog</a>
+                  </li>
+                  <li>
+                    <a href="/faq">FAQ</a>
+                  </li>
+              </ul>
+          </li>
+      </ul> 
+    </div>      
+  </nav>
+</div>
+
+<div class="visible-md">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">   

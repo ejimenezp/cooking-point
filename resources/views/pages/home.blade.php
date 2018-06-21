@@ -51,7 +51,7 @@
 
 <div class="col-md-12">
 <div class="divider"></div>
-<div class="header3">Our Classes<br><br></div>
+<div class="header3">Our Classes<br/><br/></div>
 
 <div class="row">
     <div class="col-md-4 home-column">
@@ -86,7 +86,7 @@
 
 <div class="divider"></div>
 
-<div class="header3">Video: Class Highlights<br><br></div>
+<div class="header3">Watch Video<br/><br/></div>
 
 <div class="row">
     <div class="col-md-offset-2 col-md-8">
@@ -102,7 +102,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h4 class="header4">Top Rated Cooking School in Madrid</h4>
+        <h4 class="header4">Top Rated School</h4>
         <p>Five years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html" target="_blank">the First Cooking School in Madrid</a>. Also, we are recommended by media like The Guardian, Forbes, and others.</p>
     </div>
 
@@ -120,7 +120,7 @@
 
 <div class="divider"></div>
 
-<div class="header3">Our Location<br><br></div>
+<div class="header3">Our Location<br/><br/></div>
 
 <div id="map"></div>
 
