@@ -36,7 +36,6 @@ if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 
 	// workaround to force autoplay on Safari browsers (iPad)
 	if ( /Safari/i.test(navigator.userAgent) ) {
-		console.log('iPad landscape')
 		var myVideo = $('#video-home').get(0)
 		setTimeout(function() { myVideo.play()}, 50)
 	}

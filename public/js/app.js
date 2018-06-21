@@ -40801,7 +40801,6 @@ $(document).ready(function () {
 
 		// workaround to force autoplay on Safari browsers (iPad)
 		if (/Safari/i.test(navigator.userAgent)) {
-			console.log('iPad landscape');
 			var myVideo = $('#video-home').get(0);
 			setTimeout(function () {
 				myVideo.play();
