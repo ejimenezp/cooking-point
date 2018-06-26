@@ -6032,7 +6032,17 @@ video {
   .navbar-header {
     height: inherit; }
   .navbar a {
-    font-size: inherit; } }
+    font-size: inherit; }
+  #video-home {
+    height: 13.8888888889vw;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%; }
+  video {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; } }
 
 @media screen and (min-width: 992px) {
   .modal-xl {
@@ -6073,17 +6083,7 @@ video {
     left: 90%;
     top: 80%;
     color: white;
-    display: block; }
-  .video-container {
-    height: 13.8888888889vw;
-    width: 100%;
-    min-width: 100%;
-    min-height: 100%; }
-  video {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; } }
+    display: block; } }
 
 @media screen and (min-width: 1200px) {
   .home-logo {
