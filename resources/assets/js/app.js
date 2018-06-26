@@ -30,10 +30,24 @@ if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >')
 	}
 } else {
-	$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted loop> \
-	     	<source src="images/small.mp4" type="video/mp4"> \
+	$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted > \
+	     	<source src="images/home-video-banner-01.mp4" type="video/mp4"> \
 	   	 </video>')
 
+	var videoList = ["images/home-video-banner-01.mp4", "images/home-video-banner-02.mp4","images/home-video-banner-03.mp4", "images/home-video-banner-04.mp4"]
+	var curVideo = 0
+	var myVideo = $('#video-home').get(0)
+	myVideo.onended = function() {
+		$('#video-home').removeAttr('poster')
+		curVideo++
+	    if(curVideo < videoList.length){    		
+	        myVideo.src = videoList[curVideo];        
+	    }
+	    else {
+	    	curVideo = 0;
+	        myVideo.src = videoList[curVideo];        
+	    }
+	}
 	// workaround to force autoplay on Safari browsers (iPad)
 	if ( /Safari/i.test(navigator.userAgent) ) {
 		var myVideo = $('#video-home').get(0)
