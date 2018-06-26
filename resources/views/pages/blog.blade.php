@@ -37,7 +37,7 @@
     <div class="col-sm-6">
         <h4 class="header4"></h4>
 		<a href="/denominacion-de-origen-protegida"><img class="img-responsive center-block" alt="denominacion de origen protegida" src="/images/blog/dop-label.jpg" /></a>
-		<h2 class="header2"><a href="/iberico-ham">Denominacion de Origen Protegida (DOP)</a></h2>
+		<h2 class="header2"><a href="/denominacion-de-origen-protegida">Denominacion de Origen Protegida (DOP)</a></h2>
 		<p>Find out how to get best Spanish (and European) products just checking their labels. The Protected Designation of Origin symbol certifies where foodstuff has been grown and/or produced to avoid falsifications and deliver to customers the excellence of European foodstuff production.</p>
 		<div class="text-center">
 			<a href="/denominacion-de-origen-protegida" class="btn btn-primary">Read More</a>
