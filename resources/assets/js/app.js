@@ -37,6 +37,17 @@ if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 	var videoList = ["images/home-video-banner-01.mp4", "images/home-video-banner-02.mp4","images/home-video-banner-03.mp4", "images/home-video-banner-04.mp4"]
 	var curVideo = 0
 	var myVideo = $('#video-home').get(0)
+
+	// workaround to force autoplay on Safari browsers (iPad)
+	if ( /Safari/i.test(navigator.userAgent) ) {
+		setTimeout(function() { myVideo.play()}, 50)
+	}
+	// end workaround
+
+	if (page !== ''){
+		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner.jpg" alt="'+caption+'" >')
+	}
+
 	myVideo.onended = function() {
 		$('#video-home').removeAttr('poster')
 		curVideo++
@@ -48,16 +59,7 @@ if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 	        myVideo.src = videoList[curVideo];        
 	    }
 	}
-	// workaround to force autoplay on Safari browsers (iPad)
-	if ( /Safari/i.test(navigator.userAgent) ) {
-		var myVideo = $('#video-home').get(0)
-		setTimeout(function() { myVideo.play()}, 50)
-	}
-	// end workaround
 
-	if (page !== ''){
-		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner.jpg" alt="'+caption+'" >')
-	}
 
 }
 
