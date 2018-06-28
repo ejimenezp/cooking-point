@@ -38,7 +38,7 @@
 @section('banner')
 
 <div class="wide">
-  <h1 class="home-preheadline">Spanish Cooking Classes in Madrid</h1>
+  <h1 class="home-preheadline">Spanish Cooking Classes in Madrid &nbsp &nbsp<img src="/images/tripadvisorCE_2018-2.png" alt="tripadvisor certificate of excellence 2015-2018" class="home-tacertificate" /></h1>
   <div class="home-headline">Make Cooking Your Highlight of Madrid</div>
   <div class="home-pause-button"><i class="fa fa-pause"></i></div>
   <div id="banner"></div>
