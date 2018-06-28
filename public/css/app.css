@@ -5997,6 +5997,9 @@ video {
   left: 8vw;
   text-align: center; }
 
+.home-tacertificate {
+  margin-top: 1vw; }
+
 .home-headline {
   font-size: 8vw;
   font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -6029,6 +6032,10 @@ video {
     margin-top: 0;
     left: 8vw;
     text-align: center; }
+  .home-tacertificate {
+    position: absolute;
+    top: -30px;
+    right: 20px; }
   .navbar-header {
     height: inherit; }
   .navbar a {
@@ -6089,7 +6096,9 @@ video {
   .home-logo {
     max-height: 8vw; }
   .navbar a {
-    font-size: 1.8vw; } }
+    font-size: 1.8vw; }
+  .home-tacertificate {
+    right: 50px; } }
 
 .Eduardo {
   color: red;

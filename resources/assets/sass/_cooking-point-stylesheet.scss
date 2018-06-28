@@ -84,6 +84,11 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
     text-align: center;
   }
 
+
+  .home-tacertificate {
+    margin-top: 1vw;
+  }
+  
   .home-headline {
     font-size: 8vw;
     font-family: $font-family-cooking-point;
@@ -136,6 +141,12 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
     text-align: center;
   }
 
+  .home-tacertificate {
+    position: absolute;
+    top: -30px;
+    right: 20px;
+  }
+  
   .navbar-header {
     height: inherit;
   }
@@ -236,6 +247,9 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Ubuntu:400,700" !defaul
     font-size: 1.8vw;
   }
 
+  .home-tacertificate {
+    right: 50px;
+  }
 }
 
 // turnos
