@@ -35,6 +35,7 @@ redirect 301 /eventos-empresa-cursos-cocina https://cookingpoint.es/eventos-priv
 # home
 RedirectMatch 301 ^/(es|en)$ https://cookingpoint.es
 redirect 301 /wine-tasting-madrid-spain https://cookingpoint.es
+redirect 301 /index.html https://cookingpoint.es
 
 RedirectMatch 301 ^/(activities/|author|bookings-|category/|classes/|classes$|curso|escuela|galeria|hola-mundo|home|images/panorama|lorem|masterchef|other-events|partner-services|portfolio|reserva|sponsors|where) https://cookingpoint.es
 
