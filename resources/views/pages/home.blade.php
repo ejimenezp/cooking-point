@@ -57,7 +57,7 @@
     <div class="col-md-4 home-column">
         <a href="classes-paella-cooking-madrid-spain"><img class="img-responsive center-block" alt="paella cooking class in Madrid" src="/images/home-paella.jpg" /></a>
         <h2 class="header2"><a href="classes-paella-cooking-madrid-spain">Paella Cooking Class</a></h2>
-        <p>Enjoy an unforgettable morning shopping and cooking a delicious paella with the instructions of our local chef. Great start to know more about Spanish food while you make one of our most representative dishes.</p>
+        <p>Enjoy an unforgettable morning visiting a food market and cooking a delicious paella with the instructions of our local chef. Great start to know more about Spanish food while you make one of our most representative dishes.</p>
         <div class="text-center">
             <a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">Paella Class</a>
         </div>
