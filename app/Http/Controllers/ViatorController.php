@@ -221,7 +221,7 @@ class ViatorController extends Controller
                 for ($i = count($requestdata['Traveller'])-1; !$requestdata['Traveller'][$i]['LeadTraveller'] && $i >= 0; $i--) {
                     # code...
                 }
-                if (array_key_exists('GivenName', $requestdata['Traveller'])) {
+                if (array_key_exists('GivenName', $requestdata['Traveller'][$i])) {
                     $laravelrequest->name = $requestdata['Traveller'][$i]['GivenName'].' '.$requestdata['Traveller'][$i]['Surname'];
                 } else {
                      $laravelrequest->name = $requestdata['Traveller'][$i]['Surname'];
@@ -309,7 +309,7 @@ class ViatorController extends Controller
                 $laravelrequest->source_id = 5; // MARKETPLACE: Viator (sources DB table)
                 $laravelrequest->status = 'CONFIRMED';
 
-                if (array_key_exists('GivenName', $requestdata['Traveller'])) {
+                if (array_key_exists('GivenName', $requestdata['Traveller'][$i])) {
                     $laravelrequest->name = $requestdata['Traveller']['GivenName'].' '.$requestdata['Traveller']['Surname'];
                 } else {
                     $laravelrequest->name = $requestdata['Traveller']['Surname'];                    
