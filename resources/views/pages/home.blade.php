@@ -1,9 +1,7 @@
 @extends('masterlayout')
 
 @section('title', 'Spanish Cooking Classes in Madrid - Cooking Point')
-{{-- @section('description', 'Spanish cooking classes every day. Hands-on classes of paella and tapas in English at top rated Spanish culinary school. Two people per cooktop. Instant confirmation.')
- --}}
-@section('description', 'Enjoy an unforgettable cooking class in Madrid. Visit the market and make delicious paella, or a fun class making tapas and sangria. Truly hands-on. Every day.')
+@section('description', 'Hands-on paella and tapas cooking classes in English at top rated Madrid culinary school. Family friendly immersion in Spain’s food culture.')
 
 @section('google-structured-data')
 
@@ -108,7 +106,7 @@
 
     <div class="col-md-4">
         <h4 class="header4">Fun &amp; Memorable</h4>
-        <p>Have a fun immersion into Spain’s food culture. Our classes are a great start of your trip or end of your stay in Madrid. You will get insights and tips to get the most of Spanish food, during your trip and back home.</p>
+        <p>Have a fun immersion in Spain’s food culture. Our classes are a great start of your trip or end of your stay in Madrid. You will get insights and tips to get the most of Spanish food, during your trip and back home.</p>
     </div>
 
     <div class="col-md-4">
