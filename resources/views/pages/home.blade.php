@@ -26,7 +26,44 @@
     "http://instagram.com/cookingpoint",
     "https://google.com/+CookingPointMadrid"
   ]
-}
+},
+    @foreach ($events as $event)
+        @if ($event->registered < $event->capacity) 
+            {
+            "@context" : "http://schema.org",
+            "@type" : "Event",
+            @if ($event->type == 'PAELLA')                
+            "name" : "Paella Cooking Class",
+            "url" : "http://cookingpoint.es/classes-paella-cooking-madrid-spain",
+            "description" : "Hands-on cooking class with market tour to make paella, gazpacho and sangria",
+            @else
+            "name" : "Tapas Cooking Class",
+            "url" : "https://cookingpoint.es/classes-spanish-tapas-madrid-spain",
+            "description" : "Hands-on cooking class to make traditional Spanish tapas and sangria",
+            @endif            
+            "startDate" : "{{ $event->startdateatom }}",
+            "endDate" : "{{ $event->enddateatom }}",
+            "location" : {
+                "@type" : "Place",
+                "name" : "Cooking Point",
+                "address" : "Calle de Moratin, 11, 28014 Madrid",
+                "sameAs": "http://cookingpoint.es" },
+            "offers": {
+                    "@type": "Offer",
+                    "name": "Adult",
+                    "availability": "http://schema.org/InStock",
+                    "price": "70.00",
+                    "priceCurrency": "EUR",
+                    @if ($event->type == 'PAELLA')                
+                    "url": "http://cookingpoint.es/classes-paella-cooking-madrid-spain"
+                    @else
+                    "url" : "https://cookingpoint.es/classes-spanish-tapas-madrid-spain"
+                    @endif
+                  }
+            },
+        @endif
+    @endforeach
+    {}
 ]
 </script>
 
@@ -114,6 +151,40 @@
         <p>Two people per cooktop, maximum twelve per class. Follow our local chef instructions to get your meal done. No worries, no cooking experience is required. Also, take home your learnings with our recipe booklet.</p>
     </div>
 
+</div>
+
+<div class="divider"></div>
+
+<div class="row">
+    <div class="col-sm-12 header3">Upcoming Classes<br><br></div>
+    <div class="col-sm-offset-2 col-sm-8">
+        <table class="table">
+                @php 
+                    $i = 0;
+                    foreach ($events as $event) {
+                        if ($event->registered < $event->capacity && $i < 5) {
+                            $date = new DateTime($event->startdateatom);
+                            echo '<tr>';
+                            echo '<td>' . $date->format("D, d M") . '</td>';
+                            switch ($event->type) {
+                                case 'PAELLA' :
+                                    echo '<td>10:00 AM</td><td> Paella Cooking Class</td>';
+                                    echo '<td><a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">See Details</a></td>';
+                                    break;
+                                case 'TAPAS' :
+                                    echo '<td>5:30 PM</td><td>Tapas Cooking Class</td>';
+                                    echo '<td><a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">See Details</a></td>';
+                                    break;
+                                default :
+                                    continue;
+                            }
+                            echo '</tr>';
+                            $i++;
+                        }               
+                    }
+                @endphp         
+        </table>
+    </div>
 </div>
 
 <div class="divider"></div>
