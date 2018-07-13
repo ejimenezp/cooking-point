@@ -58,20 +58,20 @@
 
 
 <div class="no-gutter">
-	<div class="col-md-6">
+	<div class="col-md-12">
 		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 traditional recipes</strong>: 5 tapas, one dessert and sangría.</p>
 
 		<p>Traditional tapas like the popular tortilla de patatas (Spanish potato omelet), chorizos a la sidra (sausage in cider sauce), gambas al ajillo (garlic shrimp), patatas bravas (potatoes with spicy sauce) and pa amb tomàquet (tomato bread with cured ham), all rounded by a crema catalana (crème brûleé).</p>
-	</div>
-
-	<div class="col-md-6">
 
 		<p>Our Tapas class are <strong>4 hours long</strong>; 3 hours to prepare your tapas, 1 hour to enjoy your creations with the sangría you made during the class.</p>
 
 		<p>Tapas are <strong>prepared in pairs</strong> under the guidance of our experienced chef. All lessons are <strong>in English</strong> and no cooking experience is required.</p>
 
-		<p>Class is subject to a minimum attendance of 2 people.</p>
-
+		<div class="text-center">
+			<p></p>
+			<a href="/booking?class=TAPAS" class="btn btn-primary">Book Now</a>
+			<p></p>
+		</div>
 	</div>
 </div>	
 <div class="divider"></div>

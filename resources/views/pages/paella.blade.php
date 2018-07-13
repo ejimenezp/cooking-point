@@ -57,21 +57,22 @@
 
 <div class="no-gutter">
 	
-	<div class="col-md-6" >
+	<div class="col-md-12" >
 		<p>Our class starts visiting the <strong>Antón Martín market</strong> (200 m away, open all days except Sundays and holidays) to buy the groceries we will need to cook our menu. We’ll buy vegetables, seafood and perhaps ham, cold cuts, cheese, olives, pastry&#8230; the offering and colouring of this traditional way of shopping daily supplies is endless.</p>
 
 		<p>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your the starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
 
 		<p>And then, we will start cooking the <strong>paella</strong>. Along the preparation, our chef will tell the story of this typical Spanish dish including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
-	</div>
-
-	<div class="col-md-6">
 
 		<p>Our Paella classes are <strong>4 hours long</strong>; 3 hours to go shopping, prepare your gazpacho and cook the paella, and 1 hour to enjoy your creations with the sangría you made at the beginning of the class. Note: on holidays, we&#8217;ll prepare one additional tapa, as market is closed.</p>
 
 		<p>Dishes are prepared in couples under the guidance of our experienced chef. All lessons are <strong>in English</strong> and no cooking experience is required.</p>
 
-		<p>Class is subject to a minimum attendance of 2 people.</p>
+		<div class="text-center">
+			<p></p>
+			<a href="/booking?class=PAELLA" class="btn btn-primary">Book Now</a>
+			<p></p>
+		</div>
 
 	</div>
 </div>
