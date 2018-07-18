@@ -20,6 +20,11 @@
 //
 Route::get('/', 'CalendareventControllerOnline@home');
 
+<<<<<<< HEAD
+=======
+// Route::get('/kirupa', function () { return view('pages.kirupa'); });
+
+>>>>>>> master
 Route::get('/bookings/{hash?}', 'BookingControllerOnline@legacyget');
 Route::get('/booking/forget', 'BookingControllerOnline@forget');
 Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
