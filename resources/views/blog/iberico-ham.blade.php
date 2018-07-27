@@ -9,7 +9,7 @@
 	<div class="col-sm-12">
 		<h1 class="header1">What Is Iberico Ham?</h1>
 
-<img class="img-responsive center-block" alt="iberico pig" src="/images/blog/iberico-pig.jpg" />
+<img class="img-fluid center-block" alt="iberico pig" src="/images/blog/iberico-pig.jpg" />
 
 <p></p>
 
@@ -33,7 +33,7 @@
 
 <p>For generations, Iberico pigs have been raised in these meadows, fed exclusively with acorns and pastures found in these spots. This acorn based diet made their fat have high presence of unsaturated fatty acids, that are proven to be healthy, particularly oleic acid, which amounts to 60%. Diets rich in oleic acid (only olive oil contains more than Iberico ham) help lower total cholesterol and bad cholesterol (LDL), and raise good cholesterol (HDL) and protects against cardiovascular disease.</p>
 
-<img class="img-responsive center-block" alt="iberico pigs in a dehesa" src="/images/blog/dehesa.jpg" />
+<img class="img-fluid center-block" alt="iberico pigs in a dehesa" src="/images/blog/dehesa.jpg" />
 
 <p>As the feeding of these animals is key to the end product, the Ministry of Agriculture maintains a registry of the existing dehesas in Spain in order to control the number of heads that can be raised on each of them based on its tree density. To ensure that pigs only gain weight by eating acorns, a limit of 1.25 heads per hectare of pasture (1 head per 2 acres) is established.</p>
 
@@ -59,7 +59,7 @@
 
 <p>We leave the definition of <strong>Jamón Serrano</strong> as the one from white pigs, raised indoors on farms. </p>
 
-<img class="img-responsive center-block" alt="color tags for iberico pigs" src="/images/blog/iberico-ham-tags.jpg" />
+<img class="img-fluid center-block" alt="color tags for iberico pigs" src="/images/blog/iberico-ham-tags.jpg" />
 <p></p>
 <div class="header2">How To Choose A Good Iberico Ham</div>
 <p></p>

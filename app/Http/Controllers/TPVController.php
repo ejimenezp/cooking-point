@@ -33,7 +33,7 @@ class TPVController extends Controller
 				if ($bkg->calendarevent->type == 'PAYREQUEST') {
 					return view('pages.3rdpartypayment')->with('bkg', $bkg);
 				} else {
-					return view('booking.index')->with('page', 'booking', 'tpv_result' =>'');
+					return view('booking.index', ['page' => 'booking', 'tpv_result' =>'']);
 				}
 			} else {
 				return view('tpv.pay')->with('bkg', $bkg);

@@ -3,6 +3,11 @@
 @section('title', 'Spanish Cooking Classes in Madrid - Cooking Point')
 @section('description', 'Hands-on paella and tapas cooking classes in English at top rated Madrid culinary school. Family friendly immersion in Spain’s food culture.')
 
+@section('page', 'home')
+@section('banner-caption', 'cooking point home banner')
+
+
+
 @section('google-structured-data')
 
 <script type="application/ld+json">
@@ -73,9 +78,10 @@
 @section('banner')
 
 <div class="wide">
-  <h1 class="home-preheadline">Spanish Cooking Classes in Madrid &nbsp &nbsp<img src="/images/tripadvisorCE_2018-2.png" alt="tripadvisor certificate of excellence 2015-2018" class="home-tacertificate" /></h1>
-  <div class="home-headline">Make Cooking Your Highlight of Madrid</div>
-  <div class="home-pause-button"><i class="fa fa-pause"></i></div>
+    <h1 class="home-preheadline">Spanish Cooking Classes in Madrid &nbsp &nbsp<img src="/images/tripadvisorCE_2018-2.png" alt="tripadvisor certificate of excellence 2015-2018" class="home-tacertificate" /></h1>
+    <div class="home-headline"><a href="/best-cooking-classes-madrid">Best Classes in Madrid</a></div>
+    <a href="/best-cooking-classes-madrid" class="home-more-info-button">More Info</a>
+    <div class="home-pause-button"><i class="fa fa-pause"></i></div>
   <div id="banner"></div>
 </div>
 
@@ -89,8 +95,8 @@
 <div class="header3">Our Classes<br/><br/></div>
 
 <div class="row">
-    <div class="col-md-4 home-column">
-        <a href="classes-paella-cooking-madrid-spain"><img class="img-responsive center-block" alt="paella cooking class in Madrid" src="/images/home-paella.jpg" /></a>
+    <div class="col-lg-4 home-column">
+        <a href="classes-paella-cooking-madrid-spain"><img class="img-fluid" alt="paella cooking class in Madrid" src="/images/home-paella.jpg" /></a>
         <h2 class="header2"><a href="classes-paella-cooking-madrid-spain">Paella Cooking Class</a></h2>
         <p>Enjoy an unforgettable morning visiting a food market and cooking a delicious paella with the instructions of our local chef. Great start to know more about Spanish food while you make one of our most representative dishes.</p>
         <div class="text-center">
@@ -98,10 +104,10 @@
         </div>
     </div>
 
-    <div class="divider visible-xs"></div>
+    <div class="d-block d-sm-none divider"></div>
 
-    <div class="col-md-4 home-column">
-            <a href="classes-spanish-tapas-madrid-spain"><img class="img-responsive center-block" title="spanish cooking school in madrid" alt="tapas cooking class in madrid" src="/images/home-tapas.jpg" /></a>
+    <div class="col-lg-4 home-column">
+            <a href="classes-spanish-tapas-madrid-spain"><img class="img-fluid" title="spanish cooking school in madrid" alt="tapas cooking class in madrid" src="/images/home-tapas.jpg" /></a>
         <h2 class="header2"><a href="classes-spanish-tapas-madrid-spain">Tapas Cooking Class</a></h2>
         <p>Spend a fun evening making tapas and sangria. Ranging from Spanish potato omelet to shrimps with garlic, all of them typical from different regions of Spain. The perfect introduction to Spanish food and culture!</p>
         <div class="text-center">
@@ -109,8 +115,8 @@
         </div>
     </div>
 
-    <div class="col-md-4 home-column">
-           <a href="private-cooking-events-madrid-spain"><img class="img-responsive center-block" title="cooking events" alt="private cooking events in Madrid" src="/images/events-banner-sm.jpg" /></a>
+    <div class="col-lg-4 home-column">
+           <a href="private-cooking-events-madrid-spain"><img class="img-fluid" title="cooking events" alt="private cooking events in Madrid" src="/images/events-banner-sm.jpg" /></a>
         <h2 class="header2"><a href="private-cooking-events-madrid-spain">Private Events</a></h2>
         <p>We can customize our classes as private events for corporate groups, team buildings, hen or stag parties, school trips or just group of friend that want to have a different lunch or dinner in Madrid.<p>
         <div class="text-center">
@@ -123,8 +129,8 @@
 
 <div class="header3">Watch Video<br/><br/></div>
 
-<div class="row">
-    <div class="col-md-offset-2 col-md-8">
+<div class="row justify-content-center">
+    <div class="col-sm-8">
         <div class="embed-responsive embed-responsive-16by9"> 
             <iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0" frameborder="0" allowfullscreen></iframe>
         </div>
@@ -136,17 +142,17 @@
 <div class="header3">Why to choose us</div>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-lg-4">
         <h4 class="header4">Top Rated School</h4>
-        <p>Five years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as <a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html" target="_blank">the First Cooking School in Madrid</a>. Also, we are recommended by media like The Guardian, Forbes, and others.</p>
+        <p>Five years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as <a href="/best-cooking-classes-madrid">the First Cooking School in Madrid</a>. Also, we are recommended by media like The Guardian, Forbes, and others.</p>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-lg-4">
         <h4 class="header4">Fun &amp; Memorable</h4>
         <p>Have a fun immersion in Spain’s food culture. Our classes are a great start of your trip or end of your stay in Madrid. You will get insights and tips to get the most of Spanish food, during your trip and back home.</p>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-lg-4">
         <h4 class="header4">Truly Hands-on</h4>
         <p>Two people per cooktop, maximum twelve per class. Follow our local chef instructions to get your meal done. No worries, no cooking experience is required. Also, take home your learnings with our recipe booklet.</p>
     </div>
@@ -155,36 +161,36 @@
 
 <div class="divider"></div>
 
-<div class="row">
-    <div class="col-sm-12 header3">Upcoming Classes<br><br></div>
-    <div class="col-sm-offset-2 col-sm-8">
-        <table class="table">
-                @php 
-                    $i = 0;
-                    foreach ($events as $event) {
-                        if ($event->registered < $event->capacity && $i < 5) {
-                            $date = new DateTime($event->startdateatom);
-                            echo '<tr>';
-                            echo '<td>' . $date->format("D, d M") . '</td>';
-                            switch ($event->type) {
-                                case 'PAELLA' :
-                                    echo '<td>10:00 AM</td><td> Paella Cooking Class</td>';
-                                    echo '<td><a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">See Details</a></td>';
-                                    break;
-                                case 'TAPAS' :
-                                    echo '<td>5:30 PM</td><td>Tapas Cooking Class</td>';
-                                    echo '<td><a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">See Details</a></td>';
-                                    break;
-                                default :
-                                    continue;
-                            }
-                            echo '</tr>';
-                            $i++;
-                        }               
-                    }
-                @endphp         
-        </table>
-    </div>
+<div class="header3">Upcoming Classes<br><br></div>
+    <div class="row justify-content-center">
+        <div class="col-sm-10 col-lg-8">
+            <table class="table">
+                    @php 
+                        $i = 0;
+                        foreach ($events as $event) {
+                            if ($event->registered < $event->capacity && $i < 5) {
+                                $date = new DateTime($event->startdateatom);
+                                echo '<tr>';
+                                echo '<td>' . $date->format("D, d M") . '</td>';
+                                switch ($event->type) {
+                                    case 'PAELLA' :
+                                        echo '<td>10:00 AM</td><td> Paella Cooking Class</td>';
+                                        echo '<td><a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">Details</a></td>';
+                                        break;
+                                    case 'TAPAS' :
+                                        echo '<td>5:30 PM</td><td>Tapas Cooking Class</td>';
+                                        echo '<td><a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">Details</a></td>';
+                                        break;
+                                    default :
+                                        continue;
+                                }
+                                echo '</tr>';
+                                $i++;
+                            }               
+                        }
+                    @endphp         
+            </table>
+        </div>
 </div>
 
 <div class="divider"></div>

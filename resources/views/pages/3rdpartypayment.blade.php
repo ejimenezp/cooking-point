@@ -18,7 +18,7 @@
                 width: 100%;
               }
       </style>  
-      <link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
+      <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
       <script src="https://use.fontawesome.com/c502308363.js"></script>
 
 

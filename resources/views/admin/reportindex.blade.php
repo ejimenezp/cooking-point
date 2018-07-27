@@ -5,8 +5,8 @@
 
 @section('content')
 
-<div class="row">
-	<div class="col-sm-offset-2 col-sm-6">
+<div class="row justify-content-center">
+	<div class="col-md-6">
 		<form id="report_form" method='post'>
 			{{ csrf_field() }}
 			<table class='table'>

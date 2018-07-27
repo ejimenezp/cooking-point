@@ -4,8 +4,8 @@
 
 @section('content')
 
-<div class="row">
-	<div class="col-sm-offset-1 col-sm-10">
+<div class="row justify-content-center">
+	<div class="col col-lg-10">
 		<h1 class="header1">{{ $title }}</h1>
 		<form id="csv_form" method="post" action="{{ app('request')->input('id') }}">
 			{{ csrf_field() }}

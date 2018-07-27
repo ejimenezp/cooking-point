@@ -3,9 +3,9 @@
  */
 window.$ = window.jQuery = require('jquery');
 
-require('bootstrap-sass');
+//require('bootstrap-sass');
 require('jquery-serializejson');
-require('printThis');
+require('print-this');
 
 
 require('jquery-ui/ui/widgets/datepicker');

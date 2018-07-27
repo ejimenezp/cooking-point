@@ -25,7 +25,7 @@ Route::get('/booking/forget', 'BookingControllerOnline@forget');
 Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
 Route::get('/classes-paella-cooking-madrid-spain', 'CalendareventControllerOnline@paella');
 Route::get('/classes-spanish-tapas-madrid-spain', 'CalendareventControllerOnline@tapas');
-Route::get('/location', function () { return view('pages.location', ['page' => 'location']); });
+Route::get('/location', function () { return view('pages.location'); });
 Route::get('/faq', function () { return view('pages.faq'); });
 Route::get('/gallery', function () { return view('pages.gallery'); });
 Route::get('/pay/{id}', 'TPVController@pay')->name('pay');
@@ -36,6 +36,7 @@ Route::get('/contacto-eventos-privados', function () { return view('pages.contac
 Route::get('/oferta-para-agencias', function () { return view('pages.agencias'); });
 Route::get('/3rdpartypayment/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
 Route::get('/about-us', function () { return view('pages.aboutus'); });
+Route::get('/best-cooking-classes-madrid', function () { return view('pages.bestclasses', ['page' => 'bestclasses']); });
 
 //
 // blog entries

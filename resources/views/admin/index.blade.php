@@ -5,12 +5,12 @@
 
 @section('content')
 
-<div class="row">
-	<div class="col-sm-4">
-		<div class="admin" id="admindatepicker"></div>
+<div class="admin row justify-content-center">
+	<div class="col-md-4">
+		<div id="admindatepicker"></div>
 	</div>
 
-	<div class="col-sm-8">
+	<div class="col-md-6">
 		<div id="calendarevent_index">
 			<div class="text-center">
 	            <form >
@@ -309,7 +309,7 @@
 						</td>
 						<td>
 							<input name="locator" style="width:50%;" type="text" value="" >&nbsp
-							<button id="button_booking_copy" class="btn btn-primary btn-xs">Copiar</button
+							<button id="button_booking_copy" class="btn btn-primary btn-sm">Copiar</button
 						</td>
 					</tr>
 					<tr>

@@ -1,14 +1,26 @@
 
 /**
  * First we will load all of this project's JavaScript dependencies which
- * include Vue and Vue Resource. This gives a great starting point for
+ * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
 require('./bootstrap');
 
-window.$ = window.jQuery = require('jquery')
-require('bootstrap-sass'); // needed for menu drop-down
+window.Vue = require('vue');
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
+
+const app = new Vue({
+    el: '#app'
+});
+
 
 // to allow sass mixins for different browsers
 document.documentElement.setAttribute("data-browser", navigator.userAgent);
@@ -25,57 +37,68 @@ var page = $("meta[name=page]").attr("content")
 var caption = $("meta[name=page]").attr("caption")
 
 if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
-	$("#banner").append('<img id="image-home" src="/images/home-banner-sm.jpg" >')
-	if (page !== ''){
+	// no video here for these browsers, squared banners
+	if (page ==='') {
+		// do nothing
+	} else if (page === 'home') {
+		$("#banner").append('<img id="image-home" src="/images/home-banner-sm.jpg" >')
+	} else {
 		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >')
 	}
 } else {
-	$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted > \
+	if (page ==='') {
+		// do nothing
+	} else if (page === 'home') {
+
+		$("#banner").append('<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted > \
 	     	<source src="images/home-video-banner-01.mp4" type="video/mp4"> \
 	   	 </video>')
 
-	var videoList = ["images/home-video-banner-01.mp4", "images/home-video-banner-02.mp4","images/home-video-banner-03.mp4", "images/home-video-banner-04.mp4"]
-	var curVideo = 0
-	var myVideo = $('#video-home').get(0)
+		var videoList = ["images/home-video-banner-01.mp4", "images/home-video-banner-02.mp4","images/home-video-banner-03.mp4", "images/home-video-banner-04.mp4"]
+		var curVideo = 0
+		var myVideo = $('#video-home').get(0)
 
-	// workaround to force autoplay on Safari browsers (iPad)
-	if ( /Safari/i.test(navigator.userAgent) ) {
-		setTimeout(function() { myVideo.play()}, 50)
-	}
-	// end workaround
-
-	if (page !== ''){
+		myVideo.onended = function() {
+			$('#video-home').removeAttr('poster')
+			curVideo++
+		    if(curVideo < videoList.length){    		
+		        myVideo.src = videoList[curVideo];        
+		    }
+		    else {
+		    	curVideo = 0;
+		        myVideo.src = videoList[curVideo];        
+		    }
+		}
+		// workaround to force autoplay on Safari browsers (iPad)
+		if ( /Safari/i.test(navigator.userAgent) ) {
+			setTimeout(function() { myVideo.play()}, 50)
+		}
+	} else {
 		$("#section-banner").append('<img class="banner" src="/images/'+page+'-banner.jpg" alt="'+caption+'" >')
 	}
 
-	myVideo.onended = function() {
-		$('#video-home').removeAttr('poster')
-		curVideo++
-	    if(curVideo < videoList.length){    		
-	        myVideo.src = videoList[curVideo];        
-	    }
-	    else {
-	    	curVideo = 0;
-	        myVideo.src = videoList[curVideo];        
-	    }
-	}
+
 
 
 }
 
 // to highlight selected menubar option
-$('.nav li a[href="' + this.location.pathname + '"]').addClass('active')
+$('nav ul li a[href="' + window.location.pathname + '"]').addClass('active')
+
 
 function toggleVideo () {
 	var myVideo = $('#video-home').get(0)
-	if (myVideo.paused) {
-		myVideo.play()
-		$('.home-pause-button').html('<i class="fa fa-pause"></i>')
-		setTimeout(toggleVideo, 90*1000)
-	} else {
-		myVideo.pause()
-		$('.home-pause-button').html('<i class="fa fa-play"></i>')
+	if (myVideo !== undefined){
+		if (myVideo.paused) {
+			myVideo.play()
+			$('.home-pause-button').html('<i class="fa fa-pause"></i>')
+			setTimeout(toggleVideo, 90*1000)
+		} else {
+			myVideo.pause()
+			$('.home-pause-button').html('<i class="fa fa-play"></i>')
+		}		
 	}
+
 
 }
 $('.home-pause-button').click(toggleVideo)

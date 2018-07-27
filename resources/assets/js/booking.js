@@ -1,8 +1,7 @@
-window.$ = window.jQuery = require('jquery')
-require('jquery-ui/ui/widgets/datepicker')
-require('bootstrap-sass');
+// window.$ = window.jQuery = require('jquery')
+//require('jquery-ui/ui/widgets/datepicker')
 require('jquery-serializejson')
-require('printThis');
+require('print-this');
 
 
 
@@ -289,8 +288,8 @@ function retrieveBooking(locator) {
 	$('.timeshown').html(start_time.format('h:mm A') + " - " + end_time.format('h:mm A'))
 
 	form_changed = false
-	$(".update_class").addClass('hidden')
-	$(".update_contact").addClass('hidden')
+	$(".update_class").addClass('d-none')
+	$(".update_contact").addClass('d-none')
 	return bkg
 }
 
@@ -320,12 +319,12 @@ function showModalBooking(tthis, title, body, show_cancel, action) {
 	$(new_modal_id).find('.modal_booking_title').html(title)
 	$(new_modal_id).find('.modal_booking_body').html(body)
 	if (show_cancel) {
-		$(new_modal_id).find('.btn-cancel').removeClass('hidden')
+		$(new_modal_id).find('.btn-cancel').removeClass('d-none')
 	} else {
-		$(new_modal_id).find('.btn-cancel').addClass('hidden')		
+		$(new_modal_id).find('.btn-cancel').addClass('d-none')		
 	}
 	$(new_modal_id).find('.btn-ok').unbind('click').click(action)
-	$(new_modal_id).modal('show')
+	$(new_modal_id).modal()
 }
 
 
@@ -342,7 +341,7 @@ function updateBooking() {
 	    async: false,
 	    success: function(msg) {
 	    	form_changed = false
-	    	$(".update").addClass('hidden')
+	    	$(".update").addClass('d-none')
 
 	    }
 	})   	
@@ -381,7 +380,7 @@ function validateBookingForm()
     if (show_it) {
 		$('.modal_booking_title').html(modal_title)
 		$('.modal_booking_body').html(modal_body)
-		$('#modal_booking').modal('show')
+		$('#modal_booking').modal()
 		return false	
     }
     return true
@@ -411,41 +410,41 @@ jQuery(document).ready(function($) {
 
 	refreshDataShown()
 
-    $('#booking_steps > div').addClass('hidden')
+    $('#booking_steps > div').addClass('d-none')
     if (bkg) {
     	if (bkg.status != 'PENDING') {
-		    $('#step4').removeClass('hidden')
+		    $('#step4').removeClass('d-none')
 		   	document.title =  $(".typeshown").html() + " for " + $(".nameshown").html() + " on " + $(".dateshown").html()
 		    $('select[name=adult] option:selected').siblings().attr('disabled','disabled')
 		    $('select[name=child] option:selected').siblings().attr('disabled','disabled')
 		    var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
 			if (start.isSameOrBefore(rightNow())) {
-	    		$("#button_booking_edit").addClass('hidden')	
+	    		$("#button_booking_edit").addClass('d-none')	
 	    	}
     	} else {
 	 		if (!getDayAvailability(bkg.date)[0]) {
 	    		$('.modal_booking_title').html('Class no longer available')
 				$('.modal_booking_body').html('Please, select a date with availability')
-	    		$("#modal_booking").modal('show')
-		 	    $('#step1').removeClass('hidden')
+	    		$("#modal_booking").modal()
+		 	    $('#step1').removeClass('d-none')
 	 		} else {
-		 	    $('#step2').removeClass('hidden')
+		 	    $('#step2').removeClass('d-none')
 	 		}
     	}
     } else {
-	    $('#step1').removeClass('hidden')    	
+	    $('#step1').removeClass('d-none')    	
     }
 
     switch ($("#step4").data('tpv_result')) {
     	case 'OK':
     		$('.modal_booking_title').html('Thank you for booking a class with us!')
 			$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime')
-    		$("#modal_booking").modal('show')
+    		$("#modal_booking").modal()
     		break
     	case 'KO':
     		$('.modal_booking_title').html('Payment Failure')
 			$('.modal_booking_body').html('It seems you could not complete the transaction. Please, try it again')
-    		$("#modal_booking").modal('show')
+    		$("#modal_booking").modal()
     }
 
 	//
@@ -459,7 +458,7 @@ jQuery(document).ready(function($) {
  	  		date_shown = moment($(this).val())
   	  		refreshDataShown()
  	  		form_changed = true
- 	  		$(".update_class").removeClass('hidden')
+ 	  		$(".update_class").removeClass('d-none')
 
  	 	},
  	  	onChangeMonthYear: function(year, month, inst){
@@ -484,12 +483,12 @@ jQuery(document).ready(function($) {
     	$("input[name=price]").val($("select[name=adult]").val()*70 + $("select[name=child]").val()*35)
     	refreshDataShown()
     	form_changed = true
-		$('.update_class').removeClass('hidden')
+		$('.update_class').removeClass('d-none')
 
 	    if (!getDayAvailability(date_shown.toDate())[0]) {
     		$('.modal_booking_title').html('Class Not Available')
 			$('.modal_booking_body').html('Please, select a date with availability')
-    		$("#modal_booking").modal('show')
+    		$("#modal_booking").modal()
     	}
    	});
 
@@ -497,13 +496,13 @@ jQuery(document).ready(function($) {
 	$( "#booking_form_2 :input, #booking_form_3 :input" )
 	  .keypress(function () {
 	    form_changed = true
-	    $(".update_contact").removeClass('hidden')
+	    $(".update_contact").removeClass('d-none')
 	})
 
 	$('.step').click(function (e) {
         e.preventDefault();
-        $('#booking_steps > div').addClass('hidden')
-        $($(this).attr('href')).removeClass('hidden')
+        $('#booking_steps > div').addClass('d-none')
+        $($(this).attr('href')).removeClass('d-none')
     })
 
     $(".cancel").click(function() {
@@ -515,38 +514,38 @@ jQuery(document).ready(function($) {
 		updateBooking()
 		retrieveBooking($("input[name=locator]").val())
 		refreshDataShown()
-		$('#booking_steps > div').addClass('hidden')
-    	$($(this).attr('href')).removeClass('hidden')
+		$('#booking_steps > div').addClass('d-none')
+    	$($(this).attr('href')).removeClass('d-none')
 	})
 
     $("#button_booking_help").click(function() {
-		$('#modal_booking_help').modal('show')
+		$('#modal_booking_help').modal()
 	})
 
     $(".booking_retrieve").click(function() {
-		$('#modal_booking_retrieve').modal('show')
+		$('#modal_booking_retrieve').modal()
 	})
 
     $(".update_class").click(function(e) {
     	if (!getDayAvailability(date_shown.toDate())[0]) {
     		$('.modal_booking_title').html('Not Available')
 			$('.modal_booking_body').html('Please, select a date with availability')
-    		$("#modal_booking").modal('show')
+    		$("#modal_booking").modal()
 		} else if ($(this).attr('checkout')) {
 	    	if (!parseInt($("select[name=adult]").val())) {
 	    		$('.modal_booking_title').html('Invalid number of guests')
 				$('.modal_booking_body').html('1 adult at least')
-	    		$("#modal_booking").modal('show')
+	    		$("#modal_booking").modal()
 			} else {
-				$('#booking_steps > div').addClass('hidden')
-		    	$($(this).attr('href')).removeClass('hidden')
+				$('#booking_steps > div').addClass('d-none')
+		    	$($(this).attr('href')).removeClass('d-none')
 		    }
 		} else { 				// booking already exist, and probably paid
 			updateBooking()
 			retrieveBooking($("input[name=locator]").val())
 			refreshDataShown()
-			$('#booking_steps > div').addClass('hidden')
-	    	$($(this).attr('href')).removeClass('hidden')
+			$('#booking_steps > div').addClass('d-none')
+	    	$($(this).attr('href')).removeClass('d-none')
 		}
 	})
 
@@ -573,13 +572,13 @@ jQuery(document).ready(function($) {
 		if (start.isSameOrBefore(right_now)) {
     		$('.modal_booking_title').html("Past Class")
 			$('.modal_booking_body').html('This class has already taken place, no edition is allowed.')
-    		$("#modal_booking").modal('show')	
+    		$("#modal_booking").modal()	
 	    } else if (start.subtract(11, 'hours').isSameOrBefore(right_now)) {
     		$('.modal_booking_title').html("Edition not allowed")
 			$('.modal_booking_body').html('Class is too close to start, so no edition allowed.<br/><br/>Please contact us by phone should you have any question.')
-    		$("#modal_booking").modal('show')
+    		$("#modal_booking").modal()
 		} else {
-			$('#modal_booking_edit').modal('show')
+			$('#modal_booking_edit').c
 		}		
 	})
 
@@ -588,10 +587,10 @@ jQuery(document).ready(function($) {
 		if (start.subtract(24, 'hours').isSameOrBefore(rightNow())) {
     		$('.modal_booking_title').html("Class changes not allowed")
 			$('.modal_booking_body').html('Class is too close to change your date or type.<br/><br/>Please contact us by phone should you have any question.')
-    		$("#modal_booking").modal('show')
+    		$("#modal_booking").modal()
 		} else {
-	        $('#booking_steps > div').addClass('hidden')
-	        $('#step1').removeClass('hidden')
+	        $('#booking_steps > div').addClass('d-none')
+	        $('#step1').removeClass('d-none')
 		}		
 	})
 
@@ -601,7 +600,7 @@ jQuery(document).ready(function($) {
 		if (start.subtract(48, 'hours').isSameOrBefore(rightNow())) {
     		$('.modal_booking_title').html("Cancellation Late Notice")
 			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.')
-    		$("#modal_booking").modal('show')
+    		$("#modal_booking").modal()
 			return
 		}
 	    showModalBooking(
