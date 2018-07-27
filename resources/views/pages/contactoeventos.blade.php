@@ -99,5 +99,5 @@
 @stop
 
 @section('js')
-      <script async src="{{ elixir('js/contactoeventos.js') }}"></script>
+      <script async src="{{ mix('/js/contactoeventos.js') }}"></script>
 @stop

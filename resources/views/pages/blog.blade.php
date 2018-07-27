@@ -12,7 +12,7 @@
 
     <div class="col-sm-6">
         <h4 class="header4"></h4>
-		<a href="/iberico-ham"><img class="img-responsive center-block" alt="iberico pig" src="/images/blog/iberico-pig.jpg" /></a>
+		<a href="/iberico-ham"><img class="img-fluid center-block" alt="iberico pig" src="/images/blog/iberico-pig.jpg" /></a>
 		<h2 class="header2"><a href="/iberico-ham">What Is iberico Ham?</a></h2>
 		<p>What makes so special the Iberico Ham? This particular breed, only found in Spain and Portugal has unexpected benefits for your health.</p>
 		<div class="text-center">
@@ -22,7 +22,7 @@
 
     <div class="col-sm-6">
         <h4 class="header4"></h4>
-		<a href="/paella-fish-stock"><img class="img-responsive center-block" alt="paella fish stock" src="/images/blog/fish-stock.jpg" /></a>
+		<a href="/paella-fish-stock"><img class="img-fluid center-block" alt="paella fish stock" src="/images/blog/fish-stock.jpg" /></a>
 		<h2 class="header2"><a href="/paella-fish-stock">How to Make Fish Stock</a></h2>
 		<p>Finally, we publish our recipe of fish stock, key ingredient in an excellent mixed paella.</p>
 		<div class="text-center">
@@ -36,7 +36,7 @@
 
     <div class="col-sm-6">
         <h4 class="header4"></h4>
-		<a href="/denominacion-de-origen-protegida"><img class="img-responsive center-block" alt="denominacion de origen protegida" src="/images/blog/dop-label.jpg" /></a>
+		<a href="/denominacion-de-origen-protegida"><img class="img-fluid center-block" alt="denominacion de origen protegida" src="/images/blog/dop-label.jpg" /></a>
 		<h2 class="header2"><a href="/denominacion-de-origen-protegida">Denominacion de Origen Protegida (DOP)</a></h2>
 		<p>Find out how to get best Spanish (and European) products just checking their labels. The Protected Designation of Origin symbol certifies where foodstuff has been grown and/or produced to avoid falsifications and deliver to customers the excellence of European foodstuff production.</p>
 		<div class="text-center">
@@ -46,7 +46,7 @@
 
     <div class="col-sm-6">
         <h4 class="header4"></h4>
-		<a href="/spanish-potato-omelet"><img class="img-responsive center-block" alt="Spanish Potato Omelet" src="/images/blog/spanish-omelet-at-cooking-point.jpg" /></a>
+		<a href="/spanish-potato-omelet"><img class="img-fluid center-block" alt="Spanish Potato Omelet" src="/images/blog/spanish-omelet-at-cooking-point.jpg" /></a>
 		<h2 class="header2"><a href="/spanish-potato-omelet">Tortilla de Patatas</a></h2>
 		<p>All you should know about Tortilla: recipe, customs, history, best tortillas in Madrid, ...</p>
 		<div class="text-center">

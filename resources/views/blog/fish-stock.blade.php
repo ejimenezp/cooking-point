@@ -9,7 +9,7 @@
 	<div class="col-sm-12">
 		<h1 class="header1">Fish Stock for Paella</h1>
 
-<img class="img-responsive center-block" alt="paella fish stock" src="/images/blog/fish-stock.jpg" />
+<img class="img-fluid center-block" alt="paella fish stock" src="/images/blog/fish-stock.jpg" />
 
 <p></p>
 

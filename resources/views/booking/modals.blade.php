@@ -8,8 +8,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Edit Booking</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         @if (isset($bkg) && $bkg->fixed_date)
         <div class="modal-body">You can:
@@ -41,8 +41,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Help</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">Please, select number of guests and desired class. The calendar will update according to our availability:
         <table class="help-table">
@@ -75,8 +75,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Retrieve Booking</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <form id="retrieve-form" action="/booking">
           <div class="modal-body">If you already have a booking number, you can access your booking from any device or browser.
@@ -106,18 +106,18 @@
 <!-- Generic modal  -->
 
 <div class="modal fade" id="modal_booking" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog">    
+    <div class="modal-dialog" role="document">    
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title modal_booking_title"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body modal_booking_body"></div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-default btn-cancel hidden" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">OK</button>
+<!--                 <button type="button" class="btn btn-default btn-cancel hidden" data-dismiss="modal">Cancel</button>
+ -->                <button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">OK</button>
             </form>
        </div>
       </div>

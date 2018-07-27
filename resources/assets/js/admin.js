@@ -1,6 +1,4 @@
-window.$ = window.jQuery = require('jquery')
-require('jquery-ui/ui/widgets/datepicker')
-require('bootstrap-sass');
+require('./bootstrap');
 require('jquery-serializejson')
 
 var moment = require('moment')
@@ -613,7 +611,7 @@ jQuery(document).ready(function($) {
 					populateBookingList(i);
 					$('#calendarevent_index').hide()
 					$('#calendarevent_edit').hide()
-					$('#booking_index').show()
+					$('#booking_index').addClass('d-display')
 					$('#booking_edit').hide()
 					break	
 

@@ -7,8 +7,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Eliminar Evento</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <p>Confirmar</p>
@@ -30,8 +30,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Cerrar</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <p>Los cambios se perderán</p>
@@ -55,8 +55,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title"><div id="modal_calendarevent_title"></div></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body" id="modal_calendarevent_body"></div>
         <div class="modal-footer">
@@ -77,8 +77,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Eliminar Reserva</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <p>Confirmar</p>
@@ -100,8 +100,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Cerrar</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <p>Los cambios se perderán</p>
@@ -125,13 +125,12 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title modal_admin_title"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body modal_admin_body"></div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-default btn-cancel hidden" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">OK</button>
             </form>
        </div>

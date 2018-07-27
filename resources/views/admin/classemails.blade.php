@@ -17,16 +17,16 @@
 				padding: 0;
 			  }
 	  	</style>  
-		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
-		<script type='text/javascript' src='{{ elixir('js/classemails.js') }}'></script>
+		<link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
+		<script type='text/javascript' src='{{ mix('/js/classemails.js') }}'></script>
 		<script src="https://use.fontawesome.com/c502308363.js"></script>
 	</head>
 	
   <body>
 
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-offset-1 col-sm-10">
+		<div class="row justify-content-center">
+			<div class="col-sm-10">
 				<form id="classemails_form" method='post'>
 					{{ csrf_field() }}
 

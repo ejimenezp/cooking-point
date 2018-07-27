@@ -25,7 +25,7 @@
 
     		</div>
   			<div class="col-sm-6">
-                <h1 class="header1">Ticket   <div class="btn btn-danger" id="boton-limpiar">Clean Ticket</div></h1>
+                <h1 class="header1">Ticket   <div class="btn btn-sm btn-danger" id="boton-limpiar">Clean Ticket</div></h1>
                 <div class="screen">
                     <table id="screen_table">
                         <thead><tr><th>Product</th><th class="text-right">Price</th></tr></thead>
@@ -34,7 +34,7 @@
                     </table>
                 </div>
 
-                <div class="hidden">
+                <div class="d-none">
                     <div id="receipt">
                         <table>
                             <tr>
@@ -75,7 +75,7 @@
                 <input type="hidden" name="date" id="realDate">
                 <div class="btn btn-lg btn-danger boton-pagar" data-pago="cash">Pay Cash</div>
                 <div class="btn btn-lg btn-danger boton-pagar" data-pago="credit card">Pay Card</div>
-                <button type="submit" class="btn btn-xs btn-secondary">View Sales</button>
+                <button type="submit" class="btn btn-sm btn-secondary">View Sales</button>
                 </form>
     		</div>   		
         </div>

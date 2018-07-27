@@ -1,27 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
       <title>@yield('title')</title>
       <meta name="description" content="@yield('description')" >
       <meta name="page" content="@yield('page')" caption="@yield('banner-caption', 'cooking point')">
       
       <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
       <style type="text/css">
-          ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-              }
           #map {
                 height: 50vh;
                 width: 100%;
               }
       </style>  
-      <link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
-      <script  type='text/javascript' src='{{ elixir('js/app.js') }}'></script>
+      <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
+      <script  type='text/javascript' src='{{ mix('/js/app.js') }}'></script>
       <script  type='text/javascript' src="https://use.fontawesome.com/c502308363.js"></script>
 
       @if (App::environment() == 'production')
@@ -79,19 +74,16 @@
         <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><i class="fa fa-3x fa-instagram"></i></a>        
       </div>      
     </div>
-@stop
+@endsection
 
-<div class="visible-xs">
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">   
-          <div class="navbar-brand">
-            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
-          </div>
-          <a class="menu-header-xs" data-toggle="collapse" data-target="#myNavbar" href="#">
-              Menu <i class="fa fa-bars" aria-hidden="true"></i>
-          </a>
+<div class="d-block d-lg-none">
+  <nav class="navbar fixed-top">
+      <div class="navbar-brand">
+        <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
       </div>
+      <a class="menu-header-xs" data-toggle="collapse" data-target="#myNavbar" href="#">
+          Menu <i class="fa fa-bars" aria-hidden="true"></i>
+      </a>
       <div id="myNavbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li>
@@ -123,158 +115,92 @@
           </li>
         </ul> 
       </div>
-    </div>      
   </nav>
 </div>
 
-<div class="visible-sm">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">   
-          <div class="navbar-brand">
-            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
-          </div> 
-      </div>
-      <ul class="vertical-center nav navbar-nav">
-        <li>
-          <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+<div class="d-none d-lg-block d-xl-none">
+  <nav class="navbar navbar-expand-md nav-fill"> 
+      <div class="navbar-brand">
+        <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
+      </div> 
+
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="/classes-paella-cooking-madrid-spain">Paella Class</a>
         </li>
-        <li>
-          <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
         </li>
-        <li>
-          <a href="/private-cooking-events-madrid-spain">Private Events</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/private-cooking-events-madrid-spain">Private Events</a>
         </li>
-        <li>
-          <a href="/location">Location</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/location">Location</a>
         </li>            
-        <li>
-          <a class="cp-bkg-button" href="/booking">Booking</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/about-us">About Us</a>
         </li>
-          <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                  <li>
-                    <a href="/about-us">About Us</a>
-                  </li>
-                  <li>
-                    <a href="/gallery">Gallery</a>
-                  </li>
-                  <li>
-                    <a href="/blog">Blog</a>
-                  </li>
-                  <li>
-                    <a href="/faq">FAQ</a>
-                  </li>
-              </ul>
-          </li>
-      </ul> 
-    </div>      
+        <li class="nav-item">
+          <a class="nav-link" class="cp-bkg-button" href="/booking">Booking</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <span class="caret"></span></a>
+            <div class="dropdown-menu" aria-labelledby="themes">
+              <a class="dropdown-item" href="/gallery">Gallery</a>
+              <a class="dropdown-item" href="/blog">Blog</a>
+              <a class="dropdown-item" href="/faq">FAQ</a>
+            </div>
+        </li>
+      </ul>      
   </nav>
 </div>
 
-<div class="visible-md">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">   
-          <div class="navbar-brand">
-            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
-          </div> 
-      </div>
-      <ul class="vertical-center nav navbar-nav">
-        <li>
-          <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+<div class="d-none d-xl-block">
+  <nav class="navbar navbar-expand-xl">
+      <a class="navbar-brand"href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
+      <ul class="navbar-nav nav-fill justify-content-center w-100">
+        <li class="nav-item">
+          <a class="nav-link" href="/classes-paella-cooking-madrid-spain">Paella Class</a>
         </li>
-        <li>
-          <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
         </li>
-        <li>
-          <a href="/private-cooking-events-madrid-spain">Private Events</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/private-cooking-events-madrid-spain">Private Events</a>
         </li>
-        <li>
-          <a href="/location">Location</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/location">Location</a>
         </li>            
-        <li>
-          <a href="/about-us">About Us</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/about-us">About Us</a>
         </li>
-        <li>
-          <a class="cp-bkg-button" href="/booking">Booking</a>
+       <li class="nav-item">
+          <a class="nav-link" href="/booking">Booking</a>
         </li>
-          <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                  <li>
-                    <a href="/gallery">Gallery</a>
-                  </li>
-                  <li>
-                    <a href="/blog">Blog</a>
-                  </li>
-                  <li>
-                    <a href="/faq">FAQ</a>
-                  </li>
-              </ul>
-          </li>
-      </ul> 
-    </div>      
+        <li class="nav-item">
+          <a class="nav-link" href="/gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faq">FAQ</a>
+       </li>
+      </ul>            
   </nav>
 </div>
 
-<div class="visible-lg">
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">   
-          <div class="navbar-brand">
-            <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
-          </div> 
-      </div>
-      <ul class="vertical-center nav navbar-nav">
-        <li>
-          <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
-        </li>
-        <li>
-          <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-        </li>
-        <li>
-          <a href="/private-cooking-events-madrid-spain">Private Events</a>
-        </li>
-        <li>
-          <a href="/location">Location</a>
-        </li>            
-        <li>
-          <a href="/about-us">About Us</a>
-        </li>
-        <li>
-          <a class="cp-bkg-button" href="/booking">Booking</a>
-        </li>
-        <li>
-          <a href="/gallery">Gallery</a>
-        </li>
-        <li>
-          <a href="/blog">Blog</a>
-        </li>
-        <li>
-          <a href="/faq">FAQ</a>
-        </li>
-      </ul> 
-    </div>      
-  </nav>
-</div>
-
-  
-@if (isset($page) && ($page == 'home' || $page == '' || $page == 'booking'))
-
+@if (isset($page) && ($page == 'home' || $page == '' || $page == 'booking' ))
 <div class="container-fluid">
   @yield('banner')
-  <div class="no-gutter">
-    <div class="col-sm-12 col-lg-offset-1 col-lg-10">
-      <div class="no-gutter">
-          @yield('content')                  
-      </div>
+  <div class="row justify-content-center">
+    <div class="col col-xl-10">
+      @yield('content')                  
     </div>  
   </div>
   <div class="">
     <div class="divider"></div>
-    <div class="col-sm-12">
+    <div class="col">
       @yield('footer')
     </div> 
   </div>
@@ -286,20 +212,20 @@
   <div class="row">
     <div id="section-banner">
     </div>
-    <div class="no-gutter">
-      <div class="col-sm-9 col-lg-offset-1 col-lg-8">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 col-xl-8">
           <div class="container-fluid">
               @yield('content')           
           </div>
       </div>      
+      <div class="col-lg-3 col-xl-2">
+          @include('sidebar')
+      </div>    
     </div>
-    <div class="col-sm-3 col-lg-2">
-        @include('sidebar')
-    </div>    
   </div>
   <div class="row">
     <div class="divider"></div>
-    <div class="col-sm-12">
+    <div class="col-12">
       @yield('footer')
     </div> 
   </div>

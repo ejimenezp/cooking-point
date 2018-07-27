@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<title>@yield('title')</title>
 		<meta name="description" content="@yield('description')" >
@@ -17,8 +17,8 @@
 				padding: 0;
 			  }
 	  	</style>  
-		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">     
-		<script type='text/javascript' src='{{ elixir('js/tienda.js') }}'></script>
+		<link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
+		<script type='text/javascript' src='{{ mix('/js/tienda.js') }}'></script>
 		<script src="https://use.fontawesome.com/c502308363.js"></script>
 	</head>
 	
