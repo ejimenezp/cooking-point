@@ -10725,82 +10725,54 @@ nav .active {
   margin-right: 0 !important;
 }
 
+.home-logo {
+  max-width: 3rem;
+}
+
 a {
   color: #EF8401;
 }
 
 a:hover {
-  color: inherit;
   text-decoration: none;
 }
 
-body {
-  background-color: initial !important;
+.table th,
+.table td {
+  padding-left: 0;
 }
 
-video {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.home-logo {
-  max-width: 18vw;
-}
-
-.navbar-header {
-  height: 24vw;
-}
-
-.vertical-center {
-  padding-top: 6vw;
-}
-
-#section-banner {
-  margin-top: 5.5rem;
+.header-offset {
+  height: 5rem;
 }
 
 .home-preheadline {
-  font-size: 6vw;
   color: #EF8401;
-  margin-top: 25vw;
-  left: 8vw;
-  text-align: center;
-}
-
-.home-tacertificate {
-  margin-top: 1vw;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 5.25rem;
 }
 
 .home-headline {
-  font-size: 8vw;
-  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
   font-weight: bold;
   position: absolute;
   z-index: 1000;
-  left: 8%;
-  top: 60%;
-  text-shadow: 0em 0.05em black;
+  top: 12rem;
+  text-shadow: 0em 0.05rem black;
 }
 
 .home-headline a {
   color: white;
 }
 
-.home-headline a:link {
-  color: white !important;
-}
-
 .home-more-info-button {
-  font-size: 4vw;
+  font-size: 0.75rem;
   font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   position: absolute;
   z-index: 1000;
-  left: 38vw;
-  top: 75%;
-  text-align: center;
+  top: 15rem;
   background-color: #e42e28;
   color: white;
   padding: 0.2rem;
@@ -10815,28 +10787,8 @@ video {
   display: none;
 }
 
-.Eduardo {
-  color: red;
-  background-color: lightpink;
-  padding: inherit;
-}
-
-.Laura {
-  color: green;
-  background-color: lightgreen;
-  padding: inherit;
-}
-
-.Lily {
-  color: darkred;
-  background-color: lightsalmon;
-  padding: inherit;
-}
-
-.Angel {
-  color: darkblue;
-  background-color: lightblue;
-  padding: inherit;
+.img-sidebar {
+  width: 12rem;
 }
 
 .blog ul {
@@ -10869,19 +10821,6 @@ video {
   counter-increment: li;
 }
 
-.decorated,
-.header1,
-.menu-header-xs,
-.header2,
-.header3,
-.header4,
-.header5 {
-  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  text-decoration: none;
-  line-height: 1.1;
-}
-
 .home-notice {
   background-color: darkorange;
   color: white;
@@ -10901,8 +10840,7 @@ video {
   /* no underline */
 }
 
-.cp-class-details,
-.cp-bkg-button {
+.cp-class-details {
   background-color: #EF8401;
   color: white;
   border-radius: 7px;
@@ -10911,16 +10849,23 @@ video {
   margin-bottom: 10px;
 }
 
-.cp-class-details a,
-.cp-bkg-button a {
+.cp-class-details a {
   color: inherit;
   text-decoration: inherit;
   /* no underline */
 }
 
-.cp-bkg-button {
-  background-color: green;
-  color: white !important;
+.decorated,
+.header1,
+.menu-header-xs,
+.header2,
+.header3,
+.header4,
+.header5 {
+  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1.1;
 }
 
 .header1,
@@ -10933,41 +10878,35 @@ video {
 .header2 {
   font-size: 1.25rem;
   color: #EF8401;
+  margin-top: 1.25rem;
 }
 
 .header3 {
   color: #959595;
-  letter-spacing: 1px;
-  border-top: 5px;
+  letter-spacing: 0.05rem;
+  border-top: 0.25rem;
   font-size: 1.1rem;
   font-weight: 500;
+  margin-top: 1rem;
 }
 
 .header4 {
   font-size: 1.25rem;
+  margin-top: 1.25rem;
 }
 
 .header5 {
   font-style: italic;
   font-size: 1.1rem;
+  margin-top: 1.1rem;
 }
 
 .menu-header-xs {
-  position: relative;
-  right: 5rem;
+  margin: auto;
 }
 
 h1 {
   color: #e42e28;
-}
-
-h1 .no-link a:link {
-  color: #e42e28;
-}
-
-h1 .what {
-  text-align: right;
-  font-weight: bold;
 }
 
 .no-gutter > [class*='col-'] {
@@ -11031,6 +10970,7 @@ h1 .what {
 .btn:hover,
 .btn:focus {
   background-color: #EF8401;
+  border-color: #EF8401;
 }
 
 .sidebar-title {
@@ -11040,24 +10980,6 @@ h1 .what {
   font-weight: 700;
   padding-top: 1.2em;
   padding-bottom: 1.2em;
-}
-
-#image-home {
-  width: 100%;
-  height: auto;
-  display: inline-block;
-}
-
-.banner {
-  width: 100%;
-  height: auto;
-  display: inline-block;
-}
-
-.wide {
-  position: relative;
-  margin-left: -15px;
-  margin-right: -15px;
 }
 
 .availability-table {
@@ -11193,6 +11115,30 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   position: static;
 }
 
+.Eduardo {
+  color: red;
+  background-color: lightpink;
+  padding: inherit;
+}
+
+.Laura {
+  color: green;
+  background-color: lightgreen;
+  padding: inherit;
+}
+
+.Lily {
+  color: darkred;
+  background-color: lightsalmon;
+  padding: inherit;
+}
+
+.Angel {
+  color: darkblue;
+  background-color: lightblue;
+  padding: inherit;
+}
+
 .admin .ui-datepicker {
   background-color: white;
   padding: 1%;
@@ -11240,13 +11186,13 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   margin: auto;
   margin-bottom: 5%;
   /*  .ui-datepicker-current-day {
-        background-color: $navbar-default-link-hover-bg;
-      }
-    */
+      background-color: $navbar-default-link-hover-bg;
+    }
+  */
   /*  .ui-state-hover { 
-        background-color: $navbar-default-link-hover-bg; 
-      }
-    */
+      background-color: $navbar-default-link-hover-bg; 
+    }
+  */
 }
 
 .admin-eventdatepicker .ui-datepicker table {
@@ -11416,7 +11362,7 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   }
 
   .home-logo {
-    max-width: 8vw;
+    max-width: 4rem;
   }
 
   .navbar-brand {
@@ -11425,29 +11371,27 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   }
 
   nav a {
-    font-size: 1.1rem;
+    font-size: 2rem;
   }
 
-  .vertical-center {
-    padding-top: 3vw;
+  .header-offset {
+    height: 6.2rem;
   }
 
   .home-preheadline {
-    font-size: 6vw;
-    color: #EF8401;
-    margin-top: 0;
-    left: 8vw;
-    text-align: center;
+    margin-top: 6rem;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
-  .home-tacertificate {
-    position: absolute;
-    top: -30px;
-    right: 20px;
+  .home-headline {
+    font-size: 3rem;
+    top: 20rem;
   }
 
-  .navbar-header {
-    height: inherit;
+  .home-more-info-button {
+    font-size: 1.5rem;
+    top: 25rem;
   }
 
   #video-home {
@@ -11456,87 +11400,71 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
     min-width: 100%;
     min-height: 100%;
   }
-
-  video {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
 }
 
 @media (min-width: 992px) {
-  .modal-xl {
-    width: 60%;
-    max-width: 992px;
+  nav a {
+    font-size: 1.1rem;
   }
 
-  .home-logo {
-    max-height: 10vw;
+  .table th,
+  .table td {
+    padding-left: 0.75rem;
   }
 
   .navbar {
     margin-bottom: 0;
   }
 
-  .vertical-center {
-    padding-top: 3vw;
-  }
-
-  #section-banner {
-    margin-top: 0;
+  .header-offset {
+    height: 0;
   }
 
   .home-preheadline {
-    font-size: 3vw;
-    font-weight: bold;
-    color: #EF8401;
     margin-top: 0;
-    left: 8vw;
-    text-align: center;
   }
 
   .home-headline {
-    font-size: 4vw;
-    font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    position: absolute;
-    z-index: 1000;
-    left: 26vw;
-    top: 40%;
-    text-align: center;
-    color: white;
-    text-shadow: 0em 0.05em black;
+    font-size: 2.4rem;
+    top: 9rem;
   }
 
   .home-more-info-button {
-    font-size: 1.5vw;
-    left: 45vw;
-    top: 70%;
+    font-size: 1rem;
+    top: 13rem;
   }
 
   .home-pause-button {
-    font-size: 2vw;
+    font-size: 1.2rem;
     position: absolute;
     z-index: 1000;
     left: 90%;
-    top: 80%;
+    top: 13.5rem;
     color: white;
     display: block;
   }
 }
 
 @media (min-width: 1200px) {
+  .home-logo {
+    max-width: 5rem;
+  }
+
   nav a {
     font-size: 1.25rem;
   }
 
-  .home-logo {
-    max-height: 8vw;
+  .home-headline {
+    font-size: 3.5rem;
+    top: 11rem;
   }
 
-  .home-tacertificate {
-    right: 50px;
+  .home-more-info-button {
+    top: 16rem;
+  }
+
+  .home-pause-button {
+    top: 16.8rem;
   }
 }
 

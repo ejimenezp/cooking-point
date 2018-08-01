@@ -3,51 +3,42 @@
 @section('title', 'Address and Directions')
 @section('description', 'Located in Barrio de Huertas, within walking distance of major hotel areas and museums. Metro Anton Martin, Line 1.')
 
-@section('page', 'location')
+@section('banner-name', 'location')
 @section('banner-caption', 'cooking point front-door')
 
 @section('content')
 
 <h1 class="header1">Location</h1>
 
-<div class="row">
-	<div class="cp-class-details col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+<div class="row justify-content-center">
+	<div class="cp-class-details col-10 col-sm-8">
 		<i class="fa fa-lg fa-map-marker"></i>&nbsp;&nbsp;Calle de Moratin, 11  28014 Madrid (Spain)<br/>
  		<i class="fa fa-lg fa-subway"></i> Metro Anton Martin (Line 1), exit Amor de Dios St.<br/>
  		<i class="fa fa-lg fa-clock-o"></i> Monday to Saturday, 9:30 am - 9:30 pm<br/>
  		<i class="fa fa-lg fa-envelope-o"></i> <a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a><br/>
  		<i class="fa fa-lg fa-phone"></i> <a href="tel:(+34)910115154">(+34) 910 115 154</a><br/>		
 	</div>
+
+<div class="col-12">
+      <p>Cooking Point is located in the Barrio de Huertas (or Barrio de las Letras, Letter's Quarter). An important place in history especially during the 16th-century Golden Age of Spanish Literature, Miguel de Cervantes and Lope de Vega both lived here. </p>
+
+	<p>This quarter is in the heart of Madrid and our school is within walking distance of Madrid landmarks like Museo del Prado or Puerta del Sol. The closest metro station is Anton Martin (line 1, light blue), exit Amor de Dios St.</p>
 </div>
 
-<p></p>
-
-<div class="no-gutter">
-	<div class="col-md-6">
-		<p>Cooking Point is located in the Barrio de Huertas (or Barrio de las Letras, Letter's Quarter). An important place in history especially during the 16th-century Golden Age of Spanish Literature, Miguel de Cervantes and Lope de Vega both lived here. </p>
-	</div>
-	<div class="col-md-6">
-		<p>This quarter is in the heart of Madrid and our school is within walking distance of Madrid landmarks like Museo del Prado or Puerta del Sol. The closest metro station is Anton Martin (line 1, light blue), exit Amor de Dios St.</p>
-	</div>
-</div>
 
 <div id="map" style="width: 100%; height: 80vh"></div>
 
 <p></p>
 
-<div class="no-gutter">
-      <div class="col-md-6">
+<div class="col-12 justify-content-center">
            <p>Inside Cooking Point, we have designed our large kitchen to feel like home. The state-of-the-art appliances will ensure nothing can go wrong while all the tools are exactly as you would have in your own kitchen. There is no reason why you won’t be able to take this new-found skill home with you.</p>
-      </div>
 
-      <div class="col-md-6">
             <p>A unique feature of our school is the size, we can host a group of up to 24 people. Large enough for a great atmosphere, small enough to get the right guidance and support from the chef. All cooking is done in pairs, each couple has their own stove to work on.</p>
-      </div>
 </div>
 
 
-<div class="row">
-      <div class="cp-class-details col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+<div class="row justify-content-center">
+      <div class="cp-class-details col-10 col-sm-8">
             <strong>Location:</strong> Barrio de Huertas, In the heart of Madrid<br/>
             <strong>Capacity:</strong> 24 people<br/>
             <strong>Usage:</strong> Cooking classes, private events, TV set,...<br/><br/>
@@ -324,3 +315,23 @@
 </script>
 
 @stop
+
+@section('sidebar')
+
+<div class="text-center">
+
+      <div class="d-block d-sm-none divider"></div>
+      <div class="d-none d-lg-block">
+            <p> <br><br> </p>
+      </div>
+      <div class="row justify-content-center">
+            <div class="sidebar-title">FIND OUT WHY WE'RE</div>
+            <div class="col-11">
+                  <a href="/best-cooking-classes-madrid"><img class="img-fluid img-sidebar" alt="best cooking classes in madrid" src="/images/bestintown_logo.png" /></a>                 
+            </div>
+      </div>
+
+</div>
+
+@stop
+

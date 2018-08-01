@@ -57198,7 +57198,6 @@ jQuery(document).ready(function ($) {
 					populateBookingList(i);
 					$('#calendarevent_index').hide();
 					$('#calendarevent_edit').hide();
-					console.log('show booking index');
 					$('#booking_index').addClass('d-display');
 					$('#booking_edit').hide();
 					break;

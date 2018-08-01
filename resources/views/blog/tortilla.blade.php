@@ -14,7 +14,7 @@
 <address class="header3">Madrid | <time datetime="2018-04-19">19 April 2018</time></address>
 
 
-<img class="img-fluid center-block" alt="cooking tortilla de patatas at cooking point" src="/images/blog/cooking-tortilla-de-patatas.jpg" />
+<img class="img-fluid mx-auto d-block" alt="cooking tortilla de patatas at cooking point" src="/images/blog/cooking-tortilla-de-patatas.jpg" />
 <p></p>
 
 <p>Spanish Omelet (or more commonly, Potato Omelet, “Tortilla de Patatas”) is considered the most emblematic recipe of Spanish gastronomy. It is easily found in a wide variety of venues, from the humblest tavern to the fanciest restaurants of our territory. </p>
@@ -25,7 +25,7 @@
 <p></p>
 <p>It is not unusual for many Spaniards having made their first omelet when they are kids, moreover if they are boys. For many, an omelet is the holy grail of having plenty of carbohydrates and proteins in a single piece of food, tasty and easy to eat at the same time, all with just a bunch of potatoes and eggs. But, what about cooking it? Probably they have seen their moms hundreds of times peeling and slicing potatoes and onions. They have seen them frying the onions and potatoes using a skimmer to turn them over. Needless to say that flipping an omelet is thrilling for a kid eager for new experiences.</p>
 
-<img class="img-fluid center-block" alt="my-first-tortilla-de-patatas" src="/images/blog/my-first-tortilla.jpg" />
+<img class="img-fluid mx-auto d-block" alt="my-first-tortilla-de-patatas" src="/images/blog/my-first-tortilla.jpg" />
 <p></p>
 
 <div class="header2">Where and When to Eat Tortilla de Patatas</div>
@@ -41,7 +41,7 @@
 
 <p>The way of cooking the omelet just lightly, keeping the inside juicy and the outside just cooked enough to hold the filling is commonly called “Betanzos Style”, as that town from Galicia is famous for hosting several restaurants awarded with the Best Omelet of Spain prize for years.</p>
 
-<img class="img-fluid center-block" alt="my-first-tortilla-de-patatas" src="/images/blog/spanish-omelet-at-cooking-point.jpg" />
+<img class="img-fluid mx-auto d-block" alt="my-first-tortilla-de-patatas" src="/images/blog/spanish-omelet-at-cooking-point.jpg" />
 <p></p>
 
 <div class="header2">Best Tortillas in Madrid</div>
@@ -69,7 +69,7 @@
 
 <p>But what are the exact ingredients of Spanish Omelet? If you are a foodie (which is more than likely if you’ve got to this blog) you are more than likely to have done some online research which has probably led you to a great variety of versions, such as Jamie Olivier’s which included chorizo or peppers. But the truth is the genuine recipe includes only potatoes, eggs and optionally, onions. This last ingredient has proved to be the most controversial of the components of Spanish omelet, for there are as many supporters as detractors of this version.</p>
 
-<img class="img-fluid center-block" alt="how to flip an omelet" src="/images/blog/flipping-omelet.jpg" />
+<img class="img-fluid mx-auto d-block" alt="how to flip an omelet" src="/images/blog/flipping-omelet.jpg" />
 
 <p>Ingredients:</p>
 <ul>

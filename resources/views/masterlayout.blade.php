@@ -3,7 +3,7 @@
   <head>
       <title>@yield('title')</title>
       <meta name="description" content="@yield('description')" >
-      <meta name="page" content="@yield('page')" caption="@yield('banner-caption', 'cooking point')">
+      <meta name="page" content="@yield('banner-name')" caption="@yield('banner-caption', 'cooking point')">
       
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -76,7 +76,9 @@
     </div>
 @endsection
 
+
 <div class="d-block d-lg-none">
+<div id="cabecera">
   <nav class="navbar fixed-top">
       <div class="navbar-brand">
         <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
@@ -102,7 +104,7 @@
             <a href="/about-us">About Us</a>
           </li>
           <li>
-            <a class="cp-bkg-button" href="/booking">Booking</a>
+            <a class="cp-class-details cp-class-details" href="/booking">Booking</a>
           </li>
           <li>
             <a href="/gallery">Gallery</a>
@@ -117,6 +119,8 @@
       </div>
   </nav>
 </div>
+</div>
+
 
 <div class="d-none d-lg-block d-xl-none">
   <nav class="navbar navbar-expand-md nav-fill"> 
@@ -124,7 +128,7 @@
         <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
       </div> 
 
-      <ul class="nav justify-content-center">
+      <ul class="navbar-nav justify-content-center w-100">
         <li class="nav-item">
           <a class="nav-link" href="/classes-paella-cooking-madrid-spain">Paella Class</a>
         </li>
@@ -141,7 +145,7 @@
           <a class="nav-link" href="/about-us">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" class="cp-bkg-button" href="/booking">Booking</a>
+          <a class="nav-link cp-class-details" href="/booking">Booking</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <span class="caret"></span></a>
@@ -174,8 +178,8 @@
         <li class="nav-item">
           <a class="nav-link" href="/about-us">About Us</a>
         </li>
-       <li class="nav-item">
-          <a class="nav-link" href="/booking">Booking</a>
+        <li class="nav-item">
+          <a class="nav-link cp-class-details" href="/booking">Booking</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/gallery">Gallery</a>
@@ -190,15 +194,19 @@
   </nav>
 </div>
 
-@if (isset($page) && ($page == 'home' || $page == '' || $page == 'booking' ))
+@if (isset($page) && ($page == 'home' || $page == 'booking' ))
 <div class="container-fluid">
-  @yield('banner')
+  @if ($page == 'home')
+    @yield('banner')
+  @else
+    <div class="header-offset"></div>
+  @endif
   <div class="row justify-content-center">
     <div class="col col-xl-10">
       @yield('content')                  
     </div>  
   </div>
-  <div class="">
+  <div class="row">
     <div class="divider"></div>
     <div class="col">
       @yield('footer')
@@ -209,19 +217,17 @@
 @else
 
 <div class="container-fluid">
+  <div class="header-offset"></div>
   <div class="row">
-    <div id="section-banner">
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-9 col-xl-8">
-          <div class="container-fluid">
-              @yield('content')           
-          </div>
-      </div>      
-      <div class="col-lg-3 col-xl-2">
-          @include('sidebar')
-      </div>    
-    </div>
+    <div id="section-banner"></div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-9 col-xl-8">
+        @yield('content')           
+    </div>      
+    <div class="col-lg-3 col-xl-2">
+        @yield('sidebar')
+    </div>    
   </div>
   <div class="row">
     <div class="divider"></div>
@@ -230,6 +236,7 @@
     </div> 
   </div>
 </div>
+
 
 @endif
 

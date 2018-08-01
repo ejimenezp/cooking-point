@@ -9,7 +9,7 @@
 	<div class="col-sm-12">
 		<h1 class="header1">Denominacion de Origen Protegida (DOP)</h1>
 
-<img class="img-fluid center-block" alt="iberico pig" src="/images/blog/dop-label.jpg" />
+<img class="img-fluid mx-auto d-block" alt="iberico pig" src="/images/blog/dop-label.jpg" />
 
 <p>When you are about to pick a product from a supermarket shelf you are supposed to check first its brand, features and price before taking any decision. In some cases, where brand is not decisive, you rely on the retailer endorsement to support your decision.</p>
 
@@ -27,7 +27,7 @@
 
 <p>There are PDO in almost all EU member countries, although more than 80% of them are registered in 6 countries: Italy, France, Spain, Greece, Portugal and Germany. In Spain, they are called Denominación de Origen Protegida (DOP). In <a href="http://ec.europa.eu/agriculture/quality/door/list.html">this link</a> you can find them all.</p> 
 
-<img class="img-fluid center-block" alt="Some Spanish Products with DOP" src="/images/blog/dop-products.jpg" />
+<img class="img-fluid mx-auto d-block" alt="Some Spanish Products with DOP" src="/images/blog/dop-products.jpg" />
 
 <p></p>
 <p>There are 102 PDO in Spain and 88 PGI, of which we highlight just a few, as an example</p>

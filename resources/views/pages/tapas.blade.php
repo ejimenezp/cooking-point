@@ -3,7 +3,7 @@
 @section('title', 'Tapas Cooking Class in English at Cooking Point, Madrid')
 @section('description', 'Tapas cooking classes in English every evening in Madrid. Hands-on class of 6 traditional tapas. Two people per cooktop.')
 
-@section('page', 'tapas')
+@section('banner-name', 'tapas')
 @section('banner-caption', 'tapas cooking class madrid')
 
 @section('google-structured-data')
@@ -107,5 +107,24 @@
 <div class="divider"></div>
 
 <p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of fino, a tapa (meaning lid) of cheese or ham was used to cover the glass. Since then, tapas has embarked on a remarkable journey of social mobility and is now centre stage and among the most popular and fashionable cuisines in the world. Tapas is now an art in itself. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
+
+@stop
+
+@section('sidebar')
+
+<div class="text-center">
+
+	<div class="d-block d-sm-none divider"></div>
+	<div class="d-none d-lg-block">
+		<p> <br><br> </p>
+	</div>
+	<div class="row justify-content-center">
+		<div class="sidebar-title">FIND OUT WHY WE'RE</div>
+		<div class="col-11">
+			<a href="/best-cooking-classes-madrid"><img class="img-fluid img-sidebar" alt="best cooking classes in madrid" src="/images/bestintown_logo.png" /></a>			
+		</div>
+	</div>
+
+</div>
 
 @stop
