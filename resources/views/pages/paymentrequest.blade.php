@@ -7,17 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
-      <style type="text/css">
-          ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-              }
-          #map {
-                height: 50vh;
-                width: 100%;
-              }
-      </style>  
+ 
       <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
       <script src="https://use.fontawesome.com/c502308363.js"></script>
 
@@ -29,32 +19,31 @@
     
 <body>
 
-	<div class="row text-center">
+	<div class="row justify-content-center">
 	<p></p>
 	<img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'">
 	</div>
 
 	<div class="container-fluid">
-	  <div class="no-gutter">
-	    <div class="col-sm-12 col-lg-offset-1 col-lg-10">
-	      <div class="no-gutter">
-
-			<div class="row">
-				<div class="col-sm-12">
+	    <div class="col-lg-10">
+			<div class="row justify-content-center">
+				<div class="col-12">
 
 				@if ($tpv_result === 'OK' || $bkg->status === 'PAID')
 					<h1 class="header1">Thank You</h1>
 					<p>The payment has been processed. You can print this page as a receipt.<br/></p>
 				@elseif ($tpv_result === 'KO')
 					<h1 class="header1">3rd Party Payment Page</h1>
-					<p style="background-color: green; color:white;">Sorry, it seems something went wrong, please try it again.<br/></p>
+					<p class="bg-warning">Sorry, it seems something went wrong, please try it again.<br/></p>
 				@else
 					<h1 class="header1">3rd Party Payment Page</h1>
 					<p>According to our agreement, you are required to pay the following services:<br/></p>
 				@endif
 				</div>
+			</div>
 
-				<div class="col-md-offset-1 col-md-8">
+			<div class="row justify-content-center">
+				<div class="col col-xl-10">
 						<table class="voucher-table">
 							<tbody>
 								<tr>
@@ -107,29 +96,24 @@
 									</td>
 								</tr>
 							</tbody>
-						</table>
-					
+						</table>					
 				</div>
+			</div>
 
 		@if ($tpv_result === 'OK' || $bkg->status === 'PAID')
-
-			</div>
-			<div class="row text-center">
+			<div class="row justify-content-center">
 				<p><br/></p>
 				<button class="btn btn-primary" onclick="window.print(); return false;">Print</button>
 			</div>
 		@else
-				<div class="col-sm-12">
+			<div class="row justify-content-center">
+				<div class="col-12">
 					<p></p>
 					<p>Click on "Checkout" to pay through our bank's payment platform.<br/><br/></p>
-				</div>
-
+					<a href="/pay/{{ $bkg->id }}" class="btn btn-primary">Checkout</a>
+				</div>				
 			</div>
-			<div class="row text-center">
-				<a href="/pay/{{ $bkg->id }}" class="btn btn-primary">Checkout</a>
-			</div>				
 		@endif
-	      </div>
 	    </div>  
 	  </div>
 

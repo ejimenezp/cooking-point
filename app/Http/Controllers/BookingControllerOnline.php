@@ -50,7 +50,7 @@ class BookingControllerOnline extends BookingController
             return view('errors.wrongLocator');          
         } else {
             $tpv_result = isset($request->tpv_result) ? $request->tpv_result : '';
-            return response()->view('pages.3rdpartypayment', ['bkg' => $bkg, 'tpv_result' => $tpv_result]);
+            return response()->view('pages.paymentrequest', ['bkg' => $bkg, 'tpv_result' => $tpv_result]);
         }
     }
 

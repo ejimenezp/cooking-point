@@ -7,11 +7,14 @@
 
 <h1 class="header1">Solicitud Información</h1>
 
-<div class="row">
-      <div class="col-xs-12">
+<div class="row justify-content-center">
+      <div class="col-12">
             Dinos fecha del evento, número de personas y cualquier otro dato que consideres oportuno. Te enviaremos una propuesta en 24 horas:<br/><br/>
       </div>
-	<div class="col-xs-12 col-md-offset-1 col-md-10">
+</div>
+
+<div class="row">
+	<div class="col-12 col-sm-10">
             <form id="form_contactoeventos">
                   <table style="width: 100%">
                         <tbody>                              
@@ -65,13 +68,6 @@
 	</div>
 </div>
 
-<div class="row">
-      <div class="col-sm-12">
-
-      </div>
-</div>
-
-
 
 
 @stop
@@ -83,13 +79,12 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title modal_contactoeventos_title"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body modal_contactoeventos_body"></div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-default btn-cancel hidden" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">OK</button>
             </form>
        </div>

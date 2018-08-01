@@ -8,19 +8,19 @@
 
 <h1 class="header1">Blog</h1>
 
-<div class="row">
+<div class="row justify-content-center">
 
-    <div class="col-sm-6">
+    <div class="col">
         <h4 class="header4"></h4>
 		<a href="/iberico-ham"><img class="img-fluid center-block" alt="iberico pig" src="/images/blog/iberico-pig.jpg" /></a>
-		<h2 class="header2"><a href="/iberico-ham">What Is iberico Ham?</a></h2>
+		<h2 class="header2"><a href="/iberico-ham">What Is Iberico Ham?</a></h2>
 		<p>What makes so special the Iberico Ham? This particular breed, only found in Spain and Portugal has unexpected benefits for your health.</p>
 		<div class="text-center">
 			<a href="/iberico-ham" class="btn btn-primary">Read More</a>
         </div>
     </div>
 
-    <div class="col-sm-6">
+    <div class="col">
         <h4 class="header4"></h4>
 		<a href="/paella-fish-stock"><img class="img-fluid center-block" alt="paella fish stock" src="/images/blog/fish-stock.jpg" /></a>
 		<h2 class="header2"><a href="/paella-fish-stock">How to Make Fish Stock</a></h2>
@@ -32,9 +32,9 @@
 
 </div>
 
-<div class="row">
+<div class="row justify-content-center">
 
-    <div class="col-sm-6">
+    <div class="col">
         <h4 class="header4"></h4>
 		<a href="/denominacion-de-origen-protegida"><img class="img-fluid center-block" alt="denominacion de origen protegida" src="/images/blog/dop-label.jpg" /></a>
 		<h2 class="header2"><a href="/denominacion-de-origen-protegida">Denominacion de Origen Protegida (DOP)</a></h2>
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div class="col-sm-6">
+    <div class="col">
         <h4 class="header4"></h4>
 		<a href="/spanish-potato-omelet"><img class="img-fluid center-block" alt="Spanish Potato Omelet" src="/images/blog/spanish-omelet-at-cooking-point.jpg" /></a>
 		<h2 class="header2"><a href="/spanish-potato-omelet">Tortilla de Patatas</a></h2>

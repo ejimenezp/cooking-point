@@ -34,9 +34,9 @@ Route::get('/private-cooking-events-madrid-spain', function () { return view('pa
 Route::get('/eventos-privados-madrid', function () { return view('pages.eventos'); });
 Route::get('/contacto-eventos-privados', function () { return view('pages.contactoeventos'); });
 Route::get('/oferta-para-agencias', function () { return view('pages.agencias'); });
-Route::get('/3rdpartypayment/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
+Route::get('/paymentrequest/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
 Route::get('/about-us', function () { return view('pages.aboutus'); });
-Route::get('/best-cooking-classes-madrid', function () { return view('pages.bestclasses', ['page' => 'bestclasses']); });
+Route::get('/best-cooking-classes-madrid', function () { return view('pages.bestclasses'); });
 
 //
 // blog entries

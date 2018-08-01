@@ -18,6 +18,7 @@
 				padding: 0;
 			  }
 		  	body {
+		  		font-family: Helvetica, Arial, sans-serif ;
     			font-size: 16px !important;
   			}
 	  	</style>  

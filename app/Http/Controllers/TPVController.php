@@ -31,7 +31,7 @@ class TPVController extends Controller
 			Cookie::queue(Cookie::forever('cplocator', $bkg->locator));
 			if ($bkg->status != 'PENDING') {
 				if ($bkg->calendarevent->type == 'PAYREQUEST') {
-					return view('pages.3rdpartypayment')->with('bkg', $bkg);
+					return view('pages.paymentrequest', ['bkg'=> $bkg, 'tpv_result' =>'']);
 				} else {
 					return view('booking.index', ['page' => 'booking', 'tpv_result' =>'']);
 				}

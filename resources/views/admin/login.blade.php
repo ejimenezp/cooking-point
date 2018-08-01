@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <td class="">
-                                Constraseña:
+                                Contraseña:
                             </td>
                             <td class="">
                                 <input type="text" name="password" >

@@ -60,8 +60,8 @@ use App\Http\Controllers\RedsysAPI;
 	// re-set some fields for 3rd party payments
 	if ($bkg->calendarevent->type == 'PAYREQUEST') {
 		$Ds_Merchant_ProductDescription = $bkg->name . " for ". $bkg->calendarevent->short_description;
-		$Ds_Merchant_UrlOK = config('app.url') . "/3rdpartypayment/" . $bkg->locator . '/OK';
-		$Ds_Merchant_UrlKO = config('app.url') . "/3rdpartypayment/" . $bkg->locator . '/KO';
+		$Ds_Merchant_UrlOK = config('app.url') . "/paymentrequest/" . $bkg->locator . '/OK';
+		$Ds_Merchant_UrlKO = config('app.url') . "/paymentrequest/" . $bkg->locator . '/KO';
 	}
 
 	// new for HMAC SHA256 migration

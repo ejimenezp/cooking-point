@@ -3,7 +3,7 @@
 @section('title', 'Spanish Cooking Classes in Madrid - Cooking Point')
 @section('description', 'Hands-on paella and tapas cooking classes in English at top rated Madrid culinary school. Family friendly immersion in Spain’s food culture.')
 
-@section('page', 'home')
+@section('banner-name', 'home')
 @section('banner-caption', 'cooking point home banner')
 
 
@@ -77,12 +77,15 @@
 
 @section('banner')
 
-<div class="wide">
-    <h1 class="home-preheadline">Spanish Cooking Classes in Madrid &nbsp &nbsp<img src="/images/tripadvisorCE_2018-2.png" alt="tripadvisor certificate of excellence 2015-2018" class="home-tacertificate" /></h1>
+<div class="row justify-content-center">
+    <h1 class="home-preheadline">Spanish Cooking Classes in Madrid </h1>
     <div class="home-headline"><a href="/best-cooking-classes-madrid">Best Classes in Madrid</a></div>
     <a href="/best-cooking-classes-madrid" class="home-more-info-button">More Info</a>
-    <div class="home-pause-button"><i class="fa fa-pause"></i></div>
-  <div id="banner"></div>
+</div>
+<div class="home-pause-button"><i class="fa fa-pause"></i></div>
+
+<div class="row justify-content-center">
+    <div id="section-banner"></div>        
 </div>
 
 @stop
@@ -130,7 +133,7 @@
 <div class="header3">Watch Video<br/><br/></div>
 
 <div class="row justify-content-center">
-    <div class="col-sm-8">
+    <div class="col-sm-10 col-lg-8">
         <div class="embed-responsive embed-responsive-16by9"> 
             <iframe src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0" frameborder="0" allowfullscreen></iframe>
         </div>
@@ -139,31 +142,37 @@
 
 <div class="divider"></div>
 
-<div class="header3">Why to choose us</div>
+<div class="header3">Why to choose us<br/><br/></div>
 
 <div class="row">
     <div class="col-lg-4">
+        <a href="/best-cooking-classes-madrid"><img class="img-fluid" alt="best class in Madrid" src="/images/home-bestclassintown.jpg" /></a>
         <h4 class="header4">Top Rated School</h4>
-        <p>Five years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as <a href="/best-cooking-classes-madrid">the First Cooking School in Madrid</a>. Also, we are recommended by media like The Guardian, Forbes, and others.</p>
+        <p>Five years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as <a href="/best-cooking-classes-madrid">the First Cooking School in Madrid</a>.</p>
     </div>
 
     <div class="col-lg-4">
+        <a href="/best-cooking-classes-madrid"><img class="img-fluid" alt="best class in Madrid" src="/images/bestclasses-banner-sm.jpg" /></a>
         <h4 class="header4">Fun &amp; Memorable</h4>
-        <p>Have a fun immersion in Spain’s food culture. Our classes are a great start of your trip or end of your stay in Madrid. You will get insights and tips to get the most of Spanish food, during your trip and back home.</p>
+        <p>Have a fun immersion in Spain’s food culture and know insights and tips to get the most of Spanish food during your trip and back home.</p>
     </div>
 
     <div class="col-lg-4">
+        <a href="/best-cooking-classes-madrid"><img class="img-fluid" alt="best class in Madrid" src="/images/home-trullyhandson.jpg" /></a>
         <h4 class="header4">Truly Hands-on</h4>
-        <p>Two people per cooktop, maximum twelve per class. Follow our local chef instructions to get your meal done. No worries, no cooking experience is required. Also, take home your learnings with our recipe booklet.</p>
+        <p>Two people per cooktop, maximum twelve per class. Follow our local chef instructions to get your meal done. No worries, no cooking experience is required.</p>
     </div>
-
 </div>
+<div class="row justify-content-center">
+    <a href="/best-cooking-classes-madrid" class="btn btn-primary">9 Reasons to Choose Us</a>
+</div>
+
 
 <div class="divider"></div>
 
 <div class="header3">Upcoming Classes<br><br></div>
     <div class="row justify-content-center">
-        <div class="col-sm-10 col-lg-8">
+        <div class="col col-sm-10 col-lg-8">
             <table class="table">
                     @php 
                         $i = 0;
@@ -202,14 +211,10 @@
 <div class="divider"></div>
 
 <div class="row">
-    <div class="col-md-6">
-        <p>Like in any other big city, you will find many things to do in Madrid: museums, monuments, markets, restaurants, bars, parks,... the number of Madrid attractions is countless. But, when it comes to what to do, you shouldn't miss the opportunity to take an active role in your Madrid experience and participate on attractions where five senses are involved.</p>
-        <p>Because of its central location, Madrid receives influences from every corner of Spain, what has made of it the best city to learn Spanish cuisine. The Madridian open and conciliatory character will let you discover Spanish wine and food excellences no matter their region of origin.</p>   
-    </div>
-    <div class="col-md-6">
-        <p>In our cooking classes you will learn not just about the Spanish food but also how to make it, what offers the perfect 'take-home' experience that will stay with you forever. So, you will get a broad knowledge of paella and tapas and other typical Spanish food like cured ham, olive oil, saffron, paprika,... and how important they are in the Spanish culinary culture.</p>
-        <p>If you are looking for different things to do in Madrid for your holiday, an alternative to sightseeing attractions, whether you are a travelling alone, as a couple or in a corporate event, then consider Cooking Point's cooking classes to get to the very heart of the local culture.</p>
-    </div>
+    <p>Like in any other big city, you will find many things to do in Madrid: museums, monuments, markets, restaurants, bars, parks,... the number of Madrid attractions is countless. But, when it comes to what to do, you shouldn't miss the opportunity to take an active role in your Madrid experience and participate on attractions where five senses are involved.</p>
+    <p>Because of its central location, Madrid receives influences from every corner of Spain, what has made of it the best city to learn Spanish cuisine. The Madridian open and conciliatory character will let you discover Spanish wine and food excellences no matter their region of origin.</p>   
+    <p>In our cooking classes you will learn not just about the Spanish food but also how to make it, what offers the perfect 'take-home' experience that will stay with you forever. So, you will get a broad knowledge of paella and tapas and other typical Spanish food like cured ham, olive oil, saffron, paprika,... and how important they are in the Spanish culinary culture.</p>
+    <p>If you are looking for different things to do in Madrid for your holiday, an alternative to sightseeing attractions, whether you are a travelling alone, as a couple or in a corporate event, then consider Cooking Point's cooking classes to get to the very heart of the local culture.</p>
 </div>
 
 </div>

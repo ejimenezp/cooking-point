@@ -3,7 +3,7 @@
 @section('title', 'Paella Cooking Class and Market Tour at Cooking Point, Madrid')
 @section('description', 'Paella cooking classes in English every morning in Madrid. Hands-on class of paella includes market tour. Two people per cooktop.')
 
-@section('page', 'paella')
+@section('banner-name', 'paella')
 @section('banner-caption', 'paella cooking class madrid')
 
 @section('google-structured-data')
@@ -46,8 +46,8 @@
 
 <h1 class="header1">Paella Cooking Class</h1>
 
-<div class="row">
-	<div class="cp-class-details col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
+<div class="row justify-content-center">
+	<div class="cp-class-details col-10 col-sm-8">
 		<strong>When:</strong> Monday to Saturday<br/>
 		<strong>Time:</strong> 10:00 am - 2:00 pm<br/>
 		<strong>Price: </strong>€70 adult / €35 children (5-12 year old)<br/>
@@ -55,9 +55,8 @@
 	</div>	
 </div>
 
-<div class="no-gutter">
-	
-	<div class="col-md-12" >
+<div class="row justify-content-right">
+	<div class="col-12">
 		<p>Our class starts visiting the <strong>Antón Martín market</strong> (200 m away, open all days except Sundays and holidays) to buy the groceries we will need to cook our menu. We’ll buy vegetables, seafood and perhaps ham, cold cuts, cheese, olives, pastry&#8230; the offering and colouring of this traditional way of shopping daily supplies is endless.</p>
 
 		<p>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your the starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
@@ -82,8 +81,9 @@
 <h2 class="header2">Upcoming Classes</h2>
 
 
-<div class="col-sm-offset-3 col-sm-6">
-	<table class="table">
+<div class="row justify-content-center">
+	<div class="col-10 col-sm-8">
+		<table class="table">
 			@php 
 				$i = 0;
 				foreach ($events as $event) {
@@ -101,11 +101,32 @@
 	   			}
 	   			echo '<tr><td>More dates</td><td><a href="booking?class=PAELLA" class="btn btn-primary">Book</a></td></tr>';
 			@endphp			
-	</table>
+		</table>
+	</div>
 </div>
+
 <div class="divider"></div>
 
 <p>Which dish says Spain more than the Paella? From humble beginnings, paella evolved from a simple rice dish into a feast of rice with mixed meat and seafood. Traditionally it is cooked and eaten in the open air and is served directly from the paella to a large group at family gatherings or fiestas. But it is not exclusive to experienced Spanish cooks or to Spanish restaurants, you can make paella at home and this class will show you how.</p>
 
+
+@stop
+
+@section('sidebar')
+
+<div class="text-center">
+
+	<div class="d-block d-sm-none divider"></div>
+	<div class="d-none d-lg-block">
+		<p> <br><br> </p>
+	</div>
+	<div class="row justify-content-center">
+		<div class="sidebar-title">FIND OUT WHY WE'RE</div>
+		<div class="col-11">
+			<a href="/best-cooking-classes-madrid"><img class="img-fluid img-sidebar" alt="best cooking classes in madrid" src="/images/bestintown_logo.png" /></a>			
+		</div>
+	</div>
+
+</div>
 
 @stop
