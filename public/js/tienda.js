@@ -13363,7 +13363,7 @@ function refreshTicketTable(date) {
         $('#ticket_table > tbody:last').append('<tr><td>' + ticket_list[j].id + '</td><td>' + ticket_list[j].fecha + '</td><td>' + ticket_list[j].total + '</td><td>' + ticket_list[j].pago + '</td><td>' + ticket_list[j].quien + '</td><td>' + ticket_list[j].articulo0 + '</td><td>' + ticket_list[j].articulo1 + '</td><td>' + ticket_list[j].articulo2 + '</td><td>' + ticket_list[j].articulo3 + '</td><td>' + ticket_list[j].more + '</td><td>' + '<form role="form" action="/tienda/deleteticket"> \
                     <input type="hidden" name="date" value="' + date + '"> \
                     <input type="hidden" name="id" value="' + ticket_list[j].id + '"> \
-                    <button type="submiy" class="btn btn-primary btn-xs">Delete</button> \
+                    <button type="submiy" class="btn btn-primary btn-sm">Delete</button> \
                 </form>' + '</td></tr>');
     }
 }

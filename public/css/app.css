@@ -10909,9 +10909,8 @@ h1 {
   color: #e42e28;
 }
 
-.no-gutter > [class*='col-'] {
-  padding-right: 0;
-  padding-left: 0;
+h4 {
+  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .col-md-6 > p {
@@ -10937,10 +10936,6 @@ h1 {
 
 .day-unavailable {
   color: gray !important;
-}
-
-.h4 {
-  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .divider {
@@ -11227,6 +11222,7 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
 #csv_form .table th,
 #csv_form .table td {
   padding: 0.4rem;
+  vertical-align: middle !important;
 }
 
 @media only screen and (max-width: 400px) {

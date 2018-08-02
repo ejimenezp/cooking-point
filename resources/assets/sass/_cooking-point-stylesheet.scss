@@ -217,9 +217,8 @@ h1 {
 	color: $brand-red;
 }
 
-.no-gutter > [class*='col-'] {
-	    padding-right:0;
-	    padding-left:0	
+h4 {
+  font-family: $font-family-cooking-point;
 }
 
 .col-md-6 > p {
@@ -248,9 +247,6 @@ h1 {
   color: gray !important
 }
 
-.h4 {
-  font-family: $font-family-cooking-point;
-}
 
 .divider {
   height: 1px;
@@ -542,6 +538,7 @@ input, select, textarea {
   .table th,
   .table td {
     padding: 0.4rem;
+    vertical-align: middle !important;
   }
 }
 
