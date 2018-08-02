@@ -164,7 +164,7 @@
     </div>
 </div>
 <div class="row justify-content-center">
-    <a href="/best-cooking-classes-madrid" class="btn btn-primary">9 Reasons to Choose Us</a>
+    <a href="/best-cooking-classes-madrid" class="btn btn-primary">10 Reasons to Choose Us</a>
 </div>
 
 
