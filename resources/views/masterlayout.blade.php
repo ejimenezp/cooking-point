@@ -194,12 +194,14 @@
   </nav>
 </div>
 
-@if (isset($page) && ($page == 'home' || $page == 'booking' ))
 <div class="container-fluid">
-  @if ($page == 'home')
+  @if (isset($page) && ($page == 'home'))
     @yield('banner')
   @else
     <div class="header-offset"></div>
+    <div class="row justify-content-center">
+      <div id="section-banner"></div>
+    </div>
   @endif
   <div class="row justify-content-center">
     <div class="col col-xl-10">
@@ -213,29 +215,6 @@
     </div> 
   </div>
 </div>
-
-@else
-
-<div class="container-fluid">
-  <div class="header-offset"></div>
-  <div class="row justify-content-center">
-    <div id="section-banner"></div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col col-xl-10">
-        @yield('content')           
-    </div>       
-  </div>
-  <div class="row">
-    <div class="divider"></div>
-    <div class="col-12">
-      @yield('footer')
-    </div> 
-  </div>
-</div>
-
-
-@endif
 
 <!-- modals specific for this page  -->
 @yield('modals')
