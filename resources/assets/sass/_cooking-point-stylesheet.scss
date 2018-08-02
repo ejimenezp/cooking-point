@@ -63,7 +63,7 @@ a:hover {
 .home-preheadline {
   font-family: $font-family-cooking-point;
   color: $brand-primary;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-top: 5.25rem;
 }
@@ -706,6 +706,8 @@ input, select, textarea {
   #video-home {
     width: 100vw;
     max-width: 100%;
+    height: 100vw * 100 / 720;
+    max-height: 100%;
   }
 
 }
