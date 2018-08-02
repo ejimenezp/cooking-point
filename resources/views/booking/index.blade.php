@@ -255,7 +255,7 @@
 					<br/>
 					<p>Please, enter your contact info:   <small>(<span style="color:red">*</span> = mandatory)</small></p>
 					<div class="row justify-content-center">
-						<div class="col">
+						<div class="col-sm-6">
 							<form id="booking_form_2">
 							<table class="availability-table">
 								<tbody>
@@ -287,7 +287,7 @@
 							</table>
 							</form>	
 						</div>				
-						<div class="col">
+						<div class="col-sm-6">
 							<form id="booking_form_3">				
 							<table class="availability-table">
 								<tbody>
