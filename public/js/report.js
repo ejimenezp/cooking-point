@@ -29761,8 +29761,11 @@ jQuery(document).ready(function ($) {
 		defaultDate: date_shown.toDate(),
 		dateFormat: "DD, d MM yy",
 		altFormat: "yy-mm-dd",
-		altField: "#start"
-
+		altField: "#start",
+		onSelect: function onSelect() {
+			var selectedMoment = moment($('#start').val());
+			$('#enddatepicker').datepicker("setDate", selectedMoment.endOf('month').toDate());
+		}
 	});
 
 	$('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
