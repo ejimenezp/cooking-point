@@ -106,25 +106,42 @@
 
 <div class="divider"></div>
 
-<p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of fino, a tapa (meaning lid) of cheese or ham was used to cover the glass. Since then, tapas has embarked on a remarkable journey of social mobility and is now centre stage and among the most popular and fashionable cuisines in the world. Tapas is now an art in itself. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
+<div class="header2">Not Decided Yet?</div>
+<p>Perhaps you prefer the morning class...</p>
+<div class="row justify-content-center">
+	<div class="col-md-10 col-lg-8">
+		<div class="card-deck">
+		  <div class="card">
+		    <a href="classes-paella-cooking-madrid-spain"><img class="card-img-top" src="/images/home-Paella.jpg" alt="paella class"></a>		    
+		    <div class="card-body">
+		      <h5 class="card-title">Paella Class</h5>
+		      <p class="card-text">Enjoy an unforgettable morning visiting a food market and cooking a delicious paella.</p>
+		    </div>
+		    <div class="card-footer">
+		        <div class="text-center">
+		            <a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">Paella Class</a>
+		        </div>
+		    </div>
+		  </div>		  
+		  <div class="card">
+		    <a href="/best-cooking-classes-madrid"><img class="card-img-top" src="/images/home-bestclassintown.jpg" alt="best classes in town"></a>
+		    <div class="card-body">
+		      <h5 class="card-title">10 Reasons Why</h5>
+		      <p class="card-text">Find out why we think we are the best classes in town.</p>
+		    </div>
+		    <div class="card-footer">
+		        <div class="text-center">
+		            <a href="/best-cooking-classes-madrid" class="btn btn-primary">10 Reasons Why</a>
+		        </div>
+		    </div>
+		  </div>
 
-@stop
-
-@section('sidebar')
-
-<div class="text-center">
-
-	<div class="d-block d-sm-none divider"></div>
-	<div class="d-none d-lg-block">
-		<p> <br><br> </p>
+		</div>		
 	</div>
-	<div class="row justify-content-center">
-		<div class="sidebar-title">FIND OUT WHY WE'RE</div>
-		<div class="col-11">
-			<a href="/best-cooking-classes-madrid"><img class="img-fluid img-sidebar" alt="best cooking classes in madrid" src="/images/bestintown_logo.png" /></a>			
-		</div>
-	</div>
-
 </div>
+
+<div class="divider"></div>
+
+<p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of fino, a tapa (meaning lid) of cheese or ham was used to cover the glass. Since then, tapas has embarked on a remarkable journey of social mobility and is now centre stage and among the most popular and fashionable cuisines in the world. Tapas is now an art in itself. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
 
 @stop
