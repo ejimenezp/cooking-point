@@ -18,7 +18,7 @@
 
 <div class="row justify-content-center">
 
-	<div class="col">
+	<div class="col-sm-4">
 		<div class="text-center">
 			<a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html"><img alt="tripadvisor certificate of excellence" src="/images/tripadvisorCE_2018.png" /></a>		
 		</div>
@@ -33,7 +33,7 @@
 		<script async src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=381&amp;locationId=4888426&amp;lang=en_US&amp;rating=false&amp;nreviews=5&amp;writereviewlink=false&amp;popIdx=true&amp;iswide=false&amp;border=false&amp;display_version=2"></script>
 
 	</div>
-	<div class="col-6">
+	<div class="col-sm-6">
 		<a href="https://goo.gl/maps/ESe4TMXBok12"><img class="rounded img-fluid img-thumbnail float-left" src="/images/google-reviews.jpg"></a>
 	</div>
 

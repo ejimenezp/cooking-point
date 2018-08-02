@@ -78,16 +78,16 @@ function refreshDateShown(month_schedule, date_shown) {
 		edit_button = ''
 		classemails_button = ''
 		if (user_role >= 3) {
-			edit_button = '<button class="btn btn-primary btn-xs button_calendarevent_edit" data-i="'
+			edit_button = '<button class="btn btn-primary btn-sm button_calendarevent_edit" data-i="'
 					+ i + '">Detalles</button>'
 		} else if (user_role >= 2 && month_schedule[i].info != '') {
-			edit_button = '<button class="btn btn-primary btn-xs button_calendarevent_info" data-i="'
+			edit_button = '<button class="btn btn-primary btn-sm button_calendarevent_info" data-i="'
 					+ i + '">+info</button>'			
 		} else {
 			edit_button = ''			
 		}
 		if (user_name == 'Emails') {
-			classemails_button = '<a class="btn btn-primary btn-xs" href="/admin/classemails?ce_id=' + month_schedule[i].id + '">E-mails</a>'
+			classemails_button = '<a class="btn btn-primary btn-sm" href="/admin/classemails?ce_id=' + month_schedule[i].id + '">E-mails</a>'
 		} 
 
 		var calendarevent_tr_class = (user_role >= 2) ? 'calendarevent_line' : ''

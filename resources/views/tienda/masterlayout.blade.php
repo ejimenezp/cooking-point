@@ -10,14 +10,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/images/favicon-admin.ico">
 		<link rel="canonical" href="{{ url()->current() }}">
+
+		<link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
 		<style type="text/css">
 		  ul {
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
 			  }
-	  	</style>  
-		<link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
+		  	body {
+		  		font-family: Helvetica, Arial, sans-serif ;
+  			}
+	  	</style>
 		<script type='text/javascript' src='{{ mix('/js/tienda.js') }}'></script>
 		<script src="https://use.fontawesome.com/c502308363.js"></script>
 	</head>

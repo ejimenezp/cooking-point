@@ -66,7 +66,7 @@ function refreshTicketTable(date) {
                 '<form role="form" action="/tienda/deleteticket"> \
                     <input type="hidden" name="date" value="'+ date + '"> \
                     <input type="hidden" name="id" value="'+ ticket_list[j].id + '"> \
-                    <button type="submiy" class="btn btn-primary btn-xs">Delete</button> \
+                    <button type="submiy" class="btn btn-primary btn-sm">Delete</button> \
                 </form>' +
             '</td></tr>');
 
