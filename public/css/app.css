@@ -10740,6 +10740,7 @@ a:hover {
 .table th,
 .table td {
   padding-left: 0;
+  vertical-align: middle !important;
 }
 
 .header-offset {
@@ -10747,6 +10748,7 @@ a:hover {
 }
 
 .home-preheadline {
+  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #EF8401;
   font-size: 1.1rem;
   font-weight: bold;
@@ -10754,6 +10756,7 @@ a:hover {
 }
 
 .home-headline {
+  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
   position: absolute;
@@ -11391,10 +11394,8 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   }
 
   #video-home {
-    height: 13.88888889vw;
-    width: 100%;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100vw;
+    max-width: 100%;
   }
 }
 
