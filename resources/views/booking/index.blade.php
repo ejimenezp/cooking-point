@@ -2,7 +2,6 @@
 
 @section('title', 'Booking')
 @section('description', 'Cooking Point booking form. Pay online and get instant confirmation.')
-@section('sidebar', 'no')
 
 @section('analytics-ecommerce-tracking')
 	@if ($tpv_result === 'OK' && ($bkg->calendarevent->type === 'PAELLA' || $bkg->calendarevent->type === 'TAPAS'))
