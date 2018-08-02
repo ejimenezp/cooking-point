@@ -105,28 +105,42 @@
 	</div>
 </div>
 
+<div class="header2">Not Decided Yet?</div>
+<p>Perhaps you prefer the evening class...</p>
+<div class="row justify-content-center">
+	<div class="col-md-10 col-lg-8">
+		<div class="card-deck">
+		  <div class="card">
+		    <a href="classes-spanish-tapas-madrid-spain"><img class="card-img-top" src="/images/home-tapas.jpg" alt="tapas class"></a>
+		    <div class="card-body">
+		      <h5 class="card-title">Tapas Class</h5>
+		      <p class="card-text">Have a great evening making tapas and sangria.</p>
+		    </div>
+		    <div class="card-footer">
+    	        <div class="text-center">
+	            <a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">Tapas Class</a>
+	        </div>
+		    </div>
+		  </div>		  
+		  <div class="card">
+		    <a href="/best-cooking-classes-madrid"><img class="card-img-top" src="/images/home-bestclassintown.jpg" alt="best classes in town"></a>
+		    <div class="card-body">
+		      <h5 class="card-title">10 Reasons Why</h5>
+		      <p class="card-text">Find out why we think we are the best classes in town.</p>
+		    </div>
+		    <div class="card-footer">
+		        <div class="text-center">
+		            <a href="/best-cooking-classes-madrid" class="btn btn-primary">10 Reasons Why</a>
+		        </div>
+		    </div>
+		  </div>
+
+		</div>		
+	</div>
+</div>
+
 <div class="divider"></div>
 
 <p>Which dish says Spain more than the Paella? From humble beginnings, paella evolved from a simple rice dish into a feast of rice with mixed meat and seafood. Traditionally it is cooked and eaten in the open air and is served directly from the paella to a large group at family gatherings or fiestas. But it is not exclusive to experienced Spanish cooks or to Spanish restaurants, you can make paella at home and this class will show you how.</p>
-
-
 @stop
 
-@section('sidebar')
-
-<div class="text-center">
-
-	<div class="d-block d-sm-none divider"></div>
-	<div class="d-none d-lg-block">
-		<p> <br><br> </p>
-	</div>
-	<div class="row justify-content-center">
-		<div class="sidebar-title">FIND OUT WHY WE'RE</div>
-		<div class="col-11">
-			<a href="/best-cooking-classes-madrid"><img class="img-fluid img-sidebar" alt="best cooking classes in madrid" src="/images/bestintown_logo.png" /></a>			
-		</div>
-	</div>
-
-</div>
-
-@stop
