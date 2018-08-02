@@ -703,10 +703,8 @@ input, select, textarea {
 }
 
   #video-home {
-    height: 100vw / 720 * 100 ; 
-    width: 100%;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100vw;
+    max-width: 100%;
   }
 
 }
