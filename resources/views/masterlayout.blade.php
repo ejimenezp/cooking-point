@@ -218,16 +218,13 @@
 
 <div class="container-fluid">
   <div class="header-offset"></div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div id="section-banner"></div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-lg-9 col-xl-8">
+    <div class="col col-xl-10">
         @yield('content')           
-    </div>      
-    <div class="col-lg-3 col-xl-2">
-        @yield('sidebar')
-    </div>    
+    </div>       
   </div>
   <div class="row">
     <div class="divider"></div>

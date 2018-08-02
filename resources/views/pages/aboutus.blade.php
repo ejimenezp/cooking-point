@@ -53,22 +53,3 @@
 
 @stop
 
-@section('sidebar')
-
-<div class="text-center">
-
-	<div class="d-block d-sm-none divider"></div>
-	<div class="d-none d-lg-block">
-		<p> <br><br> </p>
-	</div>
-	<div class="row justify-content-center">
-		<div class="sidebar-title">FIND OUT WHY WE'RE</div>
-		<div class="col-11">
-			<a href="/best-cooking-classes-madrid"><img class="img-fluid img-sidebar" alt="best cooking classes in madrid" src="/images/bestintown_logo.png" /></a>			
-		</div>
-	</div>
-
-</div>
-
-@stop
-
