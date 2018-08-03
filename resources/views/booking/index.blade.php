@@ -56,10 +56,10 @@
 
 			<p>Select number of guests and desired class to check availability</p>
 			<div class="row justify-content-center">
-				<div class="col" style="padding-left: 0px;">
+				<div class="col-md-6" style="padding-left: 0px;">
 					<div class="online" id="bookingdatepicker"></div>
 				</div>
-				<div class="col" style="padding-left: 0px;">
+				<div class="col-md-6" style="padding-left: 0px;">
 					<form id="booking_form_1">
 					<input type="hidden" name="source_id" value="2">
 					@if (isset($bkg))
@@ -161,7 +161,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-12">
 					<div class="text-center">
 						@if (isset($bkg) && $bkg->status != 'PENDING') 
 							<a id="button_booking_help" class="btn btn-link">Help</a>
@@ -180,11 +180,11 @@
 
 		<div id="step2" class="d-none">
 			<div class="row justify-content-left">
-				<div class="col-sm-12">		
+				<div class="col-12">		
 					<h1 class="header1">Booking: Checkout</h1>
 					<p>You are about to book the following class:</p>
 					<div class="row ">
-						<div class="col-sm-5">
+						<div class="col-md-5">
 							<table class="voucher-table">
 								<tbody>
 									<tr>
@@ -215,7 +215,7 @@
 								</tbody>
 							</table>
 						</div>
-						<div class="col-sm-2">
+						<div class="col-md-2">
 							<table class="voucher-table">
 								<tbody>
 									<tr>					
@@ -250,11 +250,11 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12">		
+				<div class="col-12">		
 					<br/>
 					<p>Please, enter your contact info:   <small>(<span style="color:red">*</span> = mandatory)</small></p>
 					<div class="row justify-content-center">
-						<div class="col-sm-6">
+						<div class="col-md-5">
 							<form id="booking_form_2">
 							<table class="availability-table">
 								<tbody>
@@ -286,7 +286,7 @@
 							</table>
 							</form>	
 						</div>				
-						<div class="col-sm-6">
+						<div class="col-12 col-md-7">
 							<form id="booking_form_3">				
 							<table class="availability-table">
 								<tbody>
@@ -315,7 +315,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-12">
 					<div class="text-center">
 						@if (isset($bkg) && $bkg->status != 'PENDING')
 							<a href="#step4" class="step cancel btn btn-default" >Cancel</a>
@@ -336,7 +336,7 @@
 			<h1 class="header1">Booking: Voucher</h1>
 			<div class='step4_voucher'>
 				<div class="row">
-					<div class="col-sm-5">
+					<div class="col-md-5">
 						<table class="voucher-table">
 							<tbody>
 								<tr>
@@ -375,7 +375,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-sm-7">
+					<div class="col-md-7">
 						<table class="voucher-table">
 							<tbody>
 								<tr>					
@@ -417,7 +417,7 @@
 				</div>
 				<div class="row">
 					<div class="divider"></div>
-					<div class="col-sm-5">
+					<div class="col-md-5">
 						<table class="voucher-table">
 							<tbody>
 								<tr>
@@ -447,7 +447,7 @@
 							</tbody>
 						</table>
 					</div>				
-					<div class="col-sm-7">
+					<div class="col-md-7">
 						<table class="voucher-table">
 							<tbody>
 								<tr>
@@ -473,7 +473,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-md-12">
 					<div class="text-center">
 						<a id="button_booking_forget" class="btn btn-link">New Booking</a>
 						<a id="button_booking_edit" class="btn btn-primary">Edit Booking</a>
@@ -488,7 +488,7 @@
 </div>
 
 <div class="d-none">
-	<div id="printer" class="col-sm-12">
+	<div id="printer" class="col-md-12">
 		<div class="row justify-content-center">
 			<div class="divider"></div>
 			<div class="divider"></div>
