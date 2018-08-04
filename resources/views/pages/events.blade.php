@@ -54,5 +54,40 @@
 	<a href="mailto:info@cookingpoint.es" class="btn btn-primary">Email Us</a>
 </div>
 
+<div class="divider"></div>
+	<p><br></p>
+
+<div class="row justify-content-center">
+	<div class="col-md-10 col-lg-8">		  
+		<div class="card-deck">
+		  <div class="card">
+		    <a href="/best-cooking-classes-madrid"><img class="card-img-top" src="/images/home-bestclassintown.jpg" alt="best classes in town"></a>
+		    <div class="card-body">
+		      <h5 class="card-title">10 Reasons Why</h5>
+		      <p class="card-text">Find out why we think we are the best classes in town.</p>
+		    </div>
+		    <div class="card-footer">
+		        <div class="text-center">
+		            <a href="/best-cooking-classes-madrid" class="btn btn-primary">10 Reasons Why</a>
+		        </div>
+		    </div>
+		  </div>
+		  <div class="card">
+		    <a href="/gallery"><img class="card-img-top" src="/images/tripadvisor-photo.jpg" alt="photo gallery"></a>
+		    <div class="card-body">
+		      <h5 class="card-title">Photo Gallery</h5>
+		      <p class="card-text">Check out client photos on social media.</p>
+		    </div>
+		    <div class="card-footer">
+		        <div class="text-center">
+		            <a href="/gallery" class="btn btn-primary">Gallery</a>
+		        </div>
+		    </div>
+		  </div>
+		</div>
+	</div>		
+</div>
+
+
 @stop
 
