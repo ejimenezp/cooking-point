@@ -23,29 +23,23 @@
       <p>Cooking Point is located in the Barrio de Huertas (or Barrio de las Letras, Letter's Quarter). An important place in history especially during the 16th-century Golden Age of Spanish Literature, Miguel de Cervantes and Lope de Vega both lived here. </p>
 
 	<p>This quarter is in the heart of Madrid and our school is within walking distance of Madrid landmarks like Museo del Prado or Puerta del Sol. The closest metro station is Anton Martin (line 1, light blue), exit Amor de Dios St.</p>
+
+      <div id="map" style="width: 100%; height: 80vh"></div>
+
+      <p><br>Inside Cooking Point, we have designed our large kitchen to feel like home. The state-of-the-art appliances will ensure nothing can go wrong while all the tools are exactly as you would have in your own kitchen. There is no reason why you won’t be able to take this new-found skill home with you.</p>
+
+      <p>A unique feature of our school is the size, we can host a group of up to 24 people. Large enough for a great atmosphere, small enough to get the right guidance and support from the chef. All cooking is done in pairs, each couple has their own stove to work on.</p>
 </div>
 
-
-<div id="map" style="width: 100%; height: 80vh"></div>
-
-<p></p>
-
-<div class="col-12 justify-content-center">
-           <p>Inside Cooking Point, we have designed our large kitchen to feel like home. The state-of-the-art appliances will ensure nothing can go wrong while all the tools are exactly as you would have in your own kitchen. There is no reason why you won’t be able to take this new-found skill home with you.</p>
-
-            <p>A unique feature of our school is the size, we can host a group of up to 24 people. Large enough for a great atmosphere, small enough to get the right guidance and support from the chef. All cooking is done in pairs, each couple has their own stove to work on.</p>
-</div>
-
-
-<div class="row justify-content-center">
-      <div class="cp-class-details col-10 col-sm-8">
-            <strong>Location:</strong> Barrio de Huertas, In the heart of Madrid<br/>
-            <strong>Capacity:</strong> 24 people<br/>
-            <strong>Usage:</strong> Cooking classes, private events, TV set,...<br/><br/>
-            <div class="text-center">
-                  <a href="http://tour.cookingpoint.es/CP_tour.html" class="btn btn-primary" target="_blank">Virtual Tour</a>
-            </div>
-      </div>      
+<div class="cp-class-details col-10 col-sm-8">
+      <strong>Location:</strong> Barrio de Huertas, In the heart of Madrid<br/>
+      <strong>Capacity:</strong> 24 people<br/>
+      <strong>Usage:</strong> Cooking classes, private events, TV set,...<br/><br/>
+      <div class="text-center">
+            <a href="http://tour.cookingpoint.es/CP_tour.html" class="btn btn-primary" target="_blank">Virtual Tour</a>
+      </div>
+</div> 
+     
 </div>
 
 @stop
