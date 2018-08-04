@@ -101,7 +101,7 @@
 	<div class="col-md-10 col-lg-8">
 		<div class="card-deck">
 		  <div class="card">
-		    <a href="classes-paella-cooking-madrid-spain"><img class="card-img-top" src="/images/home-Paella.jpg" alt="paella class"></a>
+		    <a href="classes-paella-cooking-madrid-spain"><img class="card-img-top" src="/images/home-paella.jpg" alt="paella class"></a>
 		    <div class="card-body">
 		      <h5 class="card-title">Paella Class</h5>
 		      <p class="card-text">Enjoy an unforgettable morning visiting a food market and cooking a delicious paella.</p>
