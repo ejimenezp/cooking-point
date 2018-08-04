@@ -59,13 +59,25 @@
 	<div class="col-12">
 		<p>Our class starts visiting the <strong>Antón Martín market</strong> (200 m away, open all days except Sundays and holidays) to buy the groceries we will need to cook our menu. We’ll buy vegetables, seafood and perhaps ham, cold cuts, cheese, olives, pastry&#8230; the offering and colouring of this traditional way of shopping daily supplies is endless.</p>
 
-		<p>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your the starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
+		<img src="/images/paella-details-02.jpg" class="img-fluid mx-auto d-block" alt="anton martin market">
 
-		<p>And then, we will start cooking the <strong>paella</strong>. Along the preparation, our chef will tell the story of this typical Spanish dish including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
+		<p><br>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your the starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
 
-		<p>Our Paella classes are <strong>4 hours long</strong>; 3 hours to go shopping, prepare your gazpacho and cook the paella, and 1 hour to enjoy your creations with the sangría you made at the beginning of the class. Note: on holidays, we&#8217;ll prepare one additional tapa, as market is closed.</p>
+		<img src="/images/paella-details-01.jpg" class="img-fluid mx-auto d-block" alt="making gazpacho">
 
-		<p>Dishes are prepared in couples under the guidance of our experienced chef. All lessons are <strong>in English</strong> and no cooking experience is required.</p>
+		<p><br>And then, we will start cooking the <strong>paella</strong>. Along the preparation, our chef will tell the story of this typical Spanish dish including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
+
+		<img src="/images/paella-banner-sm.jpg" class="img-fluid mx-auto d-block" alt="making paella">
+		<p><br></p>
+		<img src="/images/paella-details-03.jpg" class="img-fluid mx-auto d-block" alt="making paella">
+
+		<p><br>Our Paella classes are <strong>4 hours long</strong>; 3 hours to go shopping, prepare your gazpacho and cook the paella, and 1 hour to enjoy your creations with the sangría you made at the beginning of the class. Note: on holidays, we&#8217;ll prepare one additional tapa, as market is closed.</p>
+
+		<img src="/images/paella-details-04.jpg" class="img-fluid mx-auto d-block" alt="eating paella after class">
+
+
+		<p><br>All lessons are <strong>in English</strong> and no cooking experience is required.</p>
+
 
 		<div class="text-center">
 			<p></p>
@@ -108,7 +120,7 @@
 <div class="header2">Not Decided Yet?</div>
 <p>Perhaps you prefer the evening class...</p>
 <div class="row justify-content-center">
-	<div class="col-md-10 col-lg-8">
+	<div class="col-md-12 col-lg-10">
 		<div class="card-deck">
 		  <div class="card">
 		    <a href="classes-spanish-tapas-madrid-spain"><img class="card-img-top" src="/images/home-tapas.jpg" alt="tapas class"></a>
@@ -134,13 +146,21 @@
 		        </div>
 		    </div>
 		  </div>
-
+		  <div class="card">
+		    <a href="/gallery"><img class="card-img-top" src="/images/tripadvisor-photo.jpg" alt="photo gallery"></a>
+		    <div class="card-body">
+		      <h5 class="card-title">Photo Gallery</h5>
+		      <p class="card-text">Check out client photos on social media.</p>
+		    </div>
+		    <div class="card-footer">
+		        <div class="text-center">
+		            <a href="/gallery" class="btn btn-primary">Gallery</a>
+		        </div>
+		    </div>
+		  </div>
 		</div>		
 	</div>
 </div>
 
-<div class="divider"></div>
-
-<p>Which dish says Spain more than the Paella? From humble beginnings, paella evolved from a simple rice dish into a feast of rice with mixed meat and seafood. Traditionally it is cooked and eaten in the open air and is served directly from the paella to a large group at family gatherings or fiestas. But it is not exclusive to experienced Spanish cooks or to Spanish restaurants, you can make paella at home and this class will show you how.</p>
 @stop
 
