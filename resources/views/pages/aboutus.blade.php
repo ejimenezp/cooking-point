@@ -50,6 +50,38 @@
 	</div>
 </div>
 
+<div class="header2">Our Classes</div>
+<p>And these are our classes.</p>
+<div class="row justify-content-center">
+	<div class="col-md-10 col-lg-8">
+		<div class="card-deck">
+		  <div class="card">
+		    <a href="classes-paella-cooking-madrid-spain"><img class="card-img-top" src="/images/home-paella.jpg" alt="paella class"></a>
+		    <div class="card-body">
+		      <h5 class="card-title">Paella Class</h5>
+		      <p class="card-text">Enjoy an unforgettable morning visiting a food market and cooking a delicious paella.</p>
+		    </div>
+		    <div class="card-footer">
+		        <div class="text-center">
+		            <a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">Paella Class</a>
+		        </div>
+		    </div>
+		  </div>
+		  <div class="card">
+		    <a href="classes-spanish-tapas-madrid-spain"><img class="card-img-top" src="/images/home-tapas.jpg" alt="tapas class"></a>
+		    <div class="card-body">
+		      <h5 class="card-title">Tapas Class</h5>
+		      <p class="card-text">Have a great evening making tapas and sangria.</p>
+		    </div>
+		    <div class="card-footer">
+    	        <div class="text-center">
+	            <a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">Tapas Class</a>
+	        </div>
+		    </div>
+		  </div>
+		</div>		
+	</div>
+</div>
 
 @stop
 
