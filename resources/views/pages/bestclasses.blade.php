@@ -46,7 +46,7 @@
 
 <img src="/images/hands-on-class.jpg" class="img-fluid mx-auto d-block" alt="your spot">
 
-<p>The maximum amount of customers per class is 12 but we are not usually fully booked. Of course, the classs includes enjoying the dishes that you will have prepared.</p>
+<p><br>The maximum amount of customers per class is 12 but we are not usually fully booked. Of course, the classs includes enjoying the dishes that you will have prepared.</p>
 
 <p>And there's more! You will take home the recipes booklet to repeat all the recipes for your family and friends!</p>
 
@@ -58,7 +58,7 @@
 
 <img src="/images/food-restrictions.jpg" class="img-fluid mx-auto d-block" alt="food restrictions">
 
-<p>It doesn't matter if you're travelling by yourself, in our classes you will find the ideal cooking partners to enjoy some hours immersed in Spanish gastronomy and culture.</p>
+<p><br>It doesn't matter if you're travelling by yourself, in our classes you will find the ideal cooking partners to enjoy some hours immersed in Spanish gastronomy and culture.</p>
 
 
 <div class="header2">Family Friendly</div>
@@ -76,7 +76,8 @@
 <p>Through the stories told by our instructors, 100% born and raised in Spain, you will learn how to cook some of the most representative dishes of Spanish gastronomy. Also you will know first hand about traditions, habits and history behind all of them. Moreover, you will get insights and tips on how to understand food as a local and how to enjoy sharing our preparations.</p> 
 
 <img src="/images/local-market.jpg" class="img-fluid mx-auto d-block" alt="local market">
-<p> </p>
+<p></p>
+
 <div class="header2">Right In The Center Of Madrid</div>
 
 <p>We are located in the center of the most historical area of Madrid, at a walking distance from the main lodging areas and turistic attractions. You will be able to come walking from your accomodation, enjoying the relaxed atmosphere of the Literary district.</p>
