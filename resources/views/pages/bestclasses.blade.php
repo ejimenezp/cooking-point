@@ -93,7 +93,7 @@
 <a href="https://www.esmadrid.com/en/tourist-information/cooking-point"><img src="/images/legal.jpg" class="img-fluid mx-auto d-block" alt="legal"></a>
 
 <div class="header2">What We Are Not</div>
-<p>We are not a franchise, there is only one Cooking Point and it is located in Madrid. We are not a restaurant or hotel teaching clandestine classes in a (most of the times) dark and unequiped kitchen. We are not resellers with long purchase processes and a slow and unefficient customer care.</p>
+<p>We are not a franchise, there is only one Cooking Point and it is located in Madrid. We are not a restaurant or hotel teaching clandestine classes in a (most of the times) dark and unequiped kitchen. We are not impersonal resellers with fake photos and unefficient customer care.</p>
 
 <div class="header2">Best Value for Money</div>
 <p>Four hours of fun, no matter your choice.</p>

@@ -61,11 +61,25 @@
 	<div class="col-12">
 		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 traditional recipes</strong>: 5 tapas, one dessert and sangría.</p>
 
-		<p>Traditional tapas like the popular tortilla de patatas (Spanish potato omelet), chorizos a la sidra (sausage in cider sauce), gambas al ajillo (garlic shrimp), patatas bravas (potatoes with spicy sauce) and pa amb tomàquet (tomato bread with cured ham), all rounded by a crema catalana (crème brûleé).</p>
+		<img src="/images/tapas-details-02.jpg" class="img-fluid mx-auto d-block" alt="cooking shrimp">
 
-		<p>Our Tapas class are <strong>4 hours long</strong>; 3 hours to prepare your tapas, 1 hour to enjoy your creations with the sangría you made during the class.</p>
+		<p><br>Along the preparation, our chef will tell the story of typical Spanish dish including its origins and its place in Spanish culture. A nice inmersion to Spain's food culture.</p>
 
-		<p>Tapas are <strong>prepared in pairs</strong> under the guidance of our experienced chef. All lessons are <strong>in English</strong> and no cooking experience is required.</p>
+		<img src="/images/tapas-details-03.jpg" class="img-fluid mx-auto d-block" alt="chef stories">
+
+		<p><br>Traditional tapas like the popular tortilla de patatas (Spanish potato omelet), chorizos a la sidra (sausage in cider sauce), gambas al ajillo (garlic shrimp), patatas bravas (potatoes with spicy sauce) and pa amb tomàquet (tomato bread with cured ham), all rounded by a crema catalana (crème brûleé).</p>
+
+		<img src="/images/tapas-details-01.jpg" class="img-fluid mx-auto d-block" alt="flipping the omelet">
+
+		<p><br></p>
+
+		<img src="/images/tapas-details-04.jpg" class="img-fluid mx-auto d-block" alt="all an experience">
+
+		<p><br>Our Tapas class are <strong>4 hours long</strong>; 3 hours to prepare your tapas, 1 hour to enjoy your creations with the sangría you made during the class.</p>
+
+		<img src="/images/tapas-details-05.jpg" class="img-fluid mx-auto d-block" alt="eating time">
+
+		<p><br>Tapas are <strong>prepared in pairs</strong> under the guidance of our experienced chef. All lessons are <strong>in English</strong> and no cooking experience is required.</p>
 
 		<div class="text-center">
 			<p></p>
@@ -109,7 +123,7 @@
 <div class="header2">Not Decided Yet?</div>
 <p>Perhaps you prefer the morning class...</p>
 <div class="row justify-content-center">
-	<div class="col-md-10 col-lg-8">
+	<div class="col-md-12 col-lg-12">
 		<div class="card-deck">
 		  <div class="card">
 		    <a href="classes-paella-cooking-madrid-spain"><img class="card-img-top" src="/images/home-Paella.jpg" alt="paella class"></a>		    
@@ -135,7 +149,18 @@
 		        </div>
 		    </div>
 		  </div>
-
+		  <div class="card">
+		    <a href="/gallery"><img class="card-img-top" src="/images/tripadvisor-photo.jpg" alt="photo gallery"></a>
+		    <div class="card-body">
+		      <h5 class="card-title">Photo Gallery</h5>
+		      <p class="card-text">Check out client photos on social media.</p>
+		    </div>
+		    <div class="card-footer">
+		        <div class="text-center">
+		            <a href="/gallery" class="btn btn-primary">Gallery</a>
+		        </div>
+		    </div>
+		  </div>
 		</div>		
 	</div>
 </div>
