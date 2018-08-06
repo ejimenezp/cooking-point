@@ -28,7 +28,7 @@
         </div> 
         @endif
           <div class="modal-footer">             
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
           </div>
       </div>
   </div>
@@ -62,7 +62,7 @@
         <p>You will be requested your name, email address and some other details later on.  You can also fill in these data after checking out.</p>
           </div>    
           <div class="modal-footer">             
-            <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            <button type="button" class="btn btn-light" data-dismiss="modal">OK</button>
           </div>
       </div>
   </div>
@@ -94,7 +94,7 @@
             </table>
           </div>    
           <div class="modal-footer">             
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-primary">Send</button>
           </div>
         </form>
@@ -116,7 +116,7 @@
         <div class="modal-body modal_booking_body"></div>
         <div class="modal-footer">
             <form >
-<!--                 <button type="button" class="btn btn-default btn-cancel hidden" data-dismiss="modal">Cancel</button>
+<!--                 <button type="button" class="btn btn-light btn-cancel hidden" data-dismiss="modal">Cancel</button>
  -->                <button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">OK</button>
             </form>
        </div>
