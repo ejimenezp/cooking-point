@@ -164,12 +164,12 @@
 				<div class="col-12">
 					<div class="text-center">
 						@if (isset($bkg) && $bkg->status != 'PENDING') 
-							<a id="button_booking_help" class="btn btn-link">Help</a>
-							<a href="#step4" class="step cancel btn btn-default">Cancel</a>
+							<button id="button_booking_help" class="btn btn-light">Help</button>
+							<a href="#step4" class="step cancel btn btn-light">Cancel</a>
 							<a href="#step4" class="update_class btn btn-primary">Update Booking</a>
 						@else
-							<a id="button_booking_help" class="btn btn-link">Help</a>
-							<a class="booking_retrieve btn btn-default">Use Booking #</a>
+							<button id="button_booking_help" class="btn btn-light">Help</button>
+							<button class="booking_retrieve btn btn-light">Use Booking #</button>
 							<a href="#step2" class="update_class btn btn-primary" checkout="checkout">Checkout</a>
 						@endif
 						<p></p>
@@ -318,13 +318,13 @@
 				<div class="col-12">
 					<div class="text-center">
 						@if (isset($bkg) && $bkg->status != 'PENDING')
-							<a href="#step4" class="step cancel btn btn-default" >Cancel</a>
+							<a href="#step4" class="step cancel btn btn-light" >Cancel</a>
 							<a href="#step4" class="step update_contact btn btn-primary">Update Booking</a>
 						@elseif (isset($bkg) && $bkg->fixed_date)
-							<a class="btn btn-primary" id="button_purchase" >Purchase</a>
+							<button class="btn btn-primary" id="button_purchase" >Purchase</button>
 						@else
-							<a href="#step1" class="step btn btn-default">Change Class/Date</a>
-							<a class="btn btn-primary" id="button_purchase" >Purchase</a>			
+							<a href="#step1" class="step btn btn-light">Change Class/Date</a>
+							<button class="btn btn-primary" id="button_purchase" >Purchase</button>			
 						@endif
 						<p></p>
 					</div>
@@ -475,10 +475,10 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-center">
-						<a id="button_booking_forget" class="btn btn-link">New Booking</a>
-						<a id="button_booking_edit" class="btn btn-primary">Edit Booking</a>
-						<a id="button_print_voucher" class="btn btn-primary">Print Voucher</a>
-						<a id="button_email_voucher" class="btn btn-primary">E-mail Voucher</a>
+						<button id="button_booking_forget" class="btn btn-light">New Booking</button>
+						<button id="button_booking_edit" class="btn btn-primary">Edit Booking</button>
+						<button id="button_print_voucher" class="btn btn-primary">Print Voucher</button>
+						<button id="button_email_voucher" class="btn btn-primary">E-mail Voucher</button>
 						<p></p>
 					</div>
 				</div>
