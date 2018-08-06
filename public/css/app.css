@@ -10762,7 +10762,7 @@ a:hover {
   position: absolute;
   z-index: 1000;
   top: 12rem;
-  text-shadow: 0em 0.05rem black;
+  text-shadow: 2px 2px black, -0.1rem -0.1rem 1rem black, 0.1rem 0.1rem 1rem black;
 }
 
 .home-headline a {
@@ -10788,10 +10788,6 @@ a:hover {
 
 .video-container {
   display: none;
-}
-
-.img-sidebar {
-  width: 12rem;
 }
 
 .blog ul {
@@ -10969,15 +10965,6 @@ h4 {
 .btn:focus {
   background-color: #EF8401;
   border-color: #EF8401;
-}
-
-.sidebar-title {
-  color: #959595;
-  letter-spacing: 1px;
-  font-size: 12px;
-  font-weight: 700;
-  padding-top: 1.2em;
-  padding-bottom: 1.2em;
 }
 
 .availability-table {
