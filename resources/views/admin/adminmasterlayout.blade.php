@@ -41,7 +41,7 @@
 		    <a class="header2" data-toggle="collapse" data-target="#navbar" href="#">
               Menu <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
-            <span class="pull-right"><button id="toggle_datepicker" class="btn btn-sm btn-default">Calendario</button></span>
+            <span class="pull-right"><button id="toggle_datepicker" class="btn btn-sm btn-light">Calendario</button></span>
 	    	<div id="navbar" class="collapse navbar-collapse">
 	          	<ul class="nav navbar-nav">
 		            <li>
