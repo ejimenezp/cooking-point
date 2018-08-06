@@ -11124,6 +11124,11 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   padding: inherit;
 }
 
+.admin .header1,
+.admin .menu-header-xs {
+  font-size: 1.5rem;
+}
+
 .admin .ui-datepicker {
   background-color: white;
   padding: 1%;
@@ -11341,6 +11346,10 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   .header2,
   .header4 {
     font-size: 1.5rem;
+  }
+
+  .admin .header4 {
+    font-size: 1.25rem;
   }
 
   .header3 {

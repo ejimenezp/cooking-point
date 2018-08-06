@@ -446,6 +446,12 @@ input, select, textarea {
 }
 
 .admin {
+
+  .header1 {
+    font-size: 1.5rem;
+  }
+
+
   .ui-datepicker {
   	background-color: white;
   	padding: 1%;
@@ -653,6 +659,10 @@ input, select, textarea {
 
   .header2, .header4 {
     font-size: 1.5rem;
+  }
+
+  .admin .header4 {
+    font-size: 1.25rem;
   }
 
   .header3 {

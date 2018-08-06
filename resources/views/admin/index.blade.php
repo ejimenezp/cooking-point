@@ -186,7 +186,7 @@
 	            </form>
 	       </div>
 			<h1 class="header1"><div class="dateshown"></div></h1>
-			<h4><div class="classshown"></div></h4>
+			<h4 class="header4"><div class="classshown"></div></h4>
 			<table class="table table-hover" id="booking_table">
 			    <thead>
 			    	<tr>
@@ -206,7 +206,7 @@
 
 		<div id="booking_edit">
 			<h1 class="header1">Editar Reserva</h1>
-			<h4><div class="dateshown"></div>
+			<h4 class="header4"><div class="dateshown"></div>
 			<div class="classshown"></div></h4>
 			<form id="form_booking" class="form-horizontal" role="form" onsubmit="return false;">
    				{{ csrf_field() }}
