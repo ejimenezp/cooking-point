@@ -11462,7 +11462,8 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
 
 #receipt,
 #receipt > table {
-  font-size: 14px;
+  font-family: Arial, Helvetica;
+  font-size: 20px;
 }
 
 #screen_table,
