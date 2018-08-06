@@ -20,9 +20,9 @@
         @else
         <div class="modal-body">You can modify any data except the number of participants
           <ul>
-              <li><a id="date_edit" data-dismiss="modal">Change class date or type</a></li>
+              <li><a href="#" id="date_edit" data-dismiss="modal">Change class date or type</a></li>
               <li><a href="#step2" class="step" data-dismiss="modal">Change contact details or comments</a></li>
-              <li><a id="booking_cancel" data-dismiss="modal">Cancel booking</a></li>  
+              <li><a href="#" id="booking_cancel" data-dismiss="modal">Cancel booking</a></li>  
               <div class="hidden" id="booking_cancel_confirm"></div>  
           </ul>     
         </div> 
