@@ -488,8 +488,8 @@
 </div>
 
 <div class="d-none">
-	<div id="printer" class="col-md-12">
-		<div class="row justify-content-center">
+	<div id="printer" class="d-print-block row justify-content-center">
+		<div class="col-md-10 d-print-block">
 			<div class="divider"></div>
 			<div class="divider"></div>
 			<div class="text-center">
@@ -501,7 +501,7 @@
 
 			<div class="divider"></div>
 
-			<p><span class="header2">Meeting Point</span><br/>
+			<div class="header2">Meeting Point</div>
 			Cooking Point<br/>
 			Calle de Moratin, 11 28014 Madrid<br/>
 			tel. (+34) 910 115 154<br /><br /></p>
