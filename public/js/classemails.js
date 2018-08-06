@@ -28701,7 +28701,7 @@ function populateBookingTable() {
 			aclass = 'btn-link';
 		} else {
 			action = 'Add e-mail';
-			aclass = 'btn-default';
+			aclass = 'btn-light';
 		}
 		edit_button = '<td><button class="btn ' + aclass + ' button_email_edit" data-j="' + j + '">' + action + '</button></td>';
 
@@ -28753,7 +28753,7 @@ jQuery(document).ready(function ($) {
 			email_tab.val(email);
 			$('tr:nth-child(' + (j + 1) + ') td:nth-child(3)').html(email_tab);
 			email_tab.focus();
-			$(this).removeClass('btn-link').removeClass('btn-default').addClass('btn-primary');
+			$(this).removeClass('btn-link').removeClass('btn-light').addClass('btn-primary');
 			$(this).html('Confirm');
 		} else {
 			email = $('input[name=edited]').val();

@@ -578,7 +578,7 @@ jQuery(document).ready(function($) {
 			$('.modal_booking_body').html('Class is too close to start, so no edition allowed.<br/><br/>Please contact us by phone should you have any question.')
     		$("#modal_booking").modal()
 		} else {
-			$('#modal_booking_edit').c
+			$('#modal_booking_edit').modal('show')
 		}		
 	})
 
