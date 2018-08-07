@@ -204,7 +204,7 @@
     </div>
   @endif
   <div class="row justify-content-center">
-    <div class="col col-xl-10">
+    <div class="col col-md-11 col-lg-10">
       @yield('content')                  
     </div>  
   </div>
