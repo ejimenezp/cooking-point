@@ -57,26 +57,30 @@
 
 <div class="row justify-content-right">
 	<div class="col-12">
-		<p>Our class starts visiting the <strong>Antón Martín market</strong> (200 m away, open all days except Sundays and holidays) to buy the groceries we will need to cook our menu. We’ll buy vegetables, seafood and perhaps ham, cold cuts, cheese, olives, pastry&#8230; the offering and colouring of this traditional way of shopping daily supplies is endless.</p>
+		<p>Our class starts visiting the <strong>Antón Martín market</strong> (200 m from the school) to buy the groceries we will need to cook our menu. We’ll buy vegetables, seafood, and perhaps ham, olives, cheese, pastry&#8230; the offering and colouring of this traditional way of shopping daily supplies is endless.</p>
 
 		<img src="/images/paella-details-02.jpg" class="img-fluid mx-auto d-block" alt="anton martin market">
 
-		<p><br>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your the starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
+		<p><br>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
 
 		<img src="/images/paella-details-01.jpg" class="img-fluid mx-auto d-block" alt="making gazpacho">
 
-		<p><br>And then, we will start cooking the <strong>paella</strong>. Along the preparation, our chef will tell the story of this typical Spanish dish including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
+		<p><br>And then, you will get down to work to make your own <strong>paella</strong>, the most international Spanish dish, based on rice, seafood and chicken. Along the preparation, our chef will tell its story including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
 
-		<img src="/images/paella-banner-sm.jpg" class="img-fluid mx-auto d-block" alt="making paella">
-		<p><br></p>
 		<img src="/images/paella-details-03.jpg" class="img-fluid mx-auto d-block" alt="making paella">
+		<p><br></p>
+		<img src="/images/paella-banner-sm.jpg" class="img-fluid mx-auto d-block" alt="making paella">
 
-		<p><br>Our Paella classes are <strong>4 hours long</strong>; 3 hours to go shopping, prepare your gazpacho and cook the paella, and 1 hour to enjoy your creations with the sangría you made at the beginning of the class. Note: on holidays, we&#8217;ll prepare one additional tapa, as market is closed.</p>
+		<p><br>After cooking you will sit down to enjoy your creations as <strong>your lunch</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable morning.</p>
 
 		<img src="/images/paella-details-04.jpg" class="img-fluid mx-auto d-block" alt="eating paella after class">
 
+		<p><br>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
 
-		<p><br>All lessons are <strong>in English</strong> and no cooking experience is required.</p>
+		<p>Besides, you get a <strong>recipe booklet</strong> with all the recipes you prepare.</p>
+
+		<p>Check out our <a href="/faq">FAQ</a> for more questions.</p>
+
 
 
 		<div class="text-center">

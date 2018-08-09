@@ -142,13 +142,13 @@
 
 <div class="divider"></div>
 
-<div class="header3">Why to choose us<br/><br/></div>
+<div class="header3">Why to Choose Us<br/><br/></div>
 
 <div class="row">
     <div class="col-lg-4">
         <a href="/best-cooking-classes-madrid"><img class="img-fluid" alt="best class in Madrid" src="/images/home-bestclassintown.jpg" /></a>
         <h4 class="header4">Top Rated School</h4>
-        <p>Five years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as <a href="/best-cooking-classes-madrid">the First Cooking School in Madrid</a>.</p>
+        <p>Five years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as #1 in our category.</p>
     </div>
 
     <div class="col-lg-4">
@@ -160,7 +160,7 @@
     <div class="col-lg-4">
         <a href="/best-cooking-classes-madrid"><img class="img-fluid" alt="best class in Madrid" src="/images/home-trullyhandson.jpg" /></a>
         <h4 class="header4">Truly Hands-on</h4>
-        <p>Two people per cooktop, maximum twelve per class. Follow our local chef instructions to get your meal done. No worries, no cooking experience is required.</p>
+        <p>Two people per cooktop, maximum twelve per class. Follow our chef instructions to get your meal done. No worries, no cooking experience is required.</p>
     </div>
 </div>
 <div class="row justify-content-center">
@@ -214,7 +214,7 @@
     <p>Like in any other big city, you will find many things to do in Madrid: museums, monuments, markets, restaurants, bars, parks,... the number of Madrid attractions is countless. But, when it comes to what to do, you shouldn't miss the opportunity to take an active role in your Madrid experience and participate on attractions where five senses are involved.</p>
     <p>Because of its central location, Madrid receives influences from every corner of Spain, what has made of it the best city to learn Spanish cuisine. The Madridian open and conciliatory character will let you discover Spanish wine and food excellences no matter their region of origin.</p>   
     <p>In our cooking classes you will learn not just about the Spanish food but also how to make it, what offers the perfect 'take-home' experience that will stay with you forever. So, you will get a broad knowledge of paella and tapas and other typical Spanish food like cured ham, olive oil, saffron, paprika,... and how important they are in the Spanish culinary culture.</p>
-    <p>If you are looking for different things to do in Madrid for your holiday, an alternative to sightseeing attractions, whether you are a travelling alone, as a couple or in a corporate event, then consider Cooking Point's cooking classes to get to the very heart of the local culture.</p>
+    <p>If you are looking for different things to do in Madrid for your holiday, an alternative to sightseeing attractions, whether you are a travelling alone, with your family or in a corporate event, then consider Cooking Point's cooking classes to get to the very heart of the local culture.</p>
 </div>
 
 </div>

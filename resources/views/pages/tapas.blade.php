@@ -59,27 +59,31 @@
 
 <div class="row justify-content-right">
 	<div class="col-12">
-		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 traditional recipes</strong>: 5 tapas, one dessert and sangría.</p>
+		<p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of wine, a tapa (meaning lid) of cheese or ham was used to cover the glass. Since then, tapas have embarked on a remarkable journey of social mobility and are among the most popular and fashionable cuisines in the world. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
 
-		<img src="/images/tapas-details-02.jpg" class="img-fluid mx-auto d-block" alt="cooking shrimp">
+		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 recipes</strong>: 5 traditional tapas, one dessert and sangría.</p>
 
-		<p><br>Along the preparation, our chef will tell the story of typical Spanish dish including its origins and its place in Spanish culture. A nice inmersion to Spain's food culture.</p>
+		<img src="/images/tapas-details-04.jpg" class="img-fluid mx-auto d-block" alt="what an experience!">
+
+		<p><br>Along the preparation, our chef will tell stories about the origin and customs around this way of enjoying food. There will be also time to talk about cured ham, olive oil and other produce paradigm of Spanish food culture.</p>
 
 		<img src="/images/tapas-details-03.jpg" class="img-fluid mx-auto d-block" alt="chef stories">
 
-		<p><br>Traditional tapas like the popular tortilla de patatas (Spanish potato omelet), chorizos a la sidra (sausage in cider sauce), gambas al ajillo (garlic shrimp), patatas bravas (potatoes with spicy sauce) and pa amb tomàquet (tomato bread with cured ham), all rounded by a crema catalana (crème brûleé).</p>
+		<p><br>You will prepare traditional tapas such as the popular Spanish potato omelet and other with chorizo, shrimp and cured ham, all washed down with sangria and ended up with a dessert, all made by you.</p>
+
+		<p>Note: there are alternative ingredients or recipes for people with special dietary requirements.</p>
 
 		<img src="/images/tapas-details-01.jpg" class="img-fluid mx-auto d-block" alt="flipping the omelet">
 
-		<p><br></p>
-
-		<img src="/images/tapas-details-04.jpg" class="img-fluid mx-auto d-block" alt="all an experience">
-
-		<p><br>Our Tapas class are <strong>4 hours long</strong>; 3 hours to prepare your tapas, 1 hour to enjoy your creations with the sangría you made during the class.</p>
+		<p><br>After cooking you will sit down to enjoy your creations as <strong>your dinner</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable evening.</p>
 
 		<img src="/images/tapas-details-05.jpg" class="img-fluid mx-auto d-block" alt="eating time">
 
-		<p><br>Tapas are <strong>prepared in pairs</strong> under the guidance of our experienced chef. All lessons are <strong>in English</strong> and no cooking experience is required.</p>
+		<p><br>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
+
+		<p>Besides, you get a <strong>recipe booklet</strong> with all the recipes you prepare.</p>
+
+		<p>Check out our <a href="/faq">FAQ</a> for more questions.</p>
 
 		<div class="text-center">
 			<p></p>
@@ -165,8 +169,5 @@
 	</div>
 </div>
 
-<div class="divider"></div>
-
-<p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of fino, a tapa (meaning lid) of cheese or ham was used to cover the glass. Since then, tapas has embarked on a remarkable journey of social mobility and is now centre stage and among the most popular and fashionable cuisines in the world. Tapas is now an art in itself. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
 
 @stop

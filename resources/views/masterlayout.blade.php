@@ -104,7 +104,7 @@
             <a href="/about-us">About Us</a>
           </li>
           <li>
-            <a class="cp-class-details cp-class-details" href="/booking">Booking</a>
+            <a class="cp-class-details" href="/booking">Booking</a>
           </li>
           <li>
             <a href="/gallery">Gallery</a>
