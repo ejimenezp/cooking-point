@@ -10,7 +10,7 @@
 
 <h1 class="header1">10 Reasons To Choose Us</h1>
 
-<p>Below, check outt en reasons why we believe us to be the best class in town.</p>
+<p>Below, check out ten reasons why we believe us to be the best class in town.</p>
 
 <div class="header2">1. First Rated School in Madrid</div>
 
