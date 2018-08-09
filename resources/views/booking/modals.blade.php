@@ -44,25 +44,33 @@
           <h4 class="modal-title">Help</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <div class="modal-body">Please, select number of guests and desired class. The calendar will update according to our availability:
+        <div class="modal-body">First select number of guests and desired class. The calendar will update according to our availability:
         <table class="help-table">
           <tr>
-            <td class="td-available">25</td>
-            <td>= Class available</td>
+            <td class="td-available" style="border-radius:7px;">25</td>
+            <td>=</td>
+            <td>Class available</td>
           </tr>
           <tr>
-            <td class="td-last-seats">25</td>
-            <td>= Class almost complete with your party</td>
+            <td class="td-last-seats" style="border-radius:7px;">25</td>
+            <td>=</td>
+            <td>Class available, almost full</td>
           </tr>
           <tr>
-            <td class="td-disabled">25</td>
-            <td>= Class not available or not enough room for your party</td>
-          </tr>  
-        </table>
-        <p>You will be requested your name, email address and some other details later on.  You can also fill in these data after checking out.</p>
+            <td class="td-disabled" style="border: 1px solid #ddd; border-radius:7px;">25</td>
+            <td>=</td>
+            <td>No class, booking closed or not enough room for your party</td>
+          </tr> 
+          <tr>
+            <td class="td-available" style="border: 3px solid #ddd; background-color: darkgreen; border-radius:7px;">25</td>
+            <td>=</td>
+            <td>Selected date</td>
+          </tr>   
+         </table>
+        <p><br>On next page, fill in your name and email. You can also modify guest details after checking out.</p>
           </div>    
           <div class="modal-footer">             
-            <button type="button" class="btn btn-light" data-dismiss="modal">OK</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
           </div>
       </div>
   </div>

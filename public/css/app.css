@@ -11082,7 +11082,7 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-icon {
 
 .online .ui-datepicker .ui-datepicker-current-day {
   border: 3px solid #ccc;
-  background-color: green;
+  background-color: darkgreen;
 }
 
 .online .ui-datepicker .ui-datepicker-prev span,

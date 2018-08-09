@@ -170,7 +170,7 @@
 						@else
 							<button id="button_booking_help" class="btn btn-light">Help</button>
 							<button class="booking_retrieve btn btn-light">Use Booking #</button>
-							<a href="#step2" class="update_class btn btn-primary" checkout="checkout">Checkout</a>
+							<a href="#step2" class="update_class btn btn-primary" checkout="checkout">Continue</a>
 						@endif
 						<p></p>
 					</div>
@@ -181,7 +181,7 @@
 		<div id="step2" class="d-none">
 			<div class="row justify-content-left">
 				<div class="col-12">		
-					<h1 class="header1">Booking: Checkout</h1>
+					<h1 class="header1">Booking: Guest Details</h1>
 					<p>You are about to book the following class:</p>
 					<div class="row ">
 						<div class="col-md-5">
@@ -321,10 +321,10 @@
 							<a href="#step4" class="step cancel btn btn-light" >Cancel</a>
 							<a href="#step4" class="step update_contact btn btn-primary">Update Booking</a>
 						@elseif (isset($bkg) && $bkg->fixed_date)
-							<button class="btn btn-primary" id="button_purchase" >Purchase</button>
+							<button class="btn btn-primary" id="button_purchase" >Checkout</button>
 						@else
 							<a href="#step1" class="step btn btn-light">Change Class/Date</a>
-							<button class="btn btn-primary" id="button_purchase" >Purchase</button>			
+							<button class="btn btn-primary" id="button_purchase" >Checkout</button>			
 						@endif
 						<p></p>
 					</div>

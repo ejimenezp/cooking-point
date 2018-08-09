@@ -378,6 +378,7 @@ function validateBookingForm()
 		show_it = true
     }
     if (show_it) {
+    	modal_body += '<br/>Remember you can modify guest details at anytime using your Booking #.'
 		$('.modal_booking_title').html(modal_title)
 		$('.modal_booking_body').html(modal_body)
 		$('#modal_booking').modal()
@@ -486,7 +487,7 @@ jQuery(document).ready(function($) {
 		$('.update_class').removeClass('d-none')
 
 	    if (!getDayAvailability(date_shown.toDate())[0]) {
-    		$('.modal_booking_title').html('Class Not Available')
+    		$('.modal_booking_title').html('Booking Not Available')
 			$('.modal_booking_body').html('Please, select a date with availability')
     		$("#modal_booking").modal()
     	}
@@ -528,13 +529,13 @@ jQuery(document).ready(function($) {
 
     $(".update_class").click(function(e) {
     	if (!getDayAvailability(date_shown.toDate())[0]) {
-    		$('.modal_booking_title').html('Not Available')
+    		$('.modal_booking_title').html('Booking Not Available')
 			$('.modal_booking_body').html('Please, select a date with availability')
     		$("#modal_booking").modal()
 		} else if ($(this).attr('checkout')) {
 	    	if (!parseInt($("select[name=adult]").val())) {
 	    		$('.modal_booking_title').html('Invalid number of guests')
-				$('.modal_booking_body').html('1 adult at least')
+				$('.modal_booking_body').html('Book for 1 adult at least')
 	    		$("#modal_booking").modal()
 			} else {
 				$('#booking_steps > div').addClass('d-none')
