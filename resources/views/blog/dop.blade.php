@@ -15,7 +15,7 @@
 
 <p>Unlike other products, most foodstuffs and agricultural products don’t have any brands or support from any organization. That makes harder to pick the best quality (or value for money) product out of a wide range of supply, only based on our knowledge or previous experience.</p>
 
-<p>Since 1992, the European Union promotes among foodstuff and wine producers to get associated in Protected Designations of Origin (PDO), that help them to market their products better, while providing them legal protection from product name misuse or falsification.</p> 
+<p>Since 1992, the European Union promotes among foodstuff and wine producers to get associated in Protected Designations of Origin (PDO), that help them to market their products better, while providing them legal protection from product name misuse or counterfeit.</p> 
 
 <p>From the consumer point of view, the PDO framework identifies products that are grown, produced, processed and prepared in a specific geographical area, using the recognized know-how of local producers and ingredients from the region concerned. Producers must adhere to a precise set of specifications defined by the regulatory body which in turn is approved and supported by the EU.</p>
 
