@@ -39,7 +39,7 @@
                         <table>
                             <tr>
                                 <td><img src="/images/cookingpoint_printer.jpg"></td>
-                                <td style="padding-left:30px">Cooking Point, S.L.<br/>
+                                <td style="padding-left:30px;line-height: 1.1rem;">Cooking Point, S.L.<br/>
                                 C/ Moratín, 11<br/>
                                 28014 Madrid (SPAIN)<br/>
                                 NIF: B86615143<br/>

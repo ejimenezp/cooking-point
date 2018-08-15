@@ -8,9 +8,10 @@
 
 
 
-#receipt, #receipt > table {
+#receipt {
     font-family: Arial, Helvetica;
     font-size: 20px;
+    width: 420px;
 }
 
 
@@ -30,7 +31,6 @@
 
 #tax_table {
   width: 80%;
-  margin: 0 auto;
   td, th {
     text-align: right;
   }
