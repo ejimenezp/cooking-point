@@ -11469,10 +11469,10 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   margin: 4px;
 }
 
-#receipt,
-#receipt > table {
+#receipt {
   font-family: Arial, Helvetica;
   font-size: 20px;
+  width: 420px;
 }
 
 #screen_table,
@@ -11494,7 +11494,6 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
 
 #tax_table {
   width: 80%;
-  margin: 0 auto;
 }
 
 #tax_table td,
