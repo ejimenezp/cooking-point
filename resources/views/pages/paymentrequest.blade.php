@@ -20,8 +20,10 @@
 <body>
 
 	<div class="row justify-content-center">
-	<p></p>
-	<img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'">
+		<div class="col-2">
+			<p></p>
+			<img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'">			
+		</div>
 	</div>
 
 	<div class="container-fluid">
@@ -108,9 +110,9 @@
 		@else
 			<div class="row justify-content-center">
 				<div class="col-12">
-					<p></p>
 					<p>Click on "Checkout" to pay through our bank's payment platform.<br/><br/></p>
 					<a href="/pay/{{ $bkg->id }}" class="btn btn-primary">Checkout</a>
+					<p></p>
 				</div>				
 			</div>
 		@endif
