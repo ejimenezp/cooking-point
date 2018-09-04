@@ -110,7 +110,7 @@
 		@else
 			<div class="row justify-content-center">
 				<div class="col-12">
-					<p>Click on "Checkout" to pay through our bank's payment platform.<br/><br/></p>
+					<p>Click on "Checkout" to pay through our bank's payment platform.<br/></p>
 					<a href="/pay/{{ $bkg->id }}" class="btn btn-primary">Checkout</a>
 					<p></p>
 				</div>				
