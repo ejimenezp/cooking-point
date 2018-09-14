@@ -52,6 +52,7 @@ class EventLoader extends Command
                     $request['date'] = $line[0];
                     $request['type'] = $line[$j];
                     $request['staff_id'] = 2;
+                    $request['secondstaff_id'] = 2;
                     switch ($request['type']) {
                         case 'HOLIDAY':
                             $request['time'] = '09:00:00';
