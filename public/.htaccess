@@ -1,5 +1,8 @@
 #redirects
 
+#blog
+redirect 301 /denominacion-de-origen-protegida https://cookingpoint.es/protected-designation-of-origin
+
 # bookings
 redirect 301 /en/bookings https://cookingpoint.es/bookings
 redirect 301 /calendar https://cookingpoint.es/bookings

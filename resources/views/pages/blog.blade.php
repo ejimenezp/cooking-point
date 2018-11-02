@@ -36,11 +36,11 @@
 
     <div class="col-sm-6">
         <h4 class="header4"></h4>
-		<a href="/denominacion-de-origen-protegida"><img class="img-fluid center-block" alt="denominacion de origen protegida" src="/images/blog/dop-label.jpg" /></a>
-		<h2 class="header2"><a href="/denominacion-de-origen-protegida">Denominacion de Origen Protegida (DOP)</a></h2>
+		<a href="/protected-designation-of-origin"><img class="img-fluid center-block" alt="protected designation of origin label" src="/images/blog/dop-label.jpg" /></a>
+		<h2 class="header2"><a href="/protected-designation-of-origin">Protected Designation of Origin (PDO)</a></h2>
 		<p>The Protected Designation of Origin symbol certifies where foodstuff has been grown and/or produced to avoid couterfeits and deliver to customers the excellence of European foodstuff production.</p>
 		<div class="text-center">
-			<a href="/denominacion-de-origen-protegida" class="btn btn-primary">Read More</a>
+			<a href="/protected-designation-of-origin" class="btn btn-primary">Read More</a>
         </div>
     </div>
 
