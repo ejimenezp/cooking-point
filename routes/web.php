@@ -44,7 +44,7 @@ Route::get('/best-cooking-classes-madrid', function () { return view('pages.best
 Route::get('/blog', function () { return view('pages.blog'); });
 Route::get('/paella-fish-stock', function () { return view('blog.fish-stock'); });
 Route::get('/iberico-ham', function () { return view('blog.iberico-ham'); });
-Route::get('/denominacion-de-origen-protegida', function () { return view('blog.dop'); });
+Route::get('/protected-designation-of-origin', function () { return view('blog.dop'); });
 Route::get('/spanish-potato-omelet', function () { return view('blog.tortilla'); });
 
 

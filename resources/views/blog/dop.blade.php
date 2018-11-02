@@ -1,13 +1,13 @@
 @extends('masterlayout')
 
-@section('title', 'What is the DOP label?')
-@section('description', 'The label Denominacion de Origen Protegida certifies the cuality of foodstuff among the EU countries')
+@section('title', 'What is the PDO label?')
+@section('description', 'Find out why the European Union backed PDO label certifies high quality food and drink products you buy around the world.')
 
 @section('content')
 
 <div class="row blog">
 	<div class="col-sm-12">
-		<h1 class="header1">Denominacion de Origen Protegida (DOP)</h1>
+		<h1 class="header1">Protected Designation of Origin</h1>
 
 <img class="img-fluid mx-auto d-block" alt="iberico pig" src="/images/blog/dop-label.jpg" />
 
@@ -15,7 +15,7 @@
 
 <p>Unlike other products, most foodstuffs and agricultural products don’t have any brands or support from any organization. That makes harder to pick the best quality (or value for money) product out of a wide range of supply, only based on our knowledge or previous experience.</p>
 
-<p>Since 1992, the European Union promotes among foodstuff and wine producers to get associated in Protected Designations of Origin (PDO), that help them to market their products better, while providing them legal protection from product name misuse or counterfeit.</p> 
+<p>Since 1992, the European Union promotes among foodstuff and wine producers to get associated in Protected Designations of Origin (PDO), in Spanish "Denominación de Origen Protegida (DOP)", that help them to market their products better, while providing them legal protection from product name misuse or counterfeit.</p> 
 
 <p>From the consumer point of view, the PDO framework identifies products that are grown, produced, processed and prepared in a specific geographical area, using the recognized know-how of local producers and ingredients from the region concerned. Producers must adhere to a precise set of specifications defined by the regulatory body which in turn is approved and supported by the EU.</p>
 
