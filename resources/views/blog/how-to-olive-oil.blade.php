@@ -71,8 +71,8 @@ Choose the brands that mention the <strong>olive varieties</strong> used. Again,
 	<dd><strong>Cornicabra: </strong>The oil is greenish-yellow to golden in color, with a fresh aroma and taste ranging between sweet, bitter and slightly pungent. From central Spain. Good for cooking (frying).</dd>
 	<p></p>
 </dl>
-	<figure class="text-center">
-		<img class="img-fluid" alt="olive oil aisle at a Spanish supermarket" src="/images/blog/olive-oil-at-supermarket.jpg" />
+	<figure class="col-6 text-center">
+		<a href="/images/blog/olive-oil-at-supermarket.jpg"><img class="img-fluid" alt="olive oil aisle at a Spanish supermarket" src="/images/blog/olive-oil-at-supermarket.jpg" /></a>
 		<figcaption class="figure-caption">Olive oil aisle at Spanish supermarket</figcaption>
 	</figure>
 
