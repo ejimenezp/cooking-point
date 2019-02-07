@@ -57019,6 +57019,8 @@ function updateUrl(parts, path, date, action) {
 // Function: validBookingForm
 // validates input fields and returns accordingly
 //
+// use https://www.regextester.com/1966 to validate 
+//
 function validBookingForm() {
 	// 
 
@@ -57039,6 +57041,18 @@ function validBookingForm() {
 	var phone = $("input[name=phone]").val();
 	if (phone != "" && !filter.test(phone)) {
 		modal_body += 'Introduce un teléfono válido<br/>';
+		show_it = true;
+	}
+	filter = /^(\d+\.\d+)$|^(\d+)$/;
+	var input_field = $("input[name=price]").val();
+	if (input_field == "" || input_field != "" && !filter.test(input_field)) {
+		modal_body += 'Precio con . decimal<br/>';
+		show_it = true;
+	}
+	filter = /^(20\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])) *( +(0?[0-9]|1[0-9]|(2[0-3])):([0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?)?$/;
+	input_field = $("input[name=payment_date]").val();
+	if (input_field != "" && !filter.test(input_field)) {
+		modal_body += 'Fecha pago incorrecta. Usa aaaa-mm-dd [hh:mm:ss] []=opcional<br/>';
 		show_it = true;
 	}
 
