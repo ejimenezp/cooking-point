@@ -99,6 +99,7 @@ function refreshDateShown(month_schedule, date_shown) {
 			$('#calendarevent_table > tbody:last').append(
 				'<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i +'">'+ 
 				month_schedule[i].time.substring(0,5) + 
+				" (" + moment.duration(month_schedule[i].duration).asHours() +" h.)" +
 				'</td><td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
 				month_schedule[i].type +
 				'</td><td class="' + calendarevent_tr_class + '" data-i="' + i +'">' + 
