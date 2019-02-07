@@ -47,6 +47,7 @@ Route::get('/iberico-ham', function () { return view('blog.iberico-ham'); });
 Route::get('/protected-designation-of-origin', function () { return view('blog.dop'); });
 Route::get('/spanish-potato-omelet', function () { return view('blog.tortilla'); });
 Route::get('/how-to-use-olive-oil', function () { return view('blog.how-to-olive-oil'); });
+Route::get('/how-olive-oil-is-made', function () { return view('blog.how-make-oil'); });
 
 
 
