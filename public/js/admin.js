@@ -56696,11 +56696,13 @@ function refreshDateShown(month_schedule, date_shown) {
 
 		var calendarevent_tr_class = user_role >= 2 ? 'calendarevent_line' : '';
 		var secondstaff_name;
+		var moment_start_time;
 
 		if (month_schedule[i].date == date_shown.format('YYYY-MM-DD')) {
 
 			secondstaff_name = month_schedule[i].secondstaff_id == 2 ? "" : ", " + cookName(month_schedule[i].secondstaff_id);
-			$('#calendarevent_table > tbody:last').append('<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].time.substring(0, 5) + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].type + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + cookName(month_schedule[i].staff_id) + secondstaff_name + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].registered + '</td><td>' + classemails_button + edit_button + '</td></tr>');
+
+			$('#calendarevent_table > tbody:last').append('<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].time.substring(0, 5) + " (" + moment.duration(month_schedule[i].duration).asHours() + " h.)" + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].type + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + cookName(month_schedule[i].staff_id) + secondstaff_name + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].registered + '</td><td>' + classemails_button + edit_button + '</td></tr>');
 		}
 	}
 }
