@@ -30,7 +30,7 @@
 
 <p>Virgin olive oil is made the same way, but doesn’t meet the standards of superior quality associated with extra virgin. Tasting panels have strict tests and a points system to ensure the label “extra” is associated only with the very best oils.</p>
 
-<p>Plain olive oil is made by mixing refined olive oil (85%) with extra virgin olive oil (15%).</p>
+<p>Plain olive oil is made by mixing refined olive oil (85%) with extra virgin olive oil (15%). See our post <a href="/how-is-olive-oil-made">How is olive oil made?</a> to get more details about the oil making process and classification.</p>
 
 
 <figure class="text-center">
