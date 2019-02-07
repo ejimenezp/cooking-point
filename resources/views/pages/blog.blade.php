@@ -12,11 +12,11 @@
 
     <div class="col-sm-6">
         <h4 class="header4"></h4>
-		<a href="/how-olive-oil-is-made"><img class="img-fluid mx-auto d-block" alt="olive oil harvesting" src="/images/blog/how-make-oil/knocking-down-olives-lowres.jpg" /></a>
-		<h2 class="header2"><a href="/how-olive-oil-is-made">How olive oil is made?</a></h2>
+		<a href="/how-is-olive-oil-made"><img class="img-fluid mx-auto d-block" alt="olive oil harvesting" src="/images/blog/how-make-oil/knocking-down-olives-lowres.jpg" /></a>
+		<h2 class="header2"><a href="/how-is-olive-oil-made">How is olive oil made?</a></h2>
 		<p>We all have olive oil in our kitchen cupboard, but how does it get from the olive tree to the bottle? We break down the complex process into steps so that you will know all that go in behind the scenes.</p>
 		<div class="text-center">
-			<a href="/how-olive-oil-is-made" class="btn btn-primary">Read More</a>
+			<a href="/how-is-olive-oil-made" class="btn btn-primary">Read More</a>
         </div>
     </div>
 
