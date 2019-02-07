@@ -1,3 +1,10 @@
+
+/*
+	Para compilar usar: 
+		npm run dev
+*/
+
+
 let mix = require('laravel-mix');
 
 /*
