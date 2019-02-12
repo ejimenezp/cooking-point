@@ -504,7 +504,8 @@
 			<div class="header2">Meeting Point</div>
 			Cooking Point<br/>
 			Calle de Moratin, 11 28014 Madrid<br/>
-			tel. (+34) 910 115 154<br /><br /></p>
+			tel. (+34) 910 115 154<br />
+			Metro Anton Martin (Line 1), exit Calle de Amor de Dios<br /><br /></p>
 			<img class="rounded mx-auto d-block" alt="Cooking Point location" src="/images/plano-email.png" />
 			<div class="divider"></div>
 			
