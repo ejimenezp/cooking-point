@@ -20,7 +20,6 @@ class BlogtoolController extends Controller
     {
         $post = Blogpost::find($id);
         $post->related = $this->related($id);
-        $post->body = str_replace('POSTIMAGE/', '/images/blog/'. $post->shortname . '/', $post->body);
         return $post;
     }
 
@@ -97,8 +96,7 @@ class BlogtoolController extends Controller
         for ($i = 0; $i < sizeof($array_related) && $i < 3; $i++) {
             array_push($array, $this->thumbnail($array_related[$i]));
         }
-                    Log::info($array);
-
+        $post->body = str_replace('POSTIMAGE/', '/images/blog/'. $post->shortname . '/', $post->body);
         return view('blog.posttemplate', ['post' => $post, 'related' => $array]);
     }
 
