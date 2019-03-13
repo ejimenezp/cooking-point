@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
 @section('title', $post->title )
-@section('description', "cualquier descripción" )
+@section('description', $post->description )
 
 @section('content')
 
