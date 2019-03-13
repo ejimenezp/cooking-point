@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 184);
+/******/ 	return __webpack_require__(__webpack_require__.s = 186);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -55089,1501 +55089,12 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 163 */,
-/* 164 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-var punycode = __webpack_require__(165);
-var util = __webpack_require__(166);
-
-exports.parse = urlParse;
-exports.resolve = urlResolve;
-exports.resolveObject = urlResolveObject;
-exports.format = urlFormat;
-
-exports.Url = Url;
-
-function Url() {
-  this.protocol = null;
-  this.slashes = null;
-  this.auth = null;
-  this.host = null;
-  this.port = null;
-  this.hostname = null;
-  this.hash = null;
-  this.search = null;
-  this.query = null;
-  this.pathname = null;
-  this.path = null;
-  this.href = null;
-}
-
-// Reference: RFC 3986, RFC 1808, RFC 2396
-
-// define these here so at least they only have to be
-// compiled once on the first module load.
-var protocolPattern = /^([a-z0-9.+-]+:)/i,
-    portPattern = /:[0-9]*$/,
-
-    // Special case for a simple path URL
-    simplePathPattern = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/,
-
-    // RFC 2396: characters reserved for delimiting URLs.
-    // We actually just auto-escape these.
-    delims = ['<', '>', '"', '`', ' ', '\r', '\n', '\t'],
-
-    // RFC 2396: characters not allowed for various reasons.
-    unwise = ['{', '}', '|', '\\', '^', '`'].concat(delims),
-
-    // Allowed by RFCs, but cause of XSS attacks.  Always escape these.
-    autoEscape = ['\''].concat(unwise),
-    // Characters that are never ever allowed in a hostname.
-    // Note that any invalid chars are also handled, but these
-    // are the ones that are *expected* to be seen, so we fast-path
-    // them.
-    nonHostChars = ['%', '/', '?', ';', '#'].concat(autoEscape),
-    hostEndingChars = ['/', '?', '#'],
-    hostnameMaxLen = 255,
-    hostnamePartPattern = /^[+a-z0-9A-Z_-]{0,63}$/,
-    hostnamePartStart = /^([+a-z0-9A-Z_-]{0,63})(.*)$/,
-    // protocols that can allow "unsafe" and "unwise" chars.
-    unsafeProtocol = {
-      'javascript': true,
-      'javascript:': true
-    },
-    // protocols that never have a hostname.
-    hostlessProtocol = {
-      'javascript': true,
-      'javascript:': true
-    },
-    // protocols that always contain a // bit.
-    slashedProtocol = {
-      'http': true,
-      'https': true,
-      'ftp': true,
-      'gopher': true,
-      'file': true,
-      'http:': true,
-      'https:': true,
-      'ftp:': true,
-      'gopher:': true,
-      'file:': true
-    },
-    querystring = __webpack_require__(167);
-
-function urlParse(url, parseQueryString, slashesDenoteHost) {
-  if (url && util.isObject(url) && url instanceof Url) return url;
-
-  var u = new Url;
-  u.parse(url, parseQueryString, slashesDenoteHost);
-  return u;
-}
-
-Url.prototype.parse = function(url, parseQueryString, slashesDenoteHost) {
-  if (!util.isString(url)) {
-    throw new TypeError("Parameter 'url' must be a string, not " + typeof url);
-  }
-
-  // Copy chrome, IE, opera backslash-handling behavior.
-  // Back slashes before the query string get converted to forward slashes
-  // See: https://code.google.com/p/chromium/issues/detail?id=25916
-  var queryIndex = url.indexOf('?'),
-      splitter =
-          (queryIndex !== -1 && queryIndex < url.indexOf('#')) ? '?' : '#',
-      uSplit = url.split(splitter),
-      slashRegex = /\\/g;
-  uSplit[0] = uSplit[0].replace(slashRegex, '/');
-  url = uSplit.join(splitter);
-
-  var rest = url;
-
-  // trim before proceeding.
-  // This is to support parse stuff like "  http://foo.com  \n"
-  rest = rest.trim();
-
-  if (!slashesDenoteHost && url.split('#').length === 1) {
-    // Try fast path regexp
-    var simplePath = simplePathPattern.exec(rest);
-    if (simplePath) {
-      this.path = rest;
-      this.href = rest;
-      this.pathname = simplePath[1];
-      if (simplePath[2]) {
-        this.search = simplePath[2];
-        if (parseQueryString) {
-          this.query = querystring.parse(this.search.substr(1));
-        } else {
-          this.query = this.search.substr(1);
-        }
-      } else if (parseQueryString) {
-        this.search = '';
-        this.query = {};
-      }
-      return this;
-    }
-  }
-
-  var proto = protocolPattern.exec(rest);
-  if (proto) {
-    proto = proto[0];
-    var lowerProto = proto.toLowerCase();
-    this.protocol = lowerProto;
-    rest = rest.substr(proto.length);
-  }
-
-  // figure out if it's got a host
-  // user@server is *always* interpreted as a hostname, and url
-  // resolution will treat //foo/bar as host=foo,path=bar because that's
-  // how the browser resolves relative URLs.
-  if (slashesDenoteHost || proto || rest.match(/^\/\/[^@\/]+@[^@\/]+/)) {
-    var slashes = rest.substr(0, 2) === '//';
-    if (slashes && !(proto && hostlessProtocol[proto])) {
-      rest = rest.substr(2);
-      this.slashes = true;
-    }
-  }
-
-  if (!hostlessProtocol[proto] &&
-      (slashes || (proto && !slashedProtocol[proto]))) {
-
-    // there's a hostname.
-    // the first instance of /, ?, ;, or # ends the host.
-    //
-    // If there is an @ in the hostname, then non-host chars *are* allowed
-    // to the left of the last @ sign, unless some host-ending character
-    // comes *before* the @-sign.
-    // URLs are obnoxious.
-    //
-    // ex:
-    // http://a@b@c/ => user:a@b host:c
-    // http://a@b?@c => user:a host:c path:/?@c
-
-    // v0.12 TODO(isaacs): This is not quite how Chrome does things.
-    // Review our test case against browsers more comprehensively.
-
-    // find the first instance of any hostEndingChars
-    var hostEnd = -1;
-    for (var i = 0; i < hostEndingChars.length; i++) {
-      var hec = rest.indexOf(hostEndingChars[i]);
-      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd))
-        hostEnd = hec;
-    }
-
-    // at this point, either we have an explicit point where the
-    // auth portion cannot go past, or the last @ char is the decider.
-    var auth, atSign;
-    if (hostEnd === -1) {
-      // atSign can be anywhere.
-      atSign = rest.lastIndexOf('@');
-    } else {
-      // atSign must be in auth portion.
-      // http://a@b/c@d => host:b auth:a path:/c@d
-      atSign = rest.lastIndexOf('@', hostEnd);
-    }
-
-    // Now we have a portion which is definitely the auth.
-    // Pull that off.
-    if (atSign !== -1) {
-      auth = rest.slice(0, atSign);
-      rest = rest.slice(atSign + 1);
-      this.auth = decodeURIComponent(auth);
-    }
-
-    // the host is the remaining to the left of the first non-host char
-    hostEnd = -1;
-    for (var i = 0; i < nonHostChars.length; i++) {
-      var hec = rest.indexOf(nonHostChars[i]);
-      if (hec !== -1 && (hostEnd === -1 || hec < hostEnd))
-        hostEnd = hec;
-    }
-    // if we still have not hit it, then the entire thing is a host.
-    if (hostEnd === -1)
-      hostEnd = rest.length;
-
-    this.host = rest.slice(0, hostEnd);
-    rest = rest.slice(hostEnd);
-
-    // pull out port.
-    this.parseHost();
-
-    // we've indicated that there is a hostname,
-    // so even if it's empty, it has to be present.
-    this.hostname = this.hostname || '';
-
-    // if hostname begins with [ and ends with ]
-    // assume that it's an IPv6 address.
-    var ipv6Hostname = this.hostname[0] === '[' &&
-        this.hostname[this.hostname.length - 1] === ']';
-
-    // validate a little.
-    if (!ipv6Hostname) {
-      var hostparts = this.hostname.split(/\./);
-      for (var i = 0, l = hostparts.length; i < l; i++) {
-        var part = hostparts[i];
-        if (!part) continue;
-        if (!part.match(hostnamePartPattern)) {
-          var newpart = '';
-          for (var j = 0, k = part.length; j < k; j++) {
-            if (part.charCodeAt(j) > 127) {
-              // we replace non-ASCII char with a temporary placeholder
-              // we need this to make sure size of hostname is not
-              // broken by replacing non-ASCII by nothing
-              newpart += 'x';
-            } else {
-              newpart += part[j];
-            }
-          }
-          // we test again with ASCII char only
-          if (!newpart.match(hostnamePartPattern)) {
-            var validParts = hostparts.slice(0, i);
-            var notHost = hostparts.slice(i + 1);
-            var bit = part.match(hostnamePartStart);
-            if (bit) {
-              validParts.push(bit[1]);
-              notHost.unshift(bit[2]);
-            }
-            if (notHost.length) {
-              rest = '/' + notHost.join('.') + rest;
-            }
-            this.hostname = validParts.join('.');
-            break;
-          }
-        }
-      }
-    }
-
-    if (this.hostname.length > hostnameMaxLen) {
-      this.hostname = '';
-    } else {
-      // hostnames are always lower case.
-      this.hostname = this.hostname.toLowerCase();
-    }
-
-    if (!ipv6Hostname) {
-      // IDNA Support: Returns a punycoded representation of "domain".
-      // It only converts parts of the domain name that
-      // have non-ASCII characters, i.e. it doesn't matter if
-      // you call it with a domain that already is ASCII-only.
-      this.hostname = punycode.toASCII(this.hostname);
-    }
-
-    var p = this.port ? ':' + this.port : '';
-    var h = this.hostname || '';
-    this.host = h + p;
-    this.href += this.host;
-
-    // strip [ and ] from the hostname
-    // the host field still retains them, though
-    if (ipv6Hostname) {
-      this.hostname = this.hostname.substr(1, this.hostname.length - 2);
-      if (rest[0] !== '/') {
-        rest = '/' + rest;
-      }
-    }
-  }
-
-  // now rest is set to the post-host stuff.
-  // chop off any delim chars.
-  if (!unsafeProtocol[lowerProto]) {
-
-    // First, make 100% sure that any "autoEscape" chars get
-    // escaped, even if encodeURIComponent doesn't think they
-    // need to be.
-    for (var i = 0, l = autoEscape.length; i < l; i++) {
-      var ae = autoEscape[i];
-      if (rest.indexOf(ae) === -1)
-        continue;
-      var esc = encodeURIComponent(ae);
-      if (esc === ae) {
-        esc = escape(ae);
-      }
-      rest = rest.split(ae).join(esc);
-    }
-  }
-
-
-  // chop off from the tail first.
-  var hash = rest.indexOf('#');
-  if (hash !== -1) {
-    // got a fragment string.
-    this.hash = rest.substr(hash);
-    rest = rest.slice(0, hash);
-  }
-  var qm = rest.indexOf('?');
-  if (qm !== -1) {
-    this.search = rest.substr(qm);
-    this.query = rest.substr(qm + 1);
-    if (parseQueryString) {
-      this.query = querystring.parse(this.query);
-    }
-    rest = rest.slice(0, qm);
-  } else if (parseQueryString) {
-    // no query string, but parseQueryString still requested
-    this.search = '';
-    this.query = {};
-  }
-  if (rest) this.pathname = rest;
-  if (slashedProtocol[lowerProto] &&
-      this.hostname && !this.pathname) {
-    this.pathname = '/';
-  }
-
-  //to support http.request
-  if (this.pathname || this.search) {
-    var p = this.pathname || '';
-    var s = this.search || '';
-    this.path = p + s;
-  }
-
-  // finally, reconstruct the href based on what has been validated.
-  this.href = this.format();
-  return this;
-};
-
-// format a parsed object into a url string
-function urlFormat(obj) {
-  // ensure it's an object, and not a string url.
-  // If it's an obj, this is a no-op.
-  // this way, you can call url_format() on strings
-  // to clean up potentially wonky urls.
-  if (util.isString(obj)) obj = urlParse(obj);
-  if (!(obj instanceof Url)) return Url.prototype.format.call(obj);
-  return obj.format();
-}
-
-Url.prototype.format = function() {
-  var auth = this.auth || '';
-  if (auth) {
-    auth = encodeURIComponent(auth);
-    auth = auth.replace(/%3A/i, ':');
-    auth += '@';
-  }
-
-  var protocol = this.protocol || '',
-      pathname = this.pathname || '',
-      hash = this.hash || '',
-      host = false,
-      query = '';
-
-  if (this.host) {
-    host = auth + this.host;
-  } else if (this.hostname) {
-    host = auth + (this.hostname.indexOf(':') === -1 ?
-        this.hostname :
-        '[' + this.hostname + ']');
-    if (this.port) {
-      host += ':' + this.port;
-    }
-  }
-
-  if (this.query &&
-      util.isObject(this.query) &&
-      Object.keys(this.query).length) {
-    query = querystring.stringify(this.query);
-  }
-
-  var search = this.search || (query && ('?' + query)) || '';
-
-  if (protocol && protocol.substr(-1) !== ':') protocol += ':';
-
-  // only the slashedProtocols get the //.  Not mailto:, xmpp:, etc.
-  // unless they had them to begin with.
-  if (this.slashes ||
-      (!protocol || slashedProtocol[protocol]) && host !== false) {
-    host = '//' + (host || '');
-    if (pathname && pathname.charAt(0) !== '/') pathname = '/' + pathname;
-  } else if (!host) {
-    host = '';
-  }
-
-  if (hash && hash.charAt(0) !== '#') hash = '#' + hash;
-  if (search && search.charAt(0) !== '?') search = '?' + search;
-
-  pathname = pathname.replace(/[?#]/g, function(match) {
-    return encodeURIComponent(match);
-  });
-  search = search.replace('#', '%23');
-
-  return protocol + host + pathname + search + hash;
-};
-
-function urlResolve(source, relative) {
-  return urlParse(source, false, true).resolve(relative);
-}
-
-Url.prototype.resolve = function(relative) {
-  return this.resolveObject(urlParse(relative, false, true)).format();
-};
-
-function urlResolveObject(source, relative) {
-  if (!source) return relative;
-  return urlParse(source, false, true).resolveObject(relative);
-}
-
-Url.prototype.resolveObject = function(relative) {
-  if (util.isString(relative)) {
-    var rel = new Url();
-    rel.parse(relative, false, true);
-    relative = rel;
-  }
-
-  var result = new Url();
-  var tkeys = Object.keys(this);
-  for (var tk = 0; tk < tkeys.length; tk++) {
-    var tkey = tkeys[tk];
-    result[tkey] = this[tkey];
-  }
-
-  // hash is always overridden, no matter what.
-  // even href="" will remove it.
-  result.hash = relative.hash;
-
-  // if the relative url is empty, then there's nothing left to do here.
-  if (relative.href === '') {
-    result.href = result.format();
-    return result;
-  }
-
-  // hrefs like //foo/bar always cut to the protocol.
-  if (relative.slashes && !relative.protocol) {
-    // take everything except the protocol from relative
-    var rkeys = Object.keys(relative);
-    for (var rk = 0; rk < rkeys.length; rk++) {
-      var rkey = rkeys[rk];
-      if (rkey !== 'protocol')
-        result[rkey] = relative[rkey];
-    }
-
-    //urlParse appends trailing / to urls like http://www.example.com
-    if (slashedProtocol[result.protocol] &&
-        result.hostname && !result.pathname) {
-      result.path = result.pathname = '/';
-    }
-
-    result.href = result.format();
-    return result;
-  }
-
-  if (relative.protocol && relative.protocol !== result.protocol) {
-    // if it's a known url protocol, then changing
-    // the protocol does weird things
-    // first, if it's not file:, then we MUST have a host,
-    // and if there was a path
-    // to begin with, then we MUST have a path.
-    // if it is file:, then the host is dropped,
-    // because that's known to be hostless.
-    // anything else is assumed to be absolute.
-    if (!slashedProtocol[relative.protocol]) {
-      var keys = Object.keys(relative);
-      for (var v = 0; v < keys.length; v++) {
-        var k = keys[v];
-        result[k] = relative[k];
-      }
-      result.href = result.format();
-      return result;
-    }
-
-    result.protocol = relative.protocol;
-    if (!relative.host && !hostlessProtocol[relative.protocol]) {
-      var relPath = (relative.pathname || '').split('/');
-      while (relPath.length && !(relative.host = relPath.shift()));
-      if (!relative.host) relative.host = '';
-      if (!relative.hostname) relative.hostname = '';
-      if (relPath[0] !== '') relPath.unshift('');
-      if (relPath.length < 2) relPath.unshift('');
-      result.pathname = relPath.join('/');
-    } else {
-      result.pathname = relative.pathname;
-    }
-    result.search = relative.search;
-    result.query = relative.query;
-    result.host = relative.host || '';
-    result.auth = relative.auth;
-    result.hostname = relative.hostname || relative.host;
-    result.port = relative.port;
-    // to support http.request
-    if (result.pathname || result.search) {
-      var p = result.pathname || '';
-      var s = result.search || '';
-      result.path = p + s;
-    }
-    result.slashes = result.slashes || relative.slashes;
-    result.href = result.format();
-    return result;
-  }
-
-  var isSourceAbs = (result.pathname && result.pathname.charAt(0) === '/'),
-      isRelAbs = (
-          relative.host ||
-          relative.pathname && relative.pathname.charAt(0) === '/'
-      ),
-      mustEndAbs = (isRelAbs || isSourceAbs ||
-                    (result.host && relative.pathname)),
-      removeAllDots = mustEndAbs,
-      srcPath = result.pathname && result.pathname.split('/') || [],
-      relPath = relative.pathname && relative.pathname.split('/') || [],
-      psychotic = result.protocol && !slashedProtocol[result.protocol];
-
-  // if the url is a non-slashed url, then relative
-  // links like ../.. should be able
-  // to crawl up to the hostname, as well.  This is strange.
-  // result.protocol has already been set by now.
-  // Later on, put the first path part into the host field.
-  if (psychotic) {
-    result.hostname = '';
-    result.port = null;
-    if (result.host) {
-      if (srcPath[0] === '') srcPath[0] = result.host;
-      else srcPath.unshift(result.host);
-    }
-    result.host = '';
-    if (relative.protocol) {
-      relative.hostname = null;
-      relative.port = null;
-      if (relative.host) {
-        if (relPath[0] === '') relPath[0] = relative.host;
-        else relPath.unshift(relative.host);
-      }
-      relative.host = null;
-    }
-    mustEndAbs = mustEndAbs && (relPath[0] === '' || srcPath[0] === '');
-  }
-
-  if (isRelAbs) {
-    // it's absolute.
-    result.host = (relative.host || relative.host === '') ?
-                  relative.host : result.host;
-    result.hostname = (relative.hostname || relative.hostname === '') ?
-                      relative.hostname : result.hostname;
-    result.search = relative.search;
-    result.query = relative.query;
-    srcPath = relPath;
-    // fall through to the dot-handling below.
-  } else if (relPath.length) {
-    // it's relative
-    // throw away the existing file, and take the new path instead.
-    if (!srcPath) srcPath = [];
-    srcPath.pop();
-    srcPath = srcPath.concat(relPath);
-    result.search = relative.search;
-    result.query = relative.query;
-  } else if (!util.isNullOrUndefined(relative.search)) {
-    // just pull out the search.
-    // like href='?foo'.
-    // Put this after the other two cases because it simplifies the booleans
-    if (psychotic) {
-      result.hostname = result.host = srcPath.shift();
-      //occationaly the auth can get stuck only in host
-      //this especially happens in cases like
-      //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
-      var authInHost = result.host && result.host.indexOf('@') > 0 ?
-                       result.host.split('@') : false;
-      if (authInHost) {
-        result.auth = authInHost.shift();
-        result.host = result.hostname = authInHost.shift();
-      }
-    }
-    result.search = relative.search;
-    result.query = relative.query;
-    //to support http.request
-    if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
-      result.path = (result.pathname ? result.pathname : '') +
-                    (result.search ? result.search : '');
-    }
-    result.href = result.format();
-    return result;
-  }
-
-  if (!srcPath.length) {
-    // no path at all.  easy.
-    // we've already handled the other stuff above.
-    result.pathname = null;
-    //to support http.request
-    if (result.search) {
-      result.path = '/' + result.search;
-    } else {
-      result.path = null;
-    }
-    result.href = result.format();
-    return result;
-  }
-
-  // if a url ENDs in . or .., then it must get a trailing slash.
-  // however, if it ends in anything else non-slashy,
-  // then it must NOT get a trailing slash.
-  var last = srcPath.slice(-1)[0];
-  var hasTrailingSlash = (
-      (result.host || relative.host || srcPath.length > 1) &&
-      (last === '.' || last === '..') || last === '');
-
-  // strip single dots, resolve double dots to parent dir
-  // if the path tries to go above the root, `up` ends up > 0
-  var up = 0;
-  for (var i = srcPath.length; i >= 0; i--) {
-    last = srcPath[i];
-    if (last === '.') {
-      srcPath.splice(i, 1);
-    } else if (last === '..') {
-      srcPath.splice(i, 1);
-      up++;
-    } else if (up) {
-      srcPath.splice(i, 1);
-      up--;
-    }
-  }
-
-  // if the path is allowed to go above the root, restore leading ..s
-  if (!mustEndAbs && !removeAllDots) {
-    for (; up--; up) {
-      srcPath.unshift('..');
-    }
-  }
-
-  if (mustEndAbs && srcPath[0] !== '' &&
-      (!srcPath[0] || srcPath[0].charAt(0) !== '/')) {
-    srcPath.unshift('');
-  }
-
-  if (hasTrailingSlash && (srcPath.join('/').substr(-1) !== '/')) {
-    srcPath.push('');
-  }
-
-  var isAbsolute = srcPath[0] === '' ||
-      (srcPath[0] && srcPath[0].charAt(0) === '/');
-
-  // put the host back
-  if (psychotic) {
-    result.hostname = result.host = isAbsolute ? '' :
-                                    srcPath.length ? srcPath.shift() : '';
-    //occationaly the auth can get stuck only in host
-    //this especially happens in cases like
-    //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
-    var authInHost = result.host && result.host.indexOf('@') > 0 ?
-                     result.host.split('@') : false;
-    if (authInHost) {
-      result.auth = authInHost.shift();
-      result.host = result.hostname = authInHost.shift();
-    }
-  }
-
-  mustEndAbs = mustEndAbs || (result.host && srcPath.length);
-
-  if (mustEndAbs && !isAbsolute) {
-    srcPath.unshift('');
-  }
-
-  if (!srcPath.length) {
-    result.pathname = null;
-    result.path = null;
-  } else {
-    result.pathname = srcPath.join('/');
-  }
-
-  //to support request.http
-  if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
-    result.path = (result.pathname ? result.pathname : '') +
-                  (result.search ? result.search : '');
-  }
-  result.auth = relative.auth || result.auth;
-  result.slashes = result.slashes || relative.slashes;
-  result.href = result.format();
-  return result;
-};
-
-Url.prototype.parseHost = function() {
-  var host = this.host;
-  var port = portPattern.exec(host);
-  if (port) {
-    port = port[0];
-    if (port !== ':') {
-      this.port = port.substr(1);
-    }
-    host = host.substr(0, host.length - port.length);
-  }
-  if (host) this.hostname = host;
-};
-
-
-/***/ }),
-/* 165 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.1 by @mathias */
-;(function(root) {
-
-	/** Detect free variables */
-	var freeExports = typeof exports == 'object' && exports &&
-		!exports.nodeType && exports;
-	var freeModule = typeof module == 'object' && module &&
-		!module.nodeType && module;
-	var freeGlobal = typeof global == 'object' && global;
-	if (
-		freeGlobal.global === freeGlobal ||
-		freeGlobal.window === freeGlobal ||
-		freeGlobal.self === freeGlobal
-	) {
-		root = freeGlobal;
-	}
-
-	/**
-	 * The `punycode` object.
-	 * @name punycode
-	 * @type Object
-	 */
-	var punycode,
-
-	/** Highest positive signed 32-bit float value */
-	maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
-
-	/** Bootstring parameters */
-	base = 36,
-	tMin = 1,
-	tMax = 26,
-	skew = 38,
-	damp = 700,
-	initialBias = 72,
-	initialN = 128, // 0x80
-	delimiter = '-', // '\x2D'
-
-	/** Regular expressions */
-	regexPunycode = /^xn--/,
-	regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
-	regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
-
-	/** Error messages */
-	errors = {
-		'overflow': 'Overflow: input needs wider integers to process',
-		'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
-		'invalid-input': 'Invalid input'
-	},
-
-	/** Convenience shortcuts */
-	baseMinusTMin = base - tMin,
-	floor = Math.floor,
-	stringFromCharCode = String.fromCharCode,
-
-	/** Temporary variable */
-	key;
-
-	/*--------------------------------------------------------------------------*/
-
-	/**
-	 * A generic error utility function.
-	 * @private
-	 * @param {String} type The error type.
-	 * @returns {Error} Throws a `RangeError` with the applicable error message.
-	 */
-	function error(type) {
-		throw new RangeError(errors[type]);
-	}
-
-	/**
-	 * A generic `Array#map` utility function.
-	 * @private
-	 * @param {Array} array The array to iterate over.
-	 * @param {Function} callback The function that gets called for every array
-	 * item.
-	 * @returns {Array} A new array of values returned by the callback function.
-	 */
-	function map(array, fn) {
-		var length = array.length;
-		var result = [];
-		while (length--) {
-			result[length] = fn(array[length]);
-		}
-		return result;
-	}
-
-	/**
-	 * A simple `Array#map`-like wrapper to work with domain name strings or email
-	 * addresses.
-	 * @private
-	 * @param {String} domain The domain name or email address.
-	 * @param {Function} callback The function that gets called for every
-	 * character.
-	 * @returns {Array} A new string of characters returned by the callback
-	 * function.
-	 */
-	function mapDomain(string, fn) {
-		var parts = string.split('@');
-		var result = '';
-		if (parts.length > 1) {
-			// In email addresses, only the domain name should be punycoded. Leave
-			// the local part (i.e. everything up to `@`) intact.
-			result = parts[0] + '@';
-			string = parts[1];
-		}
-		// Avoid `split(regex)` for IE8 compatibility. See #17.
-		string = string.replace(regexSeparators, '\x2E');
-		var labels = string.split('.');
-		var encoded = map(labels, fn).join('.');
-		return result + encoded;
-	}
-
-	/**
-	 * Creates an array containing the numeric code points of each Unicode
-	 * character in the string. While JavaScript uses UCS-2 internally,
-	 * this function will convert a pair of surrogate halves (each of which
-	 * UCS-2 exposes as separate characters) into a single code point,
-	 * matching UTF-16.
-	 * @see `punycode.ucs2.encode`
-	 * @see <https://mathiasbynens.be/notes/javascript-encoding>
-	 * @memberOf punycode.ucs2
-	 * @name decode
-	 * @param {String} string The Unicode input string (UCS-2).
-	 * @returns {Array} The new array of code points.
-	 */
-	function ucs2decode(string) {
-		var output = [],
-		    counter = 0,
-		    length = string.length,
-		    value,
-		    extra;
-		while (counter < length) {
-			value = string.charCodeAt(counter++);
-			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
-				// high surrogate, and there is a next character
-				extra = string.charCodeAt(counter++);
-				if ((extra & 0xFC00) == 0xDC00) { // low surrogate
-					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
-				} else {
-					// unmatched surrogate; only append this code unit, in case the next
-					// code unit is the high surrogate of a surrogate pair
-					output.push(value);
-					counter--;
-				}
-			} else {
-				output.push(value);
-			}
-		}
-		return output;
-	}
-
-	/**
-	 * Creates a string based on an array of numeric code points.
-	 * @see `punycode.ucs2.decode`
-	 * @memberOf punycode.ucs2
-	 * @name encode
-	 * @param {Array} codePoints The array of numeric code points.
-	 * @returns {String} The new Unicode string (UCS-2).
-	 */
-	function ucs2encode(array) {
-		return map(array, function(value) {
-			var output = '';
-			if (value > 0xFFFF) {
-				value -= 0x10000;
-				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
-				value = 0xDC00 | value & 0x3FF;
-			}
-			output += stringFromCharCode(value);
-			return output;
-		}).join('');
-	}
-
-	/**
-	 * Converts a basic code point into a digit/integer.
-	 * @see `digitToBasic()`
-	 * @private
-	 * @param {Number} codePoint The basic numeric code point value.
-	 * @returns {Number} The numeric value of a basic code point (for use in
-	 * representing integers) in the range `0` to `base - 1`, or `base` if
-	 * the code point does not represent a value.
-	 */
-	function basicToDigit(codePoint) {
-		if (codePoint - 48 < 10) {
-			return codePoint - 22;
-		}
-		if (codePoint - 65 < 26) {
-			return codePoint - 65;
-		}
-		if (codePoint - 97 < 26) {
-			return codePoint - 97;
-		}
-		return base;
-	}
-
-	/**
-	 * Converts a digit/integer into a basic code point.
-	 * @see `basicToDigit()`
-	 * @private
-	 * @param {Number} digit The numeric value of a basic code point.
-	 * @returns {Number} The basic code point whose value (when used for
-	 * representing integers) is `digit`, which needs to be in the range
-	 * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
-	 * used; else, the lowercase form is used. The behavior is undefined
-	 * if `flag` is non-zero and `digit` has no uppercase form.
-	 */
-	function digitToBasic(digit, flag) {
-		//  0..25 map to ASCII a..z or A..Z
-		// 26..35 map to ASCII 0..9
-		return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
-	}
-
-	/**
-	 * Bias adaptation function as per section 3.4 of RFC 3492.
-	 * https://tools.ietf.org/html/rfc3492#section-3.4
-	 * @private
-	 */
-	function adapt(delta, numPoints, firstTime) {
-		var k = 0;
-		delta = firstTime ? floor(delta / damp) : delta >> 1;
-		delta += floor(delta / numPoints);
-		for (/* no initialization */; delta > baseMinusTMin * tMax >> 1; k += base) {
-			delta = floor(delta / baseMinusTMin);
-		}
-		return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
-	}
-
-	/**
-	 * Converts a Punycode string of ASCII-only symbols to a string of Unicode
-	 * symbols.
-	 * @memberOf punycode
-	 * @param {String} input The Punycode string of ASCII-only symbols.
-	 * @returns {String} The resulting string of Unicode symbols.
-	 */
-	function decode(input) {
-		// Don't use UCS-2
-		var output = [],
-		    inputLength = input.length,
-		    out,
-		    i = 0,
-		    n = initialN,
-		    bias = initialBias,
-		    basic,
-		    j,
-		    index,
-		    oldi,
-		    w,
-		    k,
-		    digit,
-		    t,
-		    /** Cached calculation results */
-		    baseMinusT;
-
-		// Handle the basic code points: let `basic` be the number of input code
-		// points before the last delimiter, or `0` if there is none, then copy
-		// the first basic code points to the output.
-
-		basic = input.lastIndexOf(delimiter);
-		if (basic < 0) {
-			basic = 0;
-		}
-
-		for (j = 0; j < basic; ++j) {
-			// if it's not a basic code point
-			if (input.charCodeAt(j) >= 0x80) {
-				error('not-basic');
-			}
-			output.push(input.charCodeAt(j));
-		}
-
-		// Main decoding loop: start just after the last delimiter if any basic code
-		// points were copied; start at the beginning otherwise.
-
-		for (index = basic > 0 ? basic + 1 : 0; index < inputLength; /* no final expression */) {
-
-			// `index` is the index of the next character to be consumed.
-			// Decode a generalized variable-length integer into `delta`,
-			// which gets added to `i`. The overflow checking is easier
-			// if we increase `i` as we go, then subtract off its starting
-			// value at the end to obtain `delta`.
-			for (oldi = i, w = 1, k = base; /* no condition */; k += base) {
-
-				if (index >= inputLength) {
-					error('invalid-input');
-				}
-
-				digit = basicToDigit(input.charCodeAt(index++));
-
-				if (digit >= base || digit > floor((maxInt - i) / w)) {
-					error('overflow');
-				}
-
-				i += digit * w;
-				t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
-
-				if (digit < t) {
-					break;
-				}
-
-				baseMinusT = base - t;
-				if (w > floor(maxInt / baseMinusT)) {
-					error('overflow');
-				}
-
-				w *= baseMinusT;
-
-			}
-
-			out = output.length + 1;
-			bias = adapt(i - oldi, out, oldi == 0);
-
-			// `i` was supposed to wrap around from `out` to `0`,
-			// incrementing `n` each time, so we'll fix that now:
-			if (floor(i / out) > maxInt - n) {
-				error('overflow');
-			}
-
-			n += floor(i / out);
-			i %= out;
-
-			// Insert `n` at position `i` of the output
-			output.splice(i++, 0, n);
-
-		}
-
-		return ucs2encode(output);
-	}
-
-	/**
-	 * Converts a string of Unicode symbols (e.g. a domain name label) to a
-	 * Punycode string of ASCII-only symbols.
-	 * @memberOf punycode
-	 * @param {String} input The string of Unicode symbols.
-	 * @returns {String} The resulting Punycode string of ASCII-only symbols.
-	 */
-	function encode(input) {
-		var n,
-		    delta,
-		    handledCPCount,
-		    basicLength,
-		    bias,
-		    j,
-		    m,
-		    q,
-		    k,
-		    t,
-		    currentValue,
-		    output = [],
-		    /** `inputLength` will hold the number of code points in `input`. */
-		    inputLength,
-		    /** Cached calculation results */
-		    handledCPCountPlusOne,
-		    baseMinusT,
-		    qMinusT;
-
-		// Convert the input in UCS-2 to Unicode
-		input = ucs2decode(input);
-
-		// Cache the length
-		inputLength = input.length;
-
-		// Initialize the state
-		n = initialN;
-		delta = 0;
-		bias = initialBias;
-
-		// Handle the basic code points
-		for (j = 0; j < inputLength; ++j) {
-			currentValue = input[j];
-			if (currentValue < 0x80) {
-				output.push(stringFromCharCode(currentValue));
-			}
-		}
-
-		handledCPCount = basicLength = output.length;
-
-		// `handledCPCount` is the number of code points that have been handled;
-		// `basicLength` is the number of basic code points.
-
-		// Finish the basic string - if it is not empty - with a delimiter
-		if (basicLength) {
-			output.push(delimiter);
-		}
-
-		// Main encoding loop:
-		while (handledCPCount < inputLength) {
-
-			// All non-basic code points < n have been handled already. Find the next
-			// larger one:
-			for (m = maxInt, j = 0; j < inputLength; ++j) {
-				currentValue = input[j];
-				if (currentValue >= n && currentValue < m) {
-					m = currentValue;
-				}
-			}
-
-			// Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
-			// but guard against overflow
-			handledCPCountPlusOne = handledCPCount + 1;
-			if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
-				error('overflow');
-			}
-
-			delta += (m - n) * handledCPCountPlusOne;
-			n = m;
-
-			for (j = 0; j < inputLength; ++j) {
-				currentValue = input[j];
-
-				if (currentValue < n && ++delta > maxInt) {
-					error('overflow');
-				}
-
-				if (currentValue == n) {
-					// Represent delta as a generalized variable-length integer
-					for (q = delta, k = base; /* no condition */; k += base) {
-						t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
-						if (q < t) {
-							break;
-						}
-						qMinusT = q - t;
-						baseMinusT = base - t;
-						output.push(
-							stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))
-						);
-						q = floor(qMinusT / baseMinusT);
-					}
-
-					output.push(stringFromCharCode(digitToBasic(q, 0)));
-					bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
-					delta = 0;
-					++handledCPCount;
-				}
-			}
-
-			++delta;
-			++n;
-
-		}
-		return output.join('');
-	}
-
-	/**
-	 * Converts a Punycode string representing a domain name or an email address
-	 * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
-	 * it doesn't matter if you call it on a string that has already been
-	 * converted to Unicode.
-	 * @memberOf punycode
-	 * @param {String} input The Punycoded domain name or email address to
-	 * convert to Unicode.
-	 * @returns {String} The Unicode representation of the given Punycode
-	 * string.
-	 */
-	function toUnicode(input) {
-		return mapDomain(input, function(string) {
-			return regexPunycode.test(string)
-				? decode(string.slice(4).toLowerCase())
-				: string;
-		});
-	}
-
-	/**
-	 * Converts a Unicode string representing a domain name or an email address to
-	 * Punycode. Only the non-ASCII parts of the domain name will be converted,
-	 * i.e. it doesn't matter if you call it with a domain that's already in
-	 * ASCII.
-	 * @memberOf punycode
-	 * @param {String} input The domain name or email address to convert, as a
-	 * Unicode string.
-	 * @returns {String} The Punycode representation of the given domain name or
-	 * email address.
-	 */
-	function toASCII(input) {
-		return mapDomain(input, function(string) {
-			return regexNonASCII.test(string)
-				? 'xn--' + encode(string)
-				: string;
-		});
-	}
-
-	/*--------------------------------------------------------------------------*/
-
-	/** Define the public API */
-	punycode = {
-		/**
-		 * A string representing the current Punycode.js version number.
-		 * @memberOf punycode
-		 * @type String
-		 */
-		'version': '1.4.1',
-		/**
-		 * An object of methods to convert from JavaScript's internal character
-		 * representation (UCS-2) to Unicode code points, and back.
-		 * @see <https://mathiasbynens.be/notes/javascript-encoding>
-		 * @memberOf punycode
-		 * @type Object
-		 */
-		'ucs2': {
-			'decode': ucs2decode,
-			'encode': ucs2encode
-		},
-		'decode': decode,
-		'encode': encode,
-		'toASCII': toASCII,
-		'toUnicode': toUnicode
-	};
-
-	/** Expose `punycode` */
-	// Some AMD build optimizers, like r.js, check for specific condition patterns
-	// like the following:
-	if (
-		true
-	) {
-		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
-			return punycode;
-		}).call(exports, __webpack_require__, exports, module),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else if (freeExports && freeModule) {
-		if (module.exports == freeExports) {
-			// in Node.js, io.js, or RingoJS v0.8.0+
-			freeModule.exports = punycode;
-		} else {
-			// in Narwhal or RingoJS v0.7.0-
-			for (key in punycode) {
-				punycode.hasOwnProperty(key) && (freeExports[key] = punycode[key]);
-			}
-		}
-	} else {
-		// in Rhino or a web browser
-		root.punycode = punycode;
-	}
-
-}(this));
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module), __webpack_require__(5)))
-
-/***/ }),
-/* 166 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = {
-  isString: function(arg) {
-    return typeof(arg) === 'string';
-  },
-  isObject: function(arg) {
-    return typeof(arg) === 'object' && arg !== null;
-  },
-  isNull: function(arg) {
-    return arg === null;
-  },
-  isNullOrUndefined: function(arg) {
-    return arg == null;
-  }
-};
-
-
-/***/ }),
-/* 167 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.decode = exports.parse = __webpack_require__(168);
-exports.encode = exports.stringify = __webpack_require__(169);
-
-
-/***/ }),
-/* 168 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-// If obj.hasOwnProperty has been overridden, then calling
-// obj.hasOwnProperty(prop) will break.
-// See: https://github.com/joyent/node/issues/1707
-function hasOwnProperty(obj, prop) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-}
-
-module.exports = function(qs, sep, eq, options) {
-  sep = sep || '&';
-  eq = eq || '=';
-  var obj = {};
-
-  if (typeof qs !== 'string' || qs.length === 0) {
-    return obj;
-  }
-
-  var regexp = /\+/g;
-  qs = qs.split(sep);
-
-  var maxKeys = 1000;
-  if (options && typeof options.maxKeys === 'number') {
-    maxKeys = options.maxKeys;
-  }
-
-  var len = qs.length;
-  // maxKeys <= 0 means that we should not limit keys count
-  if (maxKeys > 0 && len > maxKeys) {
-    len = maxKeys;
-  }
-
-  for (var i = 0; i < len; ++i) {
-    var x = qs[i].replace(regexp, '%20'),
-        idx = x.indexOf(eq),
-        kstr, vstr, k, v;
-
-    if (idx >= 0) {
-      kstr = x.substr(0, idx);
-      vstr = x.substr(idx + 1);
-    } else {
-      kstr = x;
-      vstr = '';
-    }
-
-    k = decodeURIComponent(kstr);
-    v = decodeURIComponent(vstr);
-
-    if (!hasOwnProperty(obj, k)) {
-      obj[k] = v;
-    } else if (isArray(obj[k])) {
-      obj[k].push(v);
-    } else {
-      obj[k] = [obj[k], v];
-    }
-  }
-
-  return obj;
-};
-
-var isArray = Array.isArray || function (xs) {
-  return Object.prototype.toString.call(xs) === '[object Array]';
-};
-
-
-/***/ }),
-/* 169 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-
-var stringifyPrimitive = function(v) {
-  switch (typeof v) {
-    case 'string':
-      return v;
-
-    case 'boolean':
-      return v ? 'true' : 'false';
-
-    case 'number':
-      return isFinite(v) ? v : '';
-
-    default:
-      return '';
-  }
-};
-
-module.exports = function(obj, sep, eq, name) {
-  sep = sep || '&';
-  eq = eq || '=';
-  if (obj === null) {
-    obj = undefined;
-  }
-
-  if (typeof obj === 'object') {
-    return map(objectKeys(obj), function(k) {
-      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
-      if (isArray(obj[k])) {
-        return map(obj[k], function(v) {
-          return ks + encodeURIComponent(stringifyPrimitive(v));
-        }).join(sep);
-      } else {
-        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
-      }
-    }).join(sep);
-
-  }
-
-  if (!name) return '';
-  return encodeURIComponent(stringifyPrimitive(name)) + eq +
-         encodeURIComponent(stringifyPrimitive(obj));
-};
-
-var isArray = Array.isArray || function (xs) {
-  return Object.prototype.toString.call(xs) === '[object Array]';
-};
-
-function map (xs, f) {
-  if (xs.map) return xs.map(f);
-  var res = [];
-  for (var i = 0; i < xs.length; i++) {
-    res.push(f(xs[i], i));
-  }
-  return res;
-}
-
-var objectKeys = Object.keys || function (obj) {
-  var res = [];
-  for (var key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) res.push(key);
-  }
-  return res;
-};
-
-
-/***/ }),
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
 /* 170 */,
 /* 171 */,
 /* 172 */,
@@ -56598,39 +55109,24 @@ var objectKeys = Object.keys || function (obj) {
 /* 181 */,
 /* 182 */,
 /* 183 */,
-/* 184 */
+/* 184 */,
+/* 185 */,
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(185);
+module.exports = __webpack_require__(187);
 
 
 /***/ }),
-/* 185 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(141);
 __webpack_require__(132);
+__webpack_require__(188);
 
 var moment = __webpack_require__(0);
 __webpack_require__(3);
-var url = __webpack_require__(164);
-
-//
-// Global variables
-//
-var hoy = moment();
-var date_shown = hoy.clone();
-var form_changed = false;
-var cook = Array();
-var source = Array();
-var bookings = Array();
-var month_schedule = Array();
-var user_name;
-var user_role;
-
-var stateObj = { foo: "bar" };
-var current_url = window.location.href;
-var parts = url.parse(current_url, true);
 
 //
 // token protection
@@ -56641,434 +55137,236 @@ $.ajaxSetup({
 	}
 });
 
-//
-// datepicker locale
-//
-$.datepicker.regional['es'] = {
-	closeText: 'Cerrar',
-	prevText: '<<',
-	nextText: '>>',
-	currentText: 'Hoy',
-	monthNames: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
-	monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-	dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
-	dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
-	dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
-	weekHeader: 'Sm',
-	firstDay: 1,
-	isRTL: false,
-	showMonthAfterYear: false,
-	yearSuffix: '' };
-
-$.datepicker.setDefaults($.datepicker.regional['es']);
-
-/////////////////////////////////////////////////////////////////////
-//
-// F U N C T I O N S
-//
-///////////////////////////////////////////////////////////////////
-
-//
-// Function: refreshDateShown
-// refresh all selectors with the new date's data
-//
-function refreshDateShown(month_schedule, date_shown) {
-	var date_shown_locale = date_shown.format('dddd, D MMMM YYYY');
-	$('.dateshown').html(date_shown_locale);
-
-	// aqui, refrescar el index del día	
-	var edit_button, classemails_button;
-
-	$("#calendarevent_table > tbody").empty();
-	for (var i = 0; i < month_schedule.length; i++) {
-		edit_button = '';
-		classemails_button = '';
-		if (user_role >= 3) {
-			edit_button = '<button class="btn btn-primary btn-sm button_calendarevent_edit" data-i="' + i + '">Detalles</button>';
-		} else if (user_role >= 2 && month_schedule[i].info != '') {
-			edit_button = '<button class="btn btn-primary btn-sm button_calendarevent_info" data-i="' + i + '">+info</button>';
-		} else {
-			edit_button = '';
+function refresh_uploaded_images(postid) {
+	$.get('/api/blogtool/getimages/' + postid, function (uploaded) {
+		var len = uploaded.length,
+		    options = [];
+		var thumbnail_select = $('select[name=thumbnail_image]');
+		thumbnail_select.empty();
+		for (var i = 0; i < len; i++) {
+			options.push({
+				name: uploaded[i],
+				value: uploaded[i],
+				checked: false });
+			thumbnail_select.append($("<option />").val(uploaded[i]).text(uploaded[i]));
 		}
-		if (user_name == 'Emails') {
-			classemails_button = '<a class="btn btn-primary btn-sm" href="/admin/classemails?ce_id=' + month_schedule[i].id + '">E-mails</a>';
+		$('#uploaded_images').multiselect('loadOptions', options);
+	});
+}
+
+function refresh_related_posts(postid) {
+
+	$.when($.get('/api/blogtool/index'), $.get('/api/blogtool/related/' + postid)).done(function (index_jqXHR, related_jqHXR) {
+		var posts = index_jqXHR[0];
+		var related = related_jqHXR[0];
+		var i,
+		    index = -1,
+		    options = [];
+		var len = posts.length;
+		for (i = 0; i < len; i++) {
+			if (posts[i].id !== postid) {
+				options.push({
+					name: posts[i].shortname,
+					value: String(posts[i].id),
+					checked: false });
+			}
 		}
-
-		var calendarevent_tr_class = user_role >= 2 ? 'calendarevent_line' : '';
-		var secondstaff_name;
-
-		if (month_schedule[i].date == date_shown.format('YYYY-MM-DD')) {
-
-			secondstaff_name = month_schedule[i].secondstaff_id == 2 ? "" : ", " + cookName(month_schedule[i].secondstaff_id);
-			$('#calendarevent_table > tbody:last').append('<tr onclick=""><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].time.substring(0, 5) + " (" + moment.duration(month_schedule[i].duration).asHours() + " h.)" + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].type + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + cookName(month_schedule[i].staff_id) + secondstaff_name + '</td><td class="' + calendarevent_tr_class + '" data-i="' + i + '">' + month_schedule[i].registered + '</td><td>' + classemails_button + edit_button + '</td></tr>');
+		len = related.length;
+		for (i = 0; i < len; i++) {
+			index = options.findIndex(function (element) {
+				return element.value == related[i];
+			});
+			if (index > -1) {
+				options[index].checked = true;
+			}
 		}
-	}
+		$('#related_posts').multiselect('loadOptions', options);
+	});
+}
+
+function refresh_post_index() {
+	$.get('/api/blogtool/index', function (result) {
+		$('#blogposts_table > tbody').empty();
+		for (var j = 0; j < result.length; j++) {
+			$('#blogposts_table > tbody:last').append('<tr postid="' + result[j].id + '"><td onclick=\"location.href=\'/admin/blogtool/' + result[j].id + "\'\">" + result[j].id + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].shortname + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].title + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].friendly_url + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].status + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].publishing_date + "</td><td>" + '<button class="btn btn-primary btn-sm button_post_duplicate" data-postid="' + result[j].id + '">Dup</button>' + " " + '<button class="btn btn-secondary btn-sm button_post_up">Up</button>' + " " + '<button class="btn btn-secondary btn-sm button_post_down">Down</button>' + "</td></tr>");
+		}
+	});
+}
+
+function refresh_post(id) {
+	$.get('/api/blogtool/get/' + id, function (result) {
+
+		$('input[name=id]').val(result.id);
+		$('input[name=shortname]').val(result.shortname);
+		$('input[name=title]').val(result.title);
+		$('textarea[name=description]').val(result.description);
+		$('input[name=friendly_url]').val(result.friendly_url);
+		$('select[name=thumbnail_image]').val(result.thumbnail_image);
+		$('textarea[name=thumbnail_description]').val(result.thumbnail_description);
+		$('textarea[name=body]').val(result.body);
+		$('input[name=status]').val(result.status);
+		$('input[name=publishing_date]').val(result.publishing_date);
+	});
 }
 
 //
-// Function: addSlashes
-// escape input fields to prevent sql statements break
+//
+// buttons handling (use .on() for dynamically created elements)
+//
 //
 
-// function addSlashes(string) {
+$(document).on('click', '.button_post_duplicate', function () {
+	$.get('/api/blogtool/duplicate/' + $(this).data("postid"), function () {
+		refresh_post_index();
+	});
+});
 
-//     return string.replace(/\\/g, '').
-//       replace(/\u0008/g, '\\b').
-//        replace(/\t/g, '\\t').
-//         replace(/\n/g, '<br\/>').
-//         replace(/\f/g, '\\f').
-//         replace(/\r/g, '\\r').
-//       replace(/'/g, '\\\'').
-//        replace(/"/g, '\\"');
-// }
-
-//
-// Function: bookingEditShow
-// populate and show screen to add new or edit 
-//
-function bookingEditShow(i, j) {
-
-	var url_action;
-	var booking_date;
-	var booking_moment;
-
-	if (j < 0) {
-		// nueva reserva
-		$('#booking_edit h1').html('Nueva Reserva');
-		$('#button_booking_delete').hide();
-		$('.dateshown, .classshown').show();
-		booking_date = month_schedule[i].date;
-		booking_moment = moment(booking_date);
-		$("input[name=date]").val(booking_date);
-		$('.booking_date_input').hide();
-
-		$("input[name=id]").val(0); // new booking
-		$("input[name=calendarevent_id]").val(month_schedule[i].id);
-		$("select[name=source_id]").val('3'); // user
-		$("select[name=status]").val('GUARANTEE');
-		$("input[name=status_filter]").val('REGISTERED');
-		$("input[name=name]").val('');
-		$("input[name=email]").val('');
-		$("input[name=phone]").val('');
-		$("input[name=locator]").val('');
-		$('select[name=adult]').val(1);
-		$("select[name=child]").val(0);
-		$("input[name=price]").val($("select[name=adult]").val() * 70 + $("select[name=child]").val() * 35);
-		$("input[name=iva]").prop('checked', 1);
-		$("input[name=hide_price]").prop('checked', 0);
-		$("input[name=fixed_date]").prop('checked', 0);
-		$("select[name=pay_method]").val('N/A');
-		$("input[name=payment_date]").val('');
-		$("textarea[name=food_requirements]").val('');
-		$("textarea[name=comments]").val('');
-		$("select[name=crm]").val('NO');
-		$("input[name=invoice]").val('');
-		url_action = 'bkg_new';
+$(document).on('click', '.button_post_up, .button_post_down', function () {
+	var row = $(this).parents("tr:first");
+	if ($(this).is(".button_post_up")) {
+		row.insertBefore(row.prev());
+		$('#button_post_index_save').show();
 	} else {
-		$("#booking_edit h1").html("Editar Reserva");
-		$('#button_booking_delete').show();
-		$('.booking_date_input').show();
-		$('.dateshown, .classshown').show();
-		booking_date = month_schedule[i].date;
-		booking_moment = moment(booking_date);
-		$("#booking_date_edit").val(booking_moment.format('dddd, D MMMM YYYY'));
-		$("input[name=date]").val(booking_date);
-		populateSelect_dayeventlist();
-		$("#dayeventlist").val(bookings[j].calendarevent_id);
-		$("input[name=id]").val(bookings[j].id);
-		$("input[name=calendarevent_id]").val(bookings[j].calendarevent_id);
-		$("select[name=source_id]").val(bookings[j].source_id);
-		$("select[name=status]").val(bookings[j].status);
-		$("input[name=status_filter]").val(bookings[j].status_filter);
-		$("input[name=name]").val(bookings[j].name);
-		$("input[name=email]").val(bookings[j].email);
-		$("input[name=phone]").val(bookings[j].phone);
-		$('select[name=adult]').val(bookings[j].adult);
-		$("select[name=child]").val(bookings[j].child);
-		$("input[name=price]").val(bookings[j].price);
-		$("input[name=iva]").prop('checked', parseInt(bookings[j].iva));
-		$("input[name=hide_price]").prop('checked', parseInt(bookings[j].hide_price));
-		$("input[name=fixed_date]").prop('checked', parseInt(bookings[j].fixed_date));
-		$("select[name=pay_method]").val(bookings[j].pay_method);
-		$("input[name=payment_date]").val(bookings[j].payment_date);
-		$("textarea[name=food_requirements]").val(bookings[j].food_requirements);
-		$("textarea[name=comments]").val(bookings[j].comments);
-		$("select[name=crm]").val(bookings[j].crm);
-		$("input[name=locator]").val(bookings[j].locator);
-		$("input[name=invoice]").val(bookings[j].invoice);
-		url_action = 'bkg_edit';
+		row.insertAfter(row.next());
+		$('#button_post_index_save').show();
 	}
-	updateUrl(parts, '/admin/booking', moment(booking_date), url_action, i, j);
-	showPrice();
-	$('#booking_edit').show();
-}
+});
 
-//
-// Function: calendarEventEditShow
-// populate and show calendar event screen to add new or edit 
-//
-function calendarEventEditShow(month_schedule, date_shown, i) {
+$('#button_post_index_save').click(function () {
+	var order = [];
+	$('#blogposts_table tbody tr').each(function () {
+		order.push($(this).attr('postid'));
+	});
 
-	var ce_id;
-	var url_action;
-
-	if (i < 0) {
-		// nuevo evento
-		$('#calendarevent_edit h1').html('Nuevo Evento');
-		$('#button_calendarevent_delete').hide();
-		ce_id = 0;
-		$("input[name=id]").val(ce_id);
-		$("input[name=date]").val(date_shown.format('YYYY-MM-DD'));
-		$("#eventdatepicker").val(date_shown.format('dddd, D MMMM YYYY'));
-		$("select[name=type]").val('GROUP');
-		$("input[name=short_description]").val('');
-		$("select[name=staff_id]").val(2); // not assigned yet
-		$("select[name=secondstaff_id]").val(2); // not assigned yet
-		$("select[name=time]").val('10:00:00');
-		$("select[name=duration]").val('04:00:00');
-		$("input[name=capacity]").val(24);
-		$("textarea[name=info]").val('');
-		url_action = 'ce_new';
-	} else {
-		$("#calendarevent_edit h1").html("Editar Evento");
-		$('#button_calendarevent_delete').show();
-		ce_id = month_schedule[i].id;
-		$("input[name=id]").val(ce_id);
-		$("input[name=date]").val(month_schedule[i].date);
-		$("#eventdatepicker").val(date_shown.format('dddd, D MMMM YYYY'));
-		$("select[name=type]").val(month_schedule[i].type);
-		$("input[name=short_description]").val(month_schedule[i].short_description);
-		$("select[name=staff_id]").val(month_schedule[i].staff_id);
-		$("select[name=secondstaff_id]").val(month_schedule[i].secondstaff_id);
-		$("select[name=time]").val(month_schedule[i].time);
-		$("select[name=duration]").val(month_schedule[i].duration);
-		$("input[name=capacity]").val(month_schedule[i].capacity);
-		$("textarea[name=info]").val(month_schedule[i].info);
-		url_action = 'ce_edit';
-	}
-	updateUrl(parts, '/admin/calendarevent', moment($("input[name=date]").val()), url_action, i);
-	$('#calendarevent_edit').show();
-}
-
-//
-// Function: cookName
-// return the cook from the cook list retrieved on load 
-//
-function cookName(id) {
-	for (var i = 0; i < cook.length; i++) {
-		if (cook[i].id == id) {
-			return cook[i].name;
-		}
-	}
-}
-
-//
-// Function: getDaySchedule
-// retrieve events for a date (string YYYY-MM-DD)
-//
-function getDaySchedule(a_date) {
-	var response = $.ajax({
+	$('.loading').show();
+	$.ajax({
 		type: 'POST',
-		url: '/api/calendarevent/getschedule',
-		data: { start: a_date, end: a_date, bookable_only: 1 },
-		dataType: 'json',
-		async: false,
-		success: function success(msg) {
-			if (msg.status == 'fail') {
-				alert('Error al acceder al calendario');
-			}
+		url: '/api/blogtool/savedisplayposition',
+		data: { order: order },
+		success: function success() {
+			$('.loading').hide();
+			$('#button_post_index_save').hide();
 		}
-	}).responseText;
-	return JSON.parse(response).data;
-}
+	});
+});
 
-//
-// Function: getMonthSchedule
-// retrieve events for the full month of a date (moment)
-//
-function getMonthSchedule(a_date) {
-	// clone aDate to avoid side-efects
-	var local_date = moment(JSON.parse(JSON.stringify(a_date)));
+$('#button_post_update').click(function () {
 
-	var month_start = local_date.startOf('month').format('YYYY-MM-DD');
-	var month_end = local_date.endOf('month').format('YYYY-MM-DD');
-	var response = $.ajax({
+	$('.loading').show();
+
+	var request = new Object();
+
+	request.id = $('input[name=id]').val();
+	request.shortname = $('input[name=shortname]').val();
+	request.title = $('input[name=title]').val();
+	request.description = $('textarea[name=description]').val();
+	request.friendly_url = $('input[name=friendly_url]').val();
+	request.thumbnail_image = $('select[name=thumbnail_image]').val();
+	request.thumbnail_description = $('textarea[name=thumbnail_description]').val();
+	request.body = $('textarea[name=body]').val();
+	request.status = $('input[name=status]').val();
+	request.related = $('#related_posts').val();
+	request.publishing_date = $('input[name=publishing_date]').val();
+
+	$.ajax({
 		type: 'POST',
-		url: '/api/calendarevent/getschedule',
-		data: { start: month_start, end: month_end, bookable_only: 0 },
-		dataType: 'json',
-		async: false,
-		success: function success(msg) {
-			if (msg.status == 'fail') {
-				alert('Error al acceder al calendario');
-			}
+		url: '/api/blogtool/update',
+		data: request,
+		success: function success() {
+			refresh_post($('#post-edit-page').attr('postid'));
+			refresh_uploaded_images($('#post-edit-page').attr('postid'));
+			$('.loading').hide();
+		},
+		error: function error(jqXHR, textStatus, errorThrown) {
+			refresh_post($('#post-edit-page').attr('postid'));
+			$('.modal_admin_title').html('Error');
+			$('.modal_admin_body').html(jqXHR.responseJSON + '<br/>');
+			$('.loading').hide();
+			$('#modal_admin').modal('show');
 		}
-	}).responseText;
-	return JSON.parse(response).data;
-}
+	});
+});
 
-//
-// Function: getEventBookings
-// retrieve bookings of an calendarevent
-//
-function getEventBookings(ce_id) {
-	var response = $.ajax({
-		type: 'GET',
-		url: '/api/booking/index/' + ce_id,
-		dataType: 'json',
-		async: false,
-		success: function success(msg) {
-			if (msg.status == 'fail') {
-				alert('Error al acceder a las reservas');
-			}
-		}
-	}).responseText;
-	return JSON.parse(response).data;
-}
+$('#button_post_publish').click(function () {
+	var errormsg = '';
+	if (!$('input[name=shortname]').val()) errormsg += 'Shortname is empty<br/>';
+	if (!$('input[name=title]').val()) errormsg += 'Title is empty<br/>';
+	if (!$('textarea[name=description]').val()) errormsg += 'Description is empty<br/>';
+	if (!$('input[name=friendly_url]').val()) errormsg += 'Friendly URL is empty<br/>';
+	if (!$('select[name=thumbnail_image]').val()) errormsg += 'Thumbnail image is empty<br/>';
+	if (!$('textarea[name=thumbnail_description]').val()) errormsg += 'Thumbnail description is empty<br/>';
+	if (!$('textarea[name=body]').val()) errormsg += 'Body is empty<br/>';
+	if (!$('input[name=publishing_date]').val()) errormsg += 'Publishing date is empty<br/>';
+	var pubday = moment($('input[name=publishing_date]').val());
+	if (!pubday.isValid()) errormsg += 'Wrong publishing date format (yyyy-mm-dd)<br/>';
 
-//
-// Function: populateBookingList
-// populate booking table with current event's
-// param i: index of month_schedule
-//
-function populateBookingList(i) {
+	if ($('input[name=status]').val() == 'EDITING') errormsg += '<br/>Save and preview before publishing<br/>';
+	if ($('input[name=status]').val() == 'PUBLISHED') errormsg += 'Already published<br/>';
 
-	$("#booking_table").data('i', i);
-	var secondstaff_name = month_schedule[i].secondstaff_id == 2 ? "" : ", " + cookName(month_schedule[i].secondstaff_id);
-	var clase = month_schedule[i].time.substring(0, 5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type + ' (' + cookName(month_schedule[i].staff_id) + secondstaff_name + ') ' + '<span class="pull-right">Confirmados: ' + month_schedule[i].registered + '</span>';
-	$('.classshown').html(clase);
-	// 
-	$("#booking_table > tbody").empty();
-
-	for (var j = 0; j < bookings.length; j++) {
-		$('#booking_table > tbody:last').append('<tr onclick=""><td class="booking_line" data-j="' + j + '">' + bookings[j].adult + (bookings[j].child > 0 ? ' + ' + bookings[j].child : '') + '<td class="booking_line" data-j="' + j + '">' + bookings[j].name + '<td class="booking_line" data-j="' + j + '">' + bookings[j].status + '<td class="booking_line" data-j="' + j + '">' + bookings[j].food_requirements.substring(0, 20) + '<td class="booking_line" data-j="' + j + '">' + bookings[j].comments.substring(0, 20) + '</td></tr>');
-	}
-}
-
-//
-// Function: populateSelect_dayeventlist
-// populate #dayeventlist with available events 
-//
-function populateSelect_dayeventlist(i) {
-	var dayEvent = getDaySchedule($('#bookingNewDate').val());
-	var select = '';
-	$('#dayeventlist').empty();
-	for (var ii = 0; ii < dayEvent.length; ii++) {
-		select += '<option value="' + dayEvent[ii].id + '">' + dayEvent[ii].type + '</option>';
-	}
-	$('#dayeventlist').append(select);
-}
-
-//
-// Function: sourceName
-// return the source from the source list retrieved on load 
-//
-function sourceName(id) {
-	for (var i = 0; i < source.length; i++) {
-		if (source[i].id == id) {
-			return source[i].name;
-		}
-	}
-}
-
-//
-// Function: showPrice
-// display price based on roles and status 
-//
-function showPrice() {
-	if (user_role >= 3 || $('select[name=status]').val() == 'GUARANTEE') {
-		$('.price').show();
-	} else {
-		$('.price').hide();
-	}
-}
-
-//
-// Function: updateUrl
-// sets new path and querystring according to the screen displayed
-//
-function updateUrl(parts, path, date, action) {
-	var month_schedule_i = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : -1;
-	var bookings_j = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : -1;
-
-	if (path) {
-		parts.pathname = path;
-	}
-	if (date) {
-		parts.query.date = date.format('YYYY-MM-DD');
-	}
-	if (action) {
-		parts.query.action = action;
-	}
-	if (month_schedule_i < 0) {
-		delete parts.query.i;
-	} else {
-		parts.query.i = month_schedule_i;
-	}
-	if (bookings_j < 0) {
-		delete parts.query.j;
-	} else {
-		parts.query.j = bookings_j;
-	}
-
-	delete parts.search;
-	window.history.pushState(stateObj, 'nada', url.format(parts));
-}
-
-//
-// Function: validBookingForm
-// validates input fields and returns accordingly
-//
-// use https://www.regextester.com/1966 to validate 
-//
-function validBookingForm() {
-	// 
-
-	var modal_title = 'Error';
-	var modal_body = '';
-	var show_it = false;
-	if ($("input[name=name]").val() == '') {
-		modal_body += 'Introduce un nombre<br/>';
-		show_it = true;
-	}
-	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	var mail = $("input[name=email]").val();
-	if (mail != "" && !filter.test(mail)) {
-		modal_body += 'Introduce un email válido<br/>';
-		show_it = true;
-	}
-	filter = /^[0-9 \(\)\-\+]+$/;
-	var phone = $("input[name=phone]").val();
-	if (phone != "" && !filter.test(phone)) {
-		modal_body += 'Introduce un teléfono válido<br/>';
-		show_it = true;
-	}
-	filter = /^(\d+\.\d+)$|^(\d+)$/;
-	var input_field = $("input[name=price]").val();
-	if (input_field == "" || input_field != "" && !filter.test(input_field)) {
-		modal_body += 'Precio con . decimal<br/>';
-		show_it = true;
-	}
-	filter = /^(20\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])) *( +(0?[0-9]|1[0-9]|(2[0-3])):([0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?)?$/;
-	input_field = $("input[name=payment_date]").val();
-	if (input_field != "" && !filter.test(input_field)) {
-		modal_body += 'Fecha pago incorrecta. Usa aaaa-mm-dd [hh:mm:ss] []=opcional<br/>';
-		show_it = true;
-	}
-
-	if ($("select[name=status]").val() == 'PAID' && $("select[name=pay_method]").val() == 'N/A') {
-		modal_body += 'Selecciona Forma de Pago<br/>';
-		show_it = true;
-	}
-
-	if (show_it) {
-		$('.modal_admin_title').html(modal_title);
-		$('.modal_admin_body').html(modal_body);
+	if (errormsg.length) {
+		$('.modal_admin_title').html('Error');
+		$('.modal_admin_body').html('Check following errors before publishing:<br/><br/>' + errormsg);
 		$('#modal_admin').modal('show');
-		return false;
+		return;
 	}
-	return true;
-}
+
+	$('.loading').show();
+	$.get('/api/blogtool/publish/' + $('#post-edit-page').attr('postid'), function () {
+		refresh_post($('#post-edit-page').attr('postid'));
+		$('.loading').hide();
+	});
+});
+
+$('#button_post_delete').click(function () {
+	$('#modal_post_delete').modal('show');
+});
+
+$('#modal_button_post_delete').click(function () {
+	$.get('/api/blogtool/delete/' + $('#post-edit-page').attr('postid'), function () {
+		location.href = "/admin/blogtool";
+	});
+});
+
+$('#button_remove_images').click(function () {
+	if (!$('#uploaded_images').val().length) {
+		$('.modal_admin_title').html('Error');
+		$('.modal_admin_body').html('No files to remove');
+		$('#modal_admin').modal('show');
+		return;
+	}
+	$('.loading').show();
+	$.ajax({
+		type: 'POST',
+		url: '/api/blogtool/removeimages',
+		data: { images: $('#uploaded_images').val() },
+		success: function success() {
+			refresh_uploaded_images($('#post-edit-page').attr('postid'));
+			$('.loading').hide();
+		}
+	});
+});
+
+$('#button_upload_image').click(function (e) {
+	e.preventDefault();
+	$('.loading').show();
+	var image = $('input[name=image]');
+	var form_data = new FormData();
+
+	form_data.append('id', $('#post-edit-page').attr('postid'));
+	form_data.append('file', image[0].files[0]);
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/blogtool/uploadimage',
+		processData: false,
+		contentType: false,
+		data: form_data,
+		success: function success() {
+			refresh_uploaded_images($('#post-edit-page').attr('postid'));
+			$('.loading').hide();
+		}
+	});
+});
 
 //
 // comienzo del jquery(document).ready
@@ -57076,646 +55374,961 @@ function validBookingForm() {
 
 jQuery(document).ready(function ($) {
 
-	$('.loading').show();
-	// $('.loading').hide()
-	//
-	// initial load
-	//
-	user_name = $('meta[name=user_name]').attr('content');
-	user_role = $('meta[name=user_role]').attr('content');
-	var month_changed = false;
+	$('#related_posts').multiselect();
+	$('#uploaded_images').multiselect();
 
-	//
-	// load cook list
-	//
-	var response = $.ajax({
-		type: 'GET',
-		url: '/api/staff/get',
-		dataType: 'json',
-		async: false,
-		success: function success(msg) {
-			if (msg.status == 'fail') {
-				alert('Error al acceder al calendario');
-			}
-		}
-	}).responseText;
-	cook = JSON.parse(response).data;
-	var select = '';
-	$('.cooklist').empty();
-	for (var ii = 0; ii < cook.length; ii++) {
-		select += '<option value="' + cook[ii].id + '">' + cook[ii].name + '</option>';
-	}
-	$('.cooklist').append(select);
+	var postid = $('#post-edit-page').attr('postid');
 
-	//
-	// load source list
-	//
-	response = $.ajax({
-		type: 'GET',
-		url: '/api/source/get',
-		dataType: 'json',
-		async: false,
-		success: function success(msg) {
-			if (msg.status == 'fail') {
-				alert('Error al acceder a los sources');
-			}
-		}
-	}).responseText;
-	source = JSON.parse(response).data;
-
-	select = '';
-	$('#sourcelist').empty();
-	for (var ii = 0; ii < source.length; ii++) {
-		select += '<option value="' + source[ii].id + '">' + source[ii].type + ' - ' + source[ii].name + '</option>';
-	}
-	$('#sourcelist').append(select);
-
-	// 
-	// set status and pay_method based on source_id
-	//
-	$('select[name=source_id]').change(function () {
-		if ($(this).val() > 3) {
-			// marketplace or agency
-			$('select[name=status]').val('CONFIRMED');
-			$('select[name=pay_method]').val('N/A');
-			$("input[name=hide_price]").prop('checked', 1);
-		}
-		showPrice();
-	});
-
-	//
-	// sidebar datepicker
-	//
-	$("#admindatepicker").datepicker({
-		language: 'es',
-		dateFormat: 'yy-mm-dd',
-		onSelect: function onSelect(s, i) {
-			var new_date = moment($(this).val());
-			if (month_changed) {
-				month_schedule = getMonthSchedule(new_date);
-				month_changed = false;
-			}
-			date_shown = new_date;
-			refreshDateShown(month_schedule, new_date);
-			if (form_changed) {
-				$('#button_calendarevent_close').trigger('click');
-			} else {
-				updateUrl(parts, '/admin/calendarevent', new_date, 'ce_index', -1);
-				$('#calendarevent_index').show();
-				$('#calendarevent_edit').hide();
-				$('#booking_index').hide();
-				$('#booking_edit').hide();
-			}
-		},
-		onChangeMonthYear: function onChangeMonthYear(year, month, inst) {
-			month_changed = true;
-		}
-
-	});
-
-	//
-	// toggle admindatepicker
-	//
-	$('#toggle_datepicker').click(function () {
-		$('#admindatepicker').toggle();
-	});
-
-	//
-	// show sections based on url and query string
-	//
-	if (typeof parts.query.date === "undefined") {
-		date_shown = hoy.clone();
-	} else {
-		date_shown = moment(parts.query.date);
-	}
-	$("#admindatepicker").datepicker("setDate", date_shown.toDate());
-	month_schedule = getMonthSchedule(date_shown);
-	refreshDateShown(month_schedule, date_shown);
-	var i = parts.query.i;
-	var j = parts.query.j;
-
-	switch (parts.pathname) {
-		case '/admin/calendarevent':
-			switch (parts.query.action) {
-				case 'ce_new':
-					i = -1;
-				case 'ce_edit':
-					calendarEventEditShow(month_schedule, date_shown, i);
-					$('#calendarevent_index').hide();
-					$('#calendarevent_edit').show();
-					$('#booking_index').hide();
-					$('#booking_edit').hide();
-					break;
-
-				case 'bkg_index':
-					bookings = getEventBookings(month_schedule[i].id);
-					populateBookingList(i);
-					$('#calendarevent_index').hide();
-					$('#calendarevent_edit').hide();
-					$('#booking_index').addClass('d-display');
-					$('#booking_edit').hide();
-					break;
-
-				case 'ce_index':
-				default:
-					$('#calendarevent_index').show();
-					$('#calendarevent_edit').hide();
-					$('#booking_index').hide();
-					$('#booking_edit').hide();
-					break;
-
-			}
-			break;
-
-		case '/admin/booking':
-			bookings = getEventBookings(month_schedule[i].id);
-			bookingEditShow(i, j);
-			switch (parts.query.action) {
-				case 'bkg_new':
-					j = -1;
-				case 'bkg_edit':
-					$('#calendarevent_index').hide();
-					$('#calendarevent_edit').hide();
-					$('#booking_index').hide();
-					$('#booking_edit').show();
-					break;
-
-				default:
-					$('#calendarevent_index').hide();
-					$('#calendarevent_edit').hide();
-					$('#booking_index').show();
-					$('#booking_edit').hide();
-					break;
-			}
-			break;
-
-		default:
-			$('#calendarevent_index').show();
-			$('#calendarevent_edit').hide();
-			$('#booking_index').hide();
-			$('#booking_edit').hide();
-			break;
+	if ($('#post-index-page').length > 0) {
+		// acciones solo para página de listado de posts
+		refresh_post_index();
+	} else if ($('#post-edit-page').length > 0) {
+		// acciones solo para página de detalles de post
+		refresh_post(postid);
+		refresh_related_posts(postid);
+		refresh_uploaded_images(postid);
 	}
 
-	$('.loading').hide();
-
-	//
-	// check form change
-	//
-	$("#form_calendarevent :input, #form_booking :input").change(function () {
-		form_changed = true;
-	});
-
-	//
-	// calendar event new/edit datepicker
-	//
-	$("#eventdatepicker").datepicker({
-		language: 'es',
-		defaultDate: date_shown.toDate(),
-		dateFormat: "DD, d MM yy",
-		altFormat: "yy-mm-dd",
-		altField: "#realDate"
-
-	});
-
-	$('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
-
-	// 
-	// calendar event buttons
-	// we use .on() for dynamically created elements
-	//
-	$(document).on('click', '.button_calendarevent_edit', function () {
-		$('#calendarevent_index').hide();
-		calendarEventEditShow(month_schedule, date_shown, $(this).data('i'));
-	});
-
-	$(document).on('click', '.button_calendarevent_info', function () {
-		var i = $(this).data('i');
-		$('.modal_admin_title').html(month_schedule[i].short_description);
-		$('.modal_admin_body').html(month_schedule[i].info.replace(/\n/g, '<br\/>'));
-		$('#modal_admin').modal('show');
-	});
-
-	$(document).on('click', '.calendarevent_line', function () {
-		var i = $(this).data('i');
-		// var clase = month_schedule[i].time.substring(0,5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type
-		// 			+ '<span class="pull-right">Registrados: ' + month_schedule[i].registered +'</span>'
-		// $('#classshown').html(clase)
-		$('#calendarevent_index').hide();
-		bookings = getEventBookings(month_schedule[i].id);
-		populateBookingList(i);
-		updateUrl(parts, '/admin/calendarevent', '', 'bkg_index', i);
-		$('#booking_index').show();
-	});
-
-	$(".button_day_selector").click(function () {
-		var new_date;
-		switch ($(this).data("d")) {
-			case "prev":
-				new_date = date_shown.subtract(1, 'days');
-				break;
-			case "next":
-				new_date = date_shown.add(1, 'days');
-				break;
-			case "today":
-				new_date = hoy;
-		}
-		$("#admindatepicker").datepicker("setDate", new_date.toDate());
-		updateUrl(parts, '/admin/calendarevent', new_date, 'ce_index', -1);
-		if (month_changed) {
-			month_schedule = getMonthSchedule(new_date);
-			month_changed = false;
-		}
-		date_shown = new_date;
-		refreshDateShown(month_schedule, new_date);
-
-		if (form_changed) {
-			$('#button_calendarevent_close').trigger('click');
-		} else {
-			$('#calendarevent_index').show();
-			$('#calendarevent_edit').hide();
-			$('#booking_index').hide();
-			$('#booking_edit').hide();
-		}
-		return false;
-	});
-
-	$(".button_calendarevent_selector").click(function () {
-		var new_date;
-		var i = $("#booking_table").data('i');
-		switch ($(this).data("d")) {
-			case "prev":
-				if (i == 0) {
-					month_schedule = getMonthSchedule(date_shown.subtract(1, 'months'));
-					i = month_schedule.length - 1;
-				} else {
-					i--;
-				}
-				new_date = moment(month_schedule[i].date);
-				$("#admindatepicker").datepicker("setDate", new_date.toDate());
-				updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i);
-				month_changed = false;
-				date_shown = new_date;
-				break;
-			case "next":
-				if (i == month_schedule.length - 1) {
-					month_schedule = getMonthSchedule(date_shown.add(1, 'months'));
-					i = 0;
-				} else {
-					i++;
-				}
-				new_date = moment(month_schedule[i].date);
-				$("#admindatepicker").datepicker("setDate", new_date.toDate());
-				updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i);
-				month_changed = false;
-				date_shown = new_date;
-				break;
-			case "now":
-				hoy = moment();
-				new_date = hoy;
-				$("#admindatepicker").datepicker("setDate", new_date.toDate());
-				updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i);
-				if (month_changed) {
-					month_schedule = getMonthSchedule(new_date);
-					month_changed = false;
-				}
-				// date_shown = new_date
-				var a;
-				for (i = 0; i < month_schedule.length; i++) {
-					a = moment(month_schedule[i].date + ' ' + month_schedule[i].time);
-					a.add(moment.duration(month_schedule[i].duration));
-					if (a.isAfter(hoy)) {
-						// console.log('i vale ' + i)
-						break;
-					}
-				}
-				new_date = moment(month_schedule[i].date);
-				$("#admindatepicker").datepicker("setDate", new_date.toDate());
-				updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i);
-				if (month_changed) {
-					month_schedule = getMonthSchedule(new_date);
-					month_changed = false;
-				}
-				date_shown = new_date;
-
-		}
-		var date_shown_locale = date_shown.format('dddd, D MMMM YYYY');
-		$('.dateshown').html(date_shown_locale);
-
-		$('#calendarevent_index').hide();
-		bookings = getEventBookings(month_schedule[i].id);
-		populateBookingList(i);
-
-		if (form_changed) {
-			$('#button_calendarevent_close').trigger('click');
-		} else {
-			$('#calendarevent_index').hide();
-			$('#calendarevent_edit').hide();
-			$('#booking_index').show();
-			$('#booking_edit').hide();
-		}
-		return false;
-	});
-	//
-	// #form_calendarvent_edit buttons
-	//
-
-	//
-	// close
-	//
-	$("#button_calendarevent_close").click(function () {
-		if (form_changed) {
-			$('#modal_calendarevent_close').modal('show');
-		} else {
-			updateUrl(parts, '/admin/calendarevent', date_shown, 'ce_index');
-			$('#calendarevent_index').show();
-			$('#calendarevent_edit').hide();
-		}
-	});
-
-	//
-	// modal close, modal ok
-	//
-	$("#modal_button_calendarevent_close, #modal_button_calendarevent_ok").click(function () {
-		form_changed = false;
-		updateUrl(parts, '/admin/calendarevent', date_shown, 'ce_index');
-		$('#calendarevent_index').show();
-		$('#calendarevent_edit').hide();
-		$('#modal_calendarevent_close').modal('hide');
-		$('#modal_calendarevent').modal('hide');
-	});
-
-	//
-	// save, modal save i.e. add, update calendarevent
-	//
-	$("#button_calendarevent_save, #modal_button_calendarevent_save").click(function () {
-		var ce_id = $('input[name=id]').val();
-		var url;
-		$('.loading').show();
-		if (form_changed || ce_id == 0 || typeof ce_id === "undefined") {
-			// form changed or new event
-
-			$('#modal_calendarevent_close').modal('hide');
-
-			if (ce_id == 0 || typeof ce_id === "undefined") {
-				url = "/api/calendarevent/add";
-			} else {
-				url = "/api/calendarevent/update";
-			}
-			$.ajax({
-				type: 'POST',
-				url: url,
-				data: $("#form_calendarevent").serialize(),
-				dataType: 'json',
-				async: false,
-				success: function success(msg) {
-					var error_msg;
-					var modal_title;
-					if (msg.status == 'ok') {
-						date_shown = moment($('input[name=date]').val());
-						month_schedule = getMonthSchedule(date_shown);
-						refreshDateShown(month_schedule, date_shown);
-						$("#modal_button_calendarevent_ok").click();
-					} else {
-						modal_title = 'Error';
-						if (ce_id == 0 || typeof ce_id === "undefined") {
-							error_msg = 'Este evento ya existe';
-						} else {
-							error_msg = 'Este evento ya no existe';
-						}
-						month_schedule = getMonthSchedule(date_shown);
-						refreshDateShown(month_schedule, date_shown);
-						$('#modal_calendarevent_title').html(modal_title);
-						$('#modal_calendarevent_body').html(error_msg);
-						$('#modal_calendarevent').modal('show');
-					}
-					$('.loading').hide();
-					$("#modal_button_calendarevent_ok").click();
-				}
-			});
-		}
-	});
-
-	//
-	// delete, modal delete
-	//
-
-	$("#button_calendarevent_delete").click(function () {
-		$('#modal_calendarevent_delete').modal('show');
-	});
-
-	$("#modal_button_calendarevent_delete").click(function () {
-
-		$('#modal_calendarevent_delete').modal('hide');
-		$('.loading').show();
-		var ce_id = $('input[name=id]').val();
-		if (ce_id != 0) {
-			$.ajax({
-				type: 'GET',
-				url: '/api/calendarevent/delete/' + ce_id,
-				async: false,
-				success: function success(msg) {
-					month_schedule = getMonthSchedule(date_shown);
-					refreshDateShown(month_schedule, date_shown);
-					if (msg.status != 'ok') {
-						$('#modal_calendarevent_title').html('No Eliminado');
-						$('#modal_calendarevent_body').html('Este evento tiene reservas');
-						$('#modal_calendarevent').modal('show');
-					} else {
-						$("#modal_button_calendarevent_close").click();
-					}
-					$('.loading').hide();
-				}
-			});
-		}
-	});
-
-	//
-	//
-	// booking buttons
-	//
-	//
-
-	// 
-	// booking buttons
-	// we use .on() for dynamically created elements
-	//
-	$(document).on('click', '.booking_line, .button_booking_edit', function () {
-		$('#booking_index').hide();
-		bookingEditShow($("#booking_table").data('i'), $(this).data('j'));
-	});
-
-	//
-	// #form_booking_edit buttons
-	//
-
-	//
-	//  copy to clipboard
-	$("#button_booking_copy").click(function () {
-		var textArea = document.createElement("textarea");
-		textArea.value = "https://cookingpoint.es/booking/" + $("input[name=locator]").val();
-		document.body.appendChild(textArea);
-		textArea.select();
-		try {
-			document.execCommand('copy');
-		} catch (err) {
-			console.log('Oops, unable to copy');
-		}
-		document.body.removeChild(textArea);
-	});
-
-	//
-	// booking close
-	//
-	$("#button_booking_close").click(function () {
-		if (form_changed) {
-			$('#modal_booking_close').modal('show');
-		} else {
-			updateUrl(parts, '/admin/calendarevent', date_shown, 'bkg_index', parts.query.i);
-			$('#booking_index').show();
-			$('#booking_edit').hide();
-		}
-	});
-
-	//
-	// booking modal close, modal ok
-	//
-	$("#modal_button_booking_close").click(function () {
-		form_changed = false;
-		updateUrl(parts, '/admin/calendarevent', date_shown, 'bkg_index', parts.query.i);
-		$('#booking_index').show();
-		$('#booking_edit').hide();
-		$('#modal_booking_close').modal('hide');
-		$('#modal_admin').modal('hide');
-	});
-
-	//
-	// booking save, modal save i.e. add, update 
-	//
-	$("#button_booking_save, #modal_button_booking_save").click(function () {
-		var bkg_id = $('input[name=id]').val();
-		var url;
-
-		if (form_changed || bkg_id == 0 || typeof bkg_id === "undefined") {
-			// form changed or new booking
-
-			if (!validBookingForm()) return true;
-
-			$('#modal_booking_close').modal('hide');
-			$('.loading').show();
-
-			if (bkg_id == 0 || typeof bkg_id === "undefined") {
-				url = "/api/booking/add";
-			} else {
-				url = "/api/booking/update";
-			}
-			$.ajax({
-				type: 'POST',
-				url: url,
-				data: $("#form_booking").serialize(),
-				dataType: 'json',
-				async: false,
-				success: function success(msg) {
-					var error_msg;
-					var modal_title;
-					var show_modal = false;
-					if (msg.status == 'ok') {} else {
-						modal_title = 'Error';
-						show_modal = true;
-					}
-					var date_shown = moment($('input[name=date]').val());
-					month_schedule = getMonthSchedule(date_shown);
-					refreshDateShown(month_schedule, date_shown);
-					var ce_id = $('input[name=calendarevent_id]').val();
-					bookings = getEventBookings(ce_id);
-					var i;
-					for (i = 0; i < month_schedule.length; i++) {
-						if (month_schedule[i].id == ce_id) break;
-					}
-					$("#admindatepicker").datepicker("setDate", month_schedule[i].date);
-					updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i);
-					populateBookingList(i);
-					if (show_modal) {
-						$('.modal_admin_title').html(modal_title);
-						$('.modal_admin_body').html(error_msg);
-						$('#modal_admin').modal('show');
-					} else {
-						$('#modal_button_booking_close').click();
-					}
-					$('.loading').hide();
-				}
-			});
-		}
-	});
-
-	//
-	// booking delete, modal delete
-	//
-
-	$("#button_booking_delete").click(function () {
-
-		var bkg_status_filter = $('input[name=status_filter]').val();
-		if (bkg_status_filter == 'REGISTERED') {
-			$('.modal_admin_title').html('Reserva Confirmada');
-			$('.modal_admin_body').html('Atención, esta reserva está confirmada. Cancela antes de borrar');
-			$('#modal_admin').modal('show');
-		} else {
-			$('#modal_booking_delete').modal('show');
-		}
-	});
-
-	$("#modal_button_booking_delete").click(function () {
-
-		$('#modal_booking_delete').modal('hide');
-		$('.loading').show();
-
-		var bkg_id = $('input[name=id]').val();
-		if (bkg_id != 0) {
-			$.ajax({
-				type: 'GET',
-				url: '/api/booking/delete/' + bkg_id,
-				async: false,
-				success: function success(msg) {
-					month_schedule = getMonthSchedule(date_shown);
-					refreshDateShown(month_schedule, date_shown);
-					var ce_id = $('input[name=calendarevent_id]').val();
-					bookings = getEventBookings(ce_id);
-					var i;
-					for (i = 0; i < month_schedule.length; i++) {
-						if (month_schedule[i].id == ce_id) break;
-					}
-					populateBookingList(i);
-					$('#modal_button_booking_close').click();
-					$('.loading').hide();
-				}
-			});
-		}
-	});
-
-	//
-	// booking edit datepicker
-	//
-	$("#booking_date_edit").datepicker({
-		language: 'es',
-		// defaultDate: date_shown.toDate(), 
-		dateFormat: "DD, d MM yy",
-		altFormat: "yy-mm-dd",
-		altField: "#bookingNewDate",
-		onSelect: function onSelect(dateText, inst) {
-			form_changed = true;
-			populateSelect_dayeventlist();
-			$("input[name=date]").val($('#bookingNewDate').val());
-			$("input[name=calendarevent_id]").val($('#dayeventlist').val());
-		}
-	});
-
-	// 
-	// booking edit new calendar event
-	//
-	$('#dayeventlist').change(function () {
-		$("input[name=calendarevent_id]").val($(this).val());
+	$(":input").change(function () {
+		$('input[name=status]').val('EDITING');
 	});
 }); // jQuery
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports) {
+
+/**
+ * Display a nice easy to use multiselect list
+ * @Version: 2.4.16
+ * @Author: Patrick Springstubbe
+ * @Contact: @JediNobleclem
+ * @Website: springstubbe.us
+ * @Source: https://github.com/nobleclem/jQuery-MultiSelect
+ *
+ * Usage:
+ *     $('select[multiple]').multiselect();
+ *     $('select[multiple]').multiselect({ texts: { placeholder: 'Select options' } });
+ *     $('select[multiple]').multiselect('reload');
+ *     $('select[multiple]').multiselect( 'loadOptions', [{
+ *         name   : 'Option Name 1',
+ *         value  : 'option-value-1',
+ *         checked: false,
+ *         attributes : {
+ *             custom1: 'value1',
+ *             custom2: 'value2'
+ *         }
+ *     },{
+ *         name   : 'Option Name 2',
+ *         value  : 'option-value-2',
+ *         checked: false,
+ *         attributes : {
+ *             custom1: 'value1',
+ *             custom2: 'value2'
+ *         }
+ *     }]);
+ *
+ **/
+(function($){
+    var defaults = {
+        columns: 1,     // how many columns should be use to show options
+        search : false, // include option search box
+
+        // search filter options
+        searchOptions : {
+            delay        : 250,                  // time (in ms) between keystrokes until search happens
+            showOptGroups: false,                // show option group titles if no options remaining
+            searchText   : true,                 // search within the text
+            searchValue  : false,                // search within the value
+            onSearch     : function( element ){} // fires on keyup before search on options happens
+        },
+
+        // plugin texts
+        texts: {
+            placeholder    : 'Select options', // text to use in dummy input
+            search         : 'Search',         // search input placeholder text
+            selectedOptions: ' selected',      // selected suffix text
+            selectAll      : 'Select all',     // select all text
+            unselectAll    : 'Unselect all',   // unselect all text
+            noneSelected   : 'None Selected'   // None selected text
+        },
+
+        // general options
+        selectAll          : false, // add select all option
+        selectGroup        : false, // select entire optgroup
+        minHeight          : 200,   // minimum height of option overlay
+        maxHeight          : null,  // maximum height of option overlay
+        maxWidth           : null,  // maximum width of option overlay (or selector)
+        maxPlaceholderWidth: null,  // maximum width of placeholder button
+        maxPlaceholderOpts : 10,    // maximum number of placeholder options to show until "# selected" shown instead
+        showCheckbox       : true,  // display the checkbox to the user
+        checkboxAutoFit    : false,  // auto calc checkbox padding
+        optionAttributes   : [],    // attributes to copy to the checkbox from the option element
+
+        // Callbacks
+        onLoad        : function( element ){},           // fires at end of list initialization
+        onOptionClick : function( element, option ){},   // fires when an option is clicked
+        onControlClose: function( element ){},           // fires when the options list is closed
+        onSelectAll   : function( element, selected ){}, // fires when (un)select all is clicked
+    };
+
+    var msCounter    = 1; // counter for each select list
+    var msOptCounter = 1; // counter for each option on page
+
+    // FOR LEGACY BROWSERS (talking to you IE8)
+    if( typeof Array.prototype.map !== 'function' ) {
+        Array.prototype.map = function( callback, thisArg ) {
+            if( typeof thisArg === 'undefined' ) {
+                thisArg = this;
+            }
+
+            return $.isArray( thisArg ) ? $.map( thisArg, callback ) : [];
+        };
+    }
+    if( typeof String.prototype.trim !== 'function' ) {
+        String.prototype.trim = function() {
+            return this.replace(/^\s+|\s+$/g, '');
+        };
+    }
+
+    function MultiSelect( element, options )
+    {
+        this.element           = element;
+        this.options           = $.extend( true, {}, defaults, options );
+        this.updateSelectAll   = true;
+        this.updatePlaceholder = true;
+        this.listNumber        = msCounter;
+
+        msCounter = msCounter + 1; // increment counter
+
+        /* Make sure its a multiselect list */
+        if( !$(this.element).attr('multiple') ) {
+            throw new Error( '[jQuery-MultiSelect] Select list must be a multiselect list in order to use this plugin' );
+        }
+
+        /* Options validation checks */
+        if( this.options.search ){
+            if( !this.options.searchOptions.searchText && !this.options.searchOptions.searchValue ){
+                throw new Error( '[jQuery-MultiSelect] Either searchText or searchValue should be true.' );
+            }
+        }
+
+        /** BACKWARDS COMPATIBILITY **/
+        if( 'placeholder' in this.options ) {
+            this.options.texts.placeholder = this.options.placeholder;
+            delete this.options.placeholder;
+        }
+        if( 'default' in this.options.searchOptions ) {
+            this.options.texts.search = this.options.searchOptions['default'];
+            delete this.options.searchOptions['default'];
+        }
+        /** END BACKWARDS COMPATIBILITY **/
+
+        // load this instance
+        this.load();
+    }
+
+    MultiSelect.prototype = {
+        /* LOAD CUSTOM MULTISELECT DOM/ACTIONS */
+        load: function() {
+            var instance = this;
+
+            // make sure this is a select list and not loaded
+            if( (instance.element.nodeName != 'SELECT') || $(instance.element).hasClass('jqmsLoaded') ) {
+                return true;
+            }
+
+            // sanity check so we don't double load on a select element
+            $(instance.element).addClass('jqmsLoaded ms-list-'+ instance.listNumber ).data( 'plugin_multiselect-instance', instance );
+
+            // add option container
+            $(instance.element).after('<div id="ms-list-'+ instance.listNumber +'" class="ms-options-wrap"><button type="button"><span>None Selected</span></button><div class="ms-options"><ul></ul></div></div>');
+
+            var placeholder = $(instance.element).siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> button:first-child');
+            var optionsWrap = $(instance.element).siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options');
+            var optionsList = optionsWrap.find('> ul');
+
+            // don't show checkbox (add class for css to hide checkboxes)
+            if( !instance.options.showCheckbox ) {
+                optionsWrap.addClass('hide-checkbox');
+            }
+            else if( instance.options.checkboxAutoFit ) {
+                optionsWrap.addClass('checkbox-autofit');
+            }
+
+            // check if list is disabled
+            if( $(instance.element).prop( 'disabled' ) ) {
+                placeholder.prop( 'disabled', true );
+            }
+
+            // set placeholder maxWidth
+            if( instance.options.maxPlaceholderWidth ) {
+                placeholder.css( 'maxWidth', instance.options.maxPlaceholderWidth );
+            }
+
+            // override with user defined maxHeight
+            if( instance.options.maxHeight ) {
+                var maxHeight = instance.options.maxHeight;
+            }
+            else {
+                // cacl default maxHeight
+                var maxHeight = ($(window).height() - optionsWrap.offset().top + $(window).scrollTop() - 20);
+            }
+
+            // maxHeight cannot be less than options.minHeight
+            maxHeight = maxHeight < instance.options.minHeight ? instance.options.minHeight : maxHeight;
+
+            optionsWrap.css({
+                maxWidth : instance.options.maxWidth,
+                minHeight: instance.options.minHeight,
+                maxHeight: maxHeight,
+            });
+
+            // isolate options scroll
+            // @source: https://github.com/nobleclem/jQuery-IsolatedScroll
+            optionsWrap.on( 'touchmove mousewheel DOMMouseScroll', function ( e ) {
+                if( ($(this).outerHeight() < $(this)[0].scrollHeight) ) {
+                    var e0 = e.originalEvent,
+                        delta = e0.wheelDelta || -e0.detail;
+
+                    if( ($(this).outerHeight() + $(this)[0].scrollTop) > $(this)[0].scrollHeight ) {
+                        e.preventDefault();
+                        this.scrollTop += ( delta < 0 ? 1 : -1 );
+                    }
+                }
+            });
+
+            // hide options menus if click happens off of the list placeholder button
+            $(document).off('click.ms-hideopts').on('click.ms-hideopts', function( event ){
+                if( !$(event.target).closest('.ms-options-wrap').length ) {
+                    $('.ms-options-wrap.ms-active > .ms-options').each(function(){
+                        $(this).closest('.ms-options-wrap').removeClass('ms-active');
+
+                        var listID = $(this).closest('.ms-options-wrap').attr('id');
+
+                        var thisInst = $(this).parent().siblings('.'+ listID +'.jqmsLoaded').data('plugin_multiselect-instance');
+
+                        // USER CALLBACK
+                        if( typeof thisInst.options.onControlClose == 'function' ) {
+                            thisInst.options.onControlClose( thisInst.element );
+                        }
+                    });
+                }
+            // hide open option lists if escape key pressed
+            }).on('keydown', function( event ){
+                if( (event.keyCode || event.which) == 27 ) { // esc key
+                    $(this).trigger('click.ms-hideopts');
+                }
+            });
+
+            // handle pressing enter|space while tabbing through
+            placeholder.on('keydown', function( event ){
+                var code = (event.keyCode || event.which);
+                if( (code == 13) || (code == 32) ) { // enter OR space
+                    placeholder.trigger( 'mousedown' );
+                }
+            });
+
+            // disable button action
+            placeholder.on( 'mousedown', function( event ){
+                // ignore if its not a left click
+                if( event.which && (event.which != 1) ) {
+                    return true;
+                }
+
+                // hide other menus before showing this one
+                $('.ms-options-wrap.ms-active').each(function(){
+                    if( $(this).siblings( '.'+ $(this).attr('id') +'.jqmsLoaded')[0] != optionsWrap.parent().siblings('.ms-list-'+ instance.listNumber +'.jqmsLoaded')[0] ) {
+                        $(this).removeClass('ms-active');
+
+                        var thisInst = $(this).siblings( '.'+ $(this).attr('id') +'.jqmsLoaded').data('plugin_multiselect-instance');
+
+                        // USER CALLBACK
+                        if( typeof thisInst.options.onControlClose == 'function' ) {
+                            thisInst.options.onControlClose( thisInst.element );
+                        }
+                    }
+                });
+
+                // show/hide options
+                optionsWrap.closest('.ms-options-wrap').toggleClass('ms-active');
+
+                // recalculate height
+                if( optionsWrap.closest('.ms-options-wrap').hasClass('ms-active') ) {
+                    optionsWrap.css( 'maxHeight', '' );
+
+                    // override with user defined maxHeight
+                    if( instance.options.maxHeight ) {
+                        var maxHeight = instance.options.maxHeight;
+                    }
+                    else {
+                        // cacl default maxHeight
+                        var maxHeight = ($(window).height() - optionsWrap.offset().top + $(window).scrollTop() - 20);
+                    }
+
+                    if( maxHeight ) {
+                        // maxHeight cannot be less than options.minHeight
+                        maxHeight = maxHeight < instance.options.minHeight ? instance.options.minHeight : maxHeight;
+
+                        optionsWrap.css( 'maxHeight', maxHeight );
+                    }
+                }
+                else if( typeof instance.options.onControlClose == 'function' ) {
+                    instance.options.onControlClose( instance.element );
+                }
+            }).click(function( event ){ event.preventDefault(); });
+
+            // add placeholder copy
+            if( instance.options.texts.placeholder ) {
+                placeholder.find('span').text( instance.options.texts.placeholder );
+            }
+
+            // add search box
+            if( instance.options.search ) {
+                optionsList.before('<div class="ms-search"><input type="text" value="" placeholder="'+ instance.options.texts.search +'" /></div>');
+
+                var search = optionsWrap.find('.ms-search input');
+                search.on('keyup', function(){
+                    // ignore keystrokes that don't make a difference
+                    if( $(this).data('lastsearch') == $(this).val() ) {
+                        return true;
+                    }
+
+                    // pause timeout
+                    if( $(this).data('searchTimeout') ) {
+                        clearTimeout( $(this).data('searchTimeout') );
+                    }
+
+                    var thisSearchElem = $(this);
+
+                    $(this).data('searchTimeout', setTimeout(function(){
+                        thisSearchElem.data('lastsearch', thisSearchElem.val() );
+
+                        // USER CALLBACK
+                        if( typeof instance.options.searchOptions.onSearch == 'function' ) {
+                            instance.options.searchOptions.onSearch( instance.element );
+                        }
+
+                        // search non optgroup li's
+                        var searchString = $.trim( search.val().toLowerCase() );
+                        if( searchString ) {
+                            optionsList.find('li[data-search-term*="'+ searchString +'"]:not(.optgroup)').removeClass('ms-hidden');
+                            optionsList.find('li:not([data-search-term*="'+ searchString +'"], .optgroup)').addClass('ms-hidden');
+                        }
+                        else {
+                            optionsList.find('.ms-hidden').removeClass('ms-hidden');
+                        }
+
+                        // show/hide optgroups based on if there are items visible within
+                        if( !instance.options.searchOptions.showOptGroups ) {
+                            optionsList.find('.optgroup').each(function(){
+                                if( $(this).find('li:not(.ms-hidden)').length ) {
+                                    $(this).show();
+                                }
+                                else {
+                                    $(this).hide();
+                                }
+                            });
+                        }
+
+                        instance._updateSelectAllText();
+                    }, instance.options.searchOptions.delay ));
+                });
+            }
+
+            // add global select all options
+            if( instance.options.selectAll ) {
+                optionsList.before('<a href="#" class="ms-selectall global">' + instance.options.texts.selectAll + '</a>');
+            }
+
+            // handle select all option
+            optionsWrap.on('click', '.ms-selectall', function( event ){
+                event.preventDefault();
+
+                instance.updateSelectAll   = false;
+                instance.updatePlaceholder = false;
+
+                var select = optionsWrap.parent().siblings('.ms-list-'+ instance.listNumber +'.jqmsLoaded');
+
+                if( $(this).hasClass('global') ) {
+                    // check if any options are not selected if so then select them
+                    if( optionsList.find('li:not(.optgroup, .selected, .ms-hidden)').length ) {
+                        // get unselected vals, mark as selected, return val list
+                        optionsList.find('li:not(.optgroup, .selected, .ms-hidden)').addClass('selected');
+                        optionsList.find('li.selected input[type="checkbox"]:not(:disabled)').prop( 'checked', true );
+                    }
+                    // deselect everything
+                    else {
+                        optionsList.find('li:not(.optgroup, .ms-hidden).selected').removeClass('selected');
+                        optionsList.find('li:not(.optgroup, .ms-hidden, .selected) input[type="checkbox"]:not(:disabled)').prop( 'checked', false );
+                    }
+                }
+                else if( $(this).closest('li').hasClass('optgroup') ) {
+                    var optgroup = $(this).closest('li.optgroup');
+
+                    // check if any selected if so then select them
+                    if( optgroup.find('li:not(.selected, .ms-hidden)').length ) {
+                        optgroup.find('li:not(.selected, .ms-hidden)').addClass('selected');
+                        optgroup.find('li.selected input[type="checkbox"]:not(:disabled)').prop( 'checked', true );
+                    }
+                    // deselect everything
+                    else {
+                        optgroup.find('li:not(.ms-hidden).selected').removeClass('selected');
+                        optgroup.find('li:not(.ms-hidden, .selected) input[type="checkbox"]:not(:disabled)').prop( 'checked', false );
+                    }
+                }
+
+                var vals = [];
+                optionsList.find('li.selected input[type="checkbox"]').each(function(){
+                    vals.push( $(this).val() );
+                });
+                select.val( vals ).trigger('change');
+
+                instance.updateSelectAll   = true;
+                instance.updatePlaceholder = true;
+
+                // USER CALLBACK
+                if( typeof instance.options.onSelectAll == 'function' ) {
+                    instance.options.onSelectAll( instance.element, vals.length );
+                }
+
+                instance._updateSelectAllText();
+                instance._updatePlaceholderText();
+            });
+
+            // add options to wrapper
+            var options = [];
+            $(instance.element).children().each(function(){
+                if( this.nodeName == 'OPTGROUP' ) {
+                    var groupOptions = [];
+
+                    $(this).children('option').each(function(){
+                        var thisOptionAtts = {};
+                        for( var i = 0; i < instance.options.optionAttributes.length; i++ ) {
+                            var thisOptAttr = instance.options.optionAttributes[ i ];
+
+                            if( $(this).attr( thisOptAttr ) !== undefined ) {
+                                thisOptionAtts[ thisOptAttr ] = $(this).attr( thisOptAttr );
+                            }
+                        }
+
+                        groupOptions.push({
+                            name   : $(this).text(),
+                            value  : $(this).val(),
+                            checked: $(this).prop( 'selected' ),
+                            attributes: thisOptionAtts
+                        });
+                    });
+
+                    options.push({
+                        label  : $(this).attr('label'),
+                        options: groupOptions
+                    });
+                }
+                else if( this.nodeName == 'OPTION' ) {
+                    var thisOptionAtts = {};
+                    for( var i = 0; i < instance.options.optionAttributes.length; i++ ) {
+                        var thisOptAttr = instance.options.optionAttributes[ i ];
+
+                        if( $(this).attr( thisOptAttr ) !== undefined ) {
+                            thisOptionAtts[ thisOptAttr ] = $(this).attr( thisOptAttr );
+                        }
+                    }
+
+                    options.push({
+                        name      : $(this).text(),
+                        value     : $(this).val(),
+                        checked   : $(this).prop( 'selected' ),
+                        attributes: thisOptionAtts
+                    });
+                }
+                else {
+                    // bad option
+                    return true;
+                }
+            });
+            instance.loadOptions( options, true, false );
+
+            // BIND SELECT ACTION
+            optionsWrap.on( 'click', 'input[type="checkbox"]', function(){
+                $(this).closest( 'li' ).toggleClass( 'selected' );
+
+                var select = optionsWrap.parent().siblings('.ms-list-'+ instance.listNumber +'.jqmsLoaded');
+
+                // toggle clicked option
+                select.find('option[value="'+ instance._escapeSelector( $(this).val() ) +'"]').prop(
+                    'selected', $(this).is(':checked')
+                ).closest('select').trigger('change');
+
+                // USER CALLBACK
+                if( typeof instance.options.onOptionClick == 'function' ) {
+                    instance.options.onOptionClick(instance.element, this);
+                }
+
+                instance._updateSelectAllText();
+                instance._updatePlaceholderText();
+            });
+
+            // BIND FOCUS EVENT
+            optionsWrap.on('focusin', 'input[type="checkbox"]', function(){
+                $(this).closest('label').addClass('focused');
+            }).on('focusout', 'input[type="checkbox"]', function(){
+                $(this).closest('label').removeClass('focused');
+            });
+
+            // USER CALLBACK
+            if( typeof instance.options.onLoad === 'function' ) {
+                instance.options.onLoad( instance.element );
+            }
+
+            // hide native select list
+            $(instance.element).hide();
+        },
+
+        /* LOAD SELECT OPTIONS */
+        loadOptions: function( options, overwrite, updateSelect ) {
+            overwrite    = (typeof overwrite == 'boolean') ? overwrite : true;
+            updateSelect = (typeof updateSelect == 'boolean') ? updateSelect : true;
+
+            var instance    = this;
+            var select      = $(instance.element);
+            var optionsList = select.siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options > ul');
+            var optionsWrap = select.siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options');
+
+            if( overwrite ) {
+                optionsList.find('> li').remove();
+
+                if( updateSelect ) {
+                    select.find('> *').remove();
+                }
+            }
+
+            var containers = [];
+            for( var key in options ) {
+                // Prevent prototype methods injected into options from being iterated over.
+                if( !options.hasOwnProperty( key ) ) {
+                    continue;
+                }
+
+                var thisOption      = options[ key ];
+                var container       = $('<li/>');
+                var appendContainer = true;
+
+                // OPTION
+                if( thisOption.hasOwnProperty('value') ) {
+                    if( instance.options.showCheckbox && instance.options.checkboxAutoFit ) {
+                        container.addClass('ms-reflow');
+                    }
+
+                    // add option to ms dropdown
+                    instance._addOption( container, thisOption );
+
+                    if( updateSelect ) {
+                        var selOption = $('<option value="'+ thisOption.value +'">'+ thisOption.name +'</option>');
+
+                        // add custom user attributes
+                        if( thisOption.hasOwnProperty('attributes') && Object.keys( thisOption.attributes ).length ) {
+                            selOption.attr( thisOption.attributes );
+                        }
+
+                        // mark option as selected
+                        if( thisOption.checked ) {
+                            selOption.prop( 'selected', true );
+                        }
+
+                        select.append( selOption );
+                    }
+                }
+                // OPTGROUP
+                else if( thisOption.hasOwnProperty('options') ) {
+                    var optGroup = $('<optgroup label="'+ thisOption.label +'"></optgroup>');
+
+                    optionsList.find('> li.optgroup > span.label').each(function(){
+                        if( $(this).text() == thisOption.label ) {
+                            container       = $(this).closest('.optgroup');
+                            appendContainer = false;
+                        }
+                    });
+
+                    // prepare to append optgroup to select element
+                    if( updateSelect ) {
+                        if( select.find('optgroup[label="'+ thisOption.label +'"]').length ) {
+                            optGroup = select.find('optgroup[label="'+ thisOption.label +'"]');
+                        }
+                        else {
+                            select.append( optGroup );
+                        }
+                    }
+
+                    // setup container
+                    if( appendContainer ) {
+                        container.addClass('optgroup');
+                        container.append('<span class="label">'+ thisOption.label +'</span>');
+                        container.find('> .label').css({
+                            clear: 'both'
+                        });
+
+                        // add select all link
+                        if( instance.options.selectGroup ) {
+                            container.append('<a href="#" class="ms-selectall">' + instance.options.texts.selectAll + '</a>');
+                        }
+
+                        container.append('<ul/>');
+                    }
+
+                    for( var gKey in thisOption.options ) {
+                        // Prevent prototype methods injected into options from
+                        // being iterated over.
+                        if( !thisOption.options.hasOwnProperty( gKey ) ) {
+                            continue;
+                        }
+
+                        var thisGOption = thisOption.options[ gKey ];
+                        var gContainer  = $('<li/>');
+                        if( instance.options.showCheckbox && instance.options.checkboxAutoFit ) {
+                            gContainer.addClass('ms-reflow');
+                        }
+
+                        // no clue what this is we hit (skip)
+                        if( !thisGOption.hasOwnProperty('value') ) {
+                            continue;
+                        }
+
+                        instance._addOption( gContainer, thisGOption );
+
+                        container.find('> ul').append( gContainer );
+
+                        // add option to optgroup in select element
+                        if( updateSelect ) {
+                            var selOption = $('<option value="'+ thisGOption.value +'">'+ thisGOption.name +'</option>');
+
+                            // add custom user attributes
+                            if( thisGOption.hasOwnProperty('attributes') && Object.keys( thisGOption.attributes ).length ) {
+                                selOption.attr( thisGOption.attributes );
+                            }
+
+                            // mark option as selected
+                            if( thisGOption.checked ) {
+                                selOption.prop( 'selected', true );
+                            }
+
+                            optGroup.append( selOption );
+                        }
+                    }
+                }
+                else {
+                    // no clue what this is we hit (skip)
+                    continue;
+                }
+
+                if( appendContainer ) {
+                    containers.push( container );
+                }
+            }
+            optionsList.append( containers );
+
+            // pad out label for room for the checkbox
+            if( instance.options.checkboxAutoFit && instance.options.showCheckbox && !optionsWrap.hasClass('hide-checkbox') ) {
+                var chkbx = optionsList.find('.ms-reflow:eq(0) input[type="checkbox"]');
+                if( chkbx.length ) {
+                    var checkboxWidth = chkbx.outerWidth();
+                        checkboxWidth = checkboxWidth ? checkboxWidth : 15;
+
+                    optionsList.find('.ms-reflow label').css(
+                        'padding-left',
+                        (parseInt( chkbx.closest('label').css('padding-left') ) * 2) + checkboxWidth
+                    );
+
+                    optionsList.find('.ms-reflow').removeClass('ms-reflow');
+                }
+            }
+
+            // update placeholder text
+            instance._updatePlaceholderText();
+
+            // RESET COLUMN STYLES
+            optionsWrap.find('ul').css({
+                'column-count'        : '',
+                'column-gap'          : '',
+                '-webkit-column-count': '',
+                '-webkit-column-gap'  : '',
+                '-moz-column-count'   : '',
+                '-moz-column-gap'     : ''
+            });
+
+            // COLUMNIZE
+            if( select.find('optgroup').length ) {
+                // float non grouped options
+                optionsList.find('> li:not(.optgroup)').css({
+                    'float': 'left',
+                    width: (100 / instance.options.columns) +'%'
+                });
+
+                // add CSS3 column styles
+                optionsList.find('li.optgroup').css({
+                    clear: 'both'
+                }).find('> ul').css({
+                    'column-count'        : instance.options.columns,
+                    'column-gap'          : 0,
+                    '-webkit-column-count': instance.options.columns,
+                    '-webkit-column-gap'  : 0,
+                    '-moz-column-count'   : instance.options.columns,
+                    '-moz-column-gap'     : 0
+                });
+
+                // for crappy IE versions float grouped options
+                if( this._ieVersion() && (this._ieVersion() < 10) ) {
+                    optionsList.find('li.optgroup > ul > li').css({
+                        'float': 'left',
+                        width: (100 / instance.options.columns) +'%'
+                    });
+                }
+            }
+            else {
+                // add CSS3 column styles
+                optionsList.css({
+                    'column-count'        : instance.options.columns,
+                    'column-gap'          : 0,
+                    '-webkit-column-count': instance.options.columns,
+                    '-webkit-column-gap'  : 0,
+                    '-moz-column-count'   : instance.options.columns,
+                    '-moz-column-gap'     : 0
+                });
+
+                // for crappy IE versions float grouped options
+                if( this._ieVersion() && (this._ieVersion() < 10) ) {
+                    optionsList.find('> li').css({
+                        'float': 'left',
+                        width: (100 / instance.options.columns) +'%'
+                    });
+                }
+            }
+
+            // update un/select all logic
+            instance._updateSelectAllText();
+        },
+
+        /* UPDATE MULTISELECT CONFIG OPTIONS */
+        settings: function( options ) {
+            this.options = $.extend( true, {}, this.options, options );
+            this.reload();
+        },
+
+        /* RESET THE DOM */
+        unload: function() {
+            $(this.element).siblings('#ms-list-'+ this.listNumber +'.ms-options-wrap').remove();
+            $(this.element).show(function(){
+                $(this).css('display','').removeClass('jqmsLoaded');
+            });
+        },
+
+        /* RELOAD JQ MULTISELECT LIST */
+        reload: function() {
+            // remove existing options
+            $(this.element).siblings('#ms-list-'+ this.listNumber +'.ms-options-wrap').remove();
+            $(this.element).removeClass('jqmsLoaded');
+
+            // load element
+            this.load();
+        },
+
+        // RESET BACK TO DEFAULT VALUES & RELOAD
+        reset: function() {
+            var defaultVals = [];
+            $(this.element).find('option').each(function(){
+                if( $(this).prop('defaultSelected') ) {
+                    defaultVals.push( $(this).val() );
+                }
+            });
+
+            $(this.element).val( defaultVals );
+
+            this.reload();
+        },
+
+        disable: function( status ) {
+            status = (typeof status === 'boolean') ? status : true;
+            $(this.element).prop( 'disabled', status );
+            $(this.element).siblings('#ms-list-'+ this.listNumber +'.ms-options-wrap').find('button:first-child')
+                .prop( 'disabled', status );
+        },
+
+        /** PRIVATE FUNCTIONS **/
+        // update the un/select all texts based on selected options and visibility
+        _updateSelectAllText: function(){
+            if( !this.updateSelectAll ) {
+                return;
+            }
+
+            var instance = this;
+
+            // select all not used at all so just do nothing
+            if( !instance.options.selectAll && !instance.options.selectGroup ) {
+                return;
+            }
+
+            var optionsWrap = $(instance.element).siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options');
+
+            // update un/select all text
+            optionsWrap.find('.ms-selectall').each(function(){
+                var unselected = $(this).parent().find('li:not(.optgroup,.selected,.ms-hidden)');
+
+                $(this).text(
+                    unselected.length ? instance.options.texts.selectAll : instance.options.texts.unselectAll
+                );
+            });
+        },
+
+        // update selected placeholder text
+        _updatePlaceholderText: function(){
+            if( !this.updatePlaceholder ) {
+                return;
+            }
+
+            var instance       = this;
+            var select         = $(instance.element);
+            var selectVals     = select.val() ? select.val() : [];
+            var placeholder    = select.siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> button:first-child');
+            var placeholderTxt = placeholder.find('span');
+            var optionsWrap    = select.siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options');
+
+            // if there are disabled options get those values as well
+            if( select.find('option:selected:disabled').length ) {
+                selectVals = [];
+                select.find('option:selected').each(function(){
+                    selectVals.push( $(this).val() );
+                });
+            }
+
+            // get selected options
+            var selOpts = [];
+            for( var key in selectVals ) {
+                // Prevent prototype methods injected into options from being iterated over.
+                if( !selectVals.hasOwnProperty( key ) ) {
+                    continue;
+                }
+
+                selOpts.push(
+                    $.trim( select.find('option[value="'+ instance._escapeSelector( selectVals[ key ] ) +'"]').text() )
+                );
+
+                if( selOpts.length >= instance.options.maxPlaceholderOpts ) {
+                    break;
+                }
+            }
+
+            // UPDATE PLACEHOLDER TEXT WITH OPTIONS SELECTED
+            placeholderTxt.text( selOpts.join( ', ' ) );
+
+            if( selOpts.length ) {
+                optionsWrap.closest('.ms-options-wrap').addClass('ms-has-selections');
+            }
+            else {
+                optionsWrap.closest('.ms-options-wrap').removeClass('ms-has-selections');
+            }
+
+            // replace placeholder text
+            if( !selOpts.length ) {
+                placeholderTxt.text( instance.options.texts.placeholder );
+            }
+            // if copy is larger than button width use "# selected"
+            else if( (placeholderTxt.width() > placeholder.width()) || (selOpts.length != selectVals.length) ) {
+                placeholderTxt.text( selectVals.length + instance.options.texts.selectedOptions );
+            }
+        },
+
+        // Add option to the custom dom list
+        _addOption: function( container, option ) {
+            var instance = this;
+            var thisOption = $('<label/>', {
+                for : 'ms-opt-'+ msOptCounter,
+                text: option.name
+            });
+
+            var thisCheckbox = $('<input>', {
+                type : 'checkbox',
+                title: option.name,
+                id   : 'ms-opt-'+ msOptCounter,
+                value: option.value
+            });
+
+            // add user defined attributes
+            if( option.hasOwnProperty('attributes') && Object.keys( option.attributes ).length ) {
+                thisCheckbox.attr( option.attributes );
+            }
+
+            if( option.checked ) {
+                container.addClass('default selected');
+                thisCheckbox.prop( 'checked', true );
+            }
+
+            thisOption.prepend( thisCheckbox );
+
+            var searchTerm = '';
+            if( instance.options.searchOptions.searchText ) {
+                searchTerm += ' ' + option.name.toLowerCase();
+            }
+            if( instance.options.searchOptions.searchValue ) {
+                searchTerm += ' ' + option.value.toLowerCase();
+            }
+
+            container.attr( 'data-search-term', $.trim( searchTerm ) ).prepend( thisOption );
+
+            msOptCounter = msOptCounter + 1;
+        },
+
+        // check ie version
+        _ieVersion: function() {
+            var myNav = navigator.userAgent.toLowerCase();
+            return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+        },
+
+        // escape selector
+        _escapeSelector: function( string ) {
+            if( typeof $.escapeSelector == 'function' ) {
+                return $.escapeSelector( string );
+            }
+            else {
+                return string.replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&");
+            }
+        }
+    };
+
+    // ENABLE JQUERY PLUGIN FUNCTION
+    $.fn.multiselect = function( options ){
+        if( !this.length ) {
+            return;
+        }
+
+        var args = arguments;
+        var ret;
+
+        // menuize each list
+        if( (options === undefined) || (typeof options === 'object') ) {
+            return this.each(function(){
+                if( !$.data( this, 'plugin_multiselect' ) ) {
+                    $.data( this, 'plugin_multiselect', new MultiSelect( this, options ) );
+                }
+            });
+        } else if( (typeof options === 'string') && (options[0] !== '_') && (options !== 'init') ) {
+            this.each(function(){
+                var instance = $.data( this, 'plugin_multiselect' );
+
+                if( instance instanceof MultiSelect && typeof instance[ options ] === 'function' ) {
+                    ret = instance[ options ].apply( instance, Array.prototype.slice.call( args, 1 ) );
+                }
+
+                // special destruct handler
+                if( options === 'unload' ) {
+                    $.data( this, 'plugin_multiselect', null );
+                }
+            });
+
+            return ret;
+        }
+    };
+}(jQuery));
+
 
 /***/ })
 /******/ ]);

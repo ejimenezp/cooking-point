@@ -20,6 +20,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "@nobleclem/jquery-multiselect": "^2.4.16",
         "bootswatch": "^4.1.2",
         "jquery-serializejson": "^2.8.1",
         "jquery-ui": "^1.12.0",

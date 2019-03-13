@@ -51,7 +51,7 @@
 		              <a href="/admin/report">Reports</a>
 		            </li>
 		            <li>
-		              <a href="#" onclick="location.reload();return false">Actualizar</a>
+		              <a href="/admin/blogtool">Blog</a>
 		            </li>
 		            <li>
 		              <a href="/admin/logout">Salir</a>
@@ -71,7 +71,7 @@
 		              <a class="nav-link" href="/admin/report">Reports</a>
 		            </li>
 		            <li class="nav-item">
-		              <a class="nav-link" href="#" onclick="location.reload();return false">Actualizar</a>
+		              <a class="nav-link" href="/admin/blogtool">Blog</a>
 		            </li>
 		            <li class="nav-item">
 		              <a class="nav-link" href="/admin/logout">Salir</a>
