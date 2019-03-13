@@ -41,13 +41,9 @@ Route::get('/best-cooking-classes-madrid', function () { return view('pages.best
 //
 // blog entries
 //
-Route::get('/blog', function () { return view('pages.blog'); });
-Route::get('/paella-fish-stock', function () { return view('blog.fish-stock'); });
-Route::get('/iberico-ham', function () { return view('blog.iberico-ham'); });
-Route::get('/protected-designation-of-origin', function () { return view('blog.dop'); });
-Route::get('/spanish-potato-omelet', function () { return view('blog.tortilla'); });
-Route::get('/how-to-use-olive-oil', function () { return view('blog.how-to-olive-oil'); });
-Route::get('/how-is-olive-oil-made', function () { return view('blog.how-oil-made'); });
+Route::get('/blog', 'BlogtoolController@indexforuser');
+Route::get('/blog/{friendlyurl}', 'BlogtoolController@showpost');
+Route::get('/sitemap.txt', 'BlogtoolController@sitemap');
 
 
 
@@ -63,6 +59,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('', function() { return view('admin.index'); });
     Route::get('calendarevent', function() { return view('admin.index'); });
     Route::get('booking', function() { return view('admin.index'); });
+    Route::get('blogtool', function() { return view('admin.postindex'); });
+    Route::get('blogtool/{id}', function($id) { return view('admin.post',['id' => $id]); });
+    Route::get('blogtool/preview/{id}', 'BlogtoolController@preview' );
     Route::get('report', function() { return view('admin.reportindex'); });
     Route::post('report/{id}', 'ReportController@report');
     Route::get('classemails', function() { return view('admin.classemails'); });

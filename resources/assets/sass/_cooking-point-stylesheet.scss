@@ -127,9 +127,16 @@ a:hover {
     width: 1em;
     margin-left: -1em;
   }
+
   ol > li {counter-increment: li}
 }
 
+.blog-thumbnail {
+  a, a:hover {
+    color: inherit;
+  }
+
+}
 // home-notice styles (obsolete)
 
 .home-notice {
@@ -342,6 +349,16 @@ input, select, textarea {
   }
 }
 
+.card-deck {
+  a {
+    color: inherit;
+    flex: inherit;
+  }
+  .btn {
+    color: white;
+  }
+}
+
 // datepickers
 
 @mixin browser($browsers: Mozilla) {
@@ -446,6 +463,11 @@ input, select, textarea {
 }
 
 .admin {
+
+  textarea[name=body] {
+    font-family: courier;
+    font-size: small;
+  }
 
   .header1 {
     font-size: 1.5rem;

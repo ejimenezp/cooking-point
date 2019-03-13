@@ -118,6 +118,32 @@
 </div>
 </div>
 
+
+<!-- Modals for Blogposts -->
+
+<!-- Delete item -->
+<div class="modal fade" id="modal_post_delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Post</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Post and associated images will be removed. Please confirm</p>
+        </div>
+        <div class="modal-footer">
+            <form >
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <button type="button" id="modal_button_post_delete" class="btn btn-primary" >Delete</button>
+            </form>
+       </div>
+      </div>
+
+</div>
+</div>
+
 <!-- Generic modal  -->
 
 <div class="modal fade" id="modal_admin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
