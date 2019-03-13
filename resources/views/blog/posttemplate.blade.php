@@ -12,7 +12,7 @@
 
 	<div id="text">{!! $post->body !!}</div>
 
-	@if (count($related) > 1) 
+	@if (count($related) > 0) 
 		<div class="divider"></div>
 		<h2 class="header2">Related posts</h2>
 
