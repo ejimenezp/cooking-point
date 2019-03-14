@@ -12,11 +12,11 @@
 
 <div class="row justify-content-center">
 	<div class="cp-class-details col-10 col-sm-8">
-		<i class="fa fa-lg fa-map-marker"></i>&nbsp;&nbsp;Calle de Moratin, 11  28014 Madrid (Spain)<br/>
- 		<i class="fa fa-lg fa-subway"></i> Metro Anton Martin (Line 1), exit Amor de Dios St.<br/>
- 		<i class="fa fa-lg fa-clock-o"></i> Monday to Saturday, 9:30 am - 9:30 pm<br/>
- 		<i class="fa fa-lg fa-envelope-o"></i> <a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a><br/>
- 		<i class="fa fa-lg fa-phone"></i> <a href="tel:(+34)910115154">(+34) 910 115 154</a><br/>		
+		<i class="fas fa-lg fa-map-marked-alt"></i>&nbsp;&nbsp;Calle de Moratin, 11  28014 Madrid (Spain)<br/>
+ 		<i class="fas fa-lg fa-subway"></i> Metro Anton Martin (Line 1), exit Amor de Dios St.<br/>
+ 		<i class="far fa-lg fa-clock"></i> Monday to Saturday, 9:30 am - 9:30 pm<br/>
+ 		<i class="far fa-lg fa-envelope"></i> <a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a><br/>
+ 		<i class="fas fa-lg fa-phone"></i> <a href="tel:(+34)910115154">(+34) 910 115 154</a><br/>		
 	</div>
 
 <div class="col-12">

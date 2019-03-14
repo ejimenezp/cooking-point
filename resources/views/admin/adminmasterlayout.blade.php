@@ -23,7 +23,8 @@
   			}
 	  	</style>  
 		<script type='text/javascript' src='{{ mix('/js/admin.js') }}'></script>
-		<script src="https://use.fontawesome.com/c502308363.js"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<!-- <script src="https://use.fontawesome.com/c502308363.js"></script> -->
 	</head>
 	
   <body>
