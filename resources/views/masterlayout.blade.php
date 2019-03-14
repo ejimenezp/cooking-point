@@ -17,7 +17,8 @@
       </style>  
       <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
       <script  type='text/javascript' src='{{ mix('/js/app.js') }}'></script>
-      <script  type='text/javascript' src="https://use.fontawesome.com/c502308363.js"></script>
+      <!-- <script  type='text/javascript' src="https://use.fontawesome.com/c502308363.js"></script> -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
       @if (App::environment() == 'production')
         <!-- Google Analytics -->
@@ -65,13 +66,11 @@
 @section('footer')
 
     <div class="primary-color">
-      <div class="pull-left" style="padding-top:1.6em;">© Cooking Point, SL</div>
-      <div class="pull-right">Follow us on:
-        <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><i class="fa fa-3x fa-facebook-official"></i></a>
+      <div class="float-left">© Cooking Point, SL</div>
+      <div class="float-right">Follow us on:
+        <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><i class="fab fa-2x fa-facebook-square"></i></a>
         &nbsp;
-        <a href="https://google.com/+CookingPointMadrid" title="google plus" target="_blank"><i class="fa fa-3x fa-google-plus-square"></i></a>
-        &nbsp;
-        <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><i class="fa fa-3x fa-instagram"></i></a>        
+        <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><i class="fab fa-2x fa-instagram"></i></a>        
       </div>      
     </div>
 @endsection

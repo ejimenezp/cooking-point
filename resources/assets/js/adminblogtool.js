@@ -78,11 +78,11 @@ function refresh_post_index() {
 				"</td><td onclick=\"location.href=\'/admin/blogtool/"+ result[j].id +"\'\">"+ 
 				result[j].publishing_date +
 				"</td><td>" + 
-				'<button class="btn btn-primary btn-sm button_post_duplicate" data-postid="' + result[j].id + '">Dup</button>' +
+				'<i class="far fa-lg fa-clone button_post_duplicate" data-postid="' + result[j].id + '"></i>' +
 				" " +
-				'<button class="btn btn-secondary btn-sm button_post_up">Up</button>' +
+				'<i class="fas fa-lg fa-arrow-circle-up button_post_up"></i>' +
 				" " +
-				'<button class="btn btn-secondary btn-sm button_post_down">Down</button>' +
+				'<i class="fas fa-lg fa-arrow-circle-down button_post_down"></i>' +
 				"</td></tr>"
 				);
 		}
