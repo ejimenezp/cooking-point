@@ -96,7 +96,7 @@ class BlogtoolController extends Controller
         for ($i = 0; $i < sizeof($array_related) && $i < 3; $i++) {
             array_push($array, $this->thumbnail($array_related[$i]));
         }
-        $post->body = str_replace('POSTIMAGE/', '/images/blog/'. $post->shortname . '/', $post->body);
+        $post->body = str_replace('POSTIMAGES/', '/images/blog/'. $post->shortname . '/', $post->body);
         return view('blog.posttemplate', ['post' => $post, 'related' => $array]);
     }
 
