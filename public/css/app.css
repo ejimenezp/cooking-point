@@ -11293,9 +11293,13 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   padding: inherit;
 }
 
-.admin textarea[name=body] {
+.admin textarea[name=body],
+.admin pre {
   font-family: courier;
   font-size: small;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
 }
 
 .admin .header1,

@@ -15,7 +15,7 @@
 					<form id="leftform" class="form-horizontal" role="form" onsubmit="return false;">
 			   			{{ csrf_field() }}
 			   			<input type="hidden" name="id">
-			   			<table class="table">
+			   			<table class="table table-sm table-borderless">
 							<tr>
 								<td>
 									Shortname:
@@ -72,7 +72,7 @@
 
 				<div class="col-md-6">
 					<form id="rightform" class="form-horizontal" role="form" onsubmit="return false;">
-			   			<table class="table">
+			   			<table class="table table-sm table-borderless">
 							<tr>
 								<td colspan="2">
 									Uploaded files:
@@ -122,13 +122,12 @@
 			<div class="row">
 				<div class="col-md-12">
 					<form id="bottomform" class="form-horizontal" role="form" onsubmit="return false;">
-			   			<table class="table">
+			   			<table class="table table-sm table-borderless">
 							<tr>
 								<td>
 									Texto:
-								</td>
-								<td>
-									<textarea name="body"></textarea>
+
+									<textarea name="body" rows="12"></textarea>
 								</td>
 							</tr>
 			   			</table>
