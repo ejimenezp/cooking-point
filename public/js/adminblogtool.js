@@ -55250,6 +55250,29 @@ $('#button_post_index_save').click(function () {
 	});
 });
 
+$('#button_post_index_toggle').click(function () {
+	var status;
+	var new_state,
+	    current = $('#blogposts_table').data("toggle");
+	if (current == 'ALL') {
+		new_state = 'PUBLISHED';
+		$('#button_post_index_toggle').text('View: all');
+		$('#blogposts_table tbody tr').each(function () {
+			status = $(this).find('td:eq(4)').text();
+			if (status != 'PUBLISHED') {
+				$(this).hide();
+			}
+		});
+	} else {
+		new_state = 'ALL';
+		$('#button_post_index_toggle').text('View: published');
+		$('#blogposts_table tbody tr').each(function () {
+			$(this).show();
+		});
+	}
+	$('#blogposts_table').data("toggle", new_state);
+});
+
 $('#button_post_update').click(function () {
 
 	$('.loading').show();
