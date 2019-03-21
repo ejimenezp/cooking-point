@@ -18,7 +18,7 @@
 			  }
 	  	</style>  
 		<link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
-		<script type='text/javascript' src='{{ mix('/js/classemails.js') }}'></script>
+		<script type='text/javascript' src='{{ mix("/js/classemails.js") }}'></script>
 		<script src="https://use.fontawesome.com/c502308363.js"></script>
 	</head>
 	
@@ -35,7 +35,7 @@
 					<p>
 						Dear guest,<br/>
 						<br/>
-						We'd like to send you an email tomorrow, to kindly ask you to review us online. For that reason, we are asking you to add your email address if it is not in the table.<br/><br/>
+						We'd like to send you an email tomorrow, to kindly ask you to review us online. For that reason, we are asking you to add your email address if it is not on the table.<br/><br/>
 						Thank you very much in advance.
 					</p>
 					<table class="table" id="classemails_table">
