@@ -9,7 +9,7 @@
 	<div class="col-md-10">
 
 		<h1 class="header1">Posts</h1>
-		<p><button class="btn btn-light btn-sm"id="button_post_index_toggle">View: published</button><button class="btn btn-primary btn-sm " style="display:none;" id="button_post_index_save" class="d-none">Save Order</button></p>
+		<p><button class="btn btn-light btn-sm"id="button_post_index_toggle">View: all</button><button class="btn btn-primary btn-sm " style="display:none;" id="button_post_index_save" class="d-none">Save Order</button></p>
 		<table class="table table-sm table-hover" id="blogposts_table" data-toggle="ALL">
 			<thead>
 				<tr>
@@ -18,7 +18,6 @@
 					<th>Title</th>
 					<th>Friendly URL</th>
 					<th>Status</th>
-					<th>Post date</th>
 					<th>Actions </th>
 				</tr>
 			</thead>

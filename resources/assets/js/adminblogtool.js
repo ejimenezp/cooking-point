@@ -76,8 +76,6 @@ function refresh_post_index() {
 				result[j].friendly_url +
 				"</td><td onclick=\"location.href=\'/admin/blogtool/"+ result[j].id +"\'\">"+ 
 				result[j].status +
-				"</td><td onclick=\"location.href=\'/admin/blogtool/"+ result[j].id +"\'\">"+ 
-				result[j].publishing_date +
 				"</td><td>" + 
 				'<i class="far fa-lg fa-clone button_post_duplicate" data-postid="' + result[j].id + '"></i>' +
 				" " +
@@ -153,7 +151,7 @@ $('#button_post_index_toggle').click(function() {
 	var new_state, current = $('#blogposts_table').data("toggle")
 	if (current == 'ALL') {
 		new_state = 'PUBLISHED'
-		$('#button_post_index_toggle').text('View: all')
+		$('#button_post_index_toggle').text('View: published')
 		$('#blogposts_table tbody tr').each(function() {
 			status = $(this).find('td:eq(4)').text()
 			if (status != 'PUBLISHED') {
@@ -162,7 +160,7 @@ $('#button_post_index_toggle').click(function() {
 		})
 	} else {
 		new_state = 'ALL'
-		$('#button_post_index_toggle').text('View: published')	
+		$('#button_post_index_toggle').text('View: date')	
 		$('#blogposts_table tbody tr').each(function() {
 			$(this).show()
 		})

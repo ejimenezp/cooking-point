@@ -49,7 +49,7 @@ class BlogtoolController extends Controller
     function indexforadmin()
     {
     	$blogposts = Blogpost::orderBy('display_position')->get();
-        $subset = $blogposts->map(function ($post) { return $post->only(['id', 'shortname', 'title', 'friendly_url', 'status', 'publishing_date', 'display_position']); });
+        $subset = $blogposts->map(function ($post) { return $post->only(['id', 'shortname', 'title', 'friendly_url', 'status', 'display_position']); });
         return $subset;
     }
 
