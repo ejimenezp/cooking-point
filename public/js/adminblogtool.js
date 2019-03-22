@@ -55189,7 +55189,7 @@ function refresh_post_index() {
 	$.get('/api/blogtool/index', function (result) {
 		$('#blogposts_table > tbody').empty();
 		for (var j = 0; j < result.length; j++) {
-			$('#blogposts_table > tbody:last').append('<tr postid="' + result[j].id + '"><td onclick=\"location.href=\'/admin/blogtool/' + result[j].id + "\'\">" + result[j].id + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].shortname + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].title + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].friendly_url + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].status + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].publishing_date + "</td><td>" + '<i class="far fa-lg fa-clone button_post_duplicate" data-postid="' + result[j].id + '"></i>' + " " + '<i class="fas fa-lg fa-arrow-circle-up button_post_up"></i>' + " " + '<i class="fas fa-lg fa-arrow-circle-down button_post_down"></i>' + "</td></tr>");
+			$('#blogposts_table > tbody:last').append('<tr postid="' + result[j].id + '"><td onclick=\"location.href=\'/admin/blogtool/' + result[j].id + "\'\">" + result[j].id + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].shortname + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].title + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].friendly_url + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].status + "</td><td>" + '<i class="far fa-lg fa-clone button_post_duplicate" data-postid="' + result[j].id + '"></i>' + " " + '<i class="fas fa-lg fa-arrow-circle-up button_post_up"></i>' + " " + '<i class="fas fa-lg fa-arrow-circle-down button_post_down"></i>' + "</td></tr>");
 		}
 	});
 }
@@ -55257,7 +55257,7 @@ $('#button_post_index_toggle').click(function () {
 	    current = $('#blogposts_table').data("toggle");
 	if (current == 'ALL') {
 		new_state = 'PUBLISHED';
-		$('#button_post_index_toggle').text('View: all');
+		$('#button_post_index_toggle').text('View: published');
 		$('#blogposts_table tbody tr').each(function () {
 			status = $(this).find('td:eq(4)').text();
 			if (status != 'PUBLISHED') {
@@ -55266,7 +55266,7 @@ $('#button_post_index_toggle').click(function () {
 		});
 	} else {
 		new_state = 'ALL';
-		$('#button_post_index_toggle').text('View: published');
+		$('#button_post_index_toggle').text('View: date');
 		$('#blogposts_table tbody tr').each(function () {
 			$(this).show();
 		});
