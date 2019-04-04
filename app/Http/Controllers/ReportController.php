@@ -203,7 +203,9 @@ class ReportController extends Controller
                                 calendarevents.time as time, 
                                 calendarevents.type as type,
                                 stf.name as cook,
-                                scnd.name as second
+                                stf.style as cook_style,
+                                scnd.name as second,
+                                scnd.style as second_style
                         FROM calendarevents, staff as stf, staff as scnd
                         WHERE calendarevents.date >= '$request->start_date' 
                             AND calendarevents.date <= '$request->end_date'
@@ -233,8 +235,8 @@ class ReportController extends Controller
 
             foreach ($dbresult as $event) {
 
-                $cook = '<span class="' . $event->cook . '">' . $event->cook . '</span>';
-                $second_cook = ($event->second == "n.a." ? "" : " , " . '<span class="' . $event->second . '">' . $event->second . '</span>');
+                $cook = '<span style="' . $event->cook_style . '">' . $event->cook . '</span>';
+                $second_cook = ($event->second == "n.a." ? "" : " , " . '<span style="' . $event->second_style . '">' . $event->second . '</span>');
                 if ($event->date == $date->toDateString()) {
                     if ($event->time <= '14:00:00') {
                         $line->morning = $cook . $second_cook;
