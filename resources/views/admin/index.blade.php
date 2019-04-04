@@ -309,7 +309,7 @@
 						</td>
 						<td>
 							<input name="locator" style="width:50%;" type="text" value="" >&nbsp
-							<button id="button_booking_copy" class="btn btn-primary btn-sm">Copiar</button
+							<button id="button_booking_copy" class="btn btn-primary btn-sm">Copiar</button>
 						</td>
 					</tr>
 					<tr>
@@ -363,7 +363,7 @@
 							IVA:
 						</td>
 						<td>
-							<input type="checkbox" name="iva" value="1">
+							<input type="checkbox" name="iva">
 						</td>
 					</tr>
 					<tr>
@@ -379,7 +379,7 @@
 							Fecha fija:
 						</td>
 						<td>
-							<input type="checkbox" name="fixed_date" value="1">
+							<input type="checkbox" name="fixed_date">
 						</td>
 					</tr>
 					<tr>
@@ -390,6 +390,11 @@
 							<input type="text" name="invoice" value="">
 						</td>
 					</tr>
+				@else
+					<input type="hidden" name="iva">
+					<input type="hidden" name="hide_price">
+					<input type="hidden" name="fixed_date">
+					<input type="hidden" name="invoice">
 				@endif
 					<tr class="booking_date_input">
 						<td>
