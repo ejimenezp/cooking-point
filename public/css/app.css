@@ -11269,30 +11269,6 @@ html[data-browser*=".NET"] .online .ui-datepicker .ui-datepicker-next span {
   position: static;
 }
 
-.Eduardo {
-  color: red;
-  background-color: lightpink;
-  padding: inherit;
-}
-
-.Laura {
-  color: green;
-  background-color: lightgreen;
-  padding: inherit;
-}
-
-.Lily {
-  color: darkred;
-  background-color: lightsalmon;
-  padding: inherit;
-}
-
-.Angel {
-  color: darkblue;
-  background-color: lightblue;
-  padding: inherit;
-}
-
 .admin textarea[name=body],
 .admin pre {
   font-family: courier;
