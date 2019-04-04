@@ -51,9 +51,11 @@
 		            <li>
 		              <a href="/admin/report">Reports</a>
 		            </li>
+					@if (app('request')->input('user_role') >= 3)
 		            <li>
 		              <a href="/admin/blogtool">Blog</a>
 		            </li>
+		            @endif
 		            <li>
 		              <a href="/admin/logout">Salir</a>
 		            </li>
@@ -71,9 +73,11 @@
 		            <li class="nav-item">
 		              <a class="nav-link" href="/admin/report">Reports</a>
 		            </li>
+					@if (app('request')->input('user_role') >= 3)
 		            <li class="nav-item">
 		              <a class="nav-link" href="/admin/blogtool">Blog</a>
 		            </li>
+		            @endif
 		            <li class="nav-item">
 		              <a class="nav-link" href="/admin/logout">Salir</a>
 		            </li>
