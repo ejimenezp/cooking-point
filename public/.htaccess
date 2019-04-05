@@ -1,7 +1,12 @@
 #redirects
 
 #blog
-redirect 301 /denominacion-de-origen-protegida https://cookingpoint.es/protected-designation-of-origin
+redirect 301 /paella-fish-stock /blog/paella-fish-stock
+redirect 301 /iberico-ham /blog/iberico-pig-ham
+redirect 301 /paella-fish-stock /blog/paella-fish-stock
+redirect 301 /protected-designation-of-origin /blog/protected-designation-of-origin
+redirect 301 /spanish-potato-omelet /blog/spanish-potato-omelet
+redirect 301 /how-to-use-olive-oil /blog/how-to-use-olive-oil
 
 # bookings
 redirect 301 /en/bookings https://cookingpoint.es/bookings
