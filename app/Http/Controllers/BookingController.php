@@ -54,7 +54,11 @@ class BookingController extends Controller
         $bkg->iva = $source->priceplan->iva;
     	$bkg->price = $source->priceplan->adult * $request->adult + $source->priceplan->child * $request->child;
         $bkg->hide_price = !empty($request->hide_price);
-        $bkg->fixed_date = !empty($request->fixed_date);
+        if ($bkg->calendarevent->type == 'GROUP') {
+            $bkg->fixed_date = true;    
+        } else {
+            $bkg->fixed_date = !empty($request->fixed_date);           
+        }
         $bkg->invoice = $request->invoice;
 
         // backwards compatibility
