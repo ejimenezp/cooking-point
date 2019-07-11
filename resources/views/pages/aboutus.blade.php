@@ -34,19 +34,28 @@
 <div class="row">
 	<div class="col-sm-6">
 		<div class="text-center">
-			<img class="text-center" src="/images/ligia.jpg" alt="lily" />
-		</div>
-		<p class="header2">Lily</p>
-		<p>Lily, born in Madrid, studied translation and cultural management. For the last several years, she’s been working as a cook and an expert in both Spanish and Latin American gastronomical cultural heritage. She’s a tireless world traveller and has lived in several countries, but when in her home city, she loves sharing all her tricks and curiosities about food and culture in Madrid, and Spain at large. She speaks Spanish, English, French, Portuguese, and Italian.</p>
-	</div>
-
-	<div class="col-sm-6">
-		<div class="text-center">
 			<img class="text-center" src="/images/angel.jpg" alt="angel" />
 		</div>
 		<p class="header2">Angel</p>
 		<p>Full blooded Spaniard, Angel is passionate about cultures and languages that led him to study and work as a tour guide in different countries. While abroad, he also worked in restaurants where got professional cooking knowledge. But long before that, he's always been a keen home cook and supporter of the Mediterranean diet and Spanish cuisine.</p>
 
+	</div>
+	<div class="col-sm-6">
+		<div class="text-center">
+			<img class="text-center" src="/images/teresa.jpg" alt="teresa" />
+		</div>
+		<p class="header2">Teresa</p>
+		<p>Teresa, born in Madrid and raised on her mother’s traditional recipes, is a natural creative talent. She has spent many years inspiring herself and those around her through art, drama and music, while her love to travel has brought her closer to international cultures and cuisine. She has a wealth of experience working in bars and restaurants throughout Spain and is ready to share her passion for artistic Spanish cooking, in her native city. Take this opportunity for a unique, and as we like to say, inTERESAnte experience!</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="offset-sm-3 col-sm-6">
+		<div class="text-center">
+			<img class="text-center" src="/images/cristina.jpg" alt="cristina" />
+		</div>
+		<p class="header2">Cristina</p>
+		<p>Iberian through and through, having lived abroad in various countries for ten years, revisiting and marinating over the local cuisine, family traditions, centuries-old techniques and produce was a matter of rebonding with her roots and beloved heritage. Keen on seasonal, local, slow food, passionate about the intersection between it and the resulting culture. A scholar of the future of traditions and the traditions of the future.</p>
 	</div>
 </div>
 
