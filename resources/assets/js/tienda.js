@@ -127,6 +127,11 @@ $( document ).ready(function() {
 
 	$("#pretty_date").html(ticket_date)
 
+    $(".cambio-pagina").click(function(){
+        location.href = $(this).data('pagina') + '?date=' + $("#realDate").val()
+        return false;
+    })
+
     $(".boton-articulo").click(function(){
 
         if (ticket.articulos.length == 10) {

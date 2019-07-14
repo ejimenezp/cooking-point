@@ -73,7 +73,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
 //
 Route::group(['prefix' => 'tienda', 'middleware' => 'cp-auth'], function () {
 	Route::get('', 'TicketsController@front');
-	Route::get('tickets', function() { return view('tienda.index'); });
+	Route::get('tickets', function() { return view('tienda.sales'); });
 	Route::post('addticket', 'TicketsController@addticket');
 	Route::get('deleteticket', 'TicketsController@deleteticket');
 });
