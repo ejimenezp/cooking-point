@@ -26,7 +26,7 @@ class TicketsController extends Controller
     public function deleteticket (Request $request)
     {
     	TiendaVentas::where('id', $request->id)->update(['anulado' => true]);
-    	return view('tienda.index')->with('date', $request->date);
+    	return view('tienda.sales')->with('date', $request->date);
     }
 
     public function addticket (Request $request)

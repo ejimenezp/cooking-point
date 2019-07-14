@@ -71,12 +71,9 @@
                         <p class="text-center">Thank You!!<br/><br/>.</p>
                     </div>
                 </div>
-                <form role="form" action="/tienda/tickets">
-                <input type="hidden" name="date" id="realDate">
                 <div class="btn btn-lg btn-danger boton-pagar" data-pago="cash">Pay Cash</div>
                 <div class="btn btn-lg btn-danger boton-pagar" data-pago="credit card">Pay Card</div>
-                <button type="submit" class="btn btn-sm btn-secondary">View Sales</button>
-                </form>
+                <div class="btn btn-sm btn-secondary cambio-pagina" data-pagina="/tienda/tickets">View Sales</div>
     		</div>   		
         </div>
     		
