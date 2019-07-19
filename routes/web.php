@@ -63,6 +63,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('blogtool/{id}', function($id) { return view('admin.post',['id' => $id]); });
     Route::get('blogtool/preview/{id}', 'BlogtoolController@preview' );
     Route::get('report', function() { return view('admin.reportindex'); });
+    Route::get('cashbox', function() { return view('cashbox.index'); });
+    Route::get('cashbox/{id}', function($id) { return view('cashbox.sesion',['id' => $id]); });
     Route::post('report/{id}', 'ReportController@report');
     Route::get('classemails', function() { return view('admin.classemails'); });
 });

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 188);
+/******/ 	return __webpack_require__(__webpack_require__.s = 184);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -32536,355 +32536,7 @@ module.exports = webpackContext;
 webpackContext.id = 138;
 
 /***/ }),
-/* 139 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  SerializeJSON jQuery plugin.
-  https://github.com/marioizquierdo/jquery.serializeJSON
-  version 2.8.1 (Dec, 2016)
-
-  Copyright (c) 2012, 2017 Mario Izquierdo
-  Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
-  and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
-*/
-(function (factory) {
-  if (true) { // AMD. Register as an anonymous module.
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if (typeof exports === 'object') { // Node/CommonJS
-    var jQuery = require('jquery');
-    module.exports = factory(jQuery);
-  } else { // Browser globals (zepto supported)
-    factory(window.jQuery || window.Zepto || window.$); // Zepto supported on browsers as well
-  }
-
-}(function ($) {
-  "use strict";
-
-  // jQuery('form').serializeJSON()
-  $.fn.serializeJSON = function (options) {
-    var f, $form, opts, formAsArray, serializedObject, name, value, parsedValue, _obj, nameWithNoType, type, keys, skipFalsy;
-    f = $.serializeJSON;
-    $form = this; // NOTE: the set of matched elements is most likely a form, but it could also be a group of inputs
-    opts = f.setupOpts(options); // calculate values for options {parseNumbers, parseBoolens, parseNulls, ...} with defaults
-
-    // Use native `serializeArray` function to get an array of {name, value} objects.
-    formAsArray = $form.serializeArray();
-    f.readCheckboxUncheckedValues(formAsArray, opts, $form); // add objects to the array from unchecked checkboxes if needed
-
-    // Convert the formAsArray into a serializedObject with nested keys
-    serializedObject = {};
-    $.each(formAsArray, function (i, obj) {
-      name  = obj.name; // original input name
-      value = obj.value; // input value
-      _obj = f.extractTypeAndNameWithNoType(name);
-      nameWithNoType = _obj.nameWithNoType; // input name with no type (i.e. "foo:string" => "foo")
-      type = _obj.type; // type defined from the input name in :type colon notation
-      if (!type) type = f.attrFromInputWithName($form, name, 'data-value-type');
-      f.validateType(name, type, opts); // make sure that the type is one of the valid types if defined
-
-      if (type !== 'skip') { // ignore inputs with type 'skip'
-        keys = f.splitInputNameIntoKeysArray(nameWithNoType);
-        parsedValue = f.parseValue(value, name, type, opts); // convert to string, number, boolean, null or customType
-
-        skipFalsy = !parsedValue && f.shouldSkipFalsy($form, name, nameWithNoType, type, opts); // ignore falsy inputs if specified
-        if (!skipFalsy) {
-          f.deepSet(serializedObject, keys, parsedValue, opts);
-        }
-      }
-    });
-    return serializedObject;
-  };
-
-  // Use $.serializeJSON as namespace for the auxiliar functions
-  // and to define defaults
-  $.serializeJSON = {
-
-    defaultOptions: {
-      checkboxUncheckedValue: undefined, // to include that value for unchecked checkboxes (instead of ignoring them)
-
-      parseNumbers: false, // convert values like "1", "-2.33" to 1, -2.33
-      parseBooleans: false, // convert "true", "false" to true, false
-      parseNulls: false, // convert "null" to null
-      parseAll: false, // all of the above
-      parseWithFunction: null, // to use custom parser, a function like: function(val){ return parsed_val; }
-
-      skipFalsyValuesForTypes: [], // skip serialization of falsy values for listed value types
-      skipFalsyValuesForFields: [], // skip serialization of falsy values for listed field names
-
-      customTypes: {}, // override defaultTypes
-      defaultTypes: {
-        "string":  function(str) { return String(str); },
-        "number":  function(str) { return Number(str); },
-        "boolean": function(str) { var falses = ["false", "null", "undefined", "", "0"]; return falses.indexOf(str) === -1; },
-        "null":    function(str) { var falses = ["false", "null", "undefined", "", "0"]; return falses.indexOf(str) === -1 ? str : null; },
-        "array":   function(str) { return JSON.parse(str); },
-        "object":  function(str) { return JSON.parse(str); },
-        "auto":    function(str) { return $.serializeJSON.parseValue(str, null, null, {parseNumbers: true, parseBooleans: true, parseNulls: true}); }, // try again with something like "parseAll"
-        "skip":    null // skip is a special type that makes it easy to ignore elements
-      },
-
-      useIntKeysAsArrayIndex: false // name="foo[2]" value="v" => {foo: [null, null, "v"]}, instead of {foo: ["2": "v"]}
-    },
-
-    // Merge option defaults into the options
-    setupOpts: function(options) {
-      var opt, validOpts, defaultOptions, optWithDefault, parseAll, f;
-      f = $.serializeJSON;
-
-      if (options == null) { options = {}; }   // options ||= {}
-      defaultOptions = f.defaultOptions || {}; // defaultOptions
-
-      // Make sure that the user didn't misspell an option
-      validOpts = ['checkboxUncheckedValue', 'parseNumbers', 'parseBooleans', 'parseNulls', 'parseAll', 'parseWithFunction', 'skipFalsyValuesForTypes', 'skipFalsyValuesForFields', 'customTypes', 'defaultTypes', 'useIntKeysAsArrayIndex']; // re-define because the user may override the defaultOptions
-      for (opt in options) {
-        if (validOpts.indexOf(opt) === -1) {
-          throw new  Error("serializeJSON ERROR: invalid option '" + opt + "'. Please use one of " + validOpts.join(', '));
-        }
-      }
-
-      // Helper to get the default value for this option if none is specified by the user
-      optWithDefault = function(key) { return (options[key] !== false) && (options[key] !== '') && (options[key] || defaultOptions[key]); };
-
-      // Return computed options (opts to be used in the rest of the script)
-      parseAll = optWithDefault('parseAll');
-      return {
-        checkboxUncheckedValue:    optWithDefault('checkboxUncheckedValue'),
-
-        parseNumbers:  parseAll || optWithDefault('parseNumbers'),
-        parseBooleans: parseAll || optWithDefault('parseBooleans'),
-        parseNulls:    parseAll || optWithDefault('parseNulls'),
-        parseWithFunction:         optWithDefault('parseWithFunction'),
-
-        skipFalsyValuesForTypes:   optWithDefault('skipFalsyValuesForTypes'),
-        skipFalsyValuesForFields:  optWithDefault('skipFalsyValuesForFields'),
-        typeFunctions: $.extend({}, optWithDefault('defaultTypes'), optWithDefault('customTypes')),
-
-        useIntKeysAsArrayIndex: optWithDefault('useIntKeysAsArrayIndex')
-      };
-    },
-
-    // Given a string, apply the type or the relevant "parse" options, to return the parsed value
-    parseValue: function(valStr, inputName, type, opts) {
-      var f, parsedVal;
-      f = $.serializeJSON;
-      parsedVal = valStr; // if no parsing is needed, the returned value will be the same
-
-      if (opts.typeFunctions && type && opts.typeFunctions[type]) { // use a type if available
-        parsedVal = opts.typeFunctions[type](valStr);
-      } else if (opts.parseNumbers  && f.isNumeric(valStr)) { // auto: number
-        parsedVal = Number(valStr);
-      } else if (opts.parseBooleans && (valStr === "true" || valStr === "false")) { // auto: boolean
-        parsedVal = (valStr === "true");
-      } else if (opts.parseNulls    && valStr == "null") { // auto: null
-        parsedVal = null;
-      }
-      if (opts.parseWithFunction && !type) { // custom parse function (apply after previous parsing options, but not if there's a specific type)
-        parsedVal = opts.parseWithFunction(parsedVal, inputName);
-      }
-
-      return parsedVal;
-    },
-
-    isObject:          function(obj) { return obj === Object(obj); }, // is it an Object?
-    isUndefined:       function(obj) { return obj === void 0; }, // safe check for undefined values
-    isValidArrayIndex: function(val) { return /^[0-9]+$/.test(String(val)); }, // 1,2,3,4 ... are valid array indexes
-    isNumeric:         function(obj) { return obj - parseFloat(obj) >= 0; }, // taken from jQuery.isNumeric implementation. Not using jQuery.isNumeric to support old jQuery and Zepto versions
-
-    optionKeys: function(obj) { if (Object.keys) { return Object.keys(obj); } else { var key, keys = []; for(key in obj){ keys.push(key); } return keys;} }, // polyfill Object.keys to get option keys in IE<9
-
-
-    // Fill the formAsArray object with values for the unchecked checkbox inputs,
-    // using the same format as the jquery.serializeArray function.
-    // The value of the unchecked values is determined from the opts.checkboxUncheckedValue
-    // and/or the data-unchecked-value attribute of the inputs.
-    readCheckboxUncheckedValues: function (formAsArray, opts, $form) {
-      var selector, $uncheckedCheckboxes, $el, uncheckedValue, f, name;
-      if (opts == null) { opts = {}; }
-      f = $.serializeJSON;
-
-      selector = 'input[type=checkbox][name]:not(:checked):not([disabled])';
-      $uncheckedCheckboxes = $form.find(selector).add($form.filter(selector));
-      $uncheckedCheckboxes.each(function (i, el) {
-        // Check data attr first, then the option
-        $el = $(el);
-        uncheckedValue = $el.attr('data-unchecked-value');
-        if (uncheckedValue == null) {
-          uncheckedValue = opts.checkboxUncheckedValue;
-        }
-
-        // If there's an uncheckedValue, push it into the serialized formAsArray
-        if (uncheckedValue != null) {
-          if (el.name && el.name.indexOf("[][") !== -1) { // identify a non-supported
-            throw new Error("serializeJSON ERROR: checkbox unchecked values are not supported on nested arrays of objects like '"+el.name+"'. See https://github.com/marioizquierdo/jquery.serializeJSON/issues/67");
-          }
-          formAsArray.push({name: el.name, value: uncheckedValue});
-        }
-      });
-    },
-
-    // Returns and object with properties {name_without_type, type} from a given name.
-    // The type is null if none specified. Example:
-    //   "foo"           =>  {nameWithNoType: "foo",      type:  null}
-    //   "foo:boolean"   =>  {nameWithNoType: "foo",      type: "boolean"}
-    //   "foo[bar]:null" =>  {nameWithNoType: "foo[bar]", type: "null"}
-    extractTypeAndNameWithNoType: function(name) {
-      var match;
-      if (match = name.match(/(.*):([^:]+)$/)) {
-        return {nameWithNoType: match[1], type: match[2]};
-      } else {
-        return {nameWithNoType: name, type: null};
-      }
-    },
-
-
-    // Check if this input should be skipped when it has a falsy value,
-    // depending on the options to skip values by name or type, and the data-skip-falsy attribute.
-    shouldSkipFalsy: function($form, name, nameWithNoType, type, opts) {
-      var f = $.serializeJSON;
-      
-      var skipFromDataAttr = f.attrFromInputWithName($form, name, 'data-skip-falsy');
-      if (skipFromDataAttr != null) {
-        return skipFromDataAttr !== 'false'; // any value is true, except if explicitly using 'false' 
-      }
-
-      var optForFields = opts.skipFalsyValuesForFields;
-      if (optForFields && (optForFields.indexOf(nameWithNoType) !== -1 || optForFields.indexOf(name) !== -1)) {
-        return true;
-      }
-      
-      var optForTypes = opts.skipFalsyValuesForTypes;
-      if (type == null) type = 'string'; // assume fields with no type are targeted as string
-      if (optForTypes && optForTypes.indexOf(type) !== -1) {
-        return true
-      }
-
-      return false;
-    },
-
-    // Finds the first input in $form with this name, and get the given attr from it.
-    // Returns undefined if no input or no attribute was found.
-    attrFromInputWithName: function($form, name, attrName) {
-      var escapedName, selector, $input, attrValue;
-      escapedName = name.replace(/(:|\.|\[|\]|\s)/g,'\\$1'); // every non-standard character need to be escaped by \\
-      selector = '[name="' + escapedName + '"]';
-      $input = $form.find(selector).add($form.filter(selector)); // NOTE: this returns only the first $input element if multiple are matched with the same name (i.e. an "array[]"). So, arrays with different element types specified through the data-value-type attr is not supported.
-      return $input.attr(attrName);
-    },
-
-    // Raise an error if the type is not recognized.
-    validateType: function(name, type, opts) {
-      var validTypes, f;
-      f = $.serializeJSON;
-      validTypes = f.optionKeys(opts ? opts.typeFunctions : f.defaultOptions.defaultTypes);
-      if (!type || validTypes.indexOf(type) !== -1) {
-        return true;
-      } else {
-        throw new Error("serializeJSON ERROR: Invalid type " + type + " found in input name '" + name + "', please use one of " + validTypes.join(', '));
-      }
-    },
-
-
-    // Split the input name in programatically readable keys.
-    // Examples:
-    // "foo"              => ['foo']
-    // "[foo]"            => ['foo']
-    // "foo[inn][bar]"    => ['foo', 'inn', 'bar']
-    // "foo[inn[bar]]"    => ['foo', 'inn', 'bar']
-    // "foo[inn][arr][0]" => ['foo', 'inn', 'arr', '0']
-    // "arr[][val]"       => ['arr', '', 'val']
-    splitInputNameIntoKeysArray: function(nameWithNoType) {
-      var keys, f;
-      f = $.serializeJSON;
-      keys = nameWithNoType.split('['); // split string into array
-      keys = $.map(keys, function (key) { return key.replace(/\]/g, ''); }); // remove closing brackets
-      if (keys[0] === '') { keys.shift(); } // ensure no opening bracket ("[foo][inn]" should be same as "foo[inn]")
-      return keys;
-    },
-
-    // Set a value in an object or array, using multiple keys to set in a nested object or array:
-    //
-    // deepSet(obj, ['foo'], v)               // obj['foo'] = v
-    // deepSet(obj, ['foo', 'inn'], v)        // obj['foo']['inn'] = v // Create the inner obj['foo'] object, if needed
-    // deepSet(obj, ['foo', 'inn', '123'], v) // obj['foo']['arr']['123'] = v //
-    //
-    // deepSet(obj, ['0'], v)                                   // obj['0'] = v
-    // deepSet(arr, ['0'], v, {useIntKeysAsArrayIndex: true})   // arr[0] = v
-    // deepSet(arr, [''], v)                                    // arr.push(v)
-    // deepSet(obj, ['arr', ''], v)                             // obj['arr'].push(v)
-    //
-    // arr = [];
-    // deepSet(arr, ['', v]          // arr => [v]
-    // deepSet(arr, ['', 'foo'], v)  // arr => [v, {foo: v}]
-    // deepSet(arr, ['', 'bar'], v)  // arr => [v, {foo: v, bar: v}]
-    // deepSet(arr, ['', 'bar'], v)  // arr => [v, {foo: v, bar: v}, {bar: v}]
-    //
-    deepSet: function (o, keys, value, opts) {
-      var key, nextKey, tail, lastIdx, lastVal, f;
-      if (opts == null) { opts = {}; }
-      f = $.serializeJSON;
-      if (f.isUndefined(o)) { throw new Error("ArgumentError: param 'o' expected to be an object or array, found undefined"); }
-      if (!keys || keys.length === 0) { throw new Error("ArgumentError: param 'keys' expected to be an array with least one element"); }
-
-      key = keys[0];
-
-      // Only one key, then it's not a deepSet, just assign the value.
-      if (keys.length === 1) {
-        if (key === '') {
-          o.push(value); // '' is used to push values into the array (assume o is an array)
-        } else {
-          o[key] = value; // other keys can be used as object keys or array indexes
-        }
-
-      // With more keys is a deepSet. Apply recursively.
-      } else {
-        nextKey = keys[1];
-
-        // '' is used to push values into the array,
-        // with nextKey, set the value into the same object, in object[nextKey].
-        // Covers the case of ['', 'foo'] and ['', 'var'] to push the object {foo, var}, and the case of nested arrays.
-        if (key === '') {
-          lastIdx = o.length - 1; // asume o is array
-          lastVal = o[lastIdx];
-          if (f.isObject(lastVal) && (f.isUndefined(lastVal[nextKey]) || keys.length > 2)) { // if nextKey is not present in the last object element, or there are more keys to deep set
-            key = lastIdx; // then set the new value in the same object element
-          } else {
-            key = lastIdx + 1; // otherwise, point to set the next index in the array
-          }
-        }
-
-        // '' is used to push values into the array "array[]"
-        if (nextKey === '') {
-          if (f.isUndefined(o[key]) || !$.isArray(o[key])) {
-            o[key] = []; // define (or override) as array to push values
-          }
-        } else {
-          if (opts.useIntKeysAsArrayIndex && f.isValidArrayIndex(nextKey)) { // if 1, 2, 3 ... then use an array, where nextKey is the index
-            if (f.isUndefined(o[key]) || !$.isArray(o[key])) {
-              o[key] = []; // define (or override) as array, to insert values using int keys as array indexes
-            }
-          } else { // for anything else, use an object, where nextKey is going to be the attribute name
-            if (f.isUndefined(o[key]) || !f.isObject(o[key])) {
-              o[key] = {}; // define (or override) as object, to set nested properties
-            }
-          }
-        }
-
-        // Recursively set the inner object
-        tail = keys.slice(1);
-        f.deepSet(o[key], tail, value, opts);
-      }
-    }
-
-  };
-
-}));
-
-
-/***/ }),
+/* 139 */,
 /* 140 */
 /***/ (function(module, exports) {
 
@@ -55109,107 +54761,211 @@ module.exports = function spread(callback) {
 /* 181 */,
 /* 182 */,
 /* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(189);
+module.exports = __webpack_require__(185);
 
 
 /***/ }),
-/* 189 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
+//
+// jquery for cashbox
+//
 __webpack_require__(141);
-__webpack_require__(139);
-__webpack_require__(190);
-
 var moment = __webpack_require__(0);
 __webpack_require__(3);
 
 //
-// token protection
+//
+//	Variables globales
+//
 //
 
-$.ajaxSetup({
-	headers: {
-		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+var conceptos = [];
+var tickets = [];
+var sesion_id;
+var actualizar_tabla_sesiones; // para saber si hacer history.back() o location.href
+var estado; // para mostrar o no los botones de eliminar movimiento
+
+
+//
+//
+// operaciones de inicialización ready()
+//
+//
+
+$(document).ready(function () {
+
+	if ($('#cashbox-index-page').length > 0) {
+		// acciones solo para página de listado de sesiones
+		get_sesiones(999999, 'desc');
+	} else if ($('#sesion-page').length > 0) {
+		// acciones solo para página de detalles de sesiones
+		sesion_id = $('input[name=sesion_id]').val();
+		$.ajax({
+			type: 'GET',
+			url: '/api/sesion/get/' + sesion_id
+		}).done(function (data) {
+			estado = data.estado;
+			var cabecera_estado;
+			if (estado == 'ABIERTA') {
+				cabecera_estado = 'Abierta - ';
+				get_conceptos();
+				get_tickets_tienda();
+			} else {
+				cabecera_estado = 'Cerrada - ';
+				$('.enlace').css('color', '#dee2e6').click(function (event) {
+					event.stopImmediatePropagation();
+				});
+			}
+			$('#cabecera').text(cabecera_estado + data.usuario + ' - ' + prettyd(data.fecha));
+			$('#main-section div:not(:first-child)').hide(); // deja visible solo la primera opción
+			refresh_detalles_sesion(false);
+		});
 	}
 });
 
-function refresh_uploaded_images(postid) {
-	$.get('/api/blogtool/getimages/' + postid, function (uploaded) {
-		var len = uploaded.length,
-		    options = [];
-		var thumbnail_select = $('select[name=thumbnail_image]');
-		thumbnail_select.empty();
-		for (var i = 0; i < len; i++) {
-			options.push({
-				name: uploaded[i],
-				value: uploaded[i],
-				checked: false });
-			thumbnail_select.append($("<option />").val(uploaded[i]).text(uploaded[i]));
-		}
-		$('#uploaded_images').multiselect('loadOptions', options);
-	});
-}
+//
+//
+//	Funciones
+//
+//
 
-function refresh_related_posts(postid) {
 
-	$.when($.get('/api/blogtool/index'), $.get('/api/blogtool/related/' + postid)).done(function (index_jqXHR, related_jqHXR) {
-		var posts = index_jqXHR[0];
-		var related = related_jqHXR[0];
-		var i,
-		    index = -1,
-		    options = [];
-		var len = posts.length;
-		for (i = 0; i < len; i++) {
-			if (posts[i].id !== postid) {
-				options.push({
-					name: posts[i].shortname,
-					value: String(posts[i].id),
-					checked: false });
+//
+//
+// Usada para recuperar y actualizar los detalles mostrados de la sesion
+//
+//
+function refresh_detalles_sesion() {
+	var cambios = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+	actualizar_tabla_sesiones = cambios;
+
+	$.ajax({
+		type: 'GET',
+		url: '/api/sesion/detalles/' + sesion_id
+	}).done(function (data) {
+		var tabla = '';
+		var boton;
+		$('#tabla-movimientos tbody').empty();
+		data.forEach(function (item) {
+			if (item.id != undefined && estado == 'ABIERTA') {
+				// es un movimiento
+				boton = '<button class="btn btn-sm btn-primary boton-eliminar-movimiento" data-id="' + item.id + '">Eliminar</button>';
+			} else {
+				boton = '';
 			}
-		}
-		len = related.length;
-		for (i = 0; i < len; i++) {
-			index = options.findIndex(function (element) {
-				return element.value == related[i];
-			});
-			if (index > -1) {
-				options[index].checked = true;
+			tabla += '<tr><td>' + item.descripcion + '</td><td>' + prettyf(item.importe) + '</td><td>' + prettyf(item.saldo) + '</td><td>' + prettyf(item.descuadre) + '</td><td>' + prettyf(item.descuadre_acumulado) + '</td><td>' + boton + '</td></tr>';
+		});
+		$('#tabla-movimientos').append(tabla);
+		$('#tabla-movimientos').show();
+	});
+}
+
+//
+//
+// Pretty date
+//
+//
+function prettyd(date) {
+	return moment(date).format('ddd D MMM HH:mm');
+}
+
+//
+//
+// Pretty float
+//
+//
+function prettyf(amount) {
+	if (amount == null || amount == '') {
+		return '-';
+	} else {
+		return parseFloat(amount).toFixed(2);
+	}
+}
+
+//
+//
+// recupera todos los conceptos de pagos, cobros o ajustes para popular selects 
+//
+//
+function get_conceptos() {
+
+	$.ajax({
+		type: 'GET',
+		url: '/api/movimiento/getconceptos'
+	}).done(function (data) {
+		conceptos = JSON.parse(JSON.stringify(data));
+		var select_compras = '';
+		$('#select-compras').empty();
+		$('#select-ventas').empty();
+		$('#select-ajustes').empty();
+		data.forEach(function (item) {
+			if (item.tipo == 'COMPRA') {
+				$('#select-compras').append('<option value="' + item.id + '" data-tipo="' + item.tipo + '" data-signo="' + item.signo + '">' + item.concepto + '</option>');
+			} else if (item.tipo == 'VENTA') {
+				$('#select-ventas').append('<option value="' + item.id + '" data-tipo="' + item.tipo + '" data-signo="' + item.signo + '">' + item.concepto + '</option>');
+			} else if (item.tipo == 'AJUSTE') {
+				$('#select-ajustes').append('<option value="' + item.id + '" data-tipo="' + item.tipo + '" data-signo="' + item.signo + '">' + item.concepto + '</option>');
 			}
-		}
-		$('#related_posts').multiselect('loadOptions', options);
-	});
+		});
+		// inicializar los campos de descripción
+		$('#tabla-compras input[name=descripcion]').val($('#select-compras').children().first().text());
+		$('#tabla-ventas input[name=descripcion]').val($('#select-ventas').children().first().text());
+		$('#tabla-ajustes input[name=descripcion]').val($('#select-ajustes').children().first().text());
+	}).fail(function (jqXHR, textStatus, errorThrown) {});
 }
 
-function refresh_post_index() {
-	$.get('/api/blogtool/index', function (result) {
-		$('#blogposts_table > tbody').empty();
-		for (var j = 0; j < result.length; j++) {
-			$('#blogposts_table > tbody:last').append('<tr postid="' + result[j].id + '"><td onclick=\"location.href=\'/admin/blogtool/' + result[j].id + "\'\">" + result[j].id + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].shortname + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].title + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].friendly_url + "</td><td onclick=\"location.href=\'/admin/blogtool/" + result[j].id + "\'\">" + result[j].status + "</td><td>" + '<i class="far fa-lg fa-clone button_post_duplicate" data-postid="' + result[j].id + '"></i>' + " " + '<i class="fas fa-lg fa-arrow-circle-up button_post_up"></i>' + " " + '<i class="fas fa-lg fa-arrow-circle-down button_post_down"></i>' + "</td></tr>");
-		}
-	});
+//
+//
+// recupera tickets de la tienda (cash) de los últimos días 
+//
+//
+function get_tickets_tienda() {
+	$.ajax({
+		type: 'GET',
+		url: '/api/movimiento/gettickets/' + sesion_id
+	}).done(function (data) {
+		tickets = JSON.parse(JSON.stringify(data));
+		var select = '';
+		$('#select-ventas-tienda').empty();
+		data.forEach(function (item) {
+			select += '<option value="' + item.id + '" data-importe="' + item.total + '"> Ticket #' + item.id + ' (' + item.total + '€) </option>';
+		});
+		$('#select-ventas-tienda').append(select);
+		$("#select-ventas-tienda option:last").attr("selected", "selected");
+	}).fail(function (jqXHR, textStatus, errorThrown) {});
 }
 
-function refresh_post(id) {
-	$.get('/api/blogtool/get/' + id, function (result) {
+//
+//
+// recupera todas las sesiones
+// en el futuro, haremos intervalos 
+//
+//
+function get_sesiones(comienzo, direccion) {
 
-		$('input[name=id]').val(result.id);
-		$('input[name=shortname]').val(result.shortname);
-		$('input[name=title]').val(result.title);
-		$('textarea[name=description]').val(result.description);
-		$('input[name=friendly_url]').val(result.friendly_url);
-		$('select[name=thumbnail_image]').val(result.thumbnail_image);
-		$('textarea[name=thumbnail_description]').val(result.thumbnail_description);
-		$('textarea[name=body]').val(result.body);
-		$('input[name=status]').val(result.status);
-		$('input[name=publishing_date]').val(result.publishing_date);
-	});
+	$.ajax({
+		type: 'POST',
+		url: '/api/sesion/getlista',
+		data: { comienzo: comienzo, direccion: direccion }
+	}).done(function (data) {
+		sesiones = JSON.parse(JSON.stringify(data));
+		$('#sesiones > tbody').empty();
+
+		data.forEach(function (item) {
+			var conteo_inicio = !item.efectivo_inicial ? ' style=\"background-color:coral;\"' : '';
+			var conteo_final = !item.efectivo_final ? ' style=\"background-color:coral;\"' : '';
+
+			$('#sesiones > tbody:last').append('<tr data-id=\"' + item.id + '\"><td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\">' + item.id + '</td>' + '<td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\">' + prettyd(item.fecha) + '</td>' + '<td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\">' + item.usuario + '</td>' + '<td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\">' + item.estado + '</td>' + '<td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\"' + conteo_inicio + '>' + prettyf(item.efectivo_sesion_al_inicio) + '</td>' + '<td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\">' + prettyf(item.ventas) + '</td>' + '<td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\">' + prettyf(item.compras) + '</td>' +
+			// '<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.ajustes) +'</td>'+
+			'<td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\"' + conteo_final + '>' + prettyf(item.efectivo_sesion) + '</td>' + '<td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\">' + prettyf(item.descuadre) + '</td>' + '<td onclick=\"location.href=\'/admin/cashbox/' + item.id + '\'\">' + prettyf(item.descuadre_acumulado) + '</td></tr>');
+		});
+	}).fail(function (jqXHR, textStatus, errorThrown) {});
 }
 
 //
@@ -55218,1143 +54974,245 @@ function refresh_post(id) {
 //
 //
 
-$(document).on('click', '.button_post_duplicate', function () {
-	$.get('/api/blogtool/duplicate/' + $(this).data("postid"), function () {
-		refresh_post_index();
-	});
-});
-
-$(document).on('click', '.button_post_up, .button_post_down', function () {
-	var row = $(this).parents("tr:first");
-	if ($(this).is(".button_post_up")) {
-		row.insertBefore(row.prev());
-		$('#button_post_index_save').show();
-	} else {
-		row.insertAfter(row.next());
-		$('#button_post_index_save').show();
-	}
-});
-
-$('#button_post_index_save').click(function () {
-	var order = [];
-	$('#blogposts_table tbody tr').each(function () {
-		order.push($(this).attr('postid'));
-	});
-
-	$('.loading').show();
-	$.ajax({
-		type: 'POST',
-		url: '/api/blogtool/savedisplayposition',
-		data: { order: order },
-		success: function success() {
-			$('.loading').hide();
-			$('#button_post_index_save').hide();
-		}
-	});
-});
-
-$('#button_post_index_toggle').click(function () {
-	var status;
-	var new_state,
-	    current = $('#blogposts_table').data("toggle");
-	if (current == 'ALL') {
-		new_state = 'PUBLISHED';
-		$('#button_post_index_toggle').text('View: published');
-		$('#blogposts_table tbody tr').each(function () {
-			status = $(this).find('td:eq(4)').text();
-			if (status != 'PUBLISHED') {
-				$(this).hide();
-			}
-		});
-	} else {
-		new_state = 'ALL';
-		$('#button_post_index_toggle').text('View: date');
-		$('#blogposts_table tbody tr').each(function () {
-			$(this).show();
-		});
-	}
-	$('#blogposts_table').data("toggle", new_state);
-});
-
-$('#button_post_update').click(function () {
-
-	$('.loading').show();
-
-	var request = new Object();
-
-	request.id = $('input[name=id]').val();
-	request.shortname = $('input[name=shortname]').val();
-	request.title = $('input[name=title]').val();
-	request.description = $('textarea[name=description]').val();
-	request.friendly_url = $('input[name=friendly_url]').val();
-	request.thumbnail_image = $('select[name=thumbnail_image]').val();
-	request.thumbnail_description = $('textarea[name=thumbnail_description]').val();
-	request.body = $('textarea[name=body]').val();
-	request.status = $('input[name=status]').val();
-	request.related = $('#related_posts').val();
-	request.publishing_date = $('input[name=publishing_date]').val();
-
-	$.ajax({
-		type: 'POST',
-		url: '/api/blogtool/update',
-		data: request,
-		success: function success() {
-			refresh_post($('#post-edit-page').attr('postid'));
-			refresh_uploaded_images($('#post-edit-page').attr('postid'));
-			$('.loading').hide();
-		},
-		error: function error(jqXHR, textStatus, errorThrown) {
-			refresh_post($('#post-edit-page').attr('postid'));
-			$('.modal_admin_title').html('Error');
-			$('.modal_admin_body').html(jqXHR.responseJSON + '<br/>');
-			$('.loading').hide();
-			$('#modal_admin').modal('show');
-		}
-	});
-});
-
-$('#button_post_publish').click(function () {
-	var errormsg = '';
-	if (!$('input[name=shortname]').val()) errormsg += 'Shortname is empty<br/>';
-	if (!$('input[name=title]').val()) errormsg += 'Title is empty<br/>';
-	if (!$('textarea[name=description]').val()) errormsg += 'Description is empty<br/>';
-	if (!$('input[name=friendly_url]').val()) errormsg += 'Friendly URL is empty<br/>';
-	if (!$('select[name=thumbnail_image]').val()) errormsg += 'Thumbnail image is empty<br/>';
-	if (!$('textarea[name=thumbnail_description]').val()) errormsg += 'Thumbnail description is empty<br/>';
-	if (!$('textarea[name=body]').val()) errormsg += 'Body is empty<br/>';
-	if (!$('input[name=publishing_date]').val()) errormsg += 'Publishing date is empty<br/>';
-	var pubday = moment($('input[name=publishing_date]').val());
-	if (!pubday.isValid()) errormsg += 'Wrong publishing date format (yyyy-mm-dd)<br/>';
-
-	if ($('input[name=status]').val() == 'EDITING') errormsg += '<br/>Save and preview before publishing<br/>';
-	if ($('input[name=status]').val() == 'PUBLISHED') errormsg += 'Already published<br/>';
-
-	if (errormsg.length) {
-		$('.modal_admin_title').html('Error');
-		$('.modal_admin_body').html('Check following errors before publishing:<br/><br/>' + errormsg);
-		$('#modal_admin').modal('show');
-		return;
-	}
-
-	$('.loading').show();
-	$.get('/api/blogtool/publish/' + $('#post-edit-page').attr('postid'), function () {
-		refresh_post($('#post-edit-page').attr('postid'));
-		$('.loading').hide();
-	});
-});
-
-$('#button_post_delete').click(function () {
-	$('#modal_post_delete').modal('show');
-});
-
-$('#modal_button_post_delete').click(function () {
-	$.get('/api/blogtool/delete/' + $('#post-edit-page').attr('postid'), function () {
-		location.href = "/admin/blogtool";
-	});
-});
-
-$('#button_remove_images').click(function () {
-	if (!$('#uploaded_images').val().length) {
-		$('.modal_admin_title').html('Error');
-		$('.modal_admin_body').html('No files to remove');
-		$('#modal_admin').modal('show');
-		return;
-	}
-	$('.loading').show();
-	$.ajax({
-		type: 'POST',
-		url: '/api/blogtool/removeimages',
-		data: { images: $('#uploaded_images').val() },
-		success: function success() {
-			refresh_uploaded_images($('#post-edit-page').attr('postid'));
-			$('.loading').hide();
-		}
-	});
-});
-
-$('#button_upload_image').click(function (e) {
-	e.preventDefault();
-	$('.loading').show();
-	var image = $('input[name=image]');
-	var form_data = new FormData();
-
-	form_data.append('id', $('#post-edit-page').attr('postid'));
-	form_data.append('file', image[0].files[0]);
-
-	$.ajax({
-		type: 'POST',
-		url: '/api/blogtool/uploadimage',
-		processData: false,
-		contentType: false,
-		data: form_data,
-		success: function success() {
-			refresh_uploaded_images($('#post-edit-page').attr('postid'));
-			$('.loading').hide();
-		}
-	});
-});
-
 //
-// comienzo del jquery(document).ready
+//
+// events for classes
+//
+//
+$(document).on('click', '.enlace', function () {
+	$('#main-section').children().hide();
+	var s = $(this).attr('section');
+	$('#' + s).show();
+});
+
+$(document).on('click', '.mostrar-resumen', function () {
+	$('#main-section').children().hide();
+	refresh_detalles_sesion();
+	$('#resumen').show();
+});
+
+$(document).on('click', '.boton-vuelta-caja', function () {
+	if (actualizar_tabla_sesiones) {
+		location.href = '/admin/cashbox';
+	} else {
+		window.history.back();
+	}
+	return false;
+});
+
+$(document).on('click', '.boton-eliminar-movimiento', function () {
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/movimiento/eliminar/' + $(this).data('id')
+	}).done(function (data) {
+		refresh_detalles_sesion();
+		$('#resumen').show();
+	});
+});
+//
+//
+// events for concrete id's
+//
 //
 
-jQuery(document).ready(function ($) {
 
-	$('#related_posts').multiselect();
-	$('#uploaded_images').multiselect();
+$(document).on('click', '#boton-nueva-sesion', function () {
 
-	var postid = $('#post-edit-page').attr('postid');
-
-	if ($('#post-index-page').length > 0) {
-		// acciones solo para página de listado de posts
-		refresh_post_index();
-	} else if ($('#post-edit-page').length > 0) {
-		// acciones solo para página de detalles de post
-		refresh_post(postid);
-		refresh_related_posts(postid);
-		refresh_uploaded_images(postid);
-	}
-
-	$(":input").change(function () {
-		$('input[name=status]').val('EDITING');
+	$.ajax({
+		type: 'GET',
+		url: '/api/sesion/getultimaabierta'
+	}).done(function (data) {
+		if (!data) {
+			$('#modal-boton-nueva-sesion').trigger('click');
+		} else {
+			sesion_id = data.id;
+			$('#modal-sesion-id').text(data);
+			$('#modal-sesion-abierta').modal('show');
+		}
 	});
-}); // jQuery
-
-/***/ }),
-/* 190 */
-/***/ (function(module, exports) {
-
-/**
- * Display a nice easy to use multiselect list
- * @Version: 2.4.16
- * @Author: Patrick Springstubbe
- * @Contact: @JediNobleclem
- * @Website: springstubbe.us
- * @Source: https://github.com/nobleclem/jQuery-MultiSelect
- *
- * Usage:
- *     $('select[multiple]').multiselect();
- *     $('select[multiple]').multiselect({ texts: { placeholder: 'Select options' } });
- *     $('select[multiple]').multiselect('reload');
- *     $('select[multiple]').multiselect( 'loadOptions', [{
- *         name   : 'Option Name 1',
- *         value  : 'option-value-1',
- *         checked: false,
- *         attributes : {
- *             custom1: 'value1',
- *             custom2: 'value2'
- *         }
- *     },{
- *         name   : 'Option Name 2',
- *         value  : 'option-value-2',
- *         checked: false,
- *         attributes : {
- *             custom1: 'value1',
- *             custom2: 'value2'
- *         }
- *     }]);
- *
- **/
-(function($){
-    var defaults = {
-        columns: 1,     // how many columns should be use to show options
-        search : false, // include option search box
-
-        // search filter options
-        searchOptions : {
-            delay        : 250,                  // time (in ms) between keystrokes until search happens
-            showOptGroups: false,                // show option group titles if no options remaining
-            searchText   : true,                 // search within the text
-            searchValue  : false,                // search within the value
-            onSearch     : function( element ){} // fires on keyup before search on options happens
-        },
-
-        // plugin texts
-        texts: {
-            placeholder    : 'Select options', // text to use in dummy input
-            search         : 'Search',         // search input placeholder text
-            selectedOptions: ' selected',      // selected suffix text
-            selectAll      : 'Select all',     // select all text
-            unselectAll    : 'Unselect all',   // unselect all text
-            noneSelected   : 'None Selected'   // None selected text
-        },
-
-        // general options
-        selectAll          : false, // add select all option
-        selectGroup        : false, // select entire optgroup
-        minHeight          : 200,   // minimum height of option overlay
-        maxHeight          : null,  // maximum height of option overlay
-        maxWidth           : null,  // maximum width of option overlay (or selector)
-        maxPlaceholderWidth: null,  // maximum width of placeholder button
-        maxPlaceholderOpts : 10,    // maximum number of placeholder options to show until "# selected" shown instead
-        showCheckbox       : true,  // display the checkbox to the user
-        checkboxAutoFit    : false,  // auto calc checkbox padding
-        optionAttributes   : [],    // attributes to copy to the checkbox from the option element
-
-        // Callbacks
-        onLoad        : function( element ){},           // fires at end of list initialization
-        onOptionClick : function( element, option ){},   // fires when an option is clicked
-        onControlClose: function( element ){},           // fires when the options list is closed
-        onSelectAll   : function( element, selected ){}, // fires when (un)select all is clicked
-    };
-
-    var msCounter    = 1; // counter for each select list
-    var msOptCounter = 1; // counter for each option on page
-
-    // FOR LEGACY BROWSERS (talking to you IE8)
-    if( typeof Array.prototype.map !== 'function' ) {
-        Array.prototype.map = function( callback, thisArg ) {
-            if( typeof thisArg === 'undefined' ) {
-                thisArg = this;
-            }
-
-            return $.isArray( thisArg ) ? $.map( thisArg, callback ) : [];
-        };
-    }
-    if( typeof String.prototype.trim !== 'function' ) {
-        String.prototype.trim = function() {
-            return this.replace(/^\s+|\s+$/g, '');
-        };
-    }
-
-    function MultiSelect( element, options )
-    {
-        this.element           = element;
-        this.options           = $.extend( true, {}, defaults, options );
-        this.updateSelectAll   = true;
-        this.updatePlaceholder = true;
-        this.listNumber        = msCounter;
-
-        msCounter = msCounter + 1; // increment counter
-
-        /* Make sure its a multiselect list */
-        if( !$(this.element).attr('multiple') ) {
-            throw new Error( '[jQuery-MultiSelect] Select list must be a multiselect list in order to use this plugin' );
-        }
-
-        /* Options validation checks */
-        if( this.options.search ){
-            if( !this.options.searchOptions.searchText && !this.options.searchOptions.searchValue ){
-                throw new Error( '[jQuery-MultiSelect] Either searchText or searchValue should be true.' );
-            }
-        }
-
-        /** BACKWARDS COMPATIBILITY **/
-        if( 'placeholder' in this.options ) {
-            this.options.texts.placeholder = this.options.placeholder;
-            delete this.options.placeholder;
-        }
-        if( 'default' in this.options.searchOptions ) {
-            this.options.texts.search = this.options.searchOptions['default'];
-            delete this.options.searchOptions['default'];
-        }
-        /** END BACKWARDS COMPATIBILITY **/
-
-        // load this instance
-        this.load();
-    }
-
-    MultiSelect.prototype = {
-        /* LOAD CUSTOM MULTISELECT DOM/ACTIONS */
-        load: function() {
-            var instance = this;
-
-            // make sure this is a select list and not loaded
-            if( (instance.element.nodeName != 'SELECT') || $(instance.element).hasClass('jqmsLoaded') ) {
-                return true;
-            }
-
-            // sanity check so we don't double load on a select element
-            $(instance.element).addClass('jqmsLoaded ms-list-'+ instance.listNumber ).data( 'plugin_multiselect-instance', instance );
-
-            // add option container
-            $(instance.element).after('<div id="ms-list-'+ instance.listNumber +'" class="ms-options-wrap"><button type="button"><span>None Selected</span></button><div class="ms-options"><ul></ul></div></div>');
-
-            var placeholder = $(instance.element).siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> button:first-child');
-            var optionsWrap = $(instance.element).siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options');
-            var optionsList = optionsWrap.find('> ul');
-
-            // don't show checkbox (add class for css to hide checkboxes)
-            if( !instance.options.showCheckbox ) {
-                optionsWrap.addClass('hide-checkbox');
-            }
-            else if( instance.options.checkboxAutoFit ) {
-                optionsWrap.addClass('checkbox-autofit');
-            }
-
-            // check if list is disabled
-            if( $(instance.element).prop( 'disabled' ) ) {
-                placeholder.prop( 'disabled', true );
-            }
-
-            // set placeholder maxWidth
-            if( instance.options.maxPlaceholderWidth ) {
-                placeholder.css( 'maxWidth', instance.options.maxPlaceholderWidth );
-            }
-
-            // override with user defined maxHeight
-            if( instance.options.maxHeight ) {
-                var maxHeight = instance.options.maxHeight;
-            }
-            else {
-                // cacl default maxHeight
-                var maxHeight = ($(window).height() - optionsWrap.offset().top + $(window).scrollTop() - 20);
-            }
-
-            // maxHeight cannot be less than options.minHeight
-            maxHeight = maxHeight < instance.options.minHeight ? instance.options.minHeight : maxHeight;
-
-            optionsWrap.css({
-                maxWidth : instance.options.maxWidth,
-                minHeight: instance.options.minHeight,
-                maxHeight: maxHeight,
-            });
-
-            // isolate options scroll
-            // @source: https://github.com/nobleclem/jQuery-IsolatedScroll
-            optionsWrap.on( 'touchmove mousewheel DOMMouseScroll', function ( e ) {
-                if( ($(this).outerHeight() < $(this)[0].scrollHeight) ) {
-                    var e0 = e.originalEvent,
-                        delta = e0.wheelDelta || -e0.detail;
-
-                    if( ($(this).outerHeight() + $(this)[0].scrollTop) > $(this)[0].scrollHeight ) {
-                        e.preventDefault();
-                        this.scrollTop += ( delta < 0 ? 1 : -1 );
-                    }
-                }
-            });
-
-            // hide options menus if click happens off of the list placeholder button
-            $(document).off('click.ms-hideopts').on('click.ms-hideopts', function( event ){
-                if( !$(event.target).closest('.ms-options-wrap').length ) {
-                    $('.ms-options-wrap.ms-active > .ms-options').each(function(){
-                        $(this).closest('.ms-options-wrap').removeClass('ms-active');
-
-                        var listID = $(this).closest('.ms-options-wrap').attr('id');
-
-                        var thisInst = $(this).parent().siblings('.'+ listID +'.jqmsLoaded').data('plugin_multiselect-instance');
-
-                        // USER CALLBACK
-                        if( typeof thisInst.options.onControlClose == 'function' ) {
-                            thisInst.options.onControlClose( thisInst.element );
-                        }
-                    });
-                }
-            // hide open option lists if escape key pressed
-            }).on('keydown', function( event ){
-                if( (event.keyCode || event.which) == 27 ) { // esc key
-                    $(this).trigger('click.ms-hideopts');
-                }
-            });
-
-            // handle pressing enter|space while tabbing through
-            placeholder.on('keydown', function( event ){
-                var code = (event.keyCode || event.which);
-                if( (code == 13) || (code == 32) ) { // enter OR space
-                    placeholder.trigger( 'mousedown' );
-                }
-            });
-
-            // disable button action
-            placeholder.on( 'mousedown', function( event ){
-                // ignore if its not a left click
-                if( event.which && (event.which != 1) ) {
-                    return true;
-                }
-
-                // hide other menus before showing this one
-                $('.ms-options-wrap.ms-active').each(function(){
-                    if( $(this).siblings( '.'+ $(this).attr('id') +'.jqmsLoaded')[0] != optionsWrap.parent().siblings('.ms-list-'+ instance.listNumber +'.jqmsLoaded')[0] ) {
-                        $(this).removeClass('ms-active');
-
-                        var thisInst = $(this).siblings( '.'+ $(this).attr('id') +'.jqmsLoaded').data('plugin_multiselect-instance');
-
-                        // USER CALLBACK
-                        if( typeof thisInst.options.onControlClose == 'function' ) {
-                            thisInst.options.onControlClose( thisInst.element );
-                        }
-                    }
-                });
-
-                // show/hide options
-                optionsWrap.closest('.ms-options-wrap').toggleClass('ms-active');
-
-                // recalculate height
-                if( optionsWrap.closest('.ms-options-wrap').hasClass('ms-active') ) {
-                    optionsWrap.css( 'maxHeight', '' );
-
-                    // override with user defined maxHeight
-                    if( instance.options.maxHeight ) {
-                        var maxHeight = instance.options.maxHeight;
-                    }
-                    else {
-                        // cacl default maxHeight
-                        var maxHeight = ($(window).height() - optionsWrap.offset().top + $(window).scrollTop() - 20);
-                    }
-
-                    if( maxHeight ) {
-                        // maxHeight cannot be less than options.minHeight
-                        maxHeight = maxHeight < instance.options.minHeight ? instance.options.minHeight : maxHeight;
-
-                        optionsWrap.css( 'maxHeight', maxHeight );
-                    }
-                }
-                else if( typeof instance.options.onControlClose == 'function' ) {
-                    instance.options.onControlClose( instance.element );
-                }
-            }).click(function( event ){ event.preventDefault(); });
-
-            // add placeholder copy
-            if( instance.options.texts.placeholder ) {
-                placeholder.find('span').text( instance.options.texts.placeholder );
-            }
-
-            // add search box
-            if( instance.options.search ) {
-                optionsList.before('<div class="ms-search"><input type="text" value="" placeholder="'+ instance.options.texts.search +'" /></div>');
-
-                var search = optionsWrap.find('.ms-search input');
-                search.on('keyup', function(){
-                    // ignore keystrokes that don't make a difference
-                    if( $(this).data('lastsearch') == $(this).val() ) {
-                        return true;
-                    }
-
-                    // pause timeout
-                    if( $(this).data('searchTimeout') ) {
-                        clearTimeout( $(this).data('searchTimeout') );
-                    }
-
-                    var thisSearchElem = $(this);
-
-                    $(this).data('searchTimeout', setTimeout(function(){
-                        thisSearchElem.data('lastsearch', thisSearchElem.val() );
-
-                        // USER CALLBACK
-                        if( typeof instance.options.searchOptions.onSearch == 'function' ) {
-                            instance.options.searchOptions.onSearch( instance.element );
-                        }
-
-                        // search non optgroup li's
-                        var searchString = $.trim( search.val().toLowerCase() );
-                        if( searchString ) {
-                            optionsList.find('li[data-search-term*="'+ searchString +'"]:not(.optgroup)').removeClass('ms-hidden');
-                            optionsList.find('li:not([data-search-term*="'+ searchString +'"], .optgroup)').addClass('ms-hidden');
-                        }
-                        else {
-                            optionsList.find('.ms-hidden').removeClass('ms-hidden');
-                        }
-
-                        // show/hide optgroups based on if there are items visible within
-                        if( !instance.options.searchOptions.showOptGroups ) {
-                            optionsList.find('.optgroup').each(function(){
-                                if( $(this).find('li:not(.ms-hidden)').length ) {
-                                    $(this).show();
-                                }
-                                else {
-                                    $(this).hide();
-                                }
-                            });
-                        }
-
-                        instance._updateSelectAllText();
-                    }, instance.options.searchOptions.delay ));
-                });
-            }
-
-            // add global select all options
-            if( instance.options.selectAll ) {
-                optionsList.before('<a href="#" class="ms-selectall global">' + instance.options.texts.selectAll + '</a>');
-            }
-
-            // handle select all option
-            optionsWrap.on('click', '.ms-selectall', function( event ){
-                event.preventDefault();
-
-                instance.updateSelectAll   = false;
-                instance.updatePlaceholder = false;
-
-                var select = optionsWrap.parent().siblings('.ms-list-'+ instance.listNumber +'.jqmsLoaded');
-
-                if( $(this).hasClass('global') ) {
-                    // check if any options are not selected if so then select them
-                    if( optionsList.find('li:not(.optgroup, .selected, .ms-hidden)').length ) {
-                        // get unselected vals, mark as selected, return val list
-                        optionsList.find('li:not(.optgroup, .selected, .ms-hidden)').addClass('selected');
-                        optionsList.find('li.selected input[type="checkbox"]:not(:disabled)').prop( 'checked', true );
-                    }
-                    // deselect everything
-                    else {
-                        optionsList.find('li:not(.optgroup, .ms-hidden).selected').removeClass('selected');
-                        optionsList.find('li:not(.optgroup, .ms-hidden, .selected) input[type="checkbox"]:not(:disabled)').prop( 'checked', false );
-                    }
-                }
-                else if( $(this).closest('li').hasClass('optgroup') ) {
-                    var optgroup = $(this).closest('li.optgroup');
-
-                    // check if any selected if so then select them
-                    if( optgroup.find('li:not(.selected, .ms-hidden)').length ) {
-                        optgroup.find('li:not(.selected, .ms-hidden)').addClass('selected');
-                        optgroup.find('li.selected input[type="checkbox"]:not(:disabled)').prop( 'checked', true );
-                    }
-                    // deselect everything
-                    else {
-                        optgroup.find('li:not(.ms-hidden).selected').removeClass('selected');
-                        optgroup.find('li:not(.ms-hidden, .selected) input[type="checkbox"]:not(:disabled)').prop( 'checked', false );
-                    }
-                }
-
-                var vals = [];
-                optionsList.find('li.selected input[type="checkbox"]').each(function(){
-                    vals.push( $(this).val() );
-                });
-                select.val( vals ).trigger('change');
-
-                instance.updateSelectAll   = true;
-                instance.updatePlaceholder = true;
-
-                // USER CALLBACK
-                if( typeof instance.options.onSelectAll == 'function' ) {
-                    instance.options.onSelectAll( instance.element, vals.length );
-                }
-
-                instance._updateSelectAllText();
-                instance._updatePlaceholderText();
-            });
-
-            // add options to wrapper
-            var options = [];
-            $(instance.element).children().each(function(){
-                if( this.nodeName == 'OPTGROUP' ) {
-                    var groupOptions = [];
-
-                    $(this).children('option').each(function(){
-                        var thisOptionAtts = {};
-                        for( var i = 0; i < instance.options.optionAttributes.length; i++ ) {
-                            var thisOptAttr = instance.options.optionAttributes[ i ];
-
-                            if( $(this).attr( thisOptAttr ) !== undefined ) {
-                                thisOptionAtts[ thisOptAttr ] = $(this).attr( thisOptAttr );
-                            }
-                        }
-
-                        groupOptions.push({
-                            name   : $(this).text(),
-                            value  : $(this).val(),
-                            checked: $(this).prop( 'selected' ),
-                            attributes: thisOptionAtts
-                        });
-                    });
-
-                    options.push({
-                        label  : $(this).attr('label'),
-                        options: groupOptions
-                    });
-                }
-                else if( this.nodeName == 'OPTION' ) {
-                    var thisOptionAtts = {};
-                    for( var i = 0; i < instance.options.optionAttributes.length; i++ ) {
-                        var thisOptAttr = instance.options.optionAttributes[ i ];
-
-                        if( $(this).attr( thisOptAttr ) !== undefined ) {
-                            thisOptionAtts[ thisOptAttr ] = $(this).attr( thisOptAttr );
-                        }
-                    }
-
-                    options.push({
-                        name      : $(this).text(),
-                        value     : $(this).val(),
-                        checked   : $(this).prop( 'selected' ),
-                        attributes: thisOptionAtts
-                    });
-                }
-                else {
-                    // bad option
-                    return true;
-                }
-            });
-            instance.loadOptions( options, true, false );
-
-            // BIND SELECT ACTION
-            optionsWrap.on( 'click', 'input[type="checkbox"]', function(){
-                $(this).closest( 'li' ).toggleClass( 'selected' );
-
-                var select = optionsWrap.parent().siblings('.ms-list-'+ instance.listNumber +'.jqmsLoaded');
-
-                // toggle clicked option
-                select.find('option[value="'+ instance._escapeSelector( $(this).val() ) +'"]').prop(
-                    'selected', $(this).is(':checked')
-                ).closest('select').trigger('change');
-
-                // USER CALLBACK
-                if( typeof instance.options.onOptionClick == 'function' ) {
-                    instance.options.onOptionClick(instance.element, this);
-                }
-
-                instance._updateSelectAllText();
-                instance._updatePlaceholderText();
-            });
-
-            // BIND FOCUS EVENT
-            optionsWrap.on('focusin', 'input[type="checkbox"]', function(){
-                $(this).closest('label').addClass('focused');
-            }).on('focusout', 'input[type="checkbox"]', function(){
-                $(this).closest('label').removeClass('focused');
-            });
-
-            // USER CALLBACK
-            if( typeof instance.options.onLoad === 'function' ) {
-                instance.options.onLoad( instance.element );
-            }
-
-            // hide native select list
-            $(instance.element).hide();
-        },
-
-        /* LOAD SELECT OPTIONS */
-        loadOptions: function( options, overwrite, updateSelect ) {
-            overwrite    = (typeof overwrite == 'boolean') ? overwrite : true;
-            updateSelect = (typeof updateSelect == 'boolean') ? updateSelect : true;
-
-            var instance    = this;
-            var select      = $(instance.element);
-            var optionsList = select.siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options > ul');
-            var optionsWrap = select.siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options');
-
-            if( overwrite ) {
-                optionsList.find('> li').remove();
-
-                if( updateSelect ) {
-                    select.find('> *').remove();
-                }
-            }
-
-            var containers = [];
-            for( var key in options ) {
-                // Prevent prototype methods injected into options from being iterated over.
-                if( !options.hasOwnProperty( key ) ) {
-                    continue;
-                }
-
-                var thisOption      = options[ key ];
-                var container       = $('<li/>');
-                var appendContainer = true;
-
-                // OPTION
-                if( thisOption.hasOwnProperty('value') ) {
-                    if( instance.options.showCheckbox && instance.options.checkboxAutoFit ) {
-                        container.addClass('ms-reflow');
-                    }
-
-                    // add option to ms dropdown
-                    instance._addOption( container, thisOption );
-
-                    if( updateSelect ) {
-                        var selOption = $('<option value="'+ thisOption.value +'">'+ thisOption.name +'</option>');
-
-                        // add custom user attributes
-                        if( thisOption.hasOwnProperty('attributes') && Object.keys( thisOption.attributes ).length ) {
-                            selOption.attr( thisOption.attributes );
-                        }
-
-                        // mark option as selected
-                        if( thisOption.checked ) {
-                            selOption.prop( 'selected', true );
-                        }
-
-                        select.append( selOption );
-                    }
-                }
-                // OPTGROUP
-                else if( thisOption.hasOwnProperty('options') ) {
-                    var optGroup = $('<optgroup label="'+ thisOption.label +'"></optgroup>');
-
-                    optionsList.find('> li.optgroup > span.label').each(function(){
-                        if( $(this).text() == thisOption.label ) {
-                            container       = $(this).closest('.optgroup');
-                            appendContainer = false;
-                        }
-                    });
-
-                    // prepare to append optgroup to select element
-                    if( updateSelect ) {
-                        if( select.find('optgroup[label="'+ thisOption.label +'"]').length ) {
-                            optGroup = select.find('optgroup[label="'+ thisOption.label +'"]');
-                        }
-                        else {
-                            select.append( optGroup );
-                        }
-                    }
-
-                    // setup container
-                    if( appendContainer ) {
-                        container.addClass('optgroup');
-                        container.append('<span class="label">'+ thisOption.label +'</span>');
-                        container.find('> .label').css({
-                            clear: 'both'
-                        });
-
-                        // add select all link
-                        if( instance.options.selectGroup ) {
-                            container.append('<a href="#" class="ms-selectall">' + instance.options.texts.selectAll + '</a>');
-                        }
-
-                        container.append('<ul/>');
-                    }
-
-                    for( var gKey in thisOption.options ) {
-                        // Prevent prototype methods injected into options from
-                        // being iterated over.
-                        if( !thisOption.options.hasOwnProperty( gKey ) ) {
-                            continue;
-                        }
-
-                        var thisGOption = thisOption.options[ gKey ];
-                        var gContainer  = $('<li/>');
-                        if( instance.options.showCheckbox && instance.options.checkboxAutoFit ) {
-                            gContainer.addClass('ms-reflow');
-                        }
-
-                        // no clue what this is we hit (skip)
-                        if( !thisGOption.hasOwnProperty('value') ) {
-                            continue;
-                        }
-
-                        instance._addOption( gContainer, thisGOption );
-
-                        container.find('> ul').append( gContainer );
-
-                        // add option to optgroup in select element
-                        if( updateSelect ) {
-                            var selOption = $('<option value="'+ thisGOption.value +'">'+ thisGOption.name +'</option>');
-
-                            // add custom user attributes
-                            if( thisGOption.hasOwnProperty('attributes') && Object.keys( thisGOption.attributes ).length ) {
-                                selOption.attr( thisGOption.attributes );
-                            }
-
-                            // mark option as selected
-                            if( thisGOption.checked ) {
-                                selOption.prop( 'selected', true );
-                            }
-
-                            optGroup.append( selOption );
-                        }
-                    }
-                }
-                else {
-                    // no clue what this is we hit (skip)
-                    continue;
-                }
-
-                if( appendContainer ) {
-                    containers.push( container );
-                }
-            }
-            optionsList.append( containers );
-
-            // pad out label for room for the checkbox
-            if( instance.options.checkboxAutoFit && instance.options.showCheckbox && !optionsWrap.hasClass('hide-checkbox') ) {
-                var chkbx = optionsList.find('.ms-reflow:eq(0) input[type="checkbox"]');
-                if( chkbx.length ) {
-                    var checkboxWidth = chkbx.outerWidth();
-                        checkboxWidth = checkboxWidth ? checkboxWidth : 15;
-
-                    optionsList.find('.ms-reflow label').css(
-                        'padding-left',
-                        (parseInt( chkbx.closest('label').css('padding-left') ) * 2) + checkboxWidth
-                    );
-
-                    optionsList.find('.ms-reflow').removeClass('ms-reflow');
-                }
-            }
-
-            // update placeholder text
-            instance._updatePlaceholderText();
-
-            // RESET COLUMN STYLES
-            optionsWrap.find('ul').css({
-                'column-count'        : '',
-                'column-gap'          : '',
-                '-webkit-column-count': '',
-                '-webkit-column-gap'  : '',
-                '-moz-column-count'   : '',
-                '-moz-column-gap'     : ''
-            });
-
-            // COLUMNIZE
-            if( select.find('optgroup').length ) {
-                // float non grouped options
-                optionsList.find('> li:not(.optgroup)').css({
-                    'float': 'left',
-                    width: (100 / instance.options.columns) +'%'
-                });
-
-                // add CSS3 column styles
-                optionsList.find('li.optgroup').css({
-                    clear: 'both'
-                }).find('> ul').css({
-                    'column-count'        : instance.options.columns,
-                    'column-gap'          : 0,
-                    '-webkit-column-count': instance.options.columns,
-                    '-webkit-column-gap'  : 0,
-                    '-moz-column-count'   : instance.options.columns,
-                    '-moz-column-gap'     : 0
-                });
-
-                // for crappy IE versions float grouped options
-                if( this._ieVersion() && (this._ieVersion() < 10) ) {
-                    optionsList.find('li.optgroup > ul > li').css({
-                        'float': 'left',
-                        width: (100 / instance.options.columns) +'%'
-                    });
-                }
-            }
-            else {
-                // add CSS3 column styles
-                optionsList.css({
-                    'column-count'        : instance.options.columns,
-                    'column-gap'          : 0,
-                    '-webkit-column-count': instance.options.columns,
-                    '-webkit-column-gap'  : 0,
-                    '-moz-column-count'   : instance.options.columns,
-                    '-moz-column-gap'     : 0
-                });
-
-                // for crappy IE versions float grouped options
-                if( this._ieVersion() && (this._ieVersion() < 10) ) {
-                    optionsList.find('> li').css({
-                        'float': 'left',
-                        width: (100 / instance.options.columns) +'%'
-                    });
-                }
-            }
-
-            // update un/select all logic
-            instance._updateSelectAllText();
-        },
-
-        /* UPDATE MULTISELECT CONFIG OPTIONS */
-        settings: function( options ) {
-            this.options = $.extend( true, {}, this.options, options );
-            this.reload();
-        },
-
-        /* RESET THE DOM */
-        unload: function() {
-            $(this.element).siblings('#ms-list-'+ this.listNumber +'.ms-options-wrap').remove();
-            $(this.element).show(function(){
-                $(this).css('display','').removeClass('jqmsLoaded');
-            });
-        },
-
-        /* RELOAD JQ MULTISELECT LIST */
-        reload: function() {
-            // remove existing options
-            $(this.element).siblings('#ms-list-'+ this.listNumber +'.ms-options-wrap').remove();
-            $(this.element).removeClass('jqmsLoaded');
-
-            // load element
-            this.load();
-        },
-
-        // RESET BACK TO DEFAULT VALUES & RELOAD
-        reset: function() {
-            var defaultVals = [];
-            $(this.element).find('option').each(function(){
-                if( $(this).prop('defaultSelected') ) {
-                    defaultVals.push( $(this).val() );
-                }
-            });
-
-            $(this.element).val( defaultVals );
-
-            this.reload();
-        },
-
-        disable: function( status ) {
-            status = (typeof status === 'boolean') ? status : true;
-            $(this.element).prop( 'disabled', status );
-            $(this.element).siblings('#ms-list-'+ this.listNumber +'.ms-options-wrap').find('button:first-child')
-                .prop( 'disabled', status );
-        },
-
-        /** PRIVATE FUNCTIONS **/
-        // update the un/select all texts based on selected options and visibility
-        _updateSelectAllText: function(){
-            if( !this.updateSelectAll ) {
-                return;
-            }
-
-            var instance = this;
-
-            // select all not used at all so just do nothing
-            if( !instance.options.selectAll && !instance.options.selectGroup ) {
-                return;
-            }
-
-            var optionsWrap = $(instance.element).siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options');
-
-            // update un/select all text
-            optionsWrap.find('.ms-selectall').each(function(){
-                var unselected = $(this).parent().find('li:not(.optgroup,.selected,.ms-hidden)');
-
-                $(this).text(
-                    unselected.length ? instance.options.texts.selectAll : instance.options.texts.unselectAll
-                );
-            });
-        },
-
-        // update selected placeholder text
-        _updatePlaceholderText: function(){
-            if( !this.updatePlaceholder ) {
-                return;
-            }
-
-            var instance       = this;
-            var select         = $(instance.element);
-            var selectVals     = select.val() ? select.val() : [];
-            var placeholder    = select.siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> button:first-child');
-            var placeholderTxt = placeholder.find('span');
-            var optionsWrap    = select.siblings('#ms-list-'+ instance.listNumber +'.ms-options-wrap').find('> .ms-options');
-
-            // if there are disabled options get those values as well
-            if( select.find('option:selected:disabled').length ) {
-                selectVals = [];
-                select.find('option:selected').each(function(){
-                    selectVals.push( $(this).val() );
-                });
-            }
-
-            // get selected options
-            var selOpts = [];
-            for( var key in selectVals ) {
-                // Prevent prototype methods injected into options from being iterated over.
-                if( !selectVals.hasOwnProperty( key ) ) {
-                    continue;
-                }
-
-                selOpts.push(
-                    $.trim( select.find('option[value="'+ instance._escapeSelector( selectVals[ key ] ) +'"]').text() )
-                );
-
-                if( selOpts.length >= instance.options.maxPlaceholderOpts ) {
-                    break;
-                }
-            }
-
-            // UPDATE PLACEHOLDER TEXT WITH OPTIONS SELECTED
-            placeholderTxt.text( selOpts.join( ', ' ) );
-
-            if( selOpts.length ) {
-                optionsWrap.closest('.ms-options-wrap').addClass('ms-has-selections');
-            }
-            else {
-                optionsWrap.closest('.ms-options-wrap').removeClass('ms-has-selections');
-            }
-
-            // replace placeholder text
-            if( !selOpts.length ) {
-                placeholderTxt.text( instance.options.texts.placeholder );
-            }
-            // if copy is larger than button width use "# selected"
-            else if( (placeholderTxt.width() > placeholder.width()) || (selOpts.length != selectVals.length) ) {
-                placeholderTxt.text( selectVals.length + instance.options.texts.selectedOptions );
-            }
-        },
-
-        // Add option to the custom dom list
-        _addOption: function( container, option ) {
-            var instance = this;
-            var thisOption = $('<label/>', {
-                for : 'ms-opt-'+ msOptCounter,
-                text: option.name
-            });
-
-            var thisCheckbox = $('<input>', {
-                type : 'checkbox',
-                title: option.name,
-                id   : 'ms-opt-'+ msOptCounter,
-                value: option.value
-            });
-
-            // add user defined attributes
-            if( option.hasOwnProperty('attributes') && Object.keys( option.attributes ).length ) {
-                thisCheckbox.attr( option.attributes );
-            }
-
-            if( option.checked ) {
-                container.addClass('default selected');
-                thisCheckbox.prop( 'checked', true );
-            }
-
-            thisOption.prepend( thisCheckbox );
-
-            var searchTerm = '';
-            if( instance.options.searchOptions.searchText ) {
-                searchTerm += ' ' + option.name.toLowerCase();
-            }
-            if( instance.options.searchOptions.searchValue ) {
-                searchTerm += ' ' + option.value.toLowerCase();
-            }
-
-            container.attr( 'data-search-term', $.trim( searchTerm ) ).prepend( thisOption );
-
-            msOptCounter = msOptCounter + 1;
-        },
-
-        // check ie version
-        _ieVersion: function() {
-            var myNav = navigator.userAgent.toLowerCase();
-            return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
-        },
-
-        // escape selector
-        _escapeSelector: function( string ) {
-            if( typeof $.escapeSelector == 'function' ) {
-                return $.escapeSelector( string );
-            }
-            else {
-                return string.replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&");
-            }
-        }
-    };
-
-    // ENABLE JQUERY PLUGIN FUNCTION
-    $.fn.multiselect = function( options ){
-        if( !this.length ) {
-            return;
-        }
-
-        var args = arguments;
-        var ret;
-
-        // menuize each list
-        if( (options === undefined) || (typeof options === 'object') ) {
-            return this.each(function(){
-                if( !$.data( this, 'plugin_multiselect' ) ) {
-                    $.data( this, 'plugin_multiselect', new MultiSelect( this, options ) );
-                }
-            });
-        } else if( (typeof options === 'string') && (options[0] !== '_') && (options !== 'init') ) {
-            this.each(function(){
-                var instance = $.data( this, 'plugin_multiselect' );
-
-                if( instance instanceof MultiSelect && typeof instance[ options ] === 'function' ) {
-                    ret = instance[ options ].apply( instance, Array.prototype.slice.call( args, 1 ) );
-                }
-
-                // special destruct handler
-                if( options === 'unload' ) {
-                    $.data( this, 'plugin_multiselect', null );
-                }
-            });
-
-            return ret;
-        }
-    };
-}(jQuery));
-
+});
+
+$(document).on('click', '#boton-continuar-sesion-abierta', function () {
+	$('#modal-sesion-abierta').modal('hide');
+	location.href = '/admin/cashbox/' + sesion_id;
+	return false;
+});
+
+$(document).on('click', '#modal-boton-nueva-sesion', function () {
+
+	var now = moment().format('YYYY-MM-DD HH:mm:ss');
+	var user_name = $('meta[name=user_name]').attr('content');
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/sesion/crear',
+		data: { fecha: now, usuario: user_name }
+	}).done(function (data) {
+		location.href = '/admin/cashbox/' + data;
+		return false;
+	});
+});
+
+$(document).on('click', '#boton-pagina-mas', function () {
+
+	get_sesiones($('#sesiones tbody tr:last').data('id'), 'asc');
+});
+
+$(document).on('click', '#boton-pagina-menos', function () {
+
+	get_sesiones($('#sesiones tbody tr:first').data('id'), 'desc');
+});
+
+// evento para cambiar el campo descripcion de las compras o ventas
+$(document).on('change', '#select-compras, #select-ventas', function () {
+	descripcion = $(this).children(':selected').text();
+	$(this).parent().next().find('input[name=descripcion]').val(descripcion);
+	$(this).parent().next().next().find('input[name=importe]').val('0');
+	$(this).parent().next().next().next().find('input[name=ticket_id]').prop('checked', true);
+});
+
+$(document).on('click', '#boton-anadir-compras', function () {
+
+	var importe = $('#tabla-compras input[name=importe]').val();
+	if (importe == 0) return;
+
+	var mov = {};
+	mov.sesion_id = sesion_id;
+	mov.descripcion = $('#tabla-compras input[name=descripcion]').val();
+	mov.ticket = $('#tabla-compras input[type=checkbox]').is(':checked');
+	mov.tipo = $('#select-compras').children(':selected').data('tipo');
+	mov.importe = importe * $('#select-compras').children(':selected').data('signo');
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/movimiento/crear',
+		data: mov
+	}).done(function (data) {
+		$('#main-section').children().hide();
+		refresh_detalles_sesion();
+		$('#resumen').show();
+	});
+});
+
+$(document).on('click', '#boton-anadir-ventas', function () {
+
+	var importe = $('#tabla-ventas input[name=importe]').val();
+	if (importe == 0) return;
+
+	var mov = {};
+	mov.sesion_id = sesion_id;
+	mov.descripcion = $('#tabla-ventas input[name=descripcion]').val();
+	mov.tipo = $('#select-ventas').children(':selected').data('tipo');
+	mov.importe = importe * $('#select-ventas').children(':selected').data('signo');
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/movimiento/crear',
+		data: mov
+	}).done(function (data) {
+		$('#main-section').children().hide();
+		refresh_detalles_sesion();
+		$('#resumen').show();
+	});
+});
+
+$(document).on('click', '#boton-anadir-ventas-tienda', function () {
+
+	var mov = {};
+	mov.sesion_id = sesion_id;
+	mov.descripcion = 'Tienda ticket #' + $('#select-ventas-tienda').val();
+	mov.tipo = 'VENTA';
+	mov.importe = $('#select-ventas-tienda').children(':selected').data('importe');
+	mov.ticket_tienda = $('#select-ventas-tienda').val();
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/movimiento/crear',
+		data: mov
+	}).done(function (data) {
+		$('#main-section').children().hide();
+		refresh_detalles_sesion();
+		$('#resumen').show();
+		get_tickets_tienda();
+	});
+});
+
+$(document).on('click', '#boton-contar-efectivo-inicial', function () {
+
+	var mov = {};
+	mov.sesion_id = sesion_id;
+	mov.importe = $('#tabla-efectivo-inicial input[name=importe]').val();
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/sesion/setefectivoinicial',
+		data: mov
+	}).done(function (data) {
+		$('#main-section').children().hide();
+		refresh_detalles_sesion();
+		$('#resumen').show();
+	});
+});
+
+$(document).on('click', '#boton-contar-efectivo-final', function () {
+
+	var mov = {};
+	mov.sesion_id = sesion_id;
+	mov.importe = $('#tabla-efectivo-final input[name=importe]').val();
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/sesion/setefectivofinal',
+		data: mov
+	}).done(function (data) {
+		$('#main-section').children().hide();
+		refresh_detalles_sesion();
+		$('#resumen').show();
+	});
+});
+
+$(document).on('click', '#boton-eliminar-sesion', function () {
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/sesion/eliminar/' + sesion_id
+	}).done(function (data) {
+		location.href = '/admin/cashbox';
+		return false;
+	}).fail(function (data) {
+		$('.modal-admin-title').html('Error');
+		$('.modal-admin-body').html(data.responseJSON);
+		$('#modal-admin').modal('show');
+	});
+});
+
+$(document).on('click', '#boton-cerrar-sesion', function () {
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/sesion/cerrar/' + sesion_id
+	}).done(function (data) {
+		$('#main-section').children().hide();
+		refresh_detalles_sesion();
+		$('#resumen').show();
+	});
+});
+
+$(document).on('click', '#boton-recalcular-caja', function () {
+
+	$.ajax({
+		type: 'POST',
+		url: '/api/sesion/recalcularcaja/' + sesion_id
+	}).done(function (data) {
+		location.href = '/admin/cashbox';
+		return false;
+	}).fail(function (data) {
+		$('.modal-admin-title').html('Error');
+		$('.modal-admin-body').html(data.responseJSON);
+		$('#modal-admin').modal('show');
+	});
+});
 
 /***/ })
 /******/ ]);

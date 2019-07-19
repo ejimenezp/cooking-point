@@ -65,7 +65,7 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 130:
+/***/ 131:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// jscs:disable maximumLineLength
@@ -95,7 +95,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
 			__webpack_require__(2),
 			__webpack_require__(6),
-			__webpack_require__(131)
+			__webpack_require__(132)
 		], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
@@ -2195,7 +2195,7 @@ return $.datepicker;
 
 /***/ }),
 
-/***/ 131:
+/***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2250,7 +2250,7 @@ return $.ui.keyCode = {
 
 /***/ }),
 
-/***/ 132:
+/***/ 139:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2953,10 +2953,10 @@ module.exports = __webpack_require__(183);
 window.$ = window.jQuery = __webpack_require__(2);
 
 //require('bootstrap-sass');
-__webpack_require__(132);
+__webpack_require__(139);
 __webpack_require__(163);
 
-__webpack_require__(130);
+__webpack_require__(131);
 
 //
 // function to access date in querystring
@@ -3042,6 +3042,11 @@ $(document).ready(function () {
     var ticket_pagado = false;
 
     $("#pretty_date").html(ticket_date);
+
+    $(".cambio-pagina").click(function () {
+        location.href = $(this).data('pagina') + '?date=' + $("#realDate").val();
+        return false;
+    });
 
     $(".boton-articulo").click(function () {
 
