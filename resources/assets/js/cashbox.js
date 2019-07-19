@@ -389,6 +389,10 @@ $(document).on('change', '#select-compras, #select-ventas', function() {
 $(document).on('click', '#boton-anadir-compras', function() {
 
 	var importe = $('#tabla-compras input[name=importe]').val();
+	if (isNaN(importe)) {
+		alert ("Asegúrate de usar solo números y el punto (.) para los decimales.");
+		return;
+	}
 	if (importe == 0)
 		return;
 
@@ -418,6 +422,10 @@ $(document).on('click', '#boton-anadir-ventas', function() {
 
 
 	var importe = $('#tabla-ventas input[name=importe]').val();
+	if (isNaN(importe)) {
+		alert ("Asegúrate de usar solo números y el punto (.) para los decimales.");
+		return;
+	}
 	if (importe == 0)
 		return;
 
@@ -477,6 +485,10 @@ $(document).on('click', '#boton-contar-efectivo-inicial', function() {
 	var mov = {};
 	mov.sesion_id = sesion_id;
 	mov.importe = $('#tabla-efectivo-inicial input[name=importe]').val();
+	if (isNaN(mov.importe)) {
+		alert ("Asegúrate de usar solo números y el punto (.) para los decimales.");
+		return;
+	}
 
 	$.ajax({
 		type: 'POST', 	
@@ -497,6 +509,10 @@ $(document).on('click', '#boton-contar-efectivo-final', function() {
 	var mov = {};
 	mov.sesion_id = sesion_id;
 	mov.importe = $('#tabla-efectivo-final input[name=importe]').val();
+	if (isNaN(mov.importe)) {
+		alert ("Asegúrate de usar solo números y el punto (.) para los decimales.");
+		return;
+	}
 
 	$.ajax({
 		type: 'POST', 	
