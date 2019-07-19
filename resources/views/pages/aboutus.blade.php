@@ -45,7 +45,7 @@
 			<img class="text-center" src="/images/teresa.jpg" alt="teresa" />
 		</div>
 		<p class="header2">Teresa</p>
-		<p>Teresa, born in Madrid and raised on her mother’s traditional recipes, is a natural creative talent. She has spent many years inspiring herself and those around her through art, drama and music, while her love to travel has brought her closer to international cultures and cuisine. She has a wealth of experience working in bars and restaurants throughout Spain and is ready to share her passion for artistic Spanish cooking, in her native city. Take this opportunity for a unique, and as we like to say, inTERESAnte experience!</p>
+		<p>Born in Madrid and raised on her mother’s traditional recipes, is a natural creative talent. She has spent many years inspiring herself and those around her through art, drama and music, while her love to travel has brought her closer to other cultures and cuisines. She has a wealth of experience working in bars and restaurants throughout Spain and is ready to share her passion for artistic Spanish cooking, in her native city. Take this opportunity for a unique, and as we like to say, inTERESAnte experience!</p>
 	</div>
 </div>
 
