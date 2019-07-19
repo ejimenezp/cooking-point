@@ -420,7 +420,7 @@
 				<button id="button_booking_close" class="btn btn-primary">Cerrar</button>
 				<button id="button_booking_delete" class="btn btn-primary">Eliminar</button>
 				<button id="button_booking_save" class="btn btn-primary">Guardar</button>
-				<button id="button_booking_emailit" class="btn btn-primary">Enviar</button>
+				<button id="button_booking_emailit" class="btn btn-primary">Enviar email</button>
 			</form>
 		</div>
 	</div>
