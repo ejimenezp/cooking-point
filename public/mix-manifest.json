@@ -1,6 +1,7 @@
 {
     "/js/admin.js": "/js/admin.js",
     "/js/adminblogtool.js": "/js/adminblogtool.js",
+    "/js/cashbox.js": "/js/cashbox.js",
     "/js/classemails.js": "/js/classemails.js",
     "/js/report.js": "/js/report.js",
     "/js/booking.js": "/js/booking.js",

@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -52,4 +50,25 @@ Route::get('tienda/getTickets', 'TicketsController@getTickets');
 Route::post('viator', 'ViatorController@main');
 
 Route::post('contact/contactoeventos', 'ContactControllerApi@contactoeventos');
+
+
+//
+//	API de cashbox
+//
+Route::post('sesion/crear', 'Cashbox\SesionController@crear');
+Route::post('sesion/recalcularcaja/{id}', 'Cashbox\SesionController@recalcularCaja');
+Route::get('sesion/getultimaabierta', 'Cashbox\SesionController@getUltimaAbierta');
+Route::get('sesion/get/{id}', 'Cashbox\SesionController@get');
+Route::get('sesion/detalles/{id}', 'Cashbox\SesionController@detalles');
+Route::post('sesion/getlista', 'Cashbox\SesionController@getLista');
+Route::post('sesion/setefectivoinicial', 'Cashbox\SesionController@setefectivoinicial');
+Route::post('sesion/setefectivofinal', 'Cashbox\SesionController@setefectivofinal');
+Route::post('sesion/cerrar/{id}', 'Cashbox\SesionController@cerrar');
+Route::post('sesion/eliminar/{id}', 'Cashbox\SesionController@eliminar');
+
+Route::post('movimiento/crear', 'Cashbox\MovimientoController@crear');
+Route::post('movimiento/eliminar/{id}', 'Cashbox\MovimientoController@eliminar');
+Route::get('movimiento/gettickets/{date}', 'Cashbox\MovimientoController@getTickets');
+Route::get('movimiento/getconceptos', 'Cashbox\MovimientoController@getConceptos');
+
 
