@@ -29,12 +29,6 @@
 	
   <body>
 
-	<div class="loading loading-backdrop">
-		<div class="progress-box">
-			<div class="progress"><div>Loading…</div></div>				
-		</div>
-	</div>
-
 
 	<div class="container-fluid">
 		<div class="d-block d-lg-none">

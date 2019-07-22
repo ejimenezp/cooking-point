@@ -492,8 +492,6 @@ jQuery(document).ready(function($) {
 
 
 
-	$('.loading').show()
-	// $('.loading').hide()
 	//
 	// initial load
 	//
@@ -671,7 +669,6 @@ jQuery(document).ready(function($) {
 			break			
 	}
 
-	$('.loading').hide();
 
 	//
 	// check form change
@@ -869,7 +866,6 @@ jQuery(document).ready(function($) {
 	$("#button_calendarevent_save, #modal_button_calendarevent_save").click(function() {
 		var ce_id = $('input[name=id]').val()
 		var url
-		$('.loading').show()
 		if (form_changed || ce_id == 0 || typeof ce_id === "undefined") {  // form changed or new event
 
 			$('#modal_calendarevent_close').modal('hide')
@@ -906,7 +902,6 @@ jQuery(document).ready(function($) {
 			    		$('#modal_calendarevent_body').html(error_msg)
 				        $('#modal_calendarevent').modal('show')			    			    		
 					}	
-			    	$('.loading').hide()
 			    	$("#modal_button_calendarevent_ok").click()
 			    }
 			})
@@ -924,7 +919,6 @@ jQuery(document).ready(function($) {
 	$("#modal_button_calendarevent_delete").click(function() {
 
 		$('#modal_calendarevent_delete').modal('hide')
-		$('.loading').show()
 		var ce_id = $('input[name=id]').val()
 		if (ce_id != 0) {
 			$.ajax({
@@ -941,7 +935,6 @@ jQuery(document).ready(function($) {
 			    	} else {
 			    		$("#modal_button_calendarevent_close").click()
 			    	}
-			    	$('.loading').hide()
 				}
 			})
 		}
@@ -1001,20 +994,17 @@ jQuery(document).ready(function($) {
 
 	$("#modal_button_booking_emailit").click(function() {
 		$('#modal_booking_agree_before_emailit').modal('hide');
-		$('.loading').show()
 		$.ajax({
 			type: 'POST', 	
 		    url: '/api/booking/emailIt',
 		   	data: {locator: $("input[name=locator]").val()}
 			})
 		.done(function() {
-			$('.loading').hide()
 			$('.modal_admin_title').html('Done')
 			$('.modal_admin_body').html('Correo enviado correctamente')
 			$('#modal_admin').modal('show')
 		})
 		.fail(function(jqXHR, textStatus, errorThrown ) {
-			$('.loading').hide()
 			$('.modal_admin_title').html('Error')
 			$('.modal_admin_body').html(jqXHR.responseText + '<br/>')
 			$('#modal_admin').modal('show')
@@ -1063,7 +1053,6 @@ jQuery(document).ready(function($) {
 			if (!validBookingForm()) return true;
 
 			$('#modal_booking_close').modal('hide')
-			$('.loading').show();
 
 
 			if (bkg_id == 0 || typeof bkg_id === "undefined") {
@@ -1106,7 +1095,6 @@ jQuery(document).ready(function($) {
 				    } else {
 				    	$('#modal_button_booking_close').click()
 				    }
-				    $('.loading').hide();
 			    }			    			    					    	
 	    	})
 		}
@@ -1131,7 +1119,6 @@ jQuery(document).ready(function($) {
 	$("#modal_button_booking_delete").click(function() {
 
 		$('#modal_booking_delete').modal('hide')
-		$('.loading').show();
 
 		var bkg_id = $('input[name=id]').val()
 		if (bkg_id != 0) {
@@ -1151,7 +1138,6 @@ jQuery(document).ready(function($) {
 					}
 				    populateBookingList(i)
 				    $('#modal_button_booking_close').click()
-				    $('.loading').hide();
 				}
 			})
 		}
