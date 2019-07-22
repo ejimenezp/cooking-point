@@ -398,7 +398,6 @@ jQuery(document).ready(function($) {
 	// initial display
 	//
 
-	$('.loading').show()
 
 	date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone()
 	window.history.pushState(null, 'nada', '/booking')
@@ -470,7 +469,6 @@ jQuery(document).ready(function($) {
 
 	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
 
-	$('.loading').hide()
 
 	// 
     // end initial display
