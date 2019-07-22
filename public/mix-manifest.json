@@ -1,11 +1,11 @@
 {
-    "/js/admin.js": "/js/admin.js?id=6ac0bb30320358b96b37",
-    "/js/adminblogtool.js": "/js/adminblogtool.js?id=f0903670c559cf3646e7",
-    "/js/classemails.js": "/js/classemails.js?id=12d789ddcdc7fcd815e9",
-    "/js/report.js": "/js/report.js?id=8c1f92cc43ae68302ecf",
-    "/js/booking.js": "/js/booking.js?id=485d1ce75549ce777dbd",
-    "/js/app.js": "/js/app.js?id=eba21aa032289f733198",
-    "/css/app.css": "/css/app.css?id=5dfb0b182506801285d6",
-    "/js/tienda.js": "/js/tienda.js?id=cab40eaeb5638df7d90e",
-    "/js/contactoeventos.js": "/js/contactoeventos.js?id=7ef675b180e5f479cb34"
+    "/js/admin.js": "/js/admin.js",
+    "/js/adminblogtool.js": "/js/adminblogtool.js",
+    "/js/classemails.js": "/js/classemails.js",
+    "/js/report.js": "/js/report.js",
+    "/js/booking.js": "/js/booking.js",
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/tienda.js": "/js/tienda.js",
+    "/js/contactoeventos.js": "/js/contactoeventos.js"
 }
