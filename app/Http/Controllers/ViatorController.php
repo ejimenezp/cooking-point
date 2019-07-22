@@ -228,7 +228,7 @@ class ViatorController extends Controller
                 }
 
                 $laravelrequest->email = $requestdata['ContactDetail']['ContactType'] == 'EMAIL' ? $requestdata['ContactDetail']['ContactValue'] : '';
-                $laravelrequest->phone = $requestdata['ContactDetail']['ContactType'] == 'MOBILE' ? $requestdata['ContactDetail']['ContactValue'] : '';
+                $laravelrequest->phone = $requestdata['ContactDetail']['ContactType'] == 'ALTERNATE' ? $requestdata['ContactDetail']['ContactValue'] : '';
                 $laravelrequest->adult = $requestdata['TravellerMix']['Adult'];
                 $laravelrequest->child = $requestdata['TravellerMix']['Child'];
                 $laravelrequest->pay_method = 'N/A';
@@ -262,6 +262,7 @@ class ViatorController extends Controller
 
     private function bookingamendmentrequest ($requestdata)
     {
+        // Log::debug(print_r($requestdata, true));
         $this->resp->responseType = 'BookingAmendmentResponse';
 
         $laravelrequest = new Request;
@@ -309,14 +310,14 @@ class ViatorController extends Controller
                 $laravelrequest->source_id = 5; // MARKETPLACE: Viator (sources DB table)
                 $laravelrequest->status = 'CONFIRMED';
 
-                if (array_key_exists('GivenName', $requestdata['Traveller'])) {
-                    $laravelrequest->name = $requestdata['Traveller']['GivenName'].' '.$requestdata['Traveller']['Surname'];
+                if (array_key_exists('GivenName', $requestdata['Traveller'][0])) {
+                    $laravelrequest->name = $requestdata['Traveller'][0]['GivenName'].' '.$requestdata['Traveller'][0]['Surname'];
                 } else {
-                    $laravelrequest->name = $requestdata['Traveller']['Surname'];                    
+                    $laravelrequest->name = $requestdata['Traveller'][0]['Surname'];                    
                 }
 
                 $laravelrequest->email = $requestdata['ContactDetail']['ContactType'] == 'EMAIL' ? $requestdata['ContactDetail']['ContactValue'] : '';
-                $laravelrequest->phone = $requestdata['ContactDetail']['ContactType'] == 'MOBILE' ? $requestdata['ContactDetail']['ContactValue'] : '';
+                $laravelrequest->phone = $requestdata['ContactDetail']['ContactType'] == 'ALTERNATE' ? $requestdata['ContactDetail']['ContactValue'] : '';
                 $laravelrequest->adult = $requestdata['TravellerMix']['Adult'];
                 $laravelrequest->child = $requestdata['TravellerMix']['Child'];
                 $laravelrequest->pay_method = 'N/A';

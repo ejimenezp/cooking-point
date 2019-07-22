@@ -22,16 +22,17 @@
 		  		font-family: Helvetica, Arial, sans-serif ;
   			}
 	  	</style>
-		<script type='text/javascript' src='{{ mix('/js/tienda.js') }}'></script>
+		<script type='text/javascript' src="{{ mix('/js/tienda.js') }}"></script>
 		<script src="https://use.fontawesome.com/c502308363.js"></script>
 	</head>
 	
   <body>
-
+    <input type="hidden" name="date" id="realDate">
 	<div class="container">
 		<table class="table">
 		<tr>
-			<td><a class="header1" href="/tienda">SHOP</a></div></td>
+			<td><div class="header1 cambio-pagina" data-pagina="/tienda">Shop</div>
+			</td>
 			<td><div class="header1 text-center">{{ app('request')->input('user_name') }}&nbsp;&nbsp;<a href="/admin/logout">Logout</a></div></td>
 			<td style="vertical-align: middle;"><input type="text" name="pretty_date" id="admindatepicker"></td>
 		</tr>

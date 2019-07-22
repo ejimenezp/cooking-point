@@ -1,7 +1,7 @@
 require('./bootstrap');
 require('jquery-serializejson')
 
-var moment = require('moment')
+var moment = require('moment') 
 require('moment/locale/es')
 var url = require('url')
 
@@ -981,6 +981,47 @@ jQuery(document).ready(function($) {
 		}
 		document.body.removeChild(textArea)
 	})
+
+	//
+	// send voucher by email
+	//
+	$("#button_booking_emailit").click(function() {
+		if (form_changed)
+		{
+			$('#modal_booking_save_before_emailit').modal('show');
+		}
+		else
+		{
+			var mail = $("input[name=email]").val()
+			$('.modal_admin_body').html('Enviar correo a ' + mail + '?')
+			$('#modal_booking_save_before_emailit').modal('hide');
+			$('#modal_booking_agree_before_emailit').modal('show');
+		}
+	})
+
+	$("#modal_button_booking_emailit").click(function() {
+		$('#modal_booking_agree_before_emailit').modal('hide');
+		$('.loading').show()
+		$.ajax({
+			type: 'POST', 	
+		    url: '/api/booking/emailIt',
+		   	data: {locator: $("input[name=locator]").val()}
+			})
+		.done(function() {
+			$('.loading').hide()
+			$('.modal_admin_title').html('Done')
+			$('.modal_admin_body').html('Correo enviado correctamente')
+			$('#modal_admin').modal('show')
+		})
+		.fail(function(jqXHR, textStatus, errorThrown ) {
+			$('.loading').hide()
+			$('.modal_admin_title').html('Error')
+			$('.modal_admin_body').html(jqXHR.responseText + '<br/>')
+			$('#modal_admin').modal('show')
+		})
+	})
+
+
 
 	//
 	// booking close
