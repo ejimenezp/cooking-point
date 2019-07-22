@@ -114,7 +114,49 @@
             </form>
        </div>
       </div>
+    </div>
+  </div>
+  
+<!-- save & email it -->
+<div class="modal fade" id="modal_booking_save_before_emailit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Atención</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Debes guardar los cambios antes de enviar email.</p>
+        </div>
+        <div class="modal-footer">
+            <form >
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </form>
+       </div>
+      </div>
+    </div>
+  </div>
 
+
+<!-- Agree before sending email -->
+<div class="modal fade" id="modal_booking_agree_before_emailit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Atención</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body modal_admin_body"></div>
+
+        <div class="modal-footer">
+            <form >
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="modal_button_booking_emailit" class="btn btn-primary" >Continuar</button>
+            </form>
+       </div>
+      </div>      
 </div>
 </div>
 
