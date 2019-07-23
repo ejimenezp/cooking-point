@@ -27983,6 +27983,7 @@ function purchase() {
 			async: false,
 			success: function success(msg) {
 				if (msg.status == 'ok') {
+					$("input[name=locator]").val(msg.data.locator);
 					window.location.href = "/pay/" + msg.data.id;
 				}
 			}

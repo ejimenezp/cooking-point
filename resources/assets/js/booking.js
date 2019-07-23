@@ -153,6 +153,7 @@ function purchase() {
 			    async: false,
 			    success: function(msg) {
 			    	if (msg.status == 'ok') {
+			    		$("input[name=locator]").val(msg.data.locator);
 			    		window.location.href = "/pay/" + msg.data.id
 			    	}
 				}
