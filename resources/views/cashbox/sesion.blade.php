@@ -128,20 +128,122 @@
 				<ul style="list-style-type: square;"><li>Si hay desfase con el saldo de la sesión anterior, será responsabilidad de la persona que hizo caja antes que tú.</li>
 				</ul>
 				<p></p>
-				<table id="tabla-efectivo-inicial"><tr>
-					<td>
-						Introduce el importe que has contado:
-					</td>
-					<td>
-						<input name="importe" value="0">
-					</td>				
-					<td>
-						<button class="btn btn-primary" id="boton-contar-efectivo-inicial">Añadir</button>
-					</td>	
-					</tr>
-				</table>
-			    <p>
-			    </p>
+
+				<div class="col-md-10">
+					<table id="tabla-efectivo-inicial">
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								200 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="200" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								100 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="100" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								50 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="50" value="">	
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								20 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="20" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								10 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="10" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								5 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="5" value="">	
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								2 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="2" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								1 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="1" value="">	
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								50 cent. 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.5" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								20 cent.
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.2" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								10 cent.
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.1" value="">	
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								5 cent. 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.05" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								2 cent.
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.02" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								1 cent.
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.1" value="">	
+							</td>
+						</tr>
+					</table>
+					<p></p>
+					<table>
+						<tr>
+						<td>
+							Resultado (puedes cambiarlo a mano):
+						</td>
+						<td>
+							<input name="importe" value="0">
+						</td>				
+						<td>
+							<button class="btn btn-primary" id="boton-contar-efectivo-inicial">Añadir</button>
+						</td>	
+						</tr>
+					</table>
+				</div>
+					
+				
+			    <p></p>
 			    <button class="btn btn-default mostrar-resumen" >Cancelar</button>
 			</div>
 
@@ -155,22 +257,120 @@
 				</ul>
 				<p></p>
 
-				<table id="tabla-efectivo-final"><tr>
-					<td>
-						Introduce el importe que has contado:
-					</td>
-					<td>
-						<input name="importe" value="0">
-					</td>				
-					<td>
-						<button class="btn btn-primary" id="boton-contar-efectivo-final">Añadir</button>
-					</td>	
-					</tr>
-				</table>
 				<p></p>
-				<p>No olvides cerrar la sesión en el menú lateral.</p>
-			    <p></p>
-			    <button class="btn btn-default mostrar-resumen" >Cancelar</button>
+
+				<div class="col-md-10">
+					<table id="tabla-efectivo-final">
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								200 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="200" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								100 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="100" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								50 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="50" value="">	
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								20 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="20" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								10 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="10" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								5 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="5" value="">	
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								2 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="2" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								1 € 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="1" value="">	
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								50 cent. 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.5" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								20 cent.
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.2" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								10 cent.
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.1" value="">	
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 10%;text-align: center;">
+								5 cent. 
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.05" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								2 cent.
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.02" value="">	
+							</td>
+							<td style="width: 10%;text-align: center;">
+								1 cent.
+							</td>
+							<td style="width: 10%;">
+								<input data-val="0.1" value="">	
+							</td>
+						</tr>
+					</table>
+					<p></p>
+					<table>
+						<tr>
+						<td>
+							Resultado (puedes cambiarlo a mano):
+						</td>
+						<td>
+							<input name="importe" value="0">
+						</td>				
+						<td>
+							<button class="btn btn-primary" id="boton-contar-efectivo-final">Añadir</button>
+						</td>	
+						</tr>
+					</table>
+				</div>
 			</div>
 
 			<div id="cerrar-sesion" style="display:none;">
