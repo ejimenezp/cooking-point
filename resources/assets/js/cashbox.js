@@ -51,7 +51,7 @@ $(document).ready(function() {
 				});
 			}
 			$('#cabecera').text(cabecera_estado + data.usuario + ' - ' + prettyd(data.fecha));
-			$('#main-section div:not(:first-child)').hide(); // deja visible solo la primera opción
+			$('#main-section > div:not(:first-child)').hide(); // deja visible solo la primera opción
 			refresh_detalles_sesion(false);
 		});
 
@@ -374,6 +374,39 @@ $(document).on('click', '#boton-pagina-menos', function() {
 
 
 
+
+// tabla para calcular efectivo inicial 
+$(document).on('change', '#tabla-efectivo-inicial input', function() {
+
+	var suma = 0;
+	var item;
+	$('#tabla-efectivo-inicial input').each(function() {
+		item = '0' + $(this).val()
+		if (!isNaN(item)) {
+			suma += $(this).data('val') * item;			
+		}
+	});
+	$('#contar-efectivo-inicial input[name=importe]').val(prettyf(suma));
+});
+
+
+
+
+
+// tabla para calcular efectivo final 
+$(document).on('change', '#tabla-efectivo-final input', function() {
+
+	var suma = 0;
+	var item;
+	$('#tabla-efectivo-final input').each(function() {
+		item = '0' + $(this).val()
+		if (!isNaN(item)) {
+			suma += $(this).data('val') * item;			
+		}
+	});
+	$('#contar-efectivo-final input[name=importe]').val(prettyf(suma));
+});
+
 // evento para cambiar el campo descripcion de las compras o ventas
 $(document).on('change', '#select-compras, #select-ventas', function() {
 	descripcion = $(this).children(':selected').text();
@@ -484,7 +517,7 @@ $(document).on('click', '#boton-contar-efectivo-inicial', function() {
 
 	var mov = {};
 	mov.sesion_id = sesion_id;
-	mov.importe = $('#tabla-efectivo-inicial input[name=importe]').val();
+	mov.importe = $('#contar-efectivo-inicial input[name=importe]').val();
 	if (isNaN(mov.importe)) {
 		alert ("Asegúrate de usar solo números y el punto (.) para los decimales.");
 		return;
@@ -508,7 +541,7 @@ $(document).on('click', '#boton-contar-efectivo-final', function() {
 
 	var mov = {};
 	mov.sesion_id = sesion_id;
-	mov.importe = $('#tabla-efectivo-final input[name=importe]').val();
+	mov.importe = $('#contar-efectivo-final input[name=importe]').val();
 	if (isNaN(mov.importe)) {
 		alert ("Asegúrate de usar solo números y el punto (.) para los decimales.");
 		return;
