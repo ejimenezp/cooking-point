@@ -68,7 +68,7 @@ class BookingController extends Controller
             $bkg->created_at = $request->created_at;
         }
     	$bkg->save();
-    	return ['status' => 'ok', 'data' => $bkg];
+    	return $bkg;
 
     }
 

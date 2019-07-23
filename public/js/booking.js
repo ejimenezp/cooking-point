@@ -27975,13 +27975,10 @@ function purchase() {
 			type: 'POST',
 			url: '/api/booking/add',
 			data: $("#booking_form_1").serialize() + '&' + $("#booking_form_2").serialize() + '&' + $("#booking_form_3").serialize(),
-			dataType: 'json',
-			async: false,
-			success: function success(msg) {
-				if (msg.status == 'ok') {
-					$("input[name=locator]").val(msg.data.locator);
-					window.location.href = "/pay/" + msg.data.id;
-				}
+
+			success: function success(data) {
+				$("input[name=locator]").val(data.locator);
+				window.location.href = "/pay/" + data.id;
 			}
 		});
 	} else if (form_changed) {
