@@ -10,7 +10,7 @@ class BookingControllerApi extends BookingController
 {
     function add(Request $request)
     {
-        return response()->json(parent::add($request));
+        return parent::add($request);
     }
 
     function delete($id)
