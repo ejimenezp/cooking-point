@@ -27938,20 +27938,16 @@ function getMonthAvailability(a_date) {
 
 	var month_start = local_date.clone().startOf('month').format('YYYY-MM-DD');
 	var month_end = local_date.clone().endOf('month').format('YYYY-MM-DD');
-	var response = $.ajax({
+
+	$.ajax({
 		type: 'POST',
 		url: '/api/calendarevent/getavailability',
 		data: { start: month_start, end: month_end, bookable_only: 0 },
-		dataType: 'json',
-		async: false,
-		success: function success(msg) {
-			if (msg.status == 'fail') {
-				alert('Error al acceder al calendario');
-			}
+		success: function success(data) {
+			month_availability = JSON.parse(JSON.stringify(data));
+			refreshDataShown();
 		}
-	}).responseText;
-	var avail = JSON.parse(response).data;
-	return avail;
+	});
 }
 
 //
@@ -28230,9 +28226,7 @@ jQuery(document).ready(function ($) {
 	if (locator != '') {
 		retrieveBooking(locator);
 	}
-	month_availability = getMonthAvailability(date_shown);
-
-	refreshDataShown();
+	getMonthAvailability(date_shown);
 
 	$('#booking_steps > div').addClass('d-none');
 	if (bkg) {
@@ -28271,189 +28265,189 @@ jQuery(document).ready(function ($) {
 			$("#modal_booking").modal();
 	}
 
-	//
-	// Booking Datepicker
-	//
-	$("#bookingdatepicker").datepicker({
-		minDate: 0,
-		beforeShowDay: getDayAvailability,
-		dateFormat: 'yy-mm-dd',
-		onSelect: function onSelect(s, i) {
-			date_shown = moment($(this).val());
-			refreshDataShown();
-			form_changed = true;
-			$(".update_class").removeClass('d-none');
-		},
-		onChangeMonthYear: function onChangeMonthYear(year, month, inst) {
-			var new_date = moment({ y: year, M: month - 1, d: 1 });
-			month_availability = getMonthAvailability(new_date);
-		}
-	});
-
 	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate());
+}); // jQuery
 
-	// 
-	// end initial display
-	//
+// 
+// end initial display
+//
 
-	//
-	// event-driven actions
-	//
-	$("select[name=adult], select[name=child], select[name=type]").change(function () {
-
-		$("input[name=price]").val($("select[name=adult]").val() * 70 + $("select[name=child]").val() * 35);
+//
+// Booking Datepicker
+//
+$("#bookingdatepicker").datepicker({
+	minDate: 0,
+	beforeShowDay: getDayAvailability,
+	dateFormat: 'yy-mm-dd',
+	onSelect: function onSelect(s, i) {
+		date_shown = moment($(this).val());
 		refreshDataShown();
 		form_changed = true;
-		$('.update_class').removeClass('d-none');
+		$(".update_class").removeClass('d-none');
+	},
+	onChangeMonthYear: function onChangeMonthYear(year, month, inst) {
+		var new_date = moment({ y: year, M: month - 1, d: 1 });
+		getMonthAvailability(new_date);
+	}
+});
 
-		if (!getDayAvailability(date_shown.toDate())[0]) {
-			$('.modal_booking_title').html('Booking Not Available');
-			$('.modal_booking_body').html('Please, select a date with availability');
+//
+// event-driven actions
+//
+$("select[name=adult], select[name=child], select[name=type]").change(function () {
+
+	$("input[name=price]").val($("select[name=adult]").val() * 70 + $("select[name=child]").val() * 35);
+	refreshDataShown();
+	form_changed = true;
+	$('.update_class').removeClass('d-none');
+
+	if (!getDayAvailability(date_shown.toDate())[0]) {
+		$('.modal_booking_title').html('Booking Not Available');
+		$('.modal_booking_body').html('Please, select a date with availability');
+		$("#modal_booking").modal();
+	}
+});
+
+$("#booking_form_2 :input, #booking_form_3 :input").keypress(function () {
+	form_changed = true;
+	$(".update_contact").removeClass('d-none');
+});
+
+$('.step').click(function (e) {
+	e.preventDefault();
+	$('#booking_steps > div').addClass('d-none');
+	$($(this).attr('href')).removeClass('d-none');
+});
+
+$(".cancel").click(function () {
+	retrieveBooking($("input[name=locator]").val());
+	refreshDataShown();
+});
+
+$(".update_contact").click(function (e) {
+	updateBooking();
+	retrieveBooking($("input[name=locator]").val());
+	refreshDataShown();
+	$('#booking_steps > div').addClass('d-none');
+	$($(this).attr('href')).removeClass('d-none');
+});
+
+$("#button_booking_help").click(function () {
+	$('#modal_booking_help').modal();
+});
+
+$(".booking_retrieve").click(function () {
+	$('#modal_booking_retrieve').modal();
+});
+
+$(".update_class").click(function (e) {
+	if (!getDayAvailability(date_shown.toDate())[0]) {
+		$('.modal_booking_title').html('Booking Not Available');
+		$('.modal_booking_body').html('Please, select a date with availability');
+		$("#modal_booking").modal();
+	} else if ($(this).attr('checkout')) {
+		if (!parseInt($("select[name=adult]").val())) {
+			$('.modal_booking_title').html('Invalid number of guests');
+			$('.modal_booking_body').html('Book for 1 adult at least');
 			$("#modal_booking").modal();
+		} else {
+			$('#booking_steps > div').addClass('d-none');
+			$($(this).attr('href')).removeClass('d-none');
 		}
-	});
-
-	$("#booking_form_2 :input, #booking_form_3 :input").keypress(function () {
-		form_changed = true;
-		$(".update_contact").removeClass('d-none');
-	});
-
-	$('.step').click(function (e) {
-		e.preventDefault();
-		$('#booking_steps > div').addClass('d-none');
-		$($(this).attr('href')).removeClass('d-none');
-	});
-
-	$(".cancel").click(function () {
-		retrieveBooking($("input[name=locator]").val());
-		refreshDataShown();
-	});
-
-	$(".update_contact").click(function (e) {
+	} else {
+		// booking already exist, and probably paid
 		updateBooking();
 		retrieveBooking($("input[name=locator]").val());
 		refreshDataShown();
 		$('#booking_steps > div').addClass('d-none');
 		$($(this).attr('href')).removeClass('d-none');
-	});
+	}
+});
 
-	$("#button_booking_help").click(function () {
-		$('#modal_booking_help').modal();
-	});
+$("#button_purchase").click(function () {
+	if (validateBookingForm()) {
+		purchase();
+	}
+});
 
-	$(".booking_retrieve").click(function () {
-		$('#modal_booking_retrieve').modal();
+$("#button_booking_forget").click(function () {
+	showModalBooking(this, 'Clean-up Form', 'Please confirm you want to clear the booking form', true, function () {
+		window.location.href = '/booking/forget';
 	});
+});
 
-	$(".update_class").click(function (e) {
-		if (!getDayAvailability(date_shown.toDate())[0]) {
-			$('.modal_booking_title').html('Booking Not Available');
-			$('.modal_booking_body').html('Please, select a date with availability');
-			$("#modal_booking").modal();
-		} else if ($(this).attr('checkout')) {
-			if (!parseInt($("select[name=adult]").val())) {
-				$('.modal_booking_title').html('Invalid number of guests');
-				$('.modal_booking_body').html('Book for 1 adult at least');
-				$("#modal_booking").modal();
-			} else {
-				$('#booking_steps > div').addClass('d-none');
-				$($(this).attr('href')).removeClass('d-none');
-			}
-		} else {
-			// booking already exist, and probably paid
-			updateBooking();
-			retrieveBooking($("input[name=locator]").val());
-			refreshDataShown();
-			$('#booking_steps > div').addClass('d-none');
-			$($(this).attr('href')).removeClass('d-none');
-		}
-	});
+$("#button_booking_edit").click(function () {
+	var right_now = rightNow();
+	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
+	if (start.isSameOrBefore(right_now)) {
+		$('.modal_booking_title').html("Past Class");
+		$('.modal_booking_body').html('This class has already taken place, no edition is allowed.');
+		$("#modal_booking").modal();
+	} else if (start.subtract(11, 'hours').isSameOrBefore(right_now)) {
+		$('.modal_booking_title').html("Edition not allowed");
+		$('.modal_booking_body').html('Class is too close to start, so no edition allowed.<br/><br/>Please contact us by phone should you have any question.');
+		$("#modal_booking").modal();
+	} else {
+		$('#modal_booking_edit').modal('show');
+	}
+});
 
-	$("#button_purchase").click(function () {
-		if (validateBookingForm()) {
-			purchase();
-		}
-	});
+$("#date_edit").click(function () {
+	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
+	if (start.subtract(24, 'hours').isSameOrBefore(rightNow())) {
+		$('.modal_booking_title').html("Class changes not allowed");
+		$('.modal_booking_body').html('Class is too close to change your date or type.<br/><br/>Please contact us by phone should you have any question.');
+		$("#modal_booking").modal();
+	} else {
+		$('#booking_steps > div').addClass('d-none');
+		$('#step1').removeClass('d-none');
+	}
+});
 
-	$("#button_booking_forget").click(function () {
-		showModalBooking(this, 'Clean-up Form', 'Please confirm you want to clear the booking form', true, function () {
-			window.location.href = '/booking/forget';
+$('#booking_cancel').click(function () {
+	var bkg = retrieveBooking(locator);
+	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
+	if (start.subtract(48, 'hours').isSameOrBefore(rightNow())) {
+		$('.modal_booking_title').html("Cancellation Late Notice");
+		$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.');
+		$("#modal_booking").modal();
+		return;
+	}
+	showModalBooking(this, 'Cancel Booking', 'Please confirm you really want to cancel your booking.', true, function () {
+		var response = $.ajax({
+			type: 'POST',
+			url: '/api/booking/cancelIt',
+			data: { locator: locator },
+			dataType: 'json'
 		});
+		showModalBooking(this, 'Booking Cancellation', 'Sorry to hear you will not be able to attend the class. We will proceed to refund the total amount of your booking.<br/><br/>We will email you as soon as we have made the transfer. Please notice it will take a few days to receive it into your credit card. Thank you for your patience.', false, function () {});
 	});
+});
 
-	$("#button_booking_edit").click(function () {
-		var right_now = rightNow();
-		var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
-		if (start.isSameOrBefore(right_now)) {
-			$('.modal_booking_title').html("Past Class");
-			$('.modal_booking_body').html('This class has already taken place, no edition is allowed.');
-			$("#modal_booking").modal();
-		} else if (start.subtract(11, 'hours').isSameOrBefore(right_now)) {
-			$('.modal_booking_title').html("Edition not allowed");
-			$('.modal_booking_body').html('Class is too close to start, so no edition allowed.<br/><br/>Please contact us by phone should you have any question.');
-			$("#modal_booking").modal();
-		} else {
-			$('#modal_booking_edit').modal('show');
-		}
-	});
+$("#button_print_voucher").click(function () {
+	$('#printer_voucher').empty();
+	$('.step4_voucher').clone().appendTo('#printer_voucher');
+	$('#printer').printThis();
+});
 
-	$("#date_edit").click(function () {
-		var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
-		if (start.subtract(24, 'hours').isSameOrBefore(rightNow())) {
-			$('.modal_booking_title').html("Class changes not allowed");
-			$('.modal_booking_body').html('Class is too close to change your date or type.<br/><br/>Please contact us by phone should you have any question.');
-			$("#modal_booking").modal();
-		} else {
-			$('#booking_steps > div').addClass('d-none');
-			$('#step1').removeClass('d-none');
-		}
-	});
-
-	$('#booking_cancel').click(function () {
-		var bkg = retrieveBooking(locator);
-		var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time);
-		if (start.subtract(48, 'hours').isSameOrBefore(rightNow())) {
-			$('.modal_booking_title').html("Cancellation Late Notice");
-			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.');
-			$("#modal_booking").modal();
-			return;
-		}
-		showModalBooking(this, 'Cancel Booking', 'Please confirm you really want to cancel your booking.', true, function () {
-			var response = $.ajax({
-				type: 'POST',
-				url: '/api/booking/cancelIt',
-				data: { locator: locator },
-				dataType: 'json'
-			});
-			showModalBooking(this, 'Booking Cancellation', 'Sorry to hear you will not be able to attend the class. We will proceed to refund the total amount of your booking.<br/><br/>We will email you as soon as we have made the transfer. Please notice it will take a few days to receive it into your credit card. Thank you for your patience.', false, function () {});
-		});
-	});
-
-	$("#button_print_voucher").click(function () {
-		$('#printer_voucher').empty();
-		$('.step4_voucher').clone().appendTo('#printer_voucher');
-		$('#printer').printThis();
-	});
-
-	$("#button_email_voucher").click(function () {
-		showModalBooking(this, 'Send Voucher', 'We are about to send your voucher to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime', true, function () {
-			var response = $.ajax({
-				type: 'POST',
-				url: '/api/booking/emailIt',
-				data: { locator: locator },
-				dataType: 'json',
-				async: false,
-				success: function success(msg) {
-					if (msg.status == 'fail') {
-						bkg = null;
-					} else {
-						// alert('email sent')
-					}
+$("#button_email_voucher").click(function () {
+	showModalBooking(this, 'Send Voucher', 'We are about to send your voucher to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime', true, function () {
+		var response = $.ajax({
+			type: 'POST',
+			url: '/api/booking/emailIt',
+			data: { locator: locator },
+			dataType: 'json',
+			async: false,
+			success: function success(msg) {
+				if (msg.status == 'fail') {
+					bkg = null;
+				} else {
+					// alert('email sent')
 				}
-			}).responseText;
-		});
+			}
+		}).responseText;
 	});
-}); // jQuery
+});
 
 /***/ })
 /******/ ]);
