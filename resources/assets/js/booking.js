@@ -112,6 +112,7 @@ function getMonthAvailability(a_date)
 	    type: 'POST', 
 	    url: '/api/calendarevent/getavailability',
 	   	data: {start: month_start, end: month_end, bookable_only: 0},
+	   	async: false,
 	    success: function(data){
 	    	month_availability = JSON.parse(JSON.stringify(data));
 	    	refreshDataShown()
