@@ -3,6 +3,7 @@
   <head>
       <title>@yield('title')</title>
       <meta name="description" content="@yield('description')" >
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta name="page" content="@yield('banner-name')" caption="@yield('banner-caption', 'cooking point')">
       
       <meta charset="UTF-8">
