@@ -27853,16 +27853,6 @@ var bkg = null;
 var locator = null;
 var tpv_result = null;
 
-//
-// Initialization
-//
-// $.ajaxSetup({
-//     headers: {
-//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//     }
-// });
-
-
 /////////////////////////////////////////////////////////////////////
 //
 // F U N C T I O N S
@@ -28289,6 +28279,15 @@ jQuery(document).ready(function ($) {
 // end initial display
 //
 
+//
+// this is apparently needed to force reload the booking page on mobile Safari 
+// when the back button is clicked
+//
+$(window).bind("pageshow", function (event) {
+	if (event.originalEvent.persisted) {
+		window.location.reload();
+	}
+});
 
 //
 // event-driven actions
