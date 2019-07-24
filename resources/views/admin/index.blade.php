@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="col-md-6">
-		<div id="calendarevent_index">
+		<div id="calendarevent_index" style="display:none;">
 			<div class="text-center">
 	            <form >
 	                <button class="button_day_selector btn btn-primary" data-d="prev"><<</button>
@@ -41,7 +41,7 @@
 		</div>
 
 @if (app('request')->input('user_role') >= 3)
-		<div id="calendarevent_edit">
+		<div id="calendarevent_edit" style="display:none;">
 			<h1 class="header1">Editar Evento</h1>
 			<form id="form_calendarevent" class="form-horizontal" role="form" onsubmit="return false;">
    				{{ csrf_field() }}
@@ -177,7 +177,7 @@
 @endif
 
 @if (app('request')->input('user_role') >= 2)
-		<div id="booking_index">
+		<div id="booking_index" style="display:none;">
 			<div class=" text-center">
 	            <form >
 	                <button class="button_calendarevent_selector btn btn-primary" data-d="prev"><<</button>
@@ -204,7 +204,7 @@
 			<button class="btn btn-primary button_booking_edit" data-j="-1">Nueva Reserva</button>	
 		</div>
 
-		<div id="booking_edit">
+		<div id="booking_edit" style="display:none;">
 			<h1 class="header1">Editar Reserva</h1>
 			<h4 class="header4"><div class="dateshown"></div>
 			<div class="classshown"></div></h4>
