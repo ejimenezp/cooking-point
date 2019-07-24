@@ -20,14 +20,6 @@ var locator = null
 var tpv_result = null
 
 
-//
-// Initialization
-//
-// $.ajaxSetup({
-//     headers: {
-//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//     }
-// });
 
 
 /////////////////////////////////////////////////////////////////////
@@ -441,7 +433,8 @@ jQuery(document).ready(function($) {
     		$("#modal_booking").modal()
     }
 
-    
+
+
 	//
 	// Booking Datepicker
 	//
