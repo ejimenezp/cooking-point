@@ -503,47 +503,38 @@ jQuery(document).ready(function($) {
 	//
 	// load cook list
 	//
-	var response = $.ajax({
+	$.ajax({
 	    type: 'GET', 
 	    url: '/api/staff/get',
-	   	dataType: 'json',
-	    async: false,
-	    success: function(msg){
-	    	if (msg.status == 'fail') {
-	    		alert('Error al acceder al calendario')
-	    	}
+	    success: function(data){
+			cook = data;
+			var select = ''
+			$('.cooklist').empty()
+			for (var ii = 0; ii < cook.length; ii++) {
+				select += '<option value="'+ cook[ii].id +'">' + cook[ii].name + '</option>'
+			}
+			$('.cooklist').append(select)
 	     }
-	}).responseText
-	cook = JSON.parse(response).data
-	var select = ''
-	$('.cooklist').empty()
-	for (var ii = 0; ii < cook.length; ii++) {
-		select += '<option value="'+ cook[ii].id +'">' + cook[ii].name + '</option>'
-	}
-	$('.cooklist').append(select)
+	});
+
 
 	//
 	// load source list
 	//
-	response = $.ajax({
+	$.ajax({
 	    type: 'GET', 
 	    url: '/api/source/get',
-	   	dataType: 'json',
-	    async: false,
-	    success: function(msg){
-	    	if (msg.status == 'fail') {
-	    		alert('Error al acceder a los sources')
-	    	}
+	    success: function(data){
+			source = data;
+			select = ''
+			$('#sourcelist').empty()
+			for (var ii = 0; ii < source.length; ii++) {
+				select += '<option value="'+ source[ii].id +'">' + source[ii].type + ' - ' + source[ii].name + '</option>'
+			}
+			$('#sourcelist').append(select)
 	     }
-	}).responseText
-	source = JSON.parse(response).data
+	});
 
-	select = ''
-	$('#sourcelist').empty()
-	for (var ii = 0; ii < source.length; ii++) {
-		select += '<option value="'+ source[ii].id +'">' + source[ii].type + ' - ' + source[ii].name + '</option>'
-	}
-	$('#sourcelist').append(select)
 
 	// 
 	// set status and pay_method based on source_id
