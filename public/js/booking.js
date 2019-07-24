@@ -28263,6 +28263,25 @@ jQuery(document).ready(function ($) {
 			$("#modal_booking").modal();
 	}
 
+	//
+	// Booking Datepicker
+	//
+	$("#bookingdatepicker").datepicker({
+		minDate: 0,
+		beforeShowDay: getDayAvailability,
+		dateFormat: 'yy-mm-dd',
+		onSelect: function onSelect(s, i) {
+			date_shown = moment($(this).val());
+			refreshDataShown();
+			form_changed = true;
+			$(".update_class").removeClass('d-none');
+		},
+		onChangeMonthYear: function onChangeMonthYear(year, month, inst) {
+			var new_date = moment({ y: year, M: month - 1, d: 1 });
+			getMonthAvailability(new_date);
+		}
+	});
+
 	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate());
 }); // jQuery
 
@@ -28270,24 +28289,6 @@ jQuery(document).ready(function ($) {
 // end initial display
 //
 
-//
-// Booking Datepicker
-//
-$("#bookingdatepicker").datepicker({
-	minDate: 0,
-	beforeShowDay: getDayAvailability,
-	dateFormat: 'yy-mm-dd',
-	onSelect: function onSelect(s, i) {
-		date_shown = moment($(this).val());
-		refreshDataShown();
-		form_changed = true;
-		$(".update_class").removeClass('d-none');
-	},
-	onChangeMonthYear: function onChangeMonthYear(year, month, inst) {
-		var new_date = moment({ y: year, M: month - 1, d: 1 });
-		getMonthAvailability(new_date);
-	}
-});
 
 //
 // event-driven actions

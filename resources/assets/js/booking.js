@@ -441,14 +441,7 @@ jQuery(document).ready(function($) {
     		$("#modal_booking").modal()
     }
 
-	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
-
-}) // jQuery
-
-	// 
-    // end initial display
-    //
-
+    
 	//
 	// Booking Datepicker
 	//
@@ -468,6 +461,15 @@ jQuery(document).ready(function($) {
  	  		getMonthAvailability(new_date)
  	  	}
 	});
+
+	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
+
+}) // jQuery
+
+	// 
+    // end initial display
+    //
+
 
 
 
