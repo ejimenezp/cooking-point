@@ -506,6 +506,7 @@ jQuery(document).ready(function($) {
 	$.ajax({
 	    type: 'GET', 
 	    url: '/api/staff/get',
+	    async: false,
 	    success: function(data){
 			cook = data;
 			var select = ''
