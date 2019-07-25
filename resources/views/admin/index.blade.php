@@ -436,6 +436,6 @@
 @stop
 
 @section('js')
-	{{-- <script async src="/js/calendarevent.js"></script> --}}
+<script async src="/js/admin.js"></script>
 @stop
 @stop
