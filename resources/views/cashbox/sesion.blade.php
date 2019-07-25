@@ -18,14 +18,14 @@
 
 		<div class="col-md-3">
 	    <div class="list-group">
-				<div class="list-group-item enlace" section="resumen">Resumen</div>
-				<div class="list-group-item enlace" section="anadir-compras">Añadir compras</div>
-				<div class="list-group-item enlace" section="anadir-ventas">Añadir ventas</div>
-<!-- 				<div class="list-group-item enlace" section="green">Añadir ajuste</div>
- -->				<div class="list-group-item enlace" section="contar-efectivo-inicial">Contar efectivo (apertura)</div>
-				<div class="list-group-item enlace" section="contar-efectivo-final">Contar efectivo (cierre)</div>
-				<div class="list-group-item enlace" section="cerrar-sesion">Cerrar sesión</div>
-				<div class="list-group-item enlace" section="eliminar-sesion">Eliminar sesión</div>
+				<div class="list-group-item enlace" data-section="resumen">Resumen</div>
+				<div class="list-group-item enlace" data-section="anadir-compras">Añadir compras</div>
+				<div class="list-group-item enlace" data-section="anadir-ventas">Añadir ventas</div>
+<!-- 				<div class="list-group-item enlace" data-section="green">Añadir ajuste</div>
+ -->				<div class="list-group-item enlace" data-section="contar-efectivo-inicial">Contar efectivo (apertura)</div>
+				<div class="list-group-item enlace" data-section="contar-efectivo-final">Contar efectivo (cierre)</div>
+				<div class="list-group-item enlace" data-section="cerrar-sesion">Cerrar sesión</div>
+				<div class="list-group-item enlace" data-section="eliminar-sesion">Eliminar sesión</div>
 <!-- 				<div class="list-group-item" id="boton-recalcular-caja">Recalcular caja</div>
  -->	    </div>      		
 		</div>
@@ -34,7 +34,7 @@
 			<div id="resumen">
 				<h1 class="header1">Resumen</h1>
 				<p>Operaciones de caja registradas en esta sesión:</p>
-		    <table id="tabla-movimientos" class="table" style="display:none;">
+		    <table id="tabla-movimientos" class="table">
 			    <thead>
 			      <tr>
 			        <th>Descripción</th>
@@ -378,7 +378,6 @@
 				<p>Si no has contado el efectivo antes del cierre, por favor, hazlo ahora.</p>
 				<p>Si ya está todo contado y anotado, confirma la acción pulsando "Cerrar Sesión"</p>
 
-			    </p>
 			    <button class="btn btn-default mostrar-resumen" >Cancelar</button>&nbsp;<button class="btn btn-primary" id="boton-cerrar-sesion" >Cerrar sesión</button>
 			</div>
 
@@ -387,7 +386,6 @@
 				<p></p>
 				<p>Solo se pueden eliminar sesiones abiertas. Si estás segura/o de ello, confirma la acción pulsando "Eliminar Sesión"</p>
 
-			    </p>
 			    <button class="btn btn-default mostrar-resumen" >Cancelar</button>&nbsp;<button class="btn btn-primary" id="boton-eliminar-sesion" >Eliminar sesión</button>
 			</div>
 				

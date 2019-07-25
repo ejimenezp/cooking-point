@@ -269,7 +269,7 @@ function get_sesiones(comienzo, direccion)
 //
 $(document).on('click', '.enlace', function() {
 	$('#main-section').children().hide();
-	var s = $(this).attr('section');
+	var s = $(this).data('section');
 	$('#'+s).show();
 });
 
