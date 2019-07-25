@@ -208,7 +208,7 @@ function bookingEditShow(i, j) {
 	}
 	updateUrl(parts, '/admin/booking', moment(booking_date), url_action, i, j)
 	showPrice()
-	$('#booking_edit').show()
+	showSection('#booking_edit');
 }
 
 //
@@ -254,7 +254,7 @@ function calendarEventEditShow(month_schedule, date_shown, i) {
 		url_action = 'ce_edit'
 	}
 	updateUrl(parts, '/admin/calendarevent', moment($("input[name=date]").val()), url_action, i)
-	$('#calendarevent_edit').show()
+	showSection('#calendarevent_edit');
 }
 
 //
@@ -408,6 +408,19 @@ function showPrice() {
 		$('.price').hide()
 	}
 }
+
+
+
+//
+// Function: showSection
+// hide all sub-sections under div #main-section to show only the one in the arg
+//
+function showSection(arg) {
+	$('#main-section > div').hide();
+	$(arg).show();
+}
+
+
 
 //
 // Function: updateUrl
@@ -566,10 +579,7 @@ jQuery(document).ready(function($) {
  	  			$('#button_calendarevent_close').trigger('click')
  	  		} else {
  	  			updateUrl(parts, '/admin/calendarevent', new_date, 'ce_index', -1)
-				$('#calendarevent_index').show()
-				$('#calendarevent_edit').hide()
-				$('#booking_index').hide()
-				$('#booking_edit').hide()
+				showSection('#calendarevent_index');
 	 	  	}
  	 	},
  	  	onChangeMonthYear: function(year, month, inst){
@@ -605,27 +615,18 @@ jQuery(document).ready(function($) {
 					i = -1
 				case 'ce_edit':
 					calendarEventEditShow(month_schedule, date_shown, i)
-					$('#calendarevent_index').hide()
-					$('#calendarevent_edit').show()
-					$('#booking_index').hide()
-					$('#booking_edit').hide()
+					showSection('#calendarevent_edit');
 					break
 
 				case 'bkg_index':
 					bookings = getEventBookings(month_schedule[i].id)
 					populateBookingList(i);
-					$('#calendarevent_index').hide()
-					$('#calendarevent_edit').hide()
-					$('#booking_index').addClass('d-display')
-					$('#booking_edit').hide()
+					showSection('#booking_index');
 					break	
 
 				case 'ce_index':
 				default:
-					$('#calendarevent_index').show()
-					$('#calendarevent_edit').hide()
-					$('#booking_index').hide()
-					$('#booking_edit').hide()
+					showSection('#calendarevent_index')
 					break					
 
 			}
@@ -638,26 +639,17 @@ jQuery(document).ready(function($) {
 				case 'bkg_new':
 					j = -1
 				case 'bkg_edit':
-					$('#calendarevent_index').hide()
-					$('#calendarevent_edit').hide()
-					$('#booking_index').hide()
-					$('#booking_edit').show()
+					showSection('#booking_edit');
 					break	
 
 				default:
-					$('#calendarevent_index').hide()
-					$('#calendarevent_edit').hide()
-					$('#booking_index').show()
-					$('#booking_edit').hide()
+					showSection('#booking_index');
 					break								
 			}
 			break
 
 		default:
-			$('#calendarevent_index').show()
-			$('#calendarevent_edit').hide()
-			$('#booking_index').hide()
-			$('#booking_edit').hide()
+			showSection('#calendarevent_index');
 			break			
 	}
 
@@ -688,7 +680,6 @@ jQuery(document).ready(function($) {
 	// we use .on() for dynamically created elements
 	//
 	$(document).on('click', '.button_calendarevent_edit', function() {
-		$('#calendarevent_index').hide()
 		calendarEventEditShow(month_schedule, date_shown, $(this).data('i'))
 	})
 
@@ -704,11 +695,10 @@ jQuery(document).ready(function($) {
 		// var clase = month_schedule[i].time.substring(0,5) + '&nbsp;&nbsp;&nbsp;' + month_schedule[i].type
 		// 			+ '<span class="pull-right">Registrados: ' + month_schedule[i].registered +'</span>'
 		// $('#classshown').html(clase)
-		$('#calendarevent_index').hide()
 		bookings = getEventBookings(month_schedule[i].id)
 		populateBookingList(i);
  	  	updateUrl(parts, '/admin/calendarevent', '', 'bkg_index', i)
-		$('#booking_index').show()
+		showSection('#booking_index');
 	})
 	
 	$(".button_day_selector").click(function() {
@@ -735,10 +725,7 @@ jQuery(document).ready(function($) {
   		if (form_changed) {
   			$('#button_calendarevent_close').trigger('click')
   		} else {
-			$('#calendarevent_index').show()
-			$('#calendarevent_edit').hide()
-			$('#booking_index').hide()
-			$('#booking_edit').hide()
+			showSection('#calendarevent_index');
 	  	}
 	  	return false
 	})
@@ -806,17 +793,13 @@ jQuery(document).ready(function($) {
 		var date_shown_locale = date_shown.format('dddd, D MMMM YYYY')
 		$('.dateshown').html(date_shown_locale)	
 
-		$('#calendarevent_index').hide()
 		bookings = getEventBookings(month_schedule[i].id)
 		populateBookingList(i);
 
   		if (form_changed) {
   			$('#button_calendarevent_close').trigger('click')
   		} else {
-			$('#calendarevent_index').hide()
-			$('#calendarevent_edit').hide()
-			$('#booking_index').show()
-			$('#booking_edit').hide()
+			showSection('#booking_index');
 	  	}
 	  	return false;
 	})
@@ -835,8 +818,7 @@ jQuery(document).ready(function($) {
 		else
 		{
 		 	updateUrl(parts, '/admin/calendarevent', date_shown, 'ce_index')
-			$('#calendarevent_index').show()
-			$('#calendarevent_edit').hide()	
+			showSection('#calendarevent_index');
 		}
 	})
 
@@ -846,8 +828,7 @@ jQuery(document).ready(function($) {
 	$("#modal_button_calendarevent_close, #modal_button_calendarevent_ok").click(function() {
 		form_changed = false
 		updateUrl(parts, '/admin/calendarevent', date_shown, 'ce_index')
-		$('#calendarevent_index').show()
-		$('#calendarevent_edit').hide()	
+		showSection('#calendarevent_index');
 		$('#modal_calendarevent_close').modal('hide')
 		$('#modal_calendarevent').modal('hide')
 	})
@@ -872,33 +853,23 @@ jQuery(document).ready(function($) {
 			    url: url,
 			   	data: $("#form_calendarevent").serialize(),
 			   	dataType: 'json',
-			    async: false,
-			    success: function(msg){
-			    	var error_msg
-			    	var modal_title
-			    	if (msg.status == 'ok'){
-				    	date_shown =  moment($('input[name=date]').val())
-				    	month_schedule = getMonthSchedule(date_shown)
-				    	refreshDateShown(month_schedule, date_shown)
-				    	$("#modal_button_calendarevent_ok").click()
-			    	} else {
-						modal_title = 'Error'
-						if (ce_id == 0 || typeof ce_id === "undefined") {
-							error_msg = 'Este evento ya existe'
-						} else {
-							error_msg = 'Este evento ya no existe'
-						}
-				    	month_schedule = getMonthSchedule(date_shown)
-				    	refreshDateShown(month_schedule, date_shown)
-			    		$('#modal_calendarevent_title').html(modal_title)
-			    		$('#modal_calendarevent_body').html(error_msg)
-				        $('#modal_calendarevent').modal('show')			    			    		
-					}	
-			    	$("#modal_button_calendarevent_ok").click()
-			    }
+			    async: false
 			})
-	    }
-	})
+			.done(function(data){
+		    	date_shown =  moment($('input[name=date]').val());
+		    	month_schedule = getMonthSchedule(date_shown);
+		    	refreshDateShown(month_schedule, date_shown);
+		    	showSection('#calendarevent_index');
+		    })
+		    .fail(function(data) {
+		    	month_schedule = getMonthSchedule(date_shown)
+		    	refreshDateShown(month_schedule, date_shown)
+	    		$('#modal_calendarevent_title').html('Error');
+	    		$('#modal_calendarevent_body').html(data.responseJSON)
+		        $('#modal_calendarevent').modal('show')			    			    		
+			});
+		}
+	});
 
 	//
 	// delete, modal delete
@@ -944,7 +915,6 @@ jQuery(document).ready(function($) {
 	// we use .on() for dynamically created elements
 	//
 	$(document).on('click', '.booking_line, .button_booking_edit', function() {
-		$('#booking_index').hide()
 		bookingEditShow($("#booking_table").data('i'), $(this).data('j'))
 	})
 
@@ -1016,8 +986,7 @@ jQuery(document).ready(function($) {
 		else
 		{
 			updateUrl(parts, '/admin/calendarevent', date_shown, 'bkg_index', parts.query.i)
-			$('#booking_index').show()
-			$('#booking_edit').hide()	
+			showSection('#booking_index');
 		}
 	})
 
@@ -1027,8 +996,7 @@ jQuery(document).ready(function($) {
 	$("#modal_button_booking_close").click(function() {
 		form_changed = false
 		updateUrl(parts, '/admin/calendarevent', date_shown, 'bkg_index', parts.query.i)
-		$('#booking_index').show()
-		$('#booking_edit').hide()	
+		showSection('#booking_index');
 		$('#modal_booking_close').modal('hide')
 		$('#modal_admin').modal('hide')
 	})
@@ -1057,40 +1025,32 @@ jQuery(document).ready(function($) {
 			    url: url,
 			   	data: $("#form_booking").serialize(),
 			   	dataType: 'json',
-			    async: false,
-			    success: function(msg){
-			    	var error_msg
-			    	var modal_title
-			    	var show_modal = false
-			    	if (msg.status == 'ok'){
-			    	} else {
-						modal_title = 'Error'
-						show_modal = true
-					}
-					var date_shown = moment($('input[name=date]').val()) 
-				    month_schedule = getMonthSchedule(date_shown)
-				    refreshDateShown(month_schedule, date_shown)
-				    var ce_id = $('input[name=calendarevent_id]').val()
-					bookings = getEventBookings(ce_id)	
-					var i
-					for (i = 0 ; i < month_schedule.length; i++) {
-						if (month_schedule[i].id == ce_id)
-							break
-					}
-					$("#admindatepicker").datepicker("setDate", month_schedule[i].date)
-					updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i)
-				    populateBookingList(i)
-				    if (show_modal) {
-				    	$('.modal_admin_title').html(modal_title)
-				    	$('.modal_admin_body').html(error_msg)
-					    $('#modal_admin').modal('show')				    	
-				    } else {
-				    	$('#modal_button_booking_close').click()
-				    }
-			    }			    			    					    	
-	    	})
+			    async: false
+			})
+			.done(function(msg){
+				var date_shown = moment($('input[name=date]').val()) 
+			    month_schedule = getMonthSchedule(date_shown)
+			    refreshDateShown(month_schedule, date_shown)
+			    var ce_id = $('input[name=calendarevent_id]').val()
+				bookings = getEventBookings(ce_id)	
+				var i
+				for (i = 0 ; i < month_schedule.length; i++) {
+					if (month_schedule[i].id == ce_id)
+						break
+				}
+				$("#admindatepicker").datepicker("setDate", month_schedule[i].date);
+				updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i);
+			    populateBookingList(i);
+			    form_changed = false;
+			    showSection("#booking_index");
+			})
+			.fail(function(data) {
+		    	$('.modal_admin_title').html('Error')
+		    	$('.modal_admin_body').html(data.responseJSON)
+			    $('#modal_admin').modal('show')							
+			});
 		}
-	})
+	});
 
 	//
 	// booking delete, modal delete
