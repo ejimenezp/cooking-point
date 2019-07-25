@@ -37,6 +37,6 @@ class CalendareventControllerApi extends CalendareventController
 
     function getAvailability(Request $request)
     {
-        return response()->json(['status'=>'ok', 'data' => $this->getIntervalSchedule($request->start, $request->end, $request->bookable_only, $request->ce_type)]);
+        return $this->getIntervalSchedule($request->start, $request->end, $request->bookable_only, $request->ce_type);
     }
 }

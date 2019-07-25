@@ -3,6 +3,7 @@
   <head>
       <title>@yield('title')</title>
       <meta name="description" content="@yield('description')" >
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta name="page" content="@yield('banner-name')" caption="@yield('banner-caption', 'cooking point')">
       
       <meta charset="UTF-8">
@@ -16,7 +17,7 @@
               }
       </style>  
       <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
-      <script  type='text/javascript' src='{{ mix('/js/app.js') }}'></script>
+      <script  type='text/javascript' src="{{ mix('/js/app.js') }}"></script>
       <!-- <script  type='text/javascript' src="https://use.fontawesome.com/c502308363.js"></script> -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -57,11 +58,6 @@
     
   <body>
 
-  <div class="loading loading-backdrop" style="display:none">
-    <div class="progress-box">
-      <div class="progress"><div>Loading…</div></div>       
-    </div>
-  </div>
 
 @section('footer')
 

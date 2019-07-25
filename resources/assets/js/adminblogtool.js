@@ -134,13 +134,11 @@ $('#button_post_index_save').click(function() {
 		order.push($(this).attr('postid'))
 	})
 
-	$('.loading').show()	
 	$.ajax({
 		type: 'POST', 
 		url: '/api/blogtool/savedisplayposition',
 		data: {order: order},
 		success: function() {
-			$('.loading').hide()
 			$('#button_post_index_save').hide()
 		}
 	})
@@ -172,7 +170,6 @@ $('#button_post_index_toggle').click(function() {
 
 $('#button_post_update').click(function() {
 
-	$('.loading').show()
 
 	var request = new Object()
 
@@ -195,13 +192,11 @@ $('#button_post_update').click(function() {
 		success: function() {
 			refresh_post($('#post-edit-page').attr('postid'))
 			refresh_uploaded_images($('#post-edit-page').attr('postid'))
-			$('.loading').hide()
 		},
 		error: function(jqXHR, textStatus, errorThrown ) {
 			refresh_post($('#post-edit-page').attr('postid'))
 			$('.modal_admin_title').html('Error')
 			$('.modal_admin_body').html(jqXHR.responseJSON + '<br/>')
-			$('.loading').hide()
 			$('#modal_admin').modal('show')
 		}
 	})
@@ -231,10 +226,8 @@ $('#button_post_publish').click(function() {
 		return		
 	}
 
-	$('.loading').show()
 	$.get('/api/blogtool/publish/' + $('#post-edit-page').attr('postid'), function() {
 			refresh_post($('#post-edit-page').attr('postid'))
-			$('.loading').hide()
 
 		})
 })
@@ -256,21 +249,18 @@ $('#button_remove_images').click(function() {
 		$('#modal_admin').modal('show')
 		return
 	}
-	$('.loading').show()
 	$.ajax({
 		type: 'POST', 
 		url: '/api/blogtool/removeimages',
 		data: {images: $('#uploaded_images').val()},
 		success: function() {
 			refresh_uploaded_images($('#post-edit-page').attr('postid'))
-			$('.loading').hide()
 		}
 	})
 })
 
 $('#button_upload_image').click(function(e) {
     e.preventDefault();
-    $('.loading').show()
     var image = $('input[name=image]')
     var form_data = new FormData()
 
@@ -285,7 +275,6 @@ $('#button_upload_image').click(function(e) {
 		data: form_data,
 		success: function () {
 			refresh_uploaded_images($('#post-edit-page').attr('postid'))
-			$('.loading').hide()
 		}
 	})
 })

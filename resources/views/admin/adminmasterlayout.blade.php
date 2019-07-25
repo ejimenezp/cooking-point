@@ -22,18 +22,11 @@
     			font-size: 16px !important;
   			}
 	  	</style>  
-		<script type='text/javascript' src='{{ mix("/js/admin.js") }}'></script>
+		@yield('js')
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-		<!-- <script src="https://use.fontawesome.com/c502308363.js"></script> -->
 	</head>
 	
   <body>
-
-	<div class="loading loading-backdrop">
-		<div class="progress-box">
-			<div class="progress"><div>Loading…</div></div>				
-		</div>
-	</div>
 
 
 	<div class="container-fluid">
@@ -104,8 +97,7 @@
 <!-- modals specific for this page  -->
 @yield('modals')
 
-<!-- javascripts specific for this page  -->
-@yield('js')
+
 
 </body>
 
