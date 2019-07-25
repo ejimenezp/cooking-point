@@ -20,14 +20,6 @@ var locator = null
 var tpv_result = null
 
 
-//
-// Initialization
-//
-// $.ajaxSetup({
-//     headers: {
-//         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//     }
-// });
 
 
 /////////////////////////////////////////////////////////////////////
@@ -107,20 +99,17 @@ function getMonthAvailability(a_date)
 
 	var month_start = local_date.clone().startOf('month').format('YYYY-MM-DD')
 	var month_end = local_date.clone().endOf('month').format('YYYY-MM-DD')
-	var response = $.ajax({
+	
+	$.ajax({
 	    type: 'POST', 
 	    url: '/api/calendarevent/getavailability',
 	   	data: {start: month_start, end: month_end, bookable_only: 0},
-	   	dataType: 'json',
-	    async: false,
-	    success: function(msg){
-	    	if (msg.status == 'fail') {
-	    		alert('Error al acceder al calendario')
-	    	}
+	   	async: false,
+	    success: function(data){
+	    	month_availability = JSON.parse(JSON.stringify(data));
+	    	refreshDataShown()
 	     }
-		}).responseText
-	var avail = JSON.parse(response).data
-	return avail
+		});
 }
 
 //
@@ -149,12 +138,10 @@ function purchase() {
 			    type: 'POST', 
 			    url: '/api/booking/add',
 			   	data: $("#booking_form_1").serialize() + '&' + $("#booking_form_2").serialize() + '&' + $("#booking_form_3").serialize(), 
-			   	dataType: 'json',
-			    async: false,
-			    success: function(msg) {
-			    	if (msg.status == 'ok') {
-			    		window.location.href = "/pay/" + msg.data.id
-			    	}
+
+			    success: function(data) {
+		    		$("input[name=locator]").val(data.locator);
+		    		window.location.href = "/pay/" + data.id
 				}
 			})   	
 	} else if (form_changed) {
@@ -398,7 +385,6 @@ jQuery(document).ready(function($) {
 	// initial display
 	//
 
-	$('.loading').show()
 
 	date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone()
 	window.history.pushState(null, 'nada', '/booking')
@@ -407,9 +393,8 @@ jQuery(document).ready(function($) {
 	if (locator != '') {
 		retrieveBooking(locator)
 	}
-	month_availability = getMonthAvailability(date_shown)
+	getMonthAvailability(date_shown)
 
-	refreshDataShown()
 
     $('#booking_steps > div').addClass('d-none')
     if (bkg) {
@@ -448,6 +433,8 @@ jQuery(document).ready(function($) {
     		$("#modal_booking").modal()
     }
 
+
+
 	//
 	// Booking Datepicker
 	//
@@ -464,17 +451,28 @@ jQuery(document).ready(function($) {
  	 	},
  	  	onChangeMonthYear: function(year, month, inst){
  	  		var new_date = moment({y:year, M:month-1, d:1})
- 	  		month_availability = getMonthAvailability(new_date)
+ 	  		getMonthAvailability(new_date)
  	  	}
 	});
 
 	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
 
-	$('.loading').hide()
+}) // jQuery
 
 	// 
     // end initial display
     //
+
+//
+// this is apparently needed to force reload the booking page on mobile Safari 
+// when the back button is clicked
+//
+$(window).bind("pageshow", function(event) {
+    if (event.originalEvent.persisted) {
+        window.location.reload() 
+    }
+});
+
 
 	//
     // event-driven actions
@@ -660,4 +658,3 @@ jQuery(document).ready(function($) {
 
 
 
-}) // jQuery

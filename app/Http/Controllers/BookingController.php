@@ -68,7 +68,7 @@ class BookingController extends Controller
             $bkg->created_at = $request->created_at;
         }
     	$bkg->save();
-    	return ['status' => 'ok', 'data' => $bkg];
+    	return $bkg;
 
     }
 
@@ -124,7 +124,7 @@ class BookingController extends Controller
     {
         $bkg = Booking::find($request->id);
         if (!$bkg) {
-            return ['status' => 'fail', 'data' => 'wrong bkg->id'];
+            return response()->json('Esta reserva ya no existe', 350);;
         } else {
             $bkg->calendarevent_id = $request->calendarevent_id;
             $bkg->source_id = $request->source_id;
@@ -155,7 +155,7 @@ class BookingController extends Controller
             $bkg->fixed_date = !empty($request->fixed_date);
             $bkg->invoice = $request->invoice;
             $bkg->save();
-            return ['status' => 'ok', 'data' => $bkg];
+            return $bkg;
         }
     }
 
