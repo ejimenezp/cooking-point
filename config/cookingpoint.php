@@ -15,9 +15,9 @@ return [
 	    'merchanturl' => env('APP_URL', 'https://cookingpoint.es') . '/callback', 
 	    'nombrecomercio' => 'Cooking Point',
 	    'fuc' => '333658318',
-	    'url' => 'https://sis.redsys.es/sis/realizarPago',  // production
+	    'xxxurl' => 'https://sis.redsys.es/sis/realizarPago',  // production
 	    'produrl' => 'https://sis.redsys.es/sis/realizarPago',
-	    'testurl'=> 'https://sis-t.redsys.es:25443/sis/realizarPago',
+	    'turl'=> 'https://sis-t.redsys.es:25443/sis/realizarPago',
 		],
 	'gmail' => [
 		'client_secret' => 'app/client_secret_testing.json',

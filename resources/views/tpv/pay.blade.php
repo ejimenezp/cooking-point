@@ -84,6 +84,14 @@ use App\Http\Controllers\RedsysAPI;
 	$myObj->setParameter("DS_MERCHANT_MERCHANTDATA", $Ds_Merchant_MerchantData);
 	$myObj->setParameter("DS_MERCHANT_AUTHORISATIONCODE", $Ds_Merchant_AuthorisationCode);
 
+	//
+	// new params to comply with 3DSecure v.2
+	//
+
+	$datos_3DSecure_v2 = new \stdClass();
+	// Generación del JSON con los datos de 3DSecure v.2.1
+	$json_datos_3DSecure_v2 = json_encode($datos_3DSecure_v2);
+	$myObj->setParameter("DS_MERCHANT_EMV3DS", $json_datos_3DSecure_v2);
 
 	$params = $myObj->createMerchantParameters();
 	$signature = $myObj->createMerchantSignature($Secret);
