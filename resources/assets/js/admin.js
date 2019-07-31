@@ -856,6 +856,7 @@ jQuery(document).ready(function($) {
 			    async: false
 			})
 			.done(function(data){
+				form_changed = false;
 		    	date_shown =  moment($('input[name=date]').val());
 		    	month_schedule = getMonthSchedule(date_shown);
 		    	refreshDateShown(month_schedule, date_shown);
