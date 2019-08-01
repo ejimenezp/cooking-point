@@ -222,7 +222,7 @@
 								1 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.1" value="">	
+								<input data-val="0.01" value="">	
 							</td>
 						</tr>
 					</table>
@@ -352,7 +352,7 @@
 								1 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.1" value="">	
+								<input data-val="0.01" value="">	
 							</td>
 						</tr>
 					</table>
