@@ -70,7 +70,7 @@
 						<input name="descripcion" value="texto alternativo">
 					</td>
 					<td>
-						<input name="importe" value="0">
+						<input name="importe" value="0" style="text-align: right;">
 					</td>
 					<td>
 						Ticket? <input type="checkbox" name="ticket_id" checked="checked" value="1">
@@ -110,7 +110,7 @@
 						<input name="descripcion" value="texto alternativo">
 					</td>
 					<td>
-						<input name="importe" value="0">
+						<input name="importe" value="0" style="text-align: right;">
 					</td>			
 					<td>
 						<button class="btn btn-primary" id="boton-anadir-ventas">Añadir</button>
@@ -136,19 +136,19 @@
 								200 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="200" value="">	
+								<input data-val="200" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								100 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="100" value="">	
+								<input data-val="100" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								50 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="50" value="">	
+								<input data-val="50" value="" style="text-align: right;">	
 							</td>
 						</tr>
 						<tr>
@@ -156,19 +156,19 @@
 								20 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="20" value="">	
+								<input data-val="20" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								10 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="10" value="">	
+								<input data-val="10" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								5 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="5" value="">	
+								<input data-val="5" value="" style="text-align: right;">	
 							</td>
 						</tr>
 						<tr>
@@ -176,13 +176,13 @@
 								2 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="2" value="">	
+								<input data-val="2" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								1 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="1" value="">	
+								<input data-val="1" value="" style="text-align: right;">	
 							</td>
 						</tr>
 						<tr>
@@ -190,19 +190,19 @@
 								50 cent. 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.5" value="">	
+								<input data-val="0.5" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								20 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.2" value="">	
+								<input data-val="0.2" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								10 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.1" value="">	
+								<input data-val="0.1" value="" style="text-align: right;">	
 							</td>
 						</tr>
 						<tr>
@@ -210,19 +210,19 @@
 								5 cent. 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.05" value="">	
+								<input data-val="0.05" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								2 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.02" value="">	
+								<input data-val="0.02" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								1 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.1" value="">	
+								<input data-val="0.01" value="" style="text-align: right;">	
 							</td>
 						</tr>
 					</table>
@@ -233,7 +233,7 @@
 							Resultado (puedes cambiarlo a mano):
 						</td>
 						<td>
-							<input name="importe" value="0">
+							<input name="importe" value="0" style="text-align: right;">
 						</td>				
 						<td>
 							<button class="btn btn-primary" id="boton-contar-efectivo-inicial">Añadir</button>
@@ -266,19 +266,19 @@
 								200 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="200" value="">	
+								<input data-val="200" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								100 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="100" value="">	
+								<input data-val="100" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								50 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="50" value="">	
+								<input data-val="50" value="" style="text-align: right;">	
 							</td>
 						</tr>
 						<tr>
@@ -286,19 +286,19 @@
 								20 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="20" value="">	
+								<input data-val="20" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								10 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="10" value="">	
+								<input data-val="10" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								5 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="5" value="">	
+								<input data-val="5" value="" style="text-align: right;">	
 							</td>
 						</tr>
 						<tr>
@@ -306,13 +306,13 @@
 								2 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="2" value="">	
+								<input data-val="2" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								1 € 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="1" value="">	
+								<input data-val="1" value="" style="text-align: right;">	
 							</td>
 						</tr>
 						<tr>
@@ -320,19 +320,19 @@
 								50 cent. 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.5" value="">	
+								<input data-val="0.5" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								20 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.2" value="">	
+								<input data-val="0.2" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								10 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.1" value="">	
+								<input data-val="0.1" value="" style="text-align: right;">	
 							</td>
 						</tr>
 						<tr>
@@ -340,19 +340,19 @@
 								5 cent. 
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.05" value="">	
+								<input data-val="0.05" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								2 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.02" value="">	
+								<input data-val="0.02" value="" style="text-align: right;">	
 							</td>
 							<td style="width: 10%;text-align: center;">
 								1 cent.
 							</td>
 							<td style="width: 10%;">
-								<input data-val="0.1" value="">	
+								<input data-val="0.01" value="" style="text-align: right;">	
 							</td>
 						</tr>
 					</table>
@@ -363,7 +363,7 @@
 							Resultado (puedes cambiarlo a mano):
 						</td>
 						<td>
-							<input name="importe" value="0">
+							<input name="importe" value="0" style="text-align: right;">
 						</td>				
 						<td>
 							<button class="btn btn-primary" id="boton-contar-efectivo-final">Añadir</button>
