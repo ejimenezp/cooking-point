@@ -95,11 +95,11 @@ function refresh_detalles_sesion(cambios = true)
 				boton = '';
 			}
 			tabla += '<tr><td>' + item.descripcion + 
-					'</td><td>' + prettyf(item.importe) +
-					'</td><td>' + prettyf(item.saldo) +
-					'</td><td>' + prettyf(item.descuadre) +
-					'</td><td>' + prettyf(item.descuadre_acumulado) +
-					'</td><td>' + boton +
+					'</td><td style="text-align: right;">' + prettyf(item.importe) +
+					'</td><td style="text-align: right;">' + prettyf(item.saldo) +
+					'</td><td style="text-align: right;">' + prettyf(item.descuadre) +
+					'</td><td style="text-align: right;">' + prettyf(item.descuadre_acumulado) +
+					'</td><td style="text-align: right;">' + boton +
 					'</td></tr>'
 		});
 		$('#tabla-movimientos').append(tabla);
@@ -237,13 +237,13 @@ function get_sesiones(comienzo, direccion)
 				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyd(item.fecha) +'</td>'+
 				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ item.usuario +'</td>'+
 				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ item.estado +'</td>'+
-				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\"' + conteo_inicio + '>'+ prettyf(item.efectivo_sesion_al_inicio) +'</td>'+
-				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.ventas) +'</td>'+
-				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.compras) +'</td>'+
+				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\"' + conteo_inicio + '>'+ prettyf(item.efectivo_sesion_al_inicio) +'</td>'+
+				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.ventas) +'</td>'+
+				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.compras) +'</td>'+
 				// '<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.ajustes) +'</td>'+
-				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\"' + conteo_final + '>'+ prettyf(item.efectivo_sesion) +'</td>'+
-				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre) +'</td>'+
-				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre_acumulado) +'</td></tr>'
+				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\"' + conteo_final + '>'+ prettyf(item.efectivo_sesion) +'</td>'+
+				'<td style="text-align: right;"onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre) +'</td>'+
+				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre_acumulado) +'</td></tr>'
 				);
 		});
 
