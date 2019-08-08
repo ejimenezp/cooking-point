@@ -244,13 +244,13 @@ class ViatorController extends Controller
 
                 $controllerresponse = $bookingcontroller->add($laravelrequest);
                 
-                $bkg = $bookingcontroller->findBy($controllerresponse['data']['locator']);
+                $bkg = $bookingcontroller->findBy($controllerresponse['locator']);
                 if ($bkg) {
                     MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_booking');
                 }
 
                 $this->resp->data->TransactionStatus['Status'] = 'CONFIRMED';
-                $this->resp->data->SupplierConfirmationNumber = $controllerresponse['data']['locator'];
+                $this->resp->data->SupplierConfirmationNumber = $controllerresponse['locator'];
 
             }
         } else {
@@ -336,7 +336,7 @@ class ViatorController extends Controller
                 $controllerresponse = $bookingcontroller->update($laravelrequest);
 
                 $this->resp->data->TransactionStatus['Status'] = 'CONFIRMED';
-                $this->resp->data->SupplierConfirmationNumber = $controllerresponse['data']['locator'];
+                $this->resp->data->SupplierConfirmationNumber = $controllerresponse['locator'];
 
             }
         } else {
