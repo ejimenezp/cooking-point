@@ -229,19 +229,19 @@ function get_sesiones(comienzo, direccion)
 		$('#sesiones > tbody').empty();	
 
 		data.forEach(function(item) {
-			var conteo_inicio = !parseInt(item.efectivo_inicial) ? ' style=\"background-color:coral;\"' : '';
-			var conteo_final = !parseInt(item.efectivo_final) ? ' style=\"background-color:coral;\"' : '';
+			var conteo_inicio = !item.efectivo_inicial ? ' background-color:coral;' : '';
+			var conteo_final = !item.efectivo_final ? ' background-color:coral;' : '';
 
 			$('#sesiones > tbody:last').append(
 				'<tr data-id=\"'+item.id+'\"><td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ item.id +'</td>'+
 				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyd(item.fecha) +'</td>'+
 				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ item.usuario +'</td>'+
 				'<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ item.estado +'</td>'+
-				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\"' + conteo_inicio + '>'+ prettyf(item.efectivo_sesion_al_inicio) +'</td>'+
+				'<td style="text-align: right;' + conteo_inicio +'" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.efectivo_sesion_al_inicio) +'</td>'+
 				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.ventas) +'</td>'+
 				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.compras) +'</td>'+
 				// '<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.ajustes) +'</td>'+
-				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\"' + conteo_final + '>'+ prettyf(item.efectivo_sesion) +'</td>'+
+				'<td style="text-align: right;' + conteo_final + '" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.efectivo_sesion) +'</td>'+
 				'<td style="text-align: right;"onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre) +'</td>'+
 				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre_acumulado) +'</td></tr>'
 				);
