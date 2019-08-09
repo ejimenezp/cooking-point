@@ -177,7 +177,7 @@ class BookingController extends Controller
         if (!$bkg) {
             return ['status' => 'fail', 'reason' => 'OTHER', 'details' => 'Wrong Supplier Confirmation Number'];
         } else {
-            Log::debug('travel: ' . $bkg->calendarevent->date . ' cancel ' . $cdate);
+            // Log::debug('travel: ' . $bkg->calendarevent->date . ' cancel ' . $cdate);
             $traveldate = new Carbon($bkg->calendarevent->date);
             if ($canceldate->gt($traveldate)) {
                 return ['status' => 'fail', 'reason' => 'PAST_TOUR_DATE', 'details' => 'Tour Already Done'];
