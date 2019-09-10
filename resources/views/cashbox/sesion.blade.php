@@ -26,8 +26,8 @@
 				<div class="list-group-item enlace" data-section="contar-efectivo-final">Contar efectivo (cierre)</div>
 				<div class="list-group-item enlace" data-section="cerrar-sesion">Cerrar sesión</div>
 				<div class="list-group-item enlace" data-section="eliminar-sesion">Eliminar sesión</div>
-<!-- 				<div class="list-group-item" id="boton-recalcular-caja">Recalcular caja</div>
- -->	    </div>      		
+				<div class="list-group-item enlace" id="boton-recalcular-caja">Recalcular caja</div>
+	    </div>      		
 		</div>
 
 		<div id="main-section" class="col-md-9">
