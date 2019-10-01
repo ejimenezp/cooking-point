@@ -27,13 +27,15 @@
             <th>Fecha</th>
             <th>Usuario</th>
             <th>Estado</th>
-            <th>Efectivo Inicial</th>
-            <th>Ventas</th>
-            <th>Compras</th>
-            <!-- <th>Ajustes</th> -->
-            <th>Efectivo Final</th>
-            <th>Descuadre</th>
-            <th>Descuadre Acumulado</th>
+            <th style="text-align:right">Efectivo Inicial</th>
+            <th style="text-align:right">Ventas</th>
+            <th style="text-align:right">Compras</th>
+            <!-- <th style="text-align:right">Ajustes</th> -->
+            <th style="text-align:right">Efectivo Final</th>
+            <th style="text-align:right" data-toggle="tooltip" title="Diferencia entre el efectivo inicial y el efectivo final de la sesión anterior">Descuadre con sesión anterior <i class="far fa-question-circle"></i></th>
+            <th style="text-align:right" data-toggle="tooltip" title="Diferencia entre el efectivo final y el saldo teórico (efectivo inicial + ventas - compras)">Descuadre en esta sesión <i class="far fa-question-circle"></i></th>
+            <th style="text-align:right" data-toggle="tooltip" title="Descuadre acumulado desde el último ajuste. Negativo (-) si hay menos dinero en caja que el saldo teórico">Descuadre acumulado <i class="far fa-question-circle"></i></th>
+            <th style="text-align:right" data-toggle="tooltip" title="Para eliminar descuadres manualmente (solo admin)">Ajustes <i class="far fa-question-circle"></i></th>
             <th></th>
           </tr>
         </thead>

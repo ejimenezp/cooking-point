@@ -39,14 +39,17 @@ class Sesion extends Model
 
         if ($this->sesion_anterior <> 0) {
             $anterior = Sesion::find($this->sesion_anterior);
-            $this->efectivo_sesion = $this->efectivo_sesion_al_inicio = $anterior->efectivo_sesion;
+            $this->efectivo_sesion = $anterior->efectivo_sesion;
+            $this->efectivo_sesion_al_inicio = $anterior->efectivo_sesion;
             $this->saldo_sesion = $anterior->saldo_sesion; 
         }
 
         // el efectivo inicial lo tomamos de la sesion anterior, salvo que se haya 
         // contado el dinero en la apertura de caja
         if ($this->efectivo_inicial) {
-        	$this->efectivo_sesion = $this->efectivo_sesion_al_inicio = $this->efectivo_inicial;
+        	$this->efectivo_sesion = $this->efectivo_inicial;
+        	$this->efectivo_sesion_al_inicio = $this->efectivo_inicial;
+        	$this->descuadre_con_anterior = $this->efectivo_inicial - $anterior->efectivo_sesion;
         } 	
 
         $ventas = $compras = $ajustes = 0;
@@ -64,17 +67,17 @@ class Sesion extends Model
         $this->compras = $compras;
         $this->ajustes = $ajustes;
 
-        $this->saldo_sesion += $ventas + $compras + $ajustes;
+        $this->saldo_sesion += $ventas + $compras - $ajustes;
 
         // el efectivo de la sesion los calculamos a partir de los movimientos,
         // salvo que se haya contado el dinero en el cierre de caja
         if ($this->efectivo_final) {
         	$this->efectivo_sesion = $this->efectivo_final;
         } else {
-	        $this->efectivo_sesion = $this->efectivo_sesion_al_inicio + $ventas + $compras + $ajustes;
+	        $this->efectivo_sesion = $this->efectivo_sesion_al_inicio + $ventas + $compras;
         }
 
-        $this->descuadre = round($this->efectivo_sesion - $this->efectivo_sesion_al_inicio - $ventas - $compras - $ajustes, 6);
+        $this->descuadre_esta_sesion = round($this->efectivo_sesion - $this->efectivo_sesion_al_inicio - $ventas - $compras, 6);
         $this->descuadre_acumulado = $this->efectivo_sesion - $this->saldo_sesion;
 
         $this->save();
@@ -106,7 +109,8 @@ class Sesion extends Model
 				['descripcion' =>'Apertura, efectivo contado',
 				'importe' => 0,
 				'saldo' => $this->efectivo_inicial,
-				'descuadre' => 0,
+				'descuadre_esta_sesion' => 0,
+				'descuadre_con_anterior' => $this->descuadre_con_anterior,
 				'descuadre_acumulado' => $this->efectivo_inicial - $anterior->saldo_sesion
 				]);	
 		} else {
@@ -115,7 +119,8 @@ class Sesion extends Model
 				['descripcion' =>'Apertura',
 				'importe' => 0,
 				'saldo' => $this->efectivo_sesion_al_inicio,
-				'descuadre' => 0,
+				'descuadre_esta_sesion' => 0,
+				'descuadre_con_anterior' => $this->descuadre_con_anterior,
 				'descuadre_acumulado' => $this->efectivo_sesion_al_inicio - $anterior->saldo_sesion
 				]);
 		}
@@ -153,17 +158,6 @@ class Sesion extends Model
 			}
 		}
 
-		// y ahora los ajustes
-		foreach ($this->movimientos as $item) {
-			if ($item->tipo == 'AJUSTE') {
-				$efectivo += $item->importe;
-				array_push($tabla, ['descripcion' => $item->descripcion,
-					'importe' => $item->importe,
-					'saldo' => $efectivo,
-					'id'=> $item->id
-					]);				
-			}
-		}
 
 		// Incluimos esta línea si ha habido arqueo de caja
 		if ($this->efectivo_final) {
@@ -171,9 +165,22 @@ class Sesion extends Model
 				['descripcion' =>'Arqueo caja',
 				'importe' => 0,
 				'saldo' => $this->efectivo_final,
-				'descuadre' => $this->descuadre,
-				'descuadre_acumulado' => $this->descuadre_acumulado
+				'descuadre_esta_sesion' => $this->descuadre_esta_sesion,
+				'descuadre_acumulado' => $this->descuadre_acumulado - $this->ajustes
 				]);
+		}
+
+		// y después los ajustes
+		foreach ($this->movimientos as $item) {
+			if ($item->tipo == 'AJUSTE') {
+				array_push($tabla, ['descripcion' => $item->descripcion,
+					'importe' => $item->importe,
+					'saldo' => $efectivo,
+					'descuadre_esta_sesion' => $this->descuadre_esta_sesion,
+					'descuadre_acumulado' => $this->descuadre_acumulado,
+					'id'=> $item->id
+					]);				
+			}
 		}
 
 		// indicar si está cerrada
@@ -182,7 +189,8 @@ class Sesion extends Model
 				['descripcion' =>'Cierre',
 				'importe' => 0,
 				'saldo' => $this->efectivo_sesion,
-				'descuadre' => $this->descuadre,
+				'descuadre_esta_sesion' => $this->descuadre_esta_sesion,
+				'descuadre_con_anterior' => $this->descuadre_con_anterior,
 				'descuadre_acumulado' => $this->descuadre_acumulado
 				]);
 		}

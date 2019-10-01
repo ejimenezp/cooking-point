@@ -65,6 +65,7 @@ Route::post('sesion/setefectivoinicial', 'Cashbox\SesionController@setefectivoin
 Route::post('sesion/setefectivofinal', 'Cashbox\SesionController@setefectivofinal');
 Route::post('sesion/cerrar/{id}', 'Cashbox\SesionController@cerrar');
 Route::post('sesion/eliminar/{id}', 'Cashbox\SesionController@eliminar');
+Route::post('sesion/reabrir/{id}', 'Cashbox\SesionController@reabrir');
 
 Route::post('movimiento/crear', 'Cashbox\MovimientoController@crear');
 Route::post('movimiento/eliminar/{id}', 'Cashbox\MovimientoController@eliminar');
