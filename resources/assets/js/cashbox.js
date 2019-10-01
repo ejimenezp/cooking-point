@@ -135,7 +135,7 @@ function prettyd(date)
 //
 function prettyf(amount)
 {
-	if (amount == null || amount == '' || amount == '0') {
+	if (amount == null || amount == '' || amount == '0' || amount == '-0' || amount == '0.00') {
 		return '-';
 	} else {
 		return parseFloat(amount).toFixed(2);
