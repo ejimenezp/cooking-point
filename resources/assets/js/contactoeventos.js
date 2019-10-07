@@ -64,7 +64,7 @@ function validateContactoForm()
 }
 
 
-// Event snippet for solicitar info eventos conversion page
+// Event snippet for solicitar info para evento españoles conversion page
 // In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 
 function gtag_report_conversion(url) {
@@ -74,7 +74,7 @@ function gtag_report_conversion(url) {
     }
   };
   gtag('event', 'conversion', {
-      'send_to': 'AW-985592263/lSg_CPW5gX4Qx-P71QM',
+      'send_to': 'AW-985592263/PnCmCNa1-a0BEMfj-9UD',
       'event_callback': callback
   });
   return false;
