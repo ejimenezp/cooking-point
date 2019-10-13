@@ -38,6 +38,7 @@
 							<li>Clientes
 							<ol>
 								<li><div class='report' report_id='vclientes'>Detalle Ventas</div></li>
+								<li><div class='report' report_id='ocupacion'>Ocupación</div></li>
 								<li><div class='report' report_id='kpiclientes'>KPI</div></li>
 							</ol></li>
 							<li>Tienda

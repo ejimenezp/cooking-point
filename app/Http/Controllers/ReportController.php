@@ -258,4 +258,55 @@ class ReportController extends Controller
 
     }
 
+    function R_ocupacion($request)
+    {
+        
+        $sqlString = "SELECT    ce.date as date,
+                                ce.time as time, 
+                                ce.type as type,
+                                ce.capacity as capacity,
+                                sum(bkg.adult + bkg.child) as registered
+                        FROM calendarevents as ce, bookings as bkg
+                        WHERE ce.date >= '$request->start_date' 
+                            AND ce.date <= '$request->end_date'
+                            AND ce.id = bkg.calendarevent_id
+                            and bkg.status_filter = 'REGISTERED'
+                        group by date, time, type, capacity
+                        ORDER BY date, time";
+
+                                
+        if(!$dbresult = DB::select($sqlString))
+        {
+            return [
+                'title' =>'No hay resultados' ,
+                'headers' => [],
+                'lines' => $dbresult ];   
+        } 
+
+        $result = [];
+
+        foreach ($dbresult as $event) {
+
+            setLocale(LC_TIME, 'es');
+            $line = new \stdClass();
+            if ($event->type == 'GROUP' || $event->registered == $event->capacity) {
+                $highlight = 'bg-danger text-white';
+            } else if ($event->registered >= $event->capacity - 2) {
+                $highlight = 'bg-warning text-white';
+            } else {
+                $highlight = '';                
+            }
+            $line->date = '<span class="' . $highlight . '">' . utf8_encode(strftime('%d %B, %A', strtotime($event->date))) . '<span>';
+            $line->time = '<span class="' . $highlight . '">' . basename($event->time, ':00') . '<span>';
+            $line->type = '<span class="' . $highlight . '">' . $event->type . '<span>';
+            $line->registered = '<span class="' . $highlight . '">' . $event->registered . '<span>';
+            array_push($result, $line); 
+        } 
+
+        return [
+            'title' =>'Ocupación, ' . $request->start_date . ' a '. $request->end_date ,
+            'headers' => ['Fecha', 'Hora', 'Clase', 'Registrados'],
+            'lines' => $result ];  
+    }
+
 }
