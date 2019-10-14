@@ -266,12 +266,12 @@ class ReportController extends Controller
                                 ce.type as type,
                                 ce.capacity as capacity,
                                 sum(bkg.adult + bkg.child) as registered
-                        FROM calendarevents as ce, bookings as bkg
-                        WHERE ce.date >= '$request->start_date' 
-                            AND ce.date <= '$request->end_date'
-                            AND ce.id = bkg.calendarevent_id
-                            and bkg.status_filter = 'REGISTERED'
-                        group by date, time, type, capacity
+                        FROM bookings as bkg
+                            RIGHT JOIN calendarevents as ce
+                            ON ce.id = bkg.calendarevent_id 
+                            AND bkg.status_filter = 'REGISTERED'
+                        WHERE ce.date BETWEEN '$request->start_date' and '$request->end_date'
+                        GROUP BY date, time, type, capacity
                         ORDER BY date, time";
 
                                 
