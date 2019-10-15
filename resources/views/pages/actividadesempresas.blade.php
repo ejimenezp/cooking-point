@@ -8,7 +8,7 @@
 
 @section('content')
 
-<h1 class="header1">Eventos Privados</h1>
+<h1 class="header1">Actividades para empresas</h1>
 
 <div class="row justify-content-right">
 	<div class="col-12">

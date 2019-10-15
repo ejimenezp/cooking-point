@@ -195,5 +195,14 @@ setTimeout(toggleVideo, 90*1000)
 
 $('#cabecera').scrollUpMenu();
 
+//
+// private-events' page call to action
+//
+$('.email-us').css('cursor', 'pointer');
+$('.email-us').click(function() {
+	location.href='mailto:info@cookingpoint.es';
+	return false;
+	});
+
 }); // end jQuery
 

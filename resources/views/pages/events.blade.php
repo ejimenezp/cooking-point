@@ -27,31 +27,37 @@
 		<p>We can adapt the length of the activity to fit your schedules taking advantage of our central location, close to major attractions in Madrid.</p>
 
 		<p>Tourist groups, student tours and hen/stag parties are common customers of us.</p>
-
-		<h2 class="header2">Eventos en Español</h2>
-		<p>Pulsa en el siguiente enlace para más información.</p>
-
-		<div class="text-center">
-			<a href="/eventos-privados-madrid" class="btn btn-primary">Eventos en español</a>
-		</div>
 	</div>
 
 </div>
 
-<div class="divider"></div>
-	<p><br></p>
-
 <div class="row justify-content-center">
-	<div class=" cp-class-details col-10 col-sm-8">
+	<div class="email-us cp-class-details col-10 col-sm-8">
 			<strong>When:</strong> On Request<br/>
 			<strong>Time:</strong> 3 hours (recommended), in the morning or evening<br/>
 			<strong>Price: </strong>Ask for quotation<br/>
 			<strong>Includes: </strong>Cooking class, recipes, lunch or dinner and drinks<br/>
+			<div class="row justify-content-center">
+				<a href="mailto:info@cookingpoint.es" class="btn btn-secondary">Email Us</a>
+			</div>
 	</div>
 </div>
 
-<div class="row justify-content-center">
-	<a href="mailto:info@cookingpoint.es" class="btn btn-primary">Email Us</a>
+
+
+<div class="divider"></div>
+	<p></p>
+
+<h1 class="header1">Actividades para empresas</h1>
+
+<div class="row justify-content-right">
+	<div class="col-12">
+		<p>También ofrecemos actividades para empresas orientadas a equipos españoles que quieren realizar un team building de cocina en el centro de Madrid.</p>
+
+		<div class="text-center">
+			<a href="/actividades-team-building-empresas-madrid" class="btn btn-primary">Actividades para empresas</a>
+		</div>
+	</div>
 </div>
 
 <div class="divider"></div>
