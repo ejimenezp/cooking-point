@@ -12,41 +12,101 @@
 
 <div class="row justify-content-right">
 	<div class="col-12">
-		<p>Ponemos a vuestra disposición nuestras instalaciones y equipo para realizar eventos corporativos o particulares. En todos los casos, los participantes se dividen en pequeños equipos para preparar el menú acordado. La actividad termina con la comida o cena de lo que se ha preparado durante la clase.</p>
+		<p>Ponemos a vuestra disposición nuestra escuela de cocina y equipo de chefs para realizar actividades para empresas en el centro de Madrid.</p>
 
-{{--     <div class="home-notice col-10 col-md-8">
-        <strong>Especial Navidad para Empresas</strong><br/>
-        Prepara y disfruta con tu equipo de un menú de Navidad de 5 estrellas. Pregúntanos.<br/>
-    </div>   --}}
+		<h2 class="header2">Team building en la cocina: hoy cocina mi equipo</h2>
+		<p>Una cocina es un excelente marco para una actividad de team building para empresas. En nuestras actividades se comprueba el valor del trabajo en equipo, pues los resultados son tangibles en forma de una suculenta comida o cena de empresa.</p>
 
+		<p>Al modo de un Masterchef de la tele, el grupo se divide en equipos para elaborar un menú degustación siguiendo las instrucciones de nuestros chefs. Habrá momentos de aprendizaje, trabajo minucioso y creatividad, pero también situaciones divertidas y de relax. Todo con el fin de propiciar conoceros mejor entre vosotros en un ambiente distendido.</p>
 
-		<h2 class="header2">Eventos de empresa</h2>
-		<p>Una cocina es un excelente marco para un evento de team building. Los participantes deben preparar su propio menú siguiendo las instrucciones de nuestro chef, lo cual da pie a situaciones divertidas a la vez que aprenden a cocinar platos no tan habituales.</p>
+		<p>Nuestro team building de cocina os propone platos, técnicas e ingredientes habituales en el panorama de la restauración actual. Nos gusta la cocina sencilla, diversa y con rigor técnico, pero con aplicación también en tu vida personal.</p>
 
-		<p>Una vez termina la preparación, el equipo se traslada al comedor para disfrutar del trabajo en la cocina.</p>
+		<h2 class="header2">Solicita Información</h2>
 
-		<h2 class="header2">Actividades para grupos de amigos</h2>
-		<p>Si estás pensando en una despedida de soltera o soltero diferente, o una reunión familiar o de amigos, podemos preparar una clase de cocina divertida, con platos o ingredientes no tan habituales, en las que el objetivo es pasar un rato agradable compartiendo la cocina con tus seres queridos.</p>
+        <p>Dinos fecha del evento, número de personas y cualquier otro dato que consideres oportuno. Te enviaremos una propuesta en 24 horas:</p>
+
+		<div class="row">
+			<div class="offset-md-1 col-md-10 col-sm-10">
+				<table style="width: 100%">
+				    <tbody>                              
+				          <tr>
+				                <td class="bold">
+				                      Tu nombre <span class="mandatory">*</span> :
+				                </td>
+				          </tr>
+				          <tr>
+				                <td>
+				                      <input name="name" type="text" >
+				                      <p></p>
+				                </td>
+				          </tr>
+				          <tr>
+				                <td class="bold">
+				                      Tu e-mail <span class="mandatory">*</span> :
+				                </td>
+				          </tr>
+				          <tr>
+				                <td>
+				                      <input name="email" type="text" >
+				                      <p></p>
+				                </td>
+				          </tr>
+				          <tr>
+				                <td class="bold" >
+				                      Mensaje:
+				                </td>
+				          </tr>
+				          <tr>
+				                <td>
+				                      <textarea rows="4" name="message"></textarea>
+				                      <p></p>
+				                </td>
+				          </tr>
+				          <tr>
+				                <td>
+				                      <button id="button_contacto_form" class="btn btn-primary">Enviar</button>
+				                </td>
+				          </tr>
+				          <tr>         
+				                <td style="font-size: small;">
+				                      <p></p>
+				                      <span class="mandatory">*</span>: Solo lo usaremos para contestar tu petición. No haremos spam.
+				                </td>
+				          </tr>
+				    </tbody>
+				</table>
+			</div>
+		</div>
+
 
 	</div>
 </div>
 
-<div class="divider"></div>
-
-<div class="row justify-content-center">
-	<div class="cp-class-details col-10 col-sm-8">
-		<strong>Cuando:</strong> Bajo petición<br/>
-		<strong>Duración:</strong> 3 horas (recomendado), turno comida o cena<br/>
-		<strong>Precio: </strong>En función del tamaño de grupo. Consultar<br/>
-		<strong>Incluye: </strong>Clase de cocina, recetas, comida y bebida<br/>
-	</div>	
-</div>
-
-<div class="row justify-content-center">
-	<a href="/contacto-eventos-privados" class="btn btn-primary">Solicita Información</a>
-</div>
-
 @stop
 
+@section('modals')
+<!-- Generic modal  -->
+<div class="modal fade" id="modal_contactoeventos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title modal_contactoeventos_title"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body modal_contactoeventos_body"></div>
+        <div class="modal-footer">
+            <form >
+                <button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">OK</button>
+            </form>
+       </div>
+      </div>
+  </div>
+</div>
+@stop
+
+@section('js')
+      <script async src="{{ mix('/js/contactoeventos.js') }}"></script>
+@stop
 
 
