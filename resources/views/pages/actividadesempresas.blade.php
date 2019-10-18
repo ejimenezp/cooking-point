@@ -1,6 +1,6 @@
 @extends('masterlayout')
 
-@section('title', 'Eventos de empresa')
+@section('title', 'Team Building de Cocina en Madrid')
 @section('description', 'Organizamos team-building de cocina para empresas y cooking parties para grupos privados. Estamos en el centro de Madrid.')
 
 @section('banner-name', 'eventos')
