@@ -4,7 +4,7 @@ var time = document.getElementsByTagName('time')[0],
     clear = document.getElementById('clear'),
     myBar = document.getElementById("myBar"),
 
-    seconds = 0, minutes = 12, width = 0,
+    seconds = 0, minutes = 0, width = 0,
     t;
 
 function add() {
