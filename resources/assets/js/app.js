@@ -200,7 +200,7 @@ $('#cabecera').scrollUpMenu();
 //
 $('.email-us').css('cursor', 'pointer');
 $('.email-us').click(function() {
-	location.href='mailto:info@cookingpoint.es';
+	window.open('mailto:info@cookingpoint.es', 'newwindow');
 	return false;
 	});
 
