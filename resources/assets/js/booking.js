@@ -596,9 +596,9 @@ $(window).bind("pageshow", function(event) {
     $('#booking_cancel').click(function() {
     	var bkg = retrieveBooking(locator)
     	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
-		if (start.subtract(48, 'hours').isSameOrBefore(rightNow())) {
+		if (start.subtract(24, 'hours').isSameOrBefore(rightNow())) {
     		$('.modal_booking_title').html("Cancellation Late Notice")
-			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.')
+			$('.modal_booking_body').html('Your request is within 24 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.')
     		$("#modal_booking").modal()
 			return
 		}
