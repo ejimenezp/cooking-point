@@ -145,7 +145,9 @@
 								<select name="duration">
 									<option value="01:00:00">1 hora</option>
 									<option value="02:00:00">2 horas</option>
+									<option value="02:30:00">2,5 horas</option>
 									<option value="03:00:00">3 horas</option>
+									<option value="03:30:00">3,5 horas</option>
 									<option value="04:00:00">4 horas</option>
 									<option value="05:00:00">5 horas</option>
 									<option value="00:00:00">día completo</option>
