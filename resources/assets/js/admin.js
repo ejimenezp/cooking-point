@@ -78,9 +78,10 @@ function refreshDateShown(month_schedule, date_shown) {
 		edit_button = ''
 		classemails_button = ''
 		if (user_role >= 3) {
-			edit_button = '<button class="btn btn-primary btn-sm button_calendarevent_edit" data-i="'
+			var button_color = month_schedule[i].info == '' ?  "btn-default" : "btn-primary";
+			edit_button = '<button class="btn ' + button_color + ' btn-sm button_calendarevent_edit" data-i="'
 					+ i + '">Detalles</button>'
-		} else if (user_role >= 2 && month_schedule[i].info != '') {
+		} else if (month_schedule[i].info != '') {
 			edit_button = '<button class="btn btn-primary btn-sm button_calendarevent_info" data-i="'
 					+ i + '">+info</button>'			
 		} else {
