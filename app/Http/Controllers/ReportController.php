@@ -20,6 +20,7 @@ class ReportController extends Controller
 			$filename = "download.csv";
 			$handle = fopen($filename, 'w+');
 			$delimiter = ',';
+            fprintf($handle, chr(0xEF).chr(0xBB).chr(0xBF));
 			fputcsv($handle, [$raw_report['title']]);
 			fputcsv($handle, $raw_report['headers'], $delimiter);
 			foreach ($raw_report['lines'] as $line) {
