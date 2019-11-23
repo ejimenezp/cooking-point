@@ -8,9 +8,14 @@ use Response;
 use DB;
 use Carbon\Carbon;
 
+
 class ReportController extends Controller
 {
     //
+
+    static function strip_tags_from_line (&$item, $key) {
+        $item = strip_tags($item);
+    }
 
     function report (Request $request) {
     	$fname = 'R_'. $request->id;
@@ -24,7 +29,9 @@ class ReportController extends Controller
 			fputcsv($handle, [$raw_report['title']]);
 			fputcsv($handle, $raw_report['headers'], $delimiter);
 			foreach ($raw_report['lines'] as $line) {
-			    fputcsv($handle, get_object_vars($line), $delimiter);
+                $line_as_array = get_object_vars($line);
+                array_walk($line_as_array, 'App\Http\Controllers\ReportController::strip_tags_from_line');
+			    fputcsv($handle, $line_as_array, $delimiter);
 			}
 			fclose($handle);
 			$response_headers = array(
