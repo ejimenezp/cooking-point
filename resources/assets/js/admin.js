@@ -354,9 +354,21 @@ function populateBookingList(i) {
 	// 
 	$("#booking_table > tbody").empty()
 	
+	var line_attributes;
 	for (var j = 0; j < bookings.length; j++) {
+		switch (bookings[j].status) {
+			case 'CANCELLED':
+			case 'PENDING':
+				line_attributes = 'style="color:lightgray;"';
+				break;
+			case 'GUARANTEE':
+				line_attributes = 'style="color:salmon;"';
+				break;
+			default:
+				line_attributes = '';
+		}
 		$('#booking_table > tbody:last').append(
-			'<tr onclick=""><td class="booking_line" data-j="' + j +'">'+ 
+			'<tr onclick="" ' + line_attributes + '><td class="booking_line" data-j="' + j +'">'+ 
 			bookings[j].adult +
 			((bookings[j].child > 0) ? (' + ' + bookings[j].child) : '') +
 			'<td class="booking_line" data-j="' + j +'">' + 
