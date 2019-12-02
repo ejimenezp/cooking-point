@@ -56,7 +56,15 @@
 							</li>
 						</ul>
 						@endif						
-
+						@if (app('request')->input('user_role') >= 3)
+						<ul>
+							<li>Caja
+							<ol>
+								<li><div class='report' report_id='movimientoscaja'>Movimientos</div></li>
+							</ol>
+							</li>
+						</ul>
+						@endif		
 					</td>
 				</tr>
 			</table>
