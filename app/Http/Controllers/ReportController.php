@@ -45,6 +45,31 @@ class ReportController extends Controller
 
 	}
 
+
+    function R_movimientoscaja($request)
+    {
+        
+        $sqlString = "SELECT ses.fecha, mov.sesion_id, mov.tipo, mov.descripcion, mov.ticket_tienda, mov.importe, mov.ticket
+                        FROM caja_movimientos as mov join caja_sesiones as ses
+                        ON mov.sesion_id = ses.id
+                        WHERE ses.fecha >= '$request->start_date' and ses.fecha <= '$request->end_date'
+                        ORDER BY mov.sesion_id";
+
+                                
+        if(!$result = DB::select($sqlString))
+        {
+            return [
+                'title' =>'No hay resultados' ,
+                'headers' => [],
+                'lines' => $result ];   
+        } else {
+            return [
+                'title' =>'Movimientos caja, ' . $request->start_date . ' a '. $request->end_date ,
+                'headers' => ['Fecha', 'Sesión','Tipo', 'Descripción', 'Tkt_tienda', 'Importe', 'Ticket'],
+                'lines' => $result ];
+        }
+    }
+
 	function R_vclientes($request)
 	{
     	
@@ -128,46 +153,6 @@ class ReportController extends Controller
 		}
     }
 
-    function R_ivatienda($request)
-	{
-    	
-    	$sqlString = "SELECT 
-    						sum(base10),
-    						sum(base21),
-    						sum(base4),
-    						sum(iva10),
-    						sum(iva21),
-    						sum(iva4)
-     					FROM tienda_ventas
-     					WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
-                			AND NOT anulado
-                            AND (linea0 is null OR linea0 <> 3 AND linea0 <> 4)
-                            AND (linea1 is null OR linea1 <> 3 AND linea1 <> 4)
-                            AND (linea2 is null OR linea2 <> 3 AND linea2 <> 4)
-                            AND (linea3 is null OR linea3 <> 3 AND linea3 <> 4)
-                            AND (linea4 is null OR linea4 <> 3 AND linea4 <> 4)
-                            AND (linea5 is null OR linea5 <> 3 AND linea5 <> 4)
-                            AND (linea6 is null OR linea6 <> 3 AND linea6 <> 4)
-                            AND (linea7 is null OR linea7 <> 3 AND linea7 <> 4)
-                            AND (linea8 is null OR linea8 <> 3 AND linea8 <> 4)
-                            AND (linea9 is null OR linea9 <> 3 AND linea9 <> 4)
-                        ";
-
-
-    							
-		if(!$result = DB::select($sqlString))
-		{
-    		return [
-    			'title' =>'No hay resultados' ,
-    			'headers' => [],
-    			'lines' => $result ];	
-    	} else {
-			return [
-    			'title' =>'IVA Tienda, ' . $request->start_date . ' a '. $request->end_date ,
-    			'headers' => ['Base 10%', 'Base 21%','Base 4%', 'IVA 10%', 'IVA 21%', 'IVA 4%'],
-    			'lines' => $result ];
-		}
-    }
 
     function R_kpiclientes($request)
 	{
@@ -265,6 +250,12 @@ class ReportController extends Controller
             'lines' => $result ];
 
     }
+
+                'lines' => $dbresult ];   
+        } 
+
+    }
+
 
     function R_ocupacion($request)
     {
