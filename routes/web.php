@@ -66,6 +66,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('cashbox/{id}', function($id) { return view('cashbox.sesion',['id' => $id]); });
     Route::post('report/{id}', 'ReportController@report');
     Route::get('classemails', function() { return view('admin.classemails'); });
+    Route::get('fileuploader', function() { return view('admin.fileuploader'); });
 });
 
 

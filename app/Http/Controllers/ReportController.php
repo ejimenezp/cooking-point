@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Response;
 use DB;
 use Carbon\Carbon;
+use Log;
 
 
 class ReportController extends Controller
@@ -251,8 +252,64 @@ class ReportController extends Controller
 
     }
 
+
+    function R_turnos_exportar($request)
+    {
+        
+        $sqlString = "SELECT    calendarevents.date as date,
+                                calendarevents.time as time, 
+                                calendarevents.type as type,
+                                calendarevents.id as ce_id,
+                                stf.name as cook,
+                                scnd.name as second
+                        FROM calendarevents, staff as stf, staff as scnd
+                        WHERE calendarevents.date >= '$request->start_date' 
+                            AND calendarevents.date <= '$request->end_date'
+                            AND calendarevents.staff_id = stf.id
+                            AND calendarevents.secondstaff_id = scnd.id
+                        ORDER BY date, time ";
+
+                                
+        if(!$dbresult = DB::select($sqlString))
+        {
+            return [
+                'title' =>'No hay resultados' ,
+                'headers' => [],
                 'lines' => $dbresult ];   
         } 
+
+        $start_date = new Carbon($request->start_date);
+        $end_date = new Carbon($request->end_date);
+        $end_date->addDay();
+
+        $result = [];
+
+        for ($date = clone $start_date; $date->diffInDays($end_date)>0; $date->addDay()) {
+
+            $last_event_in_a_day = 0;
+            $line = array_fill(0, 9, '');
+            $line[0] = $date->formatLocalized('%d %b %a');
+
+            foreach ($dbresult as $event) {
+                if ($event->date == $date->toDateString() && $last_event_in_a_day < 2) {
+                    if ($last_event_in_a_day == 0 && $event->time >= '14:00:00') {
+                        $last_event_in_a_day++; // there is no morning class, we shift one place 
+                    }
+                    $line[$last_event_in_a_day + 1] = $event->cook == 'n.a.' ? '' : $event->cook;
+                    $line[$last_event_in_a_day + 3] = $event->second == 'n.a.' ? '' : $event->second;
+                    $line[$last_event_in_a_day + 5] = $event->type;
+                    $line[$last_event_in_a_day + 7] = $event->ce_id;
+                    // Log::info($line);
+                    $last_event_in_a_day++;
+                }
+            }
+            array_push($result, (object) $line);
+        }
+
+        return [
+            'title' => '' ,
+            'headers' => [],
+            'lines' => $result ];        
 
     }
 

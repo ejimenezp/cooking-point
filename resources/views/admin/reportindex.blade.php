@@ -52,6 +52,10 @@
 							<li>Turnos
 							<ol>
 								<li><div class='report' report_id='turnos'>Detalle</div></li>
+								@if (app('request')->input('user_role') >= 3)
+								<li><div class='report' report_id='turnos_exportar'>Exportar</div></li>
+								<li><div class='ir' href='/admin/fileuploader'>Importar</div></li>
+								@endif						
 							</ol>
 							</li>
 						</ul>
