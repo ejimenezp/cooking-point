@@ -27,8 +27,8 @@
 					@foreach($lines as $line)
 						<tr>
 							@php
-								 $line_array = get_object_vars($line);
-								 foreach ($line_array as $td) {
+								 // $line_array = get_object_vars($line);
+								 foreach ($line as $td) {
 								 	echo '<td>' . $td . '</td>';								 	
 								 }
 							@endphp

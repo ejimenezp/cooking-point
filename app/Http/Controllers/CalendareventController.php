@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
 use App\Calendarevent;
+use App\Staff;
+
 use Log;
 
 class CalendareventController extends Controller
@@ -115,5 +118,42 @@ class CalendareventController extends Controller
                             ->orderBy('date', 'ASC')
                             ->orderBy('time', 'ASC')->get();
 	}
+
+
+    function importStaffing (Request $request)
+    {
+
+        $st = StaffController::getCooks();
+
+        foreach ($st as $value) {
+            $staff[$value->name] = $value->id;
+        }
+
+        $handle = fopen(storage_path('app/' . $request->fichero), "r");
+
+        while ($line = fgetcsv($handle, 1000, ",")) {
+
+            // pointer points to the event's first column 
+            // number of events per day is limited to 2
+            $pointer = 0;
+            $line_length = sizeof($line);
+            while ($line_length > 1 && $pointer < 2) {
+                // pointer + 7 = calendarevent_id
+                $ce = Calendarevent::find($line[$pointer + 7]);
+
+                if ($ce) {
+                    // pointer + 1 cook's name
+                    // pointer + 3 second cook's name
+                    $staff_name = ($line[$pointer + 1] ? $line[$pointer + 1] : 'n.a.');
+                    $secondstaff_name = ($line[$pointer + 3] ? $line[$pointer + 3] : 'n.a.');
+
+                    $ce->staff_id = $staff[$staff_name];
+                    $ce->secondstaff_id = $staff[$secondstaff_name];
+                    $ce->save();
+                }
+                $pointer ++;
+            }
+        }
+    }
 
 }

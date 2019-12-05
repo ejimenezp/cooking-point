@@ -52,6 +52,12 @@ Route::post('viator', 'ViatorController@main');
 Route::post('contact/contactoeventos', 'ContactControllerApi@contactoeventos');
 
 
+Route::post('upload/uploadfile', 'UploadController@uploadfile');
+Route::post('upload/removefiles', 'UploadController@removefiles');
+Route::get('upload/getfiles', 'UploadController@getfiles');
+Route::post('upload/previewfile', 'UploadController@previewfile');
+Route::post('upload/importstaffing', 'CalendareventController@importStaffing');
+
 //
 //	API de cashbox
 //
