@@ -99,6 +99,7 @@ jQuery(document).ready(function($) {
 		onSelect: function(  ) {
 			end_moment = moment($('#end').val());
 			vars['end_date']  = end_moment.format('YYYY-MM-DD');
+			history.pushState(undefined, undefined, window.location.pathname + '?start_date=' + vars['start_date'] + '&end_date=' + vars['end_date']);
 		}
 	});	
 
