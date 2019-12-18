@@ -57,7 +57,7 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<button onclick='location.href="/admin/report"' class="btn btn-default">Back</button>
+				<button onclick='history.back();' class="btn btn-default">Back</button>
 				&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;
 				<button id="button_import_staffing" class="btn btn-primary">Import</button>
