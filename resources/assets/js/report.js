@@ -6,6 +6,7 @@ require('jquery-serializejson')
 
 var moment = require('moment')
 
+
 //
 // datepicker locale
 //
@@ -30,9 +31,22 @@ $.datepicker.setDefaults($.datepicker.regional['es'])
 //
 // Global variables
 //
-// var right_now = moment("2016-12-15 09:00")
-var right_now = moment()
-var date_shown = right_now.clone()
+var start_moment, end_moment;
+
+
+//
+// snippet to move querystring params to array
+//
+var vars = [], hash;
+    var q = document.URL.split('?')[1];
+    if(q != undefined){
+        q = q.split('&');
+        for(var i = 0; i < q.length; i++){
+            hash = q[i].split('=');
+            vars.push(hash[1]);
+            vars[hash[0]] = hash[1];
+        }
+}
 
 //
 // Begin jquery(document).ready
@@ -41,18 +55,36 @@ var date_shown = right_now.clone()
 jQuery(document).ready(function($) {
 
 
+	if (vars['start_date']) {
+		start_moment = moment(vars['start_date']);
+	} else {
+		start_moment = moment().startOf('month');
+		vars['start_date'] = start_moment.format('YYYY-MM-DD');
+	}
+
+	if (vars['end_date']) {
+		end_moment = moment(vars['end_date']);
+	} else {
+		end_moment = start_moment.clone().endOf('month');
+		vars['end_date'] = end_moment.format('YYYY-MM-DD');
+	}
+
 	//
 	// Booking Datepicker
 	//
 	$( "#startdatepicker" ).datepicker({
  	  	language: 'es',
- 	  	defaultDate: date_shown.toDate(), 
+ 	  	defaultDate: start_moment.toDate(), 
         dateFormat: "DD, d MM yy" ,
 		altFormat: "yy-mm-dd",
 		altField: "#start",
 		onSelect: function(  ) {
-			var selectedMoment = moment($('#start').val())
-			$('#enddatepicker').datepicker("setDate", selectedMoment.endOf('month').toDate())
+			start_moment = moment($('#start').val());
+			end_moment = start_moment.clone().endOf('month');
+			vars['start_date'] = start_moment.format('YYYY-MM-DD');
+			vars['end_date']  = end_moment.format('YYYY-MM-DD');
+			$('#enddatepicker').datepicker("setDate", end_moment.toDate());
+			history.pushState(undefined, undefined, window.location.pathname + '?start_date=' + vars['start_date'] + '&end_date=' + vars['end_date']);
 		}
 	});	
 
@@ -60,17 +92,20 @@ jQuery(document).ready(function($) {
 
 	$( "#enddatepicker" ).datepicker({
  	  	language: 'es',
- 	  	defaultDate: date_shown.toDate(), 
+ 	  	defaultDate: end_moment.toDate(), 
         dateFormat: "DD, d MM yy" ,
 		altFormat: "yy-mm-dd",
-		altField: "#end"
-
+		altField: "#end",
+		onSelect: function(  ) {
+			end_moment = moment($('#end').val());
+			vars['end_date']  = end_moment.format('YYYY-MM-DD');
+		}
 	});	
 
     $('#ui-datepicker-div').wrap('<div class="admin-eventdatepicker"></div>');
 
-	$('#startdatepicker').datepicker("setDate", date_shown.clone().startOf('month').toDate())
-	$('#enddatepicker').datepicker("setDate", date_shown.clone().endOf('month').toDate())
+	$('#startdatepicker').datepicker("setDate", start_moment.toDate());
+	$('#enddatepicker').datepicker("setDate", end_moment.toDate());
 
 	// 
     // end initial display
@@ -83,7 +118,7 @@ jQuery(document).ready(function($) {
 
 	$('.report').click(function (e) {
         e.preventDefault();
-        $('#report_form').attr('action', '/admin/report/' + $(this).attr('report_id'))
+        $('#report_form').attr('action', '/admin/report/' + $(this).attr('report_id') + '?start_date=' + vars['start_date'] + '&end_date=' + vars['end_date']);
         $('#report_form').submit()
     })
 
