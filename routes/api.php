@@ -50,6 +50,7 @@ Route::get('tienda/getTickets', 'TicketsController@getTickets');
 Route::post('viator', 'ViatorController@main');
 
 Route::post('contact/contactoeventos', 'ContactControllerApi@contactoeventos');
+Route::post('contact/googleadswebhook', 'ContactControllerApi@googleadswebhook');
 
 
 Route::post('upload/uploadfile', 'UploadController@uploadfile');
