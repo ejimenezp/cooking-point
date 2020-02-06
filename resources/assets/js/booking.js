@@ -106,7 +106,8 @@ function getMonthAvailability(a_date)
 	   	data: {start: month_start, end: month_end, bookable_only: 0},
 	   	async: false,
 	    success: function(data){
-	    	month_availability = JSON.parse(JSON.stringify(data));
+	    	var clear = data.replace(/x06/g, '5');
+	    	month_availability = JSON.parse(atob(clear));
 	    	refreshDataShown()
 	     }
 		});

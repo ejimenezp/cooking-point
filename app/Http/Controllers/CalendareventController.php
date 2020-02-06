@@ -112,11 +112,12 @@ class CalendareventController extends Controller
 	{
 		// devuelve colección de CE
         
-		return Calendarevent::whereDate('date', '>=', $start_date)
+        $ofuscate = base64_encode(Calendarevent::whereDate('date', '>=', $start_date)
                             ->whereDate('date', '<=', $end_date)
                             ->where('capacity', '>=', $bookable_only)
                             ->orderBy('date', 'ASC')
-                            ->orderBy('time', 'ASC')->get();
+                            ->orderBy('time', 'ASC')->get());
+        return str_replace("5", "x06", $ofuscate);
 	}
 
 
