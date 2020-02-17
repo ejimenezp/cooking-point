@@ -5,46 +5,24 @@
 
 @section('analytics-ecommerce-tracking')
 	@if ($tpv_result === 'OK' && ($bkg->calendarevent->type === 'PAELLA' || $bkg->calendarevent->type === 'TAPAS'))
-	<!-- ecommerce tracking snippet -->
-	ga('require', 'ec')
-	@if ($bkg->adult)
-	ga('ec:addProduct', {
-	  'id': "{{ $bkg->calendarevent->type }}" ,
-	  'name': "{{ $bkg->calendarevent->type }}",
-	  'variant': 'adult',
-	  'quantity': {{ $bkg->adult }}
-	})
-	@endif
-	@if ($bkg->child)
-	ga('ec:addProduct', {
-	  'id': "{{ $bkg->calendarevent->type }}" ,
-	  'name': "{{ $bkg->calendarevent->type }}",
-	  'variant': 'child',
-	  'quantity': {{ $bkg->child }}
-	})
-	@endif
-	ga('ec:setAction', 'purchase', {
-			id: "{{$bkg->locator}}",
-			revenue: "{{ round($bkg->price/1.21 , 2) }}"
-	})
-	<!-- End ecommerce snippet -->
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		dataLayer.push({
+		 'transactionId': '{{$bkg->locator}}',
+		 'transactionTotal': {{ round($bkg->price/1.21 , 2) }}, 
+		 'transactionProducts': [{
+		   'name': '{{ $bkg->calendarevent->type }}',
+		   'sku': '{{ $bkg->calendarevent->type }}',
+		   'price': {{ round($bkg->price/1.21 , 2) }},  
+		   'quantity':  1
+		 }]
+		});
+		</script>
 	@endif
 @stop
 
-@section('adwords-event-snippet')
-	@if ($tpv_result === 'OK')
-	<!-- Event snippet for reservar conversion page -->
-	<script>
-	  gtag('event', 'conversion', {
-	      'send_to': 'AW-985592263/mDIBCN3enHcQx-P71QM',
-	      'value': {{ round($bkg->price/1.21 , 2) }},
-	      'currency': 'EUR',
-	      'transaction_id': "{{$bkg->locator}}"
-	  });
-	</script>
-	<!-- End event snippet -->
-	@endif
-@stop
+
+
 
 @section('content')
 
