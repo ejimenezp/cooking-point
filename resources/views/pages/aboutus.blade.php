@@ -49,16 +49,6 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="offset-sm-3 col-sm-6">
-		<div class="text-center">
-			<img class="text-center" src="/images/cristina.jpg" alt="cristina" />
-		</div>
-		<p class="header2">Cristina</p>
-		<p>Iberian through and through, having lived abroad in various countries for ten years, revisiting and marinating over the local cuisine, family traditions, centuries-old techniques and produce was a matter of rebonding with her roots and beloved heritage. Keen on seasonal, local, slow food, passionate about the intersection between it and the resulting culture. A scholar of the future of traditions and the traditions of the future.</p>
-	</div>
-</div>
-
 <div class="header2">Our Classes</div>
 <p>And these are our classes.</p>
 <div class="row justify-content-center">
