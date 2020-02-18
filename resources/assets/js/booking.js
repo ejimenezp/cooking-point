@@ -1,5 +1,5 @@
-// window.$ = window.jQuery = require('jquery')
-//require('jquery-ui/ui/widgets/datepicker')
+window.$ = window.jQuery = require('jquery');
+require('jquery-ui/ui/widgets/datepicker');
 // require('jquery-serializejson')
 require('print-this');
 

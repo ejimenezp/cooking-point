@@ -1,3 +1,4 @@
+window.$ = window.jQuery = require('jquery')
 
 
 function toggleVideo () {
@@ -28,11 +29,11 @@ $( document ).ready(function() {
 	var page = $("meta[name=page]").attr("content")
 	var caption = $("meta[name=page]").attr("caption")
 
-	$("#section-banner").empty();
 
 	if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 		$("#section-banner").append('<img class="img-fluid" src="/images/home-banner-sm.jpg" >')
 	} else {
+		$("#section-banner").empty();
 		$("#section-banner").append('<div class="img-fluid"> \
 			<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted > \
 	     	<source src="images/home-video-banner-01.mp4" type="video/mp4"> \
