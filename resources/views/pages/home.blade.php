@@ -221,9 +221,13 @@
 
 @stop
 
+
 @section('js')
 
+<script async src="{{ mix('/js/home.js') }}"></script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkvAcWJQOK3Vp1s2XQVJTKs4ZblKTbzI&callback=initMap&libraries=places" async defer></script>
+
 
 <script>
   function initMap() {
