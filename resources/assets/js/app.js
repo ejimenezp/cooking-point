@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 
+
 // window.Vue = require('vue');
 
 // *
@@ -123,9 +124,7 @@ $( document ).ready(function() {
 	var page = $("meta[name=page]").attr("content")
 	var caption = $("meta[name=page]").attr("caption")
 
-	$("#section-banner").empty();
-
-	if (page !=='') {
+	if (page !=='' && page !== 'home') {
 		if (/iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
 			$("#section-banner").append('<img class="img-fluid" src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >');
 		} else {
