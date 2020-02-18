@@ -1,6 +1,6 @@
 // window.$ = window.jQuery = require('jquery')
 //require('jquery-ui/ui/widgets/datepicker')
-require('jquery-serializejson')
+// require('jquery-serializejson')
 require('print-this');
 
 
@@ -377,25 +377,47 @@ function validateBookingForm()
 		    			    		
 }
 
-//
-// Begin jquery(document).ready
-//
-
-jQuery(document).ready(function($) {
-
 	//
 	// initial display
 	//
 
 
-	date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone()
+	date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone();
 	// window.history.pushState(null, 'nada', '/booking')
 
-	locator = $("input[name=locator]").val()
+	locator = $("input[name=locator]").val();
 	if (locator != '') {
-		retrieveBooking(locator)
+		retrieveBooking(locator);
 	}
-	getMonthAvailability(date_shown)
+	getMonthAvailability(date_shown);
+
+//
+// Booking Datepicker
+//
+$( "#bookingdatepicker" ).datepicker({
+	minDate: 0,
+	beforeShowDay: getDayAvailability,
+	  	dateFormat: 'yy-mm-dd',
+	  	onSelect: function( s, i ) {  
+	  		date_shown = moment($(this).val())
+	  		refreshDataShown()
+	  		form_changed = true
+	  		$(".update_class").removeClass('d-none')
+
+	 	},
+	  	onChangeMonthYear: function(year, month, inst){
+	  		var new_date = moment({y:year, M:month-1, d:1})
+	  		getMonthAvailability(new_date)
+	  	}
+});
+
+$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
+
+//
+// Begin jquery(document).ready
+//
+
+jQuery(document).ready(function($) {
 
 
     $('#booking_steps > div').addClass('d-none')
@@ -435,29 +457,6 @@ jQuery(document).ready(function($) {
     		$("#modal_booking").modal()
     }
 
-
-
-	//
-	// Booking Datepicker
-	//
-	$( "#bookingdatepicker" ).datepicker({
-		minDate: 0,
-		beforeShowDay: getDayAvailability,
- 	  	dateFormat: 'yy-mm-dd',
- 	  	onSelect: function( s, i ) {  
- 	  		date_shown = moment($(this).val())
-  	  		refreshDataShown()
- 	  		form_changed = true
- 	  		$(".update_class").removeClass('d-none')
-
- 	 	},
- 	  	onChangeMonthYear: function(year, month, inst){
- 	  		var new_date = moment({y:year, M:month-1, d:1})
- 	  		getMonthAvailability(new_date)
- 	  	}
-	});
-
-	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
 
 }) // jQuery
 

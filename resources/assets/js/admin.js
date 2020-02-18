@@ -1,5 +1,5 @@
 require('./bootstrap');
-require('jquery-serializejson')
+// require('jquery-serializejson')
 
 var moment = require('moment') 
 require('moment/locale/es')
