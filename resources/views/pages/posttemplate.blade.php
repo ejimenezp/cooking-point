@@ -22,7 +22,7 @@
 			@foreach ($related as $rel)
 			<div class="card">
 			  	<a href="{{ $rel['friendly_url'] }}">
-			  		<img class="card-img-top" src="{{ $rel['thumbnail_image'] }}" alt="">
+			  		<img class="lazyload card-img-top" data-src="{{ $rel['thumbnail_image'] }}" alt="">
 				    <div class="card-body">
 						<h5 class="card-title">{{ $rel['title'] }}</h5>
 						<p class="card-text">{{ $rel['thumbnail_description'] }}</p>

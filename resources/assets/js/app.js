@@ -6,6 +6,9 @@
  */
 
 require('./bootstrap');
+require('lazysizes');
+// import a plugin
+require('lazysizes/plugins/parent-fit/ls.parent-fit');
 
 
 // window.Vue = require('vue');
@@ -126,9 +129,9 @@ $( document ).ready(function() {
 
 	if (page !=='' && page !== 'home') {
 		if (/iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
-			$("#section-banner").append('<img class="img-fluid" src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >');
+			$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >');
 		} else {
-			$("#section-banner").append('<img class="img-fluid" src="/images/'+page+'-banner.jpg" alt="'+caption+'" >');
+			$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/'+page+'-banner.jpg" alt="'+caption+'" >');
 		}		
 	}
 
