@@ -13,7 +13,7 @@
 		<a href="/blog/{{ $post['friendly_url'] }}">
 			<div class="row">
 				<div class="col-lg-4 col-sm-6">
-					<img class="lazyloadd img-fluid" data-src="/images/blog/{{ $post['thumbnail_image'] }}" alt="">
+					<img class="lazyload img-fluid" data-src="/images/blog/{{ $post['thumbnail_image'] }}" alt="">
 				</div>
 				<div class="col-lg-8 col-sm-6">
 					<h3 class="header3">{{ $post['title'] }}</h3>
