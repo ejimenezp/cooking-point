@@ -226,7 +226,7 @@
 
 <script async src="{{ mix('/js/home.js') }}"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkvAcWJQOK3Vp1s2XQVJTKs4ZblKTbzI&callback=initMap&libraries=places" defer></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkvAcWJQOK3Vp1s2XQVJTKs4ZblKTbzI&callback=initMap&libraries=places" ></script>
 
 
 <script defer>
