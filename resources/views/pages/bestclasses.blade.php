@@ -20,7 +20,7 @@
 
 	<div class="col-sm-4">
 		<div class="text-center">
-			<a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html"><img alt="tripadvisor certificate of excellence" src="/images/tripadvisorCE_2018.png" /></a>		
+			<a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html"><img class="lazyload" alt="tripadvisor certificate of excellence" data-src="/images/tripadvisorCE_2018.png" /></a>		
 		</div>
 
 		<div id="TA_selfserveprop381" class="TA_selfserveprop">
@@ -34,7 +34,7 @@
 
 	</div>
 	<div class="col-sm-6">
-		<a href="https://goo.gl/maps/ESe4TMXBok12"><img class="rounded img-fluid img-thumbnail float-left" src="/images/google-reviews.jpg"></a>
+		<a href="https://goo.gl/maps/ESe4TMXBok12"><img class="lazyload rounded img-fluid img-thumbnail float-left" data-src="/images/google-reviews.jpg"></a>
 	</div>
 
 </div>
@@ -48,7 +48,7 @@
 
 <p>And there's more! You will take home the recipe booklet to cook them for your family and friends!</p>
 
-<img src="/images/hands-on-class.jpg" class="img-fluid mx-auto d-block" alt="your spot">
+<img data-src="/images/hands-on-class.jpg" class="lazyload img-fluid mx-auto d-block" alt="your spot">
 
 
 
@@ -58,13 +58,13 @@
 
 <p>Having allergies or dietary restrictions is not a problem to attend our class and make it a memorable experience. As you cook in pairs, your food requirements will not affect the rest of guests, so feel free to specify your needs and we will adapt the recipes for you.</p>
 
-<img src="/images/food-restrictions.jpg" class="img-fluid mx-auto d-block" alt="food restrictions">
+<img data-src="/images/food-restrictions.jpg" class="lazyload img-fluid mx-auto d-block" alt="food restrictions">
 
 <div class="header2">4. Family Friendly</div>
 
 <p>Children love cooking, as well as our classes. Our kitchen is a nice setting where youngsters feel involved and enthusiastic about performing cooking tasks from simply stirring or grating to chopping vegetable and sauteing seafood.</p>
 
-<img src="/images/family-friendly-class.jpg" class="img-fluid mx-auto d-block" alt="family-friendly-class">
+<img data-src="/images/family-friendly-class.jpg" class="lazyload img-fluid mx-auto d-block" alt="family-friendly-class">
 
 <p></p>
 
@@ -72,14 +72,14 @@
 
 <p>We are a 100% Spanish company with all staff born and raised in Spain. We support small, traditional business and local economy by getting most of our supplies from the local market and using products with Protected Designation of Origin.</p> 
 
-<img src="/images/local-market.jpg" class="img-fluid mx-auto d-block" alt="local market">
+<img data-src="/images/local-market.jpg" class="lazyload img-fluid mx-auto d-block" alt="local market">
 <p></p>
 
 <div class="header2">6. Right In The Center Of Madrid</div>
 
 <p>We are located in the historic center of Madrid, within walking distance of main lodging areas and turist attractions. You will probably be able to come walking from your accomodation, enjoying the relaxed atmosphere of the Literary Quarter.</p>
 
-<img src="/images/mapa-barrio-de-las-letras.jpg" class="img-fluid mx-auto d-block" alt="mapa Barrio de las Letras">
+<img data-src="/images/mapa-barrio-de-las-letras.jpg" class="lazyload img-fluid mx-auto d-block" alt="mapa Barrio de las Letras">
 
 <p></p>
 <div class="header2">7. Open Year-round</div>
@@ -88,7 +88,7 @@
 <div class="header2">8. Legal</div>
 <p>We have all due licenses in force to teach cooking classes. In fact, we appear listed in the registry of activities recommended by the <a href="https://www.esmadrid.com/en/tourist-information/cooking-point">City of Madrid</a>'s official tourism website. We fulfill all of our legal obligations regarding health and safety, civil liability insurance and tax payment.</p> 
 
-<a href="https://www.esmadrid.com/en/tourist-information/cooking-point"><img src="/images/legal.jpg" class="img-fluid mx-auto d-block" alt="legal"></a>
+<a href="https://www.esmadrid.com/en/tourist-information/cooking-point"><img data-src="/images/legal.jpg" class="lazyload img-fluid mx-auto d-block" alt="legal"></a>
 
 <div class="header2">9. What We Are Not</div>
 <p>We are not a franchise, there is only one Cooking Point and it is in Madrid. We are not a restaurant or hotel teaching classes in small and messy kitchens. We are not impersonal resellers with fake photos and unefficient customer service.</p>
@@ -99,7 +99,7 @@
 	<div class="col-md-10 col-lg-8">
 		<div class="card-deck">
 		  <div class="card">
-		    <a href="classes-paella-cooking-madrid-spain"><img class="card-img-top" src="/images/home-paella.jpg" alt="paella class"></a>
+		    <a href="classes-paella-cooking-madrid-spain"><img class="lazyload card-img-top" data-src="/images/home-paella.jpg" alt="paella class"></a>
 		    <div class="card-body">
 		      <h5 class="card-title">Paella Class</h5>
 		      <p class="card-text">Enjoy an unforgettable morning visiting a food market and cooking a delicious paella.</p>
@@ -111,7 +111,7 @@
 		    </div>
 		  </div>
 		  <div class="card">
-		    <a href="classes-spanish-tapas-madrid-spain"><img class="card-img-top" src="/images/home-tapas.jpg" alt="tapas class"></a>
+		    <a href="classes-spanish-tapas-madrid-spain"><img class="lazyload card-img-top" data-src="/images/home-tapas.jpg" alt="tapas class"></a>
 		    <div class="card-body">
 		      <h5 class="card-title">Tapas Class</h5>
 		      <p class="card-text">Have a great evening making tapas and sangria.</p>

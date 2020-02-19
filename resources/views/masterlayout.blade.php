@@ -10,13 +10,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
-      <style type="text/css">
-          #map {
-                height: 50vh;
-                width: 100%;
-              }
-      </style>  
-      <link defer href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
+
+      <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
       <script defer type='text/javascript' src="{{ mix('/js/app.js') }}"></script>
       <!-- <script  type='text/javascript' src="https://use.fontawesome.com/c502308363.js"></script> -->
       <link defer rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -66,7 +61,7 @@
 <div id="cabecera">
   <nav class="navbar fixed-top">
       <div class="navbar-brand">
-        <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
+        <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
       </div>
       <a class="menu-header-xs" data-toggle="collapse" data-target="#myNavbar" href="#">
           Menu <i class="fa fa-bars" aria-hidden="true"></i>
@@ -110,7 +105,7 @@
 <div class="d-none d-lg-block d-xl-none">
   <nav class="navbar navbar-expand-md nav-fill"> 
       <div class="navbar-brand">
-        <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
+        <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
       </div> 
 
       <ul class="navbar-nav justify-content-center w-100">
@@ -146,7 +141,7 @@
 
 <div class="d-none d-xl-block">
   <nav class="navbar navbar-expand-xl">
-      <a class="navbar-brand"href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
+      <a class="navbar-brand"href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
       <ul class="navbar-nav nav-fill justify-content-center w-100">
         <li class="nav-item">
           <a class="nav-link" href="/classes-paella-cooking-madrid-spain">Paella Class</a>

@@ -471,7 +471,7 @@
 			<div class="divider"></div>
 			<div class="divider"></div>
 			<div class="text-center">
-				<img alt="Cooking Point logo" src="/images/cookingpoint_logox75.png" />				
+				<img class="lazyload" alt="Cooking Point logo" data-src="/images/cookingpoint_logox75.png" />				
 				<div class="divider"></div>
 				<p class="header1 text-center">Cooking Point Voucher</p>
 			</div>
@@ -484,7 +484,7 @@
 			Calle de Moratin, 11 28014 Madrid<br/>
 			tel. (+34) 910 115 154<br />
 			Metro Anton Martin (Line 1), exit Calle de Amor de Dios<br /><br /></p>
-			<img class="rounded mx-auto d-block" alt="Cooking Point location" src="/images/plano-email.png" />
+			<img class="lazyload rounded mx-auto d-block" alt="Cooking Point location" data-src="/images/plano-email.png" />
 			<div class="divider"></div>
 			
 			@if (isset($bkg))
@@ -501,5 +501,5 @@
 @stop
 
 @section('js')
-	<script async src="{{ mix('/js/booking.js') }}"></script>
+	<script defer src="{{ mix('/js/booking.js') }}"></script>
 @stop
