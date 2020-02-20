@@ -86,7 +86,12 @@ $('#button_contacto_form').click(function() {
 			$('.modal_contactoeventos_body').html('Gracias por contactarnos. En breve recibirás noticias nuestras.');
 			$('#modal_contactoeventos').modal('show');
 			email_sent = true;
-			gtag_report_conversion('/eventos-privados-madrid');
+
+			// GTM dataLayer to track conversion
+			window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push({
+				'event': 'Solicitar info actividades empresas',
+			});
 		},
 		error: function(jqXHR, textStatus, errorThrown ) {
 			$('.modal_contactoeventos_title').html('Ups!')

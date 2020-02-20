@@ -106,7 +106,7 @@
 @stop
 
 @section('js')
-      <script async src="{{ mix('/js/contactoeventos.js') }}"></script>
+      <script defer src="{{ mix('/js/contactoeventos.js') }}"></script>
 @stop
 
 
