@@ -206,7 +206,9 @@
 
 <div class="header3">Our Location<br/><br/></div>
 
-<div id="map" style="height: 50vh;width: 100%;"></div>
+<!-- <div id="map" style="height: 50vh;width: 100%;"></div> -->
+
+<iframe class="lazyload" src="https://www.google.com/maps/d/embed?mid=1Z52oFNjEYejtU59SYZuFh3q7EuEIXSxX" style="height: 60vh;width: 100%;"></iframe>
 
 <div class="divider"></div>
 
@@ -224,12 +226,9 @@
 
 @section('js')
 
-<script async src="{{ mix('/js/home.js') }}"></script>
+<script defer src="{{ mix('/js/home.js') }}"></script>
 
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkvAcWJQOK3Vp1s2XQVJTKs4ZblKTbzI&callback=initMap&libraries=places" ></script>
-
-
-<script>
+<!-- <script defer>
   function initMap() {
   var sansebastian = {lat:40.41353, lng:-3.7036784}
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -488,5 +487,8 @@
 
 }
 </script>
+
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkvAcWJQOK3Vp1s2XQVJTKs4ZblKTbzI&callback=initMap&libraries=places" ></script>
+ -->
 
 @stop

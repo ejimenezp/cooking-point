@@ -5,7 +5,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+window.$ = window.jQuery = require('jquery');
+require('bootstrap');
 require('lazysizes');
 // import a plugin
 require('lazysizes/plugins/parent-fit/ls.parent-fit');
