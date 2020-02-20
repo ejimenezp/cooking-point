@@ -11,10 +11,7 @@
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
 
-      <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
-      <script defer type='text/javascript' src="{{ mix('/js/app.js') }}"></script>
-      <!-- <script  type='text/javascript' src="https://use.fontawesome.com/c502308363.js"></script> -->
-      <link defer rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 
       @if (App::environment() == 'production')
 
@@ -199,7 +196,12 @@
 <!-- modals specific for this page  -->
 @yield('modals')
 
+      <link defer href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
+      <link defer rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 <!-- javascripts specific for this page  -->
+<script defer type='text/javascript' src="{{ mix('/js/app.js') }}"></script>
+
 @yield('js')
 
 </body>
