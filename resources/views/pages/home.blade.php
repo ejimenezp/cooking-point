@@ -229,7 +229,7 @@
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlkvAcWJQOK3Vp1s2XQVJTKs4ZblKTbzI&callback=initMap&libraries=places" ></script>
 
 
-<script defer>
+<script>
   function initMap() {
   var sansebastian = {lat:40.41353, lng:-3.7036784}
   var map = new google.maps.Map(document.getElementById('map'), {
