@@ -147,7 +147,7 @@
 							<a href="#step4" class="update_class btn btn-primary">Update Booking</a>
 						@else
 							<button id="button_booking_help" class="btn btn-light">Help</button>
-							<button class="booking_retrieve btn btn-light">Use Booking #</button>
+							<!-- <button class="booking_retrieve btn btn-light">Use Booking #</button> -->
 							<a href="#step2" class="update_class btn btn-primary" checkout="checkout">Continue</a>
 						@endif
 						<p></p>
