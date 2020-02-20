@@ -14,7 +14,6 @@
       <style type="text/css">
             body { color: white; }
             a {color: white;}
-            img { display: none; }
       </style>
 
       @if (App::environment() == 'production')
