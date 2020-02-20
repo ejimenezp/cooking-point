@@ -11,7 +11,10 @@
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
 
-
+      <style type="text/css">
+            body { color: white; }
+            a {color: white;}
+      </style>
 
       @if (App::environment() == 'production')
 
