@@ -65,10 +65,12 @@
 
 		<img data-src="/images/paella-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="making gazpacho">
 
-		<p><br>And then, you will get down to work to make your own <strong>paella</strong>, the most international Spanish dish, based on rice, seafood and chicken. Along the preparation, our chef will tell its story including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
+		<p><br>And then, you will get down to work to make your own <strong>paella</strong>, the most international Spanish dish, based on rice, seafood and chicken. </p>
 
 		<img data-src="/images/paella-details-03.jpg" class="lazyload img-fluid mx-auto d-block" alt="making paella">
-		<p><br></p>
+
+		<p><br>Along the preparation, our chef will tell its story including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
+
 		<img data-src="/images/paella-banner-sm.jpg" class="lazyload img-fluid mx-auto d-block" alt="making paella">
 
 		<p><br>After cooking you will sit down to enjoy your creations as <strong>your lunch</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable morning.</p>
