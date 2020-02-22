@@ -6,7 +6,7 @@
 @section('banner-name', 'home')
 @section('banner-caption', 'cooking point home banner')
 
-
+// cambios en new-ui con su commit
 
 @section('google-structured-data')
 
