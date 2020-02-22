@@ -37,6 +37,7 @@ class CalendareventControllerApi extends CalendareventController
 
     function getAvailability(Request $request)
     {
-        return $this->getIntervalSchedule($request->start, $request->end, $request->bookable_only, $request->ce_type);
+        $ofuscate = base64_encode($this->getIntervalSchedule($request->start, $request->end, $request->bookable_only, $request->ce_type));
+        return str_replace("5", "x06", $ofuscate);
     }
 }

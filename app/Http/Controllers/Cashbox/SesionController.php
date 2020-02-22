@@ -65,6 +65,7 @@ class SesionController extends Controller
     function detalles($id)
     {
         $sesion = Sesion::find($id);
+        // $sesion->recalcular();
         return $sesion->detalles(); 
     }
 
@@ -103,7 +104,7 @@ class SesionController extends Controller
     function getLista(Request $request)
     {
         $tabla = [];
-        $contador_sesiones = 9; // +1 sesiones a devolver en la tabla
+        $contador_sesiones = 6; // +1 sesiones a devolver en la tabla
 
         $sesion = Sesion::find($request->comienzo);
         if (!$sesion) {
@@ -173,9 +174,36 @@ class SesionController extends Controller
         if ($sesion->estado == 'CERRADA') {
             return response()->json('No se pueden eliminar sesiones cerradas', 350);
         }
+        $anterior = Sesion::find($sesion->sesion_anterior);
+        $anterior->sesion_siguiente = $sesion->sesion_siguiente;
+        $anterior->save();
+
+        if ($sesion->sesion_siguiente) {
+            $siguiente = Sesion::find($sesion->sesion_siguiente);
+            $siguiente->sesion_anterior = $sesion->sesion_anterior;
+            $siguiente->save();
+            $this->recalcular($sesion->siguiente);
+        }
         $sesion->movimientos()->delete();
         $sesion->delete();
     }
+
+    //
+    //
+    // eliminar reabrir sesión, para poder modificarla
+    //
+    //
+    function reabrir($id)
+    {
+        $sesion = Sesion::find($id);
+        if ($sesion->estado == 'CERRADA') {
+            $sesion->estado = 'ABIERTA';
+            $sesion->save();
+        } else {
+            return response()->json('Esta sesión ya está abierta', 350);
+        }
+        }
+
 
     //
     //

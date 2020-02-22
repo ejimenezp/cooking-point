@@ -7,10 +7,16 @@ use App\Http\Requests;
 use Response;
 use DB;
 use Carbon\Carbon;
+use Log;
+
 
 class ReportController extends Controller
 {
     //
+
+    static function strip_tags_from_line (&$item, $key) {
+        $item = strip_tags($item);
+    }
 
     function report (Request $request) {
     	$fname = 'R_'. $request->id;
@@ -20,10 +26,13 @@ class ReportController extends Controller
 			$filename = "download.csv";
 			$handle = fopen($filename, 'w+');
 			$delimiter = ',';
+            fprintf($handle, chr(0xEF).chr(0xBB).chr(0xBF));
 			fputcsv($handle, [$raw_report['title']]);
 			fputcsv($handle, $raw_report['headers'], $delimiter);
 			foreach ($raw_report['lines'] as $line) {
-			    fputcsv($handle, get_object_vars($line), $delimiter);
+                $line_as_array = get_object_vars($line);
+                array_walk($line_as_array, 'App\Http\Controllers\ReportController::strip_tags_from_line');
+			    fputcsv($handle, $line_as_array, $delimiter);
 			}
 			fclose($handle);
 			$response_headers = array(
@@ -36,6 +45,31 @@ class ReportController extends Controller
     	}
 
 	}
+
+
+    function R_movimientoscaja($request)
+    {
+        
+        $sqlString = "SELECT ses.fecha, mov.sesion_id, mov.tipo, mov.descripcion, mov.ticket_tienda, mov.importe, mov.ticket
+                        FROM caja_movimientos as mov join caja_sesiones as ses
+                        ON mov.sesion_id = ses.id
+                        WHERE ses.fecha >= '$request->start_date' and ses.fecha <= '$request->end_date'
+                        ORDER BY mov.sesion_id";
+
+                                
+        if(!$result = DB::select($sqlString))
+        {
+            return [
+                'title' =>'No hay resultados' ,
+                'headers' => [],
+                'lines' => $result ];   
+        } else {
+            return [
+                'title' =>'Movimientos caja, ' . $request->start_date . ' a '. $request->end_date ,
+                'headers' => ['Fecha', 'Sesión','Tipo', 'Descripción', 'Tkt_tienda', 'Importe', 'Ticket'],
+                'lines' => $result ];
+        }
+    }
 
 	function R_vclientes($request)
 	{
@@ -120,46 +154,6 @@ class ReportController extends Controller
 		}
     }
 
-    function R_ivatienda($request)
-	{
-    	
-    	$sqlString = "SELECT 
-    						sum(base10),
-    						sum(base21),
-    						sum(base4),
-    						sum(iva10),
-    						sum(iva21),
-    						sum(iva4)
-     					FROM tienda_ventas
-     					WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
-                			AND NOT anulado
-                            AND (linea0 is null OR linea0 <> 3 AND linea0 <> 4)
-                            AND (linea1 is null OR linea1 <> 3 AND linea1 <> 4)
-                            AND (linea2 is null OR linea2 <> 3 AND linea2 <> 4)
-                            AND (linea3 is null OR linea3 <> 3 AND linea3 <> 4)
-                            AND (linea4 is null OR linea4 <> 3 AND linea4 <> 4)
-                            AND (linea5 is null OR linea5 <> 3 AND linea5 <> 4)
-                            AND (linea6 is null OR linea6 <> 3 AND linea6 <> 4)
-                            AND (linea7 is null OR linea7 <> 3 AND linea7 <> 4)
-                            AND (linea8 is null OR linea8 <> 3 AND linea8 <> 4)
-                            AND (linea9 is null OR linea9 <> 3 AND linea9 <> 4)
-                        ";
-
-
-    							
-		if(!$result = DB::select($sqlString))
-		{
-    		return [
-    			'title' =>'No hay resultados' ,
-    			'headers' => [],
-    			'lines' => $result ];	
-    	} else {
-			return [
-    			'title' =>'IVA Tienda, ' . $request->start_date . ' a '. $request->end_date ,
-    			'headers' => ['Base 10%', 'Base 21%','Base 4%', 'IVA 10%', 'IVA 21%', 'IVA 4%'],
-    			'lines' => $result ];
-		}
-    }
 
     function R_kpiclientes($request)
 	{
@@ -256,6 +250,119 @@ class ReportController extends Controller
             'headers' => ['Fecha', 'Mañana', 'Tarde'],
             'lines' => $result ];
 
+    }
+
+
+    function R_turnos_exportar($request)
+    {
+        
+        $sqlString = "SELECT    calendarevents.date as date,
+                                calendarevents.time as time, 
+                                calendarevents.type as type,
+                                calendarevents.id as ce_id,
+                                stf.name as cook,
+                                scnd.name as second
+                        FROM calendarevents, staff as stf, staff as scnd
+                        WHERE calendarevents.date >= '$request->start_date' 
+                            AND calendarevents.date <= '$request->end_date'
+                            AND calendarevents.staff_id = stf.id
+                            AND calendarevents.secondstaff_id = scnd.id
+                        ORDER BY date, time ";
+
+                                
+        if(!$dbresult = DB::select($sqlString))
+        {
+            return [
+                'title' =>'No hay resultados' ,
+                'headers' => [],
+                'lines' => $dbresult ];   
+        } 
+
+        $start_date = new Carbon($request->start_date);
+        $end_date = new Carbon($request->end_date);
+        $end_date->addDay();
+
+        $result = [];
+
+        for ($date = clone $start_date; $date->diffInDays($end_date)>0; $date->addDay()) {
+
+            $last_event_in_a_day = 0;
+            $line = array_fill(0, 9, '');
+            $line[0] = $date->formatLocalized('%d %b %a');
+
+            foreach ($dbresult as $event) {
+                if ($event->date == $date->toDateString() && $last_event_in_a_day < 2) {
+                    if ($last_event_in_a_day == 0 && $event->time >= '14:00:00') {
+                        $last_event_in_a_day++; // there is no morning class, we shift one place 
+                    }
+                    $line[$last_event_in_a_day + 1] = $event->cook == 'n.a.' ? '' : $event->cook;
+                    $line[$last_event_in_a_day + 3] = $event->second == 'n.a.' ? '' : $event->second;
+                    $line[$last_event_in_a_day + 5] = $event->type;
+                    $line[$last_event_in_a_day + 7] = $event->ce_id;
+                    // Log::info($line);
+                    $last_event_in_a_day++;
+                }
+            }
+            array_push($result, (object) $line);
+        }
+
+        return [
+            'title' => '' ,
+            'headers' => [],
+            'lines' => $result ];        
+
+    }
+
+
+    function R_ocupacion($request)
+    {
+        
+        $sqlString = "SELECT    ce.date as date,
+                                ce.time as time, 
+                                ce.type as type,
+                                ce.capacity as capacity,
+                                sum(bkg.adult + bkg.child) as registered
+                        FROM bookings as bkg
+                            RIGHT JOIN calendarevents as ce
+                            ON ce.id = bkg.calendarevent_id 
+                            AND bkg.status_filter = 'REGISTERED'
+                        WHERE ce.date BETWEEN '$request->start_date' and '$request->end_date'
+                        GROUP BY date, time, type, capacity
+                        ORDER BY date, time";
+
+                                
+        if(!$dbresult = DB::select($sqlString))
+        {
+            return [
+                'title' =>'No hay resultados' ,
+                'headers' => [],
+                'lines' => $dbresult ];   
+        } 
+
+        $result = [];
+
+        foreach ($dbresult as $event) {
+
+            setLocale(LC_TIME, 'es');
+            $line = new \stdClass();
+            if ($event->type == 'GROUP' || $event->registered == $event->capacity) {
+                $highlight = 'bg-danger text-white';
+            } else if ($event->registered >= $event->capacity - 2) {
+                $highlight = 'bg-warning text-white';
+            } else {
+                $highlight = '';                
+            }
+            $line->date = '<span class="' . $highlight . '">' . utf8_encode(strftime('%d %B, %A', strtotime($event->date))) . '<span>';
+            $line->time = '<span class="' . $highlight . '">' . basename($event->time, ':00') . '<span>';
+            $line->type = '<span class="' . $highlight . '">' . $event->type . '<span>';
+            $line->registered = '<span class="' . $highlight . '">' . $event->registered . '<span>';
+            array_push($result, $line); 
+        } 
+
+        return [
+            'title' =>'Ocupación, ' . $request->start_date . ' a '. $request->end_date ,
+            'headers' => ['Fecha', 'Hora', 'Clase', 'Registrados'],
+            'lines' => $result ];  
     }
 
 }

@@ -39,6 +39,7 @@ redirect 301 /frequent-questions https://cookingpoint.es/faq
 # events
 redirect 301 /group-events https://cookingpoint.es/private-cooking-events-madrid-spain
 redirect 301 /eventos-empresa-cursos-cocina https://cookingpoint.es/eventos-privados-madrid
+redirect 301 /eventos-privados-madrid https://cookingpoint.es/actividades-team-building-empresas-madrid
 
 # home
 RedirectMatch 301 ^/(es|en)$ https://cookingpoint.es

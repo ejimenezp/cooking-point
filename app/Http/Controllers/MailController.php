@@ -190,6 +190,7 @@ class MailController {
 		$html = str_replace('CP_TYPE', $bkg->calendarevent->type, $html);
 		$html = str_replace('CP_CLASS', $bkg->calendarevent->short_description, $html);
 		$html = str_replace('CP_RAWDATE', $bkg->calendarevent->date, $html);
+		$html = str_replace('CP_REGISTERED', $bkg->calendarevent->registered, $html);
 		$html = str_replace('CP_DATE', $legibleDate, $html);
 		$html = str_replace('CP_TIME', $legibleTime, $html);
 		$html = str_replace('CP_ADULT', $bkg->adult, $html);

@@ -1,7 +1,8 @@
-// window.$ = window.jQuery = require('jquery')
-//require('jquery-ui/ui/widgets/datepicker')
-require('jquery-serializejson')
+window.$ = window.jQuery = require('jquery');
+require('jquery-ui/ui/widgets/datepicker');
+// require('jquery-serializejson')
 require('print-this');
+require('./bootstrap');
 
 
 
@@ -106,7 +107,9 @@ function getMonthAvailability(a_date)
 	   	data: {start: month_start, end: month_end, bookable_only: 0},
 	   	async: false,
 	    success: function(data){
-	    	month_availability = JSON.parse(JSON.stringify(data));
+	    	var clear = data.replace(/x06/g, '5');
+	    	month_availability = JSON.parse(atob(clear));
+	    	// month_availability = JSON.parse(JSON.stringify(data));
 	    	refreshDataShown()
 	     }
 		});
@@ -375,93 +378,95 @@ function validateBookingForm()
 		    			    		
 }
 
+    
+//
+// initial display
+//
+
+
+$('#booking_steps > div').addClass('d-none')
+if (bkg) {
+	if (bkg.status != 'PENDING') {
+	    $('#step4').removeClass('d-none')
+	   	document.title =  $(".typeshown").html() + " for " + $(".nameshown").html() + " on " + $(".dateshown").html()
+	    $('select[name=adult] option:selected').siblings().attr('disabled','disabled')
+	    $('select[name=child] option:selected').siblings().attr('disabled','disabled')
+	    var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
+		if (start.isSameOrBefore(rightNow())) {
+    		$("#button_booking_edit").addClass('d-none')	
+    	}
+	} else {
+ 		if (!getDayAvailability(bkg.date)[0]) {
+    		$('.modal_booking_title').html('Class no longer available')
+			$('.modal_booking_body').html('Please, select a date with availability')
+    		$("#modal_booking").modal()
+	 	    $('#step1').removeClass('d-none')
+ 		} else {
+	 	    $('#step2').removeClass('d-none')
+ 		}
+	}
+} else {
+    $('#step1').removeClass('d-none')    	
+}
+
+switch ($("#step4").data('tpv_result')) {
+	case 'OK':
+		$('.modal_booking_title').html('Thank you for booking a class with us!')
+		$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime')
+		$("#modal_booking").modal()
+		break
+	case 'KO':
+		$('.modal_booking_title').html('Payment Failure')
+		$('.modal_booking_body').html('It seems you could not complete the transaction. Please, try it again')
+		$("#modal_booking").modal()
+}
+
+
+date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone();
+
+//
+// Booking Datepicker
+//
+$( "#bookingdatepicker" ).datepicker({
+	minDate: 0,
+	beforeShowDay: getDayAvailability,
+  	dateFormat: 'yy-mm-dd',
+  	onSelect: function( s, i ) {  
+  		date_shown = moment($(this).val())
+  		refreshDataShown()
+  		form_changed = true
+  		$(".update_class").removeClass('d-none')
+
+ 	},
+  	onChangeMonthYear: function(year, month, inst){
+  		var new_date = moment({y:year, M:month-1, d:1})
+  		getMonthAvailability(new_date)
+  	}
+});
+
+$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
+
+
+// 
+// end initial display
+//
+
 //
 // Begin jquery(document).ready
 //
 
 jQuery(document).ready(function($) {
 
-	//
-	// initial display
-	//
-
-
-	date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone()
-	window.history.pushState(null, 'nada', '/booking')
-
-	locator = $("input[name=locator]").val()
+	locator = $("input[name=locator]").val();
 	if (locator != '') {
-		retrieveBooking(locator)
+		retrieveBooking(locator);
 	}
-	getMonthAvailability(date_shown)
 
-
-    $('#booking_steps > div').addClass('d-none')
-    if (bkg) {
-    	if (bkg.status != 'PENDING') {
-		    $('#step4').removeClass('d-none')
-		   	document.title =  $(".typeshown").html() + " for " + $(".nameshown").html() + " on " + $(".dateshown").html()
-		    $('select[name=adult] option:selected').siblings().attr('disabled','disabled')
-		    $('select[name=child] option:selected').siblings().attr('disabled','disabled')
-		    var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
-			if (start.isSameOrBefore(rightNow())) {
-	    		$("#button_booking_edit").addClass('d-none')	
-	    	}
-    	} else {
-	 		if (!getDayAvailability(bkg.date)[0]) {
-	    		$('.modal_booking_title').html('Class no longer available')
-				$('.modal_booking_body').html('Please, select a date with availability')
-	    		$("#modal_booking").modal()
-		 	    $('#step1').removeClass('d-none')
-	 		} else {
-		 	    $('#step2').removeClass('d-none')
-	 		}
-    	}
-    } else {
-	    $('#step1').removeClass('d-none')    	
-    }
-
-    switch ($("#step4").data('tpv_result')) {
-    	case 'OK':
-    		$('.modal_booking_title').html('Thank you for booking a class with us!')
-			$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime')
-    		$("#modal_booking").modal()
-    		break
-    	case 'KO':
-    		$('.modal_booking_title').html('Payment Failure')
-			$('.modal_booking_body').html('It seems you could not complete the transaction. Please, try it again')
-    		$("#modal_booking").modal()
-    }
-
-
-
-	//
-	// Booking Datepicker
-	//
-	$( "#bookingdatepicker" ).datepicker({
-		minDate: 0,
-		beforeShowDay: getDayAvailability,
- 	  	dateFormat: 'yy-mm-dd',
- 	  	onSelect: function( s, i ) {  
- 	  		date_shown = moment($(this).val())
-  	  		refreshDataShown()
- 	  		form_changed = true
- 	  		$(".update_class").removeClass('d-none')
-
- 	 	},
- 	  	onChangeMonthYear: function(year, month, inst){
- 	  		var new_date = moment({y:year, M:month-1, d:1})
- 	  		getMonthAvailability(new_date)
- 	  	}
-	});
-
-	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
+	getMonthAvailability(date_shown);
 
 }) // jQuery
 
-	// 
-    // end initial display
-    //
+
 
 //
 // this is apparently needed to force reload the booking page on mobile Safari 
@@ -596,9 +601,9 @@ $(window).bind("pageshow", function(event) {
     $('#booking_cancel').click(function() {
     	var bkg = retrieveBooking(locator)
     	var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
-		if (start.subtract(48, 'hours').isSameOrBefore(rightNow())) {
+		if (start.subtract(24, 'hours').isSameOrBefore(rightNow())) {
     		$('.modal_booking_title').html("Cancellation Late Notice")
-			$('.modal_booking_body').html('Your request is within 48 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.')
+			$('.modal_booking_body').html('Your request is within 24 hours before the event, so no refund is made except for major reasons.<br/><br/>Please contact us should you have any questions.')
     		$("#modal_booking").modal()
 			return
 		}

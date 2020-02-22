@@ -20,12 +20,14 @@ let mix = require('laravel-mix');
 
 mix.sass('resources/assets/sass/app.scss', 'public/css')
 	.js('resources/assets/js/app.js', 'public/js')
+	.js('resources/assets/js/home.js', 'public/js')
 	.js('resources/assets/js/booking.js', 'public/js')
 	.js('resources/assets/js/tienda.js', 'public/js')
 	.js('resources/assets/js/cashbox.js', 'public/js')
 	.js('resources/assets/js/admin.js', 'public/js')
 	.js('resources/assets/js/adminblogtool.js', 'public/js')
 	.js('resources/assets/js/report.js', 'public/js')
+	.js('resources/assets/js/fileuploader.js', 'public/js')
 	.js('resources/assets/js/classemails.js', 'public/js')
 	.js('resources/assets/js/contactoeventos.js', 'public/js');
 

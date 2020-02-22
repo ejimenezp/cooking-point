@@ -63,21 +63,21 @@
 
 		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 recipes</strong>: 5 traditional tapas, one dessert and sangría.</p>
 
-		<img src="/images/tapas-details-04.jpg" class="img-fluid mx-auto d-block" alt="what an experience!">
+		<img data-src="/images/tapas-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="what an experience!">
 
 		<p><br>Along the preparation, our chef will tell stories about the origin and customs around this way of enjoying food. There will be also time to talk about cured ham, olive oil and other produce paradigm of Spanish food culture.</p>
 
-		<img src="/images/tapas-details-03.jpg" class="img-fluid mx-auto d-block" alt="chef stories">
+		<img data-src="/images/tapas-details-03.jpg" class="lazyload img-fluid mx-auto d-block" alt="chef stories">
 
 		<p><br>You will prepare traditional tapas such as the popular Spanish potato omelet and other with chorizo, shrimp and cured ham, all washed down with sangria and ended up with a dessert, all made by you.</p>
 
 		<p>Note: there are alternative ingredients or recipes for people with special dietary requirements.</p>
 
-		<img src="/images/tapas-details-01.jpg" class="img-fluid mx-auto d-block" alt="flipping the omelet">
+		<img data-src="/images/tapas-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="flipping the omelet">
 
 		<p><br>After cooking you will sit down to enjoy your creations as <strong>your dinner</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable evening.</p>
 
-		<img src="/images/tapas-details-05.jpg" class="img-fluid mx-auto d-block" alt="eating time">
+		<img data-src="/images/tapas-details-05.jpg" class="lazyload img-fluid mx-auto d-block" alt="eating time">
 
 		<p><br>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
 
@@ -130,7 +130,7 @@
 	<div class="col-md-12 col-lg-12">
 		<div class="card-deck">
 		  <div class="card">
-		    <a href="classes-paella-cooking-madrid-spain"><img class="card-img-top" src="/images/home-paella.jpg" alt="paella class"></a>		    
+		    <a href="classes-paella-cooking-madrid-spain"><img class="lazyload card-img-top" data-src="/images/home-paella.jpg" alt="paella class"></a>		    
 		    <div class="card-body">
 		      <h5 class="card-title">Paella Class</h5>
 		      <p class="card-text">Enjoy an unforgettable morning visiting a food market and cooking a delicious paella.</p>
@@ -142,7 +142,7 @@
 		    </div>
 		  </div>		  
 		  <div class="card">
-		    <a href="/best-cooking-classes-madrid"><img class="card-img-top" src="/images/home-bestclassintown.jpg" alt="best classes in town"></a>
+		    <a href="/best-cooking-classes-madrid"><img class="lazyload card-img-top" data-src="/images/home-bestclassintown.jpg" alt="best classes in town"></a>
 		    <div class="card-body">
 		      <h5 class="card-title">10 Reasons Why</h5>
 		      <p class="card-text">Find out why we think we are the best classes in town.</p>
@@ -154,7 +154,7 @@
 		    </div>
 		  </div>
 		  <div class="card">
-		    <a href="/gallery"><img class="card-img-top" src="/images/tripadvisor-photo.jpg" alt="photo gallery"></a>
+		    <a href="/gallery"><img class="lazyload card-img-top" data-src="/images/tripadvisor-photo.jpg" alt="photo gallery"></a>
 		    <div class="card-body">
 		      <h5 class="card-title">Photo Gallery</h5>
 		      <p class="card-text">Check out client photos on social media.</p>
