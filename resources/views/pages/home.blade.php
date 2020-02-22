@@ -79,7 +79,7 @@
 
 <div class="row justify-content-center">
     <h1 class="home-preheadline">Spanish Cooking Classes in Madrid </h1>
-    <div class="home-headline"><a href="/best-cooking-classes-madrid">Best Classes in Madrid</a></div>
+    <div class="home-headline"><a href="/best-cooking-classes-madrid">New UI Testing</a></div>
     <a href="/best-cooking-classes-madrid" class="home-more-info-button">More Info</a>
 </div>
 <div class="home-pause-button"><i class="fa fa-pause"></i></div>
