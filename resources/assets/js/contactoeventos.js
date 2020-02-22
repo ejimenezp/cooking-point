@@ -1,26 +1,8 @@
 
 //
-// Function: showModalBooking
-// helper function to streamline modal showing and subsequent actions
-// (copied from bookings.js)
+// global variable to avoid duplicated emails and conversion report
 //
-function showModalBooking(tthis, title, body, show_cancel, action) {
-	var new_modal = 'modal_contactoeventos_' + tthis.id
-	var new_modal_id = '#' + new_modal
-
-	$(new_modal_id).remove()
-	$('#modal_contactoeventos').clone().attr('id', new_modal).insertAfter('#modal_contactoeventos')
-
-	$(new_modal_id).find('.modal_contactoeventos_title').html(title)
-	$(new_modal_id).find('.modal_contactoeventos_body').html(body)
-	if (show_cancel) {
-		$(new_modal_id).find('.btn-cancel').removeClass('hidden')
-	} else {
-		$(new_modal_id).find('.btn-cancel').addClass('hidden')		
-	}
-	$(new_modal_id).find('.btn-ok').unbind('click').click(action)
-	$(new_modal_id).modal('show')
-}
+var email_sent = false;
 
 
 //
@@ -34,7 +16,7 @@ function validateContactoForm()
 	var modal_body = ''
 	var show_it = false
 
-	if ($("textarea[name=message]").val() == '') {
+	if ($("input[name=name]").val() == '') {
 		modal_body += 'Rellena tu nombre. Lo usaremos para dirigirnos a ti.<br/>'
 		show_it = true
 	}
@@ -64,7 +46,7 @@ function validateContactoForm()
 }
 
 
-// Event snippet for solicitar info eventos conversion page
+// Event snippet for solicitar info para evento españoles conversion page
 // In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 
 function gtag_report_conversion(url) {
@@ -74,7 +56,7 @@ function gtag_report_conversion(url) {
     }
   };
   gtag('event', 'conversion', {
-      'send_to': 'AW-985592263/lSg_CPW5gX4Qx-P71QM',
+      'send_to': 'AW-985592263/PnCmCNa1-a0BEMfj-9UD',
       'event_callback': callback
   });
   return false;
@@ -85,37 +67,40 @@ $( document ).ready(function() {
 
 $('#button_contacto_form').click(function() {
 
-	if (!validateContactoForm()) {
+	if (!validateContactoForm() || email_sent) {
 		return false;
 	}
 
-	var response = $.ajax({
-	    type: 'POST', 
-	    url: '/api/contact/contactoeventos',
-	   	data: $("#form_contactoeventos").serialize(),
-	   	dataType: 'json',
-	    async: false,			    			    					    	
-	}).responseText
+	var request = new Object();
 
-	if (response == 'ok'){
-		showModalBooking(
-	    	this,
-			'Solicitud Recibida',
-			'Gracias por contactarnos. En breve recibirás noticias nuestras.',
-			false,
-    		function() { gtag_report_conversion('/eventos-privados-madrid') }
-    	)
-	} else {
-		showModalBooking(
-	    	this,
-			'Ups! ',
-			'Parece que hay problemas. Por favor, envíanos un correo a info@cookingpoint.es',
-			false,
-    		function() { }
-    	)				
-	}
+	request.name = $('input[name=name]').val();
+	request.email = $('input[name=email]').val();
+	request.message = $('textarea[name=message]').val();
 
-})
+	$.ajax({
+		type: 'POST', 
+		url: '/api/contact/contactoeventos',
+		data: request,
+		success: function() {
+			$('.modal_contactoeventos_title').html('Solicitud recibida');
+			$('.modal_contactoeventos_body').html('Gracias por contactarnos. En breve recibirás noticias nuestras.');
+			$('#modal_contactoeventos').modal('show');
+			email_sent = true;
+
+			// GTM dataLayer to track conversion
+			window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push({
+				'event': 'Solicitar info actividades empresas',
+			});
+		},
+		error: function(jqXHR, textStatus, errorThrown ) {
+			$('.modal_contactoeventos_title').html('Ups!')
+			$('.modal_contactoeventos_body').html(jqXHR.responseJSON + '<br/>')
+			$('#modal_contactoeventos').modal('show')
+		}
+	});
+
+});
 
 
 }); // end jQuery

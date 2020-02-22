@@ -1,12 +1,14 @@
 {
-    "/js/admin.js": "/js/admin.js?id=37835ca511e3217ad343",
-    "/js/adminblogtool.js": "/js/adminblogtool.js?id=8ecc7274ec28e01aaa04",
-    "/js/report.js": "/js/report.js?id=e08bff3a64f09e1db0a4",
-    "/js/cashbox.js": "/js/cashbox.js?id=76b20f51c40a9a4021b2",
-    "/js/classemails.js": "/js/classemails.js?id=b49836f0a2833008921b",
-    "/js/booking.js": "/js/booking.js?id=9c29540d6527e89668c0",
-    "/js/app.js": "/js/app.js?id=d0af8830b1694675cf46",
+    "/js/admin.js": "/js/admin.js?id=8c0325df18888a9aee9c",
+    "/js/booking.js": "/js/booking.js?id=6c7cc783f81451640251",
+    "/js/adminblogtool.js": "/js/adminblogtool.js?id=68c4a0d209382dea4c22",
+    "/js/report.js": "/js/report.js?id=ccca24f940fe893e3bec",
+    "/js/cashbox.js": "/js/cashbox.js?id=0a7e876eac5ed944bb9d",
+    "/js/classemails.js": "/js/classemails.js?id=0619aef9e32f7925502d",
+    "/js/fileuploader.js": "/js/fileuploader.js?id=7206d91e983dcd70c2df",
+    "/js/app.js": "/js/app.js?id=2fa4283266349cc74650",
     "/css/app.css": "/css/app.css?id=97a51a05023ed3039412",
-    "/js/tienda.js": "/js/tienda.js?id=70e199bd6887cfff6a62",
-    "/js/contactoeventos.js": "/js/contactoeventos.js?id=1f1425dfb542299363af"
+    "/js/tienda.js": "/js/tienda.js?id=09c0aee390bbe4b7f9b1",
+    "/js/home.js": "/js/home.js?id=b733d26fe909ba32c32e",
+    "/js/contactoeventos.js": "/js/contactoeventos.js?id=10eb72daea69cf93de9c"
 }

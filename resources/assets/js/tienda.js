@@ -4,7 +4,7 @@
 window.$ = window.jQuery = require('jquery');
 
 //require('bootstrap-sass');
-require('jquery-serializejson');
+// require('jquery-serializejson');
 require('print-this');
 
 

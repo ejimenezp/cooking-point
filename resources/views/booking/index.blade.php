@@ -5,46 +5,24 @@
 
 @section('analytics-ecommerce-tracking')
 	@if ($tpv_result === 'OK' && ($bkg->calendarevent->type === 'PAELLA' || $bkg->calendarevent->type === 'TAPAS'))
-	<!-- ecommerce tracking snippet -->
-	ga('require', 'ec')
-	@if ($bkg->adult)
-	ga('ec:addProduct', {
-	  'id': "{{ $bkg->calendarevent->type }}" ,
-	  'name': "{{ $bkg->calendarevent->type }}",
-	  'variant': 'adult',
-	  'quantity': {{ $bkg->adult }}
-	})
-	@endif
-	@if ($bkg->child)
-	ga('ec:addProduct', {
-	  'id': "{{ $bkg->calendarevent->type }}" ,
-	  'name': "{{ $bkg->calendarevent->type }}",
-	  'variant': 'child',
-	  'quantity': {{ $bkg->child }}
-	})
-	@endif
-	ga('ec:setAction', 'purchase', {
-			id: "{{$bkg->locator}}",
-			revenue: "{{ round($bkg->price/1.21 , 2) }}"
-	})
-	<!-- End ecommerce snippet -->
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		dataLayer.push({
+		 'transactionId': '{{$bkg->locator}}',
+		 'transactionTotal': {{ round($bkg->price/1.21 , 2) }}, 
+		 'transactionProducts': [{
+		   'name': '{{ $bkg->calendarevent->type }}',
+		   'sku': '{{ $bkg->calendarevent->type }}',
+		   'price': {{ round($bkg->price/1.21 , 2) }},  
+		   'quantity':  1
+		 }]
+		});
+		</script>
 	@endif
 @stop
 
-@section('adwords-event-snippet')
-	@if ($tpv_result === 'OK')
-	<!-- Event snippet for reservar conversion page -->
-	<script>
-	  gtag('event', 'conversion', {
-	      'send_to': 'AW-985592263/mDIBCN3enHcQx-P71QM',
-	      'value': {{ round($bkg->price/1.21 , 2) }},
-	      'currency': 'EUR',
-	      'transaction_id': "{{$bkg->locator}}"
-	  });
-	</script>
-	<!-- End event snippet -->
-	@endif
-@stop
+
+
 
 @section('content')
 
@@ -169,7 +147,7 @@
 							<a href="#step4" class="update_class btn btn-primary">Update Booking</a>
 						@else
 							<button id="button_booking_help" class="btn btn-light">Help</button>
-							<button class="booking_retrieve btn btn-light">Use Booking #</button>
+							<!-- <button class="booking_retrieve btn btn-light">Use Booking #</button> -->
 							<a href="#step2" class="update_class btn btn-primary" checkout="checkout">Continue</a>
 						@endif
 						<p></p>
@@ -493,7 +471,7 @@
 			<div class="divider"></div>
 			<div class="divider"></div>
 			<div class="text-center">
-				<img alt="Cooking Point logo" src="/images/cookingpoint_logox75.png" />				
+				<img class="lazyload" alt="Cooking Point logo" data-src="/images/cookingpoint_logox75.png" />				
 				<div class="divider"></div>
 				<p class="header1 text-center">Cooking Point Voucher</p>
 			</div>
@@ -506,7 +484,7 @@
 			Calle de Moratin, 11 28014 Madrid<br/>
 			tel. (+34) 910 115 154<br />
 			Metro Anton Martin (Line 1), exit Calle de Amor de Dios<br /><br /></p>
-			<img class="rounded mx-auto d-block" alt="Cooking Point location" src="/images/plano-email.png" />
+			<img class="lazyload rounded mx-auto d-block" alt="Cooking Point location" data-src="/images/plano-email.png" />
 			<div class="divider"></div>
 			
 			@if (isset($bkg))
@@ -523,5 +501,5 @@
 @stop
 
 @section('js')
-	<script async src="{{ mix('/js/booking.js') }}"></script>
+	<script defer src="{{ mix('/js/booking.js') }}"></script>
 @stop

@@ -38,6 +38,7 @@
 							<li>Clientes
 							<ol>
 								<li><div class='report' report_id='vclientes'>Detalle Ventas</div></li>
+								<li><div class='report' report_id='ocupacion'>Ocupación</div></li>
 								<li><div class='report' report_id='kpiclientes'>KPI</div></li>
 							</ol></li>
 							<li>Tienda
@@ -51,11 +52,23 @@
 							<li>Turnos
 							<ol>
 								<li><div class='report' report_id='turnos'>Detalle</div></li>
+								@if (app('request')->input('user_role') >= 3)
+								<li><div class='report' report_id='turnos_exportar'>Exportar</div></li>
+								<li><div class='ir' href='/admin/fileuploader'>Importar</div></li>
+								@endif						
 							</ol>
 							</li>
 						</ul>
 						@endif						
-
+						@if (app('request')->input('user_role') >= 3)
+						<ul>
+							<li>Caja
+							<ol>
+								<li><div class='report' report_id='movimientoscaja'>Movimientos</div></li>
+							</ol>
+							</li>
+						</ul>
+						@endif		
 					</td>
 				</tr>
 			</table>

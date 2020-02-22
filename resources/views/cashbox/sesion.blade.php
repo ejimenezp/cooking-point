@@ -21,13 +21,15 @@
 				<div class="list-group-item enlace" data-section="resumen">Resumen</div>
 				<div class="list-group-item enlace" data-section="anadir-compras">Añadir compras</div>
 				<div class="list-group-item enlace" data-section="anadir-ventas">Añadir ventas</div>
-<!-- 				<div class="list-group-item enlace" data-section="green">Añadir ajuste</div>
- -->				<div class="list-group-item enlace" data-section="contar-efectivo-inicial">Contar efectivo (apertura)</div>
+				<div class="list-group-item enlace" data-section="contar-efectivo-inicial">Contar efectivo (apertura)</div>
 				<div class="list-group-item enlace" data-section="contar-efectivo-final">Contar efectivo (cierre)</div>
 				<div class="list-group-item enlace" data-section="cerrar-sesion">Cerrar sesión</div>
 				<div class="list-group-item enlace" data-section="eliminar-sesion">Eliminar sesión</div>
-<!-- 				<div class="list-group-item" id="boton-recalcular-caja">Recalcular caja</div>
- -->	    </div>      		
+				@if (app('request')->input('user_role') >= 3)
+				<div class="list-group-item enlace" data-section="anadir-ajuste">Añadir ajuste</div>
+				<div class="list-group-item enlace" id="boton-recalcular-caja">Recalcular caja</div>
+				@endif
+	    </div>      		
 		</div>
 
 		<div id="main-section" class="col-md-9">
@@ -38,11 +40,12 @@
 			    <thead>
 			      <tr>
 			        <th>Descripción</th>
-			        <th>Importe</th>
-			        <th>Saldo</th>
-			        <th>Descuadre</th>
-			        <th>Desc. acumulado</th>
-			        <th></th>
+			        <th style="text-align:right">Importe</th>
+			        <th style="text-align:right">Saldo</th>
+		            <th style="text-align:right" data-toggle="tooltip" title="Diferencia entre el efectivo inicial y el efectivo final de la sesión anterior">Descuadre con sesión anterior <i class="far fa-question-circle"></i></th>
+		            <th style="text-align:right" data-toggle="tooltip" title="Diferencia entre el efectivo final y el saldo teórico (efectivo inicial + ventas - compras)">Descuadre en esta sesión <i class="far fa-question-circle"></i></th>
+		            <th style="text-align:right" data-toggle="tooltip" title="Descuadre acumulado desde el último ajuste. Negativo (-) si hay menos dinero en caja que el saldo teórico">Descuadre acumulado <i class="far fa-question-circle"></i></th>
+		            <th></th>
 			      </tr>
 			    </thead>
 			      <tbody>
@@ -51,7 +54,9 @@
 		    <p>
 		    </p>
 		    <button class="btn btn-primary boton-vuelta-caja">Vuelta a Sesiones de caja</button>
-
+			@if (app('request')->input('user_role') >= 3)
+			&nbsp;<button class="btn btn-default" id="boton-reabrir-caja">Reabrir</button>
+			@endif
 			</div>
 			<div id="anadir-compras" style="display:none;">
 				<h1 class="header1">Añadir Compras</h1>
@@ -114,6 +119,31 @@
 					</td>			
 					<td>
 						<button class="btn btn-primary" id="boton-anadir-ventas">Añadir</button>
+					</td>	
+					</tr>
+				</table>
+			    <p>
+			    </p>
+			    <button class="btn btn-default mostrar-resumen" >Cancelar</button>	
+			</div>	
+
+			<div id="anadir-ajuste" style="display:none;">
+				<h1 class="header1">Añadir ajuste</h1>
+				<p>Aquí se añaden los ajustes, para eliminar descuadres.</p>
+
+				<table class="indent" id="tabla-ajuste">
+					<tr>
+					<td>
+						Descripción
+					</td>
+					<td>
+						<input name="descripcion" value="Ajuste">
+					</td>
+					<td>
+						<input name="importe" value="0" style="text-align: right;">
+					</td>			
+					<td>
+						<button class="btn btn-primary" id="boton-anadir-ajuste">Añadir</button>
 					</td>	
 					</tr>
 				</table>

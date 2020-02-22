@@ -67,7 +67,7 @@
             <td>Selected date</td>
           </tr>   
          </table>
-        <p><br>On next page, fill in your name and email. You can also modify guest details after checking out.</p>
+        <p><br>On next page, fill in your name and email. You can also modify guest details after checkout.</p>
           </div>    
           <div class="modal-footer">             
             <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>

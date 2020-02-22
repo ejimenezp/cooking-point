@@ -10,42 +10,23 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
+
       <style type="text/css">
-          #map {
-                height: 50vh;
-                width: 100%;
-              }
-      </style>  
-      <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
-      <script  type='text/javascript' src="{{ mix('/js/app.js') }}"></script>
-      <!-- <script  type='text/javascript' src="https://use.fontawesome.com/c502308363.js"></script> -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+            body { color: white; }
+            a {color: white;}
+      </style>
 
       @if (App::environment() == 'production')
-        <!-- Google Analytics -->
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-43676257-1', 'auto');
-          @yield('analytics-ecommerce-tracking')
-          ga('send', 'pageview');
-        </script>
-        <!-- End Google Analytics -->
+        <!-- Google Tag Manager -->
+        @yield('analytics-ecommerce-tracking')
 
-        <!-- Global site tag (gtag.js) - Google AdWords: 985592263 -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-985592263"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-985592263');
-        </script>
-        <!-- End Global site tag -->
-
-        @yield('adwords-event-snippet')
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K5H7TCB');</script>
+        <!-- End Google Tag Manager -->
 
       @else
         <!-- no analytics or crawling here. Testing environment -->
@@ -58,6 +39,10 @@
     
   <body>
 
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5H7TCB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
 @section('footer')
 
@@ -76,7 +61,7 @@
 <div id="cabecera">
   <nav class="navbar fixed-top">
       <div class="navbar-brand">
-        <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
+        <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
       </div>
       <a class="menu-header-xs" data-toggle="collapse" data-target="#myNavbar" href="#">
           Menu <i class="fa fa-bars" aria-hidden="true"></i>
@@ -120,7 +105,7 @@
 <div class="d-none d-lg-block d-xl-none">
   <nav class="navbar navbar-expand-md nav-fill"> 
       <div class="navbar-brand">
-        <a href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
+        <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
       </div> 
 
       <ul class="navbar-nav justify-content-center w-100">
@@ -156,7 +141,7 @@
 
 <div class="d-none d-xl-block">
   <nav class="navbar navbar-expand-xl">
-      <a class="navbar-brand"href="/"><img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
+      <a class="navbar-brand"href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
       <ul class="navbar-nav nav-fill justify-content-center w-100">
         <li class="nav-item">
           <a class="nav-link" href="/classes-paella-cooking-madrid-spain">Paella Class</a>
@@ -214,7 +199,12 @@
 <!-- modals specific for this page  -->
 @yield('modals')
 
+      <link defer href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
+      <link defer rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 <!-- javascripts specific for this page  -->
+<script defer type='text/javascript' src="{{ mix('/js/app.js') }}"></script>
+
 @yield('js')
 
 </body>

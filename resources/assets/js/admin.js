@@ -1,5 +1,5 @@
 require('./bootstrap');
-require('jquery-serializejson')
+// require('jquery-serializejson')
 
 var moment = require('moment') 
 require('moment/locale/es')
@@ -78,9 +78,10 @@ function refreshDateShown(month_schedule, date_shown) {
 		edit_button = ''
 		classemails_button = ''
 		if (user_role >= 3) {
-			edit_button = '<button class="btn btn-primary btn-sm button_calendarevent_edit" data-i="'
+			var button_color = month_schedule[i].info == '' ?  "btn-default" : "btn-primary";
+			edit_button = '<button class="btn ' + button_color + ' btn-sm button_calendarevent_edit" data-i="'
 					+ i + '">Detalles</button>'
-		} else if (user_role >= 2 && month_schedule[i].info != '') {
+		} else if (month_schedule[i].info != '') {
 			edit_button = '<button class="btn btn-primary btn-sm button_calendarevent_info" data-i="'
 					+ i + '">+info</button>'			
 		} else {
@@ -353,9 +354,21 @@ function populateBookingList(i) {
 	// 
 	$("#booking_table > tbody").empty()
 	
+	var line_attributes;
 	for (var j = 0; j < bookings.length; j++) {
+		switch (bookings[j].status) {
+			case 'CANCELLED':
+			case 'PENDING':
+				line_attributes = 'style="color:lightgray;"';
+				break;
+			case 'GUARANTEE':
+				line_attributes = 'style="color:salmon;"';
+				break;
+			default:
+				line_attributes = '';
+		}
 		$('#booking_table > tbody:last').append(
-			'<tr onclick=""><td class="booking_line" data-j="' + j +'">'+ 
+			'<tr onclick="" ' + line_attributes + '><td class="booking_line" data-j="' + j +'">'+ 
 			bookings[j].adult +
 			((bookings[j].child > 0) ? (' + ' + bookings[j].child) : '') +
 			'<td class="booking_line" data-j="' + j +'">' + 

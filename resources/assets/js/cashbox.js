@@ -56,6 +56,8 @@ $(document).ready(function() {
 		});
 
 	}
+	$('[data-toggle="tooltip"]').tooltip();   
+
 
 });
 
@@ -97,7 +99,8 @@ function refresh_detalles_sesion(cambios = true)
 			tabla += '<tr><td>' + item.descripcion + 
 					'</td><td style="text-align: right;">' + prettyf(item.importe) +
 					'</td><td style="text-align: right;">' + prettyf(item.saldo) +
-					'</td><td style="text-align: right;">' + prettyf(item.descuadre) +
+					'</td><td style="text-align: right;">' + prettyf(item.descuadre_con_anterior) +
+					'</td><td style="text-align: right;">' + prettyf(item.descuadre_esta_sesion) +
 					'</td><td style="text-align: right;">' + prettyf(item.descuadre_acumulado) +
 					'</td><td style="text-align: right;">' + boton +
 					'</td></tr>'
@@ -132,7 +135,7 @@ function prettyd(date)
 //
 function prettyf(amount)
 {
-	if (amount == null || amount == '') {
+	if (amount == null || amount == '' || amount == '0' || amount == '-0' || amount == '0.00') {
 		return '-';
 	} else {
 		return parseFloat(amount).toFixed(2);
@@ -242,8 +245,10 @@ function get_sesiones(comienzo, direccion)
 				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.compras) +'</td>'+
 				// '<td onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.ajustes) +'</td>'+
 				'<td style="text-align: right;' + conteo_final + '" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.efectivo_sesion) +'</td>'+
-				'<td style="text-align: right;"onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre) +'</td>'+
-				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre_acumulado) +'</td></tr>'
+				'<td style="text-align: right;"onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre_con_anterior) +'</td>'+
+				'<td style="text-align: right;"onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre_esta_sesion) +'</td>'+
+				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.descuadre_acumulado) +'</td>'+
+				'<td style="text-align: right;" onclick=\"location.href=\'/admin/cashbox/'+ item.id +'\'\">'+ prettyf(item.ajustes) +'</td></tr>'
 				);
 		});
 
@@ -372,6 +377,23 @@ $(document).on('click', '#boton-pagina-menos', function() {
 })
 
 
+$(document).on('click', '#boton-reabrir-caja', function() {
+
+	$.ajax({
+		type: 'POST', 	
+	    url: '/api/sesion/reabrir/' + sesion_id
+		})
+	.done(function() {
+		location.href = '/admin/cashbox/' + sesion_id;
+		return false;
+	})
+	.fail(function(data) {
+		$('.modal-admin-title').html('Error');
+		$('.modal-admin-body').html(data.responseJSON);
+		$('#modal-admin').modal('show');
+	});
+
+});
 
 
 
@@ -509,7 +531,35 @@ $(document).on('click', '#boton-anadir-ventas-tienda', function() {
 
 
 
+$(document).on('click', '#boton-anadir-ajuste', function() {
 
+
+	var importe = $('#tabla-ajuste input[name=importe]').val();
+	if (isNaN(importe)) {
+		alert ("Asegúrate de usar solo números y el punto (.) para los decimales.");
+		return;
+	}
+	if (importe == 0)
+		return;
+
+	var mov = {};
+	mov.sesion_id = sesion_id;
+	mov.descripcion = $('#tabla-ajuste input[name=descripcion]').val();
+	mov.importe = importe;
+	mov.tipo = 'AJUSTE';
+
+	$.ajax({
+		type: 'POST', 	
+	    url: '/api/movimiento/crear',
+	    data: mov
+		})
+	.done(function(data) {
+		$('#main-section').children().hide();
+		refresh_detalles_sesion();
+		$('#resumen').show();
+
+	})
+})
 
 
 

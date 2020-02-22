@@ -31,8 +31,7 @@ Route::get('/gallery', function () { return view('pages.gallery'); });
 Route::get('/pay/{id}', 'TPVController@pay')->name('pay');
 Route::post('/callback', 'TPVController@callback');
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
-Route::get('/eventos-privados-madrid', function () { return view('pages.eventos'); });
-Route::get('/contacto-eventos-privados', function () { return view('pages.contactoeventos'); });
+Route::get('/actividades-team-building-empresas-madrid', function () { return view('pages.actividadesempresas'); });
 Route::get('/oferta-para-agencias', function () { return view('pages.agencias'); });
 Route::get('/paymentrequest/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
 Route::get('/about-us', function () { return view('pages.aboutus'); });
@@ -67,6 +66,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('cashbox/{id}', function($id) { return view('cashbox.sesion',['id' => $id]); });
     Route::post('report/{id}', 'ReportController@report');
     Route::get('classemails', function() { return view('admin.classemails'); });
+    Route::get('fileuploader', function() { return view('admin.fileuploader'); });
 });
 
 

@@ -50,7 +50,14 @@ Route::get('tienda/getTickets', 'TicketsController@getTickets');
 Route::post('viator', 'ViatorController@main');
 
 Route::post('contact/contactoeventos', 'ContactControllerApi@contactoeventos');
+Route::post('contact/googleadswebhook', 'ContactControllerApi@googleadswebhook');
 
+
+Route::post('upload/uploadfile', 'UploadController@uploadfile');
+Route::post('upload/removefiles', 'UploadController@removefiles');
+Route::get('upload/getfiles', 'UploadController@getfiles');
+Route::post('upload/previewfile', 'UploadController@previewfile');
+Route::post('upload/importstaffing', 'CalendareventController@importStaffing');
 
 //
 //	API de cashbox
@@ -65,6 +72,7 @@ Route::post('sesion/setefectivoinicial', 'Cashbox\SesionController@setefectivoin
 Route::post('sesion/setefectivofinal', 'Cashbox\SesionController@setefectivofinal');
 Route::post('sesion/cerrar/{id}', 'Cashbox\SesionController@cerrar');
 Route::post('sesion/eliminar/{id}', 'Cashbox\SesionController@eliminar');
+Route::post('sesion/reabrir/{id}', 'Cashbox\SesionController@reabrir');
 
 Route::post('movimiento/crear', 'Cashbox\MovimientoController@crear');
 Route::post('movimiento/eliminar/{id}', 'Cashbox\MovimientoController@eliminar');
