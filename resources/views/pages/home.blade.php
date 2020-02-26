@@ -77,9 +77,6 @@
 
 @section('banner')
 
-//
-// prueba prueba prueba prueba
-//
 <div class="row justify-content-center">
     <h1 class="home-preheadline">Spanish Cooking Classes in Madrid </h1>
     <div class="home-headline"><a href="/best-cooking-classes-madrid">Best Classes in Madrid</a></div>
