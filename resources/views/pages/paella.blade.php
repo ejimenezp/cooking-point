@@ -46,17 +46,40 @@
 
 <h1 class="header1">Paella Cooking Class</h1>
 
+
 <div class="row justify-content-center">
-	<div class="cp-class-details col-10 col-sm-8">
-		<strong>When:</strong> Monday to Saturday<br/>
-		<strong>Time:</strong> 10:00 am - 2:00 pm<br/>
-		<strong>Price: </strong>€70 adult / €35 children (5-12 year old)<br/>
-		<strong>Includes: </strong>market tour, cooking class, ingredients, recipes, lunch and drinks<br/>
-	</div>	
+
+	<div class="col-10 col-sm-8 pill bg-khaki">
+	    <h4>Highlights</h4>
+	    <ul>
+	    	<li>Make your own paella, gazpacho and sangria.</li>
+	    	<li>Buy ingredients at local market nearby.</li>
+	    	<li>Class in English.</li>
+	    	<li>Price includes class, market tour, ingredients, recipes, lunch and drinks.</li>
+	    </ul>
+	</div>
+	<div class="col-10 col-sm-8 pill bg-dimmed">
+	    <h4>Schedule</h4>
+            <table class="infogram">
+                <tr>
+                    <td><div class="icon-2 icon-calendar"></div></td>
+                    <td><div class="icon-2 icon-clock"></div></td>
+                    <td><div class="icon-2 icon-duration"></div></td>
+              </tr>
+                 <tr>
+                    <td>Monday - Saturday</td>
+                    <td>10 AM</td>
+                    <td>4 hours</td>
+              </tr>
+            </table>  
+	</div>		
 </div>
+
 
 <div class="row justify-content-right">
 	<div class="col-12">
+		<h3>Description</h3>
+
 		<p>Our class starts visiting the <strong>Antón Martín market</strong> (200 m from the school) to buy the groceries we will need to cook our menu. We’ll buy vegetables, seafood, and perhaps ham, olives, cheese, pastry&#8230; the offering and colouring of this traditional way of shopping daily supplies is endless.</p>
 
 		<img data-src="/images/paella-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="anton martin market">
@@ -83,12 +106,11 @@
 
 		<p>Check out our <a href="/faq">FAQ</a> for more questions.</p>
 
-
-
-		<div class="text-center">
-			<p></p>
-			<a href="/booking?class=PAELLA" class="btn btn-primary">Book Now</a>
-			<p></p>
+		<div class="d-block d-lg-none">
+			<div class="book-now-bottom"><a href="/booking?clase=PAELLA">Book Now</a></div>
+		</div>
+		<div class="d-none d-lg-block">
+			<div class="book-now-right"><a href="/booking?clase=PAELLA">Book Now</a></div>
 		</div>
 
 	</div>
@@ -96,7 +118,7 @@
 
 <div class="divider"></div>
 
-<h2 class="header2">Upcoming Classes</h2>
+<h3>Upcoming Classes</h3>
 
 
 <div class="row justify-content-center">
@@ -123,50 +145,46 @@
 	</div>
 </div>
 
-<div class="header2">Not Decided Yet?</div>
+<h3>Not Decided Yet?</h3>
 <p>Perhaps you prefer the evening class...</p>
 <div class="row justify-content-center">
-	<div class="col-md-12 col-lg-10">
-		<div class="card-deck">
-		  <div class="card">
-		    <a href="classes-spanish-tapas-madrid-spain"><img class="lazyload card-img-top" data-src="/images/home-tapas.jpg" alt="tapas class"></a>
-		    <div class="card-body">
-		      <h5 class="card-title">Tapas Class</h5>
-		      <p class="card-text">Have a great evening making tapas and sangria.</p>
-		    </div>
-		    <div class="card-footer">
-    	        <div class="text-center">
-	            <a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">Tapas Class</a>
-	        </div>
-		    </div>
-		  </div>		  
-		  <div class="card">
-		    <a href="/best-cooking-classes-madrid"><img class="lazyload card-img-top" data-src="/images/home-bestclassintown.jpg" alt="best classes in town"></a>
-		    <div class="card-body">
-		      <h5 class="card-title">10 Reasons Why</h5>
-		      <p class="card-text">Find out why we think we are the best classes in town.</p>
-		    </div>
-		    <div class="card-footer">
-		        <div class="text-center">
-		            <a href="/best-cooking-classes-madrid" class="btn btn-primary">10 Reasons Why</a>
-		        </div>
-		    </div>
-		  </div>
-		  <div class="card">
-		    <a href="/gallery"><img class="lazyload card-img-top" data-src="/images/tripadvisor-photo.jpg" alt="photo gallery"></a>
-		    <div class="card-body">
-		      <h5 class="card-title">Photo Gallery</h5>
-		      <p class="card-text">Check out client photos on social media.</p>
-		    </div>
-		    <div class="card-footer">
-		        <div class="text-center">
-		            <a href="/gallery" class="btn btn-primary">Gallery</a>
-		        </div>
-		    </div>
-		  </div>
-		</div>		
-	</div>
+
+    <div class="col-lg-4">
+        <div class="bottom-gutter">
+            <div class="box">
+                <a href="classes-spanish-tapas-madrid-spain"></a>             
+                <img class="img-fluid lazyload" alt="tapas cooking class in madrid" data-src="/images/home-tapas.jpg" />
+                <h4 style="margin-top: 0.5rem;">Tapas Cooking Class</h4>
+                <p>Have a great evening making tapas and sangria.</p>
+            </div>            
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="bottom-gutter">        
+            <div class="box">
+                <a href="classes-paella-cooking-madrid-spain"></a>
+                <img class="img-fluid lazyload" data-src="/images/home-bestclassintown.jpg" alt="best classes in town" />
+                <h4 style="margin-top: 0.5rem;">10 Reasons Why</h4>
+                <p>Find out why we think we are the best classes in town</p>                                
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-4">
+        <div class="bottom-gutter">
+            <div class="box">
+                <a href="private-cooking-events-madrid-spain"></a>
+                <img class="img-fluid lazyload" data-src="/images/tripadvisor-photo.jpg" alt="photo gallery" />    
+                <h4 style="margin-top: 0.5rem;">Photo Gallery</h4>
+                <p>Check out client photos on social media</p>
+            </div>            
+        </div>
+    </div>
 </div>
+
 
 @stop
 

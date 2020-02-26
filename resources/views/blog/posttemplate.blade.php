@@ -24,7 +24,7 @@
 						<img class="lazyload img-fluid" data-src="/images/blog/{{ $rel['thumbnail_image'] }}" alt="">
 					</div>
 					<div class="col-lg-8 col-sm-6">
-						<h3 class="header3">{{ $rel['title'] }}</h3>
+						<h3>{{ $rel['title'] }}</h3>
 						<p>{{ $rel['thumbnail_description'] }}</p>
 						<button class="btn btn-primary">Read</button>
 					</div>

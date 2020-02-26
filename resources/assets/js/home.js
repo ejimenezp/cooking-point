@@ -29,15 +29,15 @@ $( document ).ready(function() {
 	var page = $("meta[name=page]").attr("content")
 	var caption = $("meta[name=page]").attr("caption")
 
-
-	if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
-		$("#section-banner").append('<img class="img-fluid" src="/images/home-banner-sm.jpg" >')
+	$("#section-banner").empty();
+	// if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
+	if( true ) {
+		$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/home-banner-sm.jpg" >')
 	} else {
-		$("#section-banner").empty();
-		$("#section-banner").append('<div class="img-fluid"> \
+		$("#section-banner").append(' \
 			<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted > \
 	     	<source src="images/home-video-banner-01.mp4" type="video/mp4"> \
-	   	 </video></div>')
+	   	 </video>')
 
 		var videoList = ["images/home-video-banner-01.mp4", "images/home-video-banner-02.mp4","images/home-video-banner-03.mp4", "images/home-video-banner-04.mp4"]
 		var curVideo = 0

@@ -1,0 +1,28 @@
+// 01. Settings
+//
+
+// variables
+//== Colors
+//
+$brand-primary:         #FF9900;
+$brand-red:				#e42e28;
+$brand-grey:			#959595;
+$dimmed:				#f9f9f9;
+$khaki:					#F0E68C;
+$text-color: #000;
+
+
+// 
+// fonts
+//
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,700");
+
+$font-body: 'Segoe UI', Oxygen-Sans, Helvetica, Arial, sans-serif;
+$font-alter: Ubuntu, Tahoma, Helvetica, Arial, sans-serif ;
+
+
+$mobile-font-size: 16px;
+$desktop-font-size: 20px;
+
+$letter-spacing: 0.1em;
+

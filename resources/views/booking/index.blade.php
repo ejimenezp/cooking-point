@@ -30,9 +30,9 @@
 	<div id="booking_steps" class="col-12">
 
 		<div id="step1" class="d-none">
-			<h1 class="header1">Booking: Availability</h1>
+			<h1 class="header1">Booking</h1>
 
-			<p>Select number of guests and desired class to check availability</p>
+			<p>Select number of guests and class to check availability</p>
 			<div class="row justify-content-center">
 				<div class="col-md-6">
 					<div class="online" id="bookingdatepicker"></div>
@@ -61,7 +61,7 @@
 					<table class="availability-table">
 
 						<tr>
-							<td class="bold">
+							<td class="font-weight-bold">
 								Date:
 							</td>
 							<td>
@@ -69,65 +69,65 @@
 							</td>
 						</tr>
 						<tr>					
-							<td class="bold">
+							<td class="font-weight-bold">
 								Adults:
 							</td>
 							<td>
-							@if (isset($bkg) && $bkg->fixed_date)
-								<select name="adult">
-									<option value="{{ $bkg->adult }}">{{ $bkg->adult }}</option>
-								</select>
-							@else
-								<select name="adult">
-									<option value="0" selected="selected">0</option>
-									@for ($i = 1; $i <= 8; $i++)
-									<option value="{{ $i }}">{{ $i }}</option>
-									@endfor
-									<option value="-1" disabled>9+ please contact</option>
-								</select>
-							@endif											
+								<table>
+									<tbody>
+										<tr>
+											<td style='width: 40%;text-align: right;'><div id="adult-down" class="icon-2 icon-clock"></div></td>
+											<td style='width: 20%;text-align: center;'><input name="adult" type="text" class="text-center" value="0"></td>
+											<td style='width: 40%;text-align: left;'><div id="adult-up" class="icon-2 icon-clock"></div></td>
+										</tr>
+									</tbody>
+
+								</table>
+
+										
 							</td>
 						</tr>
 						<tr>
-							<td class="bold">
+							<td class="font-weight-bold">
 								Children:&nbsp;
 							</td>
 							<td>
-							@if (isset($bkg) && $bkg->fixed_date)
-								<select name="child">
-									<option value="{{ $bkg->child }}">{{ $bkg->child }}</option>
-								</select>
-							@else
-								<select name="child">
-									@for ($i = 0; $i <= 4; $i++)
-									<option value="{{ $i }}">{{ $i }}</option>
-									@endfor
-									<option value="-1" disabled>5+ please contact</option>
-								</select>
-							@endif
+								<table>
+									<tbody>
+										<tr>
+											<td style='width: 40%;text-align: right;'><div id="child-down" class="icon-2 icon-clock"></div></td>
+											<td style='width: 20%;text-align: center;'><input name="child" type="text" class="text-center" value="0"></td>
+											<td style='width: 40%;text-align: left;'><div id="child-up" class="icon-2 icon-clock"></div></td>
+										</tr>
+									</tbody>
+
+								</table>							
 							</td>
 						</tr>
 						<tr>
-							<td class="bold">
+							<td class="font-weight-bold">
 								Class:
 							</td>
 							<td>
-								<select name="type">
-								@if (isset($class) && $class == 'PAELLA') 
+								<select class="custom-select" name="type">
+								@if (isset($class) && $class == 'PAELLA')
 									<option value="PAELLA" selected="selected">Paella Cooking Class</option>
+									<option value="TAPAS">Tapas Cooking Class</option>								
 								@else
-									<option value="PAELLA">Paella Cooking Class</option>
-								@endif
-								@if (isset($class) && $class == 'TAPAS') 
-									<option value="TAPAS" selected="selected">Tapas Cooking Class</option>
-								@else
-									<option value="TAPAS">Tapas Cooking Class</option>
+									@if (isset($class) && $class == 'TAPAS') 
+										<option value="PAELLA">Paella Cooking Class</option>
+										<option value="TAPAS" selected="selected">Tapas Cooking Class</option>
+									@else
+										<option value="NO">Select class...</option>
+										<option value="PAELLA">Paella Cooking Class</option>
+										<option value="TAPAS">Tapas Cooking Class</option>
+									@endif
 								@endif
 								</select>				
 							</td>
 						</tr>
 						<tr>
-							<td class="bold">
+							<td class="font-weight-bold">
 								Price:
 							</td>
 							<td>
@@ -143,7 +143,7 @@
 					<div class="text-center">
 						@if (isset($bkg) && $bkg->status != 'PENDING') 
 							<button id="button_booking_help" class="btn btn-light">Help</button>
-							<a href="#step4" class="step cancel btn btn-light">Cancel</a>
+							<!-- <a href="#step4" class="step cancel btn btn-light">Cancel</a> -->
 							<a href="#step4" class="update_class btn btn-primary">Update Booking</a>
 						@else
 							<button id="button_booking_help" class="btn btn-light">Help</button>
@@ -159,14 +159,14 @@
 		<div id="step2" class="d-none">
 			<div class="row justify-content-left">
 				<div class="col-12">		
-					<h1 class="header1">Booking: Guest Details</h1>
+					<h1 class="header1">Booking</h1>
 					<p>You are about to book the following class:</p>
 					<div class="row ">
 						<div class="col-md-5">
 							<table class="voucher-table">
 								<tbody>
 									<tr>
-										<td class="bold">
+										<td class="font-weight-bold">
 											Class:
 										</td>
 										<td>
@@ -174,7 +174,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="bold">
+										<td class="font-weight-bold">
 											Date:
 										</td>
 										<td>
@@ -183,7 +183,7 @@
 									</tr>
 
 									<tr>
-										<td class="bold">
+										<td class="font-weight-bold">
 											Time:
 										</td>
 										<td>
@@ -197,7 +197,7 @@
 							<table class="voucher-table">
 								<tbody>
 									<tr>					
-										<td class="bold">
+										<td class="font-weight-bold">
 											Adults:
 										</td>
 										<td>
@@ -205,7 +205,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="bold">
+										<td class="font-weight-bold">
 											Children:&nbsp;
 										</td>
 										<td>
@@ -214,7 +214,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="bold">
+										<td class="font-weight-bold">
 											Price:
 										</td>
 										<td>
@@ -237,7 +237,7 @@
 							<table class="availability-table">
 								<tbody>
 									<tr>
-										<td class="bold availability-row">
+										<td class="font-weight-bold availability-row">
 											Name <span class="mandatory">*</span> :
 										</td>
 										<td>
@@ -245,7 +245,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="bold availability-row">
+										<td class="font-weight-bold availability-row">
 											E-mail <span class="mandatory">*</span> :
 										</td>
 										<td>
@@ -253,7 +253,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="bold availability-row">
+										<td class="font-weight-bold availability-row">
 											Phone:
 										</td>
 										<td>
@@ -269,7 +269,7 @@
 							<table class="availability-table">
 								<tbody>
 									<tr>
-										<td class="bold" style="width: 30%">
+										<td class="font-weight-bold" style="width: 30%">
 											Food Restrictions:
 										</td>
 										<td>
@@ -277,7 +277,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="bold">
+										<td class="font-weight-bold">
 											Comments:
 										</td>
 										<td>
@@ -296,7 +296,7 @@
 				<div class="col-12">
 					<div class="text-center">
 						@if (isset($bkg) && $bkg->status != 'PENDING')
-							<a href="#step4" class="step cancel btn btn-light" >Cancel</a>
+							<!-- <a href="#step4" class="step cancel btn btn-light" >Cancel</a> -->
 							<a href="#step4" class="step update_contact btn btn-primary">Update Booking</a>
 						@elseif (isset($bkg) && $bkg->fixed_date)
 							<button class="btn btn-primary" id="button_purchase" >Checkout</button>
@@ -318,7 +318,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Class:
 									</td>
 									<td>
@@ -326,7 +326,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Date:
 									</td>
 									<td>
@@ -335,7 +335,7 @@
 								</tr>
 
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Time:
 									</td>
 									<td>
@@ -343,7 +343,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Booking #:
 									</td>
 									<td>
@@ -357,7 +357,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>					
-									<td class="bold">
+									<td class="font-weight-bold">
 										Adults:
 									</td>
 									<td>
@@ -365,7 +365,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Children:
 									</td>
 									<td>
@@ -374,7 +374,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Price:
 									</td>
 									<td>
@@ -382,7 +382,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Status:
 									</td>
 									<td>
@@ -399,7 +399,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Name:
 									</td>
 									<td>
@@ -407,7 +407,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										E-mail:
 									</td>
 									<td>
@@ -415,7 +415,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Phone:
 									</td>
 									<td>
@@ -429,7 +429,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>
-									<td class="bold align-top">
+									<td class="font-weight-bold align-top">
 										Food Restrictions:
 									</td>
 									<td>
@@ -437,7 +437,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold align-top">
+									<td class="font-weight-bold align-top">
 										Comments:
 									</td>
 									<td>
@@ -501,5 +501,6 @@
 @stop
 
 @section('js')
+	<link rel="stylesheet" type="text/css" href="{{ mix('/css/booking.css') }}">
 	<script defer src="{{ mix('/js/booking.js') }}"></script>
 @stop

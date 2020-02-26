@@ -1,0 +1,123 @@
+//
+// some libraries
+//
+@import '~bootstrap/scss/bootstrap';
+@import "node_modules/jquery-ui/themes/base/datepicker";
+
+//
+// cooking point app related
+//
+@import "variables";
+@import "tools";
+@import "elements";
+@import "components";
+@import "utilities";
+@import "svg";
+
+// body { display:block; }
+
+
+.ui-datepicker {
+	background-color: white;
+	padding: 1%;
+	border: 1px solid #ddd;
+	border-radius: 7px;
+	z-index: 100;
+	margin: auto;
+	margin-bottom: 5%;
+	font-size: 20px;
+
+	td {
+		border-radius: 7px;
+
+	}    
+	table {
+		border-collapse: separate;
+	}
+
+	.ui-icon {
+		all: unset;
+		display: inline;
+	}
+
+	.day-last-seats {
+		background-color: $brand-red;
+		border: 3px solid white;
+		a { color: white !important; }
+	}
+
+	.day-available {
+		background-color: $brand-primary;
+		border: 3px solid white;
+		a { color: white !important; }
+	}
+
+	.ui-state-disabled {
+		color: $brand-grey;
+		border: 3px solid white;
+		background-color: white !important;
+	}
+
+	.ui-datepicker-current-day {
+		border: 3px solid #ccc;
+		background-color: darkgreen;
+	}
+
+	.ui-datepicker-prev span, .ui-datepicker-next span {
+		left: unset;
+		margin-left: -2px;
+		heigth: unset;
+		top: unset;
+		margin-top: 4px;
+		display: inline;
+		position: static;
+	}
+}
+
+.availability-table {
+  width: 60%;
+  text-align: left;
+  td:nth-child(1) {
+    line-height: 3em;
+  }
+}
+
+.voucher-table {
+  width: 100%;
+  td:nth-child(1) {
+    width: 25%;
+  }
+}
+
+.modal-body {
+  .help-table {
+    background-color: white;
+    border-collapse: separate;
+  }
+  .td-disabled {
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 18px;    
+    color: $brand-grey;
+    border: 3px solid white;
+  }
+  .td-available {
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 18px;    
+    background-color: $brand-primary;
+    border: 3px solid white;
+    color: white !important;
+  }
+  .td-last-seats {
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 18px;    
+    background-color: $brand-red;
+    border: 3px solid white;
+    color: white !important;
+  }
+  td:nth-child(2) {
+    padding-left: 5px;
+  }
+}

@@ -1,0 +1,138 @@
+//
+// components
+//
+
+.home-logo {
+  max-height: 3rem;
+  @include media-breakpoint-up(md) { max-height: 4rem; }
+  @include media-breakpoint-up(xl) { max-height: 5rem; }
+}
+
+.header-offset {
+  height: 3rem;
+  @include media-breakpoint-up(md) { height: 4rem; }
+  @include media-breakpoint-up(xl) { height: 5rem; }
+}
+
+.navbar-brand {
+  @include media-breakpoint-up(md) {
+  	margin-left: -1rem;
+    margin-right: 0; }
+}
+
+
+//
+// adjustments for responsiveness
+//
+
+@include media-breakpoint-up(md)
+{
+// scr >= 768px
+
+  .header1 {
+    font-size: 2rem;
+  }
+
+  .admin .header4 {
+    font-size: 1.25rem;
+  }
+
+  .header3 {
+    font-size: 1.25rem;
+  }
+
+  nav a {
+    font-size: 2rem;
+  }
+
+
+.home-preheadline {
+  margin-top: 6rem;
+  font-size: 1.5rem;
+  font-weight: bold;  
+}
+
+.home-headline {
+  font-size: 3rem;
+  top: 20rem;
+}
+
+.home-more-info-button {
+  font-size: 1.5rem;
+  top: 25rem;
+}
+
+  #video-home {
+    width: 100vw;
+    max-width: 100%;
+    height: 100vw * 100 / 720;
+    max-height: 100%;
+  }
+
+}
+
+@include media-breakpoint-up(lg)
+{
+// scr >= 992px
+
+  nav a {
+    font-size: 1.1rem;
+  }
+
+.table th, .table td {
+  padding-left: 0.75rem;
+}
+
+  .navbar {
+    margin-bottom: 0;
+  }
+
+
+  .home-preheadline {
+    margin-top: 0;
+  }
+
+  .home-headline {
+    font-size: 2.4rem;
+    top: 9rem;
+  }
+
+  .home-more-info-button {
+    font-size: 1rem;
+    top: 13rem;
+  }
+
+  .home-pause-button {
+    font-size: 1.2rem;
+    position: absolute;
+    z-index: 1000;
+    left: 90%;
+    top: 13.5rem;
+    color: white;
+    display: block;
+    }
+
+}
+
+@include media-breakpoint-up(xl)
+{
+  // scr >= 1200px
+
+
+  nav a {
+    font-size: 1.25rem;
+  }
+
+  .home-headline {
+    font-size: 3.5rem;
+    top: 11rem;
+  }
+
+  .home-more-info-button {
+    top: 16rem;
+  }
+
+  .home-pause-button {
+    top: 16.8rem;
+  }
+}

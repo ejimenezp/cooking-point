@@ -10,11 +10,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
-
       <style type="text/css">
-            body { color: white; }
-            a {color: white;}
+        /*body {display:none;}*/
       </style>
+      <link defer href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
 
       @if (App::environment() == 'production')
 
@@ -39,22 +38,22 @@
     
   <body>
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5H7TCB"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5H7TCB"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-@section('footer')
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <symbol id="calendar" viewBox="0 0 1024 1024">
+  
+    <symbol id="3strips" viewBox="0 0 1024 1024">
+      <path class="path1" d="M512 96l-512 512 96 96 96-96v416h256v-192h128v192h256v-416l96 96 96-96-512-512zM512 512c-35.346 0-64-28.654-64-64s28.654-64 64-64c35.346 0 64 28.654 64 64s-28.654 64-64 64z"></path>
+    </symbol>
 
-    <div class="primary-color">
-      <div class="float-left">© Cooking Point, SL</div>
-      <div class="float-right">Follow us on:
-        <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><i class="fab fa-2x fa-facebook-square"></i></a>
-        &nbsp;
-        <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><i class="fab fa-2x fa-instagram"></i></a>        
-      </div>      
-    </div>
-@endsection
+
+  </defs>
+</svg>
 
 
 <div class="d-block d-lg-none">
@@ -64,7 +63,9 @@
         <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
       </div>
       <a class="menu-header-xs" data-toggle="collapse" data-target="#myNavbar" href="#">
-          Menu <i class="fa fa-bars" aria-hidden="true"></i>
+        <svg class="icon-2 icon-home" style="color:green;"><use xlink:href="#3strips"></use></svg>
+        <svg class="icon-2 icon-home" style="color:green;"><use xlink:href="#calendar"></use></svg>
+        <svg id="i3strips" class="icon-2" style="color:red;"></svg>
       </a>
       <div id="myNavbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
@@ -174,34 +175,58 @@
   </nav>
 </div>
 
+
+@section('footer')
+
+    <div class="primary-color">
+      <div class="float-left">© Cooking Point, SL</div>
+      <div class="float-right">Follow us on:
+        <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><i class="fab fa-2x fa-facebook-square"></i></a>
+        &nbsp;
+        <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><i class="fab fa-2x fa-instagram"></i></a>        
+      </div>      
+      <div style="height: 6rem;"> </div>
+    </div>
+@endsection
+
+
+<div class="header-offset"></div>
+
 <div class="container-fluid">
+
+  <!-- banner -->
   @if (isset($page) && ($page == 'home'))
-    @yield('banner')
+    <div class="row justify-content-center">
+      <div id="section-banner"></div>
+    </div>
   @else
-    <div class="header-offset"></div>
     <div class="row justify-content-center">
       <div id="section-banner"></div>
     </div>
   @endif
+
+  <!-- contents -->
   <div class="row justify-content-center">
-    <div class="col col-md-11 col-lg-10">
+    <div class="col-md-11 col-lg-10">
       @yield('content')                  
     </div>  
   </div>
+
+  <!-- footer -->
   <div class="row">
     <div class="divider"></div>
-    <div class="col">
+    <div class="col-12">
       @yield('footer')
     </div> 
   </div>
+
 </div>
 
 <!-- modals specific for this page  -->
 @yield('modals')
 
-      <link defer href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
-      <link defer rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+<!--       <link defer rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+ -->
 <!-- javascripts specific for this page  -->
 <script defer type='text/javascript' src="{{ mix('/js/app.js') }}"></script>
 

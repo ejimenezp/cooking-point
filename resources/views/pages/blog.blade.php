@@ -16,7 +16,7 @@
 					<img class="lazyload img-fluid" data-src="{{ $post['thumbnail_image'] }}" alt="">
 				</div>
 				<div class="col-lg-8 col-sm-6">
-					<h3 class="header3">{{ $post['title'] }}</h3>
+					<h3>{{ $post['title'] }}</h3>
 					<p>{{ $post['thumbnail_description'] }}</p>
 					<button class="btn btn-primary">Read</button>
 				</div>
