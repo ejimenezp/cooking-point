@@ -278,8 +278,6 @@ function retrieveBooking(locator) {
 	$('.timeshown').html(start_time.format('h:mm A') + " - " + end_time.format('h:mm A'))
 
 	form_changed = false
-	$(".update_class").addClass('d-none')
-	$(".update_contact").addClass('d-none')
 	return bkg
 }
 
@@ -379,50 +377,6 @@ function validateBookingForm()
 }
 
     
-//
-// initial display
-//
-
-
-$('#booking_steps > div').addClass('d-none')
-if (bkg) {
-	if (bkg.status != 'PENDING') {
-	    $('#step4').removeClass('d-none')
-	   	document.title =  $(".typeshown").html() + " for " + $(".nameshown").html() + " on " + $(".dateshown").html()
-	    $('select[name=adult] option:selected').siblings().attr('disabled','disabled')
-	    $('select[name=child] option:selected').siblings().attr('disabled','disabled')
-	    var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
-		if (start.isSameOrBefore(rightNow())) {
-    		$("#button_booking_edit").addClass('d-none')	
-    	}
-	} else {
- 		if (!getDayAvailability(bkg.date)[0]) {
-    		$('.modal_booking_title').html('Class no longer available')
-			$('.modal_booking_body').html('Please, select a date with availability')
-    		$("#modal_booking").modal()
-	 	    $('#step1').removeClass('d-none')
- 		} else {
-	 	    $('#step2').removeClass('d-none')
- 		}
-	}
-} else {
-    $('#step1').removeClass('d-none')    	
-}
-
-switch ($("#step4").data('tpv_result')) {
-	case 'OK':
-		$('.modal_booking_title').html('Thank you for booking a class with us!')
-		$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime')
-		$("#modal_booking").modal()
-		break
-	case 'KO':
-		$('.modal_booking_title').html('Payment Failure')
-		$('.modal_booking_body').html('It seems you could not complete the transaction. Please, try it again')
-		$("#modal_booking").modal()
-}
-
-
-date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone();
 
 //
 // Booking Datepicker
@@ -435,7 +389,6 @@ $( "#bookingdatepicker" ).datepicker({
   		date_shown = moment($(this).val())
   		refreshDataShown()
   		form_changed = true
-  		$(".update_class").removeClass('d-none')
 
  	},
   	onChangeMonthYear: function(year, month, inst){
@@ -444,8 +397,23 @@ $( "#bookingdatepicker" ).datepicker({
   	}
 });
 
-$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
 
+//
+// initial display
+//
+
+$('#booking_steps > div').addClass('d-none');
+
+
+date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone();
+$('#bookingdatepicker').datepicker("setDate", date_shown.toDate());
+
+locator = $("input[name=locator]").val();
+if (locator != '') {
+	retrieveBooking(locator);
+}
+
+getMonthAvailability(date_shown);
 
 // 
 // end initial display
@@ -457,12 +425,41 @@ $('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
 
 jQuery(document).ready(function($) {
 
-	locator = $("input[name=locator]").val();
-	if (locator != '') {
-		retrieveBooking(locator);
+	if (bkg) {
+		if (bkg.status != 'PENDING') {
+		    $('#step4').removeClass('d-none')
+		   	document.title =  $(".typeshown").html() + " for " + $(".nameshown").html() + " on " + $(".dateshown").html()
+		    $('select[name=adult] option:selected').siblings().attr('disabled','disabled')
+		    $('select[name=child] option:selected').siblings().attr('disabled','disabled')
+		    var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
+			if (start.isSameOrBefore(rightNow())) {
+	    		$("#button_booking_edit").addClass('d-none')	
+	    	}
+		} else {
+	 		if (!getDayAvailability(bkg.date)[0]) {
+	    		$('.modal_booking_title').html('Class no longer available')
+				$('.modal_booking_body').html('Please, select a date with availability')
+	    		$("#modal_booking").modal()
+		 	    $('#step1').removeClass('d-none')
+	 		} else {
+		 	    $('#step2').removeClass('d-none')
+	 		}
+		}
+	} else {
+	    $('#step1').removeClass('d-none')    	
 	}
 
-	getMonthAvailability(date_shown);
+	switch ($("#step4").data('tpv_result')) {
+		case 'OK':
+			$('.modal_booking_title').html('Thank you for booking a class with us!')
+			$('.modal_booking_body').html('We have sent a confirmation email to <span class="primary-color">' + $('.emailshown').html() + '</span><br/><br/>Please check your inbox to make sure you receive our mails. If you can\'t find them, please check also the spam folder. You can modify your e-mail address anytime')
+			$("#modal_booking").modal()
+			break
+		case 'KO':
+			$('.modal_booking_title').html('Payment Failure')
+			$('.modal_booking_body').html('It seems you could not complete the transaction. Please, try it again')
+			$("#modal_booking").modal()
+	}
 
 }) // jQuery
 
@@ -487,7 +484,6 @@ $(window).bind("pageshow", function(event) {
     	$("input[name=price]").val($("select[name=adult]").val()*70 + $("select[name=child]").val()*35)
     	refreshDataShown()
     	form_changed = true
-		$('.update_class').removeClass('d-none')
 
 	    if (!getDayAvailability(date_shown.toDate())[0]) {
     		$('.modal_booking_title').html('Booking Not Available')
@@ -500,7 +496,6 @@ $(window).bind("pageshow", function(event) {
 	$( "#booking_form_2 :input, #booking_form_3 :input" )
 	  .keypress(function () {
 	    form_changed = true
-	    $(".update_contact").removeClass('d-none')
 	})
 
 	$('.step').click(function (e) {
@@ -508,11 +503,6 @@ $(window).bind("pageshow", function(event) {
         $('#booking_steps > div').addClass('d-none')
         $($(this).attr('href')).removeClass('d-none')
     })
-
-    $(".cancel").click(function() {
-    	retrieveBooking($("input[name=locator]").val())
-    	refreshDataShown()
-	})
 
     $(".update_contact").click(function(e) {
 		updateBooking()
