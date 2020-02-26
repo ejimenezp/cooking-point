@@ -143,7 +143,6 @@
 					<div class="text-center">
 						@if (isset($bkg) && $bkg->status != 'PENDING') 
 							<button id="button_booking_help" class="btn btn-light">Help</button>
-							<a href="#step4" class="step cancel btn btn-light">Cancel</a>
 							<a href="#step4" class="update_class btn btn-primary">Update Booking</a>
 						@else
 							<button id="button_booking_help" class="btn btn-light">Help</button>
@@ -296,7 +295,6 @@
 				<div class="col-12">
 					<div class="text-center">
 						@if (isset($bkg) && $bkg->status != 'PENDING')
-							<a href="#step4" class="step cancel btn btn-light" >Cancel</a>
 							<a href="#step4" class="step update_contact btn btn-primary">Update Booking</a>
 						@elseif (isset($bkg) && $bkg->fixed_date)
 							<button class="btn btn-primary" id="button_purchase" >Checkout</button>
