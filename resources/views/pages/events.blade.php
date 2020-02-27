@@ -67,7 +67,7 @@
 	<div class="col-md-10 col-lg-8">		  
 		<div class="card-deck">
 		  <div class="card">
-		    <a href="/best-cooking-classes-madrid"><img class="lazyload card-img-top" data-src="/images/home-bestclassintown.jpg" alt="best classes in town"></a>
+		    <a href="/best-cooking-classes-madrid"><img class="lazyload card-img-top" data-src="/images/bestintown_logo.png" alt="best classes in town"></a>
 		    <div class="card-body">
 		      <h5 class="card-title">10 Reasons Why</h5>
 		      <p class="card-text">Find out why we think we are the best classes in town.</p>

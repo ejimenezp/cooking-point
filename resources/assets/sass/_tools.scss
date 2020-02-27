@@ -46,3 +46,16 @@ $colors: (
 @each $name, $color in $colors {
   .bg-#{$name} { background-color:#{$color}; }
 }
+
+
+.all-clickable {
+  cursor: pointer;
+}
+
+.decorated {
+  font-family: $font-alter;
+}
+
+.bottom-gutter {
+  margin-bottom: 1rem;
+}

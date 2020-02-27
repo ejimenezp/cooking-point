@@ -8,8 +8,8 @@
     "/js/fileuploader.js": "/js/fileuploader.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/booking.css": "/css/booking.css",
     "/js/tienda.js": "/js/tienda.js",
     "/js/home.js": "/js/home.js",
-    "/js/contactoeventos.js": "/js/contactoeventos.js",
-    "/css/booking.css": "/css/booking.css"
+    "/js/contactoeventos.js": "/js/contactoeventos.js"
 }

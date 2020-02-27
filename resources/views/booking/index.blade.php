@@ -32,7 +32,7 @@
 		<div id="step1" class="d-none">
 			<h1 class="header1">Booking</h1>
 
-			<p>Select number of guests and class to check availability</p>
+			<p>Select class and number of guests to check availability</p>
 			<div class="row justify-content-center">
 				<div class="col-md-6">
 					<div class="online" id="bookingdatepicker"></div>

@@ -105,7 +105,7 @@ $(document).ready(function () {
 
 	$("#section-banner").empty();
 	// if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
-	if (true) {
+	if (false) {
 		$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/home-banner-sm.jpg" >');
 	} else {
 		$("#section-banner").append(' \

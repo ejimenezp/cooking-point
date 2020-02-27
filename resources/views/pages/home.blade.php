@@ -31,8 +31,8 @@
 <div class="row">
     <div class="col-lg-4">
         <div class="bottom-gutter">        
-            <div class="box">
-                <a href="classes-paella-cooking-madrid-spain"></a>
+            <div class="box all-clickable">
+                <a href="/classes-paella-cooking-madrid-spain"></a>
                 <img class="img-fluid lazyload" alt="paella cooking class in Madrid" data-src="/images/home-paella.jpg" />
                 <h2>Paella Cooking Class</h2>
                 <p>Enjoy an unforgettable morning visiting a food market and cooking a delicious paella with the instructions of our local chef. Great start to know more about Spanish food while you make one of our most representative dishes.</p>
@@ -54,8 +54,8 @@
 
     <div class="col-lg-4">
         <div class="bottom-gutter">
-            <div class="box">
-                <a href="classes-spanish-tapas-madrid-spain"></a>             
+            <div class="box all-clickable">
+                <a href="/classes-spanish-tapas-madrid-spain"></a>             
                 <img class="img-fluid lazyload" title="spanish cooking school in madrid" alt="tapas cooking class in madrid" data-src="/images/home-tapas.jpg" />
                 <h2>Tapas Cooking Class</h2>
                 <p>Spend a fun evening making tapas and sangria. Ranging from Spanish potato omelet to shrimps with garlic, all of them typical from different regions of Spain. The perfect introduction to Spanish food and culture!</p>
@@ -77,8 +77,8 @@
 
     <div class="col-lg-4">
         <div class="bottom-gutter">
-            <div class="box">
-                <a href="private-cooking-events-madrid-spain"></a>
+            <div class="box all-clickable">
+                <a href="/private-cooking-events-madrid-spain"></a>
                 <img class="img-fluid lazyload" title="cooking events" alt="private cooking events in Madrid" data-src="/images/events-banner-sm.jpg" />    
                 <h2>Private Events</h2>
                 <p>We can customize our classes as private events for corporate groups, team buildings, hen or stag parties, school trips or just group of friend that want to have a different lunch or dinner in Madrid.</p>
@@ -99,36 +99,38 @@
     </div>
 </div>
 
-<div class="divider"></div>
+<div class="divider bottom-gutter"></div>
 
 <h3>Why to Choose Us</h3>
 
 <div class="row">
-    <div class="col-12">
-        <div class="pill">
-            <img class="img-fluid lazyload" alt="best class in Madrid" data-src="/images/home-bestclassintown.jpg" />
-            <h4>Top Rated School</h4>
-            <p>Five years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as #1 in our category.</p>        
-        </div>        
-        <div class="pill">
-            <img class="img-fluid lazyload" alt="best class in Madrid" data-src="/images/bestclasses-banner-sm.jpg" />
-            <h4>Fun &amp; Memorable</h4>
-            <p>Have a fun immersion in Spain’s food culture and know insights and tips to get the most of Spanish food during your trip and back home.</p>        
+    <div class="col-sm-6">
+        <div class="pill all-clickable">
+            <img class="img-fluid lazyload" alt="best class in Madrid" data-src="/images/bestintown_logo.png" />
+            <h4>10 Reasons to Choose Us</h4>
+            <p>We give you 10 reasons why we think ours are the best lessons in town if you want to learn to cook Spanish food. <u>Click to know more</u>.</p>
+            <a href="/best-cooking-classes-madrid"></a>        
         </div>  
         <div class="pill">
-            <img class="img-fluid lazyload" alt="best class in Madrid" data-src="/images/home-trullyhandson.jpg" />
+            <img class="img-fluid lazyload" alt="fun classes" data-src="/images/bestclasses-banner-sm.jpg" />
+            <h4>Fun &amp; Memorable</h4>
+            <p>Have a fun immersion in Spain’s food culture and know insights and tips to get the most of Spanish food during your trip and back home.</p>        
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="pill">
+            <img class="img-fluid lazyload" alt="best rated school" data-src="/images/tripadvisorCE_2018.png" />
+            <h4>Top Rated School</h4>
+            <p>Six years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as best in our category.</p>        
+            </div>   
+        <div class="pill">
+            <img class="img-fluid lazyload" alt="hands-on class" data-src="/images/home-trullyhandson.jpg" />
             <h4>Truly Hands-on</h4>
-            <p>Two people per cooktop, maximum twelve per class. Follow our chef instructions to get your meal done. No worries, no cooking experience is required.</p>           
+            <p>Two people per cooktop, maximum twelve per class. Follow our chef directions to get your meal done. No worries, no cooking experience is required.</p>           
         </div>
     </div>
-
 </div>
-
-
-<div class="row justify-content-center">
-    <a href="/best-cooking-classes-madrid" class="btn btn-primary">10 Reasons to Choose Us</a>
-</div>
-
 
 <div class="divider"></div>
 

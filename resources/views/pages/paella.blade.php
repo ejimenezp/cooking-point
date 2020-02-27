@@ -49,29 +49,37 @@
 
 <div class="row justify-content-center">
 
-	<div class="col-10 col-sm-8 pill bg-khaki">
-	    <h4>Highlights</h4>
-	    <ul>
-	    	<li>Make your own paella, gazpacho and sangria.</li>
-	    	<li>Buy ingredients at local market nearby.</li>
-	    	<li>Class in English.</li>
-	    	<li>Price includes class, market tour, ingredients, recipes, lunch and drinks.</li>
-	    </ul>
-	</div>
-	<div class="col-10 col-sm-8 pill bg-dimmed">
-	    <h4>Schedule</h4>
-            <table class="infogram">
-                <tr>
-                    <td><div class="icon-2 icon-calendar"></div></td>
-                    <td><div class="icon-2 icon-clock"></div></td>
-                    <td><div class="icon-2 icon-duration"></div></td>
-              </tr>
-                 <tr>
-                    <td>Monday - Saturday</td>
-                    <td>10 AM</td>
-                    <td>4 hours</td>
-              </tr>
-            </table>  
+	<div class="col-12">
+		<div class="row">
+			<div class="col-sm-6 ">
+				<div class="pill bg-khaki">
+				    <h4>Highlights</h4>
+				    <ul>
+				    	<li>Make your own paella, gazpacho and sangria.</li>
+				    	<li>Buy ingredients at local market nearby.</li>
+				    	<li>Class in English.</li>
+				    	<li>Price includes class, market tour, ingredients, recipes, lunch and drinks.</li>
+				    </ul>				
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="pill bg-dimmed">
+				    <h4>Schedule</h4>
+			            <table class="infogram">
+			                <tr>
+			                    <td><div class="icon-2 icon-calendar"></div></td>
+			                    <td><div class="icon-2 icon-clock"></div></td>
+			                    <td><div class="icon-2 icon-duration"></div></td>
+			              </tr>
+			                 <tr>
+			                    <td>Monday - Saturday</td>
+			                    <td>10 AM</td>
+			                    <td>4 hours</td>
+			              </tr>
+			            </table>  
+				</div>
+			</div>
+		</div>
 	</div>		
 </div>
 
@@ -82,35 +90,61 @@
 
 		<p>Our class starts visiting the <strong>Antón Martín market</strong> (200 m from the school) to buy the groceries we will need to cook our menu. We’ll buy vegetables, seafood, and perhaps ham, olives, cheese, pastry&#8230; the offering and colouring of this traditional way of shopping daily supplies is endless.</p>
 
-		<img data-src="/images/paella-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="anton martin market">
+		<p>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
 
-		<p><br>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
+		<div class="row">
+			<div class="col-sm-6">
+				<figure class="text-center">
+					<img data-src="/images/paella-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="anton martin market">		
+					<figcaption class="figure-caption">Shopping the ingredients at the local market</figcaption>
+				</figure>
+			</div>
+			<div class="col-sm-6">
+				<figure class="text-center">
+				<img data-src="/images/paella-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="making gazpacho">		
+					<figcaption class="figure-caption">Making gazpacho, a refreshing cold tomato soap</figcaption>
+				</figure>
+			</div>
+		</div>
 
-		<img data-src="/images/paella-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="making gazpacho">
 
-		<p><br>And then, you will get down to work to make your own <strong>paella</strong>, the most international Spanish dish, based on rice, seafood and chicken. </p>
+		<p>Later, you will get down to work to make your own <strong>paella</strong>, the most international Spanish dish, based on rice, seafood and chicken. </p>
 
-		<img data-src="/images/paella-details-03.jpg" class="lazyload img-fluid mx-auto d-block" alt="making paella">
+		<p>Along the preparation, our chef will tell its story including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
 
-		<p><br>Along the preparation, our chef will tell its story including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
+		<div class="row">
+			<div class="col-sm-6">
+				<figure class="text-center">
+					<img data-src="/images/paella-details-03.jpg" class="lazyload img-fluid mx-auto d-block" alt="making paella">
+					<figcaption class="figure-caption">Every two of you make your own paella</figcaption>
+				</figure>
+			</div>
+			<div class="col-sm-6">
+				<figure class="text-center">
+					<img data-src="/images/paella-banner-sm.jpg" class="lazyload img-fluid mx-auto d-block" alt="making paella">
+					<figcaption class="figure-caption">Born and raised in Madrid, we have many stories to tell</figcaption>
+				</figure>
+			</div>
+		</div>
 
-		<img data-src="/images/paella-banner-sm.jpg" class="lazyload img-fluid mx-auto d-block" alt="making paella">
+		<p>After cooking you will sit down to enjoy your creations as <strong>your lunch</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable morning.</p>
 
-		<p><br>After cooking you will sit down to enjoy your creations as <strong>your lunch</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable morning.</p>
+		<figure class="text-center">
+			<img data-src="/images/paella-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="eating paella after class">
+			<figcaption class="figure-caption">Time to eat while sharing experiences with your new friends</figcaption>
+		</figure>
 
-		<img data-src="/images/paella-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="eating paella after class">
-
-		<p><br>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
+		<p>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
 
 		<p>Besides, you get a <strong>recipe booklet</strong> with all the recipes you prepare.</p>
 
 		<p>Check out our <a href="/faq">FAQ</a> for more questions.</p>
 
 		<div class="d-block d-lg-none">
-			<div class="book-now-bottom"><a href="/booking?clase=PAELLA">Book Now</a></div>
+			<div class="book-now-bottom all-clickable"><a href="/booking?clase=PAELLA">Book Now</a></div>
 		</div>
 		<div class="d-none d-lg-block">
-			<div class="book-now-right"><a href="/booking?clase=PAELLA">Book Now</a></div>
+			<div class="book-now-right all-clickable"><a href="/booking?clase=PAELLA">Book Now</a></div>
 		</div>
 
 	</div>
@@ -122,7 +156,7 @@
 
 
 <div class="row justify-content-center">
-	<div class="col-10 col-sm-8">
+	<div class="col-sm-6">
 		<table class="table">
 			@php 
 				$i = 0;
@@ -139,9 +173,9 @@
 						$i++;
 					}				
 	   			}
-	   			echo '<tr><td>More dates</td><td><a href="booking?class=PAELLA" class="btn btn-primary">Book</a></td></tr>';
 			@endphp			
 		</table>
+		<div class="book-now-button all-clickable"><a href="/booking?clase=PAELLA">Book Now</a></div>
 	</div>
 </div>
 
@@ -164,7 +198,7 @@
         <div class="bottom-gutter">        
             <div class="box">
                 <a href="classes-paella-cooking-madrid-spain"></a>
-                <img class="img-fluid lazyload" data-src="/images/home-bestclassintown.jpg" alt="best classes in town" />
+                <img class="img-fluid lazyload" data-src="/images/bestintown_logo.png" alt="best classes in town" />
                 <h4 style="margin-top: 0.5rem;">10 Reasons Why</h4>
                 <p>Find out why we think we are the best classes in town</p>                                
             </div>

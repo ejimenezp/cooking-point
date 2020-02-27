@@ -377,11 +377,6 @@ function validateBookingForm()
 		    			    		
 }
 
-    
-//
-// initial display
-//
-
 
 //
 // Booking Datepicker
@@ -404,6 +399,23 @@ $( "#bookingdatepicker" ).datepicker({
 });
 
 
+//
+// initial display
+//
+
+$('#booking_steps > div').addClass('d-none');
+
+
+date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone();
+$('#bookingdatepicker').datepicker("setDate", date_shown.toDate());
+
+locator = $("input[name=locator]").val();
+if (locator != '') {
+	retrieveBooking(locator);
+}
+
+getMonthAvailability(date_shown);
+
 // 
 // end initial display
 //
@@ -414,12 +426,6 @@ $( "#bookingdatepicker" ).datepicker({
 
 jQuery(document).ready(function($) {
 
-	locator = $("input[name=locator]").val();
-	if (locator != '') {
-		retrieveBooking(locator);
-	}
-
-	$('#booking_steps > div').addClass('d-none')
 	if (bkg) {
 		if (bkg.status != 'PENDING') {
 		    $('#step4').removeClass('d-none')
@@ -432,7 +438,7 @@ jQuery(document).ready(function($) {
 	    	}
 		} else {
 	    	if ($('select[name=type]').val() === 'NO') {
-	     		$('.modal_booking_title').html('Booking Not Available')
+	     		$('.modal_booking_title').html('Start here')
 				$('.modal_booking_body').html('Please, select a class')
 	    		$("#modal_booking").modal()   		
 	    	} else if (!getDayAvailability(bkg.date)[0]) {
@@ -459,12 +465,6 @@ jQuery(document).ready(function($) {
 			$('.modal_booking_body').html('It seems you could not complete the transaction. Please, try it again')
 			$("#modal_booking").modal()
 	}
-
-
-	date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone();
-
-	$('#bookingdatepicker').datepicker("setDate", date_shown.toDate())
-	getMonthAvailability(date_shown);
 
 }) // jQuery
 
@@ -539,7 +539,7 @@ $(window).bind("pageshow", function(event) {
 			$('.modal_booking_body').html('Please, select a class')
     		$("#modal_booking").modal()   		
     	} else if (!getDayAvailability(date_shown.toDate())[0]) {
-    		$('.modal_booking_title').html('Booking Not Available')
+    		$('.modal_booking_title').html('Start here')
 			$('.modal_booking_body').html('Please, select a date with availability')
     		$("#modal_booking").modal()
     	}

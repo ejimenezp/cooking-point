@@ -4836,8 +4836,10 @@ $(document).ready(function () {
 	var page = $("meta[name=page]").attr("content");
 	var caption = $("meta[name=page]").attr("caption");
 
-	if (page !== '') {
-		if (/iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
+	// if (page !=='') {
+	// 	if (/iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
+	if (true) {
+		if ($(window).width() <= 768) {
 			$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/' + page + '-banner-sm.jpg" alt="' + caption + '" >');
 		} else {
 			$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/' + page + '-banner.jpg" alt="' + caption + '" >');
@@ -4845,7 +4847,9 @@ $(document).ready(function () {
 	}
 }); // end jQuery
 
-$(".box").click(function () {
+
+// to make divs clickable
+$(".all-clickable").click(function () {
 	window.location = $(this).find("a").attr("href");
 	return false;
 });

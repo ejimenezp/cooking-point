@@ -44,7 +44,7 @@
           <h4 class="modal-title">Help</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <div class="modal-body">Select number of guests and class. Calendar will show our availability:
+        <div class="modal-body">Select class and number of guests. Calendar will show our availability:
         <table class="help-table">
           <tr>
             <td class="td-available" style="border-radius:7px;">25</td>
