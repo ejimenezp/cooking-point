@@ -45,7 +45,6 @@
 
 <svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <symbol id="calendar" viewBox="0 0 1024 1024">
   
     <symbol id="3strips" viewBox="0 0 1024 1024">
       <path class="path1" d="M512 96l-512 512 96 96 96-96v416h256v-192h128v192h256v-416l96 96 96-96-512-512zM512 512c-35.346 0-64-28.654-64-64s28.654-64 64-64c35.346 0 64 28.654 64 64s-28.654 64-64 64z"></path>
@@ -56,16 +55,59 @@
 </svg>
 
 
+<!-- smartphone -->
 <div class="d-block d-lg-none">
+  <div class="cp-smartphone-navbar clearfix">
+      <div class="logo">
+        <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>        
+      </div>
+      <a class='icon' href='javascript:void(0);' >
+        <div class="icon-2 icon-clock"></div>
+      </a>
+      <div id="dropdown-content">
+        <ul>
+          <li>
+            <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+          </li>
+          <li>
+            <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+          </li>
+          <li>
+            <a href="/private-cooking-events-madrid-spain">Private Events</a>
+          </li>
+          <li>
+            <a href="/location">Location</a>
+          </li>            
+          <li>
+            <a href="/about-us">About Us</a>
+          </li>
+          <li>
+            <a href="/booking">Booking</a>
+          </li>
+          <li>
+            <a href="/gallery">Gallery</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+          <li>
+            <a href="/faq">FAQ</a>
+         </li>
+        </ul>        
+      </div>           
+  </div>
+
+</div>
+
+<!-- <div class="d-block d-lg-none"> -->
+<div class="d-none">
 <div id="cabecera">
   <nav class="navbar fixed-top">
       <div class="navbar-brand">
         <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
       </div>
       <a class="menu-header-xs" data-toggle="collapse" data-target="#myNavbar" href="#">
-        <svg class="icon-2 icon-home" style="color:green;"><use xlink:href="#3strips"></use></svg>
-        <svg class="icon-2 icon-home" style="color:green;"><use xlink:href="#calendar"></use></svg>
-        <svg id="i3strips" class="icon-2" style="color:red;"></svg>
+        <div class="icon-2 icon-clock"></div>
       </a>
       <div id="myNavbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
@@ -102,6 +144,7 @@
 </div>
 </div>
 
+<!-- ipad landscape -->
 
 <div class="d-none d-lg-block d-xl-none">
   <nav class="navbar navbar-expand-md nav-fill"> 
@@ -140,40 +183,47 @@
   </nav>
 </div>
 
+<!-- desktop -->
+
 <div class="d-none d-xl-block">
-  <nav class="navbar navbar-expand-xl">
-      <a class="navbar-brand"href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
-      <ul class="navbar-nav nav-fill justify-content-center w-100">
-        <li class="nav-item">
-          <a class="nav-link" href="/classes-paella-cooking-madrid-spain">Paella Class</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/private-cooking-events-madrid-spain">Private Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/location">Location</a>
-        </li>            
-        <li class="nav-item">
-          <a class="nav-link" href="/about-us">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link cp-class-details" href="/booking">Booking</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/gallery">Gallery</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/faq">FAQ</a>
-       </li>
-      </ul>            
-  </nav>
+  <div class="cp-navbar">
+      <div class="logo">
+        <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>        
+      </div>
+      <div class="menu clearfix">
+        <ul>
+          <li>
+            <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+          </li>
+          <li>
+            <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+          </li>
+          <li>
+            <a href="/private-cooking-events-madrid-spain">Private Events</a>
+          </li>
+          <li>
+            <a href="/location">Location</a>
+          </li>            
+          <li>
+            <a href="/about-us">About Us</a>
+          </li>
+          <li>
+            <a href="/booking">Booking</a>
+          </li>
+          <li>
+            <a href="/gallery">Gallery</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+          <li>
+            <a href="/faq">FAQ</a>
+         </li>
+        </ul>        
+      </div>           
+  </div>
 </div>
+
 
 
 @section('footer')
@@ -190,7 +240,7 @@
 @endsection
 
 
-<div class="header-offset"></div>
+<!-- <div class="header-offset"></div> -->
 
 <div class="container-fluid">
 

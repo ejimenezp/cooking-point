@@ -66,9 +66,13 @@ $(".all-clickable").click(function() {
   return false;
 });
 
+// to display pulldown menus on smartphones
+$('.icon').click(function() {
+	$( "#dropdown-content" ).toggle();
+});
 
 // to highlight selected menubar option
-$('nav ul li a[href="' + window.location.pathname + '"]').addClass('active');
+$('.cp-navbar ul li a[href="' + window.location.pathname + '"]').addClass('active');
 
 
 //

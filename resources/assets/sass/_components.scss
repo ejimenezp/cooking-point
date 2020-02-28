@@ -1,4 +1,96 @@
+//
+// navigation bar
+//
 
+.cp-smartphone-navbar {
+
+  .logo {
+    float: left;
+    padding: 0.5rem;
+  }
+
+  .icon {
+    float: right;
+    padding: 0.5rem;
+    display: block;
+  }
+
+  #dropdown-content {
+    display:none;
+    background-color: #f9f9f9;
+    position:absolute;
+    right: 0;
+    top: 5rem;
+    z-index: 1;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0 1rem 0 1rem;
+  }  
+
+  li {
+      font-size: 1.25rem;
+      font-family: $font-alter;
+      color: $brand-primary;
+      a {
+          display: block;
+          padding: 0.25rem 0.5rem;
+          text-align: center;
+          text-decoration: none;
+          color: inherit;
+      }
+      .active {
+        background-color: $brand-grey;
+      }
+  }
+}
+
+.cp-navbar {
+  .logo {
+    float: left;
+    padding: 0.5rem;
+  }
+
+  .topnav {
+
+    @include media-breakpoint-up(md) { display: none; }
+
+    .icon {
+      float: right;
+      display: block;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 2.5rem 4rem 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }  
+
+  li {
+      float: left;
+      font-size: 1.25rem;
+      font-family: $font-alter;
+      color: $brand-primary;
+      a {
+          display: block;
+          padding: 0.25rem 0.5rem;
+          text-align: center;
+          text-decoration: none;
+          color: inherit;
+      }
+      a:hover {
+        background-color: $dimmed;
+      }
+      .active {
+        background-color: $brand-grey;
+      }
+  }
+}
 
 
 //

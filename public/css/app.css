@@ -10865,6 +10865,109 @@ textarea {
   border-color: #FF9900;
 }
 
+.cp-smartphone-navbar .logo {
+  float: left;
+  padding: 0.5rem;
+}
+
+.cp-smartphone-navbar .icon,
+.cp-smartphone-navbar .icon-1,
+.cp-smartphone-navbar .icon-2,
+.cp-smartphone-navbar .icon-3,
+.cp-smartphone-navbar .icon-4 {
+  float: right;
+  padding: 0.5rem;
+  display: block;
+}
+
+.cp-smartphone-navbar #dropdown-content {
+  display: none;
+  background-color: #f9f9f9;
+  position: absolute;
+  right: 0;
+  top: 5rem;
+  z-index: 1;
+}
+
+.cp-smartphone-navbar ul {
+  list-style-type: none;
+  padding: 0 1rem 0 1rem;
+}
+
+.cp-smartphone-navbar li {
+  font-size: 1.25rem;
+  font-family: Ubuntu, Tahoma, Helvetica, Arial, sans-serif;
+  color: #FF9900;
+}
+
+.cp-smartphone-navbar li a {
+  display: block;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cp-smartphone-navbar li .active {
+  background-color: #959595;
+}
+
+.cp-navbar .logo {
+  float: left;
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .cp-navbar .topnav {
+    display: none;
+  }
+}
+
+.cp-navbar .topnav .icon,
+.cp-navbar .topnav .icon-1,
+.cp-navbar .topnav .icon-2,
+.cp-navbar .topnav .icon-3,
+.cp-navbar .topnav .icon-4 {
+  float: right;
+  display: block;
+}
+
+.cp-navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 2.5rem 4rem 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow: hidden;
+}
+
+.cp-navbar li {
+  float: left;
+  font-size: 1.25rem;
+  font-family: Ubuntu, Tahoma, Helvetica, Arial, sans-serif;
+  color: #FF9900;
+}
+
+.cp-navbar li a {
+  display: block;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cp-navbar li a:hover {
+  background-color: #f9f9f9;
+}
+
+.cp-navbar li .active {
+  background-color: #959595;
+}
+
 .box {
   background-color: #f9f9f9;
   padding: 1rem;
@@ -11050,6 +11153,13 @@ nav a {
 
 .navbar-brand {
   padding: 0;
+}
+
+navbar-collapse {
+  border: 0;
+  background-color: white;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .navbar-nav {
