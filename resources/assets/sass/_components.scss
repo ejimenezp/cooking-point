@@ -4,9 +4,14 @@
 
 .cp-smartphone-navbar {
 
+
   .logo {
     float: left;
+    height: 5rem;
     padding: 0.5rem;
+    img {
+      height: 4rem;
+    }
   }
 
   .icon {
@@ -17,7 +22,7 @@
 
   #dropdown-content {
     display:none;
-    background-color: #f9f9f9;
+    background-color: white;
     position:absolute;
     right: 0;
     top: 5rem;
@@ -40,9 +45,7 @@
           text-decoration: none;
           color: inherit;
       }
-      .active {
-        background-color: $brand-grey;
-      }
+
   }
 }
 
@@ -50,6 +53,10 @@
   .logo {
     float: left;
     padding: 0.5rem;
+    img {
+        @include media-breakpoint-up(md) { height: 5rem; }
+        @include media-breakpoint-up(xl) { height: 6rem; }
+    }
   }
 
   .topnav {
@@ -65,7 +72,9 @@
   ul {
     list-style-type: none;
     margin: 0;
-    padding: 2.5rem 4rem 0 2rem;
+    padding: 1.5rem 4rem 0 2rem;
+    @include media-breakpoint-up(xl) { padding: 2.5rem 4rem 0 2rem; }
+
     display: flex;
     justify-content: space-between;
     overflow: hidden;
@@ -152,11 +161,11 @@
   }
 }
 
-#section-banner {
+#sssssssssssssssection-banner {
   img, video {
-    width: 150vw;
     overflow: hidden;
-    @include media-breakpoint-up(md) { width: 100vw; }
+    width: 100vw;
+    @include media-breakpoint-up(xl) { width: 1440px; }
 
   }
 }

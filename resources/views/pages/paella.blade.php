@@ -42,6 +42,18 @@
 
 @stop
 
+
+@section('banner')
+<div class="section-banner">
+	<div class="d-block d-md-none">
+		<img class="lazyload img-fluid" data-src="/images/paella-banner-sm.jpg" alt="paella cooking class madrid" >		
+	</div>
+	<div class="d-none d-md-block">
+		<img class="lazyload img-fluid" data-src="/images/paella-banner.jpg" alt="paella cooking class madrid" >		
+	</div>	
+</div>
+@stop
+
 @section('content')
 
 <h1 class="header1">Paella Cooking Class</h1>
@@ -140,10 +152,10 @@
 
 		<p>Check out our <a href="/faq">FAQ</a> for more questions.</p>
 
-		<div class="d-block d-lg-none">
+		<div class="d-block d-md-none">
 			<div class="book-now-bottom all-clickable"><a href="/booking?clase=PAELLA">Book Now</a></div>
 		</div>
-		<div class="d-none d-lg-block">
+		<div class="d-none d-md-block">
 			<div class="book-now-right all-clickable"><a href="/booking?clase=PAELLA">Book Now</a></div>
 		</div>
 

@@ -2,92 +2,38 @@
 // header stuff
 //
 
-nav a {
-  font-family: $font-alter;
-  font-size: 1.25rem;
-  color: $brand-primary;
-
-  @include media-breakpoint-up(md) { 
-      max-height: 5rem; }
-  @include media-breakpoint-up(xl) { max-height: 6rem; }
-}
-
-.navbar {
-  border: 0 ;
-  background-color: white;
-}
-
-.navbar-brand {
-  padding: 0;
-}
-
-navbar-collapse {
-  border: 0 ;
-  background-color: white;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-.navbar-nav {
-  padding-left: 10rem;
-  text-align: center;
-}
-
-.home-logo {
-  max-height: 4rem;
-  @include media-breakpoint-up(md) { max-height: 4rem; }
-  @include media-breakpoint-up(xl) { max-height: 6rem; }
-}
-
-.header-offset {
-  height: 5rem;
-  @include media-breakpoint-up(md) { height: 0rem; }
-  @include media-breakpoint-up(xl) { height: 0.5rem; }
-}
-
-// .navbar-brand {
-//   @include media-breakpoint-up(md) {
-//   	margin-left: -1rem;
-//     margin-right: 0; }
-// }
-
-
-//
-// adjustments for responsiveness
-//
-
-@include media-breakpoint-up(md)
-{
-// scr >= 768px
-
-  .header1 {
-    font-size: 2rem;
-  }
-
-  .admin .header4 {
-    font-size: 1.25rem;
-  }
-
-  .header3 {
-    font-size: 1.25rem;
-  }
-
-
-.home-preheadline {
-  margin-top: 6rem;
-  font-size: 1.5rem;
-  font-weight: bold;  
-}
 
 .home-headline {
+  font-family: $font-alter;
   font-size: 3rem;
-  top: 20rem;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 2rem;
+  color:  white;
+  position: absolute;
+  top: 0;
+  text-shadow: 2px 2px black, -0.1rem -0.1rem 1rem black, 0.1rem 0.1rem 1rem $brand-primary;
+  @include media-breakpoint-up(md) {
+    position: initial;
+    top: unset;
+    text-shadow: unset;
+    color: darkred;
+  }
+
 }
 
-.home-more-info-button {
-  font-size: 1.5rem;
-  top: 25rem;
+.section-banner {
+  width: 100%;
+  height: 100vw / 3 * 2;
+  position: relative;
+  @include media-breakpoint-up(md) { height: 100vw / 1440 * 360}
+  @include media-breakpoint-up(xl) { height: 360px; width: 1440px; max-width: 100%;}
+  img {
+    width: 100%;
+  }
 }
+
+
 
   #sssssssssvideo-home {
     width: 100vw;
@@ -96,55 +42,3 @@ navbar-collapse {
     max-height: 100%;
   }
 
-}
-
-@include media-breakpoint-up(lg)
-{
-// scr >= 992px
-
-
-.table th, .table td {
-  padding-left: 0.75rem;
-}
-
-
-  .home-preheadline {
-    margin-top: 0;
-  }
-
-  .home-headline {
-    font-size: 2.4rem;
-    top: 9rem;
-  }
-
-  .home-more-info-button {
-    font-size: 1rem;
-    top: 13rem;
-  }
-
-  .home-pause-button {
-    font-size: 1.2rem;
-    position: absolute;
-    z-index: 1000;
-    left: 90%;
-    top: 13.5rem;
-    color: white;
-    display: block;
-    }
-
-}
-
-@include media-breakpoint-up(xl)
-{
-  // scr >= 1200px
-
-  .home-headline {
-    font-size: 3.5rem;
-    top: 11rem;
-  }
-
-
-  .home-pause-button {
-    top: 16.8rem;
-  }
-}

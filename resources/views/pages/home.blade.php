@@ -3,22 +3,20 @@
 @section('title', 'Spanish Cooking Classes in Madrid - Cooking Point')
 @section('description', 'Hands-on paella and tapas cooking classes in English at top rated Madrid culinary school. Family friendly immersion in Spain’s food culture.')
 
-@section('banner-name', 'home')
-@section('banner-caption', 'cooking point home banner')
-
-
 
 @section('banner')
 
-<!-- <div class="row justify-content-center">
-    <h1 class="home-preheadline">Spanish Cooking Classes in Madrid </h1>
-    <div class="home-headline"><a href="/best-cooking-classes-madrid">Best Classes in Madrid</a></div>
-    <a href="/best-cooking-classes-madrid" class="home-more-info-button">More Info</a>
+<div class="d-block d-md-none">
+    <div class="section-banner">
+        <img class="lazyload img-fluid" data-src="/images/home-banner-sm.jpg" alt="cooking point madrid" >     
+    <div class="home-headline">Spanish Cooking Classes in Madrid</div>
+    </div>
 </div>
-<div class="home-pause-button"><i class="fa fa-pause"></i></div> -->
-
-<div class="row justify-content-center">
-    <div id="section-banner"></div>        
+<div class="d-none d-md-block">
+    <div class="section-banner">
+        <img class="lazyload img-fluid" data-src="/images/home-banner.jpg" alt="cooking point madrid" >        
+        <div class="home-headline">Spanish Cooking Classes in Madrid</div>
+    </div>  
 </div>
 
 @stop

@@ -4833,18 +4833,20 @@ document.documentElement.setAttribute("data-browser", navigator.userAgent);
 
 $(document).ready(function () {
 
-	var page = $("meta[name=page]").attr("content");
-	var caption = $("meta[name=page]").attr("caption");
+	// var page = $("meta[name=page]").attr("content")
+	// var caption = $("meta[name=page]").attr("caption")
 
-	// if (page !=='') {
-	// 	if (/iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
-	if (true) {
-		if ($(window).width() <= 768) {
-			$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/' + page + '-banner-sm.jpg" alt="' + caption + '" >');
-		} else {
-			$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/' + page + '-banner.jpg" alt="' + caption + '" >');
-		}
-	}
+	// // if (page !=='') {
+	// // 	if (/iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
+	// if (true) {
+	// 	if ($(window).width() <= 768) {
+	// 		$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >');
+	// 	} else {
+	// 		$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/'+page+'-banner.jpg" alt="'+caption+'" >');
+	// 	}		
+	// }
+
+
 }); // end jQuery
 
 

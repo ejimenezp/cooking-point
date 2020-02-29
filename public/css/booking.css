@@ -10867,7 +10867,12 @@ textarea {
 
 .cp-smartphone-navbar .logo {
   float: left;
+  height: 5rem;
   padding: 0.5rem;
+}
+
+.cp-smartphone-navbar .logo img {
+  height: 4rem;
 }
 
 .cp-smartphone-navbar .icon,
@@ -10882,7 +10887,7 @@ textarea {
 
 .cp-smartphone-navbar #dropdown-content {
   display: none;
-  background-color: #f9f9f9;
+  background-color: white;
   position: absolute;
   right: 0;
   top: 5rem;
@@ -10908,13 +10913,21 @@ textarea {
   color: inherit;
 }
 
-.cp-smartphone-navbar li .active {
-  background-color: #959595;
-}
-
 .cp-navbar .logo {
   float: left;
   padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .cp-navbar .logo img {
+    height: 5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cp-navbar .logo img {
+    height: 6rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -10935,7 +10948,7 @@ textarea {
 .cp-navbar ul {
   list-style-type: none;
   margin: 0;
-  padding: 2.5rem 4rem 0 2rem;
+  padding: 1.5rem 4rem 0 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10943,6 +10956,12 @@ textarea {
       -ms-flex-pack: justify;
           justify-content: space-between;
   overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+  .cp-navbar ul {
+    padding: 2.5rem 4rem 0 2rem;
+  }
 }
 
 .cp-navbar li {
@@ -11031,16 +11050,16 @@ textarea {
   padding-left: 1.5rem;
 }
 
-#section-banner img,
-#section-banner video {
-  width: 150vw;
+#sssssssssssssssection-banner img,
+#sssssssssssssssection-banner video {
   overflow: hidden;
+  width: 100vw;
 }
 
-@media (min-width: 768px) {
-  #section-banner img,
-  #section-banner video {
-    width: 100vw;
+@media (min-width: 1200px) {
+  #sssssssssssssssection-banner img,
+  #sssssssssssssssection-banner video {
+    width: 1440px;
   }
 }
 
@@ -11128,154 +11147,56 @@ textarea {
   background-color: #f9f9f9;
 }
 
-nav a {
+.home-headline {
   font-family: Ubuntu, Tahoma, Helvetica, Arial, sans-serif;
-  font-size: 1.25rem;
-  color: #FF9900;
-}
-
-@media (min-width: 768px) {
-  nav a {
-    max-height: 5rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  nav a {
-    max-height: 6rem;
-  }
-}
-
-.navbar {
-  border: 0;
-  background-color: white;
-}
-
-.navbar-brand {
-  padding: 0;
-}
-
-navbar-collapse {
-  border: 0;
-  background-color: white;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-.navbar-nav {
-  padding-left: 10rem;
+  font-size: 3rem;
+  font-weight: bold;
   text-align: center;
-}
-
-.home-logo {
-  max-height: 4rem;
-}
-
-@media (min-width: 768px) {
-  .home-logo {
-    max-height: 4rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .home-logo {
-    max-height: 6rem;
-  }
-}
-
-.header-offset {
-  height: 5rem;
+  padding-top: 2rem;
+  color: white;
+  position: absolute;
+  top: 0;
+  text-shadow: 2px 2px black, -0.1rem -0.1rem 1rem black, 0.1rem 0.1rem 1rem #FF9900;
 }
 
 @media (min-width: 768px) {
-  .header-offset {
-    height: 0rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .header-offset {
-    height: 0.5rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .header1 {
-    font-size: 2rem;
-  }
-
-  .admin .header4 {
-    font-size: 1.25rem;
-  }
-
-  .header3 {
-    font-size: 1.25rem;
-  }
-
-  .home-preheadline {
-    margin-top: 6rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-
   .home-headline {
-    font-size: 3rem;
-    top: 20rem;
+    position: initial;
+    top: unset;
+    text-shadow: unset;
+    color: darkred;
   }
+}
 
-  .home-more-info-button {
-    font-size: 1.5rem;
-    top: 25rem;
+.section-banner {
+  width: 100%;
+  height: 66.66666667vw;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .section-banner {
+    height: 25vw;
   }
+}
 
-  #sssssssssvideo-home {
-    width: 100vw;
+@media (min-width: 1200px) {
+  .section-banner {
+    height: 360px;
+    width: 1440px;
     max-width: 100%;
-    height: 13.88888889vw;
-    max-height: 100%;
   }
 }
 
-@media (min-width: 992px) {
-  .table th,
-  .table td {
-    padding-left: 0.75rem;
-  }
-
-  .home-preheadline {
-    margin-top: 0;
-  }
-
-  .home-headline {
-    font-size: 2.4rem;
-    top: 9rem;
-  }
-
-  .home-more-info-button {
-    font-size: 1rem;
-    top: 13rem;
-  }
-
-  .home-pause-button {
-    font-size: 1.2rem;
-    position: absolute;
-    z-index: 1000;
-    left: 90%;
-    top: 13.5rem;
-    color: white;
-    display: block;
-  }
+.section-banner img {
+  width: 100%;
 }
 
-@media (min-width: 1200px) {
-  .home-headline {
-    font-size: 3.5rem;
-    top: 11rem;
-  }
-
-  .home-pause-button {
-    top: 16.8rem;
-  }
+#sssssssssvideo-home {
+  width: 100vw;
+  max-width: 100%;
+  height: 13.88888889vw;
+  max-height: 100%;
 }
 
 .i3strips {
