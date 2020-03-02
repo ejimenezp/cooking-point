@@ -67,7 +67,7 @@ $(".all-clickable").click(function() {
 });
 
 // to display pulldown menus on smartphones
-$('.icon').click(function() {
+$('.menu-strips').click(function() {
 	$( "#dropdown-content" ).toggle();
 });
 

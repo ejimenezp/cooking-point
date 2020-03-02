@@ -35,9 +35,6 @@
 			<p>Select class and number of guests to check availability</p>
 			<div class="row justify-content-center">
 				<div class="col-md-6">
-					<div class="online" id="bookingdatepicker"></div>
-				</div>
-				<div class="col-md-6">
 					<form id="booking_form_1">
 					<input type="hidden" name="source_id" value="2">
 					@if (isset($bkg))
@@ -136,6 +133,9 @@
 						</tr>
 					</table>
 					</form>
+				</div>
+				<div class="col-md-6">
+					<div class="online" id="bookingdatepicker"></div>
 				</div>
 			</div>
 			<div class="row">

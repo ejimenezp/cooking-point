@@ -10,9 +10,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
-      <style type="text/css">
-        /*body {display:none;}*/
-      </style>
+
       <link defer href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
 
       @if (App::environment() == 'production')
@@ -43,27 +41,18 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-  
-    <symbol id="3strips" viewBox="0 0 1024 1024">
-      <path class="path1" d="M512 96l-512 512 96 96 96-96v416h256v-192h128v192h256v-416l96 96 96-96-512-512zM512 512c-35.346 0-64-28.654-64-64s28.654-64 64-64c35.346 0 64 28.654 64 64s-28.654 64-64 64z"></path>
-    </symbol>
-
-
-  </defs>
-</svg>
-
 
 <!-- smartphone -->
 <div class="d-block d-md-none">
   <div class="cp-smartphone-navbar clearfix">
       <div class="logo">
-        <a href="/"><img class="lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>        
+        <a href="/"><img alt="Cooking Point" src="/images/icons/cookingpoint-logo-landscape.png"></a>        
       </div>
-      <a class='icon' href='javascript:void(0);' >
-        <div class="icon-2 icon-clock"></div>
-      </a>
+      <div class=" float-right">
+        <a class='menu-strips' href='javascript:void(0);' ><img src="/images/icons/menu-strips.png" />
+        </a>        
+      </div>
+
       <div id="dropdown-content">
         <ul>
           <li>
@@ -104,7 +93,7 @@
 <div class="d-none d-md-block">
   <div class="cp-navbar">
       <div class="logo">
-        <a href="/"><img class="lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>        
+        <a href="/"><img alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>        
       </div>
       <div class="menu clearfix">
         <ul>

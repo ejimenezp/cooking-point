@@ -77,7 +77,7 @@ RedirectMatch 301 ^/(activities/|author|bookings-|category/|classes/|classes$|cu
 </IfModule>
 
 # One month for most static assets
-<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico|svg|webp)$">
 Header set Cache-Control "max-age=2628000, public"
 </filesMatch>
 

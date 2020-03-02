@@ -10,6 +10,10 @@ html {
   @include media-breakpoint-up(md) { font-size: $desktop-font-size !important; }
 }
 
+body {
+    background-color: $brand-background;
+    color: $brand-text;
+}
 
 h1 {
 	@extend .decorated;

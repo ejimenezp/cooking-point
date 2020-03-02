@@ -3,51 +3,6 @@
 //   ======================================================================== */
 
 
-//
-// icon mixins
-//
-
-$sizes: 1,2,3,4;
-
-.icon {
-  display: inline-block;
-  vertical-align: text-bottom;
-  background-repeat: no-repeat;
-  fill: currentColor;
-}
-
-@each $i in $sizes {
-  .icon-#{$i} { @extend .icon;
-                width: #{$i}rem;
-                height: #{$i}rem;
-                background-size: #{$i}rem;
-                display: inline-block;
-                fill: currentColor;
-              }
-}
-
-
-$colors: ("blue": "blue", "brand-primary" : $brand-primary, "brand-red" : $brand-red, "brand-grey" : $brand-grey);
-
-@each $name, $color in $colors {
-  .fill-#{$name} { 
-    stroke:#{$color};
-    fill: #{$color};}
-}
-
-$colors: (
-    "brand-primary" : $brand-primary, 
-    "brand-red" : $brand-red,
-    "brand-grey" : $brand-grey, 
-    "dimmed" : $dimmed,
-    "khaki" : $khaki 
-    );
-
-@each $name, $color in $colors {
-  .bg-#{$name} { background-color:#{$color}; }
-}
-
-
 .all-clickable {
   cursor: pointer;
 }

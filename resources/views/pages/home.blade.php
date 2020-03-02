@@ -8,13 +8,13 @@
 
 <div class="d-block d-md-none">
     <div class="section-banner">
-        <img class="lazyload img-fluid" data-src="/images/home-banner-sm.jpg" alt="cooking point madrid" >     
+        <img class="img-fluid" src="/images/home-banner-sm.webp" alt="cooking point madrid" >     
     <div class="home-headline">Spanish Cooking Classes in Madrid</div>
     </div>
 </div>
 <div class="d-none d-md-block">
     <div class="section-banner">
-        <img class="lazyload img-fluid" data-src="/images/home-banner.jpg" alt="cooking point madrid" >        
+        <img class="img-fluid" src="/images/home-banner.jpg" alt="cooking point madrid" >        
         <div class="home-headline">Spanish Cooking Classes in Madrid</div>
     </div>  
 </div>
@@ -36,9 +36,9 @@
                 <p>Enjoy an unforgettable morning visiting a food market and cooking a delicious paella with the instructions of our local chef. Great start to know more about Spanish food while you make one of our most representative dishes.</p>
                 <table class="infogram">
                     <tr>
-                        <td><div class="icon-2 icon-calendar"></div></td>
-                        <td><div class="icon-2 icon-clock"></div></td>
-                        <td><div class="icon-2 icon-euro"></div></td>
+                        <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/clock.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/euro.png"></div></td>
                   </tr>
                      <tr>
                         <td>Monday - Saturday</td>
@@ -59,10 +59,10 @@
                 <p>Spend a fun evening making tapas and sangria. Ranging from Spanish potato omelet to shrimps with garlic, all of them typical from different regions of Spain. The perfect introduction to Spanish food and culture!</p>
                 <table class="infogram">
                     <tr>
-                        <td><div class="icon-2 icon-calendar"></div></td>
-                        <td><div class="icon-2 icon-clock"></div></td>
-                        <td><div class="icon-2 icon-euro"></div></td>
-                  </tr>
+                        <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/clock.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/euro.png"></div></td>
+                 </tr>
                      <tr>
                         <td>Monday - Saturday</td>
                         <td>5:30 PM - 9:30 PM</td>
@@ -103,13 +103,13 @@
 
 <div class="row">
     <div class="col-sm-6">
-        <div class="pill all-clickable">
+        <div class="home-pill all-clickable">
             <img class="img-fluid lazyload" alt="best class in Madrid" data-src="/images/bestintown_logo.png" />
             <h4>10 Reasons to Choose Us</h4>
             <p>We give you 10 reasons why we think ours are the best lessons in town if you want to learn to cook Spanish food. <u>Click to know more</u>.</p>
             <a href="/best-cooking-classes-madrid"></a>        
         </div>  
-        <div class="pill">
+        <div class="home-pill">
             <img class="img-fluid lazyload" alt="fun classes" data-src="/images/bestclasses-banner-sm.jpg" />
             <h4>Fun &amp; Memorable</h4>
             <p>Have a fun immersion in Spain’s food culture and know insights and tips to get the most of Spanish food during your trip and back home.</p>        
@@ -117,12 +117,12 @@
 
     </div>
     <div class="col-sm-6">
-        <div class="pill">
+        <div class="home-pill">
             <img class="img-fluid lazyload" alt="best rated school" data-src="/images/tripadvisorCE_2018.png" />
             <h4>Top Rated School</h4>
             <p>Six years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as best in our category.</p>        
             </div>   
-        <div class="pill">
+        <div class="home-pill">
             <img class="img-fluid lazyload" alt="hands-on class" data-src="/images/home-trullyhandson.jpg" />
             <h4>Truly Hands-on</h4>
             <p>Two people per cooktop, maximum twelve per class. Follow our chef directions to get your meal done. No worries, no cooking experience is required.</p>           

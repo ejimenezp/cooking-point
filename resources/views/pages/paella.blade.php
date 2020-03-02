@@ -46,10 +46,10 @@
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
-		<img class="lazyload img-fluid" data-src="/images/paella-banner-sm.jpg" alt="paella cooking class madrid" >		
+		<img class="img-fluid" src="/images/paella-banner-sm.jpg" alt="paella cooking class madrid" >		
 	</div>
 	<div class="d-none d-md-block">
-		<img class="lazyload img-fluid" data-src="/images/paella-banner.jpg" alt="paella cooking class madrid" >		
+		<img class="img-fluid" src="/images/paella-banner.jpg" alt="paella cooking class madrid" >		
 	</div>	
 </div>
 @stop
@@ -79,9 +79,9 @@
 				    <h4>Schedule</h4>
 			            <table class="infogram">
 			                <tr>
-			                    <td><div class="icon-2 icon-calendar"></div></td>
-			                    <td><div class="icon-2 icon-clock"></div></td>
-			                    <td><div class="icon-2 icon-duration"></div></td>
+                        <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/clock.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/duration.png"></div></td>
 			              </tr>
 			                 <tr>
 			                    <td>Monday - Saturday</td>
