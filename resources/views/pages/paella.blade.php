@@ -153,10 +153,10 @@
 		<p>Check out our <a href="/faq">FAQ</a> for more questions.</p>
 
 		<div class="d-block d-md-none">
-			<div class="book-now-bottom all-clickable"><a href="/booking?clase=PAELLA">Book Now</a></div>
+			<div class="book-now-bottom all-clickable"><a href="/booking?class=PAELLA">Book Now</a></div>
 		</div>
 		<div class="d-none d-md-block">
-			<div class="book-now-right all-clickable"><a href="/booking?clase=PAELLA">Book Now</a></div>
+			<div class="book-now-right all-clickable"><a href="/booking?class=PAELLA">Book Now</a></div>
 		</div>
 
 	</div>
@@ -187,7 +187,7 @@
 	   			}
 			@endphp			
 		</table>
-		<div class="book-now-button all-clickable"><a href="/booking?clase=PAELLA">Book Now</a></div>
+		<div class="book-now-button all-clickable"><a href="/booking?class=PAELLA">Book Now</a></div>
 	</div>
 </div>
 

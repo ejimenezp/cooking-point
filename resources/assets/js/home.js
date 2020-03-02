@@ -18,6 +18,8 @@ function toggleVideo () {
 }
 
 
+
+
 //
 //
 // jQuery main function
@@ -26,13 +28,9 @@ function toggleVideo () {
 
 $( document ).ready(function() {
 
-
-	$("#section-banner").empty();
-	// if( /iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
-	if( false ) {
-		$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/home-banner-sm.jpg" >')
-	} else {
-		$("#sssssssssssssection-banner").append(' \
+	$('#section-banner').find('img:first').remove();
+	if( ! /iPhone/i.test(navigator.userAgent) && $(window).width() >= 768) {
+		$('#section-banner').prepend(' \
 			<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted > \
 	     	<source src="images/home-video-banner-01.mp4" type="video/mp4"> \
 	   	 </video>')
@@ -42,8 +40,7 @@ $( document ).ready(function() {
 		var myVideo = $('#video-home').get(0)
 
 		myVideo.onended = function() {
-			$('#video-home').removeAttr('poster')
-			curVideo++
+			curVideo++;
 		    if(curVideo < videoList.length){    		
 		        myVideo.src = videoList[curVideo];        
 		    }
@@ -61,7 +58,7 @@ $( document ).ready(function() {
 }); // end jQuery
 
 
-$('.home-pause-button').click(toggleVideo)
+$('#section-banner').click(toggleVideo) 
 setTimeout(toggleVideo, 90*1000)
 
 

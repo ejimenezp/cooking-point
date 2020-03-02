@@ -2,7 +2,16 @@
 // navigation bar
 //
 
+//
+// smartphones
+//
 .cp-smartphone-navbar {
+  width:  100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: $brand-background;
+
 
 
   .logo {
@@ -16,10 +25,10 @@
 
   #dropdown-content {
     display:none;
-    background-color: white;
+    background-color: $brand-background;
     position:absolute;
     right: 0;
-    top: 5rem;
+    top: 3.5rem;
     z-index: 1;
   }
 
@@ -55,6 +64,17 @@
   }
 }
 
+.navbar-offset {
+  height:   4rem;
+  @include media-breakpoint-up(md) {
+    display:  none; 
+  }  
+}
+
+
+// 
+// ipad landscape & desktops
+// 
 .cp-navbar {
   .logo {
     float: left;
@@ -167,7 +187,7 @@
   }
 }
 
-#sssssssssssssssection-banner {
+#section-banner {
   img, video {
     overflow: hidden;
     width: 100vw;

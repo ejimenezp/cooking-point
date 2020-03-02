@@ -32,7 +32,7 @@
 		<div id="step1" class="d-none">
 			<h1 class="header1">Booking</h1>
 
-			<p>Select class and number of guests to check availability</p>
+			<p>Select number of guests and class to check availability</p>
 			<div class="row justify-content-center">
 				<div class="col-md-6">
 					<form id="booking_form_1">
@@ -73,9 +73,10 @@
 								<table>
 									<tbody>
 										<tr>
-											<td style='width: 40%;text-align: right;'><div id="adult-down" class="icon-2 icon-clock"></div></td>
-											<td style='width: 20%;text-align: center;'><input name="adult" type="text" class="text-center" value="0"></td>
-											<td style='width: 40%;text-align: left;'><div id="adult-up" class="icon-2 icon-clock"></div></td>
+											<td></td>
+											<td style='width: 40%;text-align: right;'><div id="adult-down" class="icon"><img src="/images/icons/minus.png"></div></td>
+											<td style='width: 20%;text-align: center;'><input name="adult" type="text" class="text-center" value="0" readonly></td>
+											<td style='width: 40%;text-align: left;'><div id="adult-up" class="icon"><img src="/images/icons/add.png"></div></td>
 										</tr>
 									</tbody>
 
@@ -92,9 +93,10 @@
 								<table>
 									<tbody>
 										<tr>
-											<td style='width: 40%;text-align: right;'><div id="child-down" class="icon-2 icon-clock"></div></td>
-											<td style='width: 20%;text-align: center;'><input name="child" type="text" class="text-center" value="0"></td>
-											<td style='width: 40%;text-align: left;'><div id="child-up" class="icon-2 icon-clock"></div></td>
+											<td></td>
+											<td style='width: 40%;text-align: right;'><div id="child-down" class="icon"><img src="/images/icons/minus.png"></div></td>
+											<td style='width: 20%;text-align: center;'><input name="child" type="text" class="text-center" value="0" readonly></td>
+											<td style='width: 40%;text-align: left;'><div id="child-up" class="icon"><img src="/images/icons/add.png"></div></td>
 										</tr>
 									</tbody>
 
@@ -106,21 +108,19 @@
 								Class:
 							</td>
 							<td>
-								<select class="custom-select" name="type">
-								@if (isset($class) && $class == 'PAELLA')
-									<option value="PAELLA" selected="selected">Paella Cooking Class</option>
-									<option value="TAPAS">Tapas Cooking Class</option>								
-								@else
+								<div class="type-dropdown-input">
 									@if (isset($class) && $class == 'TAPAS') 
-										<option value="PAELLA">Paella Cooking Class</option>
-										<option value="TAPAS" selected="selected">Tapas Cooking Class</option>
+										<input name="type_shown" value="Tapas Cooking Class" readonly>
+										<input  name="type" value="TAPAS" type="hidden">
 									@else
-										<option value="NO">Select class...</option>
-										<option value="PAELLA">Paella Cooking Class</option>
-										<option value="TAPAS">Tapas Cooking Class</option>
+										<input name="type_shown" value="Paella Cooking Class" readonly>
+										<input  name="type" value="PAELLA" type="hidden">									
 									@endif
-								@endif
-								</select>				
+								  <ul id="myDropdown" class="type-dropdown-content">
+								    <li id="li_paella">Paella Cooking Class</li>
+								    <li id="li_tapas">Tapas Cooking Class</li>
+								  </ul>
+								</div>
 							</td>
 						</tr>
 						<tr>

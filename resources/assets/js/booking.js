@@ -35,7 +35,8 @@ var tpv_result = null
 //
 function getDayAvailability(day)
 {
-	var type_shown = $("select[name=type]").val()
+	var type_shown = $("input[name=type_shown]").val()
+	var type = $("input[name=type]").val()
 	var adult = parseInt($("input[name=adult]").val())
 	var child = parseInt($("input[name=child]").val())
 	var a_day = moment(day)
@@ -50,7 +51,7 @@ function getDayAvailability(day)
 		start = moment(month_availability[i].date + ' ' + month_availability[i].time)
 		n = registered + adult + child
 
-		if (a_day.isSame(start,'day') && start.isSameOrAfter(right_now) && class_type == type_shown) {
+		if (a_day.isSame(start,'day') && start.isSameOrAfter(right_now) && class_type == type) {
 			if (registered >= capacity) {
 				to_return = [false, '', 'Class Full']
 				break				
@@ -164,7 +165,7 @@ function refreshDataShown()
 {
   	var a, i
   	var found = false
-  	var type_shown = $("select[name=type]").val()
+  	var type = $("input[name=type]").val()
 	
 	// if there is a locator, if looks up calendarevent data by its ce_id, instead of by date and time)
   // 	if (bkg) {
@@ -182,7 +183,7 @@ function refreshDataShown()
 	if (!found) {
 		for (i = 0; i < month_availability.length; i++) {
 			a = moment(month_availability[i].date + ' ' + month_availability[i].time)
-			if (month_availability[i].type == type_shown && a.isAfter(date_shown)) { 
+			if (month_availability[i].type == type && a.isAfter(date_shown)) { 
 				break
 			}
 		}
@@ -243,10 +244,10 @@ function retrieveBooking(locator) {
 	date_shown = moment(bkg.date)
 	$("#bookingdatepicker").datepicker("setDate", bkg.date)
 	if (bkg.type === 'GROUP') {
-		$("select[name=type]:last").append('<option value="GROUP">Private Group Event</option>')
+		$("input[name=type_shown]").html('<input name="type_shown" value="Private Group Event" readonly> <input name="type" value="GROUP" type="hidden">')
 	}
-	$("select[name=type]").val(bkg.type)
-	$("select option[value='"+bkg.type+"']").attr("selected","selected");
+	$("input[name=type]").val(bkg.type)
+	$("input[name=type_shown]").val(bkg.type_shown)
 	$("input[name=calendarevent_id]").val(bkg.calendarevent_id)
 	$("input[name=id]").val(bkg.id)
 	$("select[name=status]").val(bkg.status)
@@ -409,6 +410,7 @@ $('#booking_steps > div').addClass('d-none');
 date_shown = getParameterByName('date') ? moment(getParameterByName('date')) : rightNow().clone();
 $('#bookingdatepicker').datepicker("setDate", date_shown.toDate());
 
+
 locator = $("input[name=locator]").val();
 if (locator != '') {
 	retrieveBooking(locator);
@@ -430,18 +432,14 @@ jQuery(document).ready(function($) {
 		if (bkg.status != 'PENDING') {
 		    $('#step4').removeClass('d-none')
 		   	document.title =  $(".typeshown").html() + " for " + $(".nameshown").html() + " on " + $(".dateshown").html()
-		    $('select[name=adult] option:selected').siblings().attr('disabled','disabled')
-		    $('select[name=child] option:selected').siblings().attr('disabled','disabled')
+		    // $('select[name=adult] option:selected').siblings().attr('disabled','disabled')
+		    // $('select[name=child] option:selected').siblings().attr('disabled','disabled')
 		    var start = moment(bkg.calendarevent.date + ' ' + bkg.calendarevent.time)
 			if (start.isSameOrBefore(rightNow())) {
 	    		$("#button_booking_edit").addClass('d-none')	
 	    	}
 		} else {
-	    	if ($('select[name=type]').val() === 'NO') {
-	     		$('.modal_booking_title').html('Start here')
-				$('.modal_booking_body').html('Please, select a class')
-	    		$("#modal_booking").modal()   		
-	    	} else if (!getDayAvailability(bkg.date)[0]) {
+	    	if (!getDayAvailability(bkg.date)[0]) {
 	    		$('.modal_booking_title').html('Class no longer available')
 				$('.modal_booking_body').html('Please, select a date with availability')
 	    		$("#modal_booking").modal()
@@ -515,35 +513,45 @@ $(window).bind("pageshow", function(event) {
     	form_changed = true;
 		// $('.update_class').removeClass('d-none');
 
-    	if ($('select[name=type]').val() === 'NO') {
-     		$('.modal_booking_title').html('Booking Not Available')
-			$('.modal_booking_body').html('Please, select a class')
-    		$("#modal_booking").modal()   		
-    	} else if (!getDayAvailability(date_shown.toDate())[0]) {
+    	if (!getDayAvailability(date_shown.toDate())[0]) {
     		$('.modal_booking_title').html('Booking Not Available');
 			$('.modal_booking_body').html('Please, select a date with availability');
     		$("#modal_booking").modal();
     	} 	
     });
 
-
-	$("select[name=type]").change(function() {
-
-    	$("input[name=price]").val($("input[name=adult]").val()*70 + $("input[name=child]").val()*35)
-    	refreshDataShown()
-    	form_changed = true
-		// $('.update_class').removeClass('d-none')
-
-    	if ($('select[name=type]').val() === 'NO') {
-     		$('.modal_booking_title').html('Booking Not Available')
-			$('.modal_booking_body').html('Please, select a class')
-    		$("#modal_booking").modal()   		
-    	} else if (!getDayAvailability(date_shown.toDate())[0]) {
-    		$('.modal_booking_title').html('Start here')
-			$('.modal_booking_body').html('Please, select a date with availability')
-    		$("#modal_booking").modal()
+	$(document).on('click', function(e) {
+		var target = $(e.target);
+   		$('#myDropdown').hide();
+   		if ($(target).parent().is('div.type-dropdown-input')) {
+   			$('#myDropdown').show();
+   			return;
+		}
+		if ($(target).is('li#li_paella')) {
+			$("input[name=type_shown]").val('Paella Cooking Class');
+			$("input[name=type]").val('PAELLA');
+	    	$("input[name=price]").val($("input[name=adult]").val()*70 + $("input[name=child]").val()*35)
+	    	refreshDataShown()
+	    	form_changed = true
+			 if (!getDayAvailability(date_shown.toDate())[0]) {
+	    		$('.modal_booking_title').html('Start here');
+				$('.modal_booking_body').html('Please, select a date with availability');
+	    		$("#modal_booking").modal();
+	    	}
+		} else if (target.is('li#li_tapas')) {
+			$("input[name=type_shown]").val('Tapas Cooking Class');
+			$("input[name=type]").val('TAPAS');
+	    	$("input[name=price]").val($("input[name=adult]").val()*70 + $("input[name=child]").val()*35)
+	    	refreshDataShown()
+	    	form_changed = true
+			 if (!getDayAvailability(date_shown.toDate())[0]) {
+	    		$('.modal_booking_title').html('Start here');
+				$('.modal_booking_body').html('Please, select a date with availability');
+	    		$("#modal_booking").modal();
+	    	}
     	}
-   	});
+    	$('#myDropdown').hide();
+	});
 
 
 	$( "#booking_form_2 :input, #booking_form_3 :input" )
@@ -580,11 +588,7 @@ $(window).bind("pageshow", function(event) {
 	})
 
     $(".update_class").click(function(e) {
-    	if ($('select[name=type]').val() === 'NO') {
-     		$('.modal_booking_title').html('Booking Not Available')
-			$('.modal_booking_body').html('Please, select a class')
-    		$("#modal_booking").modal()   		
-    	} else if (!getDayAvailability(date_shown.toDate())[0]) {
+    	if (!getDayAvailability(date_shown.toDate())[0]) {
     		$('.modal_booking_title').html('Booking Not Available')
 			$('.modal_booking_body').html('Please, select a date with availability')
     		$("#modal_booking").modal()

@@ -6,18 +6,13 @@
 
 @section('banner')
 
-<div class="d-block d-md-none">
-    <div class="section-banner">
-        <img class="img-fluid" src="/images/home-banner-sm.webp" alt="cooking point madrid" >     
+<div id="section-banner">
+    <div class="d-none d-md-block">
+            <img class="img-fluid" src="/images/home-banner.jpg" alt="cooking point madrid" >    
+    </div>    
     <div class="home-headline">Spanish Cooking Classes in Madrid</div>
-    </div>
-</div>
-<div class="d-none d-md-block">
-    <div class="section-banner">
-        <img class="img-fluid" src="/images/home-banner.jpg" alt="cooking point madrid" >        
-        <div class="home-headline">Spanish Cooking Classes in Madrid</div>
-    </div>  
-</div>
+</div>  
+
 
 @stop
 

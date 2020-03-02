@@ -1,19 +1,38 @@
-//
-// some libraries
-//
-@import '~bootstrap/scss/bootstrap';
-@import "node_modules/jquery-ui/themes/base/datepicker";
+// //
+// // some libraries
+// //
+// @import '~bootstrap/scss/bootstrap';
+// @import "node_modules/jquery-ui/themes/base/datepicker";
 
-//
-// cooking point app related
-//
+// //
+// // cooking point app related
+// //
 @import "variables";
-@import "tools";
-@import "elements";
-@import "components";
-@import "utilities";
 
-// body { display:block; }
+
+.type-dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	width: 100%;
+	padding: 0;
+	overflow: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+
+	li {
+		padding: 0.5rem 0.5rem;
+		color: $brand-text;
+		text-decoration: none;
+		display: block;
+	}
+}
+
+.type-dropdown-input {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
 
 
 .ui-datepicker {

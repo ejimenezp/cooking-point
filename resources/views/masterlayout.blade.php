@@ -86,6 +86,7 @@
       </div>           
   </div>
 
+  <div class="navbar-offset"></div>
 </div>
 
 <!-- ipad landscape & desktop -->
