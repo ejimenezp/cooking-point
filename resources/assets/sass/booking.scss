@@ -1,12 +1,6 @@
-// //
-// // some libraries
-// //
-// @import '~bootstrap/scss/bootstrap';
-// @import "node_modules/jquery-ui/themes/base/datepicker";
-
-// //
-// // cooking point app related
-// //
+//
+// cooking point app related
+//
 @import "variables";
 
 
@@ -19,6 +13,7 @@
 	overflow: auto;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
+	cursor: pointer;
 
 	li {
 		padding: 0.5rem 0.5rem;
@@ -32,6 +27,7 @@
 	position: relative;
 	display: inline-block;
 	width: 100%;
+	cursor: pointer;
 }
 
 
