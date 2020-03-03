@@ -490,34 +490,37 @@ $(window).bind("pageshow", function(event) {
     	if ($(this).attr('id') === 'adult-up') {
     		if (ad < 8) {
     			$("input[name=adult]").val(++ad);
+				$('.fake-input[data=adult]').html(ad.toString());
     		} else {
     			alert ('to book 9+ people, please contact us');
     		}
     	} else if ($(this).attr('id') === 'adult-down') {
     		if (ad > 0) {
     			$("input[name=adult]").val(--ad);
+				$('.fake-input[data=adult]').html(ad.toString());
     		}
     	} else if ($(this).attr('id') === 'child-up') {
     		if (ch < 4) {
     			$("input[name=child]").val(++ch);
+				$('.fake-input[data=child]').html(ch.toString());
     		} else {
     			alert ('to book 5+ children, please contact us');
     		}
     	} else if ($(this).attr('id') === 'child-down') {
     		if ( ch > 0) {
     			$("input[name=child]").val(--ch);
+				$('.fake-input[data=child]').html(ch.toString());
     		}
     	} 
     	$("input[name=price]").val(ad*70 + ch*35);
     	refreshDataShown();
     	form_changed = true;
-		// $('.update_class').removeClass('d-none');
 
-    	if (!getDayAvailability(date_shown.toDate())[0]) {
-    		$('.modal_booking_title').html('Booking Not Available');
-			$('.modal_booking_body').html('Please, select a date with availability');
-    		$("#modal_booking").modal();
-    	} 	
+   //  	if (!getDayAvailability(date_shown.toDate())[0]) {
+   //  		$('.modal_booking_title').html('Booking Not Available');
+			// $('.modal_booking_body').html('Please, select a date with availability');
+   //  		$("#modal_booking").modal();
+   //	} 	
     });
 
 	$(document).on('click', function(e) {
@@ -528,27 +531,29 @@ $(window).bind("pageshow", function(event) {
    			return;
 		}
 		if ($(target).is('li#li_paella')) {
+			$('.fake-input[data=type]').html('Paella Cooking Class');
 			$("input[name=type_shown]").val('Paella Cooking Class');
 			$("input[name=type]").val('PAELLA');
 	    	$("input[name=price]").val($("input[name=adult]").val()*70 + $("input[name=child]").val()*35)
 	    	refreshDataShown()
 	    	form_changed = true
-			 if (!getDayAvailability(date_shown.toDate())[0]) {
-	    		$('.modal_booking_title').html('Start here');
-				$('.modal_booking_body').html('Please, select a date with availability');
-	    		$("#modal_booking").modal();
-	    	}
+			 // if (!getDayAvailability(date_shown.toDate())[0]) {
+	   //  		$('.modal_booking_title').html('Start here');
+				// $('.modal_booking_body').html('Please, select a date with availability');
+	   //  		$("#modal_booking").modal();
+	   //  	}
 		} else if (target.is('li#li_tapas')) {
+			$('.fake-input[data=type]').html('Tapas Cooking Class');
 			$("input[name=type_shown]").val('Tapas Cooking Class');
 			$("input[name=type]").val('TAPAS');
 	    	$("input[name=price]").val($("input[name=adult]").val()*70 + $("input[name=child]").val()*35)
 	    	refreshDataShown()
 	    	form_changed = true
-			 if (!getDayAvailability(date_shown.toDate())[0]) {
-	    		$('.modal_booking_title').html('Start here');
-				$('.modal_booking_body').html('Please, select a date with availability');
-	    		$("#modal_booking").modal();
-	    	}
+			 // if (!getDayAvailability(date_shown.toDate())[0]) {
+	   //  		$('.modal_booking_title').html('Start here');
+				// $('.modal_booking_body').html('Please, select a date with availability');
+	   //  		$("#modal_booking").modal();
+	   //  	}
     	}
     	$('#myDropdown').hide();
 	});

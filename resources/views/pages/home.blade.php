@@ -163,7 +163,7 @@
 
 <h3>Our Location</h3>
 
-<iframe class="lazyload" src="https://www.google.com/maps/d/embed?mid=1Z52oFNjEYejtU59SYZuFh3q7EuEIXSxX" style="height: 60vh;width: 100%;"></iframe>
+<iframe class="lazyload" data-src="https://www.google.com/maps/d/embed?mid=1Z52oFNjEYejtU59SYZuFh3q7EuEIXSxX" style="height: 60vh;width: 100%;"></iframe>
 
 <div class="divider"></div>
 

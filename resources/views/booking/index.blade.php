@@ -44,6 +44,15 @@
 						<input type="hidden" name="status" value="PENDING">
 						<input type="hidden" name="locator" value="">
 					@endif				
+					@if (isset($class) && $class == 'TAPAS') 
+						<input type="hidden" name="type" value="TAPAS">
+						<input type="hidden" name="type_shown" value="Tapas Cooking Class">
+					@else 
+						<input type="hidden" name="type" value="PAELLA">
+						<input type="hidden" name="type_shown" value="Paella Cooking Class">
+					@endif
+					<input type="hidden" name="adult" value="0">
+					<input type="hidden" name="child" value="0">
 					<input type="hidden" name="status_filter" value="DO_NOT_COUNT">
 					<input type="hidden" name="pay_method" value="N/A">
 					<input type="hidden" name="calendarevent_id" value="">
@@ -75,7 +84,7 @@
 										<tr>
 											<td></td>
 											<td style='width: 40%;text-align: right;'><div id="adult-down" class="icon"><img src="/images/icons/minus.png"></div></td>
-											<td style='width: 20%;text-align: center;'><input name="adult" type="text" class="text-center" value="0" readonly></td>
+											<td style='width: 20%;text-align: center;'><div class="fake-input text-center" data="adult">0</div></td>
 											<td style='width: 40%;text-align: left;'><div id="adult-up" class="icon"><img src="/images/icons/add.png"></div></td>
 										</tr>
 									</tbody>
@@ -95,7 +104,7 @@
 										<tr>
 											<td></td>
 											<td style='width: 40%;text-align: right;'><div id="child-down" class="icon"><img src="/images/icons/minus.png"></div></td>
-											<td style='width: 20%;text-align: center;'><input name="child" type="text" class="text-center" value="0" readonly></td>
+											<td style='width: 20%;text-align: center;'><div class="fake-input text-center" data="child">0</div></td>
 											<td style='width: 40%;text-align: left;'><div id="child-up" class="icon"><img src="/images/icons/add.png"></div></td>
 										</tr>
 									</tbody>
@@ -110,11 +119,9 @@
 							<td>
 								<div class="type-dropdown-input">
 									@if (isset($class) && $class == 'TAPAS') 
-										<input name="type_shown" value="Tapas Cooking Class" readonly>
-										<input  name="type" value="TAPAS" type="hidden">
+										<div class="fake-input" data="type">Tapas Cooking Class</div>
 									@else
-										<input name="type_shown" value="Paella Cooking Class" readonly>
-										<input  name="type" value="PAELLA" type="hidden">									
+										<div class="fake-input" data="type">Paella Cooking Class</div>
 									@endif
 								  <ul id="myDropdown" class="type-dropdown-content">
 								    <li id="li_paella">Paella Cooking Class</li>

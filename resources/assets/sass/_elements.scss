@@ -23,7 +23,6 @@ h1 {
 }
 h2 {
 	@extend .decorated;
-	font-weight: bold;
 	color: $brand-primary;
 	margin-top: 0.5rem;
 	font-size: 1.5rem;
@@ -45,12 +44,13 @@ h4 {
 	font-size: 1rem;
 }
 
-input, select, textarea {
+input, .fake-input, select, textarea {
   width: 100%;
   font-family: $font-body;
   border: 1px solid #e1e1e1;
   box-sizing: border-box;
   padding: 8px 10px;
+  background-color: white;
 }
 
 //
