@@ -222,7 +222,7 @@
 
   font-family: $font-alter;
   font-size: 1.25rem;
-  background-color: $brand-red;
+  background-color: $brand-primary;
   color: white;
   text-align: center;
   a, a:hover {
@@ -235,7 +235,7 @@
   height: 4rem;
   font-family: $font-alter;
   font-size: 1.25rem;
-  background-color: $brand-red;
+  background-color: $brand-primary;
   color: white;
   border-radius: 0.25rem;
   text-align: center;
@@ -257,7 +257,7 @@
 
     font-family: $font-alter;
     font-size: 1.25rem;
-    background-color: $brand-red;
+    background-color: $brand-primary;
     color: white;
     text-align: center;
     writing-mode: vertical-lr;
@@ -273,5 +273,5 @@
   display:block; /* for use on default inline elements like span */
   margin: 9px 0;
   overflow: hidden;
-  background-color: $dimmed;
+  background-color: $brand-grey;
 }

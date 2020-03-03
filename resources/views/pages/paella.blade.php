@@ -46,10 +46,10 @@
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
-		<img class="img-fluid" src="/images/paella-banner-sm.jpg" alt="paella cooking class madrid" >		
+		<img class="img-fluid lazyload" data-src="/images/paella-banner-sm.jpg" alt="paella cooking class madrid" >		
 	</div>
 	<div class="d-none d-md-block">
-		<img class="img-fluid" src="/images/paella-banner.jpg" alt="paella cooking class madrid" >		
+		<img class="img-fluid lazyload" data-src="/images/paella-banner.jpg" alt="paella cooking class madrid" >		
 	</div>	
 </div>
 @stop
@@ -141,10 +141,14 @@
 
 		<p>After cooking you will sit down to enjoy your creations as <strong>your lunch</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable morning.</p>
 
-		<figure class="text-center">
-			<img data-src="/images/paella-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="eating paella after class">
-			<figcaption class="figure-caption">Time to eat while sharing experiences with your new friends</figcaption>
-		</figure>
+		<div class="row justify-content-center">
+			<div class="col-sm-6">
+				<figure class="text-center">
+					<img data-src="/images/paella-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="eating paella after class">
+					<figcaption class="figure-caption">Time to eat while sharing experiences with your new friends</figcaption>
+				</figure>
+			</div>
+		</div>
 
 		<p>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
 
@@ -197,7 +201,7 @@
 
     <div class="col-lg-4">
         <div class="bottom-gutter">
-            <div class="box">
+            <div class="box all-clickable">
                 <a href="classes-spanish-tapas-madrid-spain"></a>             
                 <img class="img-fluid lazyload" alt="tapas cooking class in madrid" data-src="/images/home-tapas.jpg" />
                 <h4 style="margin-top: 0.5rem;">Tapas Cooking Class</h4>
@@ -208,7 +212,7 @@
 
     <div class="col-lg-4">
         <div class="bottom-gutter">        
-            <div class="box">
+            <div class="box all-clickable">
                 <a href="classes-paella-cooking-madrid-spain"></a>
                 <img class="img-fluid lazyload" data-src="/images/bestintown_logo.png" alt="best classes in town" />
                 <h4 style="margin-top: 0.5rem;">10 Reasons Why</h4>
@@ -221,7 +225,7 @@
 
     <div class="col-lg-4">
         <div class="bottom-gutter">
-            <div class="box">
+            <div class="box all-clickable">
                 <a href="private-cooking-events-madrid-spain"></a>
                 <img class="img-fluid lazyload" data-src="/images/tripadvisor-photo.jpg" alt="photo gallery" />    
                 <h4 style="margin-top: 0.5rem;">Photo Gallery</h4>
