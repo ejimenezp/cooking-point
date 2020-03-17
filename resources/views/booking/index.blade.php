@@ -245,7 +245,7 @@
 								<tbody>
 									<tr>
 										<td class="font-weight-bold availability-row">
-											Name <span class="mandatory">*</span> :
+											Name <span class="text-danger">*</span> :
 										</td>
 										<td>
 											<input name="name" type="text" value="" >
@@ -253,7 +253,7 @@
 									</tr>
 									<tr>
 										<td class="font-weight-bold availability-row">
-											E-mail <span class="mandatory">*</span> :
+											E-mail <span class="text-danger">*</span> :
 										</td>
 										<td>
 											<input name="email" type="text" value="" >
@@ -491,7 +491,7 @@
 			Calle de Moratin, 11 28014 Madrid<br/>
 			tel. (+34) 910 115 154<br />
 			Metro Anton Martin (Line 1), exit Calle de Amor de Dios<br /><br /></p>
-			<img class="lazyload rounded mx-auto d-block" alt="Cooking Point location" data-src="/images/plano-email.png" />
+			<img class="rounded mx-auto d-block" alt="Cooking Point location" src="/images/plano-email.png" />
 			<div class="divider"></div>
 			
 			@if (isset($bkg))

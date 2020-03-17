@@ -10,7 +10,7 @@
   text-align: center;
   top: 6rem;
   padding: 0 0.5rem 0 0.5rem;
-  color: darkred;
+  color: $brand-primary;
 
   @include media-breakpoint-up(md) {
       position:   initial;

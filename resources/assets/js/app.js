@@ -55,8 +55,6 @@ $( document ).ready(function() {
 	// 	}		
 	// }
 
-
-
 }); // end jQuery
 
 

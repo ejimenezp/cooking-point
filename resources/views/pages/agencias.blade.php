@@ -3,9 +3,6 @@
 @section('title', 'Info para agencias de viaje')
 @section('description', 'Información para agencias de viajes, receptivos y organizadores de eventos')
 
-@section('banner-name', 'eventos')
-@section('banner-caption', 'info para agencias de viajes')
-
 @section('content')
 
 <h1 class="header1">Nuestros servicios</h1>
@@ -20,20 +17,39 @@
 
 <p>Capacidad máxima: 24 personas.</p>
 
+<div class="row justify-content-center">
+	<div class="col-sm-6 ">
+		<div class="pill">
+		    <h4>Resumen:</h4>
+		    <ul>
+		    	<li>Capacidad hasta 24 personas.</li>
+		    	<li>Clases en inglés o español.</li>
+		    	<li>Tarifas en función del tamaño.</li>
+		    	<li>Precio incluye la comida, bebida y folleto recetas.</li>
+		    	<li>Flexibilidad en horario y duración.</li>
+		    </ul>				
+		</div>
+	</div>
+</div>
 
 <h2 class="header2">Viajeros Individuales</h2>
 <p>Tenemos un precio neto muy competitivo para clientes individuales. Un simple correo electrónico bastará para reservar su plaza. Te enviaremos un voucher personalizado para que lo compartas con tu cliente si lo crees conveniente.</p>
 
-<div class="divider"></div>
-
 <div class="row justify-content-center">
-	<div class=" cp-class-details col-10 col-sm-8">
-		<strong>Clases Privadas:</strong> Bajo petición<br/>
-		<strong>Duración:</strong> 3 horas (recomendado), turno comida o cena<br/>
-		<strong>Precio: </strong>En función del tamaño de grupo. Consultar<br/>
-		<strong>Incluye: </strong>Clase de cocina, recetas, comida y bebida<br/>
+	<div class="col-sm-6 ">
+		<div class="pill">
+		    <h4>Resumen:</h4>
+		    <ul>
+		    	<li>Clases regulares todos los días excepto domingos.</li>
+		    	<li>Clases en inglés.</li>
+		    	<li>Precios netos competitivos.</li>
+		    </ul>				
+		</div>
 	</div>
 </div>
+
+<div class="divider"></div>
+
 
 <div class="row justify-content-center">
 	<a href="mailto:info@cookingpoint.es" class="btn btn-primary">Escríbenos</a>

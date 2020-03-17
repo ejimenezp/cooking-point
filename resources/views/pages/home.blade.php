@@ -101,7 +101,7 @@
         <div class="home-pill all-clickable">
             <img class="img-fluid lazyload" alt="best class in Madrid" data-src="/images/bestintown_logo.png" />
             <h4>10 Reasons to Choose Us</h4>
-            <p>We give you 10 reasons why we think ours are the best lessons in town if you want to learn to cook Spanish food. <u>Click to know more</u>.</p>
+            <p>We give you 10 reasons why we think ours are the best lessons in town if you want to learn to cook Spanish food. <strong>Click to know more</strong>.</p>
             <a href="/best-cooking-classes-madrid"></a>        
         </div>  
         <div class="home-pill">

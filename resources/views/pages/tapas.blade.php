@@ -3,8 +3,6 @@
 @section('title', 'Tapas Cooking Class in English at Cooking Point, Madrid')
 @section('description', 'Tapas cooking classes in English every evening in Madrid. Hands-on class of 6 traditional tapas. Two people per cooktop.')
 
-@section('banner-name', 'tapas')
-@section('banner-caption', 'tapas cooking class madrid')
 
 @section('google-structured-data')
 
@@ -42,18 +40,53 @@
 
 @stop
 
+
+@section('banner')
+<div class="section-banner">
+	<div class="d-block d-md-none">
+		<img class="img-fluid lazyload" data-src="/images/tapas-banner-sm.jpg" alt="tapas cooking class madrid" >		
+	</div>
+	<div class="d-none d-md-block">
+		<img class="img-fluid lazyload" data-src="/images/tapas-banner.jpg" alt="tapas cooking class madrid" >		
+	</div>	
+</div>
+@stop
+
 @section('content')
 
 
-<h1 class="header1">Tapas Cooking Class</h1>
+<h1>Tapas Cooking Class</h1>
 
 <div class="row justify-content-center">
-	<div class="cp-class-details col-10 col-sm-8">
-		<strong>When:</strong> Monday to Saturday<br/>
-		<strong>Time:</strong> 5:30 pm - 9:30 pm<br/>
-		<strong>Price: </strong>€70 adult / €35 children (5-12 year old)<br/>
-		<strong>Includes: </strong>cooking class, ingredients, recipes, dinner and drinks<br/>
-	</div>	
+
+	<div class="col-sm-6 ">
+		<div class="pill">
+		    <h4>Highlights</h4>
+		    <ul>
+		    	<li>Cook your own dinner of tapas and sangria.</li>
+		    	<li>Get inmersed in the tapas culture by hand of local chefs.</li>
+		    	<li>Class in English.</li>
+		    	<li>€70 adult / €35 children (5-12 year old). Includes ingredients, recipes, lunch and drinks.</li>
+		    </ul>				
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="pill">
+		    <h4>Schedule</h4>
+	            <table class="infogram">
+	                <tr>
+                <td><div class="icon"><img title="Operating days" src="/images/icons/calendar.png"></div></td>
+                <td><div class="icon"><img title="Start time" src="/images/icons/clock.png"></div></td>
+                <td><div class="icon"><img title="Duration" src="/images/icons/duration.png"></div></td>
+	              </tr>
+	                 <tr>
+	                    <td>Monday - Saturday</td>
+	                    <td>5:30 PM</td>
+	                    <td>4 hours</td>
+	              </tr>
+	            </table>  
+		</div>
+	</div>
 </div>
 
 
@@ -63,43 +96,68 @@
 
 		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 recipes</strong>: 5 traditional tapas, one dessert and sangría.</p>
 
-		<img data-src="/images/tapas-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="what an experience!">
+		<p>Along the preparation, our chef will tell stories about the origin and customs around this way of enjoying food. There will be also time to talk about cured ham, olive oil and other produce paradigm of Spanish food culture.</p>
 
-		<p><br>Along the preparation, our chef will tell stories about the origin and customs around this way of enjoying food. There will be also time to talk about cured ham, olive oil and other produce paradigm of Spanish food culture.</p>
+		<div class="row">
+			<div class="col-sm-6">
+				<figure class="text-center">
+					<img data-src="/images/tapas-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="what an experience!">
+					<figcaption class="figure-caption">Prepare your own tapas dinner</figcaption>
+				</figure>
+			</div>
+			<div class="col-sm-6">
+				<figure class="text-center">
+				<img data-src="/images/tapas-details-03.jpg" class="lazyload img-fluid mx-auto d-block" alt="chef stories">
+					<figcaption class="figure-caption">Born and raised in Madrid, we have many stories to tell</figcaption>
+				</figure>
+			</div>
+		</div>
 
-		<img data-src="/images/tapas-details-03.jpg" class="lazyload img-fluid mx-auto d-block" alt="chef stories">
 
-		<p><br>You will prepare traditional tapas such as the popular Spanish potato omelet and other with chorizo, shrimp and cured ham, all washed down with sangria and ended up with a dessert, all made by you.</p>
+		<p>You will prepare traditional tapas such as the popular Spanish potato omelet and other with chorizo, shrimp and cured ham, all washed down with sangria and ended up with a dessert, all made by you.</p>
 
 		<p>Note: there are alternative ingredients or recipes for people with special dietary requirements.</p>
 
-		<img data-src="/images/tapas-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="flipping the omelet">
+		<p>After cooking you will sit down to enjoy your creations as <strong>your dinner</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable evening.</p>
 
-		<p><br>After cooking you will sit down to enjoy your creations as <strong>your dinner</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable evening.</p>
+		<div class="row">
+			<div class="col-sm-4">
+				<figure class="text-center">
+					<img data-src="/images/tapas-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="flipping the omelet">
+					<figcaption class="figure-caption">Master the famous Spanish potato omelet</figcaption>
+				</figure>
+			</div>
+			<div class="col-sm-6">
+				<figure class="text-center">
+					<img data-src="/images/tapas-details-05.jpg" class="lazyload img-fluid mx-auto d-block" alt="eating time">
+					<figcaption class="figure-caption">Born and raised in Madrid, we have many stories to tell</figcaption>
+				</figure>
+			</div>
+		</div>
 
-		<img data-src="/images/tapas-details-05.jpg" class="lazyload img-fluid mx-auto d-block" alt="eating time">
-
-		<p><br>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
+		<p>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
 
 		<p>Besides, you get a <strong>recipe booklet</strong> with all the recipes you prepare.</p>
 
 		<p>Check out our <a href="/faq">FAQ</a> for more questions.</p>
 
-		<div class="text-center">
-			<p></p>
-			<a href="/booking?class=TAPAS" class="btn btn-primary">Book Now</a>
-			<p></p>
+		<div class="d-block d-md-none">
+			<div style="height: 5rem;"></div>
+			<div class="book-now-bottom all-clickable"><a href="/booking?class=PAELLA">Book Now</a></div>
+		</div>
+		<div class="d-none d-md-block">
+			<div class="book-now-right all-clickable"><a href="/booking?class=PAELLA">Book Now</a></div>
 		</div>
 	</div>
 </div>	
+
 <div class="divider"></div>
 
-<h2 class="header2">Upcoming Classes</h2>
-
+<h2>Upcoming Classes</h2>
 
 
 <div class="row justify-content-center">
-	<div class="col-10 col-sm-8">
+	<div class="col-sm-6">
 		<table class="table">
 				@php 
 					$i = 0;
@@ -124,50 +182,51 @@
 
 <div class="divider"></div>
 
-<div class="header2">Not Decided Yet?</div>
+<h2>Not Decided Yet?</h2>
+
 <p>Perhaps you prefer the morning class...</p>
+
 <div class="row justify-content-center">
-	<div class="col-md-12 col-lg-12">
-		<div class="card-deck">
-		  <div class="card">
-		    <a href="classes-paella-cooking-madrid-spain"><img class="lazyload card-img-top" data-src="/images/home-paella.jpg" alt="paella class"></a>		    
-		    <div class="card-body">
-		      <h5 class="card-title">Paella Class</h5>
-		      <p class="card-text">Enjoy an unforgettable morning visiting a food market and cooking a delicious paella.</p>
-		    </div>
-		    <div class="card-footer">
-		        <div class="text-center">
-		            <a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">Paella Class</a>
-		        </div>
-		    </div>
-		  </div>		  
-		  <div class="card">
-		    <a href="/best-cooking-classes-madrid"><img class="lazyload card-img-top" data-src="/images/bestintown_logo.png" alt="best classes in town"></a>
-		    <div class="card-body">
-		      <h5 class="card-title">10 Reasons Why</h5>
-		      <p class="card-text">Find out why we think we are the best classes in town.</p>
-		    </div>
-		    <div class="card-footer">
-		        <div class="text-center">
-		            <a href="/best-cooking-classes-madrid" class="btn btn-primary">10 Reasons Why</a>
-		        </div>
-		    </div>
-		  </div>
-		  <div class="card">
-		    <a href="/gallery"><img class="lazyload card-img-top" data-src="/images/tripadvisor-photo.jpg" alt="photo gallery"></a>
-		    <div class="card-body">
-		      <h5 class="card-title">Photo Gallery</h5>
-		      <p class="card-text">Check out client photos on social media.</p>
-		    </div>
-		    <div class="card-footer">
-		        <div class="text-center">
-		            <a href="/gallery" class="btn btn-primary">Gallery</a>
-		        </div>
-		    </div>
-		  </div>
-		</div>		
-	</div>
+
+    <div class="col-lg-4">
+        <div class="bottom-gutter">
+            <div class="box all-clickable">
+                <a href="classes-paella-cooking-madrid-spain"></a>             
+                <img class="lazyload card-img-top" data-src="/images/home-paella.jpg" alt="paella class" />
+                <h4 style="margin-top: 0.5rem;">Paella Cooking Class</h4>
+                <p>Enjoy an unforgettable morning visiting a food market and cooking a delicious paella</p>
+            </div>            
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="bottom-gutter">        
+            <div class="box all-clickable">
+                <a href="/best-cooking-classes-madrid"></a>
+                <img class="img-fluid lazyload" data-src="/images/bestintown_logo.png" alt="best classes in town" />
+                <h4 style="margin-top: 0.5rem;">10 Reasons Why</h4>
+                <p>Find out why we think we are the best classes in town</p>                                
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-4">
+        <div class="bottom-gutter">
+            <div class="box all-clickable">
+                <a href="/gallery"></a>
+                <img class="img-fluid lazyload" data-src="/images/tripadvisor-photo.jpg" alt="photo gallery" />    
+                <h4 style="margin-top: 0.5rem;">Photo Gallery</h4>
+                <p>Check out client photos on social media</p>
+            </div>            
+        </div>
+    </div>
 </div>
+@stop
 
-
+@section('bottom-filler')
+<div class="d-block d-md-none">
+	<div style="height: 9rem;"></div>
+</div>
 @stop

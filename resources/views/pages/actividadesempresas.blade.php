@@ -3,25 +3,22 @@
 @section('title', 'Team Building de Cocina en Madrid')
 @section('description', 'Organizamos team-building de cocina para empresas y cooking parties para grupos privados. Estamos en el centro de Madrid.')
 
-@section('banner-name', 'eventos')
-@section('banner-caption', 'evento de empresa en cooking point')
-
 @section('content')
 
-<h1 class="header1">Actividades para empresas</h1>
+<h1>Actividades para empresas</h1>
 
 <div class="row justify-content-right">
 	<div class="col-12">
 		<p>Ponemos a vuestra disposición nuestra escuela de cocina y equipo de chefs para realizar actividades para empresas en el centro de Madrid.</p>
 
-		<h2 class="header2">Team building en la cocina: hoy cocina mi equipo</h2>
+		<h2>Team building en la cocina: hoy cocina mi equipo</h2>
 		<p>Una cocina es un excelente marco para una actividad de team building para empresas. En nuestras actividades se comprueba el valor del trabajo en equipo, pues los resultados son tangibles en forma de una suculenta comida o cena de empresa.</p>
 
 		<p>Al modo de un Masterchef de la tele, el grupo se divide en equipos para elaborar un menú degustación siguiendo las instrucciones de nuestros chefs. Habrá momentos de aprendizaje, trabajo minucioso y creatividad, pero también situaciones divertidas y de relax. Todo con el fin de propiciar conoceros mejor entre vosotros en un ambiente distendido.</p>
 
 		<p>Nuestro team building de cocina os propone platos, técnicas e ingredientes habituales en el panorama de la restauración actual. Nos gusta la cocina sencilla, diversa y con rigor técnico, pero con aplicación también en tu vida personal.</p>
 
-		<h2 class="header2">Solicita Información</h2>
+		<h2>Solicita Información</h2>
 
         <p>Dinos fecha del evento, número de personas y cualquier otro dato que consideres oportuno. Te enviaremos una propuesta en 24 horas:</p>
 
@@ -30,8 +27,8 @@
 				<table style="width: 100%">
 				    <tbody>                              
 				          <tr>
-				                <td class="bold">
-				                      Tu nombre <span class="mandatory">*</span> :
+				                <td class="font-weight-bold">
+				                      Tu nombre <span class="text-danger">*</span> :
 				                </td>
 				          </tr>
 				          <tr>
@@ -41,8 +38,8 @@
 				                </td>
 				          </tr>
 				          <tr>
-				                <td class="bold">
-				                      Tu e-mail <span class="mandatory">*</span> :
+				                <td class="font-weight-bold">
+				                      Tu e-mail <span class="text-danger">*</span> :
 				                </td>
 				          </tr>
 				          <tr>
@@ -52,7 +49,7 @@
 				                </td>
 				          </tr>
 				          <tr>
-				                <td class="bold" >
+				                <td class="font-weight-bold" >
 				                      Mensaje:
 				                </td>
 				          </tr>
@@ -70,7 +67,7 @@
 				          <tr>         
 				                <td style="font-size: small;">
 				                      <p></p>
-				                      <span class="mandatory">*</span>: Solo lo usaremos para contestar tu petición. No haremos spam.
+				                      <span class="text-danger">*</span>: Solo lo usaremos para contestar tu petición. No haremos spam.
 				                </td>
 				          </tr>
 				    </tbody>

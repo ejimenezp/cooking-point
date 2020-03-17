@@ -4,7 +4,6 @@
       <title>@yield('title')</title>
       <meta name="description" content="@yield('description')" >
       <meta name="csrf-token" content="{{ csrf_token() }}">
-      <meta name="page" content="@yield('banner-name')" caption="@yield('banner-caption', 'cooking point')">
       
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -153,25 +152,42 @@
   <div class="row">
     <div class="divider"></div>
     <div class="col-12">
-      <div class="primary-color">
-        <div class="float-left">© Cooking Point, SL</div>
-        <div class="float-right">Follow us on:
-          <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><i class="fab fa-2x fa-facebook-square"></i></a>
-          &nbsp;
-          <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><i class="fab fa-2x fa-instagram"></i></a>        
-        </div>      
-        <div style="height: 6rem;"> </div>
-      </div>
-    </div> 
-  </div>
+        <div class="float-left">
+          <table>
+            <tr><td>
+                  <div class="icon" style="padding-bottom:0;">
+                    <a href="mailto:info@cookingpoint.es"><img title="Email" src="/images/icons/email.png"></a>
+                  </div>
+            </td></tr>
+            <tr><td>
+                   <a class="unstyled" href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>
+            </td></tr>
+          </table>
+        
 
-</div>
+        </div>
+        <div class="float-right">
+          <table>
+            <tr><td colspan="2">Follow us on:</td></tr>
+            <tr><td>
+                  <div class="icon">
+                    <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><img title="facebook" src="/images/icons/facebook.png"></a>
+                  </div>
+            </td><td>
+                  <div class="icon">
+                    <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><img title="instagram" src="/images/icons/instagram.png"></a>
+                  </div>
+            </td></tr>
+          </table>
+        </div>      
+    </div>
+    <!-- only for pages paella & tapas, with a "Pay Now" button -->
+    @yield('bottom-filler') 
+  </div>
 
 <!-- modals specific for this page  -->
 @yield('modals')
 
-<!--       <link defer rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
- -->
 <!-- javascripts specific for this page  -->
 <script defer type='text/javascript' src="{{ mix('/js/app.js') }}"></script>
 

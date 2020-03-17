@@ -94,7 +94,13 @@
   td:nth-child(1) {
     line-height: 3em;
   }
+  td:nth-child(2) {
+	width: 18rem;
+	overflow: hidden;
+  }
 }
+
+
 
 .voucher-table {
   width: 100%;
