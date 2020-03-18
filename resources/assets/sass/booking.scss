@@ -89,16 +89,20 @@
 }
 
 .availability-table {
-  width: 20rem;
-  text-align: left;
-  td:nth-child(1) {
-    line-height: 3em;
-  }
-  td:nth-child(2) {
-	width: 18rem;
-	overflow: hidden;
-  }
+	width: 100%;
 }
+
+// .availability-table {
+//   width: 20rem;
+//   text-align: left;
+//   td:nth-child(1) {
+//     line-height: 3em;
+//   }
+//   td:nth-child(2) {
+// 	width: 18rem;
+// 	// overflow: hidden;
+//   }
+// }
 
 
 

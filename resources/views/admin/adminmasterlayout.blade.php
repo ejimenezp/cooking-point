@@ -10,20 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/images/favicon-admin.ico">
 		<link rel="canonical" href="{{ url()->current() }}">
-		<link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
-		<style type="text/css">
-		  ul {
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			  }
-		  	body {
-		  		font-family: Helvetica, Arial, sans-serif ;
-    			font-size: 16px !important;
-  			}
-	  	</style>  
-		@yield('js')
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link defer href="{{ mix('/css/admin.css') }}" rel="stylesheet" type="text/css">     
 	</head>
 	
   <body>
@@ -97,7 +84,8 @@
 <!-- modals specific for this page  -->
 @yield('modals')
 
-
+<!-- javascripts specific for this page  -->
+@yield('js')
 
 </body>
 

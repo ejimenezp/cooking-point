@@ -34,7 +34,7 @@
 
 			<p>Select number of guests and class to check availability</p>
 			<div class="row justify-content-center">
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<form id="booking_form_1">
 					<input type="hidden" name="source_id" value="2">
 					@if (isset($bkg))
@@ -141,7 +141,7 @@
 					</table>
 					</form>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<div class="online" id="bookingdatepicker"></div>
 				</div>
 			</div>
@@ -244,7 +244,7 @@
 							<table class="availability-table">
 								<tbody>
 									<tr>
-										<td class="font-weight-bold availability-row">
+										<td class="font-weight-bold">
 											Name <span class="text-danger">*</span> :
 										</td>
 										<td>
@@ -252,7 +252,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="font-weight-bold availability-row">
+										<td class="font-weight-bold">
 											E-mail <span class="text-danger">*</span> :
 										</td>
 										<td>
@@ -260,7 +260,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="font-weight-bold availability-row">
+										<td class="font-weight-bold">
 											Phone:
 										</td>
 										<td>

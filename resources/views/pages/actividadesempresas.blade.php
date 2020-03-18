@@ -3,6 +3,17 @@
 @section('title', 'Team Building de Cocina en Madrid')
 @section('description', 'Organizamos team-building de cocina para empresas y cooking parties para grupos privados. Estamos en el centro de Madrid.')
 
+@section('banner')
+<div class="section-banner">
+	<div class="d-block d-md-none">
+		<img class="img-fluid lazyload" data-src="/images/eventos-banner-sm.jpg" alt="hen do at cooking point" >		
+	</div>
+	<div class="d-none d-md-block">
+		<img class="img-fluid lazyload" data-src="/images/eventos-banner.jpg" alt="hen do at cooking point" >		
+	</div>	
+</div>
+@stop
+
 @section('content')
 
 <h1>Actividades para empresas</h1>

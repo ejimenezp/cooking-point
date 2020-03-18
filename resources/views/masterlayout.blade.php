@@ -184,6 +184,8 @@
     <!-- only for pages paella & tapas, with a "Pay Now" button -->
     @yield('bottom-filler') 
   </div>
+  
+</div>
 
 <!-- modals specific for this page  -->
 @yield('modals')
