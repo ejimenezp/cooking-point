@@ -1,6 +1,7 @@
 window.$ = window.jQuery = require('jquery')
 require('jquery-ui/ui/widgets/datepicker')
-require('./bootstrap');
+require('bootstrap');
+
 
 var moment = require('moment')
 

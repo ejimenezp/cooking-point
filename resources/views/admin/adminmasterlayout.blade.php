@@ -10,81 +10,99 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/images/favicon-admin.ico">
 		<link rel="canonical" href="{{ url()->current() }}">
-		<link defer href="{{ mix('/css/admin.css') }}" rel="stylesheet" type="text/css">     
+
+		<link defer href="{{ mix('/css/admin/admin.css') }}" rel="stylesheet" type="text/css">     
 	</head>
 	
   <body>
 
 
-	<div class="container-fluid">
-		<div class="d-block d-lg-none">
-		  <nav class="navbar">
-		    <a class="header2" data-toggle="collapse" data-target="#navbar" href="#">
-              Menu <i class="fa fa-bars" aria-hidden="true"></i>
-            </a>
-            <span class="pull-right"><button id="toggle_datepicker" class="btn btn-sm btn-light">Calendario</button></span>
-	    	<div id="navbar" class="collapse navbar-collapse">
-	          	<ul class="nav navbar-nav">
-		            <li>
-		              <a href="/admin">Admin</a>
-		            </li>
-		            <li>
-		              <a href="/admin/report">Reports</a>
-		            </li>
-					@if (app('request')->input('user_role') >= 3)
-		            <li>
-		              <a href="/admin/blogtool">Blog</a>
-		            </li>
-		            @endif
-		            <li>
-		              <a href="/admin/cashbox">Caja</a>
-		            </li>
-		            <li>
-		              <a href="/admin/logout">Salir</a>
-		            </li>
-          		</ul>
-          	</div>
-          </nav>
-        </div>
-
-		<div class="d-none d-lg-block">
-		  	<nav class="navbar">
-	          	<ul class="nav">
-		            <li class="nav-item"> 
-		              <a class="nav-link" href="/admin">Admin</a>
-		            </li>
-		            <li class="nav-item">
-		              <a class="nav-link" href="/admin/report">Reports</a>
-		            </li>
-					@if (app('request')->input('user_role') >= 3)
-		            <li class="nav-item">
-		              <a class="nav-link" href="/admin/blogtool">Blog</a>
-		            </li>
-		            @endif
-		            <li class="nav-item">
-		              <a class="nav-link" href="/admin/cashbox">Caja</a>
-		            </li>
-		            <li class="nav-item">
-		              <a class="nav-link" href="/admin/logout">Salir</a>
-		            </li>
-           		</ul>
-			</nav>
-	    </div>
-
-		<div class="divider"></div>
-
-<!-- main area -->
-		@yield('content')	
-
-		<br/>
-		<br/>
-
+<div class="d-block d-md-none">
+ 	<div class="cp-smartphone-navbar clearfix">
+		<div class=" float-left">
+			<a class='menu-strips' href='javascript:void(0);' ><img src="/images/icons/menu-strips.png" /></a>        
+		</div>
+	     <div id="dropdown-content">
+			<ul>
+	            <li>
+	              <a href="/admin/bookings">Bookings</a>
+	            </li>
+				@if (app('request')->input('user_role') >= 3)
+	            <li>
+	              <a href="/admin/report">Reports</a>
+	            </li>
+	            <li>
+	              <a href="/admin/tienda">Tienda</a>
+	            </li>
+	            <li>
+	              <a href="/admin/cashbox">Caja</a>
+	            </li>
+	            @endif
+				@if (app('request')->input('user_role') >= 3)
+	            <li>
+	              <a href="/admin/blogtool">Blog</a>
+	            </li>
+	            @endif
+	        	<li>
+	              <a href="/admin/logout">Salir</a>
+	            </li>
+	        </ul>        
+	     </div>           
 	</div>
+	<div class="navbar-offset"></div>
+</div>
+
+<!-- ipad landscape & desktop -->
+
+<div class="d-none d-md-block">
+  	<div class="cp-navbar">
+		<div class="menu clearfix">
+			<ul>
+	            <li>
+	              <a href="/admin/bookings">Bookings</a>
+	            </li>
+				@if (app('request')->input('user_role') >= 3)
+	            <li>
+	              <a href="/admin/report">Reports</a>
+	            </li>
+	            <li>
+	              <a href="/admin/tienda">Tienda</a>
+	            </li>
+	            <li>
+	              <a href="/admin/cashbox">Caja</a>
+	            </li>
+	            @endif
+				@if (app('request')->input('user_role') >= 3)
+	            <li>
+	              <a href="/admin/blogtool">Blog</a>
+	            </li>
+	            @endif
+	        	<li>
+	              <a href="/admin/logout">Salir</a>
+	            </li>
+	        </ul>        
+		</div>           
+  	</div>
+</div>
+
+
+
+<div class="container-fluid">
+
+	<div class="divider"></div>
+	<div class="row justify-content-center">
+		<div class="col-md-11 col-lg-10">
+			@yield('content')                  
+		</div>  
+	</div>
+</div>
 
 <!-- modals specific for this page  -->
+@include('admin.modals')
 @yield('modals')
 
 <!-- javascripts specific for this page  -->
+<script defer type='text/javascript' src="{{ mix('/js/admin/admin.js') }}"></script>
 @yield('js')
 
 </body>

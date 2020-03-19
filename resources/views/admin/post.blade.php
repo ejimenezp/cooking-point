@@ -153,7 +153,7 @@
 @stop
 
 @section('js')
-<script async src="/js/adminblogtool.js"></script>
+<script async src="/js/admin/blogtool.js"></script>
 @stop
 
 @stop

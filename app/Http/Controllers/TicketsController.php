@@ -15,7 +15,7 @@ class TicketsController extends Controller
     public function front()
     {
     	$articulos = TiendaArticulo::where('visible', true)->orderBy('display_order')->get();
-    	return view('tienda.frontend')->with('articulos', $articulos);
+    	return view('admin.tienda.frontend')->with('articulos', $articulos);
     }
 
     public function getTickets (Request $request)
@@ -26,7 +26,7 @@ class TicketsController extends Controller
     public function deleteticket (Request $request)
     {
     	TiendaVentas::where('id', $request->id)->update(['anulado' => true]);
-    	return view('tienda.sales')->with('date', $request->date);
+    	return view('admin.tienda.sales')->with('date', $request->date);
     }
 
     public function addticket (Request $request)

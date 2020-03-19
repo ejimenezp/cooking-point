@@ -55,30 +55,25 @@ Route::post('/admin/checklogin', 'AuthController@checklogin');
 Route::get('/admin/logout', 'AuthController@logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
-    Route::get('', function() { return view('admin.index'); });
-    Route::get('calendarevent', function() { return view('admin.index'); });
-    Route::get('booking', function() { return view('admin.index'); });
+    Route::get('', function() {     return redirect('admin/bookings'); });
+    Route::get('bookings', function() { return view('admin.bookings'); });
+    Route::get('bookings/calendarevent', function() { return view('admin.bookings'); });
+    Route::get('bookings/booking', function() { return view('admin.bookings'); });
+    Route::post('report/{id}', 'ReportController@report');
     Route::get('blogtool', function() { return view('admin.postindex'); });
     Route::get('blogtool/{id}', function($id) { return view('admin.post',['id' => $id]); });
     Route::get('blogtool/preview/{id}', 'BlogtoolController@preview' );
     Route::get('report', function() { return view('admin.reportindex'); });
-    Route::get('cashbox', function() { return view('cashbox.index'); });
-    Route::get('cashbox/{id}', function($id) { return view('cashbox.sesion',['id' => $id]); });
-    Route::post('report/{id}', 'ReportController@report');
+    Route::get('cashbox', function() { return view('admin.cashbox.index'); });
+    Route::get('cashbox/{id}', function($id) { return view('admin.cashbox.sesion',['id' => $id]); });
+    Route::get('tienda', 'TicketsController@front');
+    Route::get('tienda/tickets', function() { return view('admin.tienda.sales'); });
+    Route::post('tienda/addticket', 'TicketsController@addticket');
+    Route::get('tienda/deleteticket', 'TicketsController@deleteticket');
     Route::get('classemails', function() { return view('admin.classemails'); });
     Route::get('fileuploader', function() { return view('admin.fileuploader'); });
 });
 
-
-//
-// TIENDA
-//
-Route::group(['prefix' => 'tienda', 'middleware' => 'cp-auth'], function () {
-	Route::get('', 'TicketsController@front');
-	Route::get('tickets', function() { return view('tienda.sales'); });
-	Route::post('addticket', 'TicketsController@addticket');
-	Route::get('deleteticket', 'TicketsController@deleteticket');
-});
 
 
 /*

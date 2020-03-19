@@ -1,19 +1,10 @@
-require('./bootstrap');
-// require('jquery-serializejson')
+require('../bootstrap');
+
 require('@nobleclem/jquery-multiselect')
 
 var moment = require('moment')
 require('moment/locale/es')
 
-//
-// token protection
-//
-
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
 
 function refresh_uploaded_images(postid) {
 	$.get('/api/blogtool/getimages/' + postid, function (uploaded) {

@@ -50,6 +50,6 @@
 @stop --}}
 
 @section('js')
-	<script async src="/js/report.js"></script>
+	<script async src="/js/admin/report.js"></script>
 @stop
 

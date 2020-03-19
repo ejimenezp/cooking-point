@@ -27,7 +27,7 @@
 				    	<tr>
 				    		<th>Hora</th>
 				    		<th>Tipo</th>
-				    		<th>Cocinero/a</th>
+				    		<th>Chef</th>
 				    		<th>Pax</th>
 				    		<th></th>
 			    		</tr>
@@ -197,7 +197,7 @@
 				    		<th>Nombre</th>
 				    		<th>Status</th>
 				    		<th>Alergias</th>
-				    		<th>Comentarios</th>
+				    		<th>Coment.</th>
 			    		</tr>
 					</thead>
 				    <tbody>
@@ -426,18 +426,16 @@
 					<button id="button_booking_emailit" class="btn btn-primary">Enviar email</button>
 				</form>
 			</div>
-@endif			
+	@endif			
 		</div>
 	</div>
 
 
 </div>
 
-@section('modals')
-	@include('admin.modals')
 @stop
 
+
 @section('js')
-<script async src="/js/admin.js"></script>
-@stop
+<script defer type='text/javascript' src="/js/admin/bookings.js"></script>
 @stop

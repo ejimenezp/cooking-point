@@ -63,7 +63,7 @@ function refreshTicketTable(date) {
             '</td><td>' + 
             ticket_list[j].more +
             '</td><td>' + 
-                '<form role="form" action="/tienda/deleteticket"> \
+                '<form role="form" action="/admin/tienda/deleteticket"> \
                     <input type="hidden" name="date" value="'+ date + '"> \
                     <input type="hidden" name="id" value="'+ ticket_list[j].id + '"> \
                     <button type="submiy" class="btn btn-primary btn-sm">Delete</button> \
@@ -76,12 +76,7 @@ function refreshTicketTable(date) {
 
 $( document ).ready(function() {
 
-	$.ajaxSetup({
-	        headers: {
-	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	        }
-	});
-
+});
 
 
     $( "#admindatepicker" ).datepicker({
@@ -132,7 +127,7 @@ $( document ).ready(function() {
         return false;
     })
 
-    $(".boton-articulo").click(function(){
+    $(".articulo").click(function(){
 
         if (ticket.articulos.length == 10) {
             alert("Máximo 10 artículos por ticket")
@@ -218,7 +213,7 @@ $( document ).ready(function() {
 
 
 
-    $(".boton-pagar").click(function(){
+    $(".pagar").click(function(){
     	if (ticket_pagado) {
     		alert("Este ticket ya está pagado. Limpia o recarga la página")
     	} else if (ticket.total != 0) {
@@ -238,4 +233,3 @@ $( document ).ready(function() {
         }
     });
 
-});

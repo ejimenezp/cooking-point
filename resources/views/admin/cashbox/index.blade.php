@@ -56,9 +56,9 @@
 @stop
 
 @section('modals')
-    @include('cashbox.modals')
+    @include('admin.cashbox.modals')
 @stop
 
 @section('js')
-    <script async src="{{ mix('/js/cashbox.js') }}"></script>
+    <script async src="{{ mix('/js/admin/cashbox.js') }}"></script>
 @stop

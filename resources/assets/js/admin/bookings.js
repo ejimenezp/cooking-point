@@ -1,6 +1,3 @@
-require('./bootstrap');
-// require('jquery-serializejson')
-
 var moment = require('moment') 
 require('moment/locale/es')
 var url = require('url')
@@ -16,21 +13,16 @@ var cook = Array()
 var source = Array()
 var bookings = Array()
 var month_schedule = Array()
-var user_name
+var month_changed = false
+
+var user_name = $('meta[name=user_name]').attr('content');
+var	user_role = $('meta[name=user_role]').attr('content');
+
 var user_role
 
 var stateObj = { foo: "bar" }
 var current_url = window.location.href
 var parts = url.parse(current_url, true)
-
-//
-// token protection
-//
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
 
 //
 // datepicker locale
@@ -207,7 +199,7 @@ function bookingEditShow(i, j) {
 		$("input[name=invoice]").val(bookings[j].invoice)
 		url_action = 'bkg_edit'
 	}
-	updateUrl(parts, '/admin/booking', moment(booking_date), url_action, i, j)
+	updateUrl(parts, '/admin/bookings/booking', moment(booking_date), url_action, i, j)
 	showPrice()
 	showSection('#booking_edit');
 }
@@ -254,7 +246,7 @@ function calendarEventEditShow(month_schedule, date_shown, i) {
 		$("textarea[name=info]").val(month_schedule[i].info)
 		url_action = 'ce_edit'
 	}
-	updateUrl(parts, '/admin/calendarevent', moment($("input[name=date]").val()), url_action, i)
+	updateUrl(parts, '/admin/bookings/calendarevent', moment($("input[name=date]").val()), url_action, i)
 	showSection('#calendarevent_edit');
 }
 
@@ -517,15 +509,6 @@ function validBookingForm()
 jQuery(document).ready(function($) {
 
 
-
-	//
-	// initial load
-	//
-	user_name = $('meta[name=user_name]').attr('content')
-	user_role = $('meta[name=user_role]').attr('content')
-	var month_changed = false
-
-
 	//
 	// load cook list
 	//
@@ -591,14 +574,18 @@ jQuery(document).ready(function($) {
  	  		if (form_changed) {
  	  			$('#button_calendarevent_close').trigger('click')
  	  		} else {
- 	  			updateUrl(parts, '/admin/calendarevent', new_date, 'ce_index', -1)
+ 	  			updateUrl(parts, '/admin/bookings/calendarevent', new_date, 'ce_index', -1)
 				showSection('#calendarevent_index');
 	 	  	}
  	 	},
  	  	onChangeMonthYear: function(year, month, inst){
  	  		month_changed = true }
 
-	});	
+	});
+
+
+}) // jQuery
+
 
 	//
 	// toggle admindatepicker
@@ -622,7 +609,7 @@ jQuery(document).ready(function($) {
 	var j = parts.query.j
 
 	switch (parts.pathname) {
-		case '/admin/calendarevent':
+		case '/admin/bookings/calendarevent':
 			switch (parts.query.action) {
 				case 'ce_new':
 					i = -1
@@ -645,7 +632,7 @@ jQuery(document).ready(function($) {
 			}
 			break
 
-		case '/admin/booking':
+		case '/admin/bookings/booking':
 			bookings = getEventBookings(month_schedule[i].id)
 			bookingEditShow(i, j)
 			switch (parts.query.action) {
@@ -710,7 +697,7 @@ jQuery(document).ready(function($) {
 		// $('#classshown').html(clase)
 		bookings = getEventBookings(month_schedule[i].id)
 		populateBookingList(i);
- 	  	updateUrl(parts, '/admin/calendarevent', '', 'bkg_index', i)
+ 	  	updateUrl(parts, '/admin/bookings/calendarevent', '', 'bkg_index', i)
 		showSection('#booking_index');
 	})
 	
@@ -727,7 +714,7 @@ jQuery(document).ready(function($) {
 				new_date = hoy				
 		}
 		$("#admindatepicker").datepicker("setDate", new_date.toDate())
- 	  	updateUrl(parts, '/admin/calendarevent', new_date, 'ce_index', -1)
+ 	  	updateUrl(parts, '/admin/bookings/calendarevent', new_date, 'ce_index', -1)
   		if (month_changed) {
   			month_schedule = getMonthSchedule(new_date)
   			month_changed = false 
@@ -756,7 +743,7 @@ jQuery(document).ready(function($) {
 				}
 				new_date = moment(month_schedule[i].date) 
 				$("#admindatepicker").datepicker("setDate", new_date.toDate())
-		 	  	updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i)
+		 	  	updateUrl(parts, '/admin/bookings/calendarevent', new_date, 'bkg_index', i)
 				month_changed = false
 				date_shown = new_date
 				break;
@@ -769,7 +756,7 @@ jQuery(document).ready(function($) {
 				}
 				new_date = moment(month_schedule[i].date) 
 				$("#admindatepicker").datepicker("setDate", new_date.toDate())
-		 	  	updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i)
+		 	  	updateUrl(parts, '/admin/bookings/calendarevent', new_date, 'bkg_index', i)
 				month_changed = false
 				date_shown = new_date
 				break;
@@ -777,7 +764,7 @@ jQuery(document).ready(function($) {
 				hoy = moment()
 				new_date = hoy
 				$("#admindatepicker").datepicker("setDate", new_date.toDate())
-		 	  	updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i)
+		 	  	updateUrl(parts, '/admin/bookings/calendarevent', new_date, 'bkg_index', i)
 		  		if (month_changed) {
 		  			month_schedule = getMonthSchedule(new_date)
 		  			month_changed = false 
@@ -794,7 +781,7 @@ jQuery(document).ready(function($) {
 		  		}
 				new_date = moment(month_schedule[i].date) 
 				$("#admindatepicker").datepicker("setDate", new_date.toDate())
-		 	  	updateUrl(parts, '/admin/calendarevent', new_date, 'bkg_index', i)
+		 	  	updateUrl(parts, '/admin/bookings/calendarevent', new_date, 'bkg_index', i)
 		  		if (month_changed) {
 		  			month_schedule = getMonthSchedule(new_date)
 		  			month_changed = false 
@@ -830,7 +817,7 @@ jQuery(document).ready(function($) {
 		}
 		else
 		{
-		 	updateUrl(parts, '/admin/calendarevent', date_shown, 'ce_index')
+		 	updateUrl(parts, '/admin/bookings/calendarevent', date_shown, 'ce_index')
 			showSection('#calendarevent_index');
 		}
 	})
@@ -840,7 +827,7 @@ jQuery(document).ready(function($) {
 	//
 	$("#modal_button_calendarevent_close, #modal_button_calendarevent_ok").click(function() {
 		form_changed = false
-		updateUrl(parts, '/admin/calendarevent', date_shown, 'ce_index')
+		updateUrl(parts, '/admin/bookings/calendarevent', date_shown, 'ce_index')
 		showSection('#calendarevent_index');
 		$('#modal_calendarevent_close').modal('hide')
 		$('#modal_calendarevent').modal('hide')
@@ -999,7 +986,7 @@ jQuery(document).ready(function($) {
 		}
 		else
 		{
-			updateUrl(parts, '/admin/calendarevent', date_shown, 'bkg_index', parts.query.i)
+			updateUrl(parts, '/admin/bookings/calendarevent', date_shown, 'bkg_index', parts.query.i)
 			showSection('#booking_index');
 		}
 	})
@@ -1009,7 +996,7 @@ jQuery(document).ready(function($) {
 	//
 	$("#modal_button_booking_close").click(function() {
 		form_changed = false
-		updateUrl(parts, '/admin/calendarevent', date_shown, 'bkg_index', parts.query.i)
+		updateUrl(parts, '/admin/bookings/calendarevent', date_shown, 'bkg_index', parts.query.i)
 		showSection('#booking_index');
 		$('#modal_booking_close').modal('hide')
 		$('#modal_admin').modal('hide')
@@ -1053,7 +1040,7 @@ jQuery(document).ready(function($) {
 						break
 				}
 				$("#admindatepicker").datepicker("setDate", month_schedule[i].date);
-				updateUrl(parts, '/admin/calendarevent', moment(month_schedule[i].date), 'bkg_index', i);
+				updateUrl(parts, '/admin/bookings/calendarevent', moment(month_schedule[i].date), 'bkg_index', i);
 			    populateBookingList(i);
 			    form_changed = false;
 			    showSection("#booking_index");
@@ -1134,6 +1121,4 @@ jQuery(document).ready(function($) {
 		$("input[name=calendarevent_id]").val($(this).val())
 	})
 
-
-}) // jQuery
 

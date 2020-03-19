@@ -424,11 +424,11 @@
 </div>
 
 @section('modals')
-	@include('cashbox.modals')
+	@include('admin.cashbox.modals')
 @stop
 
 @section('js')
-<script async src="/js/cashbox.js"></script>
+<script async src="/js/admin/cashbox.js"></script>
 @stop
 
 @stop

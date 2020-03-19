@@ -1,4 +1,4 @@
-require('./bootstrap');
+require('bootstrap');
 // require('jquery-serializejson')
 require('@nobleclem/jquery-multiselect')
 
