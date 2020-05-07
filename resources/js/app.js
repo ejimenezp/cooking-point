@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -39,18 +38,15 @@ document.documentElement.setAttribute('data-browser', navigator.userAgent)
 
 $(document).ready(function () {
 
-  // var page = $("meta[name=page]").attr("content")
-  // var caption = $("meta[name=page]").attr("caption")
-
-  // // if (page !=='') {
-  // // 	if (/iPhone/i.test(navigator.userAgent) || $(window).width() <= 768) {
-  // if (true) {
-  // 	if ($(window).width() <= 768) {
-  // 		$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/'+page+'-banner-sm.jpg" alt="'+caption+'" >');
-  // 	} else {
-  // 		$("#section-banner").append('<img class="lazyload img-fluid" data-src="/images/'+page+'-banner.jpg" alt="'+caption+'" >');
-  // 	}
-  // }
+  $(document).click(function (event) {
+    const target = event.target.closest('.menu-strips')
+    if (target !== null) {
+      document.getElementById('dropdown-content').classList.toggle('dropdown-content-slide-in')
+    } else if ($('#dropdown-content').hasClass("dropdown-content-slide-in")) {
+      document.getElementById('dropdown-content').classList.toggle('dropdown-content-slide-in')
+      // $('.menu-strips').click()
+    }
+  })
 
 }) // end jQuery
 
@@ -61,10 +57,9 @@ $('.all-clickable').click(function () {
 })
 
 // to display pulldown menus on smartphones
-$('.menu-strips').click(function () {
-  // document.getElementById('dropdown-content').classList.toggle('dropdown-content-slide-out')
-  document.getElementById('dropdown-content').classList.toggle('dropdown-content-slide-in')
-})
+// $('.menu-strips').click(function (e) {
+//   document.getElementById('dropdown-content').classList.toggle('dropdown-content-slide-in')
+// })
 
 // to highlight selected menubar option
 $('.cp-navbar li a[href="' + window.location.pathname + '"]').addClass('active')
@@ -75,6 +70,8 @@ $('#dropdown-content li').focusin(function () {
   $('#dropdown-content .active').removeClass('active')
   $(this).addClass('active')
 })
+
+
 
 //
 // private-events' page call to action
