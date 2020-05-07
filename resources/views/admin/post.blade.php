@@ -8,7 +8,7 @@
 <div id="post-edit-page" postid="{{ $id }}" class="admin row justify-content-center">
 
 	<div class="col-md-10">
-			<h1 class="header1">Edit Post ({{ $id }})</h1>
+			<h1>Edit Post ({{ $id }})</h1>
 
 			<div class="row">		
 				<div class="col-md-6">
@@ -135,7 +135,7 @@
 				</div>				
 			</div>
 			<div class="row justify-content-center">
-				<button onclick='location.href="/admin/blogtool"' class="btn btn-default">Back</button>
+				<button onclick='location.href="/admin/blogtool"' class="btn btn-secondary">Back</button>
 				&nbsp;&nbsp;&nbsp;
 				<button onclick='window.open("/admin/blogtool/preview/{{ $id }}")' class="btn btn-primary">Preview</button>
 				&nbsp;&nbsp;&nbsp;
@@ -143,7 +143,7 @@
 				&nbsp;&nbsp;&nbsp;
 				<button id="button_post_publish" class="btn btn-primary">Publish</button>
 				&nbsp;&nbsp;&nbsp;
-				<button id="button_post_delete" class="btn btn-primary">Delete</button>
+				<button id="button_post_delete" class="btn btn-secondary">Delete</button>
 			</div>
 	</div>	
 </div>
@@ -153,7 +153,7 @@
 @stop
 
 @section('js')
-<script async src="/js/adminblogtool.js"></script>
+<script async src="/js/admin/blogtool.js"></script>
 @stop
 
 @stop

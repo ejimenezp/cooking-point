@@ -30,7 +30,7 @@
 				<form id="classemails_form" method='post'>
 					{{ csrf_field() }}
 
-					<h1 class="header1"><div class="dateshown"></div></h1>
+					<h1><div class="dateshown"></div></h1>
 					<h4><div class="classshown"></div></h4>
 					<p>
 						Dear guest,<br/>

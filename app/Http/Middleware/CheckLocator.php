@@ -16,7 +16,7 @@ class CheckLocator
      */
     public function handle($request, Closure $next)
     {
-        // Log::info('isset($request->locator) es '. isset($request->locator));
+        // Log::info('pasa por chjecklocator handle isset($request->locator) es '. isset($request->locator));
         if ($request->hasCookie('cplocator') && !isset($request->locator)) {
             // Log::debug('middleware detecto el locator '. $request->cookie('cplocator'));            
             $request->merge(['locator'=> $request->cookie('cplocator')]);

@@ -6,13 +6,13 @@
 
 <div class="row justify-content-center">
 	<div class="col col-lg-10">
-		<h1 class="header1">{{ $title }}</h1>
+		<h1>{{ $title }}</h1>
 		<form id="csv_form" method="post" action="{{ app('request')->input('id') }}">
 			{{ csrf_field() }}
 			<input type="hidden" name="start_date" value="{{ app('request')->input('start_date') }}" >
 			<input type="hidden" name="end_date" value="{{ app('request')->input('end_date') }}" >
 			<input type="hidden" name="output" value="csv" >
-		    <button class="ir btn btn-light" href="javascript:history.back()">Atrás</button>
+		    <button class="ir btn btn-secondary" href="javascript:history.back()">Atrás</button>
 		    <button type="submit" class='btn btn-primary'>Descargar</button>
 
 			<table class='table'>
@@ -37,7 +37,7 @@
 				</tbody>
 			</table>
 			
-		    <button class="ir btn btn-light" href="javascript:history.back()">Atrás</button>
+		    <button class="ir btn btn-secondary" href="javascript:history.back()">Atrás</button>
 		    <button type="submit" class='btn btn-primary'>Descargar</button>
 		</form>
 	</div>
@@ -50,6 +50,6 @@
 @stop --}}
 
 @section('js')
-	<script async src="/js/report.js"></script>
+	<script async src="/js/admin/report.js"></script>
 @stop
 

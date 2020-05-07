@@ -12,22 +12,27 @@
 */
 
 //
+// react
+//
+
+
+//
 // JSON BACK-END
 //
-Route::post('calendarevent/getavailability', 'CalendareventControllerApi@getAvailability');
-Route::post('calendarevent/getschedule', 'CalendareventControllerApi@getSchedule');
-Route::post('calendarevent/add', 'CalendareventControllerApi@add');
-Route::post('calendarevent/update', 'CalendareventControllerApi@update');
-Route::get('calendarevent/find/{id}', 'CalendareventControllerApi@find');
-Route::get('calendarevent/delete/{id}', 'CalendareventControllerApi@delete');
+Route::post('calendarevent/add', 'CalendareventController@add');
+Route::get('calendarevent/get/{id}', 'CalendareventController@get');
+Route::post('calendarevent/update', 'CalendareventController@update');
+Route::get('calendarevent/delete/{id}', 'CalendareventController@delete');
+Route::get('calendarevent/getavailability', 'CalendareventController@getAvailability');
+Route::post('calendarevent/getschedule', 'CalendareventController@getSchedule');
 
-Route::get('booking/index/{ce_id}', 'BookingControllerApi@index');
-Route::post('booking/add', 'BookingControllerApi@add');
-Route::post('booking/update', 'BookingControllerApi@update');
-Route::get('booking/delete/{id}', 'BookingControllerApi@delete');
-Route::post('booking/findByLocator', 'BookingControllerApi@findByLocator');
-Route::post('booking/emailIt', 'BookingControllerApi@emailIt');
-Route::post('booking/cancelIt', 'BookingControllerApi@cancelIt');
+Route::post('booking/add', 'BookingController@add');
+Route::get('booking/index/{ce_id}', 'BookingController@index');
+Route::post('booking/update', 'BookingController@update');
+Route::get('booking/delete/{id}', 'BookingController@delete');
+Route::post('booking/cancelIt', 'BookingController@cancelIt');
+Route::post('booking/emailIt', 'BookingController@emailIt');
+Route::post('booking/findByLocator', 'BookingController@findByLocator');
 
 Route::get('blogtool/index', 'BlogtoolController@indexforadmin');
 Route::post('blogtool/savedisplayposition', 'BlogtoolController@savedisplayposition');
@@ -46,6 +51,7 @@ Route::get('staff/get', 'StaffController@getCooks');
 Route::get('source/get', 'SourceController@get');
 
 Route::get('tienda/getTickets', 'TicketsController@getTickets');
+Route::post('tienda/addticket', 'TicketsController@addticket');
 
 Route::post('viator', 'ViatorController@main');
 

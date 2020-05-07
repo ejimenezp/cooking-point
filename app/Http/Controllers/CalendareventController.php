@@ -61,23 +61,23 @@ class CalendareventController extends Controller
     	}
 
     	$ce->save();
-    	return 'ok';    
+    	return $ce;    
 	}
 
     function delete($id)
     {
         $ce = Calendarevent::find($id);
         if (!$ce) {
-            return 'fail';
+            return response()->json(['msg' => 'Not Found'], 404);
         } elseif ($ce->bookings()->count() > 0) {
-            return 'fail';
+            return response()->json(['msg' => 'Este evento tiene reservas'], 403);
         } else {
             $ce->delete();   
-            return 'ok';
+            return;
         }
     }
 
-    function find ($id)
+    function get ($id)
     {
         return Calendarevent::find($id);
     }
@@ -104,30 +104,44 @@ class CalendareventController extends Controller
             $ce->capacity = $request->capacity;
             $ce->info = (empty($request->info)) ? '' : $request->info;
             $ce->save();
-            return 'ok';
+            return $ce;
         }
     }
 
-	static function getIntervalSchedule($start_date, $end_date, $bookable_only = 0)
-	{
-		// devuelve colección de CE
-        
-        // $ofuscate = base64_encode(Calendarevent::whereDate('date', '>=', $start_date)
-        //                     ->whereDate('date', '<=', $end_date)
-        //                     ->where('capacity', '>=', $bookable_only)
-        //                     ->orderBy('date', 'ASC')
-        //                     ->orderBy('time', 'ASC')->get());
-        // return str_replace("5", "x06", $ofuscate);
 
-        return Calendarevent::whereDate('date', '>=', $start_date)
-                            ->whereDate('date', '<=', $end_date)
-                            ->where('capacity', '>=', $bookable_only)
+    function getSchedule(Request $request)
+    {
+        return response()->json(Calendarevent::whereDate('date', '>=', $request->start)
+                            ->whereDate('date', '<=', $request->end)
+                            ->orderBy('date', 'ASC')
+                            ->orderBy('time', 'ASC')->get());
+    }
+
+
+    function getAvailability(Request $request)
+    {
+        $ces = Calendarevent::whereDate('date', '>=', $request->start)
+                            ->whereDate('date', '<=', $request->end)
+                            ->whereIn('type', ['PAELLA', 'TAPAS'])
                             ->orderBy('date', 'ASC')
                             ->orderBy('time', 'ASC')->get();
- 
 
-	}
+        $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'duration', 'capacity', 'registered']);
 
+        $ofuscate = base64_encode($subset);
+        return str_replace("5", "x06", $ofuscate);
+        // return $subset;
+    }
+
+
+    static function getIntervalSchedule($start_date, $end_date, $bookable_only = 0)
+    {
+        // devuelve colección de CE
+        
+        return Calendarevent::whereDate('date', '>=', $start_date)
+                            ->whereDate('date', '<=', $end_date)
+                            ->where('capacity', '>=', $bookable_only);
+    }
 
     function importStaffing (Request $request)
     {
