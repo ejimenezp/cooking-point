@@ -32,8 +32,11 @@ function CustomerDetailsPage (props) {
     setShowModal(false)
     if (!localbkg.name) { modal.body += 'Enter a name<br/>' }
     if (!localbkg.email) { modal.body += 'Enter an e-mail <br/>' }
-    const filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
+    let filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
     if (localbkg.email && !filter.test(localbkg.email)) { modal.body += 'Enter a valid e-mail <br/>' }
+
+    filter = /^[0-9 \(\)\-\+]+$/
+    if (localbkg.phone && !filter.test(localbkg.phone)) { modal.body += 'Enter a valid phone number <br/>' }
 
     if (modal.body !== '') {
       setModalContent(modal)
