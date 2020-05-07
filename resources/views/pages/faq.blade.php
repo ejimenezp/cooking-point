@@ -6,7 +6,7 @@
 @section('content')
 
 
-<h1 class="header1">Frequently Asked Questions</h1>
+<h1>Frequently Asked Questions</h1>
 
 <dl>
 	<dt><strong>I have some dietary requirements, can I book?</strong></dt>

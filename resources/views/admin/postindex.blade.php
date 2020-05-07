@@ -8,8 +8,8 @@
 <div id="post-index-page" class="admin row justify-content-center">
 	<div class="col-md-10">
 
-		<h1 class="header1">Posts</h1>
-		<p><button class="btn btn-light btn-sm"id="button_post_index_toggle">View: all</button><button class="btn btn-primary btn-sm " style="display:none;" id="button_post_index_save" class="d-none">Save Order</button></p>
+		<h1>Posts</h1>
+		<p><button class="btn btn-secondary btn-sm"id="button_post_index_toggle">View: all</button><button class="btn btn-primary btn-sm " style="display:none;" id="button_post_index_save" class="d-none">Save Order</button></p>
 		<table class="table table-sm table-hover" id="blogposts_table" data-toggle="ALL">
 			<thead>
 				<tr>
@@ -33,6 +33,7 @@
 @stop
 
 @section('js')
-	<script async src="/js/adminblogtool.js"></script>
+	<script defer src="https://kit.fontawesome.com/1deb9890f0.js" crossorigin="anonymous"></script>
+	<script defer src="/js/admin/blogtool.js"></script>
 @stop
 @stop

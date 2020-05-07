@@ -15,21 +15,29 @@
 // Cooking Point
 //
 
+
+
+//
+// react
+//
+Route::get('/booking/forget', 'BookingController@forget');
+Route::get('/booking/new/availability', 'BookingController@get')->middleware('cp-locator');
+Route::get('/booking/{locator?}/{more?}', 'BookingController@get')->middleware('cp-locator');
+
 //
 // FRONT-END
 //
 Route::get('/', 'CalendareventControllerOnline@home');
-
-Route::get('/bookings/{hash?}', 'BookingControllerOnline@legacyget');
-Route::get('/booking/forget', 'BookingControllerOnline@forget');
-Route::get('/booking/{locator?}/{tpv_result?}', 'BookingControllerOnline@get')->middleware('cp-locator');
 Route::get('/classes-paella-cooking-madrid-spain', 'CalendareventControllerOnline@paella');
 Route::get('/classes-spanish-tapas-madrid-spain', 'CalendareventControllerOnline@tapas');
+
 Route::get('/location', function () { return view('pages.location'); });
 Route::get('/faq', function () { return view('pages.faq'); });
 Route::get('/gallery', function () { return view('pages.gallery'); });
-Route::get('/pay/{id}', 'TPVController@pay')->name('pay');
-Route::post('/callback', 'TPVController@callback');
+Route::get('/pay/{id}', env('APP_ENV') == 'production' ? 'TPVController@pay' : 'TPVControllerStub@pay')->name('pay');
+Route::post('/callback', env('APP_ENV') == 'production' ? 'TPVController@callback' : 'TPVControllerStub@callback');
+Route::post('/tpv-stub-main', env('APP_ENV') == 'production' ? '55555' : 'TPVStub@main');
+Route::post('/tpv-stub-reply', env('APP_ENV') == 'production' ? '55555' : 'TPVStub@reply');
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
 Route::get('/actividades-team-building-empresas-madrid', function () { return view('pages.actividadesempresas'); });
 Route::get('/oferta-para-agencias', function () { return view('pages.agencias'); });
@@ -55,30 +63,24 @@ Route::post('/admin/checklogin', 'AuthController@checklogin');
 Route::get('/admin/logout', 'AuthController@logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
-    Route::get('', function() { return view('admin.index'); });
-    Route::get('calendarevent', function() { return view('admin.index'); });
-    Route::get('booking', function() { return view('admin.index'); });
+    Route::get('', function() {     return redirect('admin/bookings'); });
+    Route::get('bookings', function() { return view('admin.bookings'); });
+    Route::get('bookings/calendarevent', function() { return view('admin.bookings'); });
+    Route::get('bookings/booking', function() { return view('admin.bookings'); });
+    Route::post('report/{id}', 'ReportController@report');
     Route::get('blogtool', function() { return view('admin.postindex'); });
     Route::get('blogtool/{id}', function($id) { return view('admin.post',['id' => $id]); });
     Route::get('blogtool/preview/{id}', 'BlogtoolController@preview' );
     Route::get('report', function() { return view('admin.reportindex'); });
-    Route::get('cashbox', function() { return view('cashbox.index'); });
-    Route::get('cashbox/{id}', function($id) { return view('cashbox.sesion',['id' => $id]); });
-    Route::post('report/{id}', 'ReportController@report');
+    Route::get('cashbox', function() { return view('admin.cashbox.index'); });
+    Route::get('cashbox/{id}', function($id) { return view('admin.cashbox.sesion',['id' => $id]); });
+    Route::get('tienda', 'TicketsController@front');
+    Route::get('tienda/tickets', function() { return view('admin.tienda.sales'); });
+    Route::get('tienda/deleteticket', 'TicketsController@deleteticket');
     Route::get('classemails', function() { return view('admin.classemails'); });
     Route::get('fileuploader', function() { return view('admin.fileuploader'); });
 });
 
-
-//
-// TIENDA
-//
-Route::group(['prefix' => 'tienda', 'middleware' => 'cp-auth'], function () {
-	Route::get('', 'TicketsController@front');
-	Route::get('tickets', function() { return view('tienda.sales'); });
-	Route::post('addticket', 'TicketsController@addticket');
-	Route::get('deleteticket', 'TicketsController@deleteticket');
-});
 
 
 /*

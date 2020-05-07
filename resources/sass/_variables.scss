@@ -1,0 +1,34 @@
+// 01. Settings
+//
+
+// variables
+//== Colors
+//
+$brand-background:		white;
+$brand-primary:         #D34E24; // rojo flame
+$brand-orange:			#EF8401; // cooking point orange
+$brand-red:				#e42e28;
+$brand-grey:			#DFE0DF;
+$brand-light-orange:				#FFD9A2; // cooking point light orange
+$khaki:					#F0E68C;
+$brand-text:			#333232;
+$brand-blue: #016CEF;
+$brand-green: #01EF0D;
+$brand-purple: #EF01E3;
+
+// FADDB9 verde pálido
+// D34E24 rojo para menús
+// 
+// fonts
+//
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,700");
+
+$font-body: 'Segoe UI', Oxygen-Sans, Helvetica, Arial, sans-serif;
+$font-alter: Ubuntu, Tahoma, Helvetica, Arial, sans-serif ;
+
+
+$mobile-font-size: 18px;
+$desktop-font-size: 20px;
+
+$letter-spacing: 0.1em;
+

@@ -8,7 +8,7 @@
 <div id="file-upload-page" class="admin row justify-content-center">
 
 	<div class="col-md-10">
-			<h1 class="header1">File Uploader</h1>
+			<h1>File Uploader</h1>
 
 			<div class="row">		
 				<div class="col-md-6">
@@ -57,7 +57,7 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<button onclick='history.back();' class="btn btn-default">Back</button>
+				<button onclick='history.back();' class="btn btn-secondary">Back</button>
 				&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;
 				<button id="button_import_staffing" class="btn btn-primary">Import</button>

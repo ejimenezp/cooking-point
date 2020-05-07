@@ -1,0 +1,1461 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"res",
+				"responseJSON"
+			],
+			[
+				"col",
+				"col-12"
+			],
+			[
+				"brand",
+				"brand-grey"
+			],
+			[
+				"brad",
+				"brand-text"
+			],
+			[
+				"reac",
+				"react-datepicker__day-names"
+			],
+			[
+				"day",
+				"dayNames"
+			],
+			[
+				"on",
+				"onClickFn"
+			],
+			[
+				"y",
+				"yyyy-MM-dd"
+			],
+			[
+				"Da",
+				"DatePicker"
+			],
+			[
+				"SELEC",
+				"selectedDate"
+			],
+			[
+				"avail",
+				"availableFn"
+			],
+			[
+				"compo",
+				"componentDidCatch"
+			],
+			[
+				"Er",
+				"ErrorBoundary"
+			],
+			[
+				"react",
+				"react-datepicker__day"
+			],
+			[
+				"Vo",
+				"VoucherPrintOut"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"padding",
+				"padding-bottom\tproperty"
+			],
+			[
+				"clas",
+				"classChange"
+			],
+			[
+				"Cancel",
+				"CancelBookingPage"
+			],
+			[
+				"li",
+				"ListButtonsCopy"
+			],
+			[
+				"bol",
+				"bolder\tfont-weight"
+			],
+			[
+				"in",
+				"inline\tdisplay"
+			],
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"is",
+				"isMobile"
+			],
+			[
+				"nav",
+				"NavButtons"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"text",
+				"text-center"
+			],
+			[
+				"setm",
+				"setModalContent"
+			],
+			[
+				"TPV",
+				"TPVControllerStub"
+			],
+			[
+				"Ds",
+				"Ds_MerchantParameters"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"ava",
+				"available"
+			],
+			[
+				"che",
+				"checkoutRequested"
+			],
+			[
+				"Cust",
+				"CustomerDetailsPage"
+			],
+			[
+				"inter",
+				"intervalEnd"
+			],
+			[
+				"pro",
+				"propTypes"
+			],
+			[
+				"lo",
+				"localbkg"
+			],
+			[
+				"parse",
+				"parseISO"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"d",
+				"div"
+			],
+			[
+				"avai",
+				"availability"
+			],
+			[
+				"B",
+				"BookingRoot"
+			],
+			[
+				"p",
+				"propTypes"
+			],
+			[
+				"av",
+				"AvailabilityPage"
+			],
+			[
+				"get",
+				"getAvailability"
+			],
+			[
+				"set",
+				"setExcluded"
+			],
+			[
+				"ButtonCh",
+				"ButtonChangeCustomerDetails"
+			],
+			[
+				"But",
+				"ButtonCheckOut"
+			],
+			[
+				"Customer",
+				"CustomerDetailsEdit"
+			],
+			[
+				"first",
+				"firstAvailable"
+			],
+			[
+				"a",
+				"ACTION_INIT"
+			],
+			[
+				"AC",
+				"ACTION_INIT"
+			],
+			[
+				"c",
+				"col-12"
+			],
+			[
+				"exclude",
+				"excludestr"
+			],
+			[
+				"req",
+				"requiredSeats"
+			],
+			[
+				"clo",
+				"cloned_date"
+			],
+			[
+				"mont",
+				"month_end"
+			],
+			[
+				"handle",
+				"handleNewDate"
+			],
+			[
+				"ned",
+				"needRefresh"
+			],
+			[
+				"use",
+				"useEffect"
+			],
+			[
+				"React",
+				"ReactDatePicker"
+			],
+			[
+				"button",
+				"buttonText"
+			],
+			[
+				"bu",
+				"buttonText"
+			],
+			[
+				"Reac",
+				"REactDatePicker"
+			],
+			[
+				"righ",
+				"rightStyle"
+			],
+			[
+				"cas",
+				"className"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"b",
+				"button"
+			],
+			[
+				"AVa",
+				"AvailabilityPageAcions"
+			],
+			[
+				"fare",
+				"fahrenheit"
+			],
+			[
+				"hand",
+				"handleCelsiusChange"
+			],
+			[
+				"handl",
+				"handleFarenheitChange"
+			],
+			[
+				"ha",
+				"handleCelsiusChange"
+			],
+			[
+				"valores",
+				"valorescomoarray"
+			],
+			[
+				"w",
+				"WarningPage"
+			],
+			[
+				"War",
+				"WarningBanner"
+			],
+			[
+				"step",
+				"stepNumber"
+			],
+			[
+				"he",
+				"header\tTag"
+			],
+			[
+				"rel",
+				"related"
+			],
+			[
+				"best",
+				"bestclasses"
+			],
+			[
+				"inlin",
+				"inline-block\tdisplay"
+			],
+			[
+				"float",
+				"float-right"
+			],
+			[
+				"bran",
+				"brand-primary"
+			],
+			[
+				"sp",
+				"space-between\tjustify-content"
+			],
+			[
+				"flex",
+				"flex-start\tjustify-content"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"pad",
+				"padding-left"
+			],
+			[
+				"bradn",
+				"brand-grey"
+			],
+			[
+				"all",
+				"all-clickable"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"icon",
+				"icon-home"
+			],
+			[
+				"text-a",
+				"text-align\tproperty"
+			],
+			[
+				"backgron",
+				"background-size\tproperty"
+			],
+			[
+				"mari",
+				"margin\tproperty"
+			],
+			[
+				"te",
+				"text-align\tproperty"
+			],
+			[
+				"bac",
+				"background-image"
+			],
+			[
+				"fon",
+				"font-size\tproperty"
+			],
+			[
+				"max",
+				"max-width\tproperty"
+			],
+			[
+				"T",
+				"TBODY\tTag"
+			],
+			[
+				"start_",
+				"start_moment"
+			],
+			[
+				"end_date",
+				"end_date_shown"
+			],
+			[
+				"end",
+				"end_date_shown"
+			],
+			[
+				"date",
+				"date_shown"
+			],
+			[
+				"line",
+				"line_length"
+			],
+			[
+				"eve",
+				"events_found_in_a_day"
+			],
+			[
+				"FIRST",
+				"FIRSTEVENT"
+			],
+			[
+				"str_",
+				"str_replace"
+			],
+			[
+				"strip",
+				"strip_tags"
+			],
+			[
+				"font-s",
+				"font-size\tproperty"
+			],
+			[
+				"calend",
+				"calendarevent_id"
+			],
+			[
+				"efec",
+				"efectivo_final"
+			],
+			[
+				"descu",
+				"descuadre_con_anterior"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"form",
+				"form_changed"
+			],
+			[
+				"data",
+				"dataType"
+			],
+			[
+				"cabecer",
+				"cabecera_estado"
+			],
+			[
+				"boton-ele",
+				"boton-eliminar-movimiento"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"prett",
+				"prettyd"
+			],
+			[
+				"actualizar",
+				"actualizar_tabla_sesiones"
+			],
+			[
+				"boton-el",
+				"boton-eliminar-movimiento"
+			],
+			[
+				"array_un",
+				"array_unshift"
+			],
+			[
+				"efectivo_sesion",
+				"efectivo_sesion_al_inicio"
+			],
+			[
+				"efectivo_s",
+				"efectivo_sesion_al_inicio"
+			],
+			[
+				"efectivo",
+				"efectivo_sesion_al_inicio"
+			],
+			[
+				"efect",
+				"efectivo_sesion_al_inicio"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "resources/views/admin/login.blade.php",
+			"settings":
+			{
+				"buffer_size": 1478,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"t",
+				"View: Toggle Side Bar"
+			],
+			[
+				"tog",
+				"View: Toggle Side Bar"
+			],
+			[
+				"rena",
+				"Rename File"
+			],
+			[
+				"renam",
+				"Rename File"
+			],
+			[
+				"toggle sid",
+				"View: Toggle Side Bar"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"pretti",
+				"HTMLPrettify: Set Prettify Preferences"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"list ",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"esli",
+				"SublimeLinter: Show Line Errors"
+			],
+			[
+				"Package Control: add pa",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 92.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/bootstrap",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/tests"
+	],
+	"file_history":
+	[
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.env",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.gitignore",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/tienda.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/js/admin/tienda.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/BookingDetailsPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/VoucherPrintOut.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/bookings.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/TicketsController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/routes/api.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/routes/web.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/adminmasterlayout.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/home.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/location.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/storage/logs/laravel.log",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/CalendareventController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/AvailabilityPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/ErrorBoundary.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/node_modules/array-includes/test.html",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_utilities.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_components.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/images/cookingpoint_MIC.svg",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/classemails.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/bookings.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/CalendareventControllerOnline.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/app.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/BookingController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/BookingControllerOnline.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/BookingControllerApi.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/SourceController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/StaffController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/CalendareventControllerReact.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/CalendareventControllerApi.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/BookingControllerReact.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/blog/posttemplate.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/blogtool.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/postindex.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/bestclasses.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/config/filesystems.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/config/filesystems.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_tools.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/blog/postindex.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/aboutus.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/events.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/gallery.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/paella.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/tapas.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/tienda/sales.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/tienda/frontend.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/cashbox/sesion.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/cashbox.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_variables.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/report.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/post.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/modals.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/cashbox/modals.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/fileuploader.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/actividadesempresas.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/booking.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/InquiryDetails.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/errors/wrongLocator.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/CustomerDetails.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/app.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/masterlayout.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/cashbox/index.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/classemails.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/booking/index-old.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/errors/404.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/agencias.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/DatePicker/Day.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/css/booking.css",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_elements.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/webpack.mix.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/admin/_admincomponents.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/ClassTypeDropdown.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/node_modules/react-datepicker/dist/react-datepicker.css",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/DatePicker/Week.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/DatePicker/Month.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/DatePicker/Header.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/DatePicker/DatePicker.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/NavButtons.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/node_modules/bootstrap/dist/css/bootstrap.css",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/Datepicker/Month.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/Datepicker/Week.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/Datepicker/Day.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/node_modules/react-datepicker/dist/react-datepicker.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/react-datepicker-master/src/calendar.jsx",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/react-datepicker-master/package.json",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/.babelrc",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/package.json",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_cooking-point-stylesheet.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/config/cookingpoint.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/testdb.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/CancelBookingPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/assets/js/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/booking/index.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/MailController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/storage/app/templates/admin_cancel_request/body.html",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/storage/app/templates/user_cancellation/body.html",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/TPVStub.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/tpv/pay-stub.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/node_modules/lodash/update.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/tpv/pay.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/Modal.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/CustomerDetailsPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/assets/js/booking-old.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/js/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/BkgStatus.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/TPVController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/web.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/node_modules/popper.js/dist/popper.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/node_modules/popper.js/dist/esm/popper.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/js/app.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/js/app.js.LICENSE.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Modal.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/react.sublime-project",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/tpv/tpv-stub.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/tpv/callback.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/TPVControllerStub.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/config/app.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/RedsysAPI.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/vendor/laravel/framework/src/Illuminate/Support/Facades/Route.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/.env",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/.gitignore",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/MonthAvailability.js"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 117.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "resources/views/admin/login.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1478,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.682.region_keys":
+							[
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 127.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "cooking-point.sublime-project",
+	"replace":
+	{
+		"height": 73.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"reso admin log",
+				"resources\\views\\admin\\login.blade.php"
+			],
+			[
+				"sto laravel",
+				"storage\\logs\\laravel.log"
+			],
+			[
+				"reso tienda",
+				"react\\resources\\js\\admin\\tienda.js"
+			],
+			[
+				"tienda.",
+				"react\\public\\js\\admin\\tienda.js"
+			],
+			[
+				"voucherp",
+				"react\\resources\\js\\booking\\Components\\VoucherPrintOut.js"
+			],
+			[
+				"web",
+				"react\\routes\\web.php"
+			],
+			[
+				"api",
+				"react\\routes\\api.php"
+			],
+			[
+				"ticke",
+				"react\\app\\Http\\Controllers\\TicketsController.php"
+			],
+			[
+				"admin bookings.bla",
+				"react\\resources\\views\\admin\\bookings.blade.php"
+			],
+			[
+				"adminmas",
+				"react\\resources\\views\\admin\\adminmasterlayout.blade.php"
+			],
+			[
+				"storage larave",
+				"react\\storage\\logs\\laravel.log"
+			],
+			[
+				"locat bla",
+				"react\\resources\\views\\pages\\location.blade.php"
+			],
+			[
+				"home.b",
+				"react\\resources\\views\\pages\\home.blade.php"
+			],
+			[
+				"react calendar ",
+				"react\\app\\Http\\Controllers\\CalendareventController.php"
+			],
+			[
+				"sass util",
+				"react\\resources\\sass\\_utilities.scss"
+			],
+			[
+				"reac reso app.js",
+				"react\\resources\\js\\app.js"
+			],
+			[
+				"stor larav",
+				"react\\storage\\logs\\laravel.log"
+			],
+			[
+				"booking con reac",
+				"react\\app\\Http\\Controllers\\BookingControllerReact.php"
+			],
+			[
+				"calendarevent onlin",
+				"react\\app\\Http\\Controllers\\CalendareventControllerOnline.php"
+			],
+			[
+				"web.",
+				"react\\routes\\web.php"
+			],
+			[
+				"calendareventre",
+				"react\\app\\Http\\Controllers\\CalendareventControllerReact.php"
+			],
+			[
+				"sourcec",
+				"react\\app\\Http\\Controllers\\SourceController.php"
+			],
+			[
+				"staffc",
+				"react\\app\\Http\\Controllers\\StaffController.php"
+			],
+			[
+				"adminmaster",
+				"react\\resources\\views\\admin\\adminmasterlayout.blade.php"
+			],
+			[
+				"blog",
+				"react\\resources\\js\\admin\\blogtool.js"
+			],
+			[
+				"view blogpo",
+				"react\\resources\\views\\blog\\posttemplate.blade.php"
+			],
+			[
+				"home bla",
+				"react\\resources\\views\\pages\\home.blade.php"
+			],
+			[
+				"best",
+				"react\\resources\\views\\pages\\bestclasses.blade.php"
+			],
+			[
+				"tapas.",
+				"react\\resources\\views\\pages\\tapas.blade.php"
+			],
+			[
+				"react home bla",
+				"react\\resources\\views\\pages\\home.blade.php"
+			],
+			[
+				"_too",
+				"react\\resources\\sass\\_tools.scss"
+			],
+			[
+				"_compo",
+				"react\\resources\\sass\\_components.scss"
+			],
+			[
+				"booking pag",
+				"react\\resources\\js\\booking\\BookingDetailsPage.js"
+			],
+			[
+				"_varia",
+				"react\\resources\\sass\\_variables.scss"
+			],
+			[
+				"activid",
+				"react\\resources\\views\\pages\\actividadesempresas.blade.php"
+			],
+			[
+				"event bla",
+				"react\\resources\\views\\pages\\events.blade.php"
+			],
+			[
+				"event.bla",
+				"react\\resources\\views\\pages\\events.blade.php"
+			],
+			[
+				"customerde",
+				"react\\resources\\js\\booking\\CustomerDetails.js"
+			],
+			[
+				"wrong",
+				"react\\resources\\views\\errors\\wrongLocator.blade.php"
+			],
+			[
+				"master",
+				"react\\resources\\views\\masterlayout.blade.php"
+			],
+			[
+				"app.c",
+				"react\\resources\\sass\\app.scss"
+			],
+			[
+				"reso booking",
+				"react\\resources\\sass\\booking.scss"
+			],
+			[
+				"_uti",
+				"react\\resources\\sass\\_utilities.scss"
+			],
+			[
+				"_comp",
+				"react\\resources\\sass\\_components.scss"
+			],
+			[
+				"home.bla",
+				"react\\resources\\views\\pages\\home.blade.php"
+			],
+			[
+				"_variab",
+				"react\\resources\\sass\\_variables.scss"
+			],
+			[
+				"wronglo",
+				"react\\resources\\views\\errors\\wrongLocator.blade.php"
+			],
+			[
+				"customerdeta",
+				"react\\resources\\js\\booking\\CustomerDetails.js"
+			],
+			[
+				"reso app.cs",
+				"react\\resources\\sass\\app.scss"
+			],
+			[
+				"reso inquir",
+				"react\\resources\\js\\booking\\InquiryDetails.js"
+			],
+			[
+				"reso booking.",
+				"react\\resources\\sass\\booking.scss"
+			],
+			[
+				"booking.css",
+				"react\\public\\css\\booking.css"
+			],
+			[
+				"booking cusot",
+				"react\\resources\\js\\booking\\CustomerDetails.js"
+			],
+			[
+				"about",
+				"react\\resources\\views\\pages\\aboutus.blade.php"
+			],
+			[
+				"app.js",
+				"react\\resources\\js\\app.js"
+			],
+			[
+				"_ele",
+				"react\\resources\\sass\\_elements.scss"
+			],
+			[
+				"voucher",
+				"react\\resources\\js\\booking\\Components\\VoucherPrintOut.js"
+			],
+			[
+				"bookingpa",
+				"react\\resources\\js\\booking\\BookingDetailsPage.js"
+			],
+			[
+				"webpack",
+				"react\\webpack.mix.js"
+			],
+			[
+				"events.b",
+				"react\\resources\\views\\pages\\events.blade.php"
+			],
+			[
+				"paella.",
+				"react\\resources\\views\\pages\\paella.blade.php"
+			],
+			[
+				"tapas",
+				"react\\resources\\views\\pages\\tapas.blade.php"
+			],
+			[
+				"app.sc",
+				"react\\resources\\sass\\app.scss"
+			],
+			[
+				"classtyp",
+				"react\\resources\\js\\booking\\Components\\ClassTypeDropdown.js"
+			],
+			[
+				"inqu",
+				"react\\resources\\js\\booking\\InquiryDetails.js"
+			],
+			[
+				"node dist react-datepicker",
+				"react\\node_modules\\react-datepicker\\dist\\react-datepicker.css"
+			],
+			[
+				"reso book scss",
+				"react\\resources\\sass\\booking.scss"
+			],
+			[
+				"react booking.js",
+				"react\\resources\\js\\booking\\booking.js"
+			],
+			[
+				"react-datepicker.css",
+				"react\\node_modules\\react-datepicker\\dist\\react-datepicker.css"
+			],
+			[
+				"booking.j",
+				"react\\resources\\js\\booking\\booking.js"
+			],
+			[
+				"react-datepiker",
+				"react\\node_modules\\react-datepicker\\dist\\react-datepicker.js"
+			],
+			[
+				"availa",
+				"react\\resources\\js\\booking\\AvailabilityPage.js"
+			],
+			[
+				"cookingpoint.php",
+				"react\\config\\cookingpoint.php"
+			],
+			[
+				"inquiry",
+				"react\\resources\\js\\booking\\InquiryDetails.js"
+			],
+			[
+				"booking index",
+				"react\\resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"booking index.bl",
+				"react\\resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"lara",
+				"react\\storage\\logs\\laravel.log"
+			],
+			[
+				"bookingcon",
+				"react\\app\\Http\\Controllers\\BookingController.php"
+			],
+			[
+				"contro bo",
+				"react\\app\\Http\\Controllers\\BookingControllerApi.php"
+			],
+			[
+				"cooking point booking",
+				"cooking-point\\resources\\assets\\js\\booking.js"
+			],
+			[
+				"stor cancel admin",
+				"react\\storage\\app\\templates\\admin_cancel_request\\body.html"
+			],
+			[
+				"mailco",
+				"react\\app\\Http\\Controllers\\MailController.php"
+			],
+			[
+				"sto lara",
+				"react\\storage\\logs\\laravel.log"
+			],
+			[
+				"tpvst",
+				"react\\app\\Http\\Controllers\\TPVStub.php"
+			],
+			[
+				"pay stub",
+				"react\\resources\\views\\tpv\\pay-stub.blade.php"
+			],
+			[
+				"update",
+				"react\\node_modules\\lodash\\update.js"
+			],
+			[
+				"mail",
+				"react\\app\\Http\\Controllers\\MailController.php"
+			],
+			[
+				"storage admin canc",
+				"react\\storage\\app\\templates\\admin_cancel_request\\body.html"
+			],
+			[
+				"storage user cancela",
+				"react\\storage\\app\\templates\\user_cancellation\\body.html"
+			],
+			[
+				"bookin api",
+				"react\\app\\Http\\Controllers\\BookingControllerApi.php"
+			],
+			[
+				"bookingcontro",
+				"react\\app\\Http\\Controllers\\BookingController.php"
+			],
+			[
+				"booking contro",
+				"react\\app\\Http\\Controllers\\BookingControllerReact.php"
+			],
+			[
+				"booking page",
+				"react\\resources\\js\\booking\\BookingDetailsPage.js"
+			],
+			[
+				"booking cancel",
+				"react\\resources\\js\\booking\\CancelBookingPage.js"
+			],
+			[
+				"cooking booking",
+				"cooking-point\\resources\\assets\\js\\booking.js"
+			],
+			[
+				"booking",
+				"cooking-point\\public\\js\\booking.js"
+			],
+			[
+				"booking.js",
+				"react\\resources\\js\\booking\\booking.js"
+			],
+			[
+				"pay.",
+				"react\\resources\\views\\tpv\\pay.blade.php"
+			],
+			[
+				"bookingdet",
+				"react\\resources\\js\\booking\\BookingDetailsPage.js"
+			],
+			[
+				"Modal.js",
+				"react\\resources\\js\\booking\\Components\\Modal.js"
+			],
+			[
+				"book can",
+				"react\\resources\\js\\booking\\CancelBookingPage.js"
+			],
+			[
+				"index.php",
+				"cooking-point\\resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"index.ph",
+				"react\\resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"avail",
+				"react\\resources\\js\\booking\\AvailabilityPage.js"
+			],
+			[
+				"navb",
+				"react\\resources\\js\\booking\\Components\\NavButtons.js"
+			],
+			[
+				"packa",
+				"react\\package.json"
+			],
+			[
+				"booking.blad",
+				"react\\resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"tpv",
+				"react\\app\\Http\\Controllers\\TPVController.php"
+			],
+			[
+				"customerdet",
+				"react\\resources\\js\\booking\\CustomerDetailsPage.js"
+			],
+			[
+				"booking deta",
+				"react\\resources\\js\\booking\\BookingDetailsPage.js"
+			],
+			[
+				"WEB.",
+				"cooking-point\\routes\\web.php"
+			],
+			[
+				"booking con re",
+				"react\\app\\Http\\Controllers\\BookingControllerReact.php"
+			],
+			[
+				"popper.",
+				"react\\node_modules\\popper.js\\dist\\popper.js"
+			],
+			[
+				"book",
+				"public\\js\\booking.js"
+			],
+			[
+				"TPVCON",
+				"app\\Http\\Controllers\\TPVControllerStub.php"
+			],
+			[
+				"callba ph",
+				"resources\\views\\tpv\\callback.blade.php"
+			],
+			[
+				"route.p",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Route.php"
+			],
+			[
+				"larave",
+				"storage\\logs\\laravel.log"
+			],
+			[
+				"pay",
+				"resources\\views\\tpv\\pay-stub.blade.php"
+			],
+			[
+				"tpvco",
+				"app\\Http\\Controllers\\TPVController.php"
+			],
+			[
+				"tpvcon",
+				"app\\Http\\Controllers\\TPVController.php"
+			],
+			[
+				"calendar",
+				"app\\Http\\Controllers\\CalendareventController.php"
+			],
+			[
+				"tpv-st",
+				"resources\\views\\tpv\\pay-stub.blade.php"
+			],
+			[
+				"tpv stu",
+				"app\\Http\\Controllers\\TPVController-stub.php"
+			],
+			[
+				"redsys",
+				"app\\Http\\Controllers\\RedsysAPI.php"
+			],
+			[
+				"avai",
+				"resources\\js\\booking\\AvailabilityPage.js"
+			],
+			[
+				"calendar rea",
+				"app\\Http\\Controllers\\CalendareventControllerReact.php"
+			],
+			[
+				"customer",
+				"resources\\js\\booking\\CustomerDetails.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 863.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 332.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

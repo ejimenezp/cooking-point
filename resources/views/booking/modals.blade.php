@@ -23,8 +23,8 @@
               <li><a href="#" id="date_edit" data-dismiss="modal">Change class date or type</a></li>
               <li><a href="#step2" class="step" data-dismiss="modal">Change contact details or comments</a></li>
               <li><a href="#" id="booking_cancel" data-dismiss="modal">Cancel booking</a></li>  
-              <div class="hidden" id="booking_cancel_confirm"></div>  
           </ul>     
+          <div class="hidden" id="booking_cancel_confirm"></div>  
         </div> 
         @endif
           <div class="modal-footer">             
@@ -44,7 +44,7 @@
           <h4 class="modal-title">Help</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <div class="modal-body">First select number of guests and desired class. The calendar will update according to our availability:
+        <div class="modal-body">Select class and number of guests. Calendar will show our availability:
         <table class="help-table">
           <tr>
             <td class="td-available" style="border-radius:7px;">25</td>
@@ -64,7 +64,7 @@
           <tr>
             <td class="td-available" style="border: 3px solid #ddd; background-color: darkgreen; border-radius:7px;">25</td>
             <td>=</td>
-            <td>Selected date</td>
+            <td>Date selected</td>
           </tr>   
          </table>
         <p><br>On next page, fill in your name and email. You can also modify guest details after checkout.</p>
@@ -75,41 +75,6 @@
       </div>
   </div>
 </div>
-
-<!-- Booking Retrieve -->
-
-<div class="modal fade" id="modal_booking_retrieve" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog">    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Retrieve Booking</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <form id="retrieve-form" action="/booking">
-          <div class="modal-body">If you already have a booking number, you can access your booking from any device or browser.
-            <table class="availability-table">
-              <tbody>
-                <tr>
-                  <td class="bold availability-row">
-                    Booking #:
-                  </td>
-                  <td>
-                    <input name="locator" type="text" value="" >
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>    
-          <div class="modal-footer">             
-            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Send</button>
-          </div>
-        </form>
-      </div>
-  </div>
-</div>
-
 
 <!-- Generic modal  -->
 

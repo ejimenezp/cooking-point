@@ -15,7 +15,7 @@
         </div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button type="button" id="modal_button_calendarevent_delete" class="btn btn-primary" >Eliminar</button>
             </form>
        </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="modal-footer">
             <form >
-                <button type="button" id="modal_button_calendarevent_close" class="btn btn-primary">Cerrar sin guardar</button>
+                <button type="button" id="modal_button_calendarevent_close" class="btn btn-secondary">Cerrar sin guardar</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Seguir editando</button>
                 <button type="button" id="modal_button_calendarevent_save" class="btn btn-primary" >Guardar</button>
             </form>
@@ -85,7 +85,7 @@
         </div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button type="button" id="modal_button_booking_delete" class="btn btn-primary" >Eliminar</button>
             </form>
        </div>
@@ -108,7 +108,7 @@
         </div>
         <div class="modal-footer">
             <form >
-                <button type="button" id="modal_button_booking_close" class="btn btn-primary">Cerrar sin guardar</button>
+                <button type="button" id="modal_button_booking_close" class="btn btn-secondary">Cerrar sin guardar</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Seguir editando</button>
                 <button type="button" id="modal_button_booking_save" class="btn btn-primary" >Guardar</button>
             </form>
@@ -152,7 +152,7 @@
 
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button type="button" id="modal_button_booking_emailit" class="btn btn-primary" >Continuar</button>
             </form>
        </div>
@@ -177,7 +177,7 @@
         </div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button type="button" id="modal_button_post_delete" class="btn btn-primary" >Delete</button>
             </form>
        </div>

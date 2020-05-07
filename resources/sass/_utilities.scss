@@ -1,0 +1,32 @@
+//
+// header stuff
+//
+
+
+.home-headline {
+  font-family: $font-alter;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0 0.5rem 0 0.5rem;
+  color: $brand-primary;
+
+  @include media-breakpoint-up(md) {
+      position:   initial;
+      padding-top: 2rem;
+      font-size: 3rem;
+  }
+
+}
+
+
+.section-banner {
+  @include media-breakpoint-up(md) { height: 100vw / 1440 * 360}
+  @include media-breakpoint-up(xl) { height: 360px; width: 1440px; max-width: 100%;}
+  // img {
+  //   width: 100%;
+  // }
+}
+
+

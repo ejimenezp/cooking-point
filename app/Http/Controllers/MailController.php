@@ -115,10 +115,12 @@ class MailController {
 		
 		$mime_message = imap_mail_compose($envelope, $body);
 		
-		// localhost version
-		Log::info("mail sent to $to. Subject: {$envelope["subject"]}. Text:");
-		Log::info($html_body);
-		return;
+		// testing version
+		if (env('APP_ENV') != 'production') {
+			Log::info("mail sent to $to. Subject: {$envelope["subject"]}. Text:");
+			Log::info($html_body);
+			return;		
+		}
 
 		// Make the call to the gmail API
 		
@@ -197,6 +199,7 @@ class MailController {
 		$html = str_replace('CP_CHILD', $bkg->child, $html);
 		$html = str_replace('CP_PRICE', ($bkg->hide_price ? '--.--' : $bkg->price), $html);
 		$html = str_replace('CP_STATUS', $status, $html);
+		$html = str_replace('CP_PAYMENTDATE', ($bkg->payment_date ? $bkg->payment_date : '-'), $html);
 		$html = str_replace('CP_SOURCE', $source, $html);
 		$html = str_replace('CP_COOK', $bkg->calendarevent->staff->name, $html);
 		$html = str_replace('CP_LOCATOR', $bkg->locator, $html);
