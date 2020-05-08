@@ -140,7 +140,8 @@ class CalendareventController extends Controller
         
         return Calendarevent::whereDate('date', '>=', $start_date)
                             ->whereDate('date', '<=', $end_date)
-                            ->where('capacity', '>=', $bookable_only);
+                            ->where('capacity', '>=', $bookable_only)
+                            ->get();
     }
 
     function importStaffing (Request $request)

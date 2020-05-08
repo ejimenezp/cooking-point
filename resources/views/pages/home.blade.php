@@ -16,6 +16,63 @@
 
 @stop
 
+@section('google-structured-data')
+<script type="application/ld+json">
+[
+    @foreach ($events as $event)
+        @if ($event->registered < $event->capacity && $event->type == 'PAELLA') 
+            {
+            "@context" : "http://schema.org",
+            "@type" : "Event",
+            "name" : "Paella Cooking Class",
+            "url" : "https://cookingpoint.es/classes-paella-cooking-madrid-spain",
+            "description" : "Hands-on cooking class with market tour to make paella, gazpacho and sangria",
+            "startDate" : "{{ $event->startdateatom }}",
+            "endDate" : "{{ $event->enddateatom }}",
+            "location" : {
+                "@type" : "Place",
+                "name" : "Cooking Point",
+                "address" : "Calle de Moratin, 11, 28014 Madrid",
+                "sameAs": "https://cookingpoint.es" },
+            "offers": {
+                    "@type": "Offer",
+                    "name": "Adult",
+                    "availability": "http://schema.org/InStock",
+                    "price": "70.00",
+                    "priceCurrency": "EUR",
+                    "url": "https://cookingpoint.es/classes-paella-cooking-madrid-spain"
+                  }
+            },
+        @endif
+        @if ($event->registered < $event->capacity && $event->type == 'TAPAS') 
+            {
+            "@context" : "http://schema.org",
+            "@type" : "Event",
+            "name" : "Tapas Cooking Class",
+            "url" : "https://cookingpoint.es/classes-spanish-tapas-madrid-spain",
+            "description" : "Hands-on cooking class to make traditional Spanish tapas and sangria",
+            "startDate" : "{{ $event->startdateatom }}",
+            "endDate" : "{{ $event->enddateatom }}",
+            "location" : {
+                "@type" : "Place",
+                "name" : "Cooking Point",
+                "address" : "Calle de Moratin, 11, 28014 Madrid",
+                "sameAs": "https://cookingpoint.es" },
+            "offers": {
+                    "@type": "Offer",
+                    "name": "Adult",
+                    "availability": "http://schema.org/InStock",
+                    "price": "70.00",
+                    "priceCurrency": "EUR",
+                    "url": "http://test.cookingpoint.es/classes-spanish-tapas-madrid-spain"
+                  }
+            },
+        @endif
+    @endforeach
+    {}
+]
+</script>
+@stop
 
 @section('content')
 
