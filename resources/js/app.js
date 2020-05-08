@@ -44,7 +44,6 @@ $(document).ready(function () {
       document.getElementById('dropdown-content').classList.toggle('dropdown-content-slide-in')
     } else if ($('#dropdown-content').hasClass("dropdown-content-slide-in")) {
       document.getElementById('dropdown-content').classList.toggle('dropdown-content-slide-in')
-      // $('.menu-strips').click()
     }
   })
 
