@@ -427,6 +427,9 @@ function showPrice () {
 //
 function showSection (arg) {
   $('#main-section > div').hide()
+  if (window.screen.width < 579 && arg.includes('booking')) {
+    $('#admindatepicker').hide()
+  }
   $(arg).show()
 }
 
@@ -643,7 +646,7 @@ jQuery(document).ready(function ($) {
 //
 // toggle admindatepicker
 //
-$('#toggle_datepicker').click(function () {
+$('.toggle_datepicker').click(function () {
   $('#admindatepicker').toggle()
 })
 
