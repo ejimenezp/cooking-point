@@ -105,7 +105,7 @@ function BookingDetailsPage (props) {
     }
     const modal = {}
     modal.header = '<h4>Payment Failure</h4>'
-    modal.body = `<p>It seems the payment did not go through. Please, check out again.</p><p>We have sent you a recovery e-mail to the address below should you want to do it later. But, remember, the <span style="text-decoration:underline">booking is not confirmed yet</span>.</p><p style="font-weight:bold;text-align:center">${localbkg.email}</p><p>Please check your inbox to make sure you received it. If you can&apos;t find it, please check also the Spam/Junk e-mail folder.</p><p>You can modify your e-mail address at anytime with "Edit Customer Details" option.</p>`
+    modal.body = `<p>It seems the payment did not go through. Please, try it again.</p><p>We have sent you a recovery e-mail to the address below should you want to do it later. But, remember, the <span style="text-decoration:underline">booking is not confirmed yet</span>.</p><p style="font-weight:bold;text-align:center">${localbkg.email}</p><p>Please check your inbox to make sure you received it. If you can&apos;t find it, please check also the Spam/Junk e-mail folder.</p><p>You can modify your e-mail address at anytime with "Edit Customer Details" option.</p>`
     return (
       <MyModal text={modal} liftUp={() => setShowModalTPVKO(false)} />
     )
@@ -160,7 +160,7 @@ function BookingDetailsPage (props) {
         {localbkg.locator && localbkg.status !== 'PENDING' &&
           <div className='btn btn-primary' onClick={handleEmailVoucher}>E-mail Voucher</div>}{' '}
         {localbkg.status === 'PENDING' &&
-          <div className='btn btn-primary' onClick={() => (location.href = '/pay/' + localbkg.id)}>Check-out</div>}
+          <div className='btn btn-primary' onClick={() => (location.href = '/pay/' + localbkg.id)}>Purchase</div>}
         {isError && alert('Error communicating with server, please reload page')}
       </NavButtons>
 
