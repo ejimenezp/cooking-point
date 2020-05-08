@@ -1,61 +1,57 @@
 @extends('admin.adminmasterlayout')
-
 @section('title', 'Main - Admin Cooking Point')
 @section('description', 'Cooking Point Admin Main Page')
-
 @section('content')
-
 <div class="admin row justify-content-center">
 	<div class="col-md-4">
 		<div id="admindatepicker"></div>
 	</div>
-
 	<div class="col-md-6">
 		<div id="main-section">
 			<div id="calendarevent_index" style="display:none;">
 				<div class="text-center">
-		            <form >
-		                <button class="button_day_selector btn btn-primary" data-d="prev"><<</button>
-						<button class="button_day_selector btn btn-primary" data-d="today">Hoy</button>				
-		                <button class="button_day_selector btn btn-primary" data-d="next">>></button>
-		            </form>
-		       </div>
-				<h1><div class="dateshown"></div></h1>
-
+					<form>
+						<button class="button_day_selector btn btn-primary" data-d="prev">
+							<<</button> <button class="button_day_selector btn btn-primary" data-d="today">Hoy
+						</button>
+						<button class="button_day_selector btn btn-primary" data-d="next">>></button>
+					</form>
+				</div>
+				<h1>
+					<div class="dateshown"></div>
+				</h1>
 				<table class="table table-hover" id="calendarevent_table">
-				    <thead>
-				    	<tr>
-				    		<th>Hora</th>
-				    		<th>Tipo</th>
-				    		<th>Chef</th>
-				    		<th>Pax</th>
-				    		<th></th>
-			    		</tr>
+					<thead>
+						<tr>
+							<th>Hora</th>
+							<th>Tipo</th>
+							<th>Chef</th>
+							<th>Pax</th>
+							<th></th>
+						</tr>
 					</thead>
-				    <tbody>
-				    </tbody>                        
+					<tbody>
+					</tbody>
 				</table>
-
-	@if (app('request')->input('user_role') >= 3)
-				<button class="btn btn-primary button_calendarevent_edit" data-i="-1">Nuevo Evento</button>	
-	@endif
+				@if (app('request')->input('user_role') >= 3)
+				<button class="btn btn-primary button_calendarevent_edit" data-i="-1">Nuevo Evento</button>
+				@endif
 				<div class="gutter"></div>
 			</div>
-
-	@if (app('request')->input('user_role') >= 3)
+			@if (app('request')->input('user_role') >= 3)
 			<div id="calendarevent_edit" style="display:none;">
 				<h1>Editar Evento</h1>
 				<form id="form_calendarevent" class="form-horizontal" role="form" onsubmit="return false;">
-	   				{{ csrf_field() }}
-	   				<input name="id" type="hidden" value="9999">
+					{{ csrf_field() }}
+					<input name="id" type="hidden" value="9999">
 					<table id="ce" class="table">
 						<tr>
 							<td>
 								Fecha:
 							</td>
 							<td>
-								<input type="text" id="eventdatepicker" >
-								<input type="hidden" name="date" id="realDate" >
+								<input type="text" id="eventdatepicker">
+								<input type="hidden" name="date" id="realDate">
 							</td>
 						</tr>
 						<tr>
@@ -70,7 +66,7 @@
 									<option value="HOLIDAY">HOLIDAY</option>
 									<option value="FILLER">FILLER</option>
 									<option value="PAYREQUEST">PAYMENT REQUEST</option>
-								</select>				
+								</select>
 							</td>
 						</tr>
 						<tr>
@@ -79,7 +75,7 @@
 							</td>
 							<td>
 								<select name="staff_id" class="cooklist">
-								</select>				
+								</select>
 							</td>
 						</tr>
 						<tr>
@@ -88,7 +84,7 @@
 							</td>
 							<td>
 								<select name="secondstaff_id" class="cooklist">
-								</select>				
+								</select>
 							</td>
 						</tr>
 						<tr>
@@ -96,7 +92,7 @@
 								Descripción:
 							</td>
 							<td>
-								<input name="short_description" type="text" value="" >
+								<input name="short_description" type="text" value="">
 							</td>
 						</tr>
 						<tr>
@@ -137,8 +133,8 @@
 									<option value="23:30:00">11:30pm</option>
 								</select>
 							</td>
-						</tr>			
-						<tr>					
+						</tr>
+						<tr>
 							<td>
 								Duración:
 							</td>
@@ -160,7 +156,7 @@
 								Capacidad:
 							</td>
 							<td>
-								<input name="capacity" type="text" value="12" >
+								<input name="capacity" type="text" value="12">
 							</td>
 						</tr>
 						<tr>
@@ -172,61 +168,64 @@
 							</td>
 						</tr>
 					</table>
-
 					<button id="button_calendarevent_close" class="btn btn-secondary">Cerrar</button>
 					<button id="button_calendarevent_delete" class="btn btn-secondary">Eliminar</button>
 					<button id="button_calendarevent_save" class="btn btn-primary">Guardar</button>
 				</form>
 				<div class="gutter"></div>
 			</div>
-	@endif
-
-	@if (app('request')->input('user_role') >= 2)
+			@endif
+			@if (app('request')->input('user_role') >= 2)
 			<div id="booking_index" style="display:none;">
 				<div class=" text-center">
-		            <form >
-		                <button class="button_calendarevent_selector btn btn-primary" data-d="prev"><<</button>
-						<button class="button_calendarevent_selector btn btn-primary" data-d="now">Ahora</button>				
-		                <button class="button_calendarevent_selector btn btn-primary" data-d="next">>></button>
-		            </form>
-		       </div>
-				<h1><div class="dateshown"></div></h1>
-				<h4><div class="classshown"></div></h4>
+					<form>
+						<button class="button_calendarevent_selector btn btn-primary" data-d="prev">
+							<<</button> <button class="button_calendarevent_selector btn btn-primary" data-d="now">Ahora
+						</button>
+						<button class="button_calendarevent_selector btn btn-primary" data-d="next">>></button>
+					</form>
+				</div>
+				<h1>
+					<div class="dateshown"></div>
+				</h1>
+				<h4>
+					<div class="classshown"></div>
+				</h4>
 				<table class="table table-hover" id="booking_table">
-				    <thead>
-				    	<tr>
-				    		<th>Pax</th>
-				    		<th>Nombre</th>
-				    		<th>Status</th>
-				    		<th>Alergias</th>
-				    		<th>Coment.</th>
-			    		</tr>
+					<thead>
+						<tr>
+							<th>Pax</th>
+							<th>Nombre</th>
+							<th>Status</th>
+							<th>Alergias</th>
+							<th>Coment.</th>
+						</tr>
 					</thead>
-				    <tbody>
-				    </tbody>                        
+					<tbody>
+					</tbody>
 				</table>
-
-				<button class="btn btn-primary button_booking_edit" data-j="-1">Nueva Reserva</button>	
+				<button class="btn btn-primary button_booking_edit" data-j="-1">Nueva Reserva</button>
 				<div class="gutter"></div>
 			</div>
-
 			<div id="booking_edit" style="display:none;">
 				<h1>Editar Reserva</h1>
-				<h4><div class="dateshown"></div>
-				<div class="classshown"></div></h4>
+				<h4>
+					<div class="dateshown"></div>
+					<div class="classshown"></div>
+				</h4>
 				<form id="form_booking" class="form-horizontal" role="form" onsubmit="return false;">
-	   				{{ csrf_field() }}
-	   				<input name="id" type="hidden" value="9999">
-	   				<input name="locator" type="hidden" value="AAA000">
-	   				<input name="status_filter" type="hidden" value="">
-	   				<input name="calendarevent_id" type="hidden" value="9999">
+					{{ csrf_field() }}
+					<input name="id" type="hidden" value="9999">
+					<input name="locator" type="hidden" value="AAA000">
+					<input name="status_filter" type="hidden" value="">
+					<input name="calendarevent_id" type="hidden" value="9999">
 					<table id="booking" class="table">
 						<tr>
 							<td>
 								Nombre:
 							</td>
 							<td>
-								<input name="name" type="text" value="" >
+								<input name="name" type="text" value="">
 							</td>
 						</tr>
 						<tr>
@@ -238,7 +237,7 @@
 								</select>
 							</td>
 						</tr>
-						<tr>					
+						<tr>
 							<td>
 								Estado:
 							</td>
@@ -257,7 +256,7 @@
 								Teléfono:
 							</td>
 							<td>
-								<input name="phone" type="text" value="" >
+								<input name="phone" type="text" value="">
 							</td>
 						</tr>
 						<tr>
@@ -265,19 +264,18 @@
 								Email:
 							</td>
 							<td>
-								<input name="email" type="text" value="" >
+								<input name="email" type="text" value="">
 							</td>
 						</tr>
-						<tr>					
+						<tr>
 							<td>
 								Adultos:
 							</td>
 							<td>
 								<select name="adult">
-									@for ($i = 1; $i <= 24; $i++)
-									<option value="{{ $i }}">{{ $i }}</option>
-									@endfor
-									<option value="0">0</option>
+									@for ($i = 1; $i <= 24; $i++) <option value="{{ $i }}">{{ $i }}</option>
+										@endfor
+										<option value="0">0</option>
 								</select>
 							</td>
 						</tr>
@@ -287,9 +285,8 @@
 							</td>
 							<td>
 								<select name="child">
-									@for ($i = 0; $i <= 24; $i++)
-									<option value="{{ $i }}">{{ $i }}</option>
-									@endfor
+									@for ($i = 0; $i <= 24; $i++) <option value="{{ $i }}">{{ $i }}</option>
+										@endfor
 								</select>
 							</td>
 						</tr>
@@ -309,16 +306,16 @@
 								<textarea name="comments"></textarea>
 							</td>
 						</tr>
-						<tr>
+						<tr class='details d-none'>
 							<td>
 								Referencia:
 							</td>
 							<td>
-								<input name="locator" style="width:50%;" type="text" value="" >&nbsp
+								<input name="locator" style="width:50%;" type="text" value="">&nbsp
 								<button id="button_booking_copy" class="btn btn-primary btn-sm">Copiar</button>
 							</td>
 						</tr>
-						<tr>
+						<tr class='details d-none'>
 							<td>
 								Seguimiento:
 							</td>
@@ -329,10 +326,10 @@
 									<option value="PAYMENT_KO">FALLO PAGO TARJETA</option>
 									<option value="REMINDED">ENVIADO RECORDATORIO</option>
 									<option value="REVIEW_ASKED">SOLICITADA REVIEW</option>
-								</select>				
+								</select>
 							</td>
 						</tr>
-						<tr>
+						<tr class='details d-none'>
 							<td>
 								Forma de pago:
 							</td>
@@ -344,18 +341,18 @@
 									<option value="TRANSFER">TRANSFERENCIA</option>
 									<option value="PAYPAL">PAYPAL</option>
 									<option value="N/A">(no aplica)</option>
-								</select>				
+								</select>
 							</td>
 						</tr>
-						<tr>
+						<tr class='details d-none'>
 							<td>
 								Fecha pago:
 							</td>
 							<td>
-								<input name="payment_date" type="text" value="" >
-							</td>			
+								<input name="payment_date" type="text" value="">
+							</td>
 						</tr>
-						<tr class="price">
+						<tr class="price details d-none">
 							<td>
 								Precio:
 							</td>
@@ -363,8 +360,8 @@
 								<input type="text" name="price">
 							</td>
 						</tr>
-					@if (app('request')->input('user_role') >= 3)
-						<tr>
+						@if (app('request')->input('user_role') >= 3)
+						<tr class='details d-none'>
 							<td>
 								IVA:
 							</td>
@@ -372,7 +369,7 @@
 								<input type="checkbox" name="iva">
 							</td>
 						</tr>
-						<tr>
+						<tr class='details d-none'>
 							<td>
 								Ocultar precio:
 							</td>
@@ -380,7 +377,7 @@
 								<input type="checkbox" name="hide_price" value="1">
 							</td>
 						</tr>
-						<tr>
+						<tr class='details d-none'>
 							<td>
 								Fecha fija:
 							</td>
@@ -388,7 +385,7 @@
 								<input type="checkbox" name="fixed_date">
 							</td>
 						</tr>
-						<tr>
+						<tr class='details d-none'>
 							<td>
 								Factura:
 							</td>
@@ -396,23 +393,22 @@
 								<input type="text" name="invoice" value="">
 							</td>
 						</tr>
-					@else
+						@else
 						<input type="hidden" name="iva">
 						<input type="hidden" name="hide_price">
 						<input type="hidden" name="fixed_date">
 						<input type="hidden" name="invoice">
-					@endif
-						<tr class="booking_date_input">
+						@endif
+						<tr class="booking_date_input details d-none">
 							<td>
 								Fecha:
 							</td>
 							<td>
 								<input type="text" id="booking_date_edit">
-								<input type="hidden" name="date" id="bookingNewDate" >
-
+								<input type="hidden" name="date" id="bookingNewDate">
 							</td>
 						</tr>
-						<tr class="booking_date_input">
+						<tr class="booking_date_input details d-none">
 							<td>
 								Evento:
 							</td>
@@ -422,23 +418,20 @@
 							</td>
 						</tr>
 					</table>
-
 					<button id="button_booking_close" class="btn btn-secondary">Cerrar</button>
 					<button id="button_booking_delete" class="btn btn-secondary">Eliminar</button>
 					<button id="button_booking_save" class="btn btn-primary">Guardar</button>
 					<button id="button_booking_emailit" class="btn btn-secondary">Enviar email</button>
+					<button id="button_booking_details" class="btn btn-secondary">+Details</button>
 				</form>
 				<div class="gutter"></div>
 			</div>
-	@endif			
+			@endif
 		</div>
 	</div>
-
-
 </div>
 
 @stop
-
 
 @section('js')
 <script defer type='text/javascript' src="/js/admin/bookings.js"></script>
