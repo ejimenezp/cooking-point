@@ -153,9 +153,9 @@ function BookingDetailsPage (props) {
         {localbkg.locator && localbkg.status !== 'PENDING' &&
           <div className='btn btn-secondary' onClick={() => (location.href = '/booking/forget')}>New Booking</div>}{' '}
         {localbkg.locator && !localbkg.fixed_date && localbkg.status !== 'CANCELLED' &&
-          <div className='btn btn-primary' onClick={classChange}>Change Class/Date</div>}{' '}
+          <div className='btn btn-secondary' onClick={classChange}>Change Class/Date</div>}{' '}
         {localbkg.locator &&
-          <div className='btn btn-primary' onClick={() => navigate(`/booking/${localbkg.locator}/customerdetails`)}>Edit Customer Details</div>}{' '}
+          <div className='btn btn-secondary' onClick={() => navigate(`/booking/${localbkg.locator}/customerdetails`)}>Edit Customer Details</div>}{' '}
         {localbkg.locator && localbkg.status !== 'PENDING' && <VoucherPrintOut bkg={localbkg} />}{' '}
         {localbkg.locator && localbkg.status !== 'PENDING' &&
           <div className='btn btn-primary' onClick={handleEmailVoucher}>E-mail Voucher</div>}{' '}
