@@ -19,7 +19,7 @@
 	<div class="d-block d-md-none">
 		<div class="cp-smartphone-navbar clearfix">
 			<div class=" float-left">
-				<a class='menu-strips' href='javascript:void(0);'><img src="/images/icons/menu-strips.png" /></a>
+				<a class='menu-strips' href='javascript:void(0);'><img src="/images/icons/menu-strips.png" height="50px" /></a>
 			</div>
 			<div id="dropdown-content">
 				<ul>
