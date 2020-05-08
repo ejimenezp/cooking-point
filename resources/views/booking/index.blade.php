@@ -4,7 +4,10 @@
 @section('description', 'Cooking Point booking form. Pay online and get instant confirmation.')
 
 @section('analytics-ecommerce-tracking')
-	@if ($tpv_result === 'OK' && ($bkg->calendarevent->type === 'PAELLA' || $bkg->calendarevent->type === 'TAPAS'))
+	@php 
+		$bkg = json_decode($param)
+	@endphp
+	@if (isset($bkg->tpv_result) && $bkg->tpv_result === 'OK' && ($bkg->calendarevent->type === 'PAELLA' || $bkg->calendarevent->type === 'TAPAS'))
 		<script>
 		window.dataLayer = window.dataLayer || [];
 		dataLayer.push({
