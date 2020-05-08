@@ -11643,3 +11643,9 @@ textarea {
   text-align: right;
 }
 
+@media (min-width: 768px) {
+  .toggle_datepicker {
+    display: none;
+  }
+}
+
