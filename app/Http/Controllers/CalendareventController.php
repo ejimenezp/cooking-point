@@ -114,7 +114,7 @@ class CalendareventController extends Controller
         return response()->json(Calendarevent::whereDate('date', '>=', $request->start)
                             ->whereDate('date', '<=', $request->end)
                             ->orderBy('date', 'ASC')
-                            ->orderBy('time', 'ASC')->get());
+                            ->orderBy('time', 'ASC')->get()->makeHidden('bookings'));
     }
 
 
@@ -141,7 +141,8 @@ class CalendareventController extends Controller
         return Calendarevent::whereDate('date', '>=', $start_date)
                             ->whereDate('date', '<=', $end_date)
                             ->where('capacity', '>=', $bookable_only)
-                            ->get();
+                            ->get()
+                            ->makeHidden('bookings');
     }
 
     function importStaffing (Request $request)

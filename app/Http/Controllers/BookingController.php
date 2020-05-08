@@ -56,12 +56,6 @@ class BookingController extends Controller
 
     function add(Request $request)
     {
-        // check event does not exist already
-        // if ( CalendarEvent::where('type', $request->type)->
-        //                     where('date', $request->date)->
-        //                     where('time', $request->time)->count() > 0 ) {
-        //     return 'fail';
-        // }
 
         $bkg = new Booking();
         $bkg->calendarevent_id = $request->calendarevent_id;
