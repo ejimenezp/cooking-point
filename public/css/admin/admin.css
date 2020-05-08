@@ -11548,6 +11548,10 @@ textarea {
   vertical-align: middle !important;
 }
 
+.gutter {
+  height: 5rem;
+}
+
 .admin .ui-datepicker,
 .admin-eventdatepicker .ui-datepicker {
   background-color: white;

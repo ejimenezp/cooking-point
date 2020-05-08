@@ -2,6 +2,7 @@
 // jquery for cashbox
 //
 require('bootstrap')
+const $ = require('jquery')
 var moment = require('moment')
 require('moment/locale/es')
 

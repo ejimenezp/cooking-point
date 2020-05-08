@@ -39,6 +39,7 @@
 	@if (app('request')->input('user_role') >= 3)
 				<button class="btn btn-primary button_calendarevent_edit" data-i="-1">Nuevo Evento</button>	
 	@endif
+				<div class="gutter"></div>
 			</div>
 
 	@if (app('request')->input('user_role') >= 3)
@@ -176,6 +177,7 @@
 					<button id="button_calendarevent_delete" class="btn btn-secondary">Eliminar</button>
 					<button id="button_calendarevent_save" class="btn btn-primary">Guardar</button>
 				</form>
+				<div class="gutter"></div>
 			</div>
 	@endif
 
@@ -205,6 +207,7 @@
 				</table>
 
 				<button class="btn btn-primary button_booking_edit" data-j="-1">Nueva Reserva</button>	
+				<div class="gutter"></div>
 			</div>
 
 			<div id="booking_edit" style="display:none;">
@@ -425,6 +428,7 @@
 					<button id="button_booking_save" class="btn btn-primary">Guardar</button>
 					<button id="button_booking_emailit" class="btn btn-secondary">Enviar email</button>
 				</form>
+				<div class="gutter"></div>
 			</div>
 	@endif			
 		</div>
