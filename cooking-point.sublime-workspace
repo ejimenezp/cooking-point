@@ -520,10 +520,44 @@
 	"buffers":
 	[
 		{
-			"file": "resources/views/admin/login.blade.php",
+			"file": "resources/views/pages/tapas.blade.php",
 			"settings":
 			{
-				"buffer_size": 1478,
+				"buffer_size": 8819,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "routes/web.php",
+			"settings":
+			{
+				"buffer_size": 4395,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/CalendareventControllerOnline.php",
+			"settings":
+			{
+				"buffer_size": 1454,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "storage/logs/laravel.log",
+			"settings":
+			{
+				"buffer_size": 124,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/CalendareventController.php",
+			"settings":
+			{
+				"buffer_size": 5611,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -650,11 +684,19 @@
 	"expanded_folders":
 	[
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/bootstrap",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/tests"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking"
 	],
 	"file_history":
 	[
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/app.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_components.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CustomerDetailsPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CustomerDetails.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/login.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/ab6a7c5f191399a2a6e49d19a8ad4fb45c2d5990.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.env",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.gitignore",
@@ -776,23 +818,18 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/react.sublime-project",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/tpv/tpv-stub.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/tpv/callback.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/TPVControllerStub.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/config/app.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/RedsysAPI.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/vendor/laravel/framework/src/Illuminate/Support/Facades/Route.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/.env",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/.gitignore",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/MonthAvailability.js"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/TPVControllerStub.php"
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
 		"height": 117.0,
 		"where_history":
 		[
+			"C:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\storage\\framework\\views"
 		]
 	},
 	"find_state":
@@ -800,6 +837,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"checklogin"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -817,16 +855,47 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/admin/login.blade.php",
+					"file": "resources/views/pages/tapas.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1478,
+						"buffer_size": 8819,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2294,
+								2294
+							]
+						],
+						"settings":
+						{
+							"SL.738.region_keys":
+							[
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1157.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4395,
 						"regions":
 						{
 						},
@@ -839,7 +908,7 @@
 						],
 						"settings":
 						{
-							"SL.682.region_keys":
+							"SL.751.region_keys":
 							[
 							],
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -847,7 +916,101 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+						"translation.y": 171.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Controllers/CalendareventControllerOnline.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1454,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								486,
+								486
+							]
+						],
+						"settings":
+						{
+							"SL.759.region_keys":
+							[
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "storage/logs/laravel.log",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 124,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/Http/Controllers/CalendareventController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5611,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3537,
+								3537
+							]
+						],
+						"settings":
+						{
+							"SL.762.region_keys":
+							[
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2451.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -903,7 +1066,7 @@
 	"project": "cooking-point.sublime-project",
 	"replace":
 	{
-		"height": 73.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -912,6 +1075,38 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"sto lara",
+				"storage\\logs\\laravel.log"
+			],
+			[
+				"calen",
+				"app\\Http\\Controllers\\CalendareventController.php"
+			],
+			[
+				"calendarcontrol",
+				"app\\Http\\Controllers\\CalendareventControllerOnline.php"
+			],
+			[
+				"rout web",
+				"routes\\web.php"
+			],
+			[
+				"tapas.blad",
+				"resources\\views\\pages\\tapas.blade.php"
+			],
+			[
+				"resour app.js",
+				"resources\\js\\app.js"
+			],
+			[
+				"_compon",
+				"resources\\sass\\_components.scss"
+			],
+			[
+				"reso book custome",
+				"resources\\js\\booking\\CustomerDetails.js"
+			],
 			[
 				"reso admin log",
 				"resources\\views\\admin\\login.blade.php"
@@ -1241,10 +1436,6 @@
 				"react\\app\\Http\\Controllers\\MailController.php"
 			],
 			[
-				"sto lara",
-				"react\\storage\\logs\\laravel.log"
-			],
-			[
 				"tpvst",
 				"react\\app\\Http\\Controllers\\TPVStub.php"
 			],
@@ -1395,34 +1586,6 @@
 			[
 				"tpvcon",
 				"app\\Http\\Controllers\\TPVController.php"
-			],
-			[
-				"calendar",
-				"app\\Http\\Controllers\\CalendareventController.php"
-			],
-			[
-				"tpv-st",
-				"resources\\views\\tpv\\pay-stub.blade.php"
-			],
-			[
-				"tpv stu",
-				"app\\Http\\Controllers\\TPVController-stub.php"
-			],
-			[
-				"redsys",
-				"app\\Http\\Controllers\\RedsysAPI.php"
-			],
-			[
-				"avai",
-				"resources\\js\\booking\\AvailabilityPage.js"
-			],
-			[
-				"calendar rea",
-				"app\\Http\\Controllers\\CalendareventControllerReact.php"
-			],
-			[
-				"customer",
-				"resources\\js\\booking\\CustomerDetails.js"
 			]
 		],
 		"width": 0.0
@@ -1453,7 +1616,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 332.0,
+	"side_bar_width": 441.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
