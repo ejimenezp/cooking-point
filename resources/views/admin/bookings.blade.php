@@ -245,7 +245,7 @@
 									<option value="CONFIRMED">CONFIRMADA</option>
 									<option value="GUARANTEE">GARANTÍA</option>
 									<option value="PENDING">NO FINALIZADA</option>
-									<option value="CANCELLED">CANCELADA</option>
+									<option value="CANCELED">CANCELADA</option>
 								</select>
 							</td>
 						</tr>

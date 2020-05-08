@@ -357,7 +357,7 @@ function populateBookingList (i) {
   var line_attributes
   for (var j = 0; j < bookings.length; j++) {
     switch (bookings[j].status) {
-    case 'CANCELLED':
+    case 'CANCELED':
     case 'PENDING':
       line_attributes = 'style="color:lightgray;"'
       break

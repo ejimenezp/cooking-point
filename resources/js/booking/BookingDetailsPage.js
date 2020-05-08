@@ -139,7 +139,7 @@ function BookingDetailsPage (props) {
           <h1>Booking</h1>
           {localbkg.status === 'PENDING' && <p>You are about to book the following class:</p>}
           {(localbkg.status === 'CONFIRMED' || localbkg.status === 'GUARANTEE') && <p>These are the details of your booking:</p>}
-          {localbkg.status === 'CANCELLED' && <p>This booking is no longer valid.</p>}
+          {localbkg.status === 'CANCELED' && <p>This booking is no longer valid.</p>}
         </div>
       </div>
 
@@ -152,7 +152,7 @@ function BookingDetailsPage (props) {
           <div className='btn btn-secondary' onClick={() => navigate(`/booking/${localbkg.locator}/cancelbooking`)}>Cancel Booking</div>}{' '}
         {localbkg.locator && localbkg.status !== 'PENDING' &&
           <div className='btn btn-secondary' onClick={() => (location.href = '/booking/forget')}>New Booking</div>}{' '}
-        {localbkg.locator && !localbkg.fixed_date && localbkg.status !== 'CANCELLED' &&
+        {localbkg.locator && !localbkg.fixed_date && localbkg.status !== 'CANCELED' &&
           <div className='btn btn-secondary' onClick={classChange}>Change Class/Date</div>}{' '}
         {localbkg.locator &&
           <div className='btn btn-secondary' onClick={() => navigate(`/booking/${localbkg.locator}/customerdetails`)}>Edit Customer Details</div>}{' '}
