@@ -205,6 +205,7 @@
 					</tbody>
 				</table>
 				<button class="btn btn-primary button_booking_edit" data-j="-1">Nueva Reserva</button>
+				<button class="btn btn-secondary toggle_datepicker">Ver Calendario</button>
 				<div class="gutter"></div>
 			</div>
 			<div id="booking_edit" style="display:none;">
