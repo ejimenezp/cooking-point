@@ -69,7 +69,7 @@ class BookingController extends Controller
         $bkg->status = $request->status;
         switch ($bkg->status) {
             case 'PENDING':
-            case 'CANCELLED':
+            case 'CANCELED':
                 $bkg->status_filter = 'DO_NOT_COUNT';
                 break;          
             default:
@@ -123,7 +123,7 @@ class BookingController extends Controller
             $bkg->status = $request->status;
             switch ($bkg->status) {
                 case 'PENDING':
-                case 'CANCELLED':
+                case 'CANCELED':
                     $bkg->status_filter = 'DO_NOT_COUNT';
                     break;          
                 default:
@@ -202,7 +202,7 @@ class BookingController extends Controller
     }
 
     function cancelIt(Request $request) {
-        $request->status = 'CANCELLED';
+        $request->status = 'CANCELED';
         $bkg = $this->update($request);
         MailController::send_mail($bkg->email, $bkg, 'user_cancellation');
         MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_cancel_request');
@@ -225,7 +225,7 @@ class BookingController extends Controller
             } elseif ($canceldate->addDays(2)->gt($traveldate)) {
                 return ['status' => 'fail', 'reason' => 'PAST_CANCEL_DATE', 'details' => 'Too Late to Cancel'];
             } else {
-                $bkg->status = 'CANCELLED';
+                $bkg->status = 'CANCELED';
                 $bkg->status_filter = 'DO_NOT_COUNT';
                 $bkg->save();
                 return ['status' => 'ok'];

@@ -64,7 +64,7 @@ function CancelBookingPage (props) {
 
       <NavButtons>
         <div className='btn btn-secondary' onClick={handleButtonCancel}>Back</div>{' '}
-        {cancelable() && <div className='btn btn-primary' onClick={handleButtonConfirm}>Confirm Cancelation</div>}
+        {cancelable() && <div className='btn btn-primary' onClick={handleButtonConfirm}>Confirm Cancellation</div>}
       </NavButtons>
     </div>
   )

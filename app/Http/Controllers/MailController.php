@@ -166,8 +166,8 @@ class MailController {
 			case 'PAID':
 				$status = "Paid";
 				break;
-			case 'CANCELLED':
-				$status = "Cancelled";
+			case 'CANCELED':
+				$status = "Canceled";
 				break;
 			default:
 				$status = "Contact Us";
