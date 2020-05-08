@@ -1073,6 +1073,15 @@ $('#modal_button_booking_delete').click(function () {
 })
 
 //
+// booking show more all details
+//
+$('#button_booking_details').click(function () {
+
+  const details = document.querySelectorAll('.details')
+  details.forEach( (e) => e.classList.toggle('d-none'))
+})
+
+//
 // booking edit datepicker
 //
 $('#booking_date_edit').datepicker({
