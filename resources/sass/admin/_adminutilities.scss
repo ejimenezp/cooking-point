@@ -7,10 +7,10 @@
 
 	.ui-datepicker {
 		background-color: white;
-		padding: 0.5rem;
 		border: 1px solid $brand-grey;
 		z-index: 1;
 		margin: auto;
+		margin-bottom: 0.5rem;
 		&, table {
 			font-size: $mobile-font-size;
 			@include media-breakpoint-up(md) {
