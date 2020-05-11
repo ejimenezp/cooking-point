@@ -11092,10 +11092,10 @@ figure {
 }
 
 .navbar-offset {
-  height: 63px;
+  height: 4rem;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 992px) {
   .navbar-offset {
     display: none;
   }
@@ -11280,7 +11280,6 @@ figure {
 
 .xxl-button {
   height: 4rem;
-  width: 30rem;
   max-width: 80vw;
   margin: auto;
   font-family: Ubuntu, Tahoma, Helvetica, Arial, sans-serif;
