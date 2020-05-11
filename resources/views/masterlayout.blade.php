@@ -44,7 +44,7 @@
     @endif
 
 <!-- smartphone -->
-<div class="d-block d-md-none">
+<div class="d-block d-lg-none">
   <div class="cp-smartphone-navbar clearfix">
       <div class="logo">
         <a href="/"><img alt="Cooking Point" src="/images/icons/cookingpoint-logo-landscape.png"></a>        
@@ -95,7 +95,7 @@
 
 <!-- ipad landscape & desktop -->
 
-<div class="d-none d-md-block">
+<div class="d-none d-lg-block">
   <div class="cp-navbar">
       <div class="logo">
         <a href="/"><img alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>        

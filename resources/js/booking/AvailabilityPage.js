@@ -34,6 +34,7 @@ function AvailabilityPage (props) {
 
   function handleChange (bkg) {
     let b = Object.assign({}, localbkg)
+    handleDateChange(new Date(bkg.date))
     b = { ...b, ...bkg }
     b.store = true
     setBkg(b)
@@ -144,10 +145,10 @@ function AvailabilityPage (props) {
         </div>
       </div>
       <div className='row justify-content-center'>
-        <div className='col-md-4'>
+        <div className='col-sm-6 col-xl-4'>
           <InquiryDetailsEdit liftUp={handleChange} bkg={localbkg} />
         </div>
-        <div className='col-md-4'>
+        <div className='col-sm-6'>
           {isError && <div>Something went wrong... please, reload the page</div>}
           {!isError && (
             <div className='text-center'>

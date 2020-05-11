@@ -46,7 +46,7 @@
 						<a href="/admin/logout">Salir</a>
 					</li>
 					<li>
-						<a href="/" style="color:black;">{{ app('request')->input('user_name') }}</a>
+						<a href="/admin" style="color:black;">{{ app('request')->input('user_name') }}</a>
 					</li>
 				</ul>
 			</div>
