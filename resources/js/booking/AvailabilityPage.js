@@ -141,7 +141,7 @@ function AvailabilityPage (props) {
         <div className='col-12'>
           <h1>Booking</h1>
           {localbkg.status === 'PENDING' && <p>Select number of guests and class to check availability.</p>}
-          {['CONFIRMED', 'GUARANTEE', 'PAID'].includes(localbkg.status) && <p>You can change class and booking date:</p>}
+          {['CONFIRMED', 'PAY-ON-ARRIVAL', 'PAID'].includes(localbkg.status) && <p>You can change class and booking date:</p>}
         </div>
       </div>
       <div className='row justify-content-center'>

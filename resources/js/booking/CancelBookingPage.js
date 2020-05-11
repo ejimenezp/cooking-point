@@ -37,7 +37,7 @@ function CancelBookingPage (props) {
   }
 
   function cancelable () {
-    return ['CONFIRMED', 'PAID', 'GUARANTEE'].includes(localbkg.status) &&
+    return ['CONFIRMED', 'PAID', 'PAY-ON-ARRIVAL'].includes(localbkg.status) &&
       (differenceInHours(new Date(localbkg.calendarevent.startdateatom), now) >= 24)
   }
 

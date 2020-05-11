@@ -143,7 +143,7 @@ function bookingEditShow (i, j) {
     $('input[name=id]').val(0) // new booking
     $('input[name=calendarevent_id]').val(month_schedule[i].id)
     $('select[name=source_id]').val('3') // user
-    $('select[name=status]').val('GUARANTEE')
+    $('select[name=status]').val('PAY-ON-ARRIVAL')
     $('input[name=status_filter]').val('REGISTERED')
     $('input[name=name]').val('')
     $('input[name=email]').val('')
@@ -361,7 +361,7 @@ function populateBookingList (i) {
     case 'PENDING':
       line_attributes = 'style="color:lightgray;"'
       break
-    case 'GUARANTEE':
+    case 'PAY-ON-ARRIVAL':
       line_attributes = 'style="color:salmon;"'
       break
     default:
@@ -414,7 +414,7 @@ function sourceName (id) {
 // display price based on roles and status
 //
 function showPrice () {
-  if (user_role >= 3 || $('select[name=status]').val() == 'GUARANTEE') {
+  if (user_role >= 3 || $('select[name=status]').val() == 'PAY-ON-ARRIVAL') {
     $('.price').show()
   } else {
     $('.price').hide()

@@ -244,11 +244,11 @@
 							</td>
 							<td>
 								<select name="status">
-									<option value="PAID">PAGADA</option>
-									<option value="CONFIRMED">CONFIRMADA</option>
-									<option value="GUARANTEE">GARANTÍA</option>
-									<option value="PENDING">NO FINALIZADA</option>
-									<option value="CANCELED">CANCELADA</option>
+									<option value="PAID">PAID</option>
+									<option value="CONFIRMED">CONFIRMED</option>
+									<option value="PAY-ON-ARRIVAL">PAY-ON-ARRIVAL</option>
+									<option value="PENDING">PENDING</option>
+									<option value="CANCELED">CANCELED</option>
 								</select>
 							</td>
 						</tr>

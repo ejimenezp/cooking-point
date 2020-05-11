@@ -70,7 +70,7 @@ function CustomerDetailsPage (props) {
         <div className='col-12'>
           <h1>Customer Details</h1>
           {localbkg.status === 'PENDING' && <p>You are about to book the following class:</p>}
-          {(localbkg.status === 'CONFIRMED' || localbkg.status === 'GUARANTEE') && <p>You can change any customer details.</p>}
+          {(localbkg.status === 'CONFIRMED' || localbkg.status === 'PAY-ON-ARRIVAL') && <p>You can change any customer details.</p>}
         </div>
       </div>
 
