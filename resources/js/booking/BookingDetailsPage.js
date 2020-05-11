@@ -112,7 +112,7 @@ function BookingDetailsPage (props) {
   }
 
   function cancelable () {
-    return ['CONFIRMED', 'PAID', 'GUARANTEE'].includes(localbkg.status) &&
+    return ['CONFIRMED', 'PAID', 'PAY-ON-ARRIVAL'].includes(localbkg.status) &&
      isBefore(new Date(), new Date(localbkg.calendarevent.startdateatom))
   }
 
@@ -138,7 +138,7 @@ function BookingDetailsPage (props) {
         <div className='col-12'>
           <h1>Booking</h1>
           {localbkg.status === 'PENDING' && <p>You are about to book the following class:</p>}
-          {(localbkg.status === 'CONFIRMED' || localbkg.status === 'GUARANTEE') && <p>These are the details of your booking:</p>}
+          {(localbkg.status === 'CONFIRMED' || localbkg.status === 'PAY-ON-ARRIVAL') && <p>These are the details of your booking:</p>}
           {localbkg.status === 'CANCELED' && <p>This booking is no longer valid.</p>}
         </div>
       </div>

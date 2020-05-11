@@ -25,7 +25,7 @@ class PaymentMethod extends Job {
 		$today = $this->now->format('Y-m-d');
 		$ctype = $this->class_type;
 
-		return Booking::where('status', 'GUARANTEE')->
+		return Booking::where('status', 'PAY-ON-ARRIVAL')->
 					whereHas('calendarevent', function($query) use ($today, $ctype) {
             			$query->where('date', $today)
             				  ->where('type', '=', $this->class_type); 
