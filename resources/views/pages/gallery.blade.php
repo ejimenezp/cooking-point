@@ -15,7 +15,7 @@
 
 
 <div class="row justify-content-center">
-    <div class="col-6 col-md-3">
+    <div class="col-6 col-lg-4 col-xl-3">
         <div class="bottom-gutter">
             <div class="box all-clickable orange-on-hover">
 				<a href="https://instagram.com/explore/tags/cookingpoint/"  target="_blank"></a>
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="col-6 col-md-3">
+    <div class="col-6 col-lg-4 col-xl-3">
         <div class="bottom-gutter">        
             <div class="box all-clickable orange-on-hover">
                 <a href="http://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html#photos"  target="_blank"></a>

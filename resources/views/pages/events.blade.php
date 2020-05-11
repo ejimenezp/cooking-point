@@ -61,7 +61,7 @@
 	<div class="col-12">
 		<p>También ofrecemos actividades para empresas orientadas a equipos españoles que quieren realizar un team building de cocina en el centro de Madrid.</p>
 		<div class="row justify-content-center">
-		<div class="col-sm-7">
+		<div class="col-lg-10 col-xl-7">
 			<figure class="text-center">
 				<img data-src="/images/eventos-banner-sm.jpg" class="lazyload img-fluid mx-auto d-block" alt="Team-building">
 				<figcaption class="figure-caption">Team-building</figcaption>
