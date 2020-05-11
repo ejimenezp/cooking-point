@@ -91,9 +91,9 @@
 }
 
 .navbar-offset {
-    height: 63px;
+    height: 4rem;
 
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(lg) {
         display: none;
     }
 }
@@ -225,7 +225,6 @@
     }
 }
 
-
 #section-banner {
 
     img,
@@ -289,7 +288,6 @@
 
 .xxl-button {
     height: 4rem;
-    width: 30rem;
     max-width: 80vw;
     margin: auto;
     font-family: $font-alter;
