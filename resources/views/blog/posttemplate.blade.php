@@ -33,6 +33,14 @@
 		@endforeach
 	@endif
 
+			<div class="box all-clickable orange-on-hover">
+				<a href="/blog/">
+					<div class="row justify-content-center">
+						<h2>All Posts</h2>
+					</div>
+				</a>
+			</div>
+
 </div>
 
 

@@ -143,10 +143,10 @@
 
 		<div class="d-block d-md-none">
 			<div style="height: 5rem;"></div>
-			<div class="book-now-bottom all-clickable"><a href="/booking?class=PAELLA">Book Now</a></div>
+			<div class="book-now-bottom all-clickable"><a href="/booking?class=TAPAS">Book Now</a></div>
 		</div>
 		<div class="d-none d-md-block">
-			<div class="book-now-right all-clickable"><a href="/booking?class=PAELLA">Book Now</a></div>
+			<div class="book-now-right all-clickable"><a href="/booking?class=TAPAS">Book Now</a></div>
 		</div>
 	</div>
 </div>	
