@@ -98,14 +98,14 @@
 
 		<p>Along the preparation, our chef will tell stories about the origin and customs around this way of enjoying food. There will be also time to talk about cured ham, olive oil and other produce paradigm of Spanish food culture.</p>
 
-		<div class="row">
-			<div class="col-sm-6">
+		<div class="row justify-content-center">
+			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/tapas-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="what an experience!">
 					<figcaption class="figure-caption">Prepare your own tapas dinner</figcaption>
 				</figure>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 				<img data-src="/images/tapas-details-03.jpg" class="lazyload img-fluid mx-auto d-block" alt="chef stories">
 					<figcaption class="figure-caption">Born and raised in Madrid, we have many stories to tell</figcaption>
@@ -120,14 +120,14 @@
 
 		<p>After cooking you will sit down to enjoy your creations as <strong>your dinner</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable evening.</p>
 
-		<div class="row">
-			<div class="col-sm-4">
+		<div class="row justify-content-center">
+			<div class="col-md-8 col-lg-6 col-xl-4">
 				<figure class="text-center">
 					<img data-src="/images/tapas-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="flipping the omelet">
 					<figcaption class="figure-caption">Master the famous Spanish potato omelet</figcaption>
 				</figure>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/tapas-details-05.jpg" class="lazyload img-fluid mx-auto d-block" alt="eating time">
 					<figcaption class="figure-caption">Born and raised in Madrid, we have many stories to tell</figcaption>

@@ -97,14 +97,14 @@
 
 		<p>Back in the school, you’ll have to apply yourself to prepare your <strong>sangría</strong> and your starter: <strong>gazpacho</strong>, that is a refreshing tomato-based chilled soup. Another taste of Spain worth mastering.</p>
 
-		<div class="row">
-			<div class="col-sm-6">
+		<div class="row justify-content-center">
+			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/paella-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="anton martin market">		
 					<figcaption class="figure-caption">Shopping the ingredients at the local market</figcaption>
 				</figure>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 				<img data-src="/images/paella-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="making gazpacho">		
 					<figcaption class="figure-caption">Making gazpacho, a refreshing cold tomato soap</figcaption>
@@ -117,14 +117,14 @@
 
 		<p>Along the preparation, our chef will tell its story including its origins and its place in Spanish culture as well as handy tips that help you make a paella to be proud of.</p>
 
-		<div class="row">
-			<div class="col-sm-6">
+		<div class="row justify-content-center">
+			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/paella-details-03.jpg" class="lazyload img-fluid mx-auto d-block" alt="making paella">
 					<figcaption class="figure-caption">Every two of you make your own paella</figcaption>
 				</figure>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/paella-banner-sm.jpg" class="lazyload img-fluid mx-auto d-block" alt="making paella">
 					<figcaption class="figure-caption">Born and raised in Madrid, we have many stories to tell</figcaption>
@@ -135,7 +135,7 @@
 		<p>After cooking you will sit down to enjoy your creations as <strong>your lunch</strong>, and to share your experience with your fellow cooks. The best way to round up a memorable morning.</p>
 
 		<div class="row justify-content-center">
-			<div class="col-sm-6">
+			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/paella-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="eating paella after class">
 					<figcaption class="figure-caption">Time to eat while sharing experiences with your new friends</figcaption>
