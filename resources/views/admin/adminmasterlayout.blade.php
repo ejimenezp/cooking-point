@@ -90,7 +90,7 @@
 	<div class="container-fluid">
 		<div class="divider"></div>
 		<div class="row justify-content-center">
-			<div class="col-md-11 col-lg-10">
+			<div class="col-12 col-xl-10">
 				@yield('content')
 			</div>
 		</div>

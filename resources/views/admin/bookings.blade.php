@@ -3,7 +3,7 @@
 @section('description', 'Cooking Point Admin Main Page')
 @section('content')
 <div class="admin row justify-content-center">
-	<div class="col-md-4">
+	<div class="col-md-6 col-xl-4">
 		<div id="admindatepicker"></div>
 	</div>
 	<div class="col-md-6">
