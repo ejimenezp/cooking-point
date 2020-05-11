@@ -16,7 +16,6 @@ class Kernel extends ConsoleKernel
         Commands\CookingPointCron::class,
         Commands\GmailCredentials::class,
         Commands\EventLoader::class,
-        Commands\LegacyBookingLoader::class,
     ];
 
     /**
