@@ -13,7 +13,7 @@ CustomerDetails.propTypes = {
 
 function CustomerDetailsEdit (props) {
   const bkg = props.bkg
-  const isMobile = useMediaQuery({ maxWidth: 575 })
+  const isMobile = useMediaQuery({ maxWidth: 768 })
 
   function handleChange (event) {
     bkg[event.target.name] = event.target.value
@@ -31,7 +31,7 @@ function CustomerDetailsEdit (props) {
 
       {!isMobile &&
         <div className='row justify-content-center'>
-          <div className='col-md-5'>
+          <div className='col-lg-5'>
             <table className='availability-table'>
               <tbody>
                 <tr>
@@ -63,7 +63,7 @@ function CustomerDetailsEdit (props) {
             <p />
           </div>
 
-          <div className='col-md-7'>
+          <div className='col-lg-7'>
             <table className='availability-table'>
               <tbody>
                 <tr>
@@ -108,7 +108,7 @@ function CustomerDetailsEdit (props) {
 
 function CustomerDetails (props) {
   const bkg = props.bkg
-  const isMobile = useMediaQuery({ maxWidth: 575 })
+  const isMobile = useMediaQuery({ maxWidth: 768 })
 
   return (
     <div>
@@ -120,7 +120,7 @@ function CustomerDetails (props) {
       </div>
 
       <div className='row justify-content-center'>
-        <div className='col-md-5'>
+        <div className='col-lg-5'>
           <table className='voucher-table'>
             <tbody>
               <tr>

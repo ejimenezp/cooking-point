@@ -158,7 +158,7 @@ function InquiryDetails (props) {
 
   return (
     <div className='row'>
-      <div className='col-md-5'>
+      <div className='col-lg-5'>
         <table className='voucher-table'>
           <tbody>
             <tr>
@@ -181,7 +181,7 @@ function InquiryDetails (props) {
           </tbody>
         </table>
       </div>
-      <div className='col-md-5'>
+      <div className='col-lg-5'>
         <table className='voucher-table'>
           <tbody>
             <tr>
