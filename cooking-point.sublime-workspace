@@ -810,7 +810,7 @@
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -999,6 +999,9 @@
 						],
 						"settings":
 						{
+							"SL.15.region_keys":
+							[
+							],
 							"SL.489.region_keys":
 							[
 							],
@@ -1063,7 +1066,7 @@
 	"project": "cooking-point.sublime-project",
 	"replace":
 	{
-		"height": 73.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":
