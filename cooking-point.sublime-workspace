@@ -520,10 +520,19 @@
 	"buffers":
 	[
 		{
-			"file": "resources/views/pages/paella.blade.php",
+			"file": "app/Http/Controllers/RedsysAPI.php",
 			"settings":
 			{
-				"buffer_size": 9007,
+				"buffer_size": 7819,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/sass/_variables.scss",
+			"settings":
+			{
+				"buffer_size": 741,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -538,12 +547,13 @@
 			}
 		},
 		{
-			"file": "resources/views/pages/gallery.blade.php",
+			"contents": "Searching 242 files for \"env('APP\"\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\app\\Http\\Controllers\\MailController.php:\n  117  \t\t\n  118  \t\t// testing version\n  119: \t\tif (env('APP_ENV') != 'production') {\n  120  \t\t\tLog::info(\"mail sent to $to. Subject: {$envelope[\"subject\"]}. Text:\");\n  121  \t\t\tLog::info($html_body);\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\routes\\web.php:\n   35  Route::get('/faq', function () { return view('pages.faq'); });\n   36  Route::get('/gallery', function () { return view('pages.gallery'); });\n   37: Route::get('/pay/{id}', env('APP_ENV') == 'production' ? 'TPVController@pay' : 'TPVControllerStub@pay')->name('pay');\n   38: Route::post('/callback', env('APP_ENV') == 'production' ? 'TPVController@callback' : 'TPVControllerStub@callback');\n   39  Route::post('/tpv-stub-main', 'TPVStub@main');\n   40  Route::post('/tpv-stub-reply', 'TPVStub@reply');\n\n3 matches across 2 files\n",
 			"settings":
 			{
-				"buffer_size": 1363,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 951,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		}
 	],
@@ -558,6 +568,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"close",
+				"File: Close All"
+			],
 			[
 				"t",
 				"View: Toggle Side Bar"
@@ -668,22 +682,31 @@
 	"expanded_folders":
 	[
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/config",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app"
 	],
 	"file_history":
 	[
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/MailController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/config/cookingpoint.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv/pay.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVControllerStub.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/web.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/paella.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/tapas.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/gallery.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/adminmasterlayout.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/bookings.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/bestclasses.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/events.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/tapas.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_components.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/masterlayout.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/InquiryDetails.js",
@@ -709,9 +732,7 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/cashbox.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/cashbox.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/web.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/ViatorController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/faq.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_3rdpartypayment/body.txt",
@@ -723,13 +744,11 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_cancellation/subject.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/api.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/MailController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/index.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/modals.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventControllerOnline.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/paella.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/app.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/login.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/ab6a7c5f191399a2a6e49d19a8ad4fb45c2d5990.php",
@@ -801,12 +820,7 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/booking/index-old.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/errors/404.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/agencias.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/DatePicker/Day.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/css/booking.css",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_elements.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/webpack.mix.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/admin/_admincomponents.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/booking.js"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/DatePicker/Day.js"
 	],
 	"find":
 	{
@@ -829,6 +843,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"env('APP",
+			"/pay",
+			"pay-stub",
+			"tpv-stub-main",
+			"env('APP_ENV",
+			"alert(",
+			"$PROD",
 			"\"col-sm-6\"",
 			"\"col-sm-7\"",
 			"\"col-sm-6\"",
@@ -896,6 +917,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$BASE",
 			"\"col-lg-10 col-xl-6\"",
 			"\"col-lg-10 col-xl-7\"",
 			"PAY-ON-ARRIVAL",
@@ -915,35 +937,39 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/pages/paella.blade.php",
+					"file": "app/Http/Controllers/RedsysAPI.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9007,
+						"buffer_size": 7819,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2191,
-								2201
+								3714,
+								3714
 							]
 						],
 						"settings":
 						{
-							"SL.486.region_keys":
+							"SL.13.region_keys":
 							[
 							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"SL.42.region_keys":
+							[
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1706.0,
+						"translation.y": 1614.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -951,8 +977,39 @@
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/pages/tapas.blade.php",
+					"file": "resources/sass/_variables.scss",
 					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								140,
+								146
+							]
+						],
+						"settings":
+						{
+							"SL.14.region_keys":
+							[
+							],
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/pages/tapas.blade.php",
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 8911,
@@ -962,39 +1019,55 @@
 						"selection":
 						[
 							[
-								5009,
-								5009
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"SL.488.region_keys":
-							[
-							],
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2295.0,
+						"translation.y": 3230.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "resources/views/pages/gallery.blade.php",
+					"buffer": 3,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1363,
+						"buffer_size": 951,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										191,
+										199
+									],
+									[
+										598,
+										606
+									],
+									[
+										724,
+										732
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								349,
-								349
+								724,
+								754
 							]
 						],
 						"settings":
@@ -1002,18 +1075,20 @@
 							"SL.15.region_keys":
 							[
 							],
-							"SL.489.region_keys":
-							[
-							],
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1075,6 +1150,42 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"_variables",
+				"resources\\sass\\_variables.scss"
+			],
+			[
+				"redsys",
+				"app\\Http\\Controllers\\RedsysAPI.php"
+			],
+			[
+				"bookingc",
+				"app\\Http\\Controllers\\BookingController.php"
+			],
+			[
+				"web.p",
+				"routes\\web.php"
+			],
+			[
+				"tpv",
+				"app\\Http\\Controllers\\TPVController.php"
+			],
+			[
+				"PAY.p",
+				"resources\\views\\tpv\\pay.blade.php"
+			],
+			[
+				"cookingpoint.p",
+				"config\\cookingpoint.php"
+			],
+			[
+				"mailcon",
+				"app\\Http\\Controllers\\MailController.php"
+			],
+			[
+				"booking contr",
+				"app\\Http\\Controllers\\BookingController.php"
+			],
 			[
 				"pael",
 				"resources\\views\\pages\\paella.blade.php"
@@ -1550,42 +1661,6 @@
 			[
 				"update",
 				"react\\node_modules\\lodash\\update.js"
-			],
-			[
-				"mail",
-				"react\\app\\Http\\Controllers\\MailController.php"
-			],
-			[
-				"storage admin canc",
-				"react\\storage\\app\\templates\\admin_cancel_request\\body.html"
-			],
-			[
-				"storage user cancela",
-				"react\\storage\\app\\templates\\user_cancellation\\body.html"
-			],
-			[
-				"bookin api",
-				"react\\app\\Http\\Controllers\\BookingControllerApi.php"
-			],
-			[
-				"bookingcontro",
-				"react\\app\\Http\\Controllers\\BookingController.php"
-			],
-			[
-				"booking contro",
-				"react\\app\\Http\\Controllers\\BookingControllerReact.php"
-			],
-			[
-				"booking cancel",
-				"react\\resources\\js\\booking\\CancelBookingPage.js"
-			],
-			[
-				"cooking booking",
-				"cooking-point\\resources\\assets\\js\\booking.js"
-			],
-			[
-				"booking",
-				"cooking-point\\public\\js\\booking.js"
 			]
 		],
 		"width": 0.0
