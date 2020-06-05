@@ -69,6 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('bookings/booking', function() { return view('admin.bookings'); });
     Route::post('report/{id}', 'ReportController@report');
     Route::get('blogtool', function() { return view('admin.postindex'); });
+    Route::get('blogtool/sandbox', function () { return view('admin.blogsandbox'); });
     Route::get('blogtool/{id}', function($id) { return view('admin.post',['id' => $id]); });
     Route::get('blogtool/preview/{id}', 'BlogtoolController@preview' );
     Route::get('report', function() { return view('admin.reportindex'); });
