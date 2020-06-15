@@ -23,6 +23,19 @@
 	<div class="col-12">
 		<p>Here at Cooking Point, flexibility is something we value. We know that our class schedules may not fit with yours, especially if you are a large group. So we can tailor our classes to fit around you. We can host events for groups of 8-24 people to deliver a Madrid experience like no other. </p>
 
+	<div class="row justify-content-center">
+
+		<div class="col-10 col-sm-8">
+			<div class="pill">
+			    <h4 class="text-center"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></h4>
+			    <p>We assume that yours is a social gathering of friends, family or co-workers. During the post-COVID era, until further notice, group size is limited to 18 people (75% of normal capacity).</p>			
+			    <div class="text-center mt-2">
+			    	<button class="btn btn-primary" href="/blog/covid-free-classes">COVID-19 Measures</button>
+			    </div>		
+			</div>
+		</div>
+	</div>
+
 		<p>In our classes, participants prepare in small teams their own meal, which is enjoyed at the end of the class. All cooking is done under the guidance of our experienced chef. Instructions are in English and no cooking experience is required. Recipes are provided at the end of the class.</p>
 
 		<h2>Corporate Team Building Events</h2>

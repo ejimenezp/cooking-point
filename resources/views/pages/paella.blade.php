@@ -145,6 +145,19 @@
 
 		<p>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
 
+	<div class="row justify-content-center">
+
+		<div class="col-10 col-sm-8">
+			<div class="pill">
+			    <h4 class="text-center"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></h4>
+			    <p>We maintain the social distance between the different parties, so if you come alone, you will do everything on your own.</p>
+			    <div class="text-center mt-2">
+			    	<button class="btn btn-primary" href="/blog/covid-free-classes">COVID-19 Measures</button>
+			    </div>		
+			</div>
+		</div>
+	</div>
+
 		<p>Besides, you get a <strong>recipe booklet</strong> with all the recipes you prepare.</p>
 
 		<p>Check out our <a href="/faq">FAQ</a> for more questions.</p>
