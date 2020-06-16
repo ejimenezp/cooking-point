@@ -519,36 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "@extends('masterlayout')\n@section('title', 'TITLETITLE' )\n@section('description', \"DESCRIPTIONDESCRIPTION\" )\n@section('content')\n<div id=\"post-page\" data-postid=\"99999\">\n\t<h1 id=\"header\">Prepared for COVID-19</h1>\n\t<address class=\"header6\">Madrid | <time datetime=\"2020-01-01\">2020-01-01</time></address>\n\t<div id=\"text\">\n\t\t<!-- Copiar y pegar desde aquí  -->\n\t\t<div class=\"row justify-content-center\">\n\t\t\t<div class=\"col-lg-10 col-xl-7\">\n\t\t\t\t<figure class=\"text-center\">\n\t\t\t\t\t<img data-src=\"/sandbox/DSC00202-web.jpg\" class=\"lazyload img-fluid mx-auto d-block\" alt=\"Genuine Spanish Ensaladilla Rusa\">\n\t\t\t\t\t<figcaption class=\"figure-caption\">Genuine Spanish Ensaladilla Rusa</figcaption>\n\t\t\t\t</figure>\n\t\t\t</div>\n\t\t</div>\n\t\t<p>The state of alarm for COVID-19 ends on June 21 throughout Spain. The Spanish parliament has just approved the bill that sets the health & safety rules of the \"new normality\", name of the period until we have an effective therapy or vaccine against the virus:</p>\n\t\t<ul>\n\t\t\t<li><strong>Social distance of 1.5 m (5 feet)</strong> both indoors and outdoors (streets, shops, workplaces, accommodation, restaurants, museums, ...)</li>\n\t\t\t<li><strong>Mandatory use of the face mask</strong> if this 1.5m distance cannot be guaranteed all the time (i.e. strolling, shopping) or if other barriers are not suitable (sneezing guards, ...)</li>\n\t\t\t<li>Mandatory use of masks on public transport.</li>\n\t\t</ul>\n\t\t<p>In practice, that means you will have to wear a face mask almost every time you leave your home or hotel room.</p>\n\t\t<h2>How does that affect our classes?</h2>\n\t\t<p>As a business and workplace, we are committed to ensuring the safety of guests and employees against coronavirus spread, deploying authority requirements as follows:</p>\n\t\t<ul>\n\t\t\t<li>We reduce our class to <strong>6 people</strong> (50% of the usual capacity) to guarantee a social distance of <strong>6 feet</strong>. Your party will always be 6 feet away from the other guests, when cooking and eating. This way, there will not be physical barriers among workstations like sneeze guards or transparent partitions that might hamper class interaction.</li>\n\t\t\t<li>If you come alone, you don't pair up with anyone and cook individually.</li>\n\t\t\t<li>You are required to <strong>wear face mask during class</strong> except for when sit down to eat. Our staff will use it all the time.</li>\n\t\t\t<li>We <strong>clean and sanitize the entire facility</strong> before every class, especially restrooms and high-contact areas that are touched by guests and employees.</li>\n\t\t\t<li>You <strong>do not share any kitchen utensils</strong>, foodservice item, or condiment. Such articles are washed and sanitized before the class according to the regulation to avoid coronavirus spread.</li>\n\t\t\t<li>We provide <strong>hand sanitizer readily available</strong> for guests and employees.</li>\n\t\t\t<li>We provide individual disinfectant wipes available in restrooms.</li>\n\t\t\t<li>We <strong>reinforce room ventilation</strong> to increase the circulation of outdoor air as much as possible by keeping the kitchen hoods on.</li>\n\t\t</ul>\n\t\t<p>Things that does not change:</p>\n\n\t\t<p>In any case, if there is anything that concerns you, please feel free to contact us.</p>\n\t\n\t\t<div class=\"row justify-content-center\">\n\t\t\t<div class=\"col-lg-10 col-xl-7\">\n\t\t\t\t<figure class=\"text-center\">\n\t\t\t\t\t<img data-src=\"/sandbox/DSC00201-web.jpg\" class=\"lazyload img-fluid mx-auto d-block\" alt=\"ensaladilla rusa\">\n\t\t\t\t\t<figcaption class=\"figure-caption\">Mayonnaise is key, flavorful and plenty</figcaption>\n\t\t\t\t</figure>\n\t\t\t</div>\n\t\t</div>\n\t\t<h2>Recipe</h2>\n\t\t<!-- Copiar y pegar hasta aquí  -->\n\t</div>\n\t<div class=\"divider\"></div>\n\t<h2 class=\"header2\">Related posts:</h2>\n</div>\n@stop\n",
-			"file": "resources/views/admin/blogsandbox.blade.php",
-			"file_size": 3764,
-			"file_write_time": 132363482478746160,
-			"settings":
-			{
-				"buffer_size": 3746,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/pages/home.blade.php",
-			"settings":
-			{
-				"buffer_size": 11864,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/sass/_variables.scss",
-			"settings":
-			{
-				"buffer_size": 741,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -561,6 +531,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
 			[
 				"sideb",
 				"View: Toggle Side Bar"
@@ -587,10 +561,6 @@
 			],
 			[
 				"toggle sid",
-				"View: Toggle Side Bar"
-			],
-			[
-				"side",
 				"View: Toggle Side Bar"
 			],
 			[
@@ -683,6 +653,7 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/blog",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app"
@@ -690,30 +661,33 @@
 	"file_history":
 	[
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/web.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/RedsysAPI.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_variables.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BlogtoolController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/masterlayout.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/blog/posttemplate.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/tapas.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.gitignore",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/paella.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/events.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_components.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/blogsandbox.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_variables.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/RedsysAPI.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/MailController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/config/cookingpoint.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv/pay.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVControllerStub.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/paella.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/tapas.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/gallery.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/adminmasterlayout.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/bookings.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/bestclasses.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/events.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_components.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/masterlayout.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/InquiryDetails.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CustomerDetails.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/location.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/admin/_admincomponents.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/admin.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/blog/posttemplate.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Console/Commands/PaymentMethod.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/bookings.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/AvailabilityPage.js",
@@ -746,13 +720,11 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/index.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/modals.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventControllerOnline.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/app.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/login.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/ab6a7c5f191399a2a6e49d19a8ad4fb45c2d5990.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.env",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.gitignore",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/tienda.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/js/admin/tienda.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/BookingDetailsPage.js",
@@ -815,12 +787,11 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/app.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/masterlayout.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/cashbox/index.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/classemails.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/booking/index-old.blade.php"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/classemails.blade.php"
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 41.6
 	},
 	"find_in_files":
 	{
@@ -839,6 +810,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"preview",
 			"sandbox",
 			"ensaladilla/",
 			"POSTIMAGES",
@@ -939,96 +911,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "resources/views/admin/blogsandbox.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3746,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3145,
-								3145
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 342.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "resources/views/pages/home.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11864,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6662,
-								6351
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2337.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/sass/_variables.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 741,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								212,
-								218
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1089,12 +973,32 @@
 		"selected_items":
 		[
 			[
-				"home",
-				"resources\\views\\pages\\home.blade.php"
+				"master",
+				"resources\\views\\masterlayout.blade.php"
+			],
+			[
+				"blogtoolco",
+				"app\\Http\\Controllers\\BlogtoolController.php"
 			],
 			[
 				"web.php",
 				"routes\\web.php"
+			],
+			[
+				"paella",
+				"resources\\views\\pages\\paella.blade.php"
+			],
+			[
+				"events.bl",
+				"resources\\views\\pages\\events.blade.php"
+			],
+			[
+				"tapas.bl",
+				"resources\\views\\pages\\tapas.blade.php"
+			],
+			[
+				"home",
+				"resources\\views\\pages\\home.blade.php"
 			],
 			[
 				"_vae",
@@ -1155,10 +1059,6 @@
 			[
 				"_com",
 				"resources\\sass\\_components.scss"
-			],
-			[
-				"master",
-				"resources\\views\\masterlayout.blade.php"
 			],
 			[
 				"locati bla",
@@ -1583,22 +1483,6 @@
 			[
 				"bookingcon",
 				"react\\app\\Http\\Controllers\\BookingController.php"
-			],
-			[
-				"contro bo",
-				"react\\app\\Http\\Controllers\\BookingControllerApi.php"
-			],
-			[
-				"cooking point booking",
-				"cooking-point\\resources\\assets\\js\\booking.js"
-			],
-			[
-				"stor cancel admin",
-				"react\\storage\\app\\templates\\admin_cancel_request\\body.html"
-			],
-			[
-				"mailco",
-				"react\\app\\Http\\Controllers\\MailController.php"
 			]
 		],
 		"width": 0.0
@@ -1628,8 +1512,8 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 441.0,
+	"side_bar_visible": true,
+	"side_bar_width": 297.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

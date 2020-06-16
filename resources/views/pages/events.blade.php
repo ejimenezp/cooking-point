@@ -30,7 +30,7 @@
 			    <h4 class="text-center"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></h4>
 			    <p>We assume that yours is a social gathering of friends, family or co-workers. During the post-COVID era, until further notice, group size is limited to 18 people (75% of normal capacity).</p>			
 			    <div class="text-center mt-2">
-			    	<button class="btn btn-primary" href="/blog/covid-free-classes">COVID-19 Measures</button>
+			    	<div class="btn btn-primary"><a href="/blog/covid-free-classes">COVID-19 Measures</a></div>
 			    </div>		
 			</div>
 		</div>
