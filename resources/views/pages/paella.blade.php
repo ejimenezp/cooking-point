@@ -152,7 +152,7 @@
 			    <h4 class="text-center"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></h4>
 			    <p>We maintain the social distance between the different parties, so if you come alone, you will do everything on your own.</p>
 			    <div class="text-center mt-2">
-			    	<button class="btn btn-primary" href="/blog/covid-free-classes">COVID-19 Measures</button>
+			    	<div class="btn btn-primary"><a href="/blog/covid-free-classes">COVID-19 Measures</a></div>
 			    </div>		
 			</div>
 		</div>
