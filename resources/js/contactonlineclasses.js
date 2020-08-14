@@ -51,7 +51,7 @@ $( document ).ready(function() {
 
 $('#button_contacto_form').click(function() {
 
-	if (!validateContactoForm() || email_sent) {
+	if (email_sent) {
 			$('.modal_contactoeventos_title').html('Thank you again');
 			$('.modal_contactoeventos_body').html('Be patient. We will contact you within next 24 hours.');
 			$('#modal_contactoeventos').modal('show');	

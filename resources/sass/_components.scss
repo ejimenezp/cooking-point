@@ -93,7 +93,7 @@
 .navbar-offset {
     height: 4rem;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
         display: none;
     }
 }

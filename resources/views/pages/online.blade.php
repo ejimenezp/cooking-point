@@ -154,7 +154,7 @@
 					<tbody>
 						<tr>
 							<td class="font-weight-bold">
-								Name <span class="text-danger">*</span> :
+								Name :
 							</td>
 						</tr>
 						<tr>
