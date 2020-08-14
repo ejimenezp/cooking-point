@@ -33,6 +33,7 @@ Route::get('booking/delete/{id}', 'BookingController@delete');
 Route::post('booking/cancelIt', 'BookingController@cancelIt');
 Route::post('booking/emailIt', 'BookingController@emailIt');
 Route::post('booking/findByLocator', 'BookingController@findByLocator');
+Route::get('booking/price', 'BookingController@price');
 
 Route::get('blogtool/index', 'BlogtoolController@indexforadmin');
 Route::post('blogtool/savedisplayposition', 'BlogtoolController@savedisplayposition');
@@ -56,6 +57,7 @@ Route::post('tienda/addticket', 'TicketsController@addticket');
 Route::post('viator', 'ViatorController@main');
 
 Route::post('contact/contactoeventos', 'ContactControllerApi@contactoeventos');
+Route::post('contact/contactonlineclasses', 'ContactControllerApi@contactonlineclasses');
 Route::post('contact/googleadswebhook', 'ContactControllerApi@googleadswebhook');
 
 

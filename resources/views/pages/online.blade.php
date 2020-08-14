@@ -21,7 +21,7 @@
 			<ul>
 				<li>Learn at home traditional Spanish tapas</li>
 				<li>Schedules adapted to your time zone</li>
-				<li>Live class in English from our school in Madrid</li>
+				<li>Live class in English</li>
 				<li>€40 adult / €25 children (5-12 year old)</li>
 			</ul>
 		</div>
@@ -53,19 +53,19 @@
 <div class="row justify-content-right">
 	<div class="col-12">
 		<h3>Description</h3>
-		<p>Enjoy from your kitchen a fun cooking class live from our top-rated school in Madrid. Follow our local chef directions in English to prepare an authentic Spanish tapas dinner. This is an <strong>interactive step-by-step class</strong> where you are expected to replicate chef's tasks while he monitors your work so that no one is left behind.</p>
-		<p>Along the cooking of <strong>5 recipes</strong>, he will tell you stories about those dishes and why food plays a key role in the Spanish life. Questions are always welcome, whatever the topic, since the aim is to get immersed into the Spanish food culture through this fun activity.</p>
+		<p>Enjoy from your kitchen a fun cooking class live from our top-rated school in Madrid. Follow our local chef directions in English to prepare an authentic Spanish tapas dinner. This is an <strong>interactive step-by-step class</strong> where you are invited to replicate chef's tasks while he monitors your work so that no one is left behind.</p>
+		<p>As you cook <strong>5 delicious recipes</strong>, the chef will tell you stories about those dishes and why food plays a key role in Spanish life. Questions are always welcome, whatever the subject, as the goal is to have fun while immersing yourself in Spanish culture.</p>
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/online-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="front view">
-					<figcaption class="figure-caption">Broadcasted from a clean, bright kitchen, to focus on the important</figcaption>
+					<figcaption class="figure-caption">Broadcasted from a clean, bright kitchen, to focus on what's important</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/online-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="close-up view">
-					<figcaption class="figure-caption">Switch anytime to close-up view not to miss any detail</figcaption>
+					<figcaption class="figure-caption">Switch at any time to close-up view so as not to miss any details</figcaption>
 				</figure>
 			</div>
 		</div>
@@ -78,7 +78,7 @@
 			<li><strong>Pantxineta</strong>. From the Basque Country (Northern Spain) this dessert combines puff pastry and custard to round up this menu of traditional Spanish tapas.</li>
 			<li><strong>Sangria</strong>. Make your own sangria to wash down this flavourful menu.</li>
 		</ul>
-		<p>It can be adapted to any dietary requirement (vegan, gluten-free, dairy-free,...), without major impact. Just let us know when you contact us.</p>
+		<p>It's easily adapted to any dietary requirement without major impact (vegan, gluten-free, dairy-free,...). Just let us know when you contact us.</p>
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
@@ -142,8 +142,9 @@
 		</div>
  -->
 		<h3>Fun Anywhere</h3>
-		<p>Surprise your family and friends organizing a cooking party and give family video calling a boost. Kids will love it too, as there are always tasks for them in class.</p>
-		<p>Or how about an online team building event? where coworkers show off their culinary skills while having a break from work from home.</p>
+		<p>Surprise your family and friends organizing a <strong>cooking party</strong> and give family video calling a boost. Kids will love it too, as there are always tasks for them in class.</p>
+		<p>How about an <strong>online team building</strong> event? where coworkers show off their culinary skills while having a break from working from home.</p>
+		<p>Or what about a fun <strong>extracurricular activity</strong> to improve high school or college remote learning resources?</p>
 		<p>Live online classes open a new world of opportunities, don't hesitate to share your ideas and we'll do our best to make them come true.</p>
 		<h3>Inquiry</h3>
 		<p>Tell us about your preferred date and time, and number of people. We'll reply within 24 hours:</p>
