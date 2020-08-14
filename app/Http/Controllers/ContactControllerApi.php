@@ -30,6 +30,25 @@ class ContactControllerApi extends Controller
         }
     }
 
+    function contactonlineclasses(Request $request)
+    {
+        try {
+            $bkg = new Booking();
+            $ce = Calendarevent::first();
+            $bkg->name = $request->name;
+            $bkg->email = $request->email;
+            $bkg->comments = $request->message;
+            $bkg->calendarevent = $ce;
+
+            MailController::send_mail($bkg->email, $bkg, 'user_message_online_classes');
+            MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_message');
+            
+        } catch (Exception $e) 
+        {
+            return Response::json('Oops! Something went wrong. Please email us at info@cookingpoint.es', 403);
+        }
+    } 
+
     function googleadswebhook(Request $request)
     {
         try {

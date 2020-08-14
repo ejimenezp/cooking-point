@@ -44,7 +44,7 @@
     @endif
 
 <!-- smartphone -->
-<div class="d-block d-lg-none">
+<div class="d-block d-xl-none">
   <div class="cp-smartphone-navbar clearfix">
       <div class="logo">
         <a href="/"><img alt="Cooking Point" src="/images/icons/cookingpoint-logo-landscape.png"></a>        
@@ -64,6 +64,9 @@
           </li>
           <li>
             <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+          </li>
+          <li>
+            <a href="/online-virtual-cooking-classes">Online Classes <span class="badge badge-primary">New</span></a>
           </li>
           <li>
             <a href="/private-cooking-events-madrid-spain">Private Events</a>
@@ -98,7 +101,7 @@
 
 <!-- ipad landscape & desktop -->
 
-<div class="d-none d-lg-block">
+<div class="d-none d-xl-block">
   <div class="cp-navbar">
       <div class="logo">
         <a href="/"><img alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>        
@@ -110,6 +113,9 @@
           </li>
           <li>
             <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+          </li>
+          <li>
+            <a href="/online-virtual-cooking-classes">Online Classes <span class="badge badge-primary">New</span></a> 
           </li>
           <li>
             <a href="/private-cooking-events-madrid-spain">Private Events</a>
