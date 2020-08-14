@@ -128,13 +128,36 @@
     <div class="col-lg-4">
         <div class="bottom-gutter">
             <div class="box all-clickable orange-on-hover">
+                <a href="/online-virtual-cooking-classes"></a>
+                <img class="img-fluid lazyload" title="online classes" alt="live classes from madrid" data-src="/images/online-banner-sm.jpg" />    
+                <h2>Online Classes <span class="badge badge-primary">New</span></h2>
+                <p>Don't let COVID-19 keep you from enjoying one of our cooking classes. Join any of our live online classes from Madrid and interact with our chef's to make your tapas dinner without leaving your kitchen.</p>
+                <table class="infogram">
+                    <tr>
+                        <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/clock.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/euro.png"></div></td>
+                 </tr>
+                     <tr>
+                        <td>Monday - Saturday</td>
+                        <td>3 times a day</td>
+                        <td>€40 (adult)<br>€25 (child)</td>
+                  </tr>
+                </table> 
+            </div>            
+        </div>
+    </div>
+
+<!--     <div class="col-lg-4">
+        <div class="bottom-gutter">
+            <div class="box all-clickable orange-on-hover">
                 <a href="/private-cooking-events-madrid-spain"></a>
                 <img class="img-fluid lazyload" title="cooking events" alt="private cooking events in Madrid" data-src="/images/events-banner-sm.jpg" />    
                 <h2>Private Events</h2>
                 <p>We can customize our classes as private events for corporate groups, team buildings, hen or stag parties, school trips or just group of friend that want to have a different lunch or dinner in Madrid.</p>
             </div>            
         </div>
-    </div>
+    </div> -->
 </div> 
 
 <div class="divider"></div>

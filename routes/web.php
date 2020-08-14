@@ -44,6 +44,7 @@ Route::get('/oferta-para-agencias', function () { return view('pages.agencias');
 Route::get('/paymentrequest/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
 Route::get('/about-us', function () { return view('pages.aboutus'); });
 Route::get('/best-cooking-classes-madrid', function () { return view('pages.bestclasses'); });
+Route::get('/online-virtual-cooking-classes', function () { return view('pages.online'); });
 
 //
 // blog entries

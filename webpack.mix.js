@@ -32,6 +32,7 @@ mix
   .js('resources/js/app.js', 'public/js').sourceMaps()
   .js('resources/js/home.js', 'public/js')
   .js('resources/js/contactoeventos.js', 'public/js')
+  .js('resources/js/contactonlineclasses.js', 'public/js')
   .js('resources/js/booking/booking.js', 'public/js')
   .js('resources/js/admin/bookings.js', 'public/js/admin')
   .js('resources/js/admin/tienda.js', 'public/js/admin')
