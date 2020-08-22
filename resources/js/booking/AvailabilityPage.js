@@ -79,7 +79,9 @@ function AvailabilityPage (props) {
   }
 
   function available (day) {
-    const i = _.findIndex(data, (d) => isSameDay(parseISO(d.startdateatom), day) && d.type === localbkg.type)
+    const sday = format(day,'yyyy-MM-dd') + ' 0:00:00'
+    const zonedDay = zonedTimeToUtc(sday, localbkg.tz)
+    const i = _.findIndex(data, (d) => isSameDay(parseISO(d.startdateatom), zonedDay) && d.type === localbkg.type)
     if (i === -1) {
       return false
     }
