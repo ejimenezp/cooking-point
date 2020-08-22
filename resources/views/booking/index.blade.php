@@ -7,7 +7,7 @@
 	@php 
 		$bkg = json_decode($param)
 	@endphp
-	@if (isset($bkg->tpv_result) && $bkg->tpv_result === 'OK' && ($bkg->calendarevent->type === 'PAELLA' || $bkg->calendarevent->type === 'TAPAS'))
+	@if (isset($bkg->tpv_result) && $bkg->tpv_result === 'OK' && $bkg->calendarevent->bookable_by_clients)
 		<script>
 		window.dataLayer = window.dataLayer || [];
 		dataLayer.push({

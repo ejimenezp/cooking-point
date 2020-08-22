@@ -59,13 +59,7 @@
 								Tipo:
 							</td>
 							<td>
-								<select name="type">
-									<option value="PAELLA">PAELLA</option>
-									<option value="TAPAS">TAPAS</option>
-									<option value="GROUP">GROUP</option>
-									<option value="HOLIDAY">HOLIDAY</option>
-									<option value="FILLER">FILLER</option>
-									<option value="PAYREQUEST">PAYMENT REQUEST</option>
+								<select name="type" id="eventtypelist">
 								</select>
 							</td>
 						</tr>

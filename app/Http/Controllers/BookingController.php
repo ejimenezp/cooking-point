@@ -30,6 +30,7 @@ class BookingController extends Controller
             $bkg->adult = 0;
             $bkg->child = 0;
             $bkg->type = isset($request->class) ? $request->class : 'PAELLA';
+            $bkg->onlineclass = isset($request->onlineclass);
             $bkg->source_id = 2;
             $bkg->phone = '';
             $bkg->status = 'PENDING';
@@ -84,8 +85,8 @@ class BookingController extends Controller
         $bkg->crm = $request->crm;
 
         $source = Source::find($request->source_id);
-        $bkg->iva = $source->priceplan->iva;
-        $bkg->price = $source->priceplan->adult * $request->adult + $source->priceplan->child * $request->child;
+        $bkg->iva = $source->iva;
+        $bkg->price = $request->price;
         $bkg->hide_price = !empty($request->hide_price);
         if ($bkg->calendarevent->type == 'GROUP') {
             $bkg->fixed_date = true;    
@@ -243,5 +244,17 @@ class BookingController extends Controller
     function forget(Request $request)
     {
         return redirect('/booking')->withCookie(Cookie::forget('cplocator'));
+    }
+
+
+    function price(Request $request)
+    {
+        $source = Source::find($request->source_id);
+        Log::info($source);
+        $priceplan = Priceplan::where('plan', $source->plan)->where('event_type', $request->type)->first();
+        Log::info($priceplan);
+
+        return ['price' => $priceplan->adult_rate * $request->adult + $priceplan->child_rate * $request->child,
+                'iva' => $source->iva];
     }
 }

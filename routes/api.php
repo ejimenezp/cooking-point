@@ -48,8 +48,9 @@ Route::post('blogtool/uploadimage', 'BlogtoolController@uploadimage');
 Route::post('blogtool/removeimages', 'BlogtoolController@removeimages');
 
 Route::get('staff/get', 'StaffController@getCooks');
-
 Route::get('source/get', 'SourceController@get');
+Route::get('eventtype/get', 'EventtypeController@get');
+Route::get('eventtype/bookable_by_clients', 'EventtypeController@bookable_by_clients');
 
 Route::get('tienda/getTickets', 'TicketsController@getTickets');
 Route::post('tienda/addticket', 'TicketsController@addticket');

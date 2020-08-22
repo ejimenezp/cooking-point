@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
 use App\Http\Requests;
 use App\Calendarevent;
+use App\Eventtype;
 use App\Staff;
 
 use Log;
@@ -21,6 +24,12 @@ class CalendareventController extends Controller
             return 'fail';
         }
 
+        // check event type really exists
+        $eventtype = Eventtype::where('type', $request->type)->first();
+        if (!$eventtype) {
+            return 'fail';
+        }
+
         $ce = new Calendarevent;
 
         $ce->date = $request->date;
@@ -29,36 +38,16 @@ class CalendareventController extends Controller
         $ce->secondstaff_id = $request->secondstaff_id;
         $ce->short_description = $request->short_description;
         $ce->info = (empty($request->info)) ? '' : $request->info;
-
-    	switch ($request->type) {
-    		case 'PAELLA':
-                $ce->short_description = 'Paella Cooking Class';
-    			$ce->time = '10:00:00';
-    			$ce->duration = '04:00:00';
-    			$ce->capacity = 12;
-    			break;
-    		
-    		case 'TAPAS':
-                $ce->short_description = 'Tapas Cooking Class';
-                $ce->time = '17:30:00';
-                $ce->duration = '04:00:00';
-                $ce->capacity = 12;
-    			break;
-    		
-    		case 'GROUP':
-                $ce->time = $request->time;
-                $ce->duration = $request->duration;
-                $ce->capacity = $request->capacity;
-    			break;
-    		
-    		case 'HOLIDAY':
-            case 'FILLER':
-            default:
-                $ce->time = $request->time;
-                $ce->duration = $request->duration;
-                $ce->capacity = 0;
-                break;
-    	}
+        $ce->short_description = $eventtype->short_description;
+        $ce->time = $eventtype->time;
+        $ce->duration = $eventtype->duration;
+        $ce->capacity = $eventtype->capacity;
+        $ce->online = $eventtype->online;
+        $ce->bookable_by_clients = $eventtype->bookable_by_clients;
+        $ce->cutoff = $eventtype->cutoff;
+        $ce->startdatetime = $request->date . ' ' . $request->time;
+        $st = new Carbon($ce->startdatetime);
+        $ce->enddatetime = $st->add(CarbonInterval::createFromFormat('H:i:s', $ce->duration));
 
     	$ce->save();
     	return $ce;    
@@ -102,6 +91,10 @@ class CalendareventController extends Controller
             $ce->time = $request->time;
             $ce->duration = $request->duration;
             $ce->capacity = $request->capacity;
+            $ce->cutoff = $request->cutoff;
+            $ce->startdatetime = $request->date . ' ' . $request->time;
+            $st = new Carbon($ce->startdatetime);
+            $ce->enddatetime = $st->add(CarbonInterval::createFromFormat('H:i:s', $ce->duration));
             $ce->info = (empty($request->info)) ? '' : $request->info;
             $ce->save();
             return $ce;
@@ -122,21 +115,22 @@ class CalendareventController extends Controller
     {
         $ces = Calendarevent::whereDate('date', '>=', $request->start)
                             ->whereDate('date', '<=', $request->end)
-                            ->whereIn('type', ['PAELLA', 'TAPAS'])
+                            ->where('online', $request->online == 'true')
+                            ->where('bookable_by_clients', true)
                             ->orderBy('date', 'ASC')
                             ->orderBy('time', 'ASC')->get();
 
-        $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'duration', 'capacity', 'registered']);
+        $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'capacity', 'registered']);
 
-        $ofuscate = base64_encode($subset);
-        return str_replace("5", "x06", $ofuscate);
-        // return $subset;
+        // $ofuscate = base64_encode($subset);
+        // return str_replace("5", "x06", $ofuscate);
+        return $subset;
     }
 
 
     static function getIntervalSchedule($start_date, $end_date, $bookable_only = 0)
     {
-        // devuelve colección de CE
+        // no es del API. Devuelve colección de CE para añadir Coming classes en las views
         
         return Calendarevent::whereDate('date', '>=', $start_date)
                             ->whereDate('date', '<=', $end_date)
