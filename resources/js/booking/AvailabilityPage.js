@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { format, parseISO, formatISO, isSameDay, isBefore, differenceInHours, startOfMonth, endOfMonth, addDays, subDays } from 'date-fns'
-import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
+import { format, parseISO, isSameDay, isBefore, differenceInHours, startOfMonth, endOfMonth, addDays, subDays } from 'date-fns'
+import { utcToZonedTime } from 'date-fns-tz'
 import { navigate } from '@reach/router'
 import { InquiryDetailsEdit } from './InquiryDetails'
 import DatePicker from './Components/DatePicker/DatePicker'
@@ -48,7 +48,7 @@ function AvailabilityPage (props) {
     setShowModal(false)
 
     if (typeof localbkg.calendarevent === 'undefined' || 
-        !available(new Date(localbkg.calendarevent.startdateatom))) { modal.body += 'Select a day with availability <br/>' }
+        !available(utcToZonedTime(parseISO(localbkg.calendarevent.startdateatom), localbkg.tz))) { modal.body += 'Select a day with availability <br/>' }
     if (!localbkg.adult) { modal.body += 'Select number of guests (Min. 1 adult) <br/>' }
     const filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
     if (localbkg.email && !filter.test(localbkg.email)) { modal.body += 'Enter a valid e-mail <br/>' }
@@ -80,9 +80,7 @@ function AvailabilityPage (props) {
   }
 
   function available (day) {
-    const sday = format(day,'yyyy-MM-dd') + ' 0:00:00'
-    const zonedDay = zonedTimeToUtc(sday, localbkg.tz)
-    const i = _.findIndex(data, (d) => isSameDay(parseISO(d.startdateatom), zonedDay) && d.type === localbkg.type)
+    const i = _.findIndex(data, (d) => isSameDay(utcToZonedTime(parseISO(d.startdateatom), localbkg.tz), day) && d.type === localbkg.type)
     if (i === -1) {
       return false
     }
