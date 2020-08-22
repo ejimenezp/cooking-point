@@ -47,7 +47,8 @@ function AvailabilityPage (props) {
     modal.body = ''
     setShowModal(false)
 
-    if (!available(new Date(localbkg.calendarevent.startdateatom))) { modal.body += 'Select a day with availability <br/>' }
+    if (typeof localbkg.calendarevent === 'undefined' || 
+        !available(new Date(localbkg.calendarevent.startdateatom))) { modal.body += 'Select a day with availability <br/>' }
     if (!localbkg.adult) { modal.body += 'Select number of guests (Min. 1 adult) <br/>' }
     const filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
     if (localbkg.email && !filter.test(localbkg.email)) { modal.body += 'Enter a valid e-mail <br/>' }

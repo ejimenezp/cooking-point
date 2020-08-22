@@ -182,9 +182,8 @@ function InquiryDetails (props) {
   const isMobile = useMediaQuery({ maxWidth: 575 })
   const start = new Date(bkg.calendarevent.startdateatom)
   const end = add(start, { hours: bkg.calendarevent.duration.split(':')[0], minutes: bkg.calendarevent.duration.split(':')[1] })
+  const tzText = start.toLocaleDateString('en-US', {timeZoneName : 'long'})
 
-  console.log(start)
-  console.log(end)
   return (
     <div className='row'>
       <div className='col-lg-5'>
@@ -201,7 +200,7 @@ function InquiryDetails (props) {
 
             <tr>
               <td className='font-weight-bold'>Time :</td>
-              <td>{format(start, 'h:mm a') + ' - ' + format(end, 'h:mm a')}</td>
+              <td>{format(start, 'h:mm a') + ' - ' + format(end, 'h:mm a') + ' ' + tzText}</td>
             </tr>
             <tr>
               <td className='font-weight-bold'>{isMobile ? 'Bkg # :' : 'Booking # :'}</td>
