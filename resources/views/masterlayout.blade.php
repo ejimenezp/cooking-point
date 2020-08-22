@@ -72,7 +72,7 @@
             <a href="/private-cooking-events-madrid-spain">Private Events</a>
           </li>
           <li>
-            <a href="/blog/covid-free-classes"><span class="bkg-status bkg-status-confirmed">COVID-19 Update<span></a>
+            <a href="/blog/covid-free-classes"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></a>
           </li>
           <li>
             <a href="/location">Location</a>
@@ -121,7 +121,7 @@
             <a href="/private-cooking-events-madrid-spain">Private Events</a>
           </li>
           <li>
-            <a href="/blog/covid-free-classes"><span class="bkg-status bkg-status-confirmed">COVID-19 Update<span></a>          
+            <a href="/blog/covid-free-classes"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></a>          
           </li>
           <li>
             <a href="/location">Location</a>
@@ -130,7 +130,7 @@
             <a href="/about-us">About Us</a>
           </li>
           <li>
-            <a href="/booking"><span class="font-weight-bold">Booking</span></a>
+            <a href="/booking?onlineclass"><span class="font-weight-bold">Booking</span></a>
           </li>
           <li>
             <a href="/gallery">Gallery</a>

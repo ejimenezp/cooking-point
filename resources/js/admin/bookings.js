@@ -543,6 +543,20 @@ jQuery(document).ready(function ($) {
     }
   })
 
+  $.ajax({
+    type: 'GET',
+    url: '/api/eventtype/get',
+    success: function (data) {
+      eventtype = data
+      select = ''
+      $('#eventtype').empty()
+      for (var ii = 0; ii < eventtype.length; ii++) {
+        select += '<option value="' + eventtype[ii].type + '">' + eventtype[ii].type + '</option>'
+      }
+      $('#eventtypelist').append(select)
+    }
+  })
+
   //
   // set status and pay_method based on source_id
   //

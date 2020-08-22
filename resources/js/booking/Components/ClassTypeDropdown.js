@@ -1,6 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Select from 'react-select'
+import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
 import PropTypes from 'prop-types'
-import onClickOutside from 'react-onclickoutside'
+
+const axios = require('axios').default
+
+export { ClassTypeDropdown }
 
 ClassTypeDropdown.propTypes = {
   liftUp: PropTypes.func,
@@ -8,38 +13,52 @@ ClassTypeDropdown.propTypes = {
 }
 
 function ClassTypeDropdown (props) {
-  ClassTypeDropdown.handleClickOutside = () => setIsOpen(false)
-  const PAELLA = 0
-  const TAPAS = 1
-  const [isOpen, setIsOpen] = useState(false)
-  const [selected, setSelected] = useState(props.default === 'TAPAS' ? TAPAS : PAELLA)
+  const [isError, setIsError] = useState(false)
+  const [selectOptions, setSelectOptions] = useState([])
+  const [defaultValue, setDefaultValue] = useState({})
 
-  const _class = [{ key: 'PAELLA', text: 'Paella Cooking Class' },
-    { key: 'TAPAS', text: 'Tapas Cooking Class' }
-  ]
-
-  function handleDropdownClick (event) {
-    setSelected(event)
-    props.liftUp(_class[event].key)
-    setIsOpen(false)
+  function localTime (hour) {
+    const showTimeZone = props.onlineclass ? props.userTimeZone : 'Europe/Madrid'
+    const classTime = zonedTimeToUtc('2018-09-01 ' + hour, 'Europe/Madrid')
+    const options = {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+      timeZone: showTimeZone
+    }
+    const a = new Intl.DateTimeFormat(props.userLanguage, options).format(classTime)
+    return a
   }
 
+  function handleSelectClass (option) {
+    setDefaultValue(option)
+    props.liftUp(option.value)
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsError(false)
+      try {
+        const result = await axios(`/api/eventtype/bookable_by_clients?online=${props.onlineclass}`)
+        var sel = []
+        result.data.forEach( function (item) {
+          const copy = {value : item.type , label: item.short_description + ' ' + localTime(item.time)}
+          sel.push(copy)
+        })
+        setSelectOptions(sel)
+        const def = sel.find((el) => el.value === props.default)
+        if (!def) {
+          def = sel[0]
+        }
+        setDefaultValue(def)
+      } catch (error) {
+        setIsError(true)
+      }
+    }
+    fetchData()
+  }, [props.onlineclass, props.userTimeZone])
+
   return (
-    <div className='type-dropdown-input'>
-      {!isOpen && <div className='type-dropdown-triangule' />}
-      <div className='fake-input' onClick={() => setIsOpen(true)}>
-        {_class[selected].text}
-      </div>
-      <ul id='myDropdown' className={isOpen ? 'type-dropdown-content d-block' : 'd-none'}>
-        <li key='PAELLA' onClick={() => handleDropdownClick(PAELLA)}>{_class[PAELLA].text}</li>
-        <li key='TAPAS' onClick={() => handleDropdownClick(TAPAS)}>{_class[TAPAS].text}</li>
-      </ul>
-    </div>
+    <Select options={selectOptions} value={defaultValue} onChange={handleSelectClass} />
   )
 }
-
-const clickOutsideConfig = {
-  handleClickOutside: () => ClassTypeDropdown.handleClickOutside
-}
-
-export default onClickOutside(ClassTypeDropdown, clickOutsideConfig)

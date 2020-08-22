@@ -12,7 +12,7 @@ var email_sent = false;
 //
 function validateContactoForm()
 {
-	var modal_title = 'Error en el formulario'
+	var modal_title = 'Error in form'
 	var modal_body = ''
 	var show_it = false
 

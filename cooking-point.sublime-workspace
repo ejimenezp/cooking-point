@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"local",
+				"localTime"
+			],
+			[
+				"select",
+				"selectClassOptions"
+			],
+			[
+				"Carbon",
+				"CarbonInterval"
+			],
+			[
+				"user",
+				"userTimeZone"
+			],
+			[
+				"set",
+				"setHours"
+			],
+			[
 				"con",
 				"justify-content-center"
 			],
@@ -194,10 +214,6 @@
 			[
 				"get",
 				"getAvailability"
-			],
-			[
-				"set",
-				"setExcluded"
 			],
 			[
 				"ButtonCh",
@@ -498,27 +514,173 @@
 			[
 				"boton-el",
 				"boton-eliminar-movimiento"
-			],
-			[
-				"array_un",
-				"array_unshift"
-			],
-			[
-				"efectivo_sesion",
-				"efectivo_sesion_al_inicio"
-			],
-			[
-				"efectivo_s",
-				"efectivo_sesion_al_inicio"
-			],
-			[
-				"efectivo",
-				"efectivo_sesion_al_inicio"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "resources/js/booking/Components/ClassTypeDropdown.js",
+			"settings":
+			{
+				"buffer_size": 1394,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/masterlayout.blade.php",
+			"settings":
+			{
+				"buffer_size": 6851,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/sass/_utilities.scss",
+			"settings":
+			{
+				"buffer_size": 540,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/js/booking/InquiryDetails.js",
+			"settings":
+			{
+				"buffer_size": 7459,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/js/booking/Components/UserTimeZone.js",
+			"settings":
+			{
+				"buffer_size": 3567,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<div class=\"zm-scrollbar__view\">\n\t<ul role=\"listbox\" tabindex=\"-1\" id=\"timezone-list-popup-list\" class=\"zm-select-dropdown__list\">\n\t\t<!---->\n\t\t<li id=\"select-item-timezone-list-0\" role=\"option\" aria-label=\"(GMT-11:00) Midway Island, Samoa\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Pacific/Midway\"><span class=\"real-label-span\">(GMT-11:00) Midway Island, Samoa</span><span>(GMT-11:00) Midway Island, Samoa</span></li>\n\t\t<li id=\"select-item-timezone-list-1\" role=\"option\" aria-label=\"(GMT-11:00) Pago Pago\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Pacific/Pago_Pago\"><span class=\"real-label-span\">(GMT-11:00) Pago Pago</span><span>(GMT-11:00) Pago Pago</span></li>\n\t\t<li id=\"select-item-timezone-list-2\" role=\"option\" aria-label=\"(GMT-10:00) Hawaii\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Pacific/Honolulu\"><span class=\"real-label-span\">(GMT-10:00) Hawaii</span><span>(GMT-10:00) Hawaii</span></li>\n\t\t<li id=\"select-item-timezone-list-3\" role=\"option\" aria-label=\"(GMT-8:00) Alaska\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Anchorage\"><span class=\"real-label-span\">(GMT-8:00) Alaska</span><span>(GMT-8:00) Alaska</span></li>\n\t\t<li id=\"select-item-timezone-list-4\" role=\"option\" aria-label=\"(GMT-8:00) Juneau\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Juneau\"><span class=\"real-label-span\">(GMT-8:00) Juneau</span><span>(GMT-8:00) Juneau</span></li>\n\t\t<li id=\"select-item-timezone-list-5\" role=\"option\" aria-label=\"(GMT-7:00) Vancouver\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Vancouver\"><span class=\"real-label-span\">(GMT-7:00) Vancouver</span><span>(GMT-7:00) Vancouver</span></li>\n\t\t<li id=\"select-item-timezone-list-6\" role=\"option\" aria-label=\"(GMT-7:00) Pacific Time (US and Canada)\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Los_Angeles\"><span class=\"real-label-span\">(GMT-7:00) Pacific Time (US and Canada)</span><span>(GMT-7:00) Pacific Time (US and Canada)</span></li>\n\t\t<li id=\"select-item-timezone-list-7\" role=\"option\" aria-label=\"(GMT-7:00) Tijuana\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Tijuana\"><span class=\"real-label-span\">(GMT-7:00) Tijuana</span><span>(GMT-7:00) Tijuana</span></li>\n\t\t<li id=\"select-item-timezone-list-8\" role=\"option\" aria-label=\"(GMT-7:00) Arizona\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Phoenix\"><span class=\"real-label-span\">(GMT-7:00) Arizona</span><span>(GMT-7:00) Arizona</span></li>\n\t\t<li id=\"select-item-timezone-list-9\" role=\"option\" aria-label=\"(GMT-6:00) Edmonton\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Edmonton\"><span class=\"real-label-span\">(GMT-6:00) Edmonton</span><span>(GMT-6:00) Edmonton</span></li>\n\t\t<li id=\"select-item-timezone-list-10\" role=\"option\" aria-label=\"(GMT-6:00) Mountain Time (US and Canada)\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Denver\"><span class=\"real-label-span\">(GMT-6:00) Mountain Time (US and Canada)</span><span>(GMT-6:00) Mountain Time (US and Canada)</span></li>\n\t\t<li id=\"select-item-timezone-list-11\" role=\"option\" aria-label=\"(GMT-6:00) Mazatlan\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Mazatlan\"><span class=\"real-label-span\">(GMT-6:00) Mazatlan</span><span>(GMT-6:00) Mazatlan</span></li>\n\t\t<li id=\"select-item-timezone-list-12\" role=\"option\" aria-label=\"(GMT-6:00) Saskatchewan\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Regina\"><span class=\"real-label-span\">(GMT-6:00) Saskatchewan</span><span>(GMT-6:00) Saskatchewan</span></li>\n\t\t<li id=\"select-item-timezone-list-13\" role=\"option\" aria-label=\"(GMT-6:00) Guatemala\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Guatemala\"><span class=\"real-label-span\">(GMT-6:00) Guatemala</span><span>(GMT-6:00) Guatemala</span></li>\n\t\t<li id=\"select-item-timezone-list-14\" role=\"option\" aria-label=\"(GMT-6:00) El Salvador\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/El_Salvador\"><span class=\"real-label-span\">(GMT-6:00) El Salvador</span><span>(GMT-6:00) El Salvador</span></li>\n\t\t<li id=\"select-item-timezone-list-15\" role=\"option\" aria-label=\"(GMT-6:00) Managua\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Managua\"><span class=\"real-label-span\">(GMT-6:00) Managua</span><span>(GMT-6:00) Managua</span></li>\n\t\t<li id=\"select-item-timezone-list-16\" role=\"option\" aria-label=\"(GMT-6:00) Costa Rica\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Costa_Rica\"><span class=\"real-label-span\">(GMT-6:00) Costa Rica</span><span>(GMT-6:00) Costa Rica</span></li>\n\t\t<li id=\"select-item-timezone-list-17\" role=\"option\" aria-label=\"(GMT-6:00) Tegucigalpa\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Tegucigalpa\"><span class=\"real-label-span\">(GMT-6:00) Tegucigalpa</span><span>(GMT-6:00) Tegucigalpa</span></li>\n\t\t<li id=\"select-item-timezone-list-18\" role=\"option\" aria-label=\"(GMT-6:00) Chihuahua\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Chihuahua\"><span class=\"real-label-span\">(GMT-6:00) Chihuahua</span><span>(GMT-6:00) Chihuahua</span></li>\n\t\t<li id=\"select-item-timezone-list-19\" role=\"option\" aria-label=\"(GMT-5:00) Winnipeg\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Winnipeg\"><span class=\"real-label-span\">(GMT-5:00) Winnipeg</span><span>(GMT-5:00) Winnipeg</span></li>\n\t\t<li id=\"select-item-timezone-list-20\" role=\"option\" aria-label=\"(GMT-5:00) Central Time (US and Canada)\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Chicago\"><span class=\"real-label-span\">(GMT-5:00) Central Time (US and Canada)</span><span>(GMT-5:00) Central Time (US and Canada)</span></li>\n\t\t<li id=\"select-item-timezone-list-21\" role=\"option\" aria-label=\"(GMT-5:00) Mexico City\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Mexico_City\"><span class=\"real-label-span\">(GMT-5:00) Mexico City</span><span>(GMT-5:00) Mexico City</span></li>\n\t\t<li id=\"select-item-timezone-list-22\" role=\"option\" aria-label=\"(GMT-5:00) Panama\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Panama\"><span class=\"real-label-span\">(GMT-5:00) Panama</span><span>(GMT-5:00) Panama</span></li>\n\t\t<li id=\"select-item-timezone-list-23\" role=\"option\" aria-label=\"(GMT-5:00) Bogota\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Bogota\"><span class=\"real-label-span\">(GMT-5:00) Bogota</span><span>(GMT-5:00) Bogota</span></li>\n\t\t<li id=\"select-item-timezone-list-24\" role=\"option\" aria-label=\"(GMT-5:00) Lima\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Lima\"><span class=\"real-label-span\">(GMT-5:00) Lima</span><span>(GMT-5:00) Lima</span></li>\n\t\t<li id=\"select-item-timezone-list-25\" role=\"option\" aria-label=\"(GMT-5:00) Monterrey\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Monterrey\"><span class=\"real-label-span\">(GMT-5:00) Monterrey</span><span>(GMT-5:00) Monterrey</span></li>\n\t\t<li id=\"select-item-timezone-list-26\" role=\"option\" aria-label=\"(GMT-4:00) Montreal\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Montreal\"><span class=\"real-label-span\">(GMT-4:00) Montreal</span><span>(GMT-4:00) Montreal</span></li>\n\t\t<li id=\"select-item-timezone-list-27\" role=\"option\" aria-label=\"(GMT-4:00) Eastern Time (US and Canada)\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/New_York\"><span class=\"real-label-span\">(GMT-4:00) Eastern Time (US and Canada)</span><span>(GMT-4:00) Eastern Time (US and Canada)</span></li>\n\t\t<li id=\"select-item-timezone-list-28\" role=\"option\" aria-label=\"(GMT-4:00) Indiana (East)\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Indianapolis\"><span class=\"real-label-span\">(GMT-4:00) Indiana (East)</span><span>(GMT-4:00) Indiana (East)</span></li>\n\t\t<li id=\"select-item-timezone-list-29\" role=\"option\" aria-label=\"(GMT-4:00) Puerto Rico\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Puerto_Rico\"><span class=\"real-label-span\">(GMT-4:00) Puerto Rico</span><span>(GMT-4:00) Puerto Rico</span></li>\n\t\t<li id=\"select-item-timezone-list-30\" role=\"option\" aria-label=\"(GMT-4:00) Caracas\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Caracas\"><span class=\"real-label-span\">(GMT-4:00) Caracas</span><span>(GMT-4:00) Caracas</span></li>\n\t\t<li id=\"select-item-timezone-list-31\" role=\"option\" aria-label=\"(GMT-4:00) Santiago\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Santiago\"><span class=\"real-label-span\">(GMT-4:00) Santiago</span><span>(GMT-4:00) Santiago</span></li>\n\t\t<li id=\"select-item-timezone-list-32\" role=\"option\" aria-label=\"(GMT-4:00) La Paz\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/La_Paz\"><span class=\"real-label-span\">(GMT-4:00) La Paz</span><span>(GMT-4:00) La Paz</span></li>\n\t\t<li id=\"select-item-timezone-list-33\" role=\"option\" aria-label=\"(GMT-4:00) Guyana\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Guyana\"><span class=\"real-label-span\">(GMT-4:00) Guyana</span><span>(GMT-4:00) Guyana</span></li>\n\t\t<li id=\"select-item-timezone-list-34\" role=\"option\" aria-label=\"(GMT-3:00) Halifax\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Halifax\"><span class=\"real-label-span\">(GMT-3:00) Halifax</span><span>(GMT-3:00) Halifax</span></li>\n\t\t<li id=\"select-item-timezone-list-35\" role=\"option\" aria-label=\"(GMT-3:00) Montevideo\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Montevideo\"><span class=\"real-label-span\">(GMT-3:00) Montevideo</span><span>(GMT-3:00) Montevideo</span></li>\n\t\t<li id=\"select-item-timezone-list-36\" role=\"option\" aria-label=\"(GMT-3:00) Recife\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Araguaina\"><span class=\"real-label-span\">(GMT-3:00) Recife</span><span>(GMT-3:00) Recife</span></li>\n\t\t<li id=\"select-item-timezone-list-37\" role=\"option\" aria-label=\"(GMT-3:00) Buenos Aires, Georgetown\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Argentina/Buenos_Aires\"><span class=\"real-label-span\">(GMT-3:00) Buenos Aires, Georgetown</span><span>(GMT-3:00) Buenos Aires, Georgetown</span></li>\n\t\t<li id=\"select-item-timezone-list-38\" role=\"option\" aria-label=\"(GMT-3:00) Sao Paulo\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Sao_Paulo\"><span class=\"real-label-span\">(GMT-3:00) Sao Paulo</span><span>(GMT-3:00) Sao Paulo</span></li>\n\t\t<li id=\"select-item-timezone-list-39\" role=\"option\" aria-label=\"(GMT-3:00) Atlantic Time (Canada)\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Canada/Atlantic\"><span class=\"real-label-span\">(GMT-3:00) Atlantic Time (Canada)</span><span>(GMT-3:00) Atlantic Time (Canada)</span></li>\n\t\t<li id=\"select-item-timezone-list-40\" role=\"option\" aria-label=\"(GMT-2:30) Newfoundland and Labrador\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/St_Johns\"><span class=\"real-label-span\">(GMT-2:30) Newfoundland and Labrador</span><span>(GMT-2:30) Newfoundland and Labrador</span></li>\n\t\t<li id=\"select-item-timezone-list-41\" role=\"option\" aria-label=\"(GMT-2:00) Greenland\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"America/Godthab\"><span class=\"real-label-span\">(GMT-2:00) Greenland</span><span>(GMT-2:00) Greenland</span></li>\n\t\t<li id=\"select-item-timezone-list-42\" role=\"option\" aria-label=\"(GMT-1:00) Cape Verde Islands\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Atlantic/Cape_Verde\"><span class=\"real-label-span\">(GMT-1:00) Cape Verde Islands</span><span>(GMT-1:00) Cape Verde Islands</span></li>\n\t\t<li id=\"select-item-timezone-list-43\" role=\"option\" aria-label=\"(GMT+0:00) Azores\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Atlantic/Azores\"><span class=\"real-label-span\">(GMT+0:00) Azores</span><span>(GMT+0:00) Azores</span></li>\n\t\t<li id=\"select-item-timezone-list-44\" role=\"option\" aria-label=\"(GMT+0:00) Universal Time UTC\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"UTC\"><span class=\"real-label-span\">(GMT+0:00) Universal Time UTC</span><span>(GMT+0:00) Universal Time UTC</span></li>\n\t\t<li id=\"select-item-timezone-list-45\" role=\"option\" aria-label=\"(GMT+0:00) Greenwich Mean Time\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Etc/Greenwich\"><span class=\"real-label-span\">(GMT+0:00) Greenwich Mean Time</span><span>(GMT+0:00) Greenwich Mean Time</span></li>\n\t\t<li id=\"select-item-timezone-list-46\" role=\"option\" aria-label=\"(GMT+0:00) Reykjavik\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Atlantic/Reykjavik\"><span class=\"real-label-span\">(GMT+0:00) Reykjavik</span><span>(GMT+0:00) Reykjavik</span></li>\n\t\t<li id=\"select-item-timezone-list-47\" role=\"option\" aria-label=\"(GMT+0:00) Nouakchott\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Nouakchott\"><span class=\"real-label-span\">(GMT+0:00) Nouakchott</span><span>(GMT+0:00) Nouakchott</span></li>\n\t\t<li id=\"select-item-timezone-list-48\" role=\"option\" aria-label=\"(GMT+1:00) Dublin\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Dublin\"><span class=\"real-label-span\">(GMT+1:00) Dublin</span><span>(GMT+1:00) Dublin</span></li>\n\t\t<li id=\"select-item-timezone-list-49\" role=\"option\" aria-label=\"(GMT+1:00) London\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/London\"><span class=\"real-label-span\">(GMT+1:00) London</span><span>(GMT+1:00) London</span></li>\n\t\t<li id=\"select-item-timezone-list-50\" role=\"option\" aria-label=\"(GMT+1:00) Lisbon\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Lisbon\"><span class=\"real-label-span\">(GMT+1:00) Lisbon</span><span>(GMT+1:00) Lisbon</span></li>\n\t\t<li id=\"select-item-timezone-list-51\" role=\"option\" aria-label=\"(GMT+1:00) Casablanca\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Casablanca\"><span class=\"real-label-span\">(GMT+1:00) Casablanca</span><span>(GMT+1:00) Casablanca</span></li>\n\t\t<li id=\"select-item-timezone-list-52\" role=\"option\" aria-label=\"(GMT+1:00) West Central Africa\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Bangui\"><span class=\"real-label-span\">(GMT+1:00) West Central Africa</span><span>(GMT+1:00) West Central Africa</span></li>\n\t\t<li id=\"select-item-timezone-list-53\" role=\"option\" aria-label=\"(GMT+1:00) Algiers\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Algiers\"><span class=\"real-label-span\">(GMT+1:00) Algiers</span><span>(GMT+1:00) Algiers</span></li>\n\t\t<li id=\"select-item-timezone-list-54\" role=\"option\" aria-label=\"(GMT+1:00) Tunis\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Tunis\"><span class=\"real-label-span\">(GMT+1:00) Tunis</span><span>(GMT+1:00) Tunis</span></li>\n\t\t<li id=\"select-item-timezone-list-55\" role=\"option\" aria-label=\"(GMT+2:00) Belgrade, Bratislava, Ljubljana\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Belgrade\"><span class=\"real-label-span\">(GMT+2:00) Belgrade, Bratislava, Ljubljana</span><span>(GMT+2:00) Belgrade, Bratislava, Ljubljana</span></li>\n\t\t<li id=\"select-item-timezone-list-56\" role=\"option\" aria-label=\"(GMT+2:00) Sarajevo, Skopje, Zagreb\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"CET\"><span class=\"real-label-span\">(GMT+2:00) Sarajevo, Skopje, Zagreb</span><span>(GMT+2:00) Sarajevo, Skopje, Zagreb</span></li>\n\t\t<li id=\"select-item-timezone-list-57\" role=\"option\" aria-label=\"(GMT+2:00) Oslo\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Oslo\"><span class=\"real-label-span\">(GMT+2:00) Oslo</span><span>(GMT+2:00) Oslo</span></li>\n\t\t<li id=\"select-item-timezone-list-58\" role=\"option\" aria-label=\"(GMT+2:00) Copenhagen\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Copenhagen\"><span class=\"real-label-span\">(GMT+2:00) Copenhagen</span><span>(GMT+2:00) Copenhagen</span></li>\n\t\t<li id=\"select-item-timezone-list-59\" role=\"option\" aria-label=\"(GMT+2:00) Brussels\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Brussels\"><span class=\"real-label-span\">(GMT+2:00) Brussels</span><span>(GMT+2:00) Brussels</span></li>\n\t\t<li id=\"select-item-timezone-list-60\" role=\"option\" aria-label=\"(GMT+2:00) Amsterdam, Berlin, Rome, Stockholm, Vienna\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Berlin\"><span class=\"real-label-span\">(GMT+2:00) Amsterdam, Berlin, Rome, Stockholm, Vienna</span><span>(GMT+2:00) Amsterdam, Berlin, Rome, Stockholm, Vienna</span></li>\n\t\t<li id=\"select-item-timezone-list-61\" role=\"option\" aria-label=\"(GMT+2:00) Amsterdam\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Amsterdam\"><span class=\"real-label-span\">(GMT+2:00) Amsterdam</span><span>(GMT+2:00) Amsterdam</span></li>\n\t\t<li id=\"select-item-timezone-list-62\" role=\"option\" aria-label=\"(GMT+2:00) Rome\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Rome\"><span class=\"real-label-span\">(GMT+2:00) Rome</span><span>(GMT+2:00) Rome</span></li>\n\t\t<li id=\"select-item-timezone-list-63\" role=\"option\" aria-label=\"(GMT+2:00) Stockholm\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Stockholm\"><span class=\"real-label-span\">(GMT+2:00) Stockholm</span><span>(GMT+2:00) Stockholm</span></li>\n\t\t<li id=\"select-item-timezone-list-64\" role=\"option\" aria-label=\"(GMT+2:00) Vienna\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Vienna\"><span class=\"real-label-span\">(GMT+2:00) Vienna</span><span>(GMT+2:00) Vienna</span></li>\n\t\t<li id=\"select-item-timezone-list-65\" role=\"option\" aria-label=\"(GMT+2:00) Luxembourg\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Luxembourg\"><span class=\"real-label-span\">(GMT+2:00) Luxembourg</span><span>(GMT+2:00) Luxembourg</span></li>\n\t\t<li id=\"select-item-timezone-list-66\" role=\"option\" aria-label=\"(GMT+2:00) Paris\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Paris\"><span class=\"real-label-span\">(GMT+2:00) Paris</span><span>(GMT+2:00) Paris</span></li>\n\t\t<li id=\"select-item-timezone-list-67\" role=\"option\" aria-label=\"(GMT+2:00) Zurich\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Zurich\"><span class=\"real-label-span\">(GMT+2:00) Zurich</span><span>(GMT+2:00) Zurich</span></li>\n\t\t<li id=\"select-item-timezone-list-68\" role=\"option\" aria-selected=\"true\" aria-label=\"(GMT+2:00) Madrid\" tabindex=\"0\" class=\"zm-select-dropdown__item selected\" option-id=\"Europe/Madrid\"><span class=\"real-label-span\">(GMT+2:00) Madrid</span><span>(GMT+2:00) Madrid</span></li>\n\t\t<li id=\"select-item-timezone-list-69\" role=\"option\" aria-label=\"(GMT+2:00) Harare, Pretoria\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Harare\"><span class=\"real-label-span\">(GMT+2:00) Harare, Pretoria</span><span>(GMT+2:00) Harare, Pretoria</span></li>\n\t\t<li id=\"select-item-timezone-list-70\" role=\"option\" aria-label=\"(GMT+2:00) Warsaw\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Warsaw\"><span class=\"real-label-span\">(GMT+2:00) Warsaw</span><span>(GMT+2:00) Warsaw</span></li>\n\t\t<li id=\"select-item-timezone-list-71\" role=\"option\" aria-label=\"(GMT+2:00) Prague Bratislava\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Prague\"><span class=\"real-label-span\">(GMT+2:00) Prague Bratislava</span><span>(GMT+2:00) Prague Bratislava</span></li>\n\t\t<li id=\"select-item-timezone-list-72\" role=\"option\" aria-label=\"(GMT+2:00) Budapest\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Budapest\"><span class=\"real-label-span\">(GMT+2:00) Budapest</span><span>(GMT+2:00) Budapest</span></li>\n\t\t<li id=\"select-item-timezone-list-73\" role=\"option\" aria-label=\"(GMT+2:00) Tripoli\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Tripoli\"><span class=\"real-label-span\">(GMT+2:00) Tripoli</span><span>(GMT+2:00) Tripoli</span></li>\n\t\t<li id=\"select-item-timezone-list-74\" role=\"option\" aria-label=\"(GMT+2:00) Cairo\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Cairo\"><span class=\"real-label-span\">(GMT+2:00) Cairo</span><span>(GMT+2:00) Cairo</span></li>\n\t\t<li id=\"select-item-timezone-list-75\" role=\"option\" aria-label=\"(GMT+2:00) Johannesburg\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Johannesburg\"><span class=\"real-label-span\">(GMT+2:00) Johannesburg</span><span>(GMT+2:00) Johannesburg</span></li>\n\t\t<li id=\"select-item-timezone-list-76\" role=\"option\" aria-label=\"(GMT+2:00) Khartoum\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Khartoum\"><span class=\"real-label-span\">(GMT+2:00) Khartoum</span><span>(GMT+2:00) Khartoum</span></li>\n\t\t<li id=\"select-item-timezone-list-77\" role=\"option\" aria-label=\"(GMT+3:00) Helsinki\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Helsinki\"><span class=\"real-label-span\">(GMT+3:00) Helsinki</span><span>(GMT+3:00) Helsinki</span></li>\n\t\t<li id=\"select-item-timezone-list-78\" role=\"option\" aria-label=\"(GMT+3:00) Nairobi\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Nairobi\"><span class=\"real-label-span\">(GMT+3:00) Nairobi</span><span>(GMT+3:00) Nairobi</span></li>\n\t\t<li id=\"select-item-timezone-list-79\" role=\"option\" aria-label=\"(GMT+3:00) Sofia\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Sofia\"><span class=\"real-label-span\">(GMT+3:00) Sofia</span><span>(GMT+3:00) Sofia</span></li>\n\t\t<li id=\"select-item-timezone-list-80\" role=\"option\" aria-label=\"(GMT+3:00) Istanbul\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Istanbul\"><span class=\"real-label-span\">(GMT+3:00) Istanbul</span><span>(GMT+3:00) Istanbul</span></li>\n\t\t<li id=\"select-item-timezone-list-81\" role=\"option\" aria-label=\"(GMT+3:00) Athens\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Athens\"><span class=\"real-label-span\">(GMT+3:00) Athens</span><span>(GMT+3:00) Athens</span></li>\n\t\t<li id=\"select-item-timezone-list-82\" role=\"option\" aria-label=\"(GMT+3:00) Bucharest\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Bucharest\"><span class=\"real-label-span\">(GMT+3:00) Bucharest</span><span>(GMT+3:00) Bucharest</span></li>\n\t\t<li id=\"select-item-timezone-list-83\" role=\"option\" aria-label=\"(GMT+3:00) Nicosia\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Nicosia\"><span class=\"real-label-span\">(GMT+3:00) Nicosia</span><span>(GMT+3:00) Nicosia</span></li>\n\t\t<li id=\"select-item-timezone-list-84\" role=\"option\" aria-label=\"(GMT+3:00) Beirut\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Beirut\"><span class=\"real-label-span\">(GMT+3:00) Beirut</span><span>(GMT+3:00) Beirut</span></li>\n\t\t<li id=\"select-item-timezone-list-85\" role=\"option\" aria-label=\"(GMT+3:00) Damascus\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Damascus\"><span class=\"real-label-span\">(GMT+3:00) Damascus</span><span>(GMT+3:00) Damascus</span></li>\n\t\t<li id=\"select-item-timezone-list-86\" role=\"option\" aria-label=\"(GMT+3:00) Jerusalem\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Jerusalem\"><span class=\"real-label-span\">(GMT+3:00) Jerusalem</span><span>(GMT+3:00) Jerusalem</span></li>\n\t\t<li id=\"select-item-timezone-list-87\" role=\"option\" aria-label=\"(GMT+3:00) Amman\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Amman\"><span class=\"real-label-span\">(GMT+3:00) Amman</span><span>(GMT+3:00) Amman</span></li>\n\t\t<li id=\"select-item-timezone-list-88\" role=\"option\" aria-label=\"(GMT+3:00) Moscow\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Moscow\"><span class=\"real-label-span\">(GMT+3:00) Moscow</span><span>(GMT+3:00) Moscow</span></li>\n\t\t<li id=\"select-item-timezone-list-89\" role=\"option\" aria-label=\"(GMT+3:00) Baghdad\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Baghdad\"><span class=\"real-label-span\">(GMT+3:00) Baghdad</span><span>(GMT+3:00) Baghdad</span></li>\n\t\t<li id=\"select-item-timezone-list-90\" role=\"option\" aria-label=\"(GMT+3:00) Kuwait\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Kuwait\"><span class=\"real-label-span\">(GMT+3:00) Kuwait</span><span>(GMT+3:00) Kuwait</span></li>\n\t\t<li id=\"select-item-timezone-list-91\" role=\"option\" aria-label=\"(GMT+3:00) Riyadh\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Riyadh\"><span class=\"real-label-span\">(GMT+3:00) Riyadh</span><span>(GMT+3:00) Riyadh</span></li>\n\t\t<li id=\"select-item-timezone-list-92\" role=\"option\" aria-label=\"(GMT+3:00) Bahrain\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Bahrain\"><span class=\"real-label-span\">(GMT+3:00) Bahrain</span><span>(GMT+3:00) Bahrain</span></li>\n\t\t<li id=\"select-item-timezone-list-93\" role=\"option\" aria-label=\"(GMT+3:00) Qatar\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Qatar\"><span class=\"real-label-span\">(GMT+3:00) Qatar</span><span>(GMT+3:00) Qatar</span></li>\n\t\t<li id=\"select-item-timezone-list-94\" role=\"option\" aria-label=\"(GMT+3:00) Aden\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Aden\"><span class=\"real-label-span\">(GMT+3:00) Aden</span><span>(GMT+3:00) Aden</span></li>\n\t\t<li id=\"select-item-timezone-list-95\" role=\"option\" aria-label=\"(GMT+3:00) Djibouti\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Djibouti\"><span class=\"real-label-span\">(GMT+3:00) Djibouti</span><span>(GMT+3:00) Djibouti</span></li>\n\t\t<li id=\"select-item-timezone-list-96\" role=\"option\" aria-label=\"(GMT+3:00) Mogadishu\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Africa/Mogadishu\"><span class=\"real-label-span\">(GMT+3:00) Mogadishu</span><span>(GMT+3:00) Mogadishu</span></li>\n\t\t<li id=\"select-item-timezone-list-97\" role=\"option\" aria-label=\"(GMT+3:00) Kiev\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Kiev\"><span class=\"real-label-span\">(GMT+3:00) Kiev</span><span>(GMT+3:00) Kiev</span></li>\n\t\t<li id=\"select-item-timezone-list-98\" role=\"option\" aria-label=\"(GMT+3:00) Minsk\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Europe/Minsk\"><span class=\"real-label-span\">(GMT+3:00) Minsk</span><span>(GMT+3:00) Minsk</span></li>\n\t\t<li id=\"select-item-timezone-list-99\" role=\"option\" aria-label=\"(GMT+4:00) Dubai\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Dubai\"><span class=\"real-label-span\">(GMT+4:00) Dubai</span><span>(GMT+4:00) Dubai</span></li>\n\t\t<li id=\"select-item-timezone-list-100\" role=\"option\" aria-label=\"(GMT+4:00) Muscat\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Muscat\"><span class=\"real-label-span\">(GMT+4:00) Muscat</span><span>(GMT+4:00) Muscat</span></li>\n\t\t<li id=\"select-item-timezone-list-101\" role=\"option\" aria-label=\"(GMT+4:00) Baku, Tbilisi, Yerevan\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Baku\"><span class=\"real-label-span\">(GMT+4:00) Baku, Tbilisi, Yerevan</span><span>(GMT+4:00) Baku, Tbilisi, Yerevan</span></li>\n\t\t<li id=\"select-item-timezone-list-102\" role=\"option\" aria-label=\"(GMT+4:30) Tehran\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Tehran\"><span class=\"real-label-span\">(GMT+4:30) Tehran</span><span>(GMT+4:30) Tehran</span></li>\n\t\t<li id=\"select-item-timezone-list-103\" role=\"option\" aria-label=\"(GMT+4:30) Kabul\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Kabul\"><span class=\"real-label-span\">(GMT+4:30) Kabul</span><span>(GMT+4:30) Kabul</span></li>\n\t\t<li id=\"select-item-timezone-list-104\" role=\"option\" aria-label=\"(GMT+5:00) Yekaterinburg\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Yekaterinburg\"><span class=\"real-label-span\">(GMT+5:00) Yekaterinburg</span><span>(GMT+5:00) Yekaterinburg</span></li>\n\t\t<li id=\"select-item-timezone-list-105\" role=\"option\" aria-label=\"(GMT+5:00) Islamabad, Karachi, Tashkent\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Tashkent\"><span class=\"real-label-span\">(GMT+5:00) Islamabad, Karachi, Tashkent</span><span>(GMT+5:00) Islamabad, Karachi, Tashkent</span></li>\n\t\t<li id=\"select-item-timezone-list-106\" role=\"option\" aria-label=\"(GMT+5:30) India\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Calcutta\"><span class=\"real-label-span\">(GMT+5:30) India</span><span>(GMT+5:30) India</span></li>\n\t\t<li id=\"select-item-timezone-list-107\" role=\"option\" aria-label=\"(GMT+5:30) Mumbai, Kolkata, New Delhi\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Kolkata\"><span class=\"real-label-span\">(GMT+5:30) Mumbai, Kolkata, New Delhi</span><span>(GMT+5:30) Mumbai, Kolkata, New Delhi</span></li>\n\t\t<li id=\"select-item-timezone-list-108\" role=\"option\" aria-label=\"(GMT+5:45) Kathmandu\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Kathmandu\"><span class=\"real-label-span\">(GMT+5:45) Kathmandu</span><span>(GMT+5:45) Kathmandu</span></li>\n\t\t<li id=\"select-item-timezone-list-109\" role=\"option\" aria-label=\"(GMT+6:00) Almaty\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Almaty\"><span class=\"real-label-span\">(GMT+6:00) Almaty</span><span>(GMT+6:00) Almaty</span></li>\n\t\t<li id=\"select-item-timezone-list-110\" role=\"option\" aria-label=\"(GMT+6:00) Dacca\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Dacca\"><span class=\"real-label-span\">(GMT+6:00) Dacca</span><span>(GMT+6:00) Dacca</span></li>\n\t\t<li id=\"select-item-timezone-list-111\" role=\"option\" aria-label=\"(GMT+6:00) Astana, Dhaka\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Dhaka\"><span class=\"real-label-span\">(GMT+6:00) Astana, Dhaka</span><span>(GMT+6:00) Astana, Dhaka</span></li>\n\t\t<li id=\"select-item-timezone-list-112\" role=\"option\" aria-label=\"(GMT+6:30) Rangoon\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Rangoon\"><span class=\"real-label-span\">(GMT+6:30) Rangoon</span><span>(GMT+6:30) Rangoon</span></li>\n\t\t<li id=\"select-item-timezone-list-113\" role=\"option\" aria-label=\"(GMT+7:00) Novosibirsk\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Novosibirsk\"><span class=\"real-label-span\">(GMT+7:00) Novosibirsk</span><span>(GMT+7:00) Novosibirsk</span></li>\n\t\t<li id=\"select-item-timezone-list-114\" role=\"option\" aria-label=\"(GMT+7:00) Krasnoyarsk\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Krasnoyarsk\"><span class=\"real-label-span\">(GMT+7:00) Krasnoyarsk</span><span>(GMT+7:00) Krasnoyarsk</span></li>\n\t\t<li id=\"select-item-timezone-list-115\" role=\"option\" aria-label=\"(GMT+7:00) Bangkok\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Bangkok\"><span class=\"real-label-span\">(GMT+7:00) Bangkok</span><span>(GMT+7:00) Bangkok</span></li>\n\t\t<li id=\"select-item-timezone-list-116\" role=\"option\" aria-label=\"(GMT+7:00) Vietnam\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Saigon\"><span class=\"real-label-span\">(GMT+7:00) Vietnam</span><span>(GMT+7:00) Vietnam</span></li>\n\t\t<li id=\"select-item-timezone-list-117\" role=\"option\" aria-label=\"(GMT+7:00) Jakarta\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Jakarta\"><span class=\"real-label-span\">(GMT+7:00) Jakarta</span><span>(GMT+7:00) Jakarta</span></li>\n\t\t<li id=\"select-item-timezone-list-118\" role=\"option\" aria-label=\"(GMT+8:00) Irkutsk, Ulaanbaatar\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Irkutsk\"><span class=\"real-label-span\">(GMT+8:00) Irkutsk, Ulaanbaatar</span><span>(GMT+8:00) Irkutsk, Ulaanbaatar</span></li>\n\t\t<li id=\"select-item-timezone-list-119\" role=\"option\" aria-label=\"(GMT+8:00) Beijing, Shanghai\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Shanghai\"><span class=\"real-label-span\">(GMT+8:00) Beijing, Shanghai</span><span>(GMT+8:00) Beijing, Shanghai</span></li>\n\t\t<li id=\"select-item-timezone-list-120\" role=\"option\" aria-label=\"(GMT+8:00) Hong Kong SAR\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Hong_Kong\"><span class=\"real-label-span\">(GMT+8:00) Hong Kong SAR</span><span>(GMT+8:00) Hong Kong SAR</span></li>\n\t\t<li id=\"select-item-timezone-list-121\" role=\"option\" aria-label=\"(GMT+8:00) Taipei\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Taipei\"><span class=\"real-label-span\">(GMT+8:00) Taipei</span><span>(GMT+8:00) Taipei</span></li>\n\t\t<li id=\"select-item-timezone-list-122\" role=\"option\" aria-label=\"(GMT+8:00) Kuala Lumpur\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Kuala_Lumpur\"><span class=\"real-label-span\">(GMT+8:00) Kuala Lumpur</span><span>(GMT+8:00) Kuala Lumpur</span></li>\n\t\t<li id=\"select-item-timezone-list-123\" role=\"option\" aria-label=\"(GMT+8:00) Singapore\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Singapore\"><span class=\"real-label-span\">(GMT+8:00) Singapore</span><span>(GMT+8:00) Singapore</span></li>\n\t\t<li id=\"select-item-timezone-list-124\" role=\"option\" aria-label=\"(GMT+8:00) Perth\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Australia/Perth\"><span class=\"real-label-span\">(GMT+8:00) Perth</span><span>(GMT+8:00) Perth</span></li>\n\t\t<li id=\"select-item-timezone-list-125\" role=\"option\" aria-label=\"(GMT+9:00) Yakutsk\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Yakutsk\"><span class=\"real-label-span\">(GMT+9:00) Yakutsk</span><span>(GMT+9:00) Yakutsk</span></li>\n\t\t<li id=\"select-item-timezone-list-126\" role=\"option\" aria-label=\"(GMT+9:00) Seoul\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Seoul\"><span class=\"real-label-span\">(GMT+9:00) Seoul</span><span>(GMT+9:00) Seoul</span></li>\n\t\t<li id=\"select-item-timezone-list-127\" role=\"option\" aria-label=\"(GMT+9:00) Osaka, Sapporo, Tokyo\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Tokyo\"><span class=\"real-label-span\">(GMT+9:00) Osaka, Sapporo, Tokyo</span><span>(GMT+9:00) Osaka, Sapporo, Tokyo</span></li>\n\t\t<li id=\"select-item-timezone-list-128\" role=\"option\" aria-label=\"(GMT+9:30) Darwin\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Australia/Darwin\"><span class=\"real-label-span\">(GMT+9:30) Darwin</span><span>(GMT+9:30) Darwin</span></li>\n\t\t<li id=\"select-item-timezone-list-129\" role=\"option\" aria-label=\"(GMT+9:30) Adelaide\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Australia/Adelaide\"><span class=\"real-label-span\">(GMT+9:30) Adelaide</span><span>(GMT+9:30) Adelaide</span></li>\n\t\t<li id=\"select-item-timezone-list-130\" role=\"option\" aria-label=\"(GMT+10:00) Vladivostok\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Vladivostok\"><span class=\"real-label-span\">(GMT+10:00) Vladivostok</span><span>(GMT+10:00) Vladivostok</span></li>\n\t\t<li id=\"select-item-timezone-list-131\" role=\"option\" aria-label=\"(GMT+10:00) Guam, Port Moresby\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Pacific/Port_Moresby\"><span class=\"real-label-span\">(GMT+10:00) Guam, Port Moresby</span><span>(GMT+10:00) Guam, Port Moresby</span></li>\n\t\t<li id=\"select-item-timezone-list-132\" role=\"option\" aria-label=\"(GMT+10:00) Brisbane\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Australia/Brisbane\"><span class=\"real-label-span\">(GMT+10:00) Brisbane</span><span>(GMT+10:00) Brisbane</span></li>\n\t\t<li id=\"select-item-timezone-list-133\" role=\"option\" aria-label=\"(GMT+10:00) Canberra, Melbourne, Sydney\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Australia/Sydney\"><span class=\"real-label-span\">(GMT+10:00) Canberra, Melbourne, Sydney</span><span>(GMT+10:00) Canberra, Melbourne, Sydney</span></li>\n\t\t<li id=\"select-item-timezone-list-134\" role=\"option\" aria-label=\"(GMT+10:00) Hobart\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Australia/Hobart\"><span class=\"real-label-span\">(GMT+10:00) Hobart</span><span>(GMT+10:00) Hobart</span></li>\n\t\t<li id=\"select-item-timezone-list-135\" role=\"option\" aria-label=\"(GMT+11:00) Magadan\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Magadan\"><span class=\"real-label-span\">(GMT+11:00) Magadan</span><span>(GMT+11:00) Magadan</span></li>\n\t\t<li id=\"select-item-timezone-list-136\" role=\"option\" aria-label=\"(GMT+11:00) Solomon Islands\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"SST\"><span class=\"real-label-span\">(GMT+11:00) Solomon Islands</span><span>(GMT+11:00) Solomon Islands</span></li>\n\t\t<li id=\"select-item-timezone-list-137\" role=\"option\" aria-label=\"(GMT+11:00) New Caledonia\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Pacific/Noumea\"><span class=\"real-label-span\">(GMT+11:00) New Caledonia</span><span>(GMT+11:00) New Caledonia</span></li>\n\t\t<li id=\"select-item-timezone-list-138\" role=\"option\" aria-label=\"(GMT+12:00) Kamchatka\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Asia/Kamchatka\"><span class=\"real-label-span\">(GMT+12:00) Kamchatka</span><span>(GMT+12:00) Kamchatka</span></li>\n\t\t<li id=\"select-item-timezone-list-139\" role=\"option\" aria-label=\"(GMT+12:00) Fiji Islands, Marshall Islands\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Pacific/Fiji\"><span class=\"real-label-span\">(GMT+12:00) Fiji Islands, Marshall Islands</span><span>(GMT+12:00) Fiji Islands, Marshall Islands</span></li>\n\t\t<li id=\"select-item-timezone-list-140\" role=\"option\" aria-label=\"(GMT+12:00) Auckland, Wellington\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"Pacific/Auckland\"><span class=\"real-label-span\">(GMT+12:00) Auckland, Wellington</span><span>(GMT+12:00) Auckland, Wellington</span></li>\n\t\t<li id=\"select-item-timezone-list-141\" role=\"option\" aria-label=\"(GMT+13:00) Independent State of Samoa\" tabindex=\"0\" class=\"zm-select-dropdown__item hover\" option-id=\"Pacific/Apia\"><span class=\"real-label-span\">(GMT+13:00) Independent State of Samoa</span><span>(GMT+13:00) Independent State of Samoa</span></li>\n\t</ul>\n</div>\n",
+			"settings":
+			{
+				"buffer_size": 37564,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/pages/paella.blade.php",
+			"settings":
+			{
+				"buffer_size": 9526,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/pages/home.blade.php",
+			"settings":
+			{
+				"buffer_size": 13181,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/pages/actividadesempresas.blade.php",
+			"settings":
+			{
+				"buffer_size": 4590,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/js/contactonlineclasses.js",
+			"settings":
+			{
+				"buffer_size": 2378,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\">\n\n<head>\n  <title>meowgun</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0 \" />\n  <meta name=\"format-detection\" content=\"telephone=no\" />\n  <!--[if !mso]><!-->\n  <link href=\"https://fonts.googleapis.com/css?family=Ubuntu:400,700\" rel=\"stylesheet\" />\n  <!--<![endif]-->\n  <style type=\"text/css\">\n  body {\n    margin: 0;\n    padding: 0;\n    -webkit-text-size-adjust: 100% !important;\n    -ms-text-size-adjust: 100% !important;\n    -webkit-font-smoothing: antialiased !important;\n  }\n\n  img {\n    border: 0 !important;\n    outline: none !important;\n  }\n\n  p {\n    Margin: 0px !important;\n    Padding: 0px !important;\n  }\n\n  table {\n    border-collapse: collapse;\n    mso-table-lspace: 0px;\n    mso-table-rspace: 0px;\n  }\n\n  td,\n  a,\n  span {\n    border-collapse: collapse;\n    mso-line-height-rule: exactly;\n  }\n\n  </style>\n</head>\n\n<body class=\"em_body\" style=\"margin:0px auto; padding:0px;\" bgcolor=\"#efefef\">\n  <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"em_full_wrap\" align=\"center\" bgcolor=\"#efefef\">\n    <tr>\n      <td align=\"center\" valign=\"top\">\n        <table align=\"center\" width=\"650\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"em_main_table\" style=\"width:650px; table-layout:fixed; background-color:#f8f8f8;\">\n          <tr>\n            <td align=\"center\" valign=\"top\" style=\"padding:0 25px; background-color:#efefef;\" bgcolor=\"#efefef\" class=\"em_aside10\">\n              <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                <tr>\n                  <td class=\"em_blue em_font_22\" align=\"center\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 26px; line-height: 29px; color:#264780; font-weight:bold;\"></td>\n                </tr>\n                <tr>\n                  <td height=\"22\" style=\"height:22px;\" class=\"em_h20\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td valign=\"top\" align=\"left\" bgcolor=\"#ffffff\" style=\"padding-left:25px; padding-right:35px; background-color:#ffffff;\" class=\"em_aside10\">\n                    <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                      <tr>\n                        <td height=\"22\" style=\"height:22px;\" class=\"em_h20\">&nbsp;</td>\n                      </tr>\n                      <tr>\n                        <td align=\"center\" valign=\"top\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"https://cookingpoint.es/images/emailing/cookingpoint_logo_sin_fondo.png\" width=\"120\" alt=\"cooking point\" border=\"0\" style=\"display:block; font-family:Arial, sans-serif; font-size:18px; line-height:25px; text-align:center; color:#1d4685; font-weight:bold; max-width:208px;\" class=\"em_w150\" /></a></td>\n                      </tr>\n                      <tr>\n                        <td class=\"em_blue em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color:#264780; font-weight:bold;\">Cooking Point Goes Online</td>\n                      </tr>\n                      <tr>\n                        <td height=\"8\" style=\"height:8px; font-size:0px; line-height:0px;\">&nbsp;</td>\n                      </tr>\n                      <tr>\n                        <td class=\"em_grey em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; color:#434343;\">It's been a while since you visited Madrid and took one of our classes. </td>\n                      </tr>\n                      <tr>\n                        <td height=\"16\" style=\"height:16px; font-size:1px; line-height:1px;\">&nbsp;</td>\n                      </tr>\n                      <tr>\n                        <td align=\"left\" valign=\"top\">\n                          <table width=\"140\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" style=\"width:140px;\" class=\"em_wrapper\">\n                            <tr>\n                              <td valign=\"top\" align=\"center\">\n                                <table width=\"140\" style=\"width:140px; background-color:#6bafb2; border-radius:4px;\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\" bgcolor=\"#6bafb2\">\n                                  <tr>\n                                    <td class=\"em_white\" height=\"34\" align=\"center\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; color:#ffffff; font-weight:bold; height:34px;\"><a href=\"https://www.mailgun.com\" target=\"_blank\" style=\"text-decoration:none; color:#ffffff; line-height:34px; display:block;\">CHECK IT OUT</a></td>\n                                  </tr>\n                                </table>\n                              </td>\n                            </tr>\n                          </table>\n                        </td>\n                      </tr>\n                      <tr>\n                        <td height=\"26\" style=\"height:26px;\" class=\"em_h20\">&nbsp;</td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n              </table>\n            </td>\n          </tr>\n          <tr>\n            <td height=\"20\" class=\"em_h10\" bgcolor=\"#efefef\" style=\"height:20px; font-size:1px; line-height:1px; background-color:#efefef;\">&nbsp;</td>\n          </tr>\n          <tr>\n            <td align=\"center\" valign=\"top\" bgcolor=\"#efefef\" style=\"padding:0 25px; background-color:#efefef;\" class=\"em_aside10\">\n              <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                <tr>\n                  <td valign=\"top\" align=\"center\">\n                    <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                      <tr>\n                        <td valign=\"top\">\n                          <table width=\"290\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" style=\"width:290px; background-color:#ffffff;\" bgcolor=\"#ffffff\" class=\"em_wrapper\">\n                            <tr>\n                              <td valign=\"top\" align=\"center\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/cat_3.jpg\" width=\"290\" height=\"220\" class=\"em_full_img2\" alt=\"Alt tag goes here\" border=\"0\" style=\"display:block; max-width:290px; font-family:Arial, sans-serif; font-size:17px; line-height:20px; color:#000000; font-weight:bold;\" /></a></td>\n                            </tr>\n                            <tr>\n                              <td valign=\"top\" align=\"left\" bgcolor=\"#ffffff\" style=\"padding-left:25px; padding-right:30px; background-color:#ffffff;\" class=\"em_aside10\">\n                                <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                                  <tr>\n                                    <td height=\"22\" style=\"height:22px;\" class=\"em_h20\">&nbsp;</td>\n                                  </tr>\n                                  <tr>\n                                    <td class=\"em_blue em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color:#264780; font-weight:bold;\">Cat of the Week: Luanne</td>\n                                  </tr>\n                                  <tr>\n                                    <td height=\"10\" style=\"height:10px; font-size:0px; line-height:0px;\">&nbsp;</td>\n                                  </tr>\n                                  <tr>\n                                    <td valign=\"top\" align=\"left\" height=\"155\" style=\"height:155px;\" class=\"em_hauto\">\n                                      <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                                        <tr>\n                                          <td class=\"em_grey em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; color:#434343;\">Luanne loves standing on tall guitar amps and sleeping on warm beds. Learn more about Luanne and get the real story behind those&nbsp;eyes.</td>\n                                        </tr>\n                                        <tr>\n                                          <td height=\"10\" class=\"em_h15\" style=\"height:10px; font-size:1px; line-height:1px;\">&nbsp;</td>\n                                        </tr>\n                                      </table>\n                                    </td>\n                                  </tr>\n                                  <tr>\n                                    <td align=\"left\" valign=\"top\">\n                                      <table width=\"140\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" style=\"width:140px;\" class=\"em_wrapper\">\n                                        <tr>\n                                          <td valign=\"top\" align=\"center\">\n                                            <table width=\"140\" style=\"width:140px; background-color:#6bafb2; border-radius:4px;\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\" bgcolor=\"#6bafb2\">\n                                              <tr>\n                                                <td class=\"em_white\" height=\"34\" align=\"center\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; color:#ffffff; font-weight:bold; height:34px;\"><a href=\"https://www.mailgun.com\" target=\"_blank\" style=\"text-decoration:none; color:#ffffff; line-height:34px; display:block;\">READ MORE</a></td>\n                                              </tr>\n                                            </table>\n                                          </td>\n                                        </tr>\n                                      </table>\n                                    </td>\n                                  </tr>\n                                  <tr>\n                                    <td height=\"26\" style=\"height:26px;\" class=\"em_h20\">&nbsp;</td>\n                                  </tr>\n                                </table>\n                              </td>\n                            </tr>\n                          </table>\n                          <table width=\"290\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"right\" style=\"width:290px; background-color:#ffffff;\" bgcolor=\"#ffffff\" class=\"em_wrapper\">\n                            <tr>\n                              <td valign=\"top\" align=\"center\" class=\"em_border\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/cat_2_large.jpg\" width=\"290\" height=\"220\" class=\"em_full_img2\" alt=\"Alt tag goes here\" border=\"0\" style=\"display:block; max-width:290px; font-family:Arial, sans-serif; font-size:17px; line-height:20px; color:#000000; font-weight:bold;\" /></a></td>\n                            </tr>\n                            <tr>\n                              <td valign=\"top\" align=\"left\" bgcolor=\"#ffffff\" style=\"padding-left:25px; padding-right:30px; background-color:#ffffff;\" class=\"em_aside10\">\n                                <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                                  <tr>\n                                    <td height=\"22\" style=\"height:22px;\" class=\"em_h20\">&nbsp;</td>\n                                  </tr>\n                                  <tr>\n                                    <td class=\"em_blue em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color:#264780; font-weight:bold;\">You and Your Kitty</td>\n                                  </tr>\n                                  <tr>\n                                    <td height=\"10\" style=\"height:10px; font-size:0px; line-height:0px;\">&nbsp;</td>\n                                  </tr>\n                                  <tr>\n                                    <td valign=\"top\" align=\"left\" height=\"155\" style=\"height:155px;\" class=\"em_hauto\">\n                                      <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                                        <tr>\n                                          <td class=\"em_grey em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; color:#434343;\">Sure, kittens are cute, but they’re also really annoying and needy. We put together this checklist so your love/hate relationship with your new kitty starts off on the right&nbsp;foot.</td>\n                                        </tr>\n                                        <tr>\n                                          <td height=\"10\" class=\"em_h15\" style=\"height:10px; font-size:1px; line-height:1px;\">&nbsp;</td>\n                                        </tr>\n                                      </table>\n                                    </td>\n                                  </tr>\n                                  <tr>\n                                    <td align=\"left\" valign=\"top\">\n                                      <table width=\"160\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" style=\"width:160px;\" class=\"em_wrapper\">\n                                        <tr>\n                                          <td valign=\"top\" align=\"center\">\n                                            <table width=\"160\" style=\"width:160px; background-color:#6bafb2; border-radius:4px;\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\" bgcolor=\"#6bafb2\">\n                                              <tr>\n                                                <td class=\"em_white\" height=\"34\" align=\"center\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; color:#ffffff; font-weight:bold; height:34px;\"><a href=\"https://www.mailgun.com\" target=\"_blank\" style=\"text-decoration:none; color:#ffffff; line-height:34px; display:block;\">DOWNLOAD NOW</a></td>\n                                              </tr>\n                                            </table>\n                                          </td>\n                                        </tr>\n                                      </table>\n                                    </td>\n                                  </tr>\n                                  <tr>\n                                    <td height=\"26\" style=\"height:26px;\" class=\"em_h20\">&nbsp;</td>\n                                  </tr>\n                                </table>\n                              </td>\n                            </tr>\n                          </table>\n                        </td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n              </table>\n            </td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n  </table>\n  <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"em_full_wrap\" align=\"center\" bgcolor=\"#efefef\">\n    <tr>\n      <td align=\"center\" valign=\"top\">\n        <table align=\"center\" width=\"650\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"em_main_table\" style=\"width:650px; table-layout:fixed;\">\n          <tr>\n            <td align=\"center\" valign=\"top\" style=\"padding:0 25px;\" class=\"em_aside10\">\n              <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                <tr>\n                  <td height=\"40\" style=\"height:40px;\" class=\"em_h20\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td align=\"center\" valign=\"top\">\n                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                      <tr>\n                        <td width=\"30\" style=\"width:30px;\" align=\"center\" valign=\"middle\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/fb.png\" width=\"30\" height=\"30\" alt=\"Fb\" border=\"0\" style=\"display:block; font-family:Arial, sans-serif; font-size:18px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;\" /></a></td>\n                        <td width=\"12\" style=\"width:12px;\">&nbsp;</td>\n                        <td width=\"30\" style=\"width:30px;\" align=\"center\" valign=\"middle\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/tw.png\" width=\"30\" height=\"30\" alt=\"Tw\" border=\"0\" style=\"display:block; font-family:Arial, sans-serif; font-size:14px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;\" /></a></td>\n                        <td width=\"12\" style=\"width:12px;\">&nbsp;</td>\n                        <td width=\"30\" style=\"width:30px;\" align=\"center\" valign=\"middle\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/insta.png\" width=\"30\" height=\"30\" alt=\"Insta\" border=\"0\" style=\"display:block; font-family:Arial, sans-serif; font-size:14px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;\" /></a></td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n                <tr>\n                  <td height=\"16\" style=\"height:16px; font-size:1px; line-height:1px; height:16px;\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td class=\"em_grey\" align=\"center\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 15px; line-height: 18px; color:#434343; font-weight:bold;\">Problems or questions?</td>\n                </tr>\n                <tr>\n                  <td height=\"10\" style=\"height:10px; font-size:1px; line-height:1px;\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td align=\"center\" valign=\"top\" style=\"font-size:0px; line-height:0px;\">\n                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                      <tr>\n                        <td width=\"15\" align=\"left\" valign=\"middle\" style=\"font-size:0px; line-height:0px; width:15px;\"><a href=\"mailto:meow@meowgun.com\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/email_img.png\" width=\"15\" height=\"12\" alt=\"\" border=\"0\" style=\"display:block; max-width:15px;\" /></a></td>\n                        <td width=\"9\" style=\"width:9px; font-size:0px; line-height:0px;\" class=\"em_w5\"><img src=\"/assets/pilot/images/templates/spacer.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\" style=\"display:block;\" /></td>\n                        <td class=\"em_grey em_font_11\" align=\"left\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; line-height: 15px; color:#434343;\"><a href=\"mailto:meow@meowgun.com\" style=\"text-decoration:none; color:#434343;\">meow@meowgun.com</a> <a href=\"mailto:marketing@mailgun.com\" style=\"text-decoration:none; color:#434343;\">[mailto:marketing@mailgun.com]</a></td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n                <tr>\n                  <td height=\"9\" style=\"font-size:0px; line-height:0px; height:9px;\" class=\"em_h10\"><img src=\"/assets/pilot/images/templates/spacer.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\" style=\"display:block;\" /></td>\n                </tr>\n                <tr>\n                  <td align=\"center\" valign=\"top\">\n                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                      <tr>\n                        <td width=\"12\" align=\"left\" valign=\"middle\" style=\"font-size:0px; line-height:0px; width:12px;\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/img_1.png\" width=\"12\" height=\"16\" alt=\"\" border=\"0\" style=\"display:block; max-width:12px;\" /></a></td>\n                        <td width=\"7\" style=\"width:7px; font-size:0px; line-height:0px;\" class=\"em_w5\">&nbsp;</td>\n                        <td class=\"em_grey em_font_11\" align=\"left\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; line-height: 15px; color:#434343;\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none; color:#434343;\">Meowgun</a> &bull; 123 Meow Way &bull; Cattown, CA 95389</td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n                <tr>\n                  <td height=\"35\" style=\"height:35px;\" class=\"em_h20\">&nbsp;</td>\n                </tr>\n              </table>\n            </td>\n          </tr>\n          <tr>\n            <td height=\"1\" bgcolor=\"#dadada\" style=\"font-size:0px; line-height:0px; height:1px;\"><img src=\"/assets/pilot/images/templates/spacer.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\" style=\"display:block;\" /></td>\n          </tr>\n          <tr>\n            <td align=\"center\" valign=\"top\" style=\"padding:0 25px;\" class=\"em_aside10\">\n              <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                <tr>\n                  <td height=\"16\" style=\"font-size:0px; line-height:0px; height:16px;\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td align=\"center\" valign=\"top\">\n                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" class=\"em_wrapper\">\n                      <tr>\n                        <td class=\"em_grey\" align=\"center\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 11px; line-height: 16px; color:#434343;\">&copy; Meowgun 2019 &nbsp;|&nbsp; <a href=\"#\" target=\"_blank\" style=\"text-decoration:underline; color:#434343;\">Unsubscribe</a></td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n                <tr>\n                  <td height=\"16\" style=\"font-size:0px; line-height:0px; height:16px;\">&nbsp;</td>\n                </tr>\n              </table>\n            </td>\n          </tr>\n          <tr>\n            <td class=\"em_hide\" style=\"line-height:1px;min-width:650px;background-color:#efefef;\"><img alt=\"\" src=\"/assets/pilot/images/templates/spacer.gif\" height=\"1\" width=\"650\" style=\"max-height:1px; min-height:1px; display:block; width:650px; min-width:650px;\" border=\"0\" /></td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n\n</html>\n",
+			"file": "storage/app/templates/emailing/online_v01.html",
+			"file_size": 23023,
+			"file_write_time": 132420390353850497,
+			"settings":
+			{
+				"buffer_size": 22566,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/sass/_variables.scss",
+			"settings":
+			{
+				"buffer_size": 741,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/pages/online.blade.php",
+			"settings":
+			{
+				"buffer_size": 11126,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/ContactControllerApi.php",
+			"settings":
+			{
+				"buffer_size": 2505,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "routes/api.php",
+			"settings":
+			{
+				"buffer_size": 4190,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/CalendareventController.php",
+			"settings":
+			{
+				"buffer_size": 8418,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Cashbox/MovimientoController.php",
+			"settings":
+			{
+				"buffer_size": 1924,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/booking/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 1068,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -650,64 +812,81 @@
 	[
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/blog",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes"
 	],
 	"file_history":
 	[
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_variables.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/node_modules/react-datepicker/src/stylesheets/variables.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/static-sitemap.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_components.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/online.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/faq.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/webpack.mix.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/package.json",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes/body.html",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes/body.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes/subject.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/web.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BlogtoolController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/Modal.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/ClassTypeDropdown.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/bookings.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CancelBookingPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/AvailabilityPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/InquiryDetails.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/api.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CustomerDetails.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventControllerOnline.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/masterlayout.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/blog/posttemplate.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/bookings.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/tapas.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.gitignore",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/paella.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/events.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_components.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.gitignore",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BlogtoolController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/blog/posttemplate.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/blogsandbox.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_variables.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/RedsysAPI.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/MailController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/config/cookingpoint.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv/pay.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVControllerStub.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/gallery.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/adminmasterlayout.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/bookings.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/bestclasses.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/InquiryDetails.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CustomerDetails.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/location.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/admin/_admincomponents.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/admin.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Console/Commands/PaymentMethod.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/bookings.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/AvailabilityPage.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/BookingDetailsPage.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CancelBookingPage.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CustomerDetailsPage.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/staff_update_paymentmethod/body.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/staff_update_paymentmethod/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Console/Kernel.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/booking.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/ClassTypeDropdown.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/admin/admin.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/admin/_adminutilities.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Console/Commands/CookingPointCron.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/cashbox.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/cashbox.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/ViatorController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/faq.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_3rdpartypayment/body.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/body.txt",
@@ -716,11 +895,8 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_cancellation/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_cancellation/subject.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher/body.html",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/api.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/index.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/modals.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventControllerOnline.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/app.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/login.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/ab6a7c5f191399a2a6e49d19a8ad4fb45c2d5990.php",
@@ -778,20 +954,11 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/post.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/modals.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/cashbox/modals.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/fileuploader.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/actividadesempresas.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/booking.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/InquiryDetails.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/errors/wrongLocator.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/CustomerDetails.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/app.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/masterlayout.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/cashbox/index.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/classemails.blade.php"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/fileuploader.blade.php"
 	],
 	"find":
 	{
-		"height": 41.6
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -810,6 +977,54 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"cook",
+			"will",
+			"dd>",
+			"email_sent",
+			"$events",
+			"list",
+			"\"text",
+			"onclick",
+			"starTime",
+			"react-bootstrap",
+			"<a ",
+			"userTimeZone",
+			"fakedat",
+			"carbon",
+			"handleClassType",
+			"userTimeZone",
+			"setis",
+			"source_id",
+			"type",
+			"axios",
+			"handleDateChange",
+			"priceplan",
+			"->iva",
+			"priceplan",
+			"source_id",
+			"priceplan",
+			"priceplan_id",
+			"priceplan",
+			"online",
+			"text",
+			"datepicker",
+			"required",
+			"startdateatom",
+			"fetchData",
+			"url",
+			"await axios",
+			"replace",
+			"encode",
+			"selected",
+			"booking",
+			"console.log",
+			"console.",
+			"undefined",
+			"data",
+			"handledate",
+			"\"",
+			"event",
+			"TAPAS",
 			"preview",
 			"sandbox",
 			"ensaladilla/",
@@ -888,6 +1103,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"li>",
+			"p>",
+			"\"label",
+			"\"value",
+			"'",
 			"sandbox/",
 			"sandbox",
 			"ensaladilla",
@@ -911,8 +1131,532 @@
 	"groups":
 	[
 		{
+			"selected": 11,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "resources/js/booking/Components/ClassTypeDropdown.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1394,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								828,
+								828
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/masterlayout.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6851,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1727,
+								1727
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 646.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/sass/_utilities.scss",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/js/booking/InquiryDetails.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7459,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								85,
+								134
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resources/js/booking/Components/UserTimeZone.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3567,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								119,
+								119
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 37564,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18340,
+								18346
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1174.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "resources/views/pages/paella.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9526,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7008,
+								7008
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 703.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "resources/views/pages/home.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13181,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "resources/views/pages/actividadesempresas.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4590,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4247,
+								4247
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "resources/js/contactonlineclasses.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2378,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								286,
+								286
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 49.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "storage/app/templates/emailing/online_v01.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22566,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3798,
+								3870
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 741.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "resources/sass/_variables.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								140,
+								146
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "resources/views/pages/online.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6690,
+								6690
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1932.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "app/Http/Controllers/ContactControllerApi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2505,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1462,
+								1462
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 171.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "routes/api.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4190,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2563,
+								2583
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 247.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "app/Http/Controllers/CalendareventController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8418,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4975,
+								4975
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 247.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "app/Http/Controllers/Cashbox/MovimientoController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								897,
+								897
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "resources/views/booking/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1068,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1003,
+								1062
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -973,20 +1717,136 @@
 		"selected_items":
 		[
 			[
+				"_v",
+				"resources\\sass\\_variables.scss"
+			],
+			[
+				"_vr",
+				"resources\\sass\\_variables.scss"
+			],
+			[
+				"variab",
+				"node_modules\\react-datepicker\\src\\stylesheets\\variables.scss"
+			],
+			[
+				"sitem",
+				"storage\\app\\static-sitemap.txt"
+			],
+			[
+				"onlin",
+				"resources\\views\\pages\\online.blade.php"
+			],
+			[
 				"master",
 				"resources\\views\\masterlayout.blade.php"
 			],
 			[
-				"blogtoolco",
-				"app\\Http\\Controllers\\BlogtoolController.php"
+				"paell",
+				"resources\\views\\pages\\paella.blade.php"
+			],
+			[
+				"home",
+				"resources\\views\\pages\\home.blade.php"
+			],
+			[
+				"faq",
+				"resources\\views\\pages\\faq.blade.php"
+			],
+			[
+				"laravel",
+				"storage\\logs\\laravel.log"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"user message online ",
+				"storage\\app\\templates\\user_message_online_classes\\body.html"
+			],
+			[
+				"api",
+				"routes\\api.php"
+			],
+			[
+				"web.",
+				"routes\\web.php"
+			],
+			[
+				"contacto",
+				"resources\\js\\contactoeventos.js"
+			],
+			[
+				"actividades",
+				"resources\\views\\pages\\actividadesempresas.blade.php"
+			],
+			[
+				"paella",
+				"resources\\views\\pages\\paella.blade.php"
+			],
+			[
+				"booking view",
+				"resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"online",
+				"resources\\views\\pages\\online.blade.php"
+			],
+			[
+				"inqu",
+				"resources\\js\\booking\\InquiryDetails.js"
+			],
+			[
+				"larav",
+				"storage\\logs\\laravel.log"
+			],
+			[
+				"bookingcon",
+				"app\\Http\\Controllers\\BookingController.php"
+			],
+			[
+				"customerde",
+				"resources\\js\\booking\\CustomerDetails.js"
+			],
+			[
+				"availab",
+				"resources\\js\\booking\\AvailabilityPage.js"
+			],
+			[
+				"booking",
+				"resources\\js\\booking\\booking.js"
+			],
+			[
+				"booking index",
+				"resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"bookingcontr",
+				"app\\Http\\Controllers\\BookingController.php"
+			],
+			[
+				"calendareventcontro",
+				"app\\Http\\Controllers\\CalendareventControllerOnline.php"
 			],
 			[
 				"web.php",
 				"routes\\web.php"
 			],
 			[
-				"paella",
-				"resources\\views\\pages\\paella.blade.php"
+				"availa",
+				"resources\\js\\booking\\AvailabilityPage.js"
+			],
+			[
+				"events.l",
+				"resources\\views\\pages\\events.blade.php"
+			],
+			[
+				"tapas",
+				"resources\\views\\pages\\tapas.blade.php"
+			],
+			[
+				"blogtoolco",
+				"app\\Http\\Controllers\\BlogtoolController.php"
 			],
 			[
 				"events.bl",
@@ -995,10 +1855,6 @@
 			[
 				"tapas.bl",
 				"resources\\views\\pages\\tapas.blade.php"
-			],
-			[
-				"home",
-				"resources\\views\\pages\\home.blade.php"
 			],
 			[
 				"_vae",
@@ -1043,10 +1899,6 @@
 			[
 				"pael",
 				"resources\\views\\pages\\paella.blade.php"
-			],
-			[
-				"tapas",
-				"resources\\views\\pages\\tapas.blade.php"
 			],
 			[
 				"best",
@@ -1139,10 +1991,6 @@
 			[
 				"booking pa",
 				"resources\\js\\booking\\BookingDetailsPage.js"
-			],
-			[
-				"api",
-				"routes\\api.php"
 			],
 			[
 				"viator",
@@ -1273,10 +2121,6 @@
 				"react\\app\\Http\\Controllers\\CalendareventControllerOnline.php"
 			],
 			[
-				"web.",
-				"react\\routes\\web.php"
-			],
-			[
 				"calendareventre",
 				"react\\app\\Http\\Controllers\\CalendareventControllerReact.php"
 			],
@@ -1337,10 +2181,6 @@
 				"react\\resources\\views\\pages\\events.blade.php"
 			],
 			[
-				"customerde",
-				"react\\resources\\js\\booking\\CustomerDetails.js"
-			],
-			[
 				"wrong",
 				"react\\resources\\views\\errors\\wrongLocator.blade.php"
 			],
@@ -1387,102 +2227,6 @@
 			[
 				"booking.css",
 				"react\\public\\css\\booking.css"
-			],
-			[
-				"booking cusot",
-				"react\\resources\\js\\booking\\CustomerDetails.js"
-			],
-			[
-				"about",
-				"react\\resources\\views\\pages\\aboutus.blade.php"
-			],
-			[
-				"app.js",
-				"react\\resources\\js\\app.js"
-			],
-			[
-				"_ele",
-				"react\\resources\\sass\\_elements.scss"
-			],
-			[
-				"voucher",
-				"react\\resources\\js\\booking\\Components\\VoucherPrintOut.js"
-			],
-			[
-				"bookingpa",
-				"react\\resources\\js\\booking\\BookingDetailsPage.js"
-			],
-			[
-				"webpack",
-				"react\\webpack.mix.js"
-			],
-			[
-				"events.b",
-				"react\\resources\\views\\pages\\events.blade.php"
-			],
-			[
-				"paella.",
-				"react\\resources\\views\\pages\\paella.blade.php"
-			],
-			[
-				"app.sc",
-				"react\\resources\\sass\\app.scss"
-			],
-			[
-				"classtyp",
-				"react\\resources\\js\\booking\\Components\\ClassTypeDropdown.js"
-			],
-			[
-				"inqu",
-				"react\\resources\\js\\booking\\InquiryDetails.js"
-			],
-			[
-				"node dist react-datepicker",
-				"react\\node_modules\\react-datepicker\\dist\\react-datepicker.css"
-			],
-			[
-				"reso book scss",
-				"react\\resources\\sass\\booking.scss"
-			],
-			[
-				"react booking.js",
-				"react\\resources\\js\\booking\\booking.js"
-			],
-			[
-				"react-datepicker.css",
-				"react\\node_modules\\react-datepicker\\dist\\react-datepicker.css"
-			],
-			[
-				"booking.j",
-				"react\\resources\\js\\booking\\booking.js"
-			],
-			[
-				"react-datepiker",
-				"react\\node_modules\\react-datepicker\\dist\\react-datepicker.js"
-			],
-			[
-				"availa",
-				"react\\resources\\js\\booking\\AvailabilityPage.js"
-			],
-			[
-				"cookingpoint.php",
-				"react\\config\\cookingpoint.php"
-			],
-			[
-				"booking index",
-				"react\\resources\\views\\booking\\index.blade.php"
-			],
-			[
-				"booking index.bl",
-				"react\\resources\\views\\booking\\index.blade.php"
-			],
-			[
-				"lara",
-				"react\\storage\\logs\\laravel.log"
-			],
-			[
-				"bookingcon",
-				"react\\app\\Http\\Controllers\\BookingController.php"
 			]
 		],
 		"width": 0.0
