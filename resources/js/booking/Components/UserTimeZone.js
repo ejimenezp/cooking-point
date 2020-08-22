@@ -93,7 +93,7 @@ const selectTzOptions = [{
     "label": "(GMT +8:00) Beijing, Perth, Singapore, Hong Kong"
   },
   {
-    "value": "Asia/Tokio",
+    "value": "Asia/Tokyo",
     "label": "(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
   },
   {
