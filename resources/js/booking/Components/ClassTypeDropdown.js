@@ -3,6 +3,7 @@ import Select from 'react-select'
 import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
 import PropTypes from 'prop-types'
 
+const _ = require('lodash')
 const axios = require('axios').default
 
 export { ClassTypeDropdown }
@@ -42,15 +43,13 @@ function ClassTypeDropdown (props) {
         const result = await axios(`/api/eventtype/bookable_by_clients?online=${props.onlineclass}`)
         var sel = []
         result.data.forEach( function (item) {
-          const copy = {value : item.type , label: item.short_description + ' ' + localTime(item.time)}
+          const copy = {value : item.type , label: localTime(item.time) + ' ' + item.short_description}
           sel.push(copy)
         })
         setSelectOptions(sel)
-        const def = sel.find((el) => el.value === props.default)
-        if (!def) {
-          def = sel[0]
-        }
-        setDefaultValue(def)
+        var i = _.findIndex(sel, (el) => el.value === props.default)
+        i = (i != -1) ? i : sel.length - 1 
+        setDefaultValue(sel[i])
       } catch (error) {
         setIsError(true)
       }
