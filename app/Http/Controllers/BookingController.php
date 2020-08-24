@@ -96,6 +96,7 @@ class BookingController extends Controller
         $bkg->invoice = $request->invoice;
 
         $bkg->tz = $request->tz;
+        $bkg->onlineclass = (empty($request->onlineclass)) ? 0 : $request->onlineclass;
         $bkg->save();
         return $bkg;
 
@@ -136,6 +137,9 @@ class BookingController extends Controller
             $bkg->hide_price = !empty($request->hide_price);
             $bkg->fixed_date = !empty($request->fixed_date);
             $bkg->invoice = $request->invoice;
+            $bkg->tz = empty($request->tz) ? null : $request->tz;
+            $bkg->onlineclass = $request->onlineclass;
+
             $bkg->save();
             return $bkg;
         }

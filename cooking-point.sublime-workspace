@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"option",
+				"optionsDisplayDate"
+			],
+			[
+				"zo",
+				"zonedTimeToUtc"
+			],
+			[
+				"tz",
+				"tztext"
+			],
+			[
+				"East",
+				"East_Coast"
+			],
+			[
+				"use",
+				"userTimeZone"
+			],
+			[
+				"sho",
+				"showTimeZone"
+			],
+			[
+				"STAR",
+				"startdateatom"
+			],
+			[
+				"start",
+				"startdateatom"
+			],
+			[
+				"set",
+				"setDefaultalue"
+			],
+			[
+				"defa",
+				"defaultValue"
+			],
+			[
+				"boo",
+				"bookable_by_clients"
+			],
+			[
 				"local",
 				"localTime"
 			],
@@ -18,10 +62,6 @@
 			[
 				"user",
 				"userTimeZone"
-			],
-			[
-				"set",
-				"setHours"
 			],
 			[
 				"con",
@@ -268,10 +308,6 @@
 				"needRefresh"
 			],
 			[
-				"use",
-				"useEffect"
-			],
-			[
 				"React",
 				"ReactDatePicker"
 			],
@@ -478,42 +514,6 @@
 			[
 				"descu",
 				"descuadre_con_anterior"
-			],
-			[
-				"json",
-				"json_encode"
-			],
-			[
-				"form",
-				"form_changed"
-			],
-			[
-				"data",
-				"dataType"
-			],
-			[
-				"cabecer",
-				"cabecera_estado"
-			],
-			[
-				"boton-ele",
-				"boton-eliminar-movimiento"
-			],
-			[
-				"fun",
-				"function"
-			],
-			[
-				"prett",
-				"prettyd"
-			],
-			[
-				"actualizar",
-				"actualizar_tabla_sesiones"
-			],
-			[
-				"boton-el",
-				"boton-eliminar-movimiento"
 			]
 		]
 	},
@@ -523,7 +523,97 @@
 			"file": "resources/js/booking/Components/ClassTypeDropdown.js",
 			"settings":
 			{
-				"buffer_size": 1394,
+				"buffer_size": 1936,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 253 files for \"lodash\"\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\AvailabilityPage.js:\n    9  import { NavButtons } from './Components/NavButtons'\n   10  \n   11: const _ = require('lodash')\n   12  const axios = require('axios').default\n   13  \n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\bootstrap.js:\n    1: window._ = require('lodash')\n    2  \n    3  /**\n\n2 matches across 2 files\n\n\nSearching 253 files for \"cutoff\"\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\app\\Http\\Controllers\\CalendareventController.php:\n   45          $ce->online = $eventtype->online;\n   46          $ce->bookable_by_clients = $eventtype->bookable_by_clients;\n   47:         $ce->cutoff = $eventtype->cutoff;\n   48          $ce->startdatetime = $request->date . ' ' . $request->time;\n   49          $st = new Carbon($ce->startdatetime);\n   ..\n   92              $ce->duration = $request->duration;\n   93              $ce->capacity = $request->capacity;\n   94:             $ce->cutoff = $request->cutoff;\n   95              $ce->startdatetime = $request->date . ' ' . $request->time;\n   96              $st = new Carbon($ce->startdatetime);\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\app\\Http\\Controllers\\ViatorController.php:\n  102              if ($date->lt($hoy)) {\n  103                  $availability->AvailabilityStatus->Status = 'UNAVAILABLE';\n  104:                 $availability->AvailabilityStatus->UnavailabilityReason = 'PAST_CUTOFF_DATE';\n  105                  $this->resp->data->TourAvailability[] = $availability;\n  106                  continue;\n  ...\n  160                  if ($date->lt($hoy)) {\n  161                      $availability->AvailabilityStatus->Status = 'UNAVAILABLE';\n  162:                     $availability->AvailabilityStatus->UnavailabilityReason = 'PAST_CUTOFF_DATE';\n  163                      $this->resp->data->BatchTourAvailability[] = $availability;\n  164                      continue;\n\n6 matches across 2 files\n\n\nSearching 253 files for \"enddateatom\"\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\app\\Calendarevent.php:\n   13      protected $table = 'calendarevents';\n   14  \tpublic $timestamps = false;\n   15:     protected $appends = array('registered', 'startdateatom', 'enddateatom');\n   16  \n   17      public function bookings()\n   ..\n   44      }\n   45  \n   46:     public function getEnddateatomAttribute()\n   47      {\n   48          $atom = new DateTime($this->date .\" \". $this->time);\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\pages\\home.blade.php:\n   29              \"description\" : \"Hands-on cooking class with market tour to make paella, gazpacho and sangria\",\n   30              \"startDate\" : \"{{ $event->startdateatom }}\",\n   31:             \"endDate\" : \"{{ $event->enddateatom }}\",\n   32              \"location\" : {\n   33                  \"@type\" : \"Place\",\n   ..\n   53              \"description\" : \"Hands-on cooking class to make traditional Spanish tapas and sangria\",\n   54              \"startDate\" : \"{{ $event->startdateatom }}\",\n   55:             \"endDate\" : \"{{ $event->enddateatom }}\",\n   56              \"location\" : {\n   57                  \"@type\" : \"Place\",\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\pages\\paella.blade.php:\n   17  \t\t\t\"description\" : \"Hands-on cooking class with market tour to make paella, gazpacho and sangria\",\n   18  \t\t\t\"startDate\" : \"{{ $event->startdateatom }}\",\n   19: \t\t\t\"endDate\" : \"{{ $event->enddateatom }}\",\n   20  \t\t\t\"location\" : {\n   21         \t\t\t\"@type\" : \"Place\",\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\pages\\tapas.blade.php:\n   18  \t\t\t\"description\" : \"Hands-on cooking class to make traditional Spanish tapas and sangria\",\n   19  \t\t\t\"startDate\" : \"{{ $event->startdateatom }}\",\n   20: \t\t\t\"endDate\" : \"{{ $event->enddateatom }}\",\n   21  \t\t\t\"location\" : {\n   22         \t\t\t\"@type\" : \"Place\",\n\n6 matches across 4 files\n\n\nSearching 253 files for \"onlineclass\"\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\app\\Http\\Controllers\\BookingController.php:\n   31              $bkg->child = 0;\n   32              $bkg->type = isset($request->class) ? $request->class : 'PAELLA';\n   33:             $bkg->onlineclass = isset($request->onlineclass);\n   34              $bkg->source_id = 2;\n   35              $bkg->phone = '';\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\app\\Http\\Controllers\\ContactControllerApi.php:\n   31      }\n   32  \n   33:     function contactonlineclasses(Request $request)\n   34      {\n   35          try {\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\AvailabilityPage.js:\n  101      const intervalStart = format(subDays(startOfMonth(ldate), 37), 'yyyy-MM-dd')\n  102      const intervalEnd = format(addDays(endOfMonth(ldate), 37), 'yyyy-MM-dd')\n  103:     return `/api/calendarevent/getavailability?online=${localbkg.onlineclass}&start=${intervalStart}&end=${intervalEnd}`\n  104    }\n  105  \n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\Components\\ClassTypeDropdown.js:\n   20  \n   21    function localTime (hour) {\n   22:     const showTimeZone = props.onlineclass ? props.userTimeZone : 'Europe/Madrid'\n   23      const classTime = zonedTimeToUtc('2018-09-01 ' + hour, 'Europe/Madrid')\n   24      const options = {\n   ..\n   41        setIsError(false)\n   42        try {\n   43:         const result = await axios(`/api/eventtype/bookable_by_clients?online=${props.onlineclass}`)\n   44          var sel = []\n   45          result.data.forEach( function (item) {\n   ..\n   59      }\n   60      fetchData()\n   61:   }, [props.onlineclass, props.userTimeZone])\n   62  \n   63    return (\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\InquiryDetails.js:\n  174              <td className='font-weight-bold'>Class :</td>\n  175              <td>\n  176:               <ClassTypeDropdown liftUp={handleClassType} default={bkg.type} userTimeZone={bkg.tz} onlineclass={bkg.onlineclass}/>\n  177              </td>\n  178            </tr>\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\contactonlineclasses.js:\n   71  \t$.ajax({\n   72  \t\ttype: 'POST', \n   73: \t\turl: '/api/contact/contactonlineclasses',\n   74  \t\tdata: request,\n   75  \t\tsuccess: function() {\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\masterlayout.blade.php:\n  131            </li>\n  132            <li>\n  133:             <a href=\"/booking?onlineclass\"><span class=\"font-weight-bold\">Booking</span></a>\n  134            </li>\n  135            <li>\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\pages\\online.blade.php:\n  273  </script>\n  274  \n  275: <script defer src=\"{{ mix('/js/contactonlineclasses.js') }}\"></script>\n  276  @stop\n  277  \n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\routes\\api.php:\n   59  \n   60  Route::post('contact/contactoeventos', 'ContactControllerApi@contactoeventos');\n   61: Route::post('contact/contactonlineclasses', 'ContactControllerApi@contactonlineclasses');\n   62  Route::post('contact/googleadswebhook', 'ContactControllerApi@googleadswebhook');\n   63  \n\n14 matches across 9 files\n\n\n\n\n\nSearching 253 files for \"onlineclass\"\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\app\\Http\\Controllers\\BookingController.php:\n   31              $bkg->child = 0;\n   32              $bkg->type = isset($request->class) ? $request->class : 'PAELLA';\n   33:             $bkg->onlineclass = isset($request->onlineclass);\n   34              $bkg->source_id = 2;\n   35              $bkg->phone = '';\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\app\\Http\\Controllers\\ContactControllerApi.php:\n   31      }\n   32  \n   33:     function contactonlineclasses(Request $request)\n   34      {\n   35          try {\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\AvailabilityPage.js:\n  101      const intervalStart = format(subDays(startOfMonth(ldate), 37), 'yyyy-MM-dd')\n  102      const intervalEnd = format(addDays(endOfMonth(ldate), 37), 'yyyy-MM-dd')\n  103:     return `/api/calendarevent/getavailability?online=${localbkg.onlineclass}&start=${intervalStart}&end=${intervalEnd}`\n  104    }\n  105  \n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\booking.js:\n   27    data.price = parseFloat(data.price)\n   28    data.tz = (typeof data.tz === 'undefined') ? Intl.DateTimeFormat().resolvedOptions().timeZone : data.tz\n   29:   // data.onlineclass = typeof data.onlineclass !== 'undefined' ? data.onlineclass : (typeof data.calendarevent !== 'undefined') ?  data.calendarevent.online : false\n   30    const [bkg, setBkg] = useState(data)\n   31  \n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\Components\\ClassTypeDropdown.js:\n   20  \n   21    function localTime (hour) {\n   22:     const showTimeZone = props.onlineclass ? props.userTimeZone : 'Europe/Madrid'\n   23      const classTime = zonedTimeToUtc('2018-09-01 ' + hour, 'Europe/Madrid')\n   24      const options = {\n   ..\n   41        setIsError(false)\n   42        try {\n   43:         const result = await axios(`/api/eventtype/bookable_by_clients?online=${props.onlineclass}`)\n   44          var sel = []\n   45          result.data.forEach( function (item) {\n   ..\n   59      }\n   60      fetchData()\n   61:   }, [props.onlineclass, props.userTimeZone])\n   62  \n   63    return (\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\InquiryDetails.js:\n  174              <td className='font-weight-bold'>Class :</td>\n  175              <td>\n  176:               <ClassTypeDropdown liftUp={handleClassType} default={bkg.type} userTimeZone={bkg.tz} onlineclass={bkg.onlineclass}/>\n  177              </td>\n  178            </tr>\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\contactonlineclasses.js:\n   71  \t$.ajax({\n   72  \t\ttype: 'POST', \n   73: \t\turl: '/api/contact/contactonlineclasses',\n   74  \t\tdata: request,\n   75  \t\tsuccess: function() {\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\masterlayout.blade.php:\n  131            </li>\n  132            <li>\n  133:             <a href=\"/booking?onlineclass\"><span class=\"font-weight-bold\">Booking</span></a>\n  134            </li>\n  135            <li>\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\pages\\online.blade.php:\n  273  </script>\n  274  \n  275: <script defer src=\"{{ mix('/js/contactonlineclasses.js') }}\"></script>\n  276  @stop\n  277  \n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\routes\\api.php:\n   59  \n   60  Route::post('contact/contactoeventos', 'ContactControllerApi@contactoeventos');\n   61: Route::post('contact/contactonlineclasses', 'ContactControllerApi@contactonlineclasses');\n   62  Route::post('contact/googleadswebhook', 'ContactControllerApi@googleadswebhook');\n   63  \n\n17 matches across 10 files\n\n\nSearching 253 files for \"/getavaila\"\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\AvailabilityPage.js:\n  101      const intervalStart = format(subDays(startOfMonth(ldate), 37), 'yyyy-MM-dd')\n  102      const intervalEnd = format(addDays(endOfMonth(ldate), 37), 'yyyy-MM-dd')\n  103:     return `/api/calendarevent/getavailability?online=${localbkg.onlineclass}&start=${intervalStart}&end=${intervalEnd}`\n  104    }\n  105  \n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\routes\\api.php:\n   24  Route::post('calendarevent/update', 'CalendareventController@update');\n   25  Route::get('calendarevent/delete/{id}', 'CalendareventController@delete');\n   26: Route::get('calendarevent/getavailability', 'CalendareventController@getAvailability');\n   27  Route::post('calendarevent/getschedule', 'CalendareventController@getSchedule');\n   28  \n\n2 matches across 2 files\n\n\nSearching 253 files for \"/add\"\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\admin\\bookings.js:\n  851  \n  852      if (ce_id == 0 || typeof ce_id === 'undefined') {\n  853:       url = '/api/calendarevent/add'\n  854      } else {\n  855        url = '/api/calendarevent/update'\n  ...\n 1010  \n 1011      if (bkg_id == 0 || typeof bkg_id === 'undefined') {\n 1012:       url = '/api/booking/add'\n 1013      } else {\n 1014        url = '/api/booking/update'\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\admin\\tienda.js:\n  208      $.ajax({\n  209        type: 'POST',\n  210:       url: '/api/tienda/addticket',\n  211        data: ticket,\n  212        async: false,\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\BookingDetailsPage.js:\n   52    useEffect(() => {\n   53      if (localbkg.store) {\n   54:       const url = localbkg.locator ? '/api/booking/update' : '/api/booking/add'\n   55        const storeBkg = async () => {\n   56          setIsError(false)\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\InquiryDetails.js:\n  139                          <td style={leftStyle}><div id='adult-down' onClick={handleAdultDownClick} className='icon'><img src='/images/icons/minus.png' /></div></td>\n  140                          <td style={centerStyle}><div className='fake-input text-center'>{bkg.adult}</div></td>\n  141:                         <td style={rightStyle}><div id='adult-up' onClick={handleAdultUpClick} className='icon'><img src='/images/icons/add.png' /></div></td>\n  142                          <td style={rightStyle} />\n  143                        </Fragment>}\n  ...\n  160                          <td style={leftStyle}><div id='child-down' onClick={handleChildDownClick} className='icon'><img src='/images/icons/minus.png' /></div></td>\n  161                          <td style={centerStyle}><div className='fake-input text-center'>{bkg.child}</div></td>\n  162:                         <td style={rightStyle}><div id='child-up' onClick={handleChildUpClick} className='icon'><img src='/images/icons/add.png' /></div></td>\n  163                          <td style={rightStyle} />\n  164                        </Fragment>}\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\admin\\blogsandbox.blade.php:\n    5  <div id=\"post-page\" data-postid=\"99999\">\n    6  \t<h1 id=\"header\">Prepared for COVID-19</h1>\n    7: \t<address class=\"header6\">Madrid | <time datetime=\"2020-01-01\">2020-01-01</time></address>\n    8  \t<div id=\"text\">\n    9  \t\t<!-- Copiar y pegar desde aquí  -->\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\blog\\posttemplate.blade.php:\n    9  \n   10  \t<h1 id=\"header\">{{ $post->title }}</h1>\n   11: \t<address>Madrid | <time datetime=\"{{ $post->publishing_date }}\">{{ $post->publishing_date }}</time></address>\n   12  \n   13  \t<div id=\"text\">{!! $post->body !!}</div>\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\booking\\index-old.blade.php:\n   86  \t\t\t\t\t\t\t\t\t\t\t<td style='width: 40%;text-align: right;'><div id=\"adult-down\" class=\"icon\"><img src=\"/images/icons/minus.png\"></div></td>\n   87  \t\t\t\t\t\t\t\t\t\t\t<td style='width: 20%;text-align: center;'><div class=\"fake-input text-center\" data=\"adult\">0</div></td>\n   88: \t\t\t\t\t\t\t\t\t\t\t<td style='width: 40%;text-align: left;'><div id=\"adult-up\" class=\"icon\"><img src=\"/images/icons/add.png\"></div></td>\n   89  \t\t\t\t\t\t\t\t\t\t</tr>\n   90  \t\t\t\t\t\t\t\t\t</tbody>\n   ..\n  106  \t\t\t\t\t\t\t\t\t\t\t<td style='width: 40%;text-align: right;'><div id=\"child-down\" class=\"icon\"><img src=\"/images/icons/minus.png\"></div></td>\n  107  \t\t\t\t\t\t\t\t\t\t\t<td style='width: 20%;text-align: center;'><div class=\"fake-input text-center\" data=\"child\">0</div></td>\n  108: \t\t\t\t\t\t\t\t\t\t\t<td style='width: 40%;text-align: left;'><div id=\"child-up\" class=\"icon\"><img src=\"/images/icons/add.png\"></div></td>\n  109  \t\t\t\t\t\t\t\t\t\t</tr>\n  110  \t\t\t\t\t\t\t\t\t</tbody>\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\views\\pages\\posttemplate.blade.php:\n    9  \n   10  \t<h1 id=\"header\" class=\"header1\">{{ $post->title }}</h1>\n   11: \t<address class=\"header6\">Madrid | <time datetime=\"{{ $post->publishing_date }}\">{{ $post->publishing_date }}</time></address>\n   12  \n   13  \t<div id=\"text\">{!! $post->body !!}</div>\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\routes\\api.php:\n   20  // JSON BACK-END\n   21  //\n   22: Route::post('calendarevent/add', 'CalendareventController@add');\n   23  Route::get('calendarevent/get/{id}', 'CalendareventController@get');\n   24  Route::post('calendarevent/update', 'CalendareventController@update');\n   ..\n   27  Route::post('calendarevent/getschedule', 'CalendareventController@getSchedule');\n   28  \n   29: Route::post('booking/add', 'BookingController@add');\n   30  Route::get('booking/index/{ce_id}', 'BookingController@index');\n   31  Route::post('booking/update', 'BookingController@update');\n   ..\n   54  \n   55  Route::get('tienda/getTickets', 'TicketsController@getTickets');\n   56: Route::post('tienda/addticket', 'TicketsController@addticket');\n   57  \n   58  Route::post('viator', 'ViatorController@main');\n\n14 matches across 9 files\n\n\nSearching 253 files for \".online\"\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\AvailabilityPage.js:\n  101      const intervalStart = format(subDays(startOfMonth(ldate), 37), 'yyyy-MM-dd')\n  102      const intervalEnd = format(addDays(endOfMonth(ldate), 37), 'yyyy-MM-dd')\n  103:     return `/api/calendarevent/getavailability?online=${localbkg.onlineclass}&start=${intervalStart}&end=${intervalEnd}`\n  104    }\n  105  \n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\booking.js:\n   27    data.price = parseFloat(data.price)\n   28    data.tz = (typeof data.tz === 'undefined') ? Intl.DateTimeFormat().resolvedOptions().timeZone : data.tz\n   29:   data.onlineclass = (typeof data.onlineclass === 'undefined') ? null : data.onlineclass\n   30    const [bkg, setBkg] = useState(data)\n   31  \n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\BookingDetailsPage.js:\n   58            const result = await axios.post(url, { ...localbkg })\n   59            result.data.store = false\n   60:           result.data.onlineclass = result.data.calendarevent.online\n   61            props.liftUp(result.data)\n   62          } catch (error) {\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\Components\\ClassTypeDropdown.js:\n   20  \n   21    function localTime (hour) {\n   22:     const showTimeZone = props.onlineclass ? props.userTimeZone : 'Europe/Madrid'\n   23      const classTime = zonedTimeToUtc('2018-09-01 ' + hour, 'Europe/Madrid')\n   24      const options = {\n   ..\n   41        setIsError(false)\n   42        try {\n   43:         const result = await axios(`/api/eventtype/bookable_by_clients?online=${props.onlineclass}`)\n   44          var sel = []\n   45          result.data.forEach( function (item) {\n   ..\n   59      }\n   60      fetchData()\n   61:   }, [props.onlineclass, props.userTimeZone])\n   62  \n   63    return (\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\resources\\js\\booking\\InquiryDetails.js:\n  174              <td className='font-weight-bold'>Class :</td>\n  175              <td>\n  176:               <ClassTypeDropdown liftUp={handleClassType} default={bkg.type} userTimeZone={bkg.tz} onlineclass={bkg.onlineclass}/>\n  177              </td>\n  178            </tr>\n\nC:\\Users\\Eduardo\\Desarrollo\\home\\Eduardo\\laravel\\cooking-point\\routes\\web.php:\n   45  Route::get('/about-us', function () { return view('pages.aboutus'); });\n   46  Route::get('/best-cooking-classes-madrid', function () { return view('pages.bestclasses'); });\n   47: Route::get('/online-virtual-cooking-classes', function () { return view('pages.online'); });\n   48  \n   49  //\n\n11 matches across 6 files\n",
+			"settings":
+			{
+				"buffer_size": 20166,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "resources/js/booking/BookingDetailsPage.js",
+			"settings":
+			{
+				"buffer_size": 6846,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/BookingController.php",
+			"settings":
+			{
+				"buffer_size": 8673,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Calendarevent.php",
+			"settings":
+			{
+				"buffer_size": 1384,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/js/booking/AvailabilityPage.js",
+			"settings":
+			{
+				"buffer_size": 6419,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/js/booking/booking.js",
+			"settings":
+			{
+				"buffer_size": 2848,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/CalendareventController.php",
+			"settings":
+			{
+				"buffer_size": 5962,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "routes/api.php",
+			"settings":
+			{
+				"buffer_size": 4333,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/EventtypeController.php",
+			"settings":
+			{
+				"buffer_size": 518,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/js/booking/InquiryDetails.js",
+			"settings":
+			{
+				"buffer_size": 8513,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -532,33 +622,7 @@
 			"file": "resources/views/masterlayout.blade.php",
 			"settings":
 			{
-				"buffer_size": 6851,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/sass/_utilities.scss",
-			"settings":
-			{
-				"buffer_size": 540,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/js/booking/InquiryDetails.js",
-			"settings":
-			{
-				"buffer_size": 7459,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/js/booking/Components/UserTimeZone.js",
-			"settings":
-			{
-				"buffer_size": 3567,
+				"buffer_size": 6865,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -572,42 +636,6 @@
 			}
 		},
 		{
-			"file": "resources/views/pages/paella.blade.php",
-			"settings":
-			{
-				"buffer_size": 9526,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/pages/home.blade.php",
-			"settings":
-			{
-				"buffer_size": 13181,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/pages/actividadesempresas.blade.php",
-			"settings":
-			{
-				"buffer_size": 4590,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/js/contactonlineclasses.js",
-			"settings":
-			{
-				"buffer_size": 2378,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"contents": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\">\n\n<head>\n  <title>meowgun</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0 \" />\n  <meta name=\"format-detection\" content=\"telephone=no\" />\n  <!--[if !mso]><!-->\n  <link href=\"https://fonts.googleapis.com/css?family=Ubuntu:400,700\" rel=\"stylesheet\" />\n  <!--<![endif]-->\n  <style type=\"text/css\">\n  body {\n    margin: 0;\n    padding: 0;\n    -webkit-text-size-adjust: 100% !important;\n    -ms-text-size-adjust: 100% !important;\n    -webkit-font-smoothing: antialiased !important;\n  }\n\n  img {\n    border: 0 !important;\n    outline: none !important;\n  }\n\n  p {\n    Margin: 0px !important;\n    Padding: 0px !important;\n  }\n\n  table {\n    border-collapse: collapse;\n    mso-table-lspace: 0px;\n    mso-table-rspace: 0px;\n  }\n\n  td,\n  a,\n  span {\n    border-collapse: collapse;\n    mso-line-height-rule: exactly;\n  }\n\n  </style>\n</head>\n\n<body class=\"em_body\" style=\"margin:0px auto; padding:0px;\" bgcolor=\"#efefef\">\n  <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"em_full_wrap\" align=\"center\" bgcolor=\"#efefef\">\n    <tr>\n      <td align=\"center\" valign=\"top\">\n        <table align=\"center\" width=\"650\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"em_main_table\" style=\"width:650px; table-layout:fixed; background-color:#f8f8f8;\">\n          <tr>\n            <td align=\"center\" valign=\"top\" style=\"padding:0 25px; background-color:#efefef;\" bgcolor=\"#efefef\" class=\"em_aside10\">\n              <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                <tr>\n                  <td class=\"em_blue em_font_22\" align=\"center\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 26px; line-height: 29px; color:#264780; font-weight:bold;\"></td>\n                </tr>\n                <tr>\n                  <td height=\"22\" style=\"height:22px;\" class=\"em_h20\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td valign=\"top\" align=\"left\" bgcolor=\"#ffffff\" style=\"padding-left:25px; padding-right:35px; background-color:#ffffff;\" class=\"em_aside10\">\n                    <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                      <tr>\n                        <td height=\"22\" style=\"height:22px;\" class=\"em_h20\">&nbsp;</td>\n                      </tr>\n                      <tr>\n                        <td align=\"center\" valign=\"top\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"https://cookingpoint.es/images/emailing/cookingpoint_logo_sin_fondo.png\" width=\"120\" alt=\"cooking point\" border=\"0\" style=\"display:block; font-family:Arial, sans-serif; font-size:18px; line-height:25px; text-align:center; color:#1d4685; font-weight:bold; max-width:208px;\" class=\"em_w150\" /></a></td>\n                      </tr>\n                      <tr>\n                        <td class=\"em_blue em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color:#264780; font-weight:bold;\">Cooking Point Goes Online</td>\n                      </tr>\n                      <tr>\n                        <td height=\"8\" style=\"height:8px; font-size:0px; line-height:0px;\">&nbsp;</td>\n                      </tr>\n                      <tr>\n                        <td class=\"em_grey em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; color:#434343;\">It's been a while since you visited Madrid and took one of our classes. </td>\n                      </tr>\n                      <tr>\n                        <td height=\"16\" style=\"height:16px; font-size:1px; line-height:1px;\">&nbsp;</td>\n                      </tr>\n                      <tr>\n                        <td align=\"left\" valign=\"top\">\n                          <table width=\"140\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" style=\"width:140px;\" class=\"em_wrapper\">\n                            <tr>\n                              <td valign=\"top\" align=\"center\">\n                                <table width=\"140\" style=\"width:140px; background-color:#6bafb2; border-radius:4px;\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\" bgcolor=\"#6bafb2\">\n                                  <tr>\n                                    <td class=\"em_white\" height=\"34\" align=\"center\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; color:#ffffff; font-weight:bold; height:34px;\"><a href=\"https://www.mailgun.com\" target=\"_blank\" style=\"text-decoration:none; color:#ffffff; line-height:34px; display:block;\">CHECK IT OUT</a></td>\n                                  </tr>\n                                </table>\n                              </td>\n                            </tr>\n                          </table>\n                        </td>\n                      </tr>\n                      <tr>\n                        <td height=\"26\" style=\"height:26px;\" class=\"em_h20\">&nbsp;</td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n              </table>\n            </td>\n          </tr>\n          <tr>\n            <td height=\"20\" class=\"em_h10\" bgcolor=\"#efefef\" style=\"height:20px; font-size:1px; line-height:1px; background-color:#efefef;\">&nbsp;</td>\n          </tr>\n          <tr>\n            <td align=\"center\" valign=\"top\" bgcolor=\"#efefef\" style=\"padding:0 25px; background-color:#efefef;\" class=\"em_aside10\">\n              <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                <tr>\n                  <td valign=\"top\" align=\"center\">\n                    <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                      <tr>\n                        <td valign=\"top\">\n                          <table width=\"290\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" style=\"width:290px; background-color:#ffffff;\" bgcolor=\"#ffffff\" class=\"em_wrapper\">\n                            <tr>\n                              <td valign=\"top\" align=\"center\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/cat_3.jpg\" width=\"290\" height=\"220\" class=\"em_full_img2\" alt=\"Alt tag goes here\" border=\"0\" style=\"display:block; max-width:290px; font-family:Arial, sans-serif; font-size:17px; line-height:20px; color:#000000; font-weight:bold;\" /></a></td>\n                            </tr>\n                            <tr>\n                              <td valign=\"top\" align=\"left\" bgcolor=\"#ffffff\" style=\"padding-left:25px; padding-right:30px; background-color:#ffffff;\" class=\"em_aside10\">\n                                <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                                  <tr>\n                                    <td height=\"22\" style=\"height:22px;\" class=\"em_h20\">&nbsp;</td>\n                                  </tr>\n                                  <tr>\n                                    <td class=\"em_blue em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color:#264780; font-weight:bold;\">Cat of the Week: Luanne</td>\n                                  </tr>\n                                  <tr>\n                                    <td height=\"10\" style=\"height:10px; font-size:0px; line-height:0px;\">&nbsp;</td>\n                                  </tr>\n                                  <tr>\n                                    <td valign=\"top\" align=\"left\" height=\"155\" style=\"height:155px;\" class=\"em_hauto\">\n                                      <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                                        <tr>\n                                          <td class=\"em_grey em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; color:#434343;\">Luanne loves standing on tall guitar amps and sleeping on warm beds. Learn more about Luanne and get the real story behind those&nbsp;eyes.</td>\n                                        </tr>\n                                        <tr>\n                                          <td height=\"10\" class=\"em_h15\" style=\"height:10px; font-size:1px; line-height:1px;\">&nbsp;</td>\n                                        </tr>\n                                      </table>\n                                    </td>\n                                  </tr>\n                                  <tr>\n                                    <td align=\"left\" valign=\"top\">\n                                      <table width=\"140\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" style=\"width:140px;\" class=\"em_wrapper\">\n                                        <tr>\n                                          <td valign=\"top\" align=\"center\">\n                                            <table width=\"140\" style=\"width:140px; background-color:#6bafb2; border-radius:4px;\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\" bgcolor=\"#6bafb2\">\n                                              <tr>\n                                                <td class=\"em_white\" height=\"34\" align=\"center\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; color:#ffffff; font-weight:bold; height:34px;\"><a href=\"https://www.mailgun.com\" target=\"_blank\" style=\"text-decoration:none; color:#ffffff; line-height:34px; display:block;\">READ MORE</a></td>\n                                              </tr>\n                                            </table>\n                                          </td>\n                                        </tr>\n                                      </table>\n                                    </td>\n                                  </tr>\n                                  <tr>\n                                    <td height=\"26\" style=\"height:26px;\" class=\"em_h20\">&nbsp;</td>\n                                  </tr>\n                                </table>\n                              </td>\n                            </tr>\n                          </table>\n                          <table width=\"290\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"right\" style=\"width:290px; background-color:#ffffff;\" bgcolor=\"#ffffff\" class=\"em_wrapper\">\n                            <tr>\n                              <td valign=\"top\" align=\"center\" class=\"em_border\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/cat_2_large.jpg\" width=\"290\" height=\"220\" class=\"em_full_img2\" alt=\"Alt tag goes here\" border=\"0\" style=\"display:block; max-width:290px; font-family:Arial, sans-serif; font-size:17px; line-height:20px; color:#000000; font-weight:bold;\" /></a></td>\n                            </tr>\n                            <tr>\n                              <td valign=\"top\" align=\"left\" bgcolor=\"#ffffff\" style=\"padding-left:25px; padding-right:30px; background-color:#ffffff;\" class=\"em_aside10\">\n                                <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                                  <tr>\n                                    <td height=\"22\" style=\"height:22px;\" class=\"em_h20\">&nbsp;</td>\n                                  </tr>\n                                  <tr>\n                                    <td class=\"em_blue em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color:#264780; font-weight:bold;\">You and Your Kitty</td>\n                                  </tr>\n                                  <tr>\n                                    <td height=\"10\" style=\"height:10px; font-size:0px; line-height:0px;\">&nbsp;</td>\n                                  </tr>\n                                  <tr>\n                                    <td valign=\"top\" align=\"left\" height=\"155\" style=\"height:155px;\" class=\"em_hauto\">\n                                      <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                                        <tr>\n                                          <td class=\"em_grey em_center\" align=\"left\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; color:#434343;\">Sure, kittens are cute, but they’re also really annoying and needy. We put together this checklist so your love/hate relationship with your new kitty starts off on the right&nbsp;foot.</td>\n                                        </tr>\n                                        <tr>\n                                          <td height=\"10\" class=\"em_h15\" style=\"height:10px; font-size:1px; line-height:1px;\">&nbsp;</td>\n                                        </tr>\n                                      </table>\n                                    </td>\n                                  </tr>\n                                  <tr>\n                                    <td align=\"left\" valign=\"top\">\n                                      <table width=\"160\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" style=\"width:160px;\" class=\"em_wrapper\">\n                                        <tr>\n                                          <td valign=\"top\" align=\"center\">\n                                            <table width=\"160\" style=\"width:160px; background-color:#6bafb2; border-radius:4px;\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\" bgcolor=\"#6bafb2\">\n                                              <tr>\n                                                <td class=\"em_white\" height=\"34\" align=\"center\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; color:#ffffff; font-weight:bold; height:34px;\"><a href=\"https://www.mailgun.com\" target=\"_blank\" style=\"text-decoration:none; color:#ffffff; line-height:34px; display:block;\">DOWNLOAD NOW</a></td>\n                                              </tr>\n                                            </table>\n                                          </td>\n                                        </tr>\n                                      </table>\n                                    </td>\n                                  </tr>\n                                  <tr>\n                                    <td height=\"26\" style=\"height:26px;\" class=\"em_h20\">&nbsp;</td>\n                                  </tr>\n                                </table>\n                              </td>\n                            </tr>\n                          </table>\n                        </td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n              </table>\n            </td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n  </table>\n  <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"em_full_wrap\" align=\"center\" bgcolor=\"#efefef\">\n    <tr>\n      <td align=\"center\" valign=\"top\">\n        <table align=\"center\" width=\"650\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"em_main_table\" style=\"width:650px; table-layout:fixed;\">\n          <tr>\n            <td align=\"center\" valign=\"top\" style=\"padding:0 25px;\" class=\"em_aside10\">\n              <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                <tr>\n                  <td height=\"40\" style=\"height:40px;\" class=\"em_h20\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td align=\"center\" valign=\"top\">\n                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                      <tr>\n                        <td width=\"30\" style=\"width:30px;\" align=\"center\" valign=\"middle\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/fb.png\" width=\"30\" height=\"30\" alt=\"Fb\" border=\"0\" style=\"display:block; font-family:Arial, sans-serif; font-size:18px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;\" /></a></td>\n                        <td width=\"12\" style=\"width:12px;\">&nbsp;</td>\n                        <td width=\"30\" style=\"width:30px;\" align=\"center\" valign=\"middle\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/tw.png\" width=\"30\" height=\"30\" alt=\"Tw\" border=\"0\" style=\"display:block; font-family:Arial, sans-serif; font-size:14px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;\" /></a></td>\n                        <td width=\"12\" style=\"width:12px;\">&nbsp;</td>\n                        <td width=\"30\" style=\"width:30px;\" align=\"center\" valign=\"middle\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/insta.png\" width=\"30\" height=\"30\" alt=\"Insta\" border=\"0\" style=\"display:block; font-family:Arial, sans-serif; font-size:14px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;\" /></a></td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n                <tr>\n                  <td height=\"16\" style=\"height:16px; font-size:1px; line-height:1px; height:16px;\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td class=\"em_grey\" align=\"center\" valign=\"top\" style=\"font-family: Arial, sans-serif; font-size: 15px; line-height: 18px; color:#434343; font-weight:bold;\">Problems or questions?</td>\n                </tr>\n                <tr>\n                  <td height=\"10\" style=\"height:10px; font-size:1px; line-height:1px;\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td align=\"center\" valign=\"top\" style=\"font-size:0px; line-height:0px;\">\n                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                      <tr>\n                        <td width=\"15\" align=\"left\" valign=\"middle\" style=\"font-size:0px; line-height:0px; width:15px;\"><a href=\"mailto:meow@meowgun.com\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/email_img.png\" width=\"15\" height=\"12\" alt=\"\" border=\"0\" style=\"display:block; max-width:15px;\" /></a></td>\n                        <td width=\"9\" style=\"width:9px; font-size:0px; line-height:0px;\" class=\"em_w5\"><img src=\"/assets/pilot/images/templates/spacer.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\" style=\"display:block;\" /></td>\n                        <td class=\"em_grey em_font_11\" align=\"left\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; line-height: 15px; color:#434343;\"><a href=\"mailto:meow@meowgun.com\" style=\"text-decoration:none; color:#434343;\">meow@meowgun.com</a> <a href=\"mailto:marketing@mailgun.com\" style=\"text-decoration:none; color:#434343;\">[mailto:marketing@mailgun.com]</a></td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n                <tr>\n                  <td height=\"9\" style=\"font-size:0px; line-height:0px; height:9px;\" class=\"em_h10\"><img src=\"/assets/pilot/images/templates/spacer.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\" style=\"display:block;\" /></td>\n                </tr>\n                <tr>\n                  <td align=\"center\" valign=\"top\">\n                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                      <tr>\n                        <td width=\"12\" align=\"left\" valign=\"middle\" style=\"font-size:0px; line-height:0px; width:12px;\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none;\"><img src=\"/assets/pilot/images/templates/img_1.png\" width=\"12\" height=\"16\" alt=\"\" border=\"0\" style=\"display:block; max-width:12px;\" /></a></td>\n                        <td width=\"7\" style=\"width:7px; font-size:0px; line-height:0px;\" class=\"em_w5\">&nbsp;</td>\n                        <td class=\"em_grey em_font_11\" align=\"left\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 13px; line-height: 15px; color:#434343;\"><a href=\"#\" target=\"_blank\" style=\"text-decoration:none; color:#434343;\">Meowgun</a> &bull; 123 Meow Way &bull; Cattown, CA 95389</td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n                <tr>\n                  <td height=\"35\" style=\"height:35px;\" class=\"em_h20\">&nbsp;</td>\n                </tr>\n              </table>\n            </td>\n          </tr>\n          <tr>\n            <td height=\"1\" bgcolor=\"#dadada\" style=\"font-size:0px; line-height:0px; height:1px;\"><img src=\"/assets/pilot/images/templates/spacer.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\" style=\"display:block;\" /></td>\n          </tr>\n          <tr>\n            <td align=\"center\" valign=\"top\" style=\"padding:0 25px;\" class=\"em_aside10\">\n              <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\n                <tr>\n                  <td height=\"16\" style=\"font-size:0px; line-height:0px; height:16px;\">&nbsp;</td>\n                </tr>\n                <tr>\n                  <td align=\"center\" valign=\"top\">\n                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" class=\"em_wrapper\">\n                      <tr>\n                        <td class=\"em_grey\" align=\"center\" valign=\"middle\" style=\"font-family: Arial, sans-serif; font-size: 11px; line-height: 16px; color:#434343;\">&copy; Meowgun 2019 &nbsp;|&nbsp; <a href=\"#\" target=\"_blank\" style=\"text-decoration:underline; color:#434343;\">Unsubscribe</a></td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n                <tr>\n                  <td height=\"16\" style=\"font-size:0px; line-height:0px; height:16px;\">&nbsp;</td>\n                </tr>\n              </table>\n            </td>\n          </tr>\n          <tr>\n            <td class=\"em_hide\" style=\"line-height:1px;min-width:650px;background-color:#efefef;\"><img alt=\"\" src=\"/assets/pilot/images/templates/spacer.gif\" height=\"1\" width=\"650\" style=\"max-height:1px; min-height:1px; display:block; width:650px; min-width:650px;\" border=\"0\" /></td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n  </table>\n</body>\n\n</html>\n",
 			"file": "storage/app/templates/emailing/online_v01.html",
 			"file_size": 23023,
@@ -615,69 +643,6 @@
 			"settings":
 			{
 				"buffer_size": 22566,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/sass/_variables.scss",
-			"settings":
-			{
-				"buffer_size": 741,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/pages/online.blade.php",
-			"settings":
-			{
-				"buffer_size": 11126,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/ContactControllerApi.php",
-			"settings":
-			{
-				"buffer_size": 2505,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "routes/api.php",
-			"settings":
-			{
-				"buffer_size": 4190,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/CalendareventController.php",
-			"settings":
-			{
-				"buffer_size": 8418,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/Cashbox/MovimientoController.php",
-			"settings":
-			{
-				"buffer_size": 1924,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/booking/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 1068,
 				"line_ending": "Windows"
 			}
 		}
@@ -815,49 +780,53 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/blog",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes"
 	],
 	"file_history":
 	[
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/UserTimeZone.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/EventtypeController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv/pay.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/web.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/masterlayout.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/AvailabilityPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_variables.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/online.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/api.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/paella.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/actividadesempresas.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/contactonlineclasses.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/ContactControllerApi.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/Cashbox/MovimientoController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventControllerOnline.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Eventtype.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Calendarevent.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/bookings.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/bookings.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/node_modules/react-datepicker/src/stylesheets/variables.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/static-sitemap.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_components.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/online.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/faq.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/webpack.mix.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/package.json",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes/body.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes/subject.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/web.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/Modal.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/ClassTypeDropdown.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/bookings.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CancelBookingPage.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/AvailabilityPage.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/InquiryDetails.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/api.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CustomerDetails.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/booking.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventControllerOnline.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/masterlayout.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/bookings.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/tapas.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/paella.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/events.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.gitignore",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BlogtoolController.php",
@@ -867,7 +836,6 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/MailController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/config/cookingpoint.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv/pay.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVControllerStub.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/gallery.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/adminmasterlayout.blade.php",
@@ -945,20 +913,11 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/gallery.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/paella.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/tapas.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/tienda/sales.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/tienda/frontend.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/cashbox/sesion.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/cashbox.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_variables.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/report.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/post.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/modals.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/cashbox/modals.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/fileuploader.blade.php"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/tienda/sales.blade.php"
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
@@ -977,6 +936,72 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"online",
+			".online",
+			"/add",
+			"/getavaila",
+			"onlineclass",
+			"type",
+			"handleClassType",
+			".type",
+			"isOnline",
+			"onlineclass",
+			"bkg.onlineclass",
+			"enddateatom",
+			"isOnline",
+			"fetchData",
+			"fetchdata",
+			"isSameDay",
+			"zonedTimeToUtc",
+			"ddate",
+			"cutoff",
+			"usert",
+			"timezo",
+			"tz",
+			"utcToZonedTime",
+			"index",
+			"lodash",
+			"typeof",
+			"formatISO",
+			"zonedTimeToUtc",
+			"bkg-status-confirmed",
+			"quirk",
+			"/price",
+			"/price?",
+			"event.startdateatom",
+			".day",
+			"day",
+			"zonedtime",
+			"handledatechange",
+			"format",
+			"localTime",
+			"userTimeZone",
+			"handleUserTimeZone",
+			"date-fns-tz",
+			"date",
+			"ddate",
+			"isOnline",
+			"Date(",
+			"Component",
+			"price",
+			"userLanguage",
+			"userTimeZone",
+			"IsError",
+			"iserror",
+			"axios",
+			"calendarevent",
+			"online",
+			"bookable",
+			"event_type",
+			"event_t",
+			"eventtypelist",
+			"source",
+			"staff",
+			"Calendarevent",
+			"App\\Calendarevent",
+			"source",
+			"getIntervalSchedule",
+			"getSchedule",
 			"cook",
 			"will",
 			"dd>",
@@ -1038,64 +1063,7 @@
 			"$PROD",
 			"\"col-sm-6\"",
 			"\"col-sm-7\"",
-			"\"col-sm-6\"",
-			"\"col-sm-7\"",
-			"\"col-sm-6\"",
-			"\"col-sm-7\"",
-			"xx",
-			"xxl-button",
-			"d-md-none",
-			"legacybooking",
-			"GARANTÍA",
-			"GUARANTEE",
-			"console.log",
-			"conso",
-			"handleDateChange",
-			"handleChange",
-			"handleDateChange",
-			"g.type",
-			"handleChange",
-			"console",
-			"handleChange",
-			"handleClassType",
-			"img",
-			"logo",
-			"ver calen",
-			"divider",
-			"Google_Service_Gmail_Message",
-			"cal",
-			"datepicker",
-			"showSection",
-			"bookingEditShow",
-			"booking_edit",
-			"class='details'",
-			"id=\"booking\"",
-			"admin.index",
-			"cancella",
-			"cancelation",
-			"viator",
-			"cancellation",
-			"cancelation",
-			"cancellation",
-			"cancelled",
-			"Cancelled",
-			"CANCELLED",
-			"cancelled",
-			"$param",
-			"analytics-ecommerce-tracking",
-			"checkout",
-			"-out",
-			"check-out",
-			"checkout",
-			"check out",
-			"check",
-			"checkout",
-			"check-out",
-			"modals",
-			"checkout",
-			"check-out",
-			"google-structured-data",
-			"checklogin"
+			"\"col-sm-6\""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1103,6 +1071,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"fetchAvailability",
+			"dstartdateatom",
+			".startdateatom",
+			"eventtype",
 			"li>",
 			"p>",
 			"\"label",
@@ -1131,7 +1103,7 @@
 	"groups":
 	[
 		{
-			"selected": 11,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1140,15 +1112,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1394,
+						"buffer_size": 1936,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								828,
-								828
+								1795,
+								1806
 							]
 						],
 						"settings":
@@ -1158,27 +1130,625 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 699.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/masterlayout.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6851,
+						"buffer_size": 20166,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										233,
+										239
+									],
+									[
+										414,
+										420
+									],
+									[
+										761,
+										767
+									],
+									[
+										782,
+										788
+									],
+									[
+										1058,
+										1064
+									],
+									[
+										1077,
+										1083
+									],
+									[
+										1539,
+										1545
+									],
+									[
+										1893,
+										1899
+									],
+									[
+										2338,
+										2349
+									],
+									[
+										2456,
+										2467
+									],
+									[
+										2884,
+										2895
+									],
+									[
+										3197,
+										3208
+									],
+									[
+										3589,
+										3600
+									],
+									[
+										3957,
+										3968
+									],
+									[
+										4355,
+										4366
+									],
+									[
+										4385,
+										4396
+									],
+									[
+										4635,
+										4646
+									],
+									[
+										5051,
+										5062
+									],
+									[
+										5327,
+										5338
+									],
+									[
+										5639,
+										5650
+									],
+									[
+										5797,
+										5808
+									],
+									[
+										6156,
+										6167
+									],
+									[
+										6173,
+										6184
+									],
+									[
+										6414,
+										6425
+									],
+									[
+										6671,
+										6682
+									],
+									[
+										6953,
+										6964
+									],
+									[
+										7217,
+										7228
+									],
+									[
+										7262,
+										7273
+									],
+									[
+										7700,
+										7711
+									],
+									[
+										7730,
+										7741
+									],
+									[
+										7980,
+										7991
+									],
+									[
+										8396,
+										8407
+									],
+									[
+										8743,
+										8754
+									],
+									[
+										8769,
+										8780
+									],
+									[
+										8804,
+										8815
+									],
+									[
+										9154,
+										9165
+									],
+									[
+										9466,
+										9477
+									],
+									[
+										9624,
+										9635
+									],
+									[
+										9983,
+										9994
+									],
+									[
+										10000,
+										10011
+									],
+									[
+										10241,
+										10252
+									],
+									[
+										10498,
+										10509
+									],
+									[
+										10780,
+										10791
+									],
+									[
+										11044,
+										11055
+									],
+									[
+										11089,
+										11100
+									],
+									[
+										11585,
+										11595
+									],
+									[
+										11967,
+										11977
+									],
+									[
+										12388,
+										12392
+									],
+									[
+										12570,
+										12574
+									],
+									[
+										12808,
+										12812
+									],
+									[
+										13124,
+										13128
+									],
+									[
+										13742,
+										13746
+									],
+									[
+										14302,
+										14306
+									],
+									[
+										14721,
+										14725
+									],
+									[
+										15073,
+										15077
+									],
+									[
+										15627,
+										15631
+									],
+									[
+										16081,
+										16085
+									],
+									[
+										16457,
+										16461
+									],
+									[
+										16671,
+										16675
+									],
+									[
+										16993,
+										16997
+									],
+									[
+										17275,
+										17279
+									],
+									[
+										17795,
+										17802
+									],
+									[
+										18139,
+										18146
+									],
+									[
+										18166,
+										18173
+									],
+									[
+										18209,
+										18216
+									],
+									[
+										18526,
+										18533
+									],
+									[
+										18566,
+										18573
+									],
+									[
+										18850,
+										18857
+									],
+									[
+										19162,
+										19169
+									],
+									[
+										19320,
+										19327
+									],
+									[
+										19696,
+										19703
+									],
+									[
+										20106,
+										20113
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								18319,
+								18319
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 8,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 7296.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/js/booking/BookingDetailsPage.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6846,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1727,
-								1727
+								2243,
+								2245
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1386.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Http/Controllers/BookingController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8673,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3508,
+								3508
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 385.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/Calendarevent.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1384,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1288,
+								1288
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 171.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "resources/js/booking/AvailabilityPage.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4782,
+								4782
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2375.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "resources/js/booking/booking.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2848,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1258,
+								1258
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 304.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/Http/Controllers/CalendareventController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5962,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3858,
+								3858
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1368.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "routes/api.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4333,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1317,
+								1373
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 209.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Http/Controllers/EventtypeController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 518,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								433,
+								433
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "resources/js/booking/InquiryDetails.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8513,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2789,
+								2789
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1083.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "resources/views/masterlayout.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6865,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4390,
+								4390
 							]
 						],
 						"settings":
@@ -1188,102 +1758,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 646.0,
+						"translation.y": 1706.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "resources/sass/_utilities.scss",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 540,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "resources/js/booking/InquiryDetails.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7459,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								85,
-								134
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "resources/js/booking/Components/UserTimeZone.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3567,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								119,
-								119
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
+					"buffer": 12,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1303,128 +1785,14 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1174.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "resources/views/pages/paella.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9526,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7008,
-								7008
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 703.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "resources/views/pages/home.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13181,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "resources/views/pages/actividadesempresas.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4590,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4247,
-								4247
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "resources/js/contactonlineclasses.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2378,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								286,
-								286
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 49.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
+					"buffer": 13,
 					"file": "storage/app/templates/emailing/online_v01.html",
 					"semi_transient": false,
 					"settings":
@@ -1450,211 +1818,7 @@
 						"translation.y": 741.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "resources/sass/_variables.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 741,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								140,
-								146
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "resources/views/pages/online.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11126,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6690,
-								6690
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1932.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "app/Http/Controllers/ContactControllerApi.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2505,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1462,
-								1462
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 171.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "routes/api.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4190,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2563,
-								2583
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 247.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "app/Http/Controllers/CalendareventController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8418,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4975,
-								4975
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 247.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "app/Http/Controllers/Cashbox/MovimientoController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1924,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								897,
-								897
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "resources/views/booking/index.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1068,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1003,
-								1062
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
 					"type": "text"
 				}
 			]
@@ -1707,7 +1871,7 @@
 	"project": "cooking-point.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 73.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1716,6 +1880,90 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"book",
+				"resources\\js\\booking\\booking.js"
+			],
+			[
+				"inqu",
+				"resources\\js\\booking\\InquiryDetails.js"
+			],
+			[
+				"boo",
+				"resources\\js\\booking\\booking.js"
+			],
+			[
+				"eventty",
+				"app\\Http\\Controllers\\EventtypeController.php"
+			],
+			[
+				"pay.",
+				"resources\\views\\tpv\\pay.blade.php"
+			],
+			[
+				"master",
+				"resources\\views\\masterlayout.blade.php"
+			],
+			[
+				"user",
+				"resources\\js\\booking\\Components\\UserTimeZone.js"
+			],
+			[
+				"booking.js",
+				"resources\\js\\booking\\booking.js"
+			],
+			[
+				"usert",
+				"resources\\js\\booking\\Components\\UserTimeZone.js"
+			],
+			[
+				"availa",
+				"resources\\js\\booking\\AvailabilityPage.js"
+			],
+			[
+				"api",
+				"routes\\api.php"
+			],
+			[
+				"calen",
+				"app\\Http\\Controllers\\CalendareventController.php"
+			],
+			[
+				"web.p",
+				"routes\\web.php"
+			],
+			[
+				"booking index",
+				"resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"laravel",
+				"storage\\logs\\laravel.log"
+			],
+			[
+				"bookingcon",
+				"app\\Http\\Controllers\\BookingController.php"
+			],
+			[
+				"web.ph",
+				"routes\\web.php"
+			],
+			[
+				"calendar",
+				"app\\Http\\Controllers\\CalendareventController.php"
+			],
+			[
+				"class ty",
+				"resources\\js\\booking\\Components\\ClassTypeDropdown.js"
+			],
+			[
+				"pael",
+				"resources\\views\\pages\\paella.blade.php"
+			],
+			[
+				"online.",
+				"resources\\views\\pages\\online.blade.php"
+			],
 			[
 				"_v",
 				"resources\\sass\\_variables.scss"
@@ -1737,10 +1985,6 @@
 				"resources\\views\\pages\\online.blade.php"
 			],
 			[
-				"master",
-				"resources\\views\\masterlayout.blade.php"
-			],
-			[
 				"paell",
 				"resources\\views\\pages\\paella.blade.php"
 			],
@@ -1753,20 +1997,12 @@
 				"resources\\views\\pages\\faq.blade.php"
 			],
 			[
-				"laravel",
-				"storage\\logs\\laravel.log"
-			],
-			[
 				"pack",
 				"package.json"
 			],
 			[
 				"user message online ",
 				"storage\\app\\templates\\user_message_online_classes\\body.html"
-			],
-			[
-				"api",
-				"routes\\api.php"
 			],
 			[
 				"web.",
@@ -1793,16 +2029,8 @@
 				"resources\\views\\pages\\online.blade.php"
 			],
 			[
-				"inqu",
-				"resources\\js\\booking\\InquiryDetails.js"
-			],
-			[
 				"larav",
 				"storage\\logs\\laravel.log"
-			],
-			[
-				"bookingcon",
-				"app\\Http\\Controllers\\BookingController.php"
 			],
 			[
 				"customerde",
@@ -1817,10 +2045,6 @@
 				"resources\\js\\booking\\booking.js"
 			],
 			[
-				"booking index",
-				"resources\\views\\booking\\index.blade.php"
-			],
-			[
 				"bookingcontr",
 				"app\\Http\\Controllers\\BookingController.php"
 			],
@@ -1831,10 +2055,6 @@
 			[
 				"web.php",
 				"routes\\web.php"
-			],
-			[
-				"availa",
-				"resources\\js\\booking\\AvailabilityPage.js"
 			],
 			[
 				"events.l",
@@ -1859,10 +2079,6 @@
 			[
 				"_vae",
 				"resources\\sass\\_variables.scss"
-			],
-			[
-				"web.p",
-				"routes\\web.php"
 			],
 			[
 				"_variables",
@@ -1895,10 +2111,6 @@
 			[
 				"booking contr",
 				"app\\Http\\Controllers\\BookingController.php"
-			],
-			[
-				"pael",
-				"resources\\views\\pages\\paella.blade.php"
 			],
 			[
 				"best",
@@ -1977,10 +2189,6 @@
 				"routes\\web.php"
 			],
 			[
-				"calen",
-				"app\\Http\\Controllers\\CalendareventController.php"
-			],
-			[
 				"bookngc",
 				"app\\Http\\Controllers\\BookingController.php"
 			],
@@ -1999,10 +2207,6 @@
 			[
 				"bookingco",
 				"app\\Http\\Controllers\\BookingController.php"
-			],
-			[
-				"web.ph",
-				"routes\\web.php"
 			],
 			[
 				"book index",
@@ -2187,46 +2391,6 @@
 			[
 				"app.c",
 				"react\\resources\\sass\\app.scss"
-			],
-			[
-				"reso booking",
-				"react\\resources\\sass\\booking.scss"
-			],
-			[
-				"_uti",
-				"react\\resources\\sass\\_utilities.scss"
-			],
-			[
-				"_comp",
-				"react\\resources\\sass\\_components.scss"
-			],
-			[
-				"_variab",
-				"react\\resources\\sass\\_variables.scss"
-			],
-			[
-				"wronglo",
-				"react\\resources\\views\\errors\\wrongLocator.blade.php"
-			],
-			[
-				"customerdeta",
-				"react\\resources\\js\\booking\\CustomerDetails.js"
-			],
-			[
-				"reso app.cs",
-				"react\\resources\\sass\\app.scss"
-			],
-			[
-				"reso inquir",
-				"react\\resources\\js\\booking\\InquiryDetails.js"
-			],
-			[
-				"reso booking.",
-				"react\\resources\\sass\\booking.scss"
-			],
-			[
-				"booking.css",
-				"react\\public\\css\\booking.css"
 			]
 		],
 		"width": 0.0
