@@ -13,6 +13,7 @@ UserTimeZone.propTypes = {
 }
 
 function UserTimeZone (props) {
+  const [displaySelect, setDisplaySelect] = useState(false)
   const [selectTzOptions, setSelectTzOptions] = useState([])
   const [defaultValue, setDefaultValue] = useState({})
   const [isError, setIsError] = useState(false)
@@ -24,6 +25,7 @@ function UserTimeZone (props) {
 
   function handleSelectTz (option) {
     setDefaultValue(option)
+    setDisplaySelect(false)
     props.liftUp(option.value)
   }
 
@@ -53,8 +55,8 @@ function UserTimeZone (props) {
 
   return (
     <Fragment>
-    <p><small>Schedules in your local time ({userTimeZone}) <a href="">Change</a></small></p> 
-    { <Select className='tz-select' options={selectTzOptions} value={defaultValue} onChange={handleSelectTz} /> }
+    <p><small>Times displayed in ({userTimeZone}) time <span class="badge btn-primary"><a onClick={ () => setDisplaySelect(!displaySelect) } >Change</a></span></small></p> 
+    { displaySelect && <Select className='tz-select' options={selectTzOptions} value={defaultValue} onChange={handleSelectTz} /> }
     </Fragment>
   )
 }
