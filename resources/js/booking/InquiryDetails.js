@@ -127,6 +127,7 @@ function InquiryDetailsEdit (props) {
               <div>{new Intl.DateTimeFormat(props.userLanguage, optionsDisplayDate).format(parseISO(bkg.date))}</div>
             </td>
           </tr>
+          { bkg.onlineclass > 0 && <tr><td></td><td><UserTimeZone liftUp={handleUserTimeZone} timeZone={bkg.tz} /> </td></tr> }
           <tr>
             <td className='font-weight-bold'>Adults :</td>
             <td>
@@ -176,7 +177,6 @@ function InquiryDetailsEdit (props) {
               <ClassTypeDropdown liftUp={handleClassType} default={bkg.type} userTimeZone={bkg.tz} onlineclass={bkg.onlineclass}/>
             </td>
           </tr>
-          { bkg.onlineclass && <tr><td></td><td><UserTimeZone liftUp={handleUserTimeZone} timeZone={bkg.tz} /> </td></tr> }
           <tr>
             <td className='font-weight-bold'>Price :</td>
             <td>{(bkg.hide_price || !bkg.price) ? '--' : '€ '+ bkg.price}</td>
@@ -214,7 +214,8 @@ function InquiryDetails (props) {
       timeZone: bkg.tz        
   }
 
-  const tzText = new Intl.DateTimeFormat(props.userLanguage, optionsDisplayTz).format(start)
+  const tt = new Intl.DateTimeFormat(props.userLanguage, optionsDisplayTz).format(start)
+  const tzText = (bkg.onlineclass) ? (' ' + tt.substr(tt.indexOf(' ') + 1)) : ''
 
   return (
     <div className='row'>
@@ -233,8 +234,8 @@ function InquiryDetails (props) {
             <tr>
               <td className='font-weight-bold'>Time :</td>
               <td>{new Intl.DateTimeFormat(props.userLanguage, optionsDisplayTime).format(start) + ' - ' + 
-                      new Intl.DateTimeFormat(props.userLanguage, optionsDisplayTime).format(end) + ' ' + 
-                      tzText.substr(tzText.indexOf(' ') + 1)}</td>
+                      new Intl.DateTimeFormat(props.userLanguage, optionsDisplayTime).format(end) +
+                      tzText }</td>
             </tr>
             <tr>
               <td className='font-weight-bold'>{isMobile ? 'Bkg # :' : 'Booking # :'}</td>

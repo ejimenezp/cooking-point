@@ -24,7 +24,12 @@ function BookingRoot (props) {
   data.fixed_date = parseInt(data.fixed_date)
   data.hide_price = parseInt(data.hide_price)
   data.price = parseFloat(data.price)
-  data.tz = (typeof data.tz === 'undefined') ? Intl.DateTimeFormat().resolvedOptions().timeZone : data.tz
+  if (data.onlineclass) {
+    data.tz = (typeof data.tz === 'undefined') ? Intl.DateTimeFormat().resolvedOptions().timeZone : data.tz
+  } else {
+    data.tz = 'Europe/Madrid'
+  }
+    
   const [bkg, setBkg] = useState(data)
 
   function handleUpdateBkg (bkg) {
