@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Select from 'react-select'
-import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
+import { zonedTimeToUtc } from 'date-fns-tz'
 import PropTypes from 'prop-types'
 
 const _ = require('lodash')

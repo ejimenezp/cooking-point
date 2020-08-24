@@ -44,7 +44,6 @@ class CalendareventController extends Controller
         $ce->capacity = $eventtype->capacity;
         $ce->online = $eventtype->online;
         $ce->bookable_by_clients = $eventtype->bookable_by_clients;
-        $ce->cutoff = $eventtype->cutoff;
         $ce->startdatetime = $request->date . ' ' . $request->time;
         $st = new Carbon($ce->startdatetime);
         $ce->enddatetime = $st->add(CarbonInterval::createFromFormat('H:i:s', $ce->duration));
@@ -91,7 +90,6 @@ class CalendareventController extends Controller
             $ce->time = $request->time;
             $ce->duration = $request->duration;
             $ce->capacity = $request->capacity;
-            $ce->cutoff = $request->cutoff;
             $ce->startdatetime = $request->date . ' ' . $request->time;
             $st = new Carbon($ce->startdatetime);
             $ce->enddatetime = $st->add(CarbonInterval::createFromFormat('H:i:s', $ce->duration));
