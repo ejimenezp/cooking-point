@@ -41,7 +41,7 @@ const selectTzOptions = [{
     "label": "(GMT -8:00) Pacific Time (US & Canada)"
   },
   {
-    "value": "America/Colorado",
+    "value": "America/Denver",
     "label": "(GMT -7:00) Mountain Time (US & Canada)"
   },
   {

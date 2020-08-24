@@ -182,7 +182,26 @@ function InquiryDetails (props) {
   const isMobile = useMediaQuery({ maxWidth: 575 })
   const start = new Date(bkg.calendarevent.startdateatom)
   const end = add(start, { hours: bkg.calendarevent.duration.split(':')[0], minutes: bkg.calendarevent.duration.split(':')[1] })
-  const tzText = start.toLocaleDateString('en-US', {timeZoneName : 'long'})
+  const optionsDisplayTime = {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+      timeZone: bkg.tz    
+  }
+  const optionsDisplayDate = {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: bkg.tz        
+  }
+
+  const optionsDisplayTz = {
+      timeZoneName: 'long',
+      timeZone: bkg.tz        
+  }
+
+  const tzText = new Intl.DateTimeFormat(props.userLanguage, optionsDisplayTz).format(start)
 
   return (
     <div className='row'>
@@ -195,12 +214,14 @@ function InquiryDetails (props) {
             </tr>
             <tr>
               <td className='font-weight-bold'>Date :</td>
-              <td>{format(parseISO(bkg.calendarevent.startdateatom), 'cccc, d LLLL yyyy')}</td>
+              <td>{new Intl.DateTimeFormat(props.userLanguage, optionsDisplayDate).format(parseISO(bkg.calendarevent.startdateatom))}</td>
             </tr>
 
             <tr>
               <td className='font-weight-bold'>Time :</td>
-              <td>{format(start, 'h:mm a') + ' - ' + format(end, 'h:mm a') + ' ' + tzText}</td>
+              <td>{new Intl.DateTimeFormat(props.userLanguage, optionsDisplayTime).format(start) + ' - ' + 
+                      new Intl.DateTimeFormat(props.userLanguage, optionsDisplayTime).format(end) + ' ' + 
+                      tzText.substr(tzText.indexOf(' ') + 1)}</td>
             </tr>
             <tr>
               <td className='font-weight-bold'>{isMobile ? 'Bkg # :' : 'Booking # :'}</td>
