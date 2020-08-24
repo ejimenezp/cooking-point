@@ -113,7 +113,7 @@ class CalendareventController extends Controller
     {
         $ces = Calendarevent::whereDate('date', '>=', $request->start)
                             ->whereDate('date', '<=', $request->end)
-                            ->where('online', $request->online == 'true')
+                            ->where('online', $request->online)
                             ->where('bookable_by_clients', true)
                             ->orderBy('date', 'ASC')
                             ->orderBy('time', 'ASC')->get();

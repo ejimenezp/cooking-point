@@ -16,7 +16,7 @@ class EventtypeController extends Controller
     static function bookable_by_clients (Request $request) {
     	$et = Eventtype::where('active', true)
     									->where('bookable_by_clients', true)
-    									->where('online', $request->online == 'true')->get();
+    									->where('online', $request->online)->get();
     	return $et->map->only(['type', 'short_description', 'time']);
     }
 }
