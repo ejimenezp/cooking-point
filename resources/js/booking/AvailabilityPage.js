@@ -105,7 +105,7 @@ function AvailabilityPage (props) {
 
   function handleDateChange (day) {
     setDate(day)
-    const event = data[_.findIndex(data, (d) => isSameDay(parseISO(d.startdateatom), day) && d.type === localbkg.type)]
+    const event = data[_.findIndex(data, (d) => isSameDay(utcToZonedTime(parseISO(d.startdateatom), localbkg.tz), day) && d.type === localbkg.type)]
     if (typeof event !== 'undefined') {
       localbkg.date = event.startdateatom
       localbkg.calendarevent_id = event.id

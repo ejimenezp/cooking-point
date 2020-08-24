@@ -35,6 +35,19 @@ function InquiryDetailsEdit (props) {
   const bkg = props.bkg
   const isOnline = bkg.type.includes('ONLINE')
 
+  const optionsDisplayDate = {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: bkg.tz        
+  }
+
+  const optionsDisplayTz = {
+      timeZoneName: 'long',
+      timeZone: bkg.tz        
+  }
+
   function updatePrice () {
     setIsError(false)
     axios.get('/api/booking/price', {
@@ -111,7 +124,7 @@ function InquiryDetailsEdit (props) {
           <tr>
             <td className='font-weight-bold'>Date :</td>
             <td style={{ width: '75%' }}>
-              <div>{format(parseISO(bkg.date), 'cccc, d LLLL yyyy')}</div>
+              <div>{new Intl.DateTimeFormat(props.userLanguage, optionsDisplayDate).format(parseISO(bkg.date))}</div>
             </td>
           </tr>
           <tr>
