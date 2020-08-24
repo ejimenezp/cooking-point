@@ -30,7 +30,7 @@ class BookingController extends Controller
             $bkg->adult = 0;
             $bkg->child = 0;
             $bkg->type = isset($request->class) ? $request->class : 'PAELLA';
-            $bkg->onlineclass = isset($request->onlineclass);
+            $bkg->onlineclass = (int) isset($request->onlineclass);
             $bkg->source_id = 2;
             $bkg->phone = '';
             $bkg->status = 'PENDING';
