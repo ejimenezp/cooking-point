@@ -33,7 +33,7 @@ function InquiryDetailsEdit (props) {
 
 
   const bkg = props.bkg
-  const isOnline = bkg.type.includes('ONLINE')
+  bkg.date = (typeof bkg.calendarevent !== 'undefined') ? bkg.calendarevent.startdateatom : bkg.date
 
   const optionsDisplayDate = {
       weekday: 'long',
@@ -176,7 +176,7 @@ function InquiryDetailsEdit (props) {
               <ClassTypeDropdown liftUp={handleClassType} default={bkg.type} userTimeZone={bkg.tz} onlineclass={bkg.onlineclass}/>
             </td>
           </tr>
-          { isOnline && <tr><td></td><td><UserTimeZone liftUp={handleUserTimeZone} timeZone={bkg.tz} /> </td></tr> }
+          { bkg.onlineclass && <tr><td></td><td><UserTimeZone liftUp={handleUserTimeZone} timeZone={bkg.tz} /> </td></tr> }
           <tr>
             <td className='font-weight-bold'>Price :</td>
             <td>{(bkg.hide_price || !bkg.price) ? '--' : '€ '+ bkg.price}</td>
