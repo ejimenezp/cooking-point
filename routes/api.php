@@ -34,6 +34,7 @@ Route::post('booking/cancelIt', 'BookingController@cancelIt');
 Route::post('booking/emailIt', 'BookingController@emailIt');
 Route::post('booking/findByLocator', 'BookingController@findByLocator');
 Route::get('booking/price', 'BookingController@price');
+Route::get('booking/timezones', 'BookingController@timezones');
 
 Route::get('blogtool/index', 'BlogtoolController@indexforadmin');
 Route::post('blogtool/savedisplayposition', 'BlogtoolController@savedisplayposition');

@@ -14,6 +14,7 @@ use App\Booking;
 use App\Source;
 use App\Priceplan;
 use App\CalendarEvent;
+use App\Timezone;
 
 use Log;
 
@@ -256,4 +257,10 @@ class BookingController extends Controller
         return ['price' => $priceplan->adult_rate * $request->adult + $priceplan->child_rate * $request->child,
                 'iva' => $source->iva];
     }
+
+    function timezones()
+    {
+        return response()->json(Timezone::get());
+    }
+
 }
