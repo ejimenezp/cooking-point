@@ -48,7 +48,10 @@ function ClassTypeDropdown (props) {
         })
         setSelectOptions(sel)
         var i = _.findIndex(sel, (el) => el.value === props.default)
-        i = (i != -1) ? i : sel.length - 1 
+        if (i == -1) {
+          i = sel.length - 1 
+          props.liftUp(sel[i].value)
+        } 
         setDefaultValue(sel[i])
       } catch (error) {
         setIsError(true)
