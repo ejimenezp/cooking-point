@@ -120,7 +120,7 @@ function AvailabilityPage (props) {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchAvailability = async () => {
       setIsError(false)
       try {
         const result = await axios(url)
@@ -136,7 +136,7 @@ function AvailabilityPage (props) {
       }
     }
     setUrl(createUrl(dday))
-    fetchData()
+    fetchAvailability()
   }, [url])
 
   return (

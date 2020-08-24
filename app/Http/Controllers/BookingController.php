@@ -95,12 +95,7 @@ class BookingController extends Controller
         }
         $bkg->invoice = $request->invoice;
 
-        // backwards compatibility
-        if ($bkg->source_id == 1) {
-            $bkg->hash = $request->hash;
-            $bkg->price = $request->price;
-            $bkg->created_at = $request->created_at;
-        }
+        $bkg->tz = $request->tz;
         $bkg->save();
         return $bkg;
 
