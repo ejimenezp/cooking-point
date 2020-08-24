@@ -127,7 +127,6 @@ function InquiryDetailsEdit (props) {
               <div>{new Intl.DateTimeFormat(props.userLanguage, optionsDisplayDate).format(parseISO(bkg.date))}</div>
             </td>
           </tr>
-          { bkg.onlineclass > 0 && <tr><td></td><td><UserTimeZone liftUp={handleUserTimeZone} timeZone={bkg.tz} /> </td></tr> }
           <tr>
             <td className='font-weight-bold'>Adults :</td>
             <td>
@@ -175,6 +174,7 @@ function InquiryDetailsEdit (props) {
             <td className='font-weight-bold'>Class :</td>
             <td>
               <ClassTypeDropdown liftUp={handleClassType} default={bkg.type} userTimeZone={bkg.tz} onlineclass={bkg.onlineclass}/>
+              { bkg.onlineclass > 0 && <UserTimeZone liftUp={handleUserTimeZone} timeZone={bkg.tz} />  }
             </td>
           </tr>
           <tr>
