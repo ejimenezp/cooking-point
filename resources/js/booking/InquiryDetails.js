@@ -124,7 +124,7 @@ function InquiryDetailsEdit (props) {
           <tr>
             <td className='font-weight-bold'>Date :</td>
             <td style={{ width: '75%' }}>
-              <div>{new Intl.DateTimeFormat('en-US', optionsDisplayDate).format(parseISO(bkg.date))}</div>
+              <div>{new Intl.DateTimeFormat('en-GB', optionsDisplayDate).format(parseISO(bkg.date))}</div>
             </td>
           </tr>
           <tr>
@@ -214,7 +214,7 @@ function InquiryDetails (props) {
       timeZone: bkg.tz        
   }
 
-  const tt = new Intl.DateTimeFormat('en-US', optionsDisplayTz).format(start)
+  const tt = new Intl.DateTimeFormat('en-GB', optionsDisplayTz).format(start)
   const tzText = (bkg.onlineclass) ? (' ' + tt.substr(tt.indexOf(' ') + 1)) : ''
 
   return (
@@ -228,13 +228,13 @@ function InquiryDetails (props) {
             </tr>
             <tr>
               <td className='font-weight-bold'>Date :</td>
-              <td>{new Intl.DateTimeFormat('en-US', optionsDisplayDate).format(parseISO(bkg.calendarevent.startdateatom))}</td>
+              <td>{new Intl.DateTimeFormat('en-GB', optionsDisplayDate).format(parseISO(bkg.calendarevent.startdateatom))}</td>
             </tr>
 
             <tr>
               <td className='font-weight-bold'>Time :</td>
-              <td>{new Intl.DateTimeFormat('en-US', optionsDisplayTime).format(start) + ' - ' + 
-                      new Intl.DateTimeFormat('en-US', optionsDisplayTime).format(end) +
+              <td>{new Intl.DateTimeFormat('en-GB', optionsDisplayTime).format(start) + ' - ' + 
+                      new Intl.DateTimeFormat('en-GB', optionsDisplayTime).format(end) +
                       tzText }</td>
             </tr>
             <tr>
