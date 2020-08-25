@@ -1,0 +1,36 @@
+Dear CP_FIRSTNAME,
+
+Your booking is confirmed. We are looking forward to meeting you. Find below class details:
+
+COOKING POINT VIRTUAL CLASS:
+
+- Class: CP_CLASS
+- Date: CP_TZED_DATE
+- Time: CP_TZED_TIME
+- Adults: CP_ADULT
+- Children: CP_CHILD
+- Booking #: CP_LOCATOR
+- Price: €CP_PRICE
+- Status: CP_STATUS
+
+- Name: CP_NAME
+- Email: CP_EMAIL
+- Phone: CP_PHONE
+- Food Restrictions:
+  CP_FOODREQUIREMENTS
+- Comments:
+  CP_COMMENTS
+
+
+
+To print / modify / cancel your booking, please go to APP_URL/booking/CP_LOCATOR
+
+Should you have any question, please let us know.
+
+Thank you,
+cooking point team
+---
+Cooking Point
+(+34) 910 115 154
+cookingpoint.es
+

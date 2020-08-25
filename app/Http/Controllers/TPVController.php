@@ -89,10 +89,13 @@ class TPVController extends Controller
             }
 	        $bkg->save();
 	        if ($bkg->calendarevent->type == 'PAYREQUEST') {
-				MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_3rdpartypayment');
+						MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_3rdpartypayment');
+	        } else if ($bkg->onlineclass) {
+						MailController::send_mail($bkg->email, $bkg, 'user_voucher_onlineclass');
+						MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_booking');
 	        } else {
-				MailController::send_mail($bkg->email, $bkg, 'user_voucher');
-				MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_booking');
+						MailController::send_mail($bkg->email, $bkg, 'user_voucher');
+						MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_booking');	        	
 	        }
         } else {
             $bkg->status = 'PENDING';
