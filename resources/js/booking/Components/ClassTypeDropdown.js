@@ -27,7 +27,7 @@ function ClassTypeDropdown (props) {
       hour12: true,
       timeZone: showTimeZone
     }
-    const a = new Intl.DateTimeFormat(props.userLanguage, options).format(classTime)
+    const a = new Intl.DateTimeFormat('en-US', options).format(classTime)
     return a
   }
 
