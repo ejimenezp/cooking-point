@@ -215,7 +215,7 @@ function InquiryDetails (props) {
   }
 
   const tt = new Intl.DateTimeFormat('en-GB', optionsDisplayTz).format(start)
-  const tzText = (bkg.onlineclass) ? (' ' + tt.substr(tt.indexOf(' ') + 1)) : ''
+  const tzText = (bkg.onlineclass > 0) ? (' ' + tt.substr(tt.indexOf(' ') + 1)) : ''
 
   return (
     <div className='row'>
