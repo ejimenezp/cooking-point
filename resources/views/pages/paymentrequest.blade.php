@@ -20,7 +20,7 @@
 	<div class="row justify-content-center">
 		<div class="col-2">
 			<p></p>
-			<img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'">			
+			<img class="home-logo" style="width:75px" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'">			
 		</div>
 	</div>
 
