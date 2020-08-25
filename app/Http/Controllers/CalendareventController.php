@@ -118,7 +118,7 @@ class CalendareventController extends Controller
                             ->orderBy('date', 'ASC')
                             ->orderBy('time', 'ASC')->get();
 
-        $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'capacity', 'registered']);
+        $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'capacity', 'registered', 'online']);
 
         // $ofuscate = base64_encode($subset);
         // return str_replace("5", "x06", $ofuscate);

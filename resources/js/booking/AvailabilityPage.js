@@ -90,6 +90,8 @@ function AvailabilityPage (props) {
     if (isBefore(dstartdateatom, now)) return false
     if (persons > event.capacity - event.registered) return false
     if (differenceInHours(dstartdateatom, now) < 24 && event.registered === 0 && persons === 1) return false
+    if (event.online && event.registered === 0 && persons === 1 && differenceInHours(dstartdateatom, now) < 48 ) return false
+    if (event.online && event.registered === 0 && differenceInHours(dstartdateatom, now) < 24) return false
     if (event.type === 'TAPAS' && event.registered === 0 && differenceInHours(dstartdateatom, now) < 8) return false
     if (event.type === 'PAELLA' && event.registered === 0 && differenceInHours(dstartdateatom, now) < 12) return false
     if (differenceInHours(dstartdateatom, now) < 2) return false
