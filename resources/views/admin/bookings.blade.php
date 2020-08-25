@@ -214,6 +214,8 @@
 					<input name="locator" type="hidden" value="AAA000">
 					<input name="status_filter" type="hidden" value="">
 					<input name="calendarevent_id" type="hidden" value="9999">
+					<input name="onlineclass" type="hidden" value="0">
+					<input name="tz" type="hidden" value="">
 					<table id="booking" class="table">
 						<tr>
 							<td>

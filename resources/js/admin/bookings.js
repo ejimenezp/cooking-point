@@ -161,6 +161,8 @@ function bookingEditShow (i, j) {
     $('textarea[name=comments]').val('')
     $('select[name=crm]').val('NO')
     $('input[name=invoice]').val('')
+    $('input[name=onlineclass]').val(month_schedule[i].online)
+    $('input[name=tz]').val('Europe/Madrid')
     url_action = 'bkg_new'
   } else {
     $('#booking_edit h1').html('Editar Reserva')
@@ -194,6 +196,8 @@ function bookingEditShow (i, j) {
     $('select[name=crm]').val(bookings[j].crm)
     $('input[name=locator]').val(bookings[j].locator)
     $('input[name=invoice]').val(bookings[j].invoice)
+    $('input[name=onlineclass]').val(bookings[j].onlineclass)
+    $('input[name=tz]').val(bookings[j].tz)
     url_action = 'bkg_edit'
   }
   updateUrl(parts, '/admin/bookings/booking', moment(booking_date), url_action, i, j)
