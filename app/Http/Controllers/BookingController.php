@@ -193,7 +193,11 @@ class BookingController extends Controller
 
     function emailIt(Request $request) {
         $bkg = Booking::find($request->id);
-        MailController::send_mail($bkg->email, $bkg, 'user_voucher');
+        if ($bkg->onlineclass) {
+           MailController::send_mail($bkg->email, $bkg, 'user_voucher_onlineclass');           
+        } else {
+           MailController::send_mail($bkg->email, $bkg, 'user_voucher');           
+        }
     }
 
     function cancelIt(Request $request) {
