@@ -13,7 +13,8 @@
 
 <?php
 
-use App\Booking;
+use Carbon\Carbon;
+use Carbon\CarbonTimeZone;
 use App\Http\Controllers\RedsysAPI;
 
 	function random_order()
@@ -30,7 +31,14 @@ use App\Http\Controllers\RedsysAPI;
 
 	$Secret = config('cookingpoint.redsys.firma');
 
-	$Ds_Merchant_ProductDescription = $bkg->calendarevent->short_description . " on {$bkg->date}";
+	if ($bkg->onlineclass) {
+		$TzedActivityDate = new Carbon($bkg->calendarevent->startdateatom);
+		$TzedActivityDate->tz(new CarbonTimeZone($bkg->tz));
+		$ddate = $TzedActivityDate->toDateString();
+	} else {
+		$ddate = $bkg->date;
+	}
+	$Ds_Merchant_ProductDescription = $bkg->calendarevent->short_description . " on {$ddate}";
 	$Ds_Merchant_ProductDescription .= ($bkg->adult > 1) ? " for {$bkg->adult} adults" : " for {$bkg->adult} adult";
 	switch ($bkg->child) {
 		case '0':
