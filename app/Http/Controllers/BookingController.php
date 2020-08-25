@@ -247,7 +247,12 @@ class BookingController extends Controller
 
     function forget(Request $request)
     {
-        return redirect('/booking')->withCookie(Cookie::forget('cplocator'));
+        $bkg = $this->findBy($request->cookie('cplocator'));
+        if ($bkg->onlineclass) {
+            return redirect('/booking?onlineclass')->withCookie(Cookie::forget('cplocator'));
+        } else {
+            return redirect('/booking')->withCookie(Cookie::forget('cplocator'));
+        }
     }
 
 
