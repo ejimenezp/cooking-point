@@ -37,8 +37,9 @@ function CancelBookingPage (props) {
   }
 
   function cancelable () {
+    const cutoff = (localbkg.calendarevent.online) ? 48 : 24
     return ['CONFIRMED', 'PAID', 'PAY-ON-ARRIVAL'].includes(localbkg.status) &&
-      (differenceInHours(new Date(localbkg.calendarevent.startdateatom), now) >= 24)
+      (differenceInHours(new Date(localbkg.calendarevent.startdateatom), now) >= cutoff)
   }
 
   return (
