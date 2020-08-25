@@ -259,9 +259,7 @@ class BookingController extends Controller
     function price(Request $request)
     {
         $source = Source::find($request->source_id);
-        Log::info($source);
         $priceplan = Priceplan::where('plan', $source->plan)->where('event_type', $request->type)->first();
-        Log::info($priceplan);
 
         return ['price' => $priceplan->adult_rate * $request->adult + $priceplan->child_rate * $request->child,
                 'iva' => $source->iva];
