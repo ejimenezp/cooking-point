@@ -111,8 +111,10 @@ class CalendareventController extends Controller
 
     function getAvailability(Request $request)
     {
+        $today = (new Carbon())->toDateString();
         $ces = Calendarevent::whereDate('date', '>=', $request->start)
                             ->whereDate('date', '<=', $request->end)
+                            ->whereDate('date', '>=', $today)
                             ->where('online', $request->online)
                             ->where('bookable_by_clients', true)
                             ->orderBy('date', 'ASC')
