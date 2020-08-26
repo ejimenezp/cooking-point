@@ -60,13 +60,13 @@
             <a href="/">Home</a>
           </li>
           <li>
+            <a href="/online-virtual-cooking-classes">Online Classes <span class="badge badge-primary">New</span></a>
+          </li>
+          <li>
             <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
           </li>
           <li>
             <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-          </li>
-          <li>
-            <a href="/online-virtual-cooking-classes">Online Classes <span class="badge badge-primary">New</span></a>
           </li>
           <li>
             <a href="/private-cooking-events-madrid-spain">Private Events</a>
@@ -109,13 +109,13 @@
       <div class="menu clearfix">
         <ul>
           <li>
+            <a href="/online-virtual-cooking-classes">Online Classes <span class="badge badge-primary">New</span></a> 
+          </li>
+          <li>
             <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
           </li>
           <li>
             <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-          </li>
-          <li>
-            <a href="/online-virtual-cooking-classes">Online Classes <span class="badge badge-primary">New</span></a> 
           </li>
           <li>
             <a href="/private-cooking-events-madrid-spain">Private Events</a>
