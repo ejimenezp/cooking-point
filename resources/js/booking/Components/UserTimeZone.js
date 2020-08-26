@@ -56,7 +56,7 @@ function UserTimeZone (props) {
   return (
     <Fragment>
     <p><small>Times displayed in ({userTimeZone}) time <span className="badge btn-primary"><a onClick={ () => setDisplaySelect(!displaySelect) } >Change</a></span></small></p> 
-    { displaySelect && <Select className='tz-select' options={selectTzOptions} value={defaultValue} onChange={handleSelectTz} /> }
+    { displaySelect && <Select isSearchable={false} className='tz-select' options={selectTzOptions} value={defaultValue} onChange={handleSelectTz} /> }
     </Fragment>
   )
 }
