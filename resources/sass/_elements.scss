@@ -43,6 +43,7 @@ h4 {
 	@extend .decorated;
 	font-weight: bold;
 	font-size: 1rem;
+  color: $brand-primary;
 }
 
 input, .fake-input, select, textarea {
