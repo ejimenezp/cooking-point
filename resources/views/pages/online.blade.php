@@ -44,7 +44,7 @@
 				<tr>
 					<td>Monday - Saturday</td>
 					<td>3 times a day</td>
-					<td>2.5 hours</td>
+					<td>3 hours</td>
 				</tr>
 			</table>
 		</div>
@@ -54,7 +54,7 @@
 	<div class="col-12">
 		<h3>Description</h3>
 		<p>Enjoy from your kitchen a fun cooking class live from our top-rated school in Madrid. Follow our local chef directions in English to prepare an authentic Spanish tapas dinner. This is an <strong>interactive step-by-step class</strong> where you are invited to replicate chef's tasks while he monitors your work so that no one is left behind.</p>
-		<p>As you cook <strong>5 delicious recipes</strong>, the chef will tell you stories about those dishes and why food plays a key role in Spanish life. Questions are always welcome, whatever the subject, as the goal is to have fun while immersing yourself in Spanish culture.</p>
+		<p>As you cook <strong>Spanish delicious recipes</strong>, the chef will tell you stories about those dishes and why food plays a key role in Spanish life. Questions are always welcome, whatever the subject, as the goal is to have fun while immersing yourself in Spanish culture.</p>
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
@@ -69,16 +69,42 @@
 				</figure>
 			</div>
 		</div>
-		<h3>Menu</h3>
-		<p>Endulge yourself with this fabulous menu you'll prepare with the help of our chef:</p>
-		<ul>
-			<li><strong>Salmorejo</strong>. Refreshing tomato recipe original of Cordoba (Southern Spain). Ideal for hot summer days.</li>
-			<li><strong>Garlic shrimp</strong>. Renowned seafood tapa with shrimp cooked in olive oil with garlic and more things that won't leave you indifferent.</li>
-			<li><strong>Patatas Bravas</strong>. Discover the potatoes with "Brava" spicy sauce, a must-try in Madrid, and well-recognized across Spain.</li>
-			<li><strong>Pantxineta</strong>. From the Basque Country (Northern Spain) this dessert combines puff pastry and custard to round up this menu of traditional Spanish tapas.</li>
-			<li><strong>Sangria</strong>. Make your own sangria to wash down this flavourful menu.</li>
-		</ul>
-		<p>It's easily adapted to any dietary requirement without major impact (vegan, gluten-free, dairy-free,...). Just let us know when you contact us.</p>
+		<h3>Menus</h3>
+		<p>The class is offered several times a day to <strong>fit different time zones</strong>. Please carefully choose the menu and time that best fits your schedule. We have 3 classes a day, Monday through Saturday.</p>
+		<div class="row justify-content-center">
+			<div class="col-sm-6 ">
+				<div class="pill">
+					<h4>Tapas Menu</h4>
+					<ul>
+						<li><strong>Salmorejo</strong>. Refreshing tomato recipe original of Cordoba (Southern Spain). Ideal for hot summer days.</li>
+						<li><strong>Garlic shrimp</strong>. Renowned seafood tapa with shrimp cooked in olive oil with garlic and more things that won't leave you indifferent.</li>
+						<li><strong>Patatas Bravas</strong>. Discover the potatoes with "Brava" spicy sauce, a must-try in Madrid, and well-recognized across Spain.</li>
+						<li><strong>Pantxineta</strong>. From the Basque Country (Northern Spain) this dessert combines puff pastry and custard to round up this menu of traditional Spanish tapas.</li>
+						<li><strong>Sangria</strong>. Make your own sangria to wash down this flavourful menu.</li>
+					</ul>
+					<br/>
+					<div class="row justify-content-center">
+						<div class="btn btn-primary"><a href="/booking?onlineclass">Book Tapas</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="pill">
+					<div class="justify-content-center text-center">
+						<h4>PAELLA MENU</h4>
+						<p><strong>Paella mixta</strong></p>
+						<p><small>Refreshing tomato recipe original of Cordoba (Southern Spain). Ideal for hot summer days.</small></p>
+						<p><strong>Crema Catalana</strong></p>
+						<p><small>From the Basque Country (Northern Spain) this dessert combines puff pastry and custard to round up this menu of traditional Spanish tapas.</small></p>
+						<p><strong>Sangria</strong></p>
+						<p><small>Make your own sangria to wash down this flavourful menu.</small></p>
+						<br/>
+						<div class="btn btn-primary"><a href="/booking?onlineclass">Book</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p>Both options are easily adaptable to any dietary requirement without major impact (vegan, gluten-free, dairy-free,...). Just let us know when you contact us.</p>
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
@@ -101,12 +127,13 @@
 			<li>Schedule of the class in your local time.</li>
 			<li>Zoom link to join the video call.</li>
 			<li>Recipes.</li>
-			<li><strong>Ingredient shopping list</strong>, and alternative ones in case they are hard to find or you have special dietary requirements.</li>
+			<li><strong>Grocery list</strong>, with alternative ingredients in case they are hard to find or you have special dietary requirements.</li>
 			<li>Kitchenware and utensils checklist, to make sure you have everything at hand during the class.</li>
-			<li>Guide to get technical things ready before the class (Zoom stuff, recommended devices,...).</li>
+			<li>Guide to get technical things ready before the class (Zoom stuff,...).</li>
 		</ul>
 		<p>The dishes are meant to be eaten after class, but we'll show you ways to store and reheat them later.</p>
-		<h3>Schedules</h3>
+
+<!-- 		<h3>Schedules</h3>
 		<p>The class is offered several times a day to <strong>fit different time zones</strong>. Please carefully choose the option that best fits your schedule. We have 3 classes a day, Monday through Saturday:</p>
 		<ul>
 			<li>11:00 AM Madrid time: Targeted to <strong>European</strong> (10:00 AM in UK) and <strong>Asia/Pacific countries</strong> (7:00 PM in Australia East Coast).</li>
@@ -130,24 +157,16 @@
 					</table>
 				</div>
 			</div>
-		</div>
-		<!-- 		<p> </p>
+		</div> -->
 
-
-		<div class="d-block d-md-none">
-			<div class="book-now-bottom all-clickable"><a href="/booking?class=ONLINE3">Book Now</a></div>
-		</div>
-		<div class="d-none d-md-block">
-			<div class="book-now-right all-clickable"><a href="/booking?class=ONLINE3">Book Now</a></div>
-		</div>
- -->
 		<h3>Fun Anywhere</h3>
 		<p>Surprise your family and friends organizing a <strong>cooking party</strong> and give family video calling a boost. Kids will love it too, as there are always tasks for them in class.</p>
+		<p>Also, our classes can be fun <strong>gift certificate</strong> for foodies who are always looking for new flavors.</p>
 		<p>How about an <strong>online team building</strong> event? where coworkers show off their culinary skills while having a break from working from home.</p>
 		<p>Or what about a fun <strong>extracurricular activity</strong> to improve high school or college remote learning resources?</p>
 		<p>Live online classes open a new world of opportunities, don't hesitate to share your ideas and we'll do our best to make them come true.</p>
-		<h3>Inquiry</h3>
-		<p>Tell us about your preferred date and time, and number of people. We'll reply within 24 hours:</p>
+		<h3>Inquiries / Gift Certificates</h3>
+		<p>If you are thinking about gift certificates or about organizing a private class, send us a note. We'll reply within 24 hours:</p>
 		<div class="row">
 			<div class="offset-md-1 col-md-10 col-sm-10">
 				<table style="width: 100%">
@@ -202,6 +221,14 @@
 		</div>
 	</div>
 </div>
+
+		<div class="d-block d-md-none">
+			<div class="book-now-bottom all-clickable"><a href="/booking?onlineclass">Book Now</a></div>
+		</div>
+		<div class="d-none d-md-block">
+			<div class="book-now-right all-clickable"><a href="/booking?onlineclass">Book Now</a></div>
+		</div>
+
 <div class="divider"></div>
 <h3>Not Decided Yet?</h3>
 <div class="row justify-content-center">
