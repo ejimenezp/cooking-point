@@ -129,9 +129,6 @@ function AvailabilityPage (props) {
         // const aux = result.data.replace(/x06/g, '5')
         // const clearData = JSON.parse(atob(aux))
         const clearData = result.data
-        // clearData.map(function (item) {
-        //   item.day = new Date(parseISO(item.date + ' ' + item.time))
-        // })
         setData(clearData)
       } catch (error) {
         setIsError(true)
