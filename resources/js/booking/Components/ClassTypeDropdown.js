@@ -61,6 +61,6 @@ function ClassTypeDropdown (props) {
   }, [props.onlineclass, props.userTimeZone])
 
   return (
-    <Select options={selectOptions} value={defaultValue} onChange={handleSelectClass} isSearchable={false} />
+    <Select className='classtype-select'options={selectOptions} value={defaultValue} onChange={handleSelectClass} isSearchable={false} />
   )
 }

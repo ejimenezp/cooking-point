@@ -11405,7 +11405,8 @@ figure {
   }
 }
 
-.tz-select {
+.tz-select,
+.classtype-select > div:nth-child(3) {
   font-size: 0.8rem;
 }
 
