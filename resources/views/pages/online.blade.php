@@ -1,6 +1,6 @@
 @extends('masterlayout')
-@section('title', 'Online Spanish Cooking Classes')
-@section('description', 'Join our online classes, live from Madrid and interact with our chef\'s to make your tapas dinner without leaving your kitchen')
+@section('title', 'Online Cooking Classes')
+@section('description', 'Join our online classes, live from Madrid and interact with our chef to make your Spanish tapas dinner without leaving your kitchen')
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
@@ -44,7 +44,7 @@
 				<tr>
 					<td>Monday - Saturday</td>
 					<td>3 times a day</td>
-					<td>3 hours</td>
+					<td>2 hours</td>
 				</tr>
 			</table>
 		</div>
@@ -53,7 +53,7 @@
 <div class="row justify-content-right">
 	<div class="col-12">
 		<h3>Description</h3>
-		<p>Enjoy from your kitchen a fun cooking class live from our top-rated school in Madrid. Follow our local chef directions in English to prepare an authentic Spanish tapas dinner. This is an <strong>interactive step-by-step class</strong> where you are invited to replicate chef's tasks while he monitors your work so that no one is left behind.</p>
+		<p>Enjoy from your kitchen a fun cooking class live from our top-rated school in Madrid. Follow our local chef directions in English to prepare an authentic Spanish dinner. This is an <strong>interactive step-by-step class</strong> where you are invited to replicate chef's tasks while he monitors your work so that no one is left behind.</p>
 		<p>As you cook <strong>Spanish delicious recipes</strong>, the chef will tell you stories about those dishes and why food plays a key role in Spanish life. Questions are always welcome, whatever the subject, as the goal is to have fun while immersing yourself in Spanish culture.</p>
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-6">
@@ -74,30 +74,25 @@
 		<div class="row justify-content-center">
 			<div class="col-sm-6 ">
 				<div class="pill">
-					<h4>Tapas Menu</h4>
-					<ul>
-						<li><strong>Salmorejo</strong>. Refreshing tomato recipe original of Cordoba (Southern Spain). Ideal for hot summer days.</li>
-						<li><strong>Garlic shrimp</strong>. Renowned seafood tapa with shrimp cooked in olive oil with garlic and more things that won't leave you indifferent.</li>
-						<li><strong>Patatas Bravas</strong>. Discover the potatoes with "Brava" spicy sauce, a must-try in Madrid, and well-recognized across Spain.</li>
-						<li><strong>Pantxineta</strong>. From the Basque Country (Northern Spain) this dessert combines puff pastry and custard to round up this menu of traditional Spanish tapas.</li>
-						<li><strong>Sangria</strong>. Make your own sangria to wash down this flavourful menu.</li>
-					</ul>
-					<br/>
-					<div class="row justify-content-center">
-						<div class="btn btn-primary"><a href="/booking?onlineclass">Book Tapas</a></div>
+					<div class="justify-content-center text-center">
+						<h4>SPANISH SELECTION</h4>
+						<p><strong>Berenjena a la Andaluza con Salmorejo</strong></p>
+						<p><small>The art of frying along with a magical tomato puree.</small></p>
+						<p><strong>Pimientos rellenos de carne</strong></p>
+						<p><small>Discover the genuine piquillo peppers, today stuffed with meat.</small></p>
+						<br/>
+						<div class="btn btn-primary"><a href="/booking?onlineclass">Book</a></div>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-6">
 				<div class="pill">
 					<div class="justify-content-center text-center">
-						<h4>PAELLA MENU</h4>
+						<h4>AUTHENTIC PAELLA</h4>
 						<p><strong>Paella mixta</strong></p>
-						<p><small>Refreshing tomato recipe original of Cordoba (Southern Spain). Ideal for hot summer days.</small></p>
-						<p><strong>Crema Catalana</strong></p>
-						<p><small>From the Basque Country (Northern Spain) this dessert combines puff pastry and custard to round up this menu of traditional Spanish tapas.</small></p>
-						<p><strong>Sangria</strong></p>
-						<p><small>Make your own sangria to wash down this flavourful menu.</small></p>
+						<p><small>Unquestionably, the most famous Spanish dish, with rice, seafood and chicken.</small></p>
+						<p><strong>Ali-oli</strong></p>
+						<p><small>Garlic sauce, great friend of paella.</small></p>
 						<br/>
 						<div class="btn btn-primary"><a href="/booking?onlineclass">Book</a></div>
 					</div>
