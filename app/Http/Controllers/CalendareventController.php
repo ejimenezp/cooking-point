@@ -104,8 +104,10 @@ class CalendareventController extends Controller
     {
         return response()->json(Calendarevent::whereDate('date', '>=', $request->start)
                             ->whereDate('date', '<=', $request->end)
-                            ->orderBy('date', 'ASC')
-                            ->orderBy('time', 'ASC')->get()->makeHidden('bookings'));
+                            ->orderBy('date')
+                            ->orderBy('time')
+                            ->orderBy('type')
+                            ->get()->makeHidden('bookings'));
     }
 
 
@@ -117,8 +119,10 @@ class CalendareventController extends Controller
                             ->whereDate('date', '>=', $today)
                             ->where('online', $request->online)
                             ->where('bookable_by_clients', true)
-                            ->orderBy('date', 'ASC')
-                            ->orderBy('time', 'ASC')->get();
+                            ->orderBy('date')
+                            ->orderBy('time')
+                            ->orderBy('type')
+                            ->get();
 
         $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'capacity', 'registered', 'online']);
 
@@ -135,6 +139,9 @@ class CalendareventController extends Controller
         return Calendarevent::whereDate('date', '>=', $start_date)
                             ->whereDate('date', '<=', $end_date)
                             ->where('capacity', '>=', $bookable_only)
+                            ->orderBy('date')
+                            ->orderBy('time')
+                            ->orderBy('type')
                             ->get()
                             ->makeHidden('bookings');
     }
