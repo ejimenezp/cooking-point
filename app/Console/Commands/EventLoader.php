@@ -47,11 +47,11 @@ class EventLoader extends Command
         while ($li = fgets($fh)) {
             if (strlen(trim($li))) {
                 $line = preg_split("/[\s,]+/", $li);
-                $j = 1;
-                while ($j <= 2 && !empty($line[$j])) {
-                    $request['date'] = $line[0];
+                $j = 2;
+                while ($j <= 10 && !empty($line[$j])) {
+                    $request['date'] = $line[1];
                     $request['type'] = $line[$j];
-                    $request['staff_id'] = 2;
+                    $request['staff_id'] = 3;
                     $request['secondstaff_id'] = 2;
                     switch ($request['type']) {
                         case 'HOLIDAY':
