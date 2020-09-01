@@ -20,6 +20,7 @@ class ContactControllerApi extends Controller
             $bkg->email = $request->email;
             $bkg->comments = $request->message;
             $bkg->calendarevent = $ce;
+            $bkg->tz = 'Europe/Madrid';
 
             MailController::send_mail($bkg->email, $bkg, 'user_message');
             MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_message');
@@ -39,6 +40,7 @@ class ContactControllerApi extends Controller
             $bkg->email = $request->email;
             $bkg->comments = $request->message;
             $bkg->calendarevent = $ce;
+            $bkg->tz = 'Europe/Madrid';
 
             MailController::send_mail($bkg->email, $bkg, 'user_message_online_classes');
             MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_message');
