@@ -95,6 +95,10 @@
 							</td>
 							<td>
 								<select name="time">
+									<option value="07:00:00">7:00am</option>
+									<option value="07:30:00">7:30am</option>
+									<option value="08:00:00">8:00am</option>
+									<option value="08:30:00">8:30am</option>
 									<option value="09:00:00">9:00am</option>
 									<option value="09:30:00">9:30am</option>
 									<option value="10:00:00">10:00am</option>
@@ -125,6 +129,7 @@
 									<option value="22:30:00">10:30pm</option>
 									<option value="23:00:00">11:00pm</option>
 									<option value="23:30:00">11:30pm</option>
+									<option value="00:00:00">12:00am</option>
 								</select>
 							</td>
 						</tr>

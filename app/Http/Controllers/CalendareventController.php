@@ -90,9 +90,9 @@ class CalendareventController extends Controller
             $ce->time = $request->time;
             $ce->duration = $request->duration;
             $ce->capacity = $request->capacity;
-            $ce->startdatetime = $request->date . ' ' . $request->time;
-            $st = new Carbon($ce->startdatetime);
-            $ce->enddatetime = $st->add(CarbonInterval::createFromFormat('H:i:s', $ce->duration));
+            // $ce->startdatetime = $request->date . ' ' . $request->time;
+            // $st = new Carbon($ce->startdatetime);
+            // $ce->enddatetime = $st->add(CarbonInterval::createFromFormat('H:i:s', $ce->duration));
             $ce->info = (empty($request->info)) ? '' : $request->info;
             $ce->save();
             return $ce;
