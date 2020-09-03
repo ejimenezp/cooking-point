@@ -69,8 +69,8 @@
 				</figure>
 			</div>
 		</div>
-		<h3>Menus</h3>
-		<p>The class is offered several times a day to <strong>fit different time zones</strong>. Please carefully choose the menu and time that best fits your schedule. We have 3 classes a day, Monday through Saturday.</p>
+		<h3>Classes</h3>
+		<p>We have two classes, offered several times a day to <strong>fit different time zones</strong>. Please carefully choose the option and time that best fits your schedule.</p>
 		<div class="row justify-content-center">
 			<div class="col-sm-6 ">
 				<div class="pill">
@@ -81,7 +81,7 @@
 						<p><strong>Pimientos rellenos de carne</strong></p>
 						<p><small>Discover the genuine piquillo peppers, today stuffed with meat.</small></p>
 						<br/>
-						<div class="btn btn-primary"><a href="/booking?onlineclass">Book</a></div>
+						<div class="btn btn-primary"><a href="/booking?onlineclass&class=ONLINE-LATENIGHT-SELECTION">Book</a></div>
 					</div>
 				</div>
 			</div>
@@ -94,7 +94,7 @@
 						<p><strong>Ali-oli</strong></p>
 						<p><small>Garlic sauce, great friend of paella.</small></p>
 						<br/>
-						<div class="btn btn-primary"><a href="/booking?onlineclass">Book</a></div>
+						<div class="btn btn-primary"><a href="/booking?onlineclass&class=ONLINE-LATENIGHT-PAELLA">Book</a></div>
 					</div>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/online-menu-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="garlic shrimp">
-					<figcaption class="figure-caption">Garlic Shrimp</figcaption>
+					<figcaption class="figure-caption">Stuffed Piquillo Peppers</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-10 col-xl-6">
