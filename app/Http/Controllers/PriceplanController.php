@@ -8,20 +8,16 @@ use App\Http\Requests;
 use App\Source;
 use App\Priceplan;
 
-use Log;
-
 class PriceplanController extends Controller
 {
 
     function get(Request $request)
     {
         $source = Source::find($request->source_id);
-        Log::info($source);
         $priceplan = Priceplan::where('plan', $source->plan)->where('event_type', $request->type)->first();
-        Log::info($priceplan);
 
         return response()->json([	'adult' => $priceplan->adult_rate,
-        													'child' => $priceplan->child_rate,
+        											'child' => $priceplan->child_rate,
                 									'iva' => $source->iva]);
     }
 
