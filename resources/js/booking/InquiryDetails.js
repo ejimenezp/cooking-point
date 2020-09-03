@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { format, add, parseISO } from 'date-fns'
 import { useMediaQuery } from 'react-responsive'
@@ -30,6 +30,7 @@ function InquiryDetailsEdit (props) {
   const [modalContent, setModalContent] = useState('')
   const [showModal, setShowModal] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [rate, setRate] = useState ({adult: 0, child:0, iva: 1})
 
 
   const bkg = props.bkg
@@ -48,28 +49,21 @@ function InquiryDetailsEdit (props) {
       timeZone: bkg.tz        
   }
 
-  function updatePrice () {
-    setIsError(false)
-    axios.get('/api/booking/price', {
-        params: {
-          adult: bkg.adult,
-          child: bkg.child,
-          source_id: 2,
-          type: bkg.type
-        }
-      })
-      .then((result) => {
-        bkg.price = result.data.price
-        bkg.iva = result.data.iva
-        props.liftUp(bkg)
-      })
-      .catch(() => setIsError(true))
+  function updatePrice ( r = null) {
+    if (r) {
+      bkg.price = bkg.adult * r.adult + bkg.child * r.child
+      bkg.iva = r.iva      
+    } else {
+      bkg.price = bkg.adult * rate.adult + bkg.child * rate.child
+      bkg.iva = rate.iva      
+    }
   }
 
   function handleAdultUpClick () {
     if (bkg.adult < 8) {
       bkg.adult++
       updatePrice()
+      props.liftUp(bkg)
     } else {
       const modal = {}
       modal.header = '<h4>Warning</h4>'
@@ -83,6 +77,7 @@ function InquiryDetailsEdit (props) {
     if (bkg.adult > 0) {
       bkg.adult--
       updatePrice()
+      props.liftUp(bkg)
     }
   }
 
@@ -90,6 +85,7 @@ function InquiryDetailsEdit (props) {
     if (bkg.child < 4) {
       bkg.child++
       updatePrice()
+      props.liftUp(bkg)
     } else {
       const modal = {}
       modal.header = '<h4>Warning</h4>'
@@ -103,18 +99,40 @@ function InquiryDetailsEdit (props) {
     if (bkg.child > 0) {
       bkg.child--
       updatePrice()
+      props.liftUp(bkg)
     }
   }
 
   function handleClassType (text) {
     bkg.type = text
-    updatePrice()
+    props.liftUp(bkg)
   }
 
   function handleUserTimeZone (tz) {
     bkg.tz = tz
     props.liftUp(bkg)
   }
+
+
+  useEffect( () => {
+    const fetchRate = async () => {
+      setIsError(false)
+      try {
+        const result = await axios.get('/api/priceplan/get', {
+              params: {
+                source_id: 2,
+                type: bkg.type
+              }
+            })
+        setRate(result.data)
+        updatePrice(result.data)
+        props.liftUp(bkg)
+      } catch (error) {
+        setIsError(true)
+      }
+    }
+    fetchRate()
+  }, [bkg.type])
 
   return (
     <Fragment>

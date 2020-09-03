@@ -255,16 +255,6 @@ class BookingController extends Controller
         }
     }
 
-
-    function price(Request $request)
-    {
-        $source = Source::find($request->source_id);
-        $priceplan = Priceplan::where('plan', $source->plan)->where('event_type', $request->type)->first();
-
-        return ['price' => $priceplan->adult_rate * $request->adult + $priceplan->child_rate * $request->child,
-                'iva' => $source->iva];
-    }
-
     function timezones()
     {
         return response()->json(Timezone::get());

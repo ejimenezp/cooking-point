@@ -33,7 +33,6 @@ Route::get('booking/delete/{id}', 'BookingController@delete');
 Route::post('booking/cancelIt', 'BookingController@cancelIt');
 Route::post('booking/emailIt', 'BookingController@emailIt');
 Route::post('booking/findByLocator', 'BookingController@findByLocator');
-Route::get('booking/price', 'BookingController@price');
 Route::get('booking/timezones', 'BookingController@timezones');
 
 Route::get('blogtool/index', 'BlogtoolController@indexforadmin');
@@ -52,6 +51,7 @@ Route::get('staff/get', 'StaffController@getCooks');
 Route::get('source/get', 'SourceController@get');
 Route::get('eventtype/get', 'EventtypeController@get');
 Route::get('eventtype/bookable_by_clients', 'EventtypeController@bookable_by_clients');
+Route::get('priceplan/get', 'PriceplanController@get');
 
 Route::get('tienda/getTickets', 'TicketsController@getTickets');
 Route::post('tienda/addticket', 'TicketsController@addticket');
