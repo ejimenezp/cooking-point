@@ -75,11 +75,11 @@
 			<div class="col-sm-6 ">
 				<div class="pill">
 					<div class="justify-content-center text-center">
-						<h4>SPANISH SELECTION</h4>
-						<p><strong>Berenjena a la Andaluza con Salmorejo</strong></p>
-						<p><small>The art of frying along with a magical tomato puree.</small></p>
-						<p><strong>Pimientos rellenos de carne</strong></p>
-						<p><small>Discover the genuine piquillo peppers, today stuffed with meat.</small></p>
+						<h4>SPANISH CLASSICS SELECTION</h4>
+						<p><strong>Fried Eggplant with Salmorejo</strong></p>
+						<p><small>Renown tapa from Andalusia, served with Salmorejo, another basic in any Southern tapas bar.</small></p>
+						<p><strong>Piquillo Peppers Stuffed With Meat</strong></p>
+						<p><small>Discover this peppers from Navarra (Northern Spain), in this recipe stuffed with meat.</small></p>
 						<br/>
 						<div class="btn btn-primary"><a href="/booking?onlineclass&class=ONLINE-LATENIGHT-SELECTION">Book</a></div>
 					</div>
@@ -88,11 +88,11 @@
 			<div class="col-sm-6">
 				<div class="pill">
 					<div class="justify-content-center text-center">
-						<h4>AUTHENTIC PAELLA</h4>
-						<p><strong>Paella mixta</strong></p>
+						<h4>THE PAELLA</h4>
+						<p><strong>Mixed Paella</strong></p>
 						<p><small>Unquestionably, the most famous Spanish dish, with rice, seafood and chicken.</small></p>
-						<p><strong>Ali-oli</strong></p>
-						<p><small>Garlic sauce, great friend of paella.</small></p>
+						<p><strong>Catalan Cream</strong></p>
+						<p><small>The Mediterranean touch to the Crème Brûlée. A must if you visit Barcelona.</small></p>
 						<br/>
 						<div class="btn btn-primary"><a href="/booking?onlineclass&class=ONLINE-LATENIGHT-PAELLA">Book</a></div>
 					</div>
@@ -104,7 +104,7 @@
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/online-menu-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="garlic shrimp">
-					<figcaption class="figure-caption">Stuffed Piquillo Peppers</figcaption>
+					<figcaption class="figure-caption">Piquillo Peppers Stuffed with Meat</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-10 col-xl-6">
@@ -278,7 +278,7 @@
 @stop
 
 @section('js')
-<script defer type="text/javascript">
+<!-- <script defer type="text/javascript">
 showTime()
 
 function showTime () {
@@ -292,7 +292,7 @@ function showTime () {
   document.getElementById('madridTime').innerHTML = madridTime
   setTimeout(showTime, 1000)
 }
-</script>
+</script> -->
 
 <script defer src="{{ mix('/js/contactonlineclasses.js') }}"></script>
 @stop
