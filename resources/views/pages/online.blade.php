@@ -109,8 +109,8 @@
 			</div>
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
-					<img data-src="/images/online-menu-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="patatas bravas">
-					<figcaption class="figure-caption">Patatas Bravas</figcaption>
+					<img data-src="/images/online-menu-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="mixed">
+					<figcaption class="figure-caption">Mixed Paella</figcaption>
 				</figure>
 			</div>
 		</div>
