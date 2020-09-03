@@ -6,6 +6,7 @@ New Booking:
 - Phone: CP_PHONE
 - Activity: CP_CLASS
 - Date: CP_DATE
+- Time: CP_TIME
 - Adults: CP_ADULT
 - Children: CP_CHILD
 - Price: €CP_PRICE
