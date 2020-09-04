@@ -33,7 +33,7 @@ function BookingDetailsPage (props) {
           await axios.post('/api/booking/emailIt', localbkg)
           const modal = {}
           modal.header = '<h4>E-mail Sent</h4>'
-          modal.body = '<p>We have just sent this voucher to your e-mail.</p>'
+          modal.body = '<p>You will receive it at <strong>' + localbkg.email + '</strong></p>'
           setModalContent(modal)
           setShowModal(true)
         } catch (error) {
