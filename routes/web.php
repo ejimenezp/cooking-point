@@ -45,6 +45,8 @@ Route::get('/paymentrequest/{locator?}/{tpv_result?}', 'BookingControllerOnline@
 Route::get('/about-us', function () { return view('pages.aboutus'); });
 Route::get('/best-cooking-classes-madrid', function () { return view('pages.bestclasses'); });
 Route::get('/online-virtual-cooking-classes', function () { return view('pages.online'); });
+Route::get('/online-virtual-cooking-classes/spanish-classic-recipes', function () { return view('pages.onlineclasses.selection'); });
+Route::get('/online-virtual-cooking-classes/paella', function () { return view('pages.onlineclasses.paella'); });
 
 //
 // blog entries
