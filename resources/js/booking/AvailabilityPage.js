@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { format, parseISO, isSameDay, isBefore, differenceInHours, startOfMonth, endOfMonth, addDays, subDays } from 'date-fns'
-import { utcToZonedTime } from 'date-fns-tz'
+import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
 import { navigate } from '@reach/router'
 import { InquiryDetailsEdit } from './InquiryDetails'
 import DatePicker from './Components/DatePicker/DatePicker'
@@ -26,7 +26,7 @@ function AvailabilityPage (props) {
   const [url, setUrl] = useState(createUrl(localbkg.date))
   const [isError, setIsError] = useState(false)
   /** ddate: day selected on the datepicker */
-  const [ddate, setDate] = useState(new Date(parseISO(props.bkg.date)))
+  const [ddate, setDate] = useState(utcToZonedTime(parseISO(props.bkg.date), props.bkg.tz))
   /** dday: pivot to navigate through months */
   const [dday, setDay] = useState(new Date(parseISO(localbkg.date)))
 
@@ -35,7 +35,7 @@ function AvailabilityPage (props) {
 
   function handleChange (bkg) {
     let b = Object.assign({}, localbkg)
-    handleDateChange(new Date(bkg.date))
+    handleDateChange(utcToZonedTime(parseISO(bkg.date), bkg.tz))
     b = { ...b, ...bkg }
     b.store = true
     setBkg(b)
