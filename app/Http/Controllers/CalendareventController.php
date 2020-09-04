@@ -126,7 +126,7 @@ class CalendareventController extends Controller
 
         $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'capacity', 'registered', 'online']);
 
-        $obfuscate = base64_encode($subset);
+        $obfuscate = base64_encode(json_encode($subset->toArray(), JSON_NUMERIC_CHECK));
         return str_replace("5", "x06", $obfuscate);
         // return $subset;
     }
