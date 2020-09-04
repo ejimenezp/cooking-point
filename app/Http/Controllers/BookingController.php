@@ -50,7 +50,7 @@ class BookingController extends Controller
                 if (isset($request->tpv_result)) {
                     $bkg->tpv_result = $request->tpv_result;
                 }
-                return response()->view('booking.index', ['param' => json_encode($bkg)])->cookie('cplocator', $bkg->locator, 525600);
+                return response()->view('booking.index', ['param' => json_encode($bkg, JSON_NUMERIC_CHECK)])->cookie('cplocator', $bkg->locator, 525600);
             }
         }
     }
