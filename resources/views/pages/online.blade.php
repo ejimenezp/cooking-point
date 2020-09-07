@@ -22,7 +22,7 @@
 				<li>Learn at home traditional Spanish tapas</li>
 				<li>Schedules adapted to your time zone</li>
 				<li>Live class in English</li>
-				<li>€40 adult / €25 children (5-12 year old)</li>
+				<li>€40 per adult</li>
 			</ul>
 		</div>
 	</div>
@@ -72,61 +72,58 @@
 		<h3>Classes</h3>
 		<p>We have two classes, offered several times a day to <strong>fit different time zones</strong>. Please carefully choose the option and time that best fits your schedule.</p>
 		<div class="row justify-content-center">
-			<div class="col-sm-6 ">
-				<div class="pill">
-					<div class="justify-content-center text-center">
-						<h4>SPANISH CLASSICS SELECTION</h4>
-						<p><strong>Fried Eggplant with Salmorejo</strong></p>
-						<p><small>Renown tapa from Andalusia, served with Salmorejo, another basic in any Southern tapas bar.</small></p>
-						<p><strong>Piquillo Peppers Stuffed With Meat</strong></p>
-						<p><small>Discover this peppers from Navarra (Northern Spain), in this recipe stuffed with meat.</small></p>
-						<br/>
-						<div class="btn btn-primary"><a href="/booking?onlineclass&class=ONLINE-LATENIGHT-SELECTION">Book</a></div>
-					</div>
-				</div>
-			</div>
 			<div class="col-sm-6">
-				<div class="pill">
+				<div class="box all-clickable orange-on-hover">
+					<a href="/online-virtual-cooking-classes/paella"></a>
+          <img class="img-fluid lazyload" title="the paella class" alt="online classes" data-src="/images/online-menu-02.jpg" />    
 					<div class="justify-content-center text-center">
-						<h4>THE PAELLA</h4>
+						<h2>Authentic Paella</h2>
 						<p><strong>Mixed Paella</strong></p>
 						<p><small>Unquestionably, the most famous Spanish dish, with rice, seafood and chicken.</small></p>
 						<p><strong>Catalan Cream</strong></p>
 						<p><small>The Mediterranean touch to the Crème Brûlée. A must if you visit Barcelona.</small></p>
 						<br/>
-						<div class="btn btn-primary"><a href="/booking?onlineclass&class=ONLINE-LATENIGHT-PAELLA">Book</a></div>
-					</div>
+<!-- 						<div class="btn btn-primary"><a href="/online-virtual-cooking-classes/paella">More Info</a></div>
+ -->
+ 					</div>
 				</div>
 			</div>
+			<div class="col-sm-6 ">
+				<div class="box all-clickable orange-on-hover">
+					<a href="/online-virtual-cooking-classes/spanish-classic-recipes"></a>
+          <img class="img-fluid lazyload" title="classic recipes" alt="online classes" data-src="/images/online-menu-01.jpg" />    
+					<div class="justify-content-center text-center">
+						<h2>Selected Spanish Recipes</h2>
+						<p><strong>Fried Eggplant with Salmorejo</strong></p>
+						<p><small>Renown tapa from Andalusia, served with Salmorejo, another basic in any Southern tapas bar.</small></p>
+						<p><strong>Piquillo Peppers Stuffed With Meat</strong></p>
+						<p><small>Discover these peppers from Navarra (Northern Spain), in this recipe stuffed with meat.</small></p>
+						<br/>
+<!-- 						<div class="btn btn-primary"><a href="/online-virtual-cooking-classes/spanish-classic-recipes">More Info</a></div>
+ -->					</div>
+				</div>
+			</div>
+
 		</div>
+
 		<p>Both options are easily adaptable to any dietary requirement without major impact (vegan, gluten-free, dairy-free,...). Just let us know when you contact us.</p>
-		<div class="row justify-content-center">
-			<div class="col-lg-10 col-xl-6">
-				<figure class="text-center">
-					<img data-src="/images/online-menu-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="garlic shrimp">
-					<figcaption class="figure-caption">Piquillo Peppers Stuffed with Meat</figcaption>
-				</figure>
-			</div>
-			<div class="col-lg-10 col-xl-6">
-				<figure class="text-center">
-					<img data-src="/images/online-menu-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="mixed">
-					<figcaption class="figure-caption">Mixed Paella</figcaption>
-				</figure>
-			</div>
-		</div>
+
 		<h3>How it works</h3>
 		<p>We use <strong>Zoom app</strong> to broadcast the classes, so you'll need an account on this App (it's free).</p>
-		<p>We have selected representative recipes that do not require weird ingredients, special set-up, or above-average culinary skills. Easy to find, easy to make, ready to eat.</p>
+		<p>We have selected recipes that don't require weird ingredients, special set-up, or above-average culinary skills. Easy to find, easy to make, ready to eat.</p>
 		<p>Upon sign up, you'll receive an email with:</p>
 		<ul>
 			<li>Schedule of the class in your local time.</li>
-			<li>Zoom link to join the video call.</li>
 			<li>Recipes.</li>
 			<li><strong>Grocery list</strong>, with alternative ingredients in case they are hard to find or you have special dietary requirements.</li>
 			<li>Kitchenware and utensils checklist, to make sure you have everything at hand during the class.</li>
 			<li>Guide to get technical things ready before the class (Zoom stuff,...).</li>
 		</ul>
-		<p>The dishes are meant to be eaten after class, but we'll show you ways to store and reheat them later.</p>
+		<p>Two days before the event, you will receive the <strong>Zoom link</strong> to connect to the videocall.</p>
+
+		<p>The dishes are meant to be eaten after class, but we'll show you ways to store and reheat them later. Recipes are designed for 2 servings, but can be doubled easily. Ask about cuantities </p>
+
+		<p>We recommend to attend in groups of two to get more fun and share tasks, moreover if you are cooking for your family.</p>
 
 <!-- 		<h3>Schedules</h3>
 		<p>The class is offered several times a day to <strong>fit different time zones</strong>. Please carefully choose the option that best fits your schedule. We have 3 classes a day, Monday through Saturday:</p>
