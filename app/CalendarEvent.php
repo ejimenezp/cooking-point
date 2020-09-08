@@ -19,6 +19,11 @@ class Calendarevent extends Model
         return $this->hasMany('App\Booking');
     }
 
+    public function typerelat()
+    {
+        return $this->hasOne('App\Eventtype', 'type', 'type');
+    }
+
     public function staff()
     {
         return $this->belongsTo('App\Staff');
