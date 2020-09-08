@@ -8,6 +8,8 @@
 
 <h1>Frequently Asked Questions</h1>
 
+<h3>In-person Classes</h3>
+
 <dl>
 	<dt><strong>I have some dietary requirements, can I book?</strong></dt>
 	<dd>Yes, we are ready to deal with most dietary requirements and allergies: vegetarian, no pork, gluten, dairy, seafood allergies... Anyway, don’t forget the cooking is done in pairs. You both need to agree on the alternative option. Also, when you book, please let us know your exact food restrictions.</dd>
@@ -36,6 +38,23 @@
 <dl>
 	<dt><strong>I’m travelling alone, can I book?</strong></dt>
 	<dd>Of course, but please note we will try and pair you with a cooking buddy. All recipes are written and prepared for two people. Besides, we need a minimum group of 2 people to hold the class.</dd>
+</dl>
+
+<h3 id="onlineclass">Online Classes</h3>
+
+<dl>
+	<dt><strong>Where can I find my Online Class Handbook?</strong></dt>
+	<dd>Go to your booking and email it again. You will receive the voucher with the handbook attached to it.</dd>
+</dl>
+
+<dl>
+	<dt><strong>What kind of pan is suitable for paella cooking?</strong></dt>
+	<dd>Size matters here: we recommend a pan around 10" for 2 servings, and around 12" for 4. Besides, we advise against using cast iron, as these pans keep hot too long making hard to change their temperature.</dd>
+</dl>
+
+<dl>
+	<dt><strong>Can I book for just one person?</strong></dt>
+	<dd>Yes, sure, but keep in mind it will be harder, as you have to do all the tasks.</dd>
 </dl>
 
 @stop
