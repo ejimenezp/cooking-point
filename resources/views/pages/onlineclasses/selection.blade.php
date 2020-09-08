@@ -107,7 +107,7 @@
 
 		<h3>Questions?</h3>
 
-		<p>Don't hesitate to share with us any concerns or questions about the class (<a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>). Also, check out our <a href="/faq">FAQ</a> section.</p>
+		<p>Don't hesitate to share with us any concerns or questions about the class (<a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>). Also, check out our <a href="/faq#onlineclass">FAQ</a> section.</p>
 
 		<div class="d-block d-md-none">
 			<div class="book-now-bottom all-clickable"><a href="/booking?onlineclass&class=ONLINE-EVENING-SELECTION">Book Now</a></div>
