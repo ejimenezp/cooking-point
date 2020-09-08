@@ -149,10 +149,10 @@ function AvailabilityPage (props) {
         </div>
       </div>
       <div className='row justify-content-center'>
-        <div className='col-sm-6 col-xl-4'>
+        <div className='col-12 col-lg-6'>
           <InquiryDetailsEdit liftUp={handleChange} bkg={localbkg} />
         </div>
-        <div className='col-sm-6'>
+        <div className='col-12 col-sm-6'>
           {isError && <div>Something went wrong... please, reload the page</div>}
           {!isError && (
             <div className='text-center'>
