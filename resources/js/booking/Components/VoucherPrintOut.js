@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, Fragment } from 'react'
 import ReactToPrint from 'react-to-print'
 import { InquiryDetails } from '../InquiryDetails'
 import { CustomerDetails } from '../CustomerDetails'
@@ -34,7 +34,7 @@ class Voucher extends React.Component {
 
   render () {
     return (
-      <div>
+      <Fragment>
         <div id='printer' className='d-print-block row' style={{ margin: '5rem' }}>
           <div className='col-md-10 d-print-block'>
             <div className='text-center'>
@@ -49,17 +49,33 @@ class Voucher extends React.Component {
 
             <CustomerDetails bkg={this.bkg} />
 
-            <h2>Meeting Point</h2>
-            <p>Cooking Point<br />
-              Calle de Moratin, 11 28014 Madrid<br />
-              tel. (+34) 910 115 154<br />
-              Metro Anton Martin (Line 1), exit Calle de Amor de Dios<br /><br />
-            </p>
-            <img className='rounded mx-auto d-block' alt='Cooking Point location' src='/images/plano-email.png' />
-            <p className='mt-5'>Access/Edit this booking online at: cookingpoint.es/booking/{this.bkg.locator}</p>
+            { !!this.bkg.onlineclass && 
+              <Fragment>
+                <p className='mt-5'>Visit cookingpoint.es/booking/{this.bkg.locator} to:</p>
+                <ul>
+                  <li>Download your Virtual Class Handbook</li>
+                  <li>Modify or cancel your booking</li>
+                </ul>
+              </Fragment>
+            } 
+
+            { !this.bkg.onlineclass && 
+              <Fragment>
+                <h2>Meeting Point</h2>
+                <p>Cooking Point<br />
+                  Calle de Moratin, 11 28014 Madrid<br />
+                  tel. (+34) 910 115 154<br />
+                  Metro Anton Martin (Line 1), exit Calle de Amor de Dios<br /><br />
+                </p>
+                <img className='rounded mx-auto d-block' alt='Cooking Point location' src='/images/plano-email.png' />
+                <p className='mt-5'>Visit cookingpoint.es/booking/{this.bkg.locator} to modify or cancel your booking</p>
+              </Fragment>
+            }
+           
+
           </div>
         </div>
-      </div>
+      </Fragment>
     )
   }
 }
