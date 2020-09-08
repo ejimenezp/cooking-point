@@ -10,6 +10,11 @@
 namespace App\Http\Controllers;
 
 use Log;
+use Swift_Message;
+use Swift_Image;
+use Swift_Attachment;
+use Swift_SmtpTransport;
+use Swift_Mailer;
 use Google_Client;
 use Google_Service_Gmail;
 use Google_Service_Gmail_Message;
@@ -89,37 +94,20 @@ class MailController {
 
 	static function send_mail($to, $bkg, $mail_template) {
 		
-		$html_body = self::set_booking_data($bkg, $mail_template . "/body.html");
-		$txt_body = self::set_booking_data($bkg, $mail_template . "/body.txt");
-		
-		// building mime message
-		$envelope["from"]= self::set_booking_data($bkg, $mail_template . "/from.txt");;
-		$envelope["to"]  = $to;
-		$envelope["subject"]  = self::set_booking_data($bkg, $mail_template . "/subject.txt");
-		
-		$part1["type"] = TYPEMULTIPART;
-		$part1["subtype"] = "alternative";
-		
-		$part2["type"] = TYPETEXT;
-		$part2["subtype"] = "plain";
-		$part2["charset"] ="utf-8";
-		$part2["contents.data"] = $txt_body;
-		
-		$part3["type"] = TYPETEXT;
-		$part3["subtype"] = "html";
-		$part3["charset"] ="utf-8";
-		$part3["contents.data"] = $html_body;
-		
-		$body[1] = $part1;
-		$body[2] = $part2;
-		$body[3] = $part3;
-		
-		$mime_message = imap_mail_compose($envelope, $body);
-		
+		$message = new Swift_Message();
+		$message->setFrom(['info@cookingpoint.es' => Storage::get('templates/' . $mail_template . "/from.txt")])
+						->setTo([$to])
+						->setSubject(self::set_booking_data($bkg, $mail_template . "/subject.txt"))
+						->setBody(self::set_booking_data($bkg, $mail_template . "/body.html", $message), 'text/html')
+						->addPart(self::set_booking_data($bkg, $mail_template . "/body.txt"), 'text/plain');
+
 		// testing version
 		if (env('APP_ENV') != 'production') {
-			Log::info("mail sent to $to. Subject: {$envelope["subject"]}. Text:");
-			Log::info($html_body);
+			$transport = (new Swift_SmtpTransport(env('MAIL_HOST'), env('MAIL_PORT')))
+			  ->setUsername(env('MAIL_USERNAME'))
+			  ->setPassword(env('MAIL_PASSWORD'));
+			$mailer = new Swift_Mailer($transport);
+			$result = $mailer->send($message);		
 			return;		
 		}
 
@@ -130,11 +118,14 @@ class MailController {
 			$client = self::getClient();
 			$service = new Google_Service_Gmail($client);
 
-			$encoded = rtrim(strtr(base64_encode($mime_message), '+/', '-_'), '=');
+			$encoded = rtrim(strtr(base64_encode($message->toString()), '+/', '-_'), '=');
 			$userId = 'me';
 			$message = new Google_Service_Gmail_Message();
 			$message->setRaw($encoded);
 			$result = $service->users_messages->send($userId, $message);
+
+					$result = $mailer->send($message);
+
 			// Log::info($mime_message);
 
 			// LegacyModel::to_bookings_log($bkg->hash,'EMAIL', $details);
@@ -147,7 +138,7 @@ class MailController {
 	}
 
 
-	static function set_booking_data($bkg, $filename) {
+	static function set_booking_data($bkg, $filename, $message = null) {
 
 		$activityDate = new Carbon($bkg->calendarevent->date);
 		$legibleDate = $activityDate->format('l, d F Y');
@@ -219,7 +210,23 @@ class MailController {
 		$html = str_replace('CP_FOODREQUIREMENTS', nl2br(stripslashes($bkg->food_requirements)), $html);
 		$html = str_replace('CP_COMMENTS', nl2br(stripslashes($bkg->comments)), $html);
 		$html = str_replace('APP_URL', config('app.url'), $html);
-		
+
+		if ($message && $bkg->calendarevent->typerelat->attachments) {
+			$attachments = explode(',', $bkg->calendarevent->typerelat->attachments);
+			$mimetype_set = ['image/jpeg', 'image/png','image/gif','image/svg+xml'];
+
+			for ($i = 0; $i < sizeof($attachments); $i++) {
+
+				$filefullpath = base_path() . $attachments[$i];
+
+				if (in_array(mime_content_type($filefullpath), $mimetype_set)) {
+					$html = str_replace('CP_ATTACHMENT['.$i.']', $message->embed(Swift_Image::fromPath(base_path() . $attachments[$i])), $html);					
+				} else {
+					$html = str_replace('CP_ATTACHMENT['.$i.']', $message->attach(Swift_Attachment::fromPath(base_path() . $attachments[$i])), $html);
+				}
+			}
+		}
+
 		return $html;		
 	}
 
