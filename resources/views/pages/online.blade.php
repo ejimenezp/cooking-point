@@ -19,8 +19,8 @@
 		<div class="pill">
 			<h4>Highlights</h4>
 			<ul>
-				<li>Learn at home traditional Spanish tapas</li>
-				<li>Schedules adapted to your time zone</li>
+				<li>Learn at home authentic Spanish recipes</li>
+				<li>Schedule adapted to your time zone</li>
 				<li>Live class in English</li>
 				<li>€40 per adult</li>
 			</ul>
@@ -54,23 +54,23 @@
 	<div class="col-12">
 		<h3>Description</h3>
 		<p>Enjoy from your kitchen a fun cooking class live from our top-rated school in Madrid. Follow our local chef directions in English to prepare an authentic Spanish dinner. This is an <strong>interactive step-by-step class</strong> where you are invited to replicate chef's tasks while he monitors your work so that no one is left behind.</p>
-		<p>As you cook <strong>Spanish delicious recipes</strong>, the chef will tell you stories about those dishes and why food plays a key role in Spanish life. Questions are always welcome, whatever the subject, as the goal is to have fun while immersing yourself in Spanish culture.</p>
+		<p>As you cook <strong>renowned Spanish recipes</strong>, the chef will tell you stories about those dishes and why food plays a key role in Spanish life. Questions are always welcome, whatever the subject, as the goal is to have fun while immersing yourself in Spanish culture.</p>
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/online-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="front view">
-					<figcaption class="figure-caption">Broadcasted from a clean, bright kitchen, to focus on what's important</figcaption>
+					<figcaption class="figure-caption">Streamed from a clean, bright kitchen, to focus on what's important</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
 					<img data-src="/images/online-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="close-up view">
-					<figcaption class="figure-caption">Switch at any time to close-up view so as not to miss any details</figcaption>
+					<figcaption class="figure-caption">Switch between views at any time so you don't miss any details</figcaption>
 				</figure>
 			</div>
 		</div>
 		<h3>Classes</h3>
-		<p>We have two classes, offered several times a day to <strong>fit different time zones</strong>. Please carefully choose the option and time that best fits your schedule.</p>
+		<p>We have two classes, offered several times a day to <strong>fit different time zones</strong>. Choose the option and time that best suits your schedule.</p>
 		<div class="row justify-content-center">
 			<div class="col-sm-6">
 				<div class="box all-clickable orange-on-hover">
@@ -79,9 +79,9 @@
 					<div class="justify-content-center text-center">
 						<h2>Authentic Paella</h2>
 						<p><strong>Mixed Paella</strong></p>
-						<p><small>Unquestionably, the most famous Spanish dish, with rice, seafood and chicken.</small></p>
+						<p><small>Certainly, the most famous Spanish dish, with rice, seafood and chicken.</small></p>
 						<p><strong>Catalan Cream</strong></p>
-						<p><small>The Mediterranean touch to the Crème Brûlée. A must if you visit Barcelona.</small></p>
+						<p><small>The ubiquituous custard with a Mediterranean touch. A must in Barcelona.</small></p>
 						<br/>
 <!-- 						<div class="btn btn-primary"><a href="/online-virtual-cooking-classes/paella">More Info</a></div>
  -->
@@ -94,9 +94,9 @@
           <img class="img-fluid lazyload" title="classic recipes" alt="online classes" data-src="/images/online-menu-01.jpg" />    
 					<div class="justify-content-center text-center">
 						<h2>Selected Spanish Recipes</h2>
-						<p><strong>Fried Eggplant with Salmorejo</strong></p>
-						<p><small>Renown tapa from Andalusia, served with Salmorejo, another basic in any Southern tapas bar.</small></p>
-						<p><strong>Piquillo Peppers Stuffed With Meat</strong></p>
+						<p><strong>Andalusian-style Eggplant with Salmorejo</strong></p>
+						<p><small>Renowned tapa from Andalusia, served with Salmorejo, another staple in Sothern Spain.</small></p>
+						<p><strong>Stuffed Piquillo Peppers</strong></p>
 						<p><small>Discover these peppers from Navarra (Northern Spain), in this recipe stuffed with meat.</small></p>
 						<br/>
 <!-- 						<div class="btn btn-primary"><a href="/online-virtual-cooking-classes/spanish-classic-recipes">More Info</a></div>
@@ -106,59 +106,51 @@
 
 		</div>
 
-		<p>Both options are easily adaptable to any dietary requirement without major impact (vegan, gluten-free, dairy-free,...). Just let us know when you contact us.</p>
+		<p>Both options are easily adaptable to any dietary requirement (vegan, gluten-free, dairy-free,...). Just let us know when you contact us.</p>
 
 		<h3>How it works</h3>
-		<p>We use <strong>Zoom app</strong> to broadcast the classes, so you'll need an account on this App (it's free).</p>
-		<p>We have selected recipes that don't require weird ingredients, special set-up, or above-average culinary skills. Easy to find, easy to make, ready to eat.</p>
-		<p>Upon sign up, you'll receive an email with:</p>
+		<p>We use <strong>Zoom app</strong> to stream the classes, so you'll need an account on this App (it's free).</p>
+		<p>We have selected recipes that don't require rare ingredients, special set-up, or above-average culinary skills. Easy to find, easy to make, ready to eat.</p>
+		<p>After signing up for a class, you'll receive an email with:</p>
 		<ul>
-			<li>Schedule of the class in your local time.</li>
-			<li>Recipes.</li>
-			<li><strong>Grocery list</strong>, with alternative ingredients in case they are hard to find or you have special dietary requirements.</li>
-			<li>Kitchenware and utensils checklist, to make sure you have everything at hand during the class.</li>
-			<li>Guide to get technical things ready before the class (Zoom stuff,...).</li>
+			<li>Booking voucher, confirming date and time of the class (in your local time).</li>
+			<li><strong>Class Handbook</strong>, a brief pdf document with:</li>
+				<ul>
+					<li>Recipes.</li>
+					<li>Grocery list, with alternative ingredients in case you can't find them or you have dietary requirements.</li>
+					<li>Kitchenware checklist, to make sure you have everything at hand during the class.</li>
+					<li>Technical guide to get things ready before the class (Zoom instructions, kitchen set-up...).</li>
+				</ul>
 		</ul>
-		<p>Two days before the event, you will receive the <strong>Zoom link</strong> to connect to the videocall.</p>
+		<p>Two days before the class, you will receive a <strong>Zoom link</strong> to connect to the videocall.</p>
 
-		<p>The dishes are meant to be eaten after class, but we'll show you ways to store and reheat them later. Recipes are designed for 2 servings, but can be doubled easily. Ask about cuantities </p>
+		<p>The dishes are meant to be eaten after class, but we'll show you ways to store and reheat them later. Recipes are designed for 2 servings, but can be doubled easily. Ask about cuantities if you are cooking for more. </p>
 
-		<p>We recommend to attend in groups of two to get more fun and share tasks, moreover if you are cooking for your family.</p>
+		<p>We recommend to attend in groups of two to get more fun as you share tasks, moreover if you are cooking for a bigger party.</p>
 
-<!-- 		<h3>Schedules</h3>
-		<p>The class is offered several times a day to <strong>fit different time zones</strong>. Please carefully choose the option that best fits your schedule. We have 3 classes a day, Monday through Saturday:</p>
-		<ul>
-			<li>11:00 AM Madrid time: Targeted to <strong>European</strong> (10:00 AM in UK) and <strong>Asia/Pacific countries</strong> (7:00 PM in Australia East Coast).</li>
-			<li>8:00 PM Madrid time: Targeted to <strong>US & Canada West Coast</strong> (11:00 AM Pacific Time).</li>
-			<li>11:00 PM Madrid time: Targeted to <strong>US & Canada East Coast</strong> (5:00 PM Eastern Time).</li>
-		</ul>
+		<h3>Gift Certificates</h3>
+		<p>Our classes are a memorable gift for foodies who are always looking for new flavors. You can buy a gift certificate, valid for 1 year, and we will send you a printable certificate. Email us (<a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>) or use the contact form below with your friend's name and dedication.</p>
+
 		<div class="row justify-content-center">
-			<div class="col-lg-10 col-xl-8">
-				<div class="pill">
-					<table>
-						<tbody>
-							<tr>
-								<td><strong>Your local time:</strong></td>
-								<td style='padding-left:1rem'><span id="localTime"></span></td>
-							</tr>
-							<tr>
-								<td><strong>Time in Madrid:</strong></td>
-								<td style='padding-left:1rem'><span id="madridTime"></span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+			<div class="col-lg-10 col-xl-7">
+				<figure class="text-center">
+					<img data-src="/images/gift-certificate.jpg" class="lazyload img-fluid mx-auto d-block" alt="gift certificate">
+					<figcaption class="figure-caption">Gift Certificate Mockup</figcaption>
+				</figure>
 			</div>
-		</div> -->
+		</div>
 
-		<h3>Fun Anywhere</h3>
+		<h3>Private classes</h3>
+
 		<p>Surprise your family and friends organizing a <strong>cooking party</strong> and give family video calling a boost. Kids will love it too, as there are always tasks for them in class.</p>
-		<p>Also, our classes can be fun <strong>gift certificate</strong> for foodies who are always looking for new flavors.</p>
 		<p>How about an <strong>online team building</strong> event? where coworkers show off their culinary skills while having a break from working from home.</p>
-		<p>Or what about a fun <strong>extracurricular activity</strong> to improve high school or college remote learning resources?</p>
-		<p>Live online classes open a new world of opportunities, don't hesitate to share your ideas and we'll do our best to make them come true.</p>
-		<h3>Inquiries / Gift Certificates</h3>
-		<p>If you are thinking about gift certificates or about organizing a private class, send us a note. We'll reply within 24 hours:</p>
+		<p>Or what about a distinct <strong>extracurricular activity</strong> to improve high school or college remote learning resources?</p>
+		<p>Live online classes open a new world of opportunities, don't hesitate to share your ideas and we'll do our best to make them come true. Do not hesitate to contact us filling the form below.</p>
+
+
+
+		<h3>Inquries</h3>
+		<p>For gift certificates, private classes or any other enquiry, please send us a note. We'll reply within 24 hours:</p>
 		<div class="row">
 			<div class="offset-md-1 col-md-10 col-sm-10">
 				<table style="width: 100%">
@@ -275,21 +267,5 @@
 @stop
 
 @section('js')
-<!-- <script defer type="text/javascript">
-showTime()
-
-function showTime () {
-  const date = new Date()
-  console.log(navigator.language)
-  let options = { dateStyle: 'long', timeStyle: 'full' };
-  const localTime = date.toLocaleString("en-US", options)
-  options.timeZone = 'Europe/Madrid'
-  const madridTime = date.toLocaleString("en-US", options)
-  document.getElementById('localTime').innerHTML = localTime
-  document.getElementById('madridTime').innerHTML = madridTime
-  setTimeout(showTime, 1000)
-}
-</script> -->
-
 <script defer src="{{ mix('/js/contactonlineclasses.js') }}"></script>
 @stop

@@ -1,6 +1,6 @@
 @extends('masterlayout')
-@section('title', 'Selected Spanish Recipes Online Cooking Class')
-@section('description', 'Live class about renown Spanish recipes beyond so-called paella')
+@section('title', 'Selected Spanish Recipes - Live Online Class')
+@section('description', 'Live class about renowned Spanish recipes beyond so-called paella')
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
@@ -12,29 +12,29 @@
 </div>
 @stop
 @section('content')
-<h1>Selected Spanish Recipes - Live Online Class</h1>
+<h1>Selected Spanish Recipes - Live Class</h1>
 <div class="row justify-content-right">
 	<div class="col-12">
-		<p>Spanish gastronomy is as rich as varied are its regions. From North to South, East to West, the geography, climate and people change so much that their way of cooking and enjoying food is very much derived from their environment. In this class, we aim to show you some recipes very relevant in certain regions and, in turn, a good example of the their regional couicine.</p>
+		<p>Spanish gastronomy is as rich as its regions are varied. From north to south, from east to west, geographic, climatic and historical diversity has shaped the way Spaniards cook and enjoy food. In this class, we want to show you just a sample of the variety of our regional cuisine.</p>
 		
-		<h3>Fried Eggplants with Salmorejo</h3>
+		<h3>Andalusian-style Eggplant with Salmorejo</h3>
 
-		<p>From Cordoba (Andalusia, Souther Spain) we bring the Fried Eggplants with Salmorejo, example of how olive oil plays a key role in Spanish cooking, and particularly in Andalusia, where most of the olive tree fields are located. In Spanish we say <strong>Berenjenas a la andaluza con salmorejo</strong>, as the predicative <i>a la andaluza</i> means floured and deep fried. The recipe, yet simple, shows a few tricks about getting the most of this cooking method, absolutely basic in Spanish tapas making.</p>
+		<p>From Cordoba (Andalusia, Souther Spain) the Eggplant with Salmorejo, is an example of how olive oil plays a key role in Spanish culture, and particularly in Andalusia, where most of the olive tree fields are located. In Spanish we say <strong>Berenjenas a la andaluza con salmorejo</strong>, as the words <i>a la andaluza</i> refer to a cooking method of flouring and deep-frying. The recipe, yet simple, unveils tricks about getting the most of this method, common in Spanish tapas making.</p>
 
-		<p><strong>Salmorejo</strong> itself, is a stand-alone dish, but in this case we will use it as a dipping sauce for the eggplants. Again, 4 basic ingredients: tomato, bread, oil and garlic result in one of the most attractive purées you will find in the Mediterranean gastronomy. Sometimes mistaking with Gazpacho, the other, more known, cold tomato soup, samorejo consistency and flavour differs from gazpacho, yet using the same base ingredients.</p>
+		<p><strong>Salmorejo</strong> is itself a dish on its own, but in this case we will use it as a dipping sauce. Again, 4 basic ingredients: tomato, bread, oil and garlic result in one of the most attractive purees that you will find in Mediterranean gastronomy. Sometimes confused with Gazpacho, the other more famous cold tomato soup, the samorejo consistency and flavor differ from gazpacho even using the same base ingredients.</p>
 
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-7">
 				<figure class="text-center">
 					<img data-src="/images/online-selection-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="eggplants">
-					<figcaption class="figure-caption">Eggplants get crispy and tasty</figcaption>
+					<figcaption class="figure-caption">Eggplant gets crispy with this light coating</figcaption>
 				</figure>
 			</div>
 		</div>
 
-		<h3>Piquillo Peppers Stuffed With Meat</h3>
+		<h3>Stuffed Piquillo Peppers</h3>
 
-		<p>Piquillo pepper is a type of red sweet bell pepper grown in Northern Spain. Their triangular, conic shape is their distinguishing feature. The delicate, sweet flavor is achieved after being roasted in wood ovens, and peeled by hand, with no water or chemicals involved.</p>
+		<p>Piquillo pepper is a type of red sweet bell pepper grown in Northern Spain. Their triangular shape and smoky flavor are their distinguishing features. The delicate, sweet flavor is achieved after being roasted with wood and peeled by hand one by one.</p>
 
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-7">
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 
-		<p>Stuffed piquillo peppers are a ubiquotous pintxo (individal tapa) in all bars in Northern Spain (Basque Country, Rioja, Navarra,...), as well as in most restaurant menus, as stuffing possibilities are endless. The recipe presented here is one of the most usual, stuffed with meat and accompanied with a sauce from their own flesh.</p>
+		<p>Stuffed piquillo peppers are a ubiquotous pintxo (individal tapa) in all bars in Northern Spain (Basque Country, Rioja, Navarra,...), as stuffing possibilities are endless. The recipe presented here is one of the most usual, stuffed with meat and accompanied with a sauce from their own flesh.</p>
 
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-7">
@@ -56,9 +56,25 @@
 			</div>
 		</div>
 
+
+		<h3>How it works</h3>
+
+		<p>After signing up for a class, you'll receive an email with:</p>
+		<ul>
+			<li>Booking voucher, confirming date and time of the class (in your local time).</li>
+			<li><strong>Class Handbook</strong>, a brief pdf document with:</li>
+				<ul>
+					<li>Recipes.</li>
+					<li>Grocery list, with alternative ingredients in case you can't find them or you have dietary requirements.</li>
+					<li>Kitchenware checklist, to make sure you have everything at hand during the class.</li>
+					<li>Technical guide to get things ready before the class (Zoom instructions, kitchen set-up...).</li>
+				</ul>
+		</ul>
+		<p>Two days before the class, you will receive a <strong>Zoom link</strong> to connect to the videocall.</p>
+
 		<h3>Ingredients</h3>
 
-		<p>For the class you will need a number of ingredients, all available at your local supermarket. Obviously, there are different grades, origins or brands, but all should render exceptional results. Here is the list, you will receive a more detailed one upon registration, with required measures, suggested varieties or brands, and alternatives in case of dietary restrictions:</p>
+		<p>Below is the list of ingredients needed for this class, you will find a more detailed one in the Class Handbook, with required measures and alternatives in case of dietary requirements. All of them should be available at your local supermarket. Obviously, there are different grades, varieties, origins, and brands. We suggest some varieties or brands,  but it's your decision to choose the ones that best suit your budget.</p>
 
 		<div class="row justify-content-center">
 			<div class="col-sm-4">
@@ -90,24 +106,11 @@
 
 		<h3>Kitchenware</h3>
 
-		<p>No special utensils or appliances are required for this menu: skillet, saucepan, measuring spoons, blender,... You will find a detailed list, with suggested sizes and types, after booking.</p>
-
-		<h3>How it works</h3>
-
-		<p>Upon sign up, you'll receive an email with:</p>
-		<ul>
-			<li>Schedule of the class in your local time.</li>
-			<li>Recipes.</li>
-			<li>Detailed <strong>Grocery list</strong>, with alternative ingredients in case they are hard to find or you have special dietary requirements.</li>
-			<li>Kitchenware and utensils checklist, to make sure you have everything at hand during the class.</li>
-			<li>Guide to get technical things ready before the class (Zoom stuff,...).</li>
-		</ul>
-
-		<p>Two days before the event, you will receive the <strong>Zoom link</strong> to connect to the videocall.</p>
+		<p>No special utensils or appliances are required for this menu: skillet, saucepan, measuring spoons, blender,... You will find a detailed list of recomended and suggested pans and utensils in your Class Handbook.</p>
 
 		<h3>Questions?</h3>
 
-		<p>Don't hesitate to share with us any concerns or questions about the class (<a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>). Also, check out our <a href="/faq#onlineclass">FAQ</a> section.</p>
+		<p>Don't hesitate to let us know about any concerns or questions (<a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>). We have included some in our <a href="/faq#onlineclass">FAQ</a> section.</p>
 
 		<div class="d-block d-md-none">
 			<div class="book-now-bottom all-clickable"><a href="/booking?onlineclass&class=ONLINE-EVENING-SELECTION">Book Now</a></div>
@@ -136,7 +139,7 @@
 				<a href="/online-virtual-cooking-classes/paella"></a>
 				<img class="img-fluid lazyload" data-src="/images/online-menu-02.jpg" alt="paella online class" />
 				<h4 style="margin-top: 0.5rem;">Paella Online Class</h4>
-				<p>Learn from a Spaniard how to make an authentic paella, and run away from bad recipes and imitations</p>
+				<p>Learn from a Spaniard how to make an authentic paella, and run away from deceiving recipes</p>
 			</div>
 		</div>
 	</div>

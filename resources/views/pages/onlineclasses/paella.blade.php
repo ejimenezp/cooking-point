@@ -1,6 +1,6 @@
 @extends('masterlayout')
 @section('title', 'Authentic Paella Online Cooking Class')
-@section('description', 'Live class about renown Spanish recipes beyond so-called paella')
+@section('description', 'Live online class class for authentic Spanish paella')
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
@@ -12,19 +12,19 @@
 </div>
 @stop
 @section('content')
-<h1>Authentic Paella - Live Online Class from Spain</h1>
+<h1>Authentic Paella - Live from Spain</h1>
 <div class="row justify-content-right">
 	<div class="col-12">
 		<h3>Mixed Paella</h3>
 
-		<p>Without a doubt, paella is the most international dish from Spain. This recipe, associated to Valencia, on the East coast, was considered farmer's food for many years. Nowadays, with the addition of all kind of ingredients it is a classic Sunday meal and centerpiece in family celebrations during the warm seasons.</p>
+		<p>Without a doubt, Paella is the most international dish from Spain. This recipe, originally from Valencia, on the east coast, has gone from farmers staple in its origins, to something associate with joy, celebrations, and social gatherings. Nowadays, it is a classic Sunday meal and centerpiece in family celebrations during the warm seasons.</p>
 
 		<div class="d-none d-md-block">
 			<div class="row justify-content-center">
 				<div class="col-lg-10 col-xl-7">
 					<figure class="text-center">
 						<img data-src="/images/online-paella-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="mixed paella">
-						<figcaption class="figure-caption">Mixed Paella</figcaption>
+						<figcaption class="figure-caption">Mixed Paella, with chicken and seafood</figcaption>
 					</figure>
 				</div>
 			</div>			
@@ -35,16 +35,16 @@
 				<div class="col-lg-10 col-xl-7">
 					<figure class="text-center">
 						<img data-src="/images/online-paella-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="mixed paella">
-						<figcaption class="figure-caption">Mixed Paella</figcaption>
+						<figcaption class="figure-caption">Mixed Paella, with chicken and seafood</figcaption>
 					</figure>
 				</div>
 			</div>			
 		</div>
 
-		<p>There are different types of paella, depending on the ingredients that come along with the rice. In this class we will prepare Paella Mixta, called this way because it mixes meat and seafood, and is by far the most cooked across Spain.</p>
+		<p>There are different types of paella, depending on the ingredients that come along with the rice. In this class, we will prepare Paella Mixta, so called  because it combines meat and seafood, and is by far the most cooked across Spain.</p>
 
 		<h3>Catalan Cream</h3>
-		<p>Despite its appearance, there are few similarities to French crème brûlée. Our <strong>Crema Catalana</strong> seems to have its roots in medieval cookbooks, since then little has changed. Lemon and cinnamon to flavor the milk, starch and spoon to thicken. One hint: crema means "to burn" in Catalan, the language spoken in Catalonia, the region from which it is originally.</p>
+		<p>Despite its appearance, there are few similarities to French crème brûlée. Our <strong>Crema Catalana</strong> seems to have its roots in medieval cookbooks, since then little has changed. Lemon and cinnamon to flavor the milk, starch and spoon to thicken. One hint: crema means "burns!" in Catalan, the language spoken in Catalonia, the region from which it is originally.</p>
 
 		<p></p>
 
@@ -52,18 +52,34 @@
 			<div class="col-lg-10 col-xl-7">
 				<figure class="text-center">
 					<img data-src="/images/online-paella-details-03.jpg" class="lazyload img-fluid mx-auto d-block" alt="crema catalana">
-					<figcaption class="figure-caption">Catalan Cream</figcaption>
+					<figcaption class="figure-caption">Catalan Cream, topped with burnt sugar</figcaption>
 				</figure>
 			</div>
 		</div>
 
+
+		<h3>How it works</h3>
+		<p>After signing up for a class, you'll receive an email with:</p>
+		<ul>
+			<li>Booking voucher, confirming date and time of the class (in your local time).</li>
+			<li><strong>Class Handbook</strong>, a brief pdf document with:</li>
+				<ul>
+					<li>Recipes.</li>
+					<li>Grocery list, with alternative ingredients in case you can't find them or you have dietary requirements.</li>
+					<li>Kitchenware checklist, to make sure you have everything at hand during the class.</li>
+					<li>Technical guide to get things ready before the class (Zoom instructions, kitchen set-up...).</li>
+				</ul>
+		</ul>
+		<p>Two days before the class, you will receive a <strong>Zoom link</strong> to connect to the videocall.</p>
+
 		<h3>Ingredients</h3>
-		<p>For the class you will need a number of ingredients, all available at your local supermarket. Obviously, there are different grades, origins or brands, but all should render exceptional results. Here is the list, you will receive a more detailed one upon registration, with required measures, suggested varieties or brands, and alternatives in case of dietary restrictions:</p>
+		<p>Below is the list of ingredients needed for this class, you will find a more detailed one in the Class Handbook, with required measures and alternatives in case of dietary requirements. All of them should be available at your local supermarket. Obviously, there are different grades, varieties, origins, and brands. We suggest some varieties or brands,  but it's your decision to choose the ones that best suit your budget.</p>
+
 		<div class="row justify-content-center">
 			<div class="col-sm-4">
 				<ul>
 					<li>Rice</li>
-					<li>Chicken thighs</li>
+					<li>Chicken</li>
 					<li>Squid</li>
 					<li>Shrimp</li>
 					<li>Mussels</li>
@@ -90,24 +106,11 @@
 
 		<h3>Kitchenware</h3>
 
-		<p>To obtain a good paella, pan size is key as the rice should be as shallow as possible. If you are cooking for 2 servings, you will need a 11-12" pan, and 13-14" for 4 servings. For a nice Catalan cream presentation, it would be interesting to have a blowtorch. Otherwise, there are other alternatives.You will find a detailed list, with suggested sizes and types, upon booking.</p>
-
-		<h3>How it works</h3>
-
-		<p>Upon sign up, you'll receive an email with:</p>
-		<ul>
-			<li>Schedule of the class in your local time.</li>
-			<li>Recipes.</li>
-			<li>Detailed <strong>Grocery list</strong>, with alternative ingredients in case they are hard to find or you have special dietary requirements.</li>
-			<li>Kitchenware and utensils checklist, to make sure you have everything at hand during the class.</li>
-			<li>Guide to get technical things ready before the class (Zoom stuff,...).</li>
-		</ul>
-
-		<p>Two days before the event, you will receive the <strong>Zoom link</strong> to connect to the videocall.</p>
+		<p>To obtain a good paella, pan size is key as the rice should be as shallow as possible. If you are cooking for 2 servings, you will need a 10-12" pan, and 12-14" for 4 servings. For a nice Catalan cream presentation, it would be interesting to have a blowtorch, but there are alternatives to it. All the rest of kitchenware is the usual one. You will find a detailed list of recomended and suggested pans and utensils in your Class Handbook.</p>
 
 		<h3>Questions?</h3>
 
-		<p>Don't hesitate to share with us any concerns or questions about the class (<a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>). Also, check out our <a href="/faq#onlineclass">FAQ</a> section.</p>
+		<p>Don't hesitate to let us know about any concerns or questions (<a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>). We have included some in our <a href="/faq#onlineclass">FAQ</a> section.</p>
 
 		<div class="d-block d-md-none">
 			<div class="book-now-bottom all-clickable"><a href="/booking?onlineclass&class=ONLINE-EVENING-PAELLA">Book Now</a></div>
@@ -138,7 +141,7 @@
 				<a href="/online-virtual-cooking-classes/spanish-classic-recipes"></a>
 				<img class="img-fluid lazyload" data-src="/images/online-menu-01.jpg" alt="selected recipes online class" />
 				<h4 style="margin-top: 0.5rem;">Selected Spanish Recipes Online Class</h4>
-				<p>Paella is just one among thousands of recipes from all corners of Spain. Learn more classic ones on this class.</p>
+				<p>Paella is just one of thousands of recipes from every corner of Spain. Learn more classic ones on this class.</p>
 			</div>
 		</div>
 	</div>
@@ -180,20 +183,5 @@
 </div>
 @stop
 @section('js')
-<!-- <script defer type="text/javascript">
-showTime()
-
-function showTime () {
-  const date = new Date()
-  console.log(navigator.language)
-  let options = { dateStyle: 'long', timeStyle: 'full' };
-  const localTime = date.toLocaleString("en-US", options)
-  options.timeZone = 'Europe/Madrid'
-  const madridTime = date.toLocaleString("en-US", options)
-  document.getElementById('localTime').innerHTML = localTime
-  document.getElementById('madridTime').innerHTML = madridTime
-  setTimeout(showTime, 1000)
-}
-</script> -->
 <script defer src="{{ mix('/js/contactonlineclasses.js') }}"></script>
 @stop

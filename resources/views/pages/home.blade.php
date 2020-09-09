@@ -86,7 +86,7 @@
                 <a href="/online-virtual-cooking-classes"></a>
                 <img class="img-fluid lazyload" title="online classes" alt="live classes from madrid" data-src="/images/online-banner-sm.jpg" />    
                 <h2>Online Classes <span class="badge badge-primary">New</span></h2>
-                <p>Don't let COVID-19 keep you from enjoying one of our cooking classes. Join any of our live online classes from Madrid and interact with our chef to make your Spanish tapas dinner without leaving your kitchen.</p>
+                <p>Don't let COVID-19 keep you from enjoying one of our cooking classes. Join any of our live online classes from Madrid and interact with our chef to make an authentic Spanish dinner without leaving your kitchen.</p>
                 <table class="infogram">
                     <tr>
                         <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
@@ -96,7 +96,7 @@
                      <tr>
                         <td>Monday - Saturday</td>
                         <td>3 times a day</td>
-                        <td>€40 (adult)<br>€25 (child)</td>
+                        <td>€40 (adult)</td>
                   </tr>
                 </table> 
             </div>            

@@ -43,18 +43,33 @@
 <h3 id="onlineclass">Online Classes</h3>
 
 <dl>
-	<dt><strong>Where can I find my Online Class Handbook?</strong></dt>
+	<dt><strong>Where can I find my Class Handbook?</strong></dt>
 	<dd>Go to your booking and email it again. You will receive the voucher with the handbook attached to it.</dd>
 </dl>
 
 <dl>
 	<dt><strong>What kind of pan is suitable for paella cooking?</strong></dt>
-	<dd>Size matters here: we recommend a pan around 10" for 2 servings, and around 12" for 4. Besides, we advise against using cast iron, as these pans keep hot too long making hard to change their temperature.</dd>
+	<dd>Size matters here: we recommend a pan around 11" for 2 servings, and around 13" for 4. Besides, we advise against using cast iron, as these pans keep heat too long, making hard to change their temperature.</dd>
 </dl>
 
 <dl>
 	<dt><strong>Can I book for just one person?</strong></dt>
 	<dd>Yes, sure, but keep in mind it will be harder, as you have to do all the tasks.</dd>
+</dl>
+
+<dl>
+	<dt><strong>What is the cancellation policy?</strong></dt>
+	<dd>We refund 100% if you cancel up to 48 hours before the class.</dd>
+</dl>
+
+<dl>
+	<dt><strong>What's included in the price</strong></dt>
+	<dd>Price includes attending a live class streamed through a Zoom video call. Ingredients are not included.</dd>
+</dl>
+
+<dl>
+	<dt><strong>What's the maximum number of participants</strong></dt>
+	<dd>For the moment, our classes are really small, with 3-4 parties at the most.</dd>
 </dl>
 
 @stop
