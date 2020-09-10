@@ -122,14 +122,7 @@ class MailController {
 			$userId = 'me';
 			$message = new Google_Service_Gmail_Message();
 			$message->setRaw($encoded);
-			$result = $service->users_messages->send($userId, $message);
-
-					$result = $mailer->send($message);
-
-			// Log::info($mime_message);
-
-			// LegacyModel::to_bookings_log($bkg->hash,'EMAIL', $details);
-							
+			$result = $service->users_messages->send($userId, $message);	
 		} 
 		catch (Exception $e) 
 		{
