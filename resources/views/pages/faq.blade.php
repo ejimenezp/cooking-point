@@ -43,13 +43,13 @@
 <h3 id="onlineclass">Online Classes</h3>
 
 <dl>
-	<dt><strong>Where can I find my Class Handbook?</strong></dt>
-	<dd>Go to your booking and email it again. You will receive the voucher with the handbook attached to it.</dd>
+	<dt><strong>How can I recover my booking?</strong></dt>
+	<dd>Try find it in your mailbox (search by sender info@cookingpoint.es). Alternatively, go to the <a href="{{ url('/booking') }}">Booking</a> section with the same browser you used to book. Your data should show up, unless you clicked on "New booking" to clear the form.</dd>
 </dl>
 
 <dl>
-	<dt><strong>What kind of pan is suitable for paella cooking?</strong></dt>
-	<dd>Size matters here: we recommend a pan around 11" for 2 servings, and around 13" for 4. Besides, we advise against using cast iron, as these pans keep heat too long, making hard to change their temperature.</dd>
+	<dt><strong>Where can I find my Class Handbook?</strong></dt>
+	<dd>It comes attached to the booking confirmation email. If you can't locate the email, go to your booking and email it again.</dd>
 </dl>
 
 <dl>
@@ -70,6 +70,11 @@
 <dl>
 	<dt><strong>What's the maximum number of participants</strong></dt>
 	<dd>For the moment, our classes are really small, with 3-4 parties at the most.</dd>
+</dl>
+
+<dl>
+	<dt><strong>What kind of pan is suitable for paella cooking?</strong></dt>
+	<dd>Regarding the form, you can use any flat, wide pan (paella pan, skillet, frying pan), as the rice should be as shallow as possible. Regarding the size, we recommend a pan around 11" for 2 servings, and around 13" for 4. We advise against using cast iron, as these pans keep the heat too long, making it hard to change their temperature. Non-stick pans are advisable for beginners.</dd>
 </dl>
 
 @stop

@@ -16,7 +16,7 @@ function VoucherPrintOut (props) {
   return (
     <span>
       <ReactToPrint
-        trigger={() => <div className='btn btn-primary'>Print Voucher</div>}
+        trigger={() => <div className='btn btn-primary'>Print Booking</div>}
         content={() => componentRef.current}
       />
       <div style={{ display: 'none' }}>
@@ -40,10 +40,10 @@ class Voucher extends React.Component {
             <div className='text-center'>
               <img alt='Cooking Point logo' src='/images/cookingpoint_logox75.png' />
               <div className='divider' />
-              <h1>Cooking Point Voucher</h1>
+              <h1>Booking Confirmation</h1>
             </div>
 
-            <h2 className='mt-5'>Booking Details</h2>
+            <h2 className='mt-5'>Details</h2>
 
             <InquiryDetails bkg={this.bkg} />
 

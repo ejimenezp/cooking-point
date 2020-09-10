@@ -136,7 +136,7 @@ function BookingDetailsPage (props) {
 
       <div className='row justify-content-center'>
         <div className='col-12'>
-          <h1>Booking</h1>
+          <h1>Booking Confirmation</h1>
           {localbkg.status === 'PENDING' && <p>You are about to book the following class:</p>}
           {(localbkg.status === 'CONFIRMED' || localbkg.status === 'PAY-ON-ARRIVAL') && <p>These are the details of your booking:</p>}
           {localbkg.status === 'CANCELED' && <p>This booking is no longer valid.</p>}
@@ -158,7 +158,7 @@ function BookingDetailsPage (props) {
           <div className='btn btn-secondary' onClick={() => navigate(`/booking/${localbkg.locator}/customerdetails`)}>Edit Customer Details</div>}{' '}
         {localbkg.locator && localbkg.status !== 'PENDING' && <VoucherPrintOut bkg={localbkg} />}{' '}
         {localbkg.locator && localbkg.status !== 'PENDING' &&
-          <div className='btn btn-primary' onClick={handleEmailVoucher}>E-mail Voucher</div>}{' '}
+          <div className='btn btn-primary' onClick={handleEmailVoucher}>E-mail Booking</div>}{' '}
         {localbkg.status === 'PENDING' &&
           <div className='btn btn-primary' onClick={() => (location.href = '/pay/' + localbkg.id)}>Purchase</div>}
         {isError && alert('Error communicating with server, please reload page')}

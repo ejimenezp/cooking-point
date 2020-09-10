@@ -2,7 +2,7 @@ Dear CP_FIRSTNAME,
 
 Your booking is confirmed. We are looking forward to meeting you. Find below class details:
 
-COOKING POINT VIRTUAL CLASS:
+BOOKING CONFIRMATION:
 
 - Class: CP_CLASS
 - Date: CP_TZED_DATE

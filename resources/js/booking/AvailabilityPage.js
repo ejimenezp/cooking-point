@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { format, parseISO, isSameDay, isBefore, differenceInHours, startOfMonth, endOfMonth, addDays, subDays } from 'date-fns'
 import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
@@ -143,9 +143,18 @@ function AvailabilityPage (props) {
       {showModal && <MyModal text={modalContent} liftUp={() => setShowModal(false)} />}
       <div className='row'>
         <div className='col-12'>
-          <h1>Booking</h1>
-          {localbkg.status === 'PENDING' && <p>Select number of guests and class to check availability.</p>}
-          {['CONFIRMED', 'PAY-ON-ARRIVAL', 'PAID'].includes(localbkg.status) && <p>You can change class and booking date:</p>}
+          {localbkg.status === 'PENDING' && 
+            <Fragment>
+              <h1>New Booking</h1>
+              <p>Select number of guests and class to check availability.</p>
+            </Fragment>
+          }
+          { ['CONFIRMED', 'PAY-ON-ARRIVAL', 'PAID'].includes(localbkg.status) && 
+            <Fragment>
+              <h1>Your Booking</h1>
+              <p>You can change class and booking date:</p>
+            </Fragment>
+            }
         </div>
       </div>
       <div className='row justify-content-center'>
