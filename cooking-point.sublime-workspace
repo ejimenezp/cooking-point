@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"padd",
+				"padding-left\tproperty"
+			],
+			[
+				"online",
+				"onlineclass"
+			],
+			[
+				"backg",
+				"background-color\tproperty"
+			],
+			[
+				"cal",
+				"calendarevent"
+			],
+			[
 				"avaia",
 				"availabilityData"
 			],
@@ -428,10 +444,6 @@
 				"flex-start\tjustify-content"
 			],
 			[
-				"padd",
-				"padding-left"
-			],
-			[
 				"pad",
 				"padding-left"
 			],
@@ -502,37 +514,16 @@
 			[
 				"line",
 				"line_length"
-			],
-			[
-				"eve",
-				"events_found_in_a_day"
-			],
-			[
-				"FIRST",
-				"FIRSTEVENT"
-			],
-			[
-				"str_",
-				"str_replace"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "resources/views/pages/onlineclasses/paella.blade.php",
+			"file": "app/Http/Controllers/MailController.php",
 			"settings":
 			{
-				"buffer_size": 8292,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/pages/online.blade.php",
-			"settings":
-			{
-				"buffer_size": 11799,
+				"buffer_size": 7812,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -668,37 +659,82 @@
 	[
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Mail",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/onlineclasses",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/attachments",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher_onlineclass"
 	],
 	"file_history":
 	[
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/onlineclasses/paella.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/online.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/onlineclasses/paella.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/onlineclasses/selection.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/faq.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/web.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/AvailabilityPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/VoucherPrintOut.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/BookingDetailsPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/node_modules/webpack-dev-server/lib/utils/routes.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/bd550db98d37b9b35406cdcb8c69338f0fe06695.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/9888ef3611e57eecb74fb75fd7b0b794c76ffecf.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher_onlineclass/subject.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher_onlineclass/body.html",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher_onlineclass/body.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/fe26b8c286f152a087f48c97b7fcc30353748ebb.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/d0a2dcd8a3d12c74ead26358d1257ebb588202c5.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/MailController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.env",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/InquiryDetails.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.gitignore",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/node_modules/laravel-mix/setup/webpack.config.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher/body.html",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_3rdpartypayment/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_new_booking/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_new_message/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/payment_ko/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/review_viator/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/staff_update_paymentmethod/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_cancellation/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_reminder/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_review/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_review_ctrip/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_review_facebook/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_review_getyourguide/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_review_google/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_review_mafengwo/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_review_qyer/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_review_tripadvisor/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher_onlineclass/from.txt",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Calendarevent.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/online/selection.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/static-sitemap.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BlogtoolController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/BkgStatus.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/InquiryDetails.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/AvailabilityPage.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/BookingDetailsPage.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_new_booking/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_new_booking/body.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/MailController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/UserTimeZone.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/online.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/PriceplanController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/booking.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/api.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/SourceController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/EventtypeController.php",
@@ -718,17 +754,13 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv/pay-stub.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv/pay.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher_onlineclass/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_cancellation/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_cancellation/body.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher_onlineclass/body.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Calendarevent.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/paymentrequest.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Timezone.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/emailing/online_v01.html",
 		"/C/Users/Eduardo/Desktop/timezones.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/booking.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_variables.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/actividadesempresas.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/contactonlineclasses.js",
@@ -737,7 +769,6 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Eventtype.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/node_modules/react-datepicker/src/stylesheets/variables.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_components.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/faq.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/webpack.mix.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/package.json",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_message_online_classes/body.html",
@@ -747,7 +778,6 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CustomerDetails.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/tapas.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/events.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.gitignore",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/blog/posttemplate.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/blogsandbox.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/RedsysAPI.php",
@@ -772,41 +802,9 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_3rdpartypayment/body.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/body.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/from.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/subject.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_cancellation/subject.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher/body.html",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/index.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/modals.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/app.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/login.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/ab6a7c5f191399a2a6e49d19a8ad4fb45c2d5990.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.env",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/tienda.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/js/admin/tienda.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/BookingDetailsPage.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/VoucherPrintOut.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/bookings.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/TicketsController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/routes/api.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/routes/web.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/admin/adminmasterlayout.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/home.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/views/pages/location.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/storage/logs/laravel.log",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/CalendareventController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/AvailabilityPage.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/booking/Components/ErrorBoundary.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/node_modules/array-includes/test.html",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_utilities.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/sass/_components.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/public/images/cookingpoint_MIC.svg",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/classemails.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/admin/bookings.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/CalendareventControllerOnline.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/resources/js/app.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/BookingController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/react/app/Http/Controllers/BookingControllerOnline.php"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/index.blade.php"
 	],
 	"find":
 	{
@@ -831,6 +829,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mailer",
+			"voucher",
+			"or brands",
+			"Online Class Handbook",
+			"Recipes</l",
+			"Recipes<li",
+			"Recipes<",
+			"Renown",
+			"renown",
+			"PRODUCTION",
+			"production",
+			"send_mail",
+			"transp",
+			"send_mail",
+			"mail_template",
+			"swiftmailer",
+			"part3",
 			"-selected-",
 			"calendarevent_",
 			"calendarevent_index",
@@ -941,24 +956,7 @@
 			"ddate",
 			"cutoff",
 			"usert",
-			"timezo",
-			"tz",
-			"utcToZonedTime",
-			"index",
-			"lodash",
-			"typeof",
-			"formatISO",
-			"zonedTimeToUtc",
-			"bkg-status-confirmed",
-			"quirk",
-			"/price",
-			"/price?",
-			"event.startdateatom",
-			".day",
-			"day",
-			"zonedtime",
-			"handledatechange",
-			"format"
+			"timezo"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -966,6 +964,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"and brands",
+			"Class Handbook",
+			"renowned",
 			"clearDataRef",
 			"ONLINE-LATENIGHT-SELECTION",
 			"ONLINE-EVENING-SELECTION",
@@ -1013,19 +1014,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/pages/onlineclasses/paella.blade.php",
+					"file": "app/Http/Controllers/MailController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8292,
+						"buffer_size": 7812,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4541,
-								4541
+								3831,
+								3831
 							]
 						],
 						"settings":
@@ -1034,39 +1035,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1068.0,
+						"translation.y": 1782.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "resources/views/pages/online.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11799,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3538,
-								3538
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1140.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1119,7 +1091,7 @@
 	"project": "cooking-point.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 73.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1133,8 +1105,52 @@
 				"routes\\web.php"
 			],
 			[
+				"routes web",
+				"node_modules\\webpack-dev-server\\lib\\utils\\routes.js"
+			],
+			[
+				"faq",
+				"resources\\views\\pages\\faq.blade.php"
+			],
+			[
+				"online",
+				"resources\\views\\pages\\online.blade.php"
+			],
+			[
 				"home",
 				"resources\\views\\pages\\home.blade.php"
+			],
+			[
+				"mailco",
+				"app\\Http\\Controllers\\MailController.php"
+			],
+			[
+				"inqur",
+				"resources\\js\\booking\\InquiryDetails.js"
+			],
+			[
+				"online sele",
+				"resources\\views\\pages\\onlineclasses\\selection.blade.php"
+			],
+			[
+				"online pael",
+				"resources\\views\\pages\\onlineclasses\\paella.blade.php"
+			],
+			[
+				"onlin",
+				"resources\\views\\pages\\online.blade.php"
+			],
+			[
+				"webpack.con",
+				"node_modules\\laravel-mix\\setup\\webpack.config.js"
+			],
+			[
+				"mail",
+				"app\\Http\\Controllers\\MailController.php"
+			],
+			[
+				"larav",
+				"storage\\logs\\laravel.log"
 			],
 			[
 				"static-s",
@@ -1209,10 +1225,6 @@
 				"resources\\js\\booking\\Components\\ClassTypeDropdown.js"
 			],
 			[
-				"online",
-				"resources\\views\\pages\\online.blade.php"
-			],
-			[
 				"master",
 				"resources\\views\\masterlayout.blade.php"
 			],
@@ -1225,10 +1237,6 @@
 				"resources\\views\\pages\\paella.blade.php"
 			],
 			[
-				"onlin",
-				"resources\\views\\pages\\online.blade.php"
-			],
-			[
 				"lar",
 				"storage\\logs\\laravel.log"
 			],
@@ -1239,10 +1247,6 @@
 			[
 				"userti",
 				"resources\\js\\booking\\Components\\UserTimeZone.js"
-			],
-			[
-				"inqur",
-				"resources\\js\\booking\\InquiryDetails.js"
 			],
 			[
 				"inqury",
@@ -1321,10 +1325,6 @@
 				"storage\\app\\static-sitemap.txt"
 			],
 			[
-				"faq",
-				"resources\\views\\pages\\faq.blade.php"
-			],
-			[
 				"pack",
 				"package.json"
 			],
@@ -1347,10 +1347,6 @@
 			[
 				"booking view",
 				"resources\\views\\booking\\index.blade.php"
-			],
-			[
-				"larav",
-				"storage\\logs\\laravel.log"
 			],
 			[
 				"customerde",
@@ -1615,30 +1611,6 @@
 			[
 				"sass util",
 				"react\\resources\\sass\\_utilities.scss"
-			],
-			[
-				"reac reso app.js",
-				"react\\resources\\js\\app.js"
-			],
-			[
-				"stor larav",
-				"react\\storage\\logs\\laravel.log"
-			],
-			[
-				"booking con reac",
-				"react\\app\\Http\\Controllers\\BookingControllerReact.php"
-			],
-			[
-				"calendarevent onlin",
-				"react\\app\\Http\\Controllers\\CalendareventControllerOnline.php"
-			],
-			[
-				"calendareventre",
-				"react\\app\\Http\\Controllers\\CalendareventControllerReact.php"
-			],
-			[
-				"sourcec",
-				"react\\app\\Http\\Controllers\\SourceController.php"
 			]
 		],
 		"width": 0.0
