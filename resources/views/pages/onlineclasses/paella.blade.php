@@ -44,7 +44,7 @@
 		<p>There are different types of paella, depending on the ingredients that come along with the rice. In this class, we will prepare Paella Mixta, so called  because it combines meat and seafood, and is by far the most cooked across Spain.</p>
 
 		<h3>Catalan Cream</h3>
-		<p>Despite its appearance, there are few similarities to French crème brûlée. Our <strong>Crema Catalana</strong> seems to have its roots in medieval cookbooks, since then little has changed. Lemon and cinnamon to flavor the milk, starch and spoon to thicken. One hint: crema means "burns!" in Catalan, the language spoken in Catalonia, the region from which it is originally.</p>
+		<p>Despite its appearance, there are few similarities to French crème brûlée. Our <strong>Crema Catalana</strong> seems to have its roots in medieval times, since then little has changed. Lemon and cinnamon to flavor the milk, starch and whisk to thicken. One hint: crema means "too hot!" in Catalan, the language spoken in Catalonia, the region from which it is originally.</p>
 
 		<p></p>
 
@@ -59,24 +59,24 @@
 
 
 		<h3>How it works</h3>
-		<p>After signing up for a class, you'll receive an email with:</p>
-		<ul>
-			<li>Booking voucher, confirming date and time of the class (in your local time).</li>
-			<li><strong>Class Handbook</strong>, a brief pdf document with:</li>
-				<ul>
+		<p>When you sign up, you receive a booking confirmation email with:</p>
+		<ul style="padding-left: 1rem;">
+			<li>Confirmed date and time of the class (in your local time).</li>
+			<li><strong>Class Handbook</strong>, a file including:</li>
+			<ul style="padding-left: 1rem;">
 					<li>Recipes.</li>
 					<li>Grocery list, with alternative ingredients in case you can't find them or you have dietary requirements.</li>
 					<li>Kitchenware checklist, to make sure you have everything at hand during the class.</li>
 					<li>Technical guide to get things ready before the class (Zoom instructions, kitchen set-up...).</li>
 				</ul>
 		</ul>
-		<p>Two days before the class, you will receive a <strong>Zoom link</strong> to connect to the videocall.</p>
+		<p>Two days before the class, you receive a <strong>Zoom link</strong> to connect to the videocall.</p>
 
 		<h3>Ingredients</h3>
-		<p>Below is the list of ingredients needed for this class, you will find a more detailed one in the Class Handbook, with required measures and alternatives in case of dietary requirements. All of them should be available at your local supermarket. Obviously, there are different grades, varieties, origins, and brands. We suggest some varieties or brands,  but it's your decision to choose the ones that best suit your budget.</p>
+		<p>Below is the list of ingredients needed for this class, you will find a more detailed one in the Class Handbook, with the necessary measures and alternatives in case of dietary requirements. All of them should be available at your local supermarket. Obviously, there are different grades, varieties, origins, and brands. We suggest some varieties and brands,  but it's your decision to choose the ones that best suit your budget.</p>
 
 		<div class="row justify-content-center">
-			<div class="col-sm-4">
+			<div class="col-6 col-sm-4">
 				<ul>
 					<li>Rice</li>
 					<li>Chicken</li>
@@ -89,8 +89,8 @@
 					<li>Cinnamon</li>
 				</ul>
 			</div>
-			<div class="col-sm-4">
-				<ul>
+			<div class="col-6 col-sm-4">
+				<ul style="padding-left: 1rem;">
 					<li>Tomato</li>
 					<li>Bell pepper</li>
 					<li>Lemon</li>
@@ -106,7 +106,7 @@
 
 		<h3>Kitchenware</h3>
 
-		<p>To obtain a good paella, pan size is key as the rice should be as shallow as possible. If you are cooking for 2 servings, you will need a 10-12" pan, and 12-14" for 4 servings. For a nice Catalan cream presentation, it would be interesting to have a blowtorch, but there are alternatives to it. All the rest of kitchenware is the usual one. You will find a detailed list of recomended and suggested pans and utensils in your Class Handbook.</p>
+		<p>To obtain a good paella, pan size is key as the rice should be as shallow as possible. If you are cooking for 2 servings, you will need a 10-12" skillet (or paella pan), and 12-14" for 4 servings. For a nice Catalan cream presentation, it would be interesting to have a blowtorch, but there are alternatives to it. All the rest of kitchenware is the usual one. You will find a detailed list of necessary and suggested pans and utensils in your Class Handbook.</p>
 
 		<h3>Questions?</h3>
 

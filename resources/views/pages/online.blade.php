@@ -54,7 +54,7 @@
 	<div class="col-12">
 		<h3>Description</h3>
 		<p>Enjoy from your kitchen a fun cooking class live from our top-rated school in Madrid. Follow our local chef directions in English to prepare an authentic Spanish dinner. This is an <strong>interactive step-by-step class</strong> where you are invited to replicate chef's tasks while he monitors your work so that no one is left behind.</p>
-		<p>As you cook <strong>renowned Spanish recipes</strong>, the chef will tell you stories about those dishes and why food plays a key role in Spanish life. Questions are always welcome, whatever the subject, as the goal is to have fun while immersing yourself in Spanish culture.</p>
+		<p>While you cook <strong>renowned Spanish recipes</strong>, the chef will tell you stories about those dishes and why food plays a key role in Spanish life. Questions are always welcome, whatever the subject, as the goal is to have fun while immersing yourself in Spanish culture.</p>
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
@@ -83,8 +83,6 @@
 						<p><strong>Catalan Cream</strong></p>
 						<p><small>The ubiquituous custard with a Mediterranean touch. A must in Barcelona.</small></p>
 						<br/>
-<!-- 						<div class="btn btn-primary"><a href="/online-virtual-cooking-classes/paella">More Info</a></div>
- -->
  					</div>
 				</div>
 			</div>
@@ -99,8 +97,7 @@
 						<p><strong>Stuffed Piquillo Peppers</strong></p>
 						<p><small>Discover these peppers from Navarra (Northern Spain), in this recipe stuffed with meat.</small></p>
 						<br/>
-<!-- 						<div class="btn btn-primary"><a href="/online-virtual-cooking-classes/spanish-classic-recipes">More Info</a></div>
- -->					</div>
+					</div>
 				</div>
 			</div>
 
@@ -111,18 +108,18 @@
 		<h3>How it works</h3>
 		<p>We use <strong>Zoom app</strong> to stream the classes, so you'll need an account on this App (it's free).</p>
 		<p>We have selected recipes that don't require rare ingredients, special set-up, or above-average culinary skills. Easy to find, easy to make, ready to eat.</p>
-		<p>After signing up for a class, you'll receive an email with:</p>
-		<ul>
-			<li>Booking voucher, confirming date and time of the class (in your local time).</li>
-			<li><strong>Class Handbook</strong>, a brief pdf document with:</li>
-				<ul>
+		<p>When you sign up, you receive a booking confirmation email with:</p>
+		<ul style="padding-left: 1rem;">
+			<li>Confirmed date and time of the class (in your local time).</li>
+			<li><strong>Class Handbook</strong>, a file including:</li>
+			<ul style="padding-left: 1rem;">
 					<li>Recipes.</li>
 					<li>Grocery list, with alternative ingredients in case you can't find them or you have dietary requirements.</li>
 					<li>Kitchenware checklist, to make sure you have everything at hand during the class.</li>
 					<li>Technical guide to get things ready before the class (Zoom instructions, kitchen set-up...).</li>
 				</ul>
 		</ul>
-		<p>Two days before the class, you will receive a <strong>Zoom link</strong> to connect to the videocall.</p>
+		<p>Two days before the class, you receive a <strong>Zoom link</strong> to connect to the videocall.</p>
 
 		<p>The dishes are meant to be eaten after class, but we'll show you ways to store and reheat them later. Recipes are designed for 2 servings, but can be doubled easily. Ask about cuantities if you are cooking for more. </p>
 
@@ -145,7 +142,7 @@
 		<p>Surprise your family and friends organizing a <strong>cooking party</strong> and give family video calling a boost. Kids will love it too, as there are always tasks for them in class.</p>
 		<p>How about an <strong>online team building</strong> event? where coworkers show off their culinary skills while having a break from working from home.</p>
 		<p>Or what about a distinct <strong>extracurricular activity</strong> to improve high school or college remote learning resources?</p>
-		<p>Live online classes open a new world of opportunities, don't hesitate to share your ideas and we'll do our best to make them come true. Do not hesitate to contact us filling the form below.</p>
+		<p>Live online classes open a new world of opportunities, don't hesitate to share your ideas and we'll do our best to make them come true. Please, use the fill-in form below.</p>
 
 
 
@@ -157,7 +154,7 @@
 					<tbody>
 						<tr>
 							<td class="font-weight-bold">
-								Name :
+								Name
 							</td>
 						</tr>
 						<tr>
@@ -168,7 +165,7 @@
 						</tr>
 						<tr>
 							<td class="font-weight-bold">
-								E-mail <span class="text-danger">*</span> :
+								E-mail <span class="text-danger">*</span>
 							</td>
 						</tr>
 						<tr>
@@ -179,7 +176,7 @@
 						</tr>
 						<tr>
 							<td class="font-weight-bold">
-								Message:
+								Message
 							</td>
 						</tr>
 						<tr>

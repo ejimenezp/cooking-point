@@ -19,9 +19,9 @@
 		
 		<h3>Andalusian-style Eggplant with Salmorejo</h3>
 
-		<p>From Cordoba (Andalusia, Souther Spain) the Eggplant with Salmorejo, is an example of how olive oil plays a key role in Spanish culture, and particularly in Andalusia, where most of the olive tree fields are located. In Spanish we say <strong>Berenjenas a la andaluza con salmorejo</strong>, as the words <i>a la andaluza</i> refer to a cooking method of flouring and deep-frying. The recipe, yet simple, unveils tricks about getting the most of this method, common in Spanish tapas making.</p>
+		<p>From Cordoba (Andalusia, Souther Spain) the Eggplant with Salmorejo, is an example of how olive oil plays a key role in Spanish culture, and particularly in Andalusia, where most of the olive tree fields are located. In Spanish we say <strong>Berenjenas a la andaluza con salmorejo</strong>, as the words <i>a la andaluza</i> refer to the cooking method of flouring and deep-frying. The recipe, yet simple, unveils tricks about getting the most of this method, common in Spanish tapas making.</p>
 
-		<p><strong>Salmorejo</strong> is itself a dish on its own, but in this case we will use it as a dipping sauce. Again, 4 basic ingredients: tomato, bread, oil and garlic result in one of the most attractive purees that you will find in Mediterranean gastronomy. Sometimes confused with Gazpacho, the other more famous cold tomato soup, the samorejo consistency and flavor differ from gazpacho even using the same base ingredients.</p>
+		<p><strong>Salmorejo</strong> is itself a dish on its own, but in this case we will use it as a dipping sauce. Again, 4 basic ingredients: tomato, bread, oil and garlic result in one of the most attractive purees that you will find in Mediterranean gastronomy. Sometimes confused with Gazpacho, the other, more famous, cold tomato soup, the samorejo consistency and flavor differ from gazpacho even using the same base ingredients.</p>
 
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-7">
@@ -34,7 +34,7 @@
 
 		<h3>Stuffed Piquillo Peppers</h3>
 
-		<p>Piquillo pepper is a type of red sweet bell pepper grown in Northern Spain. Their triangular shape and smoky flavor are their distinguishing features. The delicate, sweet flavor is achieved after being roasted with wood and peeled by hand one by one.</p>
+		<p>Piquillo pepper is a type of red sweet bell pepper grown in Northern Spain. Its triangular shape and smoky flavor are their distinguishing features. The delicate, sweet flavor is achieved after being wood roasted and hand peeled one by one.</p>
 
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-7">
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 
-		<p>Stuffed piquillo peppers are a ubiquotous pintxo (individal tapa) in all bars in Northern Spain (Basque Country, Rioja, Navarra,...), as stuffing possibilities are endless. The recipe presented here is one of the most usual, stuffed with meat and accompanied with a sauce from their own flesh.</p>
+		<p>Stuffed piquillo peppers are a ubiquotous <i>pintxo</i> (individal tapa) in all bars in Northern Spain (Basque Country, Rioja, Navarra,...), as stuffing possibilities are endless. The recipe presented here is one of the most usual, stuffed with meat and accompanied with a sauce from their own flesh.</p>
 
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-7">
@@ -59,25 +59,25 @@
 
 		<h3>How it works</h3>
 
-		<p>After signing up for a class, you'll receive an email with:</p>
-		<ul>
-			<li>Booking voucher, confirming date and time of the class (in your local time).</li>
-			<li><strong>Class Handbook</strong>, a brief pdf document with:</li>
-				<ul>
+		<p>When you sign up, you receive a booking confirmation email with:</p>
+		<ul style="padding-left: 1rem;">
+			<li>Confirmed date and time of the class (in your local time).</li>
+			<li><strong>Class Handbook</strong>, a file including:</li>
+			<ul style="padding-left: 1rem;">
 					<li>Recipes.</li>
 					<li>Grocery list, with alternative ingredients in case you can't find them or you have dietary requirements.</li>
 					<li>Kitchenware checklist, to make sure you have everything at hand during the class.</li>
 					<li>Technical guide to get things ready before the class (Zoom instructions, kitchen set-up...).</li>
 				</ul>
 		</ul>
-		<p>Two days before the class, you will receive a <strong>Zoom link</strong> to connect to the videocall.</p>
+		<p>Two days before the class, you receive a <strong>Zoom link</strong> to connect to the videocall.</p>
 
 		<h3>Ingredients</h3>
 
-		<p>Below is the list of ingredients needed for this class, you will find a more detailed one in the Class Handbook, with required measures and alternatives in case of dietary requirements. All of them should be available at your local supermarket. Obviously, there are different grades, varieties, origins, and brands. We suggest some varieties or brands,  but it's your decision to choose the ones that best suit your budget.</p>
+		<p>Below is the list of ingredients needed for this class, you will find a more detailed one in the Class Handbook, with the necessary measures and alternatives in case of dietary requirements. All of them should be available at your local supermarket. Obviously, there are different grades, varieties, origins, and brands. We suggest some varieties and brands,  but it's your decision to choose the ones that best suit your budget.</p>
 
 		<div class="row justify-content-center">
-			<div class="col-sm-4">
+			<div class="col-6 col-sm-4">
 				<ul>
 					<li>Eggplant</li>
 					<li>Tomato</li>
@@ -89,8 +89,8 @@
 					<li>Flour</li>
 				</ul>
 			</div>
-			<div class="col-sm-4">
-				<ul>
+			<div class="col-6 col-sm-4">
+				<ul style="padding-left: 1rem;">
 					<li>Ground meat</li>
 					<li>Piquillo peppers (canned)</li>
 					<li>Tomato sauce</li>
@@ -106,7 +106,7 @@
 
 		<h3>Kitchenware</h3>
 
-		<p>No special utensils or appliances are required for this menu: skillet, saucepan, measuring spoons, blender,... You will find a detailed list of recomended and suggested pans and utensils in your Class Handbook.</p>
+		<p>No special utensils or appliances are required for this menu: skillet, saucepan, measuring spoons, blender,... You will find a detailed list of necessary and suggested pans and utensils in your Class Handbook.</p>
 
 		<h3>Questions?</h3>
 
