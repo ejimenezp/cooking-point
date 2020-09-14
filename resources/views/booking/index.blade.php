@@ -44,7 +44,6 @@
 @if (App::environment() == 'production')
 	<script type="text/javascript">
 		if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object') {
-		  console.log('en produccion')
 		   __REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function() {}
 		}
 	</script>
