@@ -26,6 +26,9 @@ function BookingRoot (props) {
   data.price = parseFloat(data.price)
   if (data.onlineclass) {
     data.tz = (typeof data.tz === 'undefined') ? Intl.DateTimeFormat().resolvedOptions().timeZone : data.tz
+    if (data.type === 'PAELLA') {
+      data.type ='ONLINE-EVENING-PAELLA'
+    }
   } else {
     data.tz = 'Europe/Madrid'
   }
