@@ -52,6 +52,7 @@ Route::get('source/get', 'SourceController@get');
 Route::get('eventtype/get', 'EventtypeController@get');
 Route::get('eventtype/bookable_by_clients', 'EventtypeController@bookable_by_clients');
 Route::get('priceplan/get', 'PriceplanController@get');
+Route::get('priceplan/exchangeratesapiid', 'PriceplanController@exchangeratesapiid');
 
 Route::get('tienda/getTickets', 'TicketsController@getTickets');
 Route::post('tienda/addticket', 'TicketsController@addticket');

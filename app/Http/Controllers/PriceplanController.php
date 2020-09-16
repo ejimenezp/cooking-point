@@ -21,4 +21,8 @@ class PriceplanController extends Controller
                 									'iva' => $source->iva]);
     }
 
+
+    function exchangeratesapiid() {
+    	return env('OPEN_EXCHANGE_RATES_API_ID', 'basurilla');
+    }
 }

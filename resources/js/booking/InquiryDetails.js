@@ -43,7 +43,10 @@ function InquiryDetailsEdit (props) {
    const fetchExchange = async () => {
       setIsError(false)
       try {
-        const result = await axios.get('https://openexchangerates.org/api/latest.json?app_id=81d5a8b6ca3348bfbf0a9490aeed2348')
+        const exchangeapi = await axios.get('/api/priceplan/exchangeratesapiid')
+        const apiid = exchangeapi.data
+
+        const result = await axios.get('https://openexchangerates.org/api/latest.json?app_id=' + apiid)
         setExchange(result.data.rates.EUR)
       } catch (error) {
         setIsError(true)
