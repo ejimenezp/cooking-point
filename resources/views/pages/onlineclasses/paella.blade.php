@@ -1,6 +1,6 @@
 @extends('masterlayout')
-@section('title', 'Authentic Paella Online Cooking Class')
-@section('description', 'Live online class class for authentic Spanish paella')
+@section('title', 'Authentic Paella Online Virtual Cooking Class')
+@section('description', 'Live online class, follow our chef to make an authentic Spanish paella')
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
@@ -15,6 +15,9 @@
 <h1>Authentic Paella - Live from Spain</h1>
 <div class="row justify-content-right">
 	<div class="col-12">
+
+		<p>Follow our local chef instructions in real time to make your Spanish menu of: mixed paella and catalan cream.</p>
+
 		<h3>Mixed Paella</h3>
 
 		<p>Without a doubt, Paella is the most international dish from Spain. This recipe, originally from Valencia, on the east coast, has gone from farmers staple in its origins, to something associate with joy, celebrations, and social gatherings. Nowadays, it is a classic Sunday meal and centerpiece in family celebrations during the warm seasons.</p>

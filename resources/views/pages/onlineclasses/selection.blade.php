@@ -1,6 +1,6 @@
 @extends('masterlayout')
-@section('title', 'Selected Spanish Recipes - Live Online Class')
-@section('description', 'Live class about renowned Spanish recipes beyond so-called paella')
+@section('title', 'Selected Spanish Recipes Live Virtual  Class')
+@section('description', 'Make your dinner of famous Spanish recipes with our local chef instructions in real time')
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
@@ -16,22 +16,9 @@
 <div class="row justify-content-right">
 	<div class="col-12">
 		<p>Spanish gastronomy is as rich as its regions are varied. From north to south, from east to west, geographic, climatic and historical diversity has shaped the way Spaniards cook and enjoy food. In this class, we want to show you just a sample of the variety of our regional cuisine.</p>
+
+		<p>Follow our local chef instructions in real time to make your Spanish menu of two renowned recipes from North and South of Spain.</p>
 		
-		<h3>Andalusian-style Eggplant with Salmorejo</h3>
-
-		<p>From Cordoba (Andalusia, Souther Spain) the Eggplant with Salmorejo, is an example of how olive oil plays a key role in Spanish culture, and particularly in Andalusia, where most of the olive tree fields are located. In Spanish we say <strong>Berenjenas a la andaluza con salmorejo</strong>, as the words <i>a la andaluza</i> refer to the cooking method of flouring and deep-frying. The recipe, yet simple, unveils tricks about getting the most of this method, common in Spanish tapas making.</p>
-
-		<p><strong>Salmorejo</strong> is itself a dish on its own, but in this case we will use it as a dipping sauce. Again, 4 basic ingredients: tomato, bread, oil and garlic result in one of the most attractive purees that you will find in Mediterranean gastronomy. Sometimes confused with Gazpacho, the other, more famous, cold tomato soup, the samorejo consistency and flavor differ from gazpacho even using the same base ingredients.</p>
-
-		<div class="row justify-content-center">
-			<div class="col-lg-10 col-xl-7">
-				<figure class="text-center">
-					<img data-src="/images/online-selection-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="eggplants">
-					<figcaption class="figure-caption">Eggplant gets crispy with this light coating</figcaption>
-				</figure>
-			</div>
-		</div>
-
 		<h3>Stuffed Piquillo Peppers</h3>
 
 		<p>Piquillo pepper is a type of red sweet bell pepper grown in Northern Spain. Its triangular shape and smoky flavor are their distinguishing features. The delicate, sweet flavor is achieved after being wood roasted and hand peeled one by one.</p>
@@ -52,6 +39,21 @@
 				<figure class="text-center">
 					<img data-src="/images/online-selection-details-04.jpg" class="lazyload img-fluid mx-auto d-block" alt="piquillo">
 					<figcaption class="figure-caption">Roasting gives a special flavor to piquillo peppers</figcaption>
+				</figure>
+			</div>
+		</div>
+
+		<h3>Andalusian-style Eggplant with Salmorejo</h3>
+
+		<p>From Cordoba (Andalusia, Souther Spain) the Eggplant with Salmorejo, is an example of how olive oil plays a key role in Spanish culture, and particularly in Andalusia, where most of the olive tree fields are located. In Spanish we say <strong>Berenjenas a la andaluza con salmorejo</strong>, as the words <i>a la andaluza</i> refer to the cooking method of flouring and deep-frying. The recipe, yet simple, unveils tricks about getting the most of this method, common in Spanish tapas making.</p>
+
+		<p><strong>Salmorejo</strong> is itself a dish on its own, but in this case we will use it as a dipping sauce. Again, 4 basic ingredients: tomato, bread, oil and garlic result in one of the most attractive purees that you will find in Mediterranean gastronomy. Sometimes confused with Gazpacho, the other, more famous, cold tomato soup, the samorejo consistency and flavor differ from gazpacho even using the same base ingredients.</p>
+
+		<div class="row justify-content-center">
+			<div class="col-lg-10 col-xl-7">
+				<figure class="text-center">
+					<img data-src="/images/online-selection-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="eggplants">
+					<figcaption class="figure-caption">Eggplant gets crispy with this light coating</figcaption>
 				</figure>
 			</div>
 		</div>

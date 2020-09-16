@@ -1,6 +1,6 @@
 @extends('masterlayout')
-@section('title', 'Online Cooking Classes')
-@section('description', 'Join our online classes, live from Madrid and interact with our chef to make your Spanish tapas dinner without leaving your kitchen')
+@section('title', 'Online Virtual Cooking Classes')
+@section('description', 'Join our online classes, live from Madrid and interact with our chef to make your Spanish dinner without leaving your kitchen')
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
@@ -80,10 +80,10 @@
           <img class="img-fluid lazyload" title="classic recipes" alt="online classes" data-src="/images/online-menu-01.jpg" />    
 					<div class="justify-content-center text-center">
 						<h2>Selected Spanish Recipes</h2>
-						<p><strong>Andalusian-style Eggplant with Salmorejo</strong></p>
-						<p><small>Renowned tapa from Andalusia, served with Salmorejo, another staple in Sothern Spain.</small></p>
 						<p><strong>Stuffed Piquillo Peppers</strong></p>
 						<p><small>Discover these peppers from Navarra (Northern Spain), in this recipe stuffed with meat.</small></p>
+						<p><strong>Andalusian-style Eggplant with Salmorejo</strong></p>
+						<p><small>Renowned tapa from Andalusia, served with Salmorejo, another staple in Sothern Spain.</small></p>
 						<br/>
 					</div>
 				</div>
