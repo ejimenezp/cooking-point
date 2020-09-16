@@ -96,7 +96,7 @@
                      <tr>
                         <td>Monday - Saturday</td>
                         <td>3 times a day</td>
-                        <td>€40 (adult)</td>
+                        <td>€33 (adult)</td>
                   </tr>
                 </table> 
             </div>            
