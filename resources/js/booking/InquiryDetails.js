@@ -31,10 +31,26 @@ function InquiryDetailsEdit (props) {
   const [showModal, setShowModal] = useState(false)
   const [isError, setIsError] = useState(false)
   const [rate, setRate] = useState ({adult: 0, child:0, iva: 1})
+  const [exchange, setExchange] = useState(0)
 
 
   const bkg = props.bkg
   bkg.date = (typeof bkg.calendarevent !== 'undefined') ? bkg.calendarevent.startdateatom : bkg.date
+
+
+  useEffect( () => {
+
+   const fetchExchange = async () => {
+      setIsError(false)
+      try {
+        const result = await axios.get('https://openexchangerates.org/api/latest.json?app_id=81d5a8b6ca3348bfbf0a9490aeed2348')
+        setExchange(result.data.rates.EUR)
+      } catch (error) {
+        setIsError(true)
+      }
+    }
+    fetchExchange()
+  }, [bkg.locator])
 
   const optionsDisplayDate = {
       weekday: 'long',
@@ -48,6 +64,15 @@ function InquiryDetailsEdit (props) {
       timeZoneName: 'long',
       timeZone: bkg.tz        
   }
+
+
+  function showExchange() {
+      const modal = {}
+      modal.header = '<h4>Estimated price $ '+ (parseFloat(bkg.price)*1.02/exchange).toFixed(2) + '</h4>'
+      modal.body = 'Our rates are in Euros, but some cards allow to pay in US Dollars. This amount is estimated based on today\'s exchange rate plus a 2% currency conversion fee'
+      setModalContent(modal)
+      setShowModal(true)
+    }
 
   function updatePrice ( r = null) {
     if (r) {
@@ -197,7 +222,8 @@ function InquiryDetailsEdit (props) {
           </tr>
           <tr>
             <td className='font-weight-bold'>Price :</td>
-            <td>{(bkg.hide_price || !bkg.price) ? '--' : '€ '+ bkg.price}</td>
+              { (bkg.onlineclass == 0 || bkg.onlineclass > 0 && bkg.status !== 'PENDING') && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : bkg.price}</td>}
+              { bkg.onlineclass > 0 && bkg.status === 'PENDING' && <td>€ {(bkg.hide_price || !bkg.price) ? '--' :  <Fragment>{bkg.price} ($ {(parseFloat(bkg.price)*1.02/exchange).toFixed(2)} approx. <span className="small badge btn-primary"><a onClick={showExchange}>Why?</a></span>)</Fragment>}</td>}
           </tr>
           <tr style={{ height: '2rem' }} />
         </tbody>

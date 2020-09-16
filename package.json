@@ -48,6 +48,7 @@
         "classnames": "^2.2.6",
         "core-js": "^3.6.5",
         "date-fns-tz": "^1.0.10",
+        "http-agent": "^0.1.2",
         "jquery-ui": "^1.12.1",
         "js-cookie": "^2.2.1",
         "lazysizes": "^5.2.0",
