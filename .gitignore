@@ -20,3 +20,4 @@ public/images/facebook-icon-orange.png
 public/sandbox
 
 .env
+*.sublime-workspace
