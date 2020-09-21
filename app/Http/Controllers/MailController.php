@@ -149,7 +149,13 @@ class MailController {
 		$bits = explode(':', $bkg->calendarevent->duration);
 		$duration = CarbonInterval::hours($bits[0])->minutes($bits[1]);
 		$end_time = (new Carbon($TzedActivityDate))->add($duration);
-		$gmt = ($bkg->onlineclass) ? Timezone::where('timezone', $bkg->tz)->pluck('gmt')[0] : '';
+		$a = Timezone::where('timezone', $bkg->tz)->first();
+		if ($a) {
+			$tzName = $a->gmt;
+		}else {
+			$tzName = '(' . $bkg->tz . ' time)';
+		}
+		$gmt = ($bkg->onlineclass) ? $tzName : '';
 		$TzedTime = $TzedActivityDate->format('g:i A') . ' - ' . $end_time->format('g:i A') . ' ' . $gmt;
 
 		$arr = explode(' ',trim($bkg->name));
