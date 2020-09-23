@@ -209,6 +209,7 @@ class MailController {
 		$html = str_replace('CP_FOODREQUIREMENTS', nl2br(stripslashes($bkg->food_requirements)), $html);
 		$html = str_replace('CP_COMMENTS', nl2br(stripslashes($bkg->comments)), $html);
 		$html = str_replace('APP_URL', config('app.url'), $html);
+		$html = str_replace('CP_INVITATION', $bkg->calendarevent->invitation_link, $html);
 
 		if ($message && $bkg->calendarevent->typerelat->attachments) {
 			$attachments = explode(',', $bkg->calendarevent->typerelat->attachments);
