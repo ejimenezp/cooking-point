@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"s",
+				"stripePK"
+			],
+			[
+				"set",
+				"setStripePK"
+			],
+			[
+				"strip",
+				"stripePK"
+			],
+			[
+				"pa",
+				"paymentIntent"
+			],
+			[
+				"py",
+				"payment_intent"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"tz",
+				"tzName"
+			],
+			[
+				"Ce",
+				"CheckoutForm"
+			],
+			[
 				"e",
 				"exchangeapi"
 			],
@@ -48,20 +80,12 @@
 				"displaySelect"
 			],
 			[
-				"set",
-				"setDefaultValue"
-			],
-			[
 				"option",
 				"optionsDisplayDate"
 			],
 			[
 				"zo",
 				"zonedTimeToUtc"
-			],
-			[
-				"tz",
-				"tztext"
 			],
 			[
 				"East",
@@ -490,66 +514,48 @@
 			[
 				"bac",
 				"background-image"
-			],
-			[
-				"fon",
-				"font-size\tproperty"
-			],
-			[
-				"max",
-				"max-width\tproperty"
-			],
-			[
-				"T",
-				"TBODY\tTag"
-			],
-			[
-				"start_",
-				"start_moment"
-			],
-			[
-				"end_date",
-				"end_date_shown"
-			],
-			[
-				"end",
-				"end_date_shown"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "resources/views/pages/online.blade.php",
+			"contents": "import React, { useState, useEffect, Fragment } from 'react'\nimport PropTypes from 'prop-types'\nimport { navigate } from '@reach/router'\nimport {loadStripe} from '@stripe/stripe-js'\nimport {\n  CardElement,\n  Elements,\n  useElements,\n  useStripe\n} from '@stripe/react-stripe-js'\n\nimport { InquiryDetails } from './InquiryDetails'\nimport { CheckoutForm } from './CheckoutForm'\n\nconst axios = require('axios').default\n\nconst promise = loadStripe('pk_test_51HSNYYGPcoNB95fmc6ap1NDzqtewoC2qzhs21qhxpUBtEeoonxZmlr0z7smKqyFjlNuvA7HbsypMNF2UYNISnEGz00N4m36Vp8')\n\nexport default PurchasePage\n\nPurchasePage.propTypes = {\n  liftUp: PropTypes.func,\n  bkg: PropTypes.object\n}\n\nfunction PurchasePage (props) {\n  const localbkg = props.bkg\n  const [isError, setIsError] = useState(false)\n\n  useEffect(() => {\n\n      (async () => {\n        let title = localbkg.calendarevent.short_description + ' on ' + localbkg.date + ' for ' + localbkg.adult\n        title += localbkg.adult > 1 ? ' adults' : ' adult'\n        switch (localbkg.child) {\n          case 0:\n            break\n          case 1:\n            title += ' + 1 child'\n            break\n          default:\n            title += ' + ' + localbkg.child + ' children'\n        }\n        title +=  ' for ' + localbkg.name\n        document.title = title\n\n\n        // Create PaymentIntent as soon as the page loads\n        setIsError(false)\n        try {\n          const result = await axios.post('/api/stripe/updatePaymentIntent', localbkg)\n          result.data.store = false\n          props.liftUp(result.data)\n        } catch (error) {\n          setIsError(true)\n        }\n\n      })()\n\n  }, [])\n\n\n  return (\n    <Fragment>\n\n      <div className='row justify-content-center'>\n        <div className='col-12'>\n          <h1>Purchase</h1>\n          <p>You are about to purchase the following class:</p>\n        </div>\n      </div>\n\n      <InquiryDetails bkg={localbkg} />\n\n      <Elements stripe={promise}>\n        <CheckoutForm liftUp={props.liftUp} bkg={localbkg} />\n      </Elements>\n\n    </Fragment>\n\n  )\n}\n",
+			"file": "resources/js/booking/PurchasePage.js",
+			"file_size": 2127,
+			"file_write_time": 132452772050092988,
 			"settings":
 			{
-				"buffer_size": 10839,
+				"buffer_size": 2045,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "resources/views/pages/home.blade.php",
+			"contents": "import React, { useState, useEffect } from 'react';\nimport { navigate } from '@reach/router'\nimport { format } from 'date-fns'\nimport {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';\n\nimport { NavButtons } from './Components/NavButtons'\n\nexport { CheckoutForm }\n\nfunction CheckoutForm(props) {\n  const [succeeded, setSucceeded] = useState(false);\n  const [error, setError] = useState(null);\n  const [processing, setProcessing] = useState('');\n  const [disabled, setDisabled] = useState(true);\n  const stripe = useStripe();\n  const elements = useElements();\n\n  const localbkg = props.bkg\n\n  const cardStyle = {\n    style: {\n      base: {\n        color: \"#32325d\",\n        fontFamily: 'Arial, sans-serif',\n        fontSmoothing: \"antialiased\",\n        fontSize: \"16px\",\n        \"::placeholder\": {\n          color: \"#32325d\"\n        }\n      },\n      invalid: {\n        color: \"#fa755a\",\n        iconColor: \"#fa755a\"\n      }\n    }\n  };\n\n\n  function handleButtonCancel () {\n    navigate('/booking/' + localbkg.locator)\n  }\n\n  const handleChange = async (event) => {\n    // Listen for changes in the CardElement\n    // and display any errors as the customer types their card details\n    setDisabled(event.empty);\n    setError(event.error ? event.error.message : \"\");\n  };\n\n\n  const handleSubmit = async ev => {\n    ev.preventDefault();\n    setProcessing(true);\n    const payload = await stripe.confirmCardPayment(props.bkg.hash, {\n      payment_method: {\n        card: elements.getElement(CardElement)\n      }\n    });\n    if (payload.error) {\n      setError(`Payment failed ${payload.error.message}`);\n      setProcessing(false);\n    } else {\n      console.log(payload)\n      setError(null);\n      setProcessing(false);\n      setSucceeded(true);\n      localbkg.status = 'PAID'\n      localbkg.status_filter = 'REGISTERED'\n      localbkg.payment_method = 'ONLINE'\n      localbkg.tpv_result = 'OK'\n      localbkg.store = false\n      const timestamp = new Date(payload.paymentIntent.created*1000)\n      console.log(timestamp)\n      props.liftUp(localbkg)\n      navigate('/booking/' + localbkg.locator)\n    }\n  };\n\n  return (\n    <div>\n      <div className='row justify-content-center'>\n        <div className='col-12 col-md-6'>\n\n          <form id=\"payment-form\" onSubmit={handleSubmit}>\n            <CardElement id=\"card-element\" options={cardStyle} onChange={handleChange} />\n            <button className='btn btn-primary'\n              disabled={processing || disabled || succeeded}\n              id=\"submit\"\n            >\n              <span id=\"button-text\">\n                {processing ? (\n                  <div className=\"spinner\" id=\"spinner\"></div>\n                ) : (\n                  \"Pay\"\n                )}\n              </span>\n\n            </button>\n            {/* Show any error that happens when processing the payment */}\n            {error && (\n              <div className=\"card-error\" role=\"alert\">\n                {error}\n              </div>\n            )}\n            {/* Show a success message upon completion */}\n            <p className={succeeded ? \"d-block\" : \"d-none\"}>\n              Payment succeeded, see the result in your dashboard\n            </p>\n          </form>\n          <NavButtons>\n            <div className='btn btn-secondary' onClick={handleButtonCancel}>Back</div>{' '}\n          </NavButtons>\n        </div>\n      </div>\n    </div>\n  );\n}\n",
+			"file": "resources/js/booking/CheckoutForm.js",
+			"file_size": 3520,
+			"file_write_time": 132452773557681458,
 			"settings":
 			{
-				"buffer_size": 13180,
+				"buffer_size": 3403,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "resources/views/booking/index.blade.php",
+			"file": "app/Http/Controllers/StripeController.php",
 			"settings":
 			{
-				"buffer_size": 1243,
+				"buffer_size": 264,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "resources/views/masterlayout.blade.php",
+			"file": "resources/js/booking/InquiryDetails.js",
 			"settings":
 			{
-				"buffer_size": 6865,
+				"buffer_size": 10325,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -684,42 +690,57 @@
 	"expanded_folders":
 	[
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/config",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/attachments"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs"
 	],
 	"file_history":
 	[
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/online.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/InquiryDetails.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/api.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/PriceplanController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.env",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/masterlayout.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CancelBookingPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/api.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/bookings.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/.env",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/bookings.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/MailController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/PurchasePage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/StripeController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVController.php",
+		"/C/Users/Eduardo/Desktop/laravel.log",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CheckoutForm.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/InquiryDetails.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/PriceplanController.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Priceplan.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/booking.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_elements.scss",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/CardSection.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/ClassTypeDropdown.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/booking.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/BookingDetailsPage.js",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVStub.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/RedsysAPI.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/online.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/onlineclasses/selection.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/onlineclasses/paella.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/routes/web.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/UserTimeZone.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/AvailabilityPage.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/masterlayout.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/booking/index.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/ClassTypeDropdown.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/webpack.mix.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BookingController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/MailController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/home.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/faq.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/VoucherPrintOut.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/BookingDetailsPage.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/node_modules/webpack-dev-server/lib/utils/routes.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/bd550db98d37b9b35406cdcb8c69338f0fe06695.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/framework/views/9888ef3611e57eecb74fb75fd7b0b794c76ffecf.php",
@@ -753,28 +774,21 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher/from.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_voucher_onlineclass/from.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Calendarevent.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/logs/laravel.log",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/online/selection.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/static-sitemap.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/BlogtoolController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/Components/BkgStatus.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/CalendareventController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_new_booking/body.html",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_new_booking/body.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/SourceController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/EventtypeController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/bookings.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/bookings.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/ContactControllerApi.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_utilities.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/eventbatch.txt",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Console/Commands/EventLoader.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/eventbatch.prn",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/paella.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_elements.scss",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/booking/CancelBookingPage.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVControllerStub.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/TPVController.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv/pay-stub.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/tpv/pay.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_cancellation/body.html",
@@ -783,7 +797,6 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Timezone.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/emailing/online_v01.html",
 		"/C/Users/Eduardo/Desktop/timezones.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/booking.js",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/_variables.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/actividadesempresas.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/contactonlineclasses.js",
@@ -802,7 +815,6 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/events.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/blog/posttemplate.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/blogsandbox.blade.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/RedsysAPI.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/config/cookingpoint.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/pages/gallery.blade.php",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/adminmasterlayout.blade.php",
@@ -818,19 +830,11 @@
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/admin/admin.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/sass/admin/_adminutilities.scss",
 		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Console/Commands/CookingPointCron.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/cashbox.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/public/js/cashbox.js",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/app/Http/Controllers/ViatorController.php",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_3rdpartypayment/body.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/body.html",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/body.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/admin_cancel_request/subject.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/storage/app/templates/user_cancellation/subject.txt",
-		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/views/admin/index.blade.php"
+		"/C/Users/Eduardo/Desarrollo/home/Eduardo/laravel/cooking-point/resources/js/admin/cashbox.js"
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
@@ -851,6 +855,32 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"setIsError",
+			"stripePK",
+			"date",
+			"showModalTPVOK",
+			"location",
+			"setst",
+			"clientSecret",
+			"cancel",
+			"'type'",
+			"404",
+			"attach",
+			"mimetype_set",
+			"CP_ATTA",
+			"message",
+			"currency",
+			"priceplan",
+			"price",
+			"clientse",
+			"setClientSecret",
+			"clientSecret",
+			"succeeded",
+			"setSucceeded",
+			"event.error ? event.error.message : \"\"",
+			"setis",
+			"tpv",
+			"json",
 			"axios",
 			"online",
 			"bkg.status === 'PENDING",
@@ -952,33 +982,7 @@
 			"onclick",
 			".fake-input",
 			"className",
-			"defaultValue",
-			"selectTzOptions",
-			"usertimezone",
-			"wantChange",
-			"price",
-			"browserTimeZone",
-			"\t\t",
-			"\"><span class=\"real-label-span\">.*</li>",
-			"\"><span class=\"real-label-span\">*</li>",
-			"\" tabindex=\"0\" class=\"zm-select-dropdown__item\" option-id=\"",
-			"<li id=\"select-item-timezone-list-...\" role=\"option\" aria-label=\"",
-			"<li id=\"select-item-timezone-list-.\" role=\"option\" aria-label=\"",
-			"<li id=\"select-item-timezone-list-..\" role=\"option\" aria-label=\"",
-			"<li id=\"select-item-timezone-list-.\" role=\"option\" aria-label=\"",
-			"<li id=\"select-item-timezone-list-.\" role=\"option\" aria-label=",
-			"tz",
-			"showModal",
-			"isOnline",
-			"bkg.online",
-			"onlineclass",
-			"/bookable_",
-			"online",
-			".online",
-			"/add",
-			"/getavaila",
-			"onlineclass",
-			"type"
+			"defaultValue"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1031,112 +1035,84 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/pages/online.blade.php",
+					"file": "resources/js/booking/PurchasePage.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10839,
+						"buffer_size": 2045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1583,
+								1593
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 456.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "resources/views/pages/home.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13180,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4195,
-								4195
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1577.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/booking/index.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1243,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 357.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "resources/views/masterlayout.blade.php",
+					"buffer": 1,
+					"file": "resources/js/booking/CheckoutForm.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6865,
+						"buffer_size": 3403,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								697,
-								697
+								990,
+								990
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Controllers/StripeController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 264,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								264,
+								264
 							]
 						],
 						"settings":
@@ -1146,10 +1122,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 855.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/js/booking/InquiryDetails.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10325,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6667,
+								6671
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3709.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1212,8 +1218,104 @@
 		"selected_items":
 		[
 			[
+				"inquiry",
+				"resources\\js\\booking\\InquiryDetails.js"
+			],
+			[
+				"booking",
+				"resources\\js\\booking\\booking.js"
+			],
+			[
+				"cancel",
+				"resources\\js\\booking\\CancelBookingPage.js"
+			],
+			[
+				"bookings",
+				"resources\\js\\admin\\bookings.js"
+			],
+			[
+				"bookings blade",
+				"resources\\views\\admin\\bookings.blade.php"
+			],
+			[
 				"master",
 				"resources\\views\\masterlayout.blade.php"
+			],
+			[
+				"api.",
+				"routes\\api.php"
+			],
+			[
+				"bookingcon",
+				"app\\Http\\Controllers\\BookingController.php"
+			],
+			[
+				"stripe",
+				"app\\Http\\Controllers\\StripeController.php"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"purchasepa",
+				"resources\\js\\booking\\PurchasePage.js"
+			],
+			[
+				"booking.j",
+				"resources\\js\\booking\\booking.js"
+			],
+			[
+				"booking index",
+				"resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"mailco",
+				"app\\Http\\Controllers\\MailController.php"
+			],
+			[
+				"stripecon",
+				"app\\Http\\Controllers\\StripeController.php"
+			],
+			[
+				"purchas",
+				"resources\\js\\booking\\PurchasePage.js"
+			],
+			[
+				"larav",
+				"storage\\logs\\laravel.log"
+			],
+			[
+				"mail",
+				"app\\Http\\Controllers\\MailController.php"
+			],
+			[
+				"booking.js",
+				"resources\\js\\booking\\booking.js"
+			],
+			[
+				"booking inde",
+				"resources\\views\\booking\\index.blade.php"
+			],
+			[
+				"api",
+				"routes\\api.php"
+			],
+			[
+				"inqui",
+				"resources\\js\\booking\\InquiryDetails.js"
+			],
+			[
+				"classty",
+				"resources\\js\\booking\\Components\\ClassTypeDropdown.js"
+			],
+			[
+				"booking.c",
+				"resources\\sass\\booking.scss"
+			],
+			[
+				"book",
+				"public\\js\\booking.js"
 			],
 			[
 				"index.bla",
@@ -1232,20 +1334,12 @@
 				"app\\Http\\Controllers\\PriceplanController.php"
 			],
 			[
-				"api",
-				"routes\\api.php"
-			],
-			[
 				"web",
 				"routes\\web.php"
 			],
 			[
 				"inqu",
 				"resources\\js\\booking\\InquiryDetails.js"
-			],
-			[
-				"booking",
-				"resources\\js\\booking\\booking.js"
 			],
 			[
 				"online selec",
@@ -1276,20 +1370,12 @@
 				"resources\\views\\pages\\online.blade.php"
 			],
 			[
-				"bookingcon",
-				"app\\Http\\Controllers\\BookingController.php"
-			],
-			[
 				"routes web",
 				"node_modules\\webpack-dev-server\\lib\\utils\\routes.js"
 			],
 			[
 				"faq",
 				"resources\\views\\pages\\faq.blade.php"
-			],
-			[
-				"mailco",
-				"app\\Http\\Controllers\\MailController.php"
 			],
 			[
 				"inqur",
@@ -1302,14 +1388,6 @@
 			[
 				"webpack.con",
 				"node_modules\\laravel-mix\\setup\\webpack.config.js"
-			],
-			[
-				"mail",
-				"app\\Http\\Controllers\\MailController.php"
-			],
-			[
-				"larav",
-				"storage\\logs\\laravel.log"
 			],
 			[
 				"static-s",
@@ -1344,10 +1422,6 @@
 				"resources\\views\\pages\\online.blade.php"
 			],
 			[
-				"bookings",
-				"resources\\views\\admin\\bookings.blade.php"
-			],
-			[
 				"laravel",
 				"storage\\logs\\laravel.log"
 			],
@@ -1358,10 +1432,6 @@
 			[
 				"usertz",
 				"resources\\js\\booking\\Components\\UserTimeZone.js"
-			],
-			[
-				"classty",
-				"resources\\js\\booking\\Components\\ClassTypeDropdown.js"
 			],
 			[
 				"user",
@@ -1388,10 +1458,6 @@
 				"resources\\js\\booking\\InquiryDetails.js"
 			],
 			[
-				"book",
-				"resources\\js\\booking\\booking.js"
-			],
-			[
 				"boo",
 				"resources\\js\\booking\\booking.js"
 			],
@@ -1404,20 +1470,12 @@
 				"resources\\views\\tpv\\pay.blade.php"
 			],
 			[
-				"booking.js",
-				"resources\\js\\booking\\booking.js"
-			],
-			[
 				"calen",
 				"app\\Http\\Controllers\\CalendareventController.php"
 			],
 			[
 				"web.p",
 				"routes\\web.php"
-			],
-			[
-				"booking index",
-				"resources\\views\\booking\\index.blade.php"
 			],
 			[
 				"web.ph",
@@ -1572,10 +1630,6 @@
 				"resources\\views\\pages\\tapas.blade.php"
 			],
 			[
-				"inquiry",
-				"resources\\js\\booking\\InquiryDetails.js"
-			],
-			[
 				"post bla",
 				"resources\\views\\blog\\posttemplate.blade.php"
 			],
@@ -1674,54 +1728,6 @@
 			[
 				"calendarcontrol",
 				"app\\Http\\Controllers\\CalendareventControllerOnline.php"
-			],
-			[
-				"rout web",
-				"routes\\web.php"
-			],
-			[
-				"tapas.blad",
-				"resources\\views\\pages\\tapas.blade.php"
-			],
-			[
-				"resour app.js",
-				"resources\\js\\app.js"
-			],
-			[
-				"reso book custome",
-				"resources\\js\\booking\\CustomerDetails.js"
-			],
-			[
-				"reso admin log",
-				"resources\\views\\admin\\login.blade.php"
-			],
-			[
-				"sto laravel",
-				"storage\\logs\\laravel.log"
-			],
-			[
-				"reso tienda",
-				"react\\resources\\js\\admin\\tienda.js"
-			],
-			[
-				"tienda.",
-				"react\\public\\js\\admin\\tienda.js"
-			],
-			[
-				"voucherp",
-				"react\\resources\\js\\booking\\Components\\VoucherPrintOut.js"
-			],
-			[
-				"ticke",
-				"react\\app\\Http\\Controllers\\TicketsController.php"
-			],
-			[
-				"admin bookings.bla",
-				"react\\resources\\views\\admin\\bookings.blade.php"
-			],
-			[
-				"storage larave",
-				"react\\storage\\logs\\laravel.log"
 			]
 		],
 		"width": 0.0

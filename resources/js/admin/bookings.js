@@ -227,6 +227,7 @@ function calendarEventEditShow (month_schedule, date_shown, i) {
     $('select[name=time]').val('10:00:00')
     $('select[name=duration]').val('04:00:00')
     $('input[name=capacity]').val(24)
+    $('input[name=invitation_link]').val('')
     $('textarea[name=info]').val('')
     url_action = 'ce_new'
   } else {
@@ -243,6 +244,7 @@ function calendarEventEditShow (month_schedule, date_shown, i) {
     $('select[name=time]').val(month_schedule[i].time)
     $('select[name=duration]').val(month_schedule[i].duration)
     $('input[name=capacity]').val(month_schedule[i].capacity)
+    $('input[name=invitation_link]').val(month_schedule[i].invitation_link)
     $('textarea[name=info]').val(month_schedule[i].info)
     url_action = 'ce_edit'
   }

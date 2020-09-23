@@ -160,6 +160,14 @@
 						</tr>
 						<tr>
 							<td>
+								Invitación:
+							</td>
+							<td>
+								<input name="invitation_link" type="text">
+							</td>
+						</tr>
+						<tr>
+							<td>
 								+ info:
 							</td>
 							<td>
