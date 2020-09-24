@@ -72,7 +72,7 @@ function InquiryDetailsEdit (props) {
   function showExchange() {
       const modal = {}
       modal.header = '<h4>Estimated price $ '+ (parseFloat(bkg.price)*1.02/exchange).toFixed(2) + '</h4>'
-      modal.body = 'Our rates are in Euros, but some cards allow to pay in US Dollars. This amount is estimated based on today\'s exchange rate plus a 2% currency conversion fee'
+      modal.body = 'Our rates are in Euros, but our bank allows to pay in your currency. The amount is estimated based on today\'s exchange rate plus a 2% currency conversion fee'
       setModalContent(modal)
       setShowModal(true)
     }
