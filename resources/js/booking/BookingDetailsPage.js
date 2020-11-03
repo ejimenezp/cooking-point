@@ -117,7 +117,7 @@ function BookingDetailsPage (props) {
   }
 
   function classChange () {
-    if (differenceInHours(new Date(localbkg.calendarevent.startdateatom), new Date()) < 8) {
+    if (localbkg.status !== 'PENDING' && differenceInHours(new Date(localbkg.calendarevent.startdateatom), new Date()) < 8) {
       const modal = {}
       modal.header = '<h4>Can&apos;t change the date</h4>'
       modal.body = '<p>The start of class is too close, so if you can&apos;t make it, please let us know by e-mail or phone.</p>'

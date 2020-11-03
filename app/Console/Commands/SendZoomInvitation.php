@@ -28,7 +28,6 @@ class SendZoomInvitation extends Job {
 					->whereHas('calendarevent', function($query) use ($in2days) {
             			$query->where('date', $in2days)
             					->where('online', 1)
-            				  ->where('bookable_by_clients', 1)
             				  ->where('invitation_link', '<>', '');})
            ->get();
 		return $bs;
@@ -36,7 +35,7 @@ class SendZoomInvitation extends Job {
 
 	protected function action($bkg) {
 
-		Log::info('Enviado <Invitation> a ' . $bkg->name);
+		Log::info('Enviado <ZoomInvitation> a ' . $bkg->name);
 	 	MailController::send_mail($bkg->email, $bkg, 'user_zoom_invitation');
 
 	}
