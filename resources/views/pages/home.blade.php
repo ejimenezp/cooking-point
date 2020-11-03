@@ -230,7 +230,7 @@
                                         echo '<td><a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">Details</a></td>';
                                         break;
                                     default :
-                                        continue;
+                                        break;
                                 }
                                 echo '</tr>';
                                 $i++;
