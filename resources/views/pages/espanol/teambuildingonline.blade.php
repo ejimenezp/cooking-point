@@ -25,7 +25,7 @@
 
 		<p></p>
 
-		<p>Para hacer la clase amena y accesible, hemos seleccionado recetas curiosas, atractivas, pero que no requiren habilidades o utensilios de cocina fuera de lo normal. Usamos ingredientes que se encuentran en cualquier gran superficie (Carrefour, Mercadona,...). pero también proponemos alternativas para personas con dietas especiales (gluten, vegetarianos,...). En resumen, fácil de encontrar, fácil de preparar, listo para comer.</p>
+		<p>Para hacer la clase amena y accesible, hemos seleccionado recetas curiosas, atractivas, pero que no requiren habilidades o utensilios de cocina fuera de lo normal. Usamos ingredientes que se encuentran en cualquier gran superficie pero también proponemos alternativas para personas con dietas especiales (sin gluten, vegetarianos,...). En resumen, fácil de encontrar, fácil de preparar, listo para comer.</p>
 
 
 
