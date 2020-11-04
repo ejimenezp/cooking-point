@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="@yield('page-lang','en')">
   <head>
       <title>@yield('title')</title>
       <meta name="description" content="@yield('description')" >
@@ -60,19 +60,18 @@
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/online-virtual-cooking-classes">Online Classes <span class="badge badge-primary">New</span></a>
+            <a lang="es" href="/actividades-team-building-online">Team-building Online <span class="badge badge-primary">En español</span></a> 
           </li>
           <li>
-            <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+            <a href="/in-person-classes-madrid">In-person Classes</a> 
           </li>
+          <!-- aquí un submenú
+          paella
+          tapas
+          private events
+          covid-19 -->
           <li>
-            <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-          </li>
-          <li>
-            <a href="/private-cooking-events-madrid-spain">Private Events</a>
-          </li>
-          <li>
-            <a href="/blog/covid-free-classes"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></a>
+            <a href="/online-virtual-cooking-classes">Online Classes</a>
           </li>
           <li>
             <a href="/location">Location</a>
@@ -101,7 +100,7 @@
 
 <!-- ipad landscape & desktop -->
 
-<div class="d-none d-xl-block">
+<div lang="en" class="d-none d-xl-block">
   <div class="cp-navbar">
       <div class="logo">
         <a href="/"><img alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>        
@@ -109,19 +108,18 @@
       <div class="menu clearfix">
         <ul>
           <li>
-            <a href="/online-virtual-cooking-classes">Online Classes <span class="badge badge-primary">New</span></a> 
+            <a lang="es" href="/actividades-team-building-online">Team-building Online <span class="badge badge-primary">En español</span></a> 
           </li>
           <li>
-            <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+            <a href="/in-person-classes-madrid">In-person Classes</a> 
           </li>
+          <!-- aquí un submenú
+          paella
+          tapas
+          private events
+          covid-19 -->
           <li>
-            <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-          </li>
-          <li>
-            <a href="/private-cooking-events-madrid-spain">Private Events</a>
-          </li>
-          <li>
-            <a href="/blog/covid-free-classes"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></a>          
+            <a href="/online-virtual-cooking-classes">Online Classes</a>
           </li>
           <li>
             <a href="/location">Location</a>

@@ -80,12 +80,35 @@
 
 <div class="row">
 
+    <div lang="es" class="col-lg-4">
+        <div class="bottom-gutter">
+            <div class="box all-clickable orange-on-hover">
+                <a href="/actividades-team-building-online"></a>
+                <img class="img-fluid lazyload" title="team-building online" alt="live classes from madrid" data-src="/images/team-building-online-banner-sm.jpg" />    
+                <h2>Team-building Online <span class="badge badge-primary">En español</span></h2>
+                <p>Os proponemos una actividad online donde los participantes cocinan desde sus casas siguiendo las instrucciones de nuestro chef en un team building virtual, lleno de sabor, buen rollo y risas aseguradas.</p>
+                <table class="infogram">
+                    <tr>
+                        <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/clock.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/euro.png"></div></td>
+                 </tr>
+                     <tr>
+                        <td>Lunes - Viernes</td>
+                        <td>2 horas</td>
+                        <td>consultar</td>
+                    </tr>
+                </table> 
+            </div>            
+        </div>
+    </div>
+
     <div class="col-lg-4">
         <div class="bottom-gutter">
             <div class="box all-clickable orange-on-hover">
                 <a href="/online-virtual-cooking-classes"></a>
                 <img class="img-fluid lazyload" title="online classes" alt="live classes from madrid" data-src="/images/online-banner-sm.jpg" />    
-                <h2>Online Classes <span class="badge badge-primary">New</span></h2>
+                <h2>Online Classes</h2>
                 <p>Don't let COVID-19 keep you from enjoying one of our cooking classes. Join any of our live online classes from Madrid and interact with our chef to make an authentic Spanish dinner without leaving your kitchen.</p>
                 <table class="infogram">
                     <tr>
@@ -103,7 +126,7 @@
         </div>
     </div>
     
-    <div class="col-lg-4">
+<!--     <div class="col-lg-4">
         <div class="bottom-gutter">        
             <div class="box all-clickable orange-on-hover">
                 <a href="/classes-paella-cooking-madrid-spain"></a>
@@ -124,7 +147,7 @@
                 </table>                                  
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="col-lg-4">
         <div class="bottom-gutter">

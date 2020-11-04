@@ -1,35 +1,66 @@
 @extends('masterlayout')
 
-@section('title', 'Team Building de Cocina en Madrid')
-@section('description', 'Organizamos team-building de cocina para empresas y cooking parties para grupos privados. Estamos en el centro de Madrid.')
+@section('title', 'Team Building de Cocina Online')
+@section('description', 'Organizamos team-building online para empresas y cooking parties para grupos privados.')
 @section('page-lang', 'es')
-
 
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
-		<img class="img-fluid lazyload" data-src="/images/eventos-banner-sm.jpg" alt="team-building at cooking point" >		
+		<img class="img-fluid lazyload" data-src="/images/team-building-online-banner-sm.jpg" alt="team-building con cooking point" >		
 	</div>
 	<div class="d-none d-md-block">
-		<img class="img-fluid lazyload" data-src="/images/eventos-banner.jpg" alt="team-building at cooking point" >		
+		<img class="img-fluid lazyload" data-src="/images/team-building-online-banner.jpg" alt="team-building con cooking point" >		
 	</div>	
 </div>
 @stop
 
 @section('content')
 
-<h1>Actividades para empresas</h1>
+<h1>Team-building Online</h1>
 
 <div class="row justify-content-right">
 	<div class="col-12">
-		<p>Ponemos a vuestra disposición nuestra escuela de cocina y equipo de chefs para realizar actividades para empresas en el centro de Madrid.</p>
+		<p>En estos tiempos de pandemia, mantener el equipo unido es más importante que nunca. Os proponemos una actividad online donde los colaboradores cocinan desde sus casas siguiendo las instrucciones de nuestro chef a través de una video conferencia. Esto permite reforzar los vínculos del equipo a través de situaciones divertidas y una sana competencia.</p>
 
-		<h2>Team building en la cocina: hoy cocina mi equipo</h2>
-		<p>Una cocina es un excelente marco para una actividad de team building para empresas. En nuestras actividades se comprueba el valor del trabajo en equipo, pues los resultados son tangibles en forma de una suculenta comida o cena de empresa.</p>
+		<p></p>
 
-		<p>Al modo de un Masterchef de la tele, el grupo se divide en equipos para elaborar un menú degustación siguiendo las instrucciones de nuestros chefs. Habrá momentos de aprendizaje, trabajo minucioso y creatividad, pero también situaciones divertidas y de relax. Todo con el fin de propiciar conoceros mejor entre vosotros en un ambiente distendido.</p>
+		<p>Para hacer la clase amena y accesible, hemos seleccionado recetas curiosas, atractivas, pero que no requiren habilidades o utensilios de cocina fuera de lo normal. Usamos ingredientes que se encuentran en cualquier gran superficie (Carrefour, Mercadona,...). pero también proponemos alternativas para personas con dietas especiales (gluten, vegetarianos,...). En resumen, fácil de encontrar, fácil de preparar, listo para comer.</p>
 
-		<p>Nuestro team building de cocina os propone platos, técnicas e ingredientes habituales en el panorama de la restauración actual. Nos gusta la cocina sencilla, diversa y con rigor técnico, pero con aplicación también en tu vida personal.</p>
+
+
+		<div class="row justify-content-center">
+			<div class="col-lg-10 col-xl-6">
+				<figure class="text-center">
+					<img data-src="/images/team-building-online-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="front view">
+					<figcaption class="figure-caption">Emitimos desde una cocina luminosa y sin distracciones</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-10 col-xl-6">
+				<figure class="text-center">
+					<img data-src="/images/team-building-online-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="close-up view">
+					<figcaption class="figure-caption">Tenemos dos cámaras para no perder ningún detalle</figcaption>
+				</figure>
+			</div>
+		</div>
+
+		<h2>Cómo funciona?</h2>
+		<p>Usamos <strong><a href="https://zoom.us/">Zoom</a></strong> para la videoconferencia. No es necesario tener cuenta para acceder a la actividad, aunque es recomendable tener la aplicación instalada.</p>
+
+		<p>Una vez confirmada la clase, os enviamos un correo con:</p>
+		<ul style="padding-left: 1rem;">
+			<li>Fecha y hora de la actividad.</li>
+			<li><strong>Manual de Usuario</strong>, un fichero pdf que incluye:</li>
+			<ul style="padding-left: 1rem;">
+					<li>Recetas.</li>
+					<li>Lista de ingredientes, con alternativas en caso de dietas especiales.</li>
+					<li>Lista de utensilios de cocina necesarios, para tenerlos a mano durante la clase.</li>
+					<li>Guía técnica, con consejos e intrucciones para conectarse a la clase (guía básica de Zoom, cómo preparar la cocina,...)</li>
+			</ul>
+			<li>Enlace Zoom a la videoconferencia.</li>
+		</ul>
+
+		<p>La clase está pensada para disfrutar del menú al finalizar la actividad, para así compartir experiencias entre los participantes en una "mesa virtual" a través de Zoom.</p>
 
 		<h2>Solicita Información</h2>
 
