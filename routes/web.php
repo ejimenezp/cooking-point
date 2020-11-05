@@ -39,8 +39,8 @@ Route::post('/callback', env('APP_ENV') == 'production' ? 'TPVController@callbac
 Route::post('/tpv-stub-main', 'TPVStub@main');
 Route::post('/tpv-stub-reply', 'TPVStub@reply');
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
-Route::get('/actividades-team-building-empresas-madrid', function () { return view('pages.actividadesempresas'); });
-Route::get('/oferta-para-agencias', function () { return view('pages.agencias'); });
+Route::get('/actividades-team-building-empresas-madrid', function () { return view('pages.espanol.actividadesempresas'); });
+Route::get('/oferta-para-agencias', function () { return view('pages.espanol.agencias'); });
 Route::get('/paymentrequest/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
 Route::get('/about-us', function () { return view('pages.aboutus'); });
 Route::get('/best-cooking-classes-madrid', function () { return view('pages.bestclasses'); });
