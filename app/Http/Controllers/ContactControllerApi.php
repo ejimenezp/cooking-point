@@ -55,14 +55,15 @@ class ContactControllerApi extends Controller
     {
         try {
             // Log::info($request);
-            $gname = $request->user_column_data[0]['string_value'];
-            $gemail = $request->user_column_data[1]['string_value'];
+            $webhook_FULL_NAME = $request->user_column_data[0]['string_value'];
+            $webhook_EMAIL = $request->user_column_data[1]['string_value'];
+            $webhook_SERVICE = $request->user_column_data[2]['string_value'];
 
             $bkg = new Booking();
             $ce = Calendarevent::first();
-            $bkg->name = $request->user_column_data[0]['string_value'];
-            $bkg->email = $request->user_column_data[1]['string_value'];
-            $bkg->comments = "(Vacío. Notificación automática desde el buscador de Google)";
+            $bkg->name = $webhook_FULL_NAME;
+            $bkg->email = $webhook_EMAIL;
+            $bkg->comments = $webhook_SERVICE;
             $bkg->calendarevent = $ce;
 
             MailController::send_mail($bkg->email, $bkg, 'user_message');
