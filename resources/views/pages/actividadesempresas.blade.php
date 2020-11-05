@@ -24,6 +24,16 @@
 	<div class="col-12">
 		<p>Ponemos a vuestra disposición nuestra escuela de cocina y equipo de chefs para realizar actividades para empresas en el centro de Madrid.</p>
 
+		    <div class="row justify-content-center">
+
+        <div class="col-10 col-sm-8">
+            <div class="pill">
+                <h4 class="text-center"><span class="bkg-status bkg-status-confirmed">Medidas COVID-19</span></h4>
+                <p>Hemos reducido el aforo para garantizar la distancia mínima de 1,5 metros entre personas no convivientes o de diferentes burbujas. Además es necesario llevar máscarilla durante toda la actividad.</p>
+            </div>
+        </div>
+    </div>
+
 		<h2>Team building en la cocina: hoy cocina mi equipo</h2>
 		<p>Una cocina es un excelente marco para una actividad de team building para empresas. En nuestras actividades se comprueba el valor del trabajo en equipo, pues los resultados son tangibles en forma de una suculenta comida o cena de empresa.</p>
 
