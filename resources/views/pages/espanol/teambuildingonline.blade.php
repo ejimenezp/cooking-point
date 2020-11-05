@@ -119,6 +119,26 @@
 			</div>
 		</div>
 
+		<h1>Team-building presencial</h1>
+
+		<div class="row justify-content-right">
+			<div class="col-12">
+				<p>También ofrecemos esta misma actividad en nuestra escuela de cocina en el centro de Madrid.</p>
+				<div class="row justify-content-center">
+				<div class="col-lg-10 col-xl-7">
+					<figure class="text-center">
+						<img data-src="/images/eventos-banner-sm.jpg" class="lazyload img-fluid mx-auto d-block" alt="Team-building">
+						<figcaption class="figure-caption">Team-building en Cooking Point</figcaption>
+					</figure>
+				</div>
+			</div>
+				<div class="row justify-content-center">
+					<div class="col-sm-6">
+						<div class="xxl-button all-clickable"><a href="/actividades-team-building-empresas-madrid">Más info</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</div>
 </div>
