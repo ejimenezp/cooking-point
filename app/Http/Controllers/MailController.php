@@ -211,7 +211,7 @@ class MailController {
 		$html = str_replace('APP_URL', config('app.url'), $html);
 		$html = str_replace('CP_INVITATION', $bkg->calendarevent->invitation_link, $html);
 
-		if ($message && $bkg->calendarevent->eventtype->attachments) {
+		if ($message && strpos($html, 'CP_ATTACHMENT') !== false && $bkg->calendarevent->eventtype->attachments) {
 			$attachments = explode(',', $bkg->calendarevent->eventtype->attachments);
 			$mimetype_set = ['image/jpeg', 'image/png','image/gif','image/svg+xml'];
 
