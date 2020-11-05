@@ -49,6 +49,7 @@ Route::get('/online-virtual-cooking-classes/spanish-classic-recipes', function (
 Route::get('/online-virtual-cooking-classes/paella', function () { return view('pages.onlineclasses.paella'); });
 Route::get('/actividades-team-building-online', function () { return view('pages.espanol.teambuildingonline'); });
 Route::get('/in-person-classes-madrid', function () { return view('pages.inperson'); });
+Route::get('/privacidad', function () { return view('pages.espanol.privacidad'); });
 
 //
 // blog entries
