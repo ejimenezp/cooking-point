@@ -25,6 +25,15 @@
 
 		<p></p>
 
+	<div class="row justify-content-center">
+    <div class="col-sm-6">
+        <div class="home-pill brand-light-orange">
+            <h4 style="text-align:center">Os enviamos los ingredientes a casa</h4>
+            <p>Opcionalmente, podemos enviar los ingredientes a cada participante para hacer la actividad más fácil.</p>
+        </div>  
+      </div>
+    </div>		
+
 		<p>Para hacer la clase amena y accesible, hemos seleccionado recetas curiosas, atractivas, pero que no requiren habilidades o utensilios de cocina fuera de lo normal. Usamos ingredientes que se encuentran en cualquier gran superficie pero también proponemos alternativas para personas con dietas especiales (sin gluten, vegetarianos,...). En resumen, fácil de encontrar, fácil de preparar, listo para comer.</p>
 
 
@@ -53,7 +62,7 @@
 			<li><strong>Manual de Usuario</strong>, un fichero pdf que incluye:</li>
 			<ul style="padding-left: 1rem;">
 					<li>Recetas.</li>
-					<li>Lista de ingredientes, con alternativas en caso de dietas especiales.</li>
+					<li>Lista de ingredientes, por si preferís comprarlos vosotros, con alternativas en caso de dietas especiales.</li>
 					<li>Lista de utensilios de cocina necesarios, para tenerlos a mano durante la clase.</li>
 					<li>Guía técnica, con consejos e intrucciones para conectarse a la clase (guía básica de Zoom, cómo preparar la cocina,...)</li>
 			</ul>
