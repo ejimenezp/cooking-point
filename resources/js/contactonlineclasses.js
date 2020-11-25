@@ -77,6 +77,11 @@ $('#button_contacto_form').click(function() {
 			$('.modal_contactoeventos_body').html('Thanks for your interest. We will contact you within next 24 hours.');
 			$('#modal_contactoeventos').modal('show');
 			email_sent = true;
+			// GTM dataLayer to track conversion
+			window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push({
+				'event': 'Solicitar info actividades empresas',
+			});
 		},
 		error: function(jqXHR, textStatus, errorThrown ) {
 			$('.modal_contactoeventos_title').html('Oops!')
