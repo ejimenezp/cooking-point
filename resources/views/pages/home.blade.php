@@ -64,7 +64,7 @@
                     "availability": "http://schema.org/InStock",
                     "price": "70.00",
                     "priceCurrency": "EUR",
-                    "url": "http://test.cookingpoint.es/classes-spanish-tapas-madrid-spain"
+                    "url": "http://cookingpoint.es/classes-spanish-tapas-madrid-spain"
                   }
             },
         @endif

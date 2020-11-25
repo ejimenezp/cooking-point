@@ -1,6 +1,6 @@
 @extends('masterlayout')
 @section('title', 'Online Virtual Cooking Classes')
-@section('description', 'Join our online classes, live from Madrid and interact with our chef to make your Spanish dinner without leaving your kitchen')
+@section('description', 'Learn Spanish recipes in our live online virtual cooking classes, Zoomed from Madrid to your kitchen. Also private classes for friends or corporate events.')
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
@@ -12,6 +12,62 @@
 </div>
 @stop
 
+@section('google-structured-data')
+<script type="application/ld+json">
+[
+    @foreach ($events as $event)
+        @if ($event->registered < $event->capacity && strpos($event->type, 'PAELLA') !== false) 
+            {
+            "@context" : "http://schema.org",
+            "@type" : "Event",
+            "name" : "Authentic Paella - Live from Spain",
+            "url" : "https://cookingpoint.es/online-virtual-cooking-classes/paella",
+            "description" : "Learn to make paella with a Spanish cook",
+            "startDate" : "{{ $event->startdateatom }}",
+            "endDate" : "{{ $event->enddateatom }}",
+        		"location": {
+	            "@type": "VirtualLocation",
+	             "url": "https://zoom.us"
+                  },
+            "offers": {
+                    "@type": "Offer",
+                    "name": "Adult",
+                    "availability": "http://schema.org/InStock",
+                    "price": "33.00",
+                    "priceCurrency": "EUR",
+                    "url": "https://cookingpoint.es/online-virtual-cooking-classes/paella"
+                  }
+            },
+        @endif
+        @if ($event->registered < $event->capacity && strpos($event->type, 'SELECTION') !== false) 
+            {
+            "@context" : "http://schema.org",
+            "@type" : "Event",
+            "name" : "Selected Spanish Recipes - Live Class",
+            "url" : "https://cookingpoint.es/online-virtual-cooking-classes/spanish-classic-recipes",
+            "description" : "Discover Spanish classics with a local cook",
+            "startDate" : "{{ $event->startdateatom }}",
+            "endDate" : "{{ $event->enddateatom }}",
+        		"location": {
+	            "@type": "VirtualLocation",
+	             "url": "https://zoom.us"
+                  },
+            "offers": {
+                    "@type": "Offer",
+                    "name": "Adult",
+                    "availability": "http://schema.org/InStock",
+                    "price": "33.00",
+                    "priceCurrency": "EUR",
+                    "url": "http://cookingpoint.es/online-virtual-cooking-classes/spanish-classic-recipes"
+                  }
+            },
+        @endif
+    @endforeach
+    {}
+]
+</script>
+@stop
+
 @section('content')
 <h1>Online Cooking Class</h1>
 <div class="row justify-content-center">
@@ -21,7 +77,7 @@
 			<ul>
 				<li>Learn at home authentic Spanish recipes</li>
 				<li>Schedule adapted to your time zone</li>
-				<li>Live class in English</li>
+				<li>Live class in English from Madrid</li>
 				<li>€33 per adult</li>
 			</ul>
 		</div>
