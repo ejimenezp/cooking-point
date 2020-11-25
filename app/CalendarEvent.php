@@ -52,8 +52,9 @@ class Calendarevent extends Model
     {
         $atom = new DateTime($this->date ." ". $this->time);
         $atom->setTimezone(new DateTimeZone('Europe/Madrid'));
-        // bug, not always it's 4 hours
-        $atom->add(new DateInterval("PT4H"));
+        $d1=new DateTime("2000-01-01 00:00:00");
+        $d2=new DateTime("2000-01-01 " . $this->duration);
+        $atom->add( $d1->diff($d2) );
         return $atom->format(DATE_ATOM);
     }
 }
