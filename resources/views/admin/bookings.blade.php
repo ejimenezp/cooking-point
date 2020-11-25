@@ -140,6 +140,7 @@
 							<td>
 								<select name="duration">
 									<option value="01:00:00">1 hora</option>
+									<option value="01:30:00">1,5 horas</option>
 									<option value="02:00:00">2 horas</option>
 									<option value="02:30:00">2,5 horas</option>
 									<option value="03:00:00">3 horas</option>
