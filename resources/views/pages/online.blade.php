@@ -182,10 +182,10 @@
 
 		<p>The dishes are meant to be eaten after class, but we'll show you ways to store and reheat them later. Recipes are designed for 2 servings, but can be doubled easily. Ask about cuantities if you are cooking for more. </p>
 
-		<p>We recommend to attend in groups of two to get more fun as you share tasks, moreover if you are cooking for a bigger party.</p>
+		<p>We require a <u>minimum of 2 adults per booking</u>, although they can join the class from different places.</p>
 
 		<h3>Gift Certificates</h3>
-		<p>Our classes are a memorable gift for foodies who are always looking for new flavors. You can buy a gift certificate, valid for 1 year, and we will send you a printable certificate. Email us (<a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>) or use the contact form below with your friend's name and dedication.</p>
+		<p>Our classes are a memorable gift for foodies who are always looking for new flavors. You can buy a gift certificate, valid for 1 year, and we will send you a printable certificate. <u>Minimum 2 adults per gift</u>. Email us (<a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>) or use the contact form below with your friend's name and dedication.</p>
 
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-7">

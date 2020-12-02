@@ -72,7 +72,7 @@ function InquiryDetailsEdit (props) {
   function showExchange() {
       const modal = {}
       modal.header = '<h4>Estimated price $ '+ (parseFloat(bkg.price)*1.02/exchange).toFixed(2) + '</h4>'
-      modal.body = 'Our rates are in Euros, but our bank allows to pay in your currency. The amount is estimated based on today\'s exchange rate plus a 2% currency conversion fee'
+      modal.body = 'Our rates are in Euros, but our bank allows to pay in your currency. The amount is estimated based on today\'s exchange rate plus their 2% currency conversion fee'
       setModalContent(modal)
       setShowModal(true)
     }
@@ -225,7 +225,7 @@ function InquiryDetailsEdit (props) {
           </tr>
           <tr>
             <td className='font-weight-bold'>Price :</td>
-              { (bkg.onlineclass == 0 || bkg.onlineclass > 0 && bkg.status !== 'PENDING') && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : bkg.price}</td>}
+              { (bkg.onlineclass === 0 || bkg.onlineclass > 0 && bkg.status !== 'PENDING') && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : bkg.price}</td>}
               { bkg.onlineclass > 0 && bkg.status === 'PENDING' && <td>€ {(bkg.hide_price || !bkg.price) ? '--' :  <Fragment>{bkg.price} ($ {(parseFloat(bkg.price)*1.02/exchange).toFixed(2)} approx. <span className="small badge btn-primary"><a onClick={showExchange}>Why?</a></span>)</Fragment>}</td>}
           </tr>
           <tr style={{ height: '2rem' }} />

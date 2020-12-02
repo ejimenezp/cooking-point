@@ -49,7 +49,11 @@ function AvailabilityPage (props) {
 
     if (typeof localbkg.calendarevent === 'undefined' || 
         !available(utcToZonedTime(parseISO(localbkg.calendarevent.startdateatom), localbkg.tz))) { modal.body += 'Select a day with availability <br/>' }
-    if (!localbkg.adult) { modal.body += 'Select number of guests (Min. 1 adult) <br/>' }
+    if (localbkg.onlineclass) {
+      if (localbkg.adult < 2) { modal.body += 'For online classes, guests must be at least 2 adult<br/>' }
+    } else {
+      if (!localbkg.adult) { modal.body += 'Select number of guests (Min. 1 adult) <br/>' }
+    }
     const filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
     if (localbkg.email && !filter.test(localbkg.email)) { modal.body += 'Enter a valid e-mail <br/>' }
 
