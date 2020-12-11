@@ -29,6 +29,8 @@
             "description" : "Hands-on cooking class with market tour to make paella, gazpacho and sangria",
             "startDate" : "{{ $event->startdateatom }}",
             "endDate" : "{{ $event->enddateatom }}",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
             "location" : {
                 "@type" : "Place",
                 "name" : "Cooking Point",
@@ -38,6 +40,7 @@
                     "@type": "Offer",
                     "name": "Adult",
                     "availability": "http://schema.org/InStock",
+                    "validFrom": "{{ $event->validfromdateatom }}",
                     "price": "70.00",
                     "priceCurrency": "EUR",
                     "url": "https://cookingpoint.es/classes-paella-cooking-madrid-spain"
@@ -53,6 +56,8 @@
             "description" : "Hands-on cooking class to make traditional Spanish tapas and sangria",
             "startDate" : "{{ $event->startdateatom }}",
             "endDate" : "{{ $event->enddateatom }}",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": "https://schema.org/EventScheduled",
             "location" : {
                 "@type" : "Place",
                 "name" : "Cooking Point",
@@ -62,6 +67,7 @@
                     "@type": "Offer",
                     "name": "Adult",
                     "availability": "http://schema.org/InStock",
+                    "validFrom": "{{ $event->validfromdateatom }}",
                     "price": "70.00",
                     "priceCurrency": "EUR",
                     "url": "http://cookingpoint.es/classes-spanish-tapas-madrid-spain"
