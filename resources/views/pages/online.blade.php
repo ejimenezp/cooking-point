@@ -22,9 +22,11 @@
             "@type" : "Event",
             "name" : "Authentic Paella - Live from Spain",
             "url" : "https://cookingpoint.es/online-virtual-cooking-classes/paella",
-            "description" : "Learn to make paella with a Spanish cook",
+            "description" : "Learn to make paella with a Spanish cook in this live online virtual cooking class",
             "startDate" : "{{ $event->startdateatom }}",
             "endDate" : "{{ $event->enddateatom }}",
+            "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      			"eventStatus": "https://schema.org/EventScheduled",
         		"location": {
 	            "@type": "VirtualLocation",
 	             "url": "https://zoom.us"
@@ -33,6 +35,7 @@
                     "@type": "Offer",
                     "name": "Adult",
                     "availability": "http://schema.org/InStock",
+                    "validFrom": "{{ $event->validfromdateatom }}",
                     "price": "33.00",
                     "priceCurrency": "EUR",
                     "url": "https://cookingpoint.es/online-virtual-cooking-classes/paella"
@@ -45,9 +48,11 @@
             "@type" : "Event",
             "name" : "Selected Spanish Recipes - Live Class",
             "url" : "https://cookingpoint.es/online-virtual-cooking-classes/spanish-classic-recipes",
-            "description" : "Discover Spanish classics with a local cook",
+            "description" : "Discover Spanish classics with a local cook in this live online virtual cooking class",
             "startDate" : "{{ $event->startdateatom }}",
             "endDate" : "{{ $event->enddateatom }}",
+            "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      			"eventStatus": "https://schema.org/EventScheduled",
         		"location": {
 	            "@type": "VirtualLocation",
 	             "url": "https://zoom.us"
@@ -56,6 +61,7 @@
                     "@type": "Offer",
                     "name": "Adult",
                     "availability": "http://schema.org/InStock",
+                    "validFrom": "{{ $event->validfromdateatom }}",
                     "price": "33.00",
                     "priceCurrency": "EUR",
                     "url": "http://cookingpoint.es/online-virtual-cooking-classes/spanish-classic-recipes"
@@ -270,6 +276,34 @@
 		</div>
 
 <div class="divider"></div>
+
+<h3>Upcoming Classes</h3>
+
+
+<div class="row justify-content-center">
+	<div class="col-sm-6">
+		<table class="table">
+			@php 
+				$i = 0;
+				foreach ($events as $event) {
+					if ($event->registered < $event->capacity && $i < 3) {
+						$date = new DateTime($event->startdateatom);
+						echo '<tr><td>';
+						echo $date->format("l, d M");
+						echo '</td><td>';
+						echo $event->short_description;
+						echo '</td>';	
+						echo '<td><a href="booking?onlineclass&date=' . $event->date . '" class="btn btn-primary">Book</a></td>';
+						echo '</tr>';
+						$i++;
+					}				
+	   			}
+			@endphp			
+		</table>
+		<div class="xxl-button all-clickable"><a href="/booking?onlineclass">More Dates</a></div>
+	</div>
+</div>
+
 <h3>Not Decided Yet?</h3>
 <div class="row justify-content-center">
 	<div class="col-lg-4">

@@ -12,7 +12,7 @@ class Calendarevent extends Model
 {
     protected $table = 'calendarevents';
 	public $timestamps = false;
-    protected $appends = array('registered', 'startdateatom', 'enddateatom');
+    protected $appends = array('registered', 'startdateatom', 'enddateatom', 'validfromdateatom');
 
     public function bookings()
     {
@@ -57,4 +57,14 @@ class Calendarevent extends Model
         $atom->add( $d1->diff($d2) );
         return $atom->format(DATE_ATOM);
     }
+
+    public function getValidfromdateatomAttribute()
+    {
+        $atom = new DateTime($this->date ." ". $this->time);
+        $atom->setTimezone(new DateTimeZone('Europe/Madrid'));
+        $interval = new DateInterval('P1M');
+        $atom->sub($interval);
+        return $atom->format(DATE_ATOM);
+    }
+
 }
