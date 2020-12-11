@@ -24,9 +24,11 @@ $(document).ready(function () {
   $('#section-banner').find('img:first').remove()
   if (!/iPhone/i.test(navigator.userAgent) && $(window).width() >= 768) {
     $('#section-banner').prepend(' \
+      <div style="width: 100%; height: 200px; overflow: hidden;"> \
 			<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted > \
 	     	<source src="images/home-video-banner-01.mp4" type="video/mp4"> \
-	   	 </video>')
+	   	 </video> \
+       </div>')
 
     var videoList = ['images/home-video-banner-01.mp4', 'images/home-video-banner-02.mp4', 'images/home-video-banner-03.mp4', 'images/home-video-banner-04.mp4']
     var curVideo = 0
