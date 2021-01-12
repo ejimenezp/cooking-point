@@ -7,6 +7,12 @@
       
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <meta property="og:title" content="@yield('title')">
+      <meta property="og:description" content="@yield('description')">
+      <meta property="og:image" content="/images/blog/@yield('page-thumbnail')">
+      <meta property="og:url" content="{{ strtok(url()->current(), '?') }}">
+
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
 

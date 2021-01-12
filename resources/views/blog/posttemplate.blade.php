@@ -2,6 +2,7 @@
 
 @section('title', $post->title )
 @section('description', $post->description )
+@section('page-thumbnail', $post->thumbnail_image)
 
 @section('content')
 
