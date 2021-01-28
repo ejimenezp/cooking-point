@@ -17,25 +17,11 @@
 
 @section('content')
 
-<h1>Team-building Online</h1>
+<h1>Team Building Online</h1>
 
 <div class="row justify-content-right">
 	<div class="col-12">
-		<p>En estos tiempos de pandemia, mantener el equipo unido es más importante que nunca. Os proponemos una actividad online donde los colaboradores cocinan desde sus casas siguiendo las instrucciones de nuestro chef a través de una video conferencia. Esto permite reforzar los vínculos del equipo a través de situaciones divertidas y una sana competencia.</p>
-
-		<p></p>
-
-	<div class="row justify-content-center">
-    <div class="col-sm-6">
-        <div class="home-pill brand-light-orange">
-            <h4 style="text-align:center">Os enviamos los ingredientes a casa</h4>
-            <p>Opcionalmente, podemos enviar los ingredientes a cada participante para hacer la actividad más fácil.</p>
-        </div>  
-      </div>
-    </div>		
-
-		<p>Para hacer la clase amena y accesible, hemos seleccionado recetas curiosas, atractivas, pero que no requiren habilidades o utensilios de cocina fuera de lo normal. Usamos ingredientes que se encuentran en cualquier gran superficie pero también proponemos alternativas para personas con dietas especiales (sin gluten, vegetarianos,...). En resumen, fácil de encontrar, fácil de preparar, listo para comer.</p>
-
+		<p>En estos tiempos de pandemia, mantener el equipo unido es más importante que nunca. Os proponemos una actividad de team building tipo Masterchef online, una clase de cocina donde los colaboradores cocinan desde sus casas siguiendo las instrucciones de nuestro chef a través de una video conferencia. Esto permite reforzar los vínculos del equipo a través de situaciones divertidas y una sana competencia.</p>
 
 
 		<div class="row justify-content-center">
@@ -51,14 +37,27 @@
 					<figcaption class="figure-caption">Tenemos dos cámaras para no perder ningún detalle</figcaption>
 				</figure>
 			</div>
-		</div>
+		</div>		
+
+		<p>Para hacer la actividad virtual amena y accesible, hemos seleccionado recetas ricas, atractivas, pero que no requiren habilidades o utensilios de cocina fuera de lo normal. Usamos ingredientes que se encuentran en cualquier gran superficie pero también proponemos alternativas para personas con dietas especiales (sin gluten, vegetarianos,...). En resumen, fácil de encontrar, fácil de preparar, listo para comer.</p>
+
+	<div class="row justify-content-center">
+    <div class="col-sm-6">
+        <div class="home-pill brand-light-orange">
+            <h4 style="text-align:center">Os enviamos los ingredientes a casa</h4>
+            <p>Como opción, podemos enviar a cada participante los ingredientes ya medidos para hacer la actividad más dinámica. Déjanos a nosotros el lío de comprar, medir, pesar, ...</p>
+        </div>  
+      </div>
+    </div>
+
+
 
 		<h2>Cómo funciona?</h2>
-		<p>Usamos <strong><a href="https://zoom.us/">Zoom</a></strong> para la videoconferencia. No es necesario tener cuenta para acceder a la actividad, aunque es recomendable tener la aplicación instalada.</p>
+		<p>Usamos <strong><a href="https://zoom.us/">Zoom</a></strong> para este team building virtual. No es necesario tener cuenta para acceder a la actividad, aunque es recomendable tener la aplicación instalada.</p>
 
 		<p>Una vez confirmada la clase, os enviamos un correo con:</p>
 		<ul style="padding-left: 1rem;">
-			<li>Fecha y hora de la actividad.</li>
+			<li>Fecha y hora de la actividad online.</li>
 			<li><strong>Manual de Usuario</strong>, un fichero pdf que incluye:</li>
 			<ul style="padding-left: 1rem;">
 					<li>Recetas.</li>
@@ -69,11 +68,11 @@
 			<li>Enlace Zoom a la videoconferencia.</li>
 		</ul>
 
-		<p>La clase está pensada para disfrutar del menú al finalizar la actividad, para así compartir experiencias entre los participantes en una "mesa virtual" a través de Zoom.</p>
+		<p>La actividad está pensada para disfrutar del menú al finalizar la clase online, para así compartir experiencias entre los participantes en una "mesa virtual" a través de Zoom.</p>
 
 		<h2>Solicita Información</h2>
 
-        <p>Dinos fecha del evento, número de personas y cualquier otro dato que consideres oportuno. Te enviaremos una propuesta en 24 horas:</p>
+        <p>Dinos la fecha de tu team building online, el número de personas y cualquier otro dato que consideres oportuno. También puedes escribirnos a <a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>. Te enviaremos una propuesta en 24 horas:</p>
 
 		<div class="row">
 			<div class="offset-md-1 col-md-10 col-sm-10">
@@ -128,7 +127,7 @@
 			</div>
 		</div>
 
-		<h1>Team-building presencial</h1>
+		<h1>Team building presencial</h1>
 
 		<div class="row justify-content-right">
 			<div class="col-12">
@@ -137,7 +136,7 @@
 				<div class="col-lg-10 col-xl-7">
 					<figure class="text-center">
 						<img data-src="/images/eventos-banner-sm.jpg" class="lazyload img-fluid mx-auto d-block" alt="Team-building">
-						<figcaption class="figure-caption">Team-building en Cooking Point</figcaption>
+						<figcaption class="figure-caption">Team building en Cooking Point</figcaption>
 					</figure>
 				</div>
 			</div>
