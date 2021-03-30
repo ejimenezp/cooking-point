@@ -231,6 +231,7 @@ class ViatorController extends Controller
                 $laravelrequest->phone = $requestdata['ContactDetail']['ContactType'] == 'ALTERNATE' ? $requestdata['ContactDetail']['ContactValue'] : '';
                 $laravelrequest->adult = $requestdata['TravellerMix']['Adult'];
                 $laravelrequest->child = $requestdata['TravellerMix']['Child'];
+                $laravelrequest->price = $requestdata['Amount'];
                 $laravelrequest->pay_method = 'N/A';
                 $laravelrequest->food_requirements = isset($requestdata['SpecialRequirement']) ? $requestdata['SpecialRequirement'] : '';
                 $laravelrequest->comments = 'BR-' . $requestdata['BookingReference'];

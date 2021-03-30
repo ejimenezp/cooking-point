@@ -211,7 +211,7 @@ class BookingController extends Controller
     function viatorCancel($locator, $cdate)
     {
 
-        $canceldate = new Carbon ($cdate);
+        $canceldate = new DateTime($cdate);
 
         $bkg = Booking::where('locator', $locator)->first();
         if (!$bkg) {
