@@ -27,16 +27,20 @@ class SendZoomInvitation extends Job {
 					->where('status_filter', 'REGISTERED')
 					->whereHas('calendarevent', function($query) use ($in2days) {
             			$query->where('date', $in2days)
-            					->where('online', 1)
-            				  ->where('invitation_link', '<>', '');})
+            					->where('online', 1);})
            ->get();
 		return $bs;
 	}
 
 	protected function action($bkg) {
 
-		Log::info('Enviado <ZoomInvitation> a ' . $bkg->name);
-	 	MailController::send_mail($bkg->email, $bkg, 'user_zoom_invitation');
+		if (!empty($bkg->calendarevent->invitation_link)) {
+			Log::info('Enviado <ZoomInvitation> a ' . $bkg->name);
+			MailController::send_mail($bkg->email, $bkg, 'user_zoom_invitation');			
+		 } else {
+			Log::info('Error en <ZoomInvitation>. No hay link');
+			MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_cron_error');
+		 }
 
 	}
 }

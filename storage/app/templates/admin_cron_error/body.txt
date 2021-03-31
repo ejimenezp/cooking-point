@@ -1,0 +1,5 @@
+Zoom Invitation Cron Error: No link
+
+Class: CP_CLASS
+Date: CP_DATE
+Time: CP_TIME
