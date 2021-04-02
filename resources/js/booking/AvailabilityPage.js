@@ -22,7 +22,8 @@ function AvailabilityPage (props) {
   const [localbkg, setBkg] = useState(Object.assign({}, props.bkg))
   const now = new Date()
 
-  const [data, setData] = useState([])
+  const savedData = JSON.parse(sessionStorage.getItem(createUrl(localbkg.date)))
+  const [data, setData] = useState(savedData || [])
   const [url, setUrl] = useState(createUrl(localbkg.date))
   const [isError, setIsError] = useState(false)
   /** ddate: day selected on the datepicker */
@@ -47,8 +48,8 @@ function AvailabilityPage (props) {
     modal.body = ''
     setShowModal(false)
 
-    if (typeof localbkg.calendarevent === 'undefined' || 
-        !available(utcToZonedTime(parseISO(localbkg.calendarevent.startdateatom), localbkg.tz))) { modal.body += 'Select a day with availability <br/>' }
+    if (typeof localbkg.calendarevent === 'undefined' ||
+      !available(utcToZonedTime(parseISO(localbkg.calendarevent.startdateatom), localbkg.tz))) { modal.body += 'Select a day with availability <br/>' }
     if (localbkg.onlineclass) {
       if (localbkg.adult < 2) { modal.body += 'For online classes, guests must be at least 2 adult<br/>' }
     } else {
@@ -104,8 +105,8 @@ function AvailabilityPage (props) {
 
   function createUrl (date) {
     const ldate = new Date(date)
-    const intervalStart = format(subDays(startOfMonth(ldate), 37), 'yyyy-MM-dd')
-    const intervalEnd = format(addDays(endOfMonth(ldate), 37), 'yyyy-MM-dd')
+    const intervalStart = format(subDays(startOfMonth(ldate), 6), 'yyyy-MM-dd')
+    const intervalEnd = format(addDays(endOfMonth(ldate), 6), 'yyyy-MM-dd')
     return `/api/calendarevent/getavailability?online=${localbkg.onlineclass}&start=${intervalStart}&end=${intervalEnd}`
   }
 
@@ -134,12 +135,18 @@ function AvailabilityPage (props) {
         const clearData = JSON.parse(atob(aux))
         // const clearData = result.data
         setData(clearData)
+        sessionStorage.setItem(url, JSON.stringify(clearData))
       } catch (error) {
         setIsError(true)
       }
     }
     setUrl(createUrl(dday))
-    fetchAvailability()
+    const savedData = JSON.parse(sessionStorage.getItem(createUrl(dday)))
+    if (savedData) {
+      setData(savedData)
+    } else {
+      fetchAvailability()
+    }
   }, [url])
 
   return (
