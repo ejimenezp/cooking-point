@@ -30,17 +30,14 @@ function InquiryDetailsEdit (props) {
   const [modalContent, setModalContent] = useState('')
   const [showModal, setShowModal] = useState(false)
   const [isError, setIsError] = useState(false)
-  const [rate, setRate] = useState ({adult: 0, child:0, iva: 1})
+  const [rate, setRate] = useState({ adult: 0, child: 0, iva: 1 })
   const [exchange, setExchange] = useState(0)
-
 
   const bkg = props.bkg
   bkg.date = (typeof bkg.calendarevent !== 'undefined') ? bkg.calendarevent.startdateatom : bkg.date
 
-
-  useEffect( () => {
-
-   const fetchExchange = async () => {
+  useEffect(() => {
+    const fetchExchange = async () => {
       setIsError(false)
       try {
         const exchangeapi = await axios.get('/api/priceplan/exchangeratesapiid')
@@ -56,34 +53,33 @@ function InquiryDetailsEdit (props) {
   }, [bkg.locator])
 
   const optionsDisplayDate = {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      timeZone: bkg.tz        
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: bkg.tz
   }
 
   const optionsDisplayTz = {
-      timeZoneName: 'long',
-      timeZone: bkg.tz        
+    timeZoneName: 'long',
+    timeZone: bkg.tz
   }
 
+  function showExchange () {
+    const modal = {}
+    modal.header = '<h4>Estimated price $ ' + (parseFloat(bkg.price) * 1.02 / exchange).toFixed(2) + '</h4>'
+    modal.body = 'Our rates are in Euros, but our bank allows to pay in your currency. The amount is estimated based on today\'s exchange rate plus their 2% currency conversion fee'
+    setModalContent(modal)
+    setShowModal(true)
+  }
 
-  function showExchange() {
-      const modal = {}
-      modal.header = '<h4>Estimated price $ '+ (parseFloat(bkg.price)*1.02/exchange).toFixed(2) + '</h4>'
-      modal.body = 'Our rates are in Euros, but our bank allows to pay in your currency. The amount is estimated based on today\'s exchange rate plus their 2% currency conversion fee'
-      setModalContent(modal)
-      setShowModal(true)
-    }
-
-  function updatePrice ( r = null) {
+  function updatePrice (r = null) {
     if (r) {
       bkg.price = bkg.adult * r.adult + bkg.child * r.child
-      bkg.iva = r.iva      
+      bkg.iva = r.iva
     } else {
       bkg.price = bkg.adult * rate.adult + bkg.child * rate.child
-      bkg.iva = rate.iva      
+      bkg.iva = rate.iva
     }
   }
 
@@ -141,17 +137,16 @@ function InquiryDetailsEdit (props) {
     props.liftUp(bkg)
   }
 
-
-  useEffect( () => {
+  useEffect(() => {
     const fetchRate = async () => {
       setIsError(false)
       try {
         const result = await axios.get('/api/priceplan/get', {
-              params: {
-                source_id: 2,
-                type: bkg.type
-              }
-            })
+          params: {
+            source_id: 2,
+            type: bkg.type
+          }
+        })
         setRate(result.data)
         updatePrice(result.data)
         props.liftUp(bkg)
@@ -220,13 +215,13 @@ function InquiryDetailsEdit (props) {
             <td className='font-weight-bold'>Class :</td>
             <td>
               <ClassTypeDropdown liftUp={handleClassType} default={bkg.type} userTimeZone={bkg.tz} onlineclass={bkg.onlineclass}/>
-              { bkg.onlineclass > 0 && <UserTimeZone liftUp={handleUserTimeZone} timeZone={bkg.tz} />  }
+              { bkg.onlineclass > 0 && <UserTimeZone liftUp={handleUserTimeZone} timeZone={bkg.tz} /> }
             </td>
           </tr>
           <tr>
             <td className='font-weight-bold'>Price :</td>
-              { (bkg.onlineclass === 0 || bkg.onlineclass > 0 && bkg.status !== 'PENDING') && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : bkg.price}</td>}
-              { bkg.onlineclass > 0 && bkg.status === 'PENDING' && <td>€ {(bkg.hide_price || !bkg.price) ? '--' :  <Fragment>{bkg.price} ($ {(parseFloat(bkg.price)*1.02/exchange).toFixed(2)} approx. <span className="small badge btn-primary"><a onClick={showExchange}>Why?</a></span>)</Fragment>}</td>}
+            { (bkg.onlineclass === 0 || bkg.onlineclass > 0 && bkg.status !== 'PENDING') && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : bkg.price}</td>}
+            { bkg.onlineclass > 0 && bkg.status === 'PENDING' && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : <Fragment>{bkg.price} ($ {(parseFloat(bkg.price) * 1.02 / exchange).toFixed(2)} approx. <span className="small badge btn-primary"><a onClick={showExchange}>Why?</a></span>)</Fragment>}</td>}
           </tr>
           <tr style={{ height: '2rem' }} />
         </tbody>
@@ -235,30 +230,28 @@ function InquiryDetailsEdit (props) {
   )
 }
 
-
-
 function InquiryDetails (props) {
   const bkg = props.bkg
   const isMobile = useMediaQuery({ maxWidth: 575 })
   const start = new Date(bkg.calendarevent.startdateatom)
   const end = add(start, { hours: bkg.calendarevent.duration.split(':')[0], minutes: bkg.calendarevent.duration.split(':')[1] })
   const optionsDisplayTime = {
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
-      timeZone: bkg.tz    
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+    timeZone: bkg.tz
   }
   const optionsDisplayDate = {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      timeZone: bkg.tz        
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: bkg.tz
   }
 
   const optionsDisplayTz = {
-      timeZoneName: 'long',
-      timeZone: bkg.tz        
+    timeZoneName: 'long',
+    timeZone: bkg.tz
   }
 
   const tt = new Intl.DateTimeFormat('en-GB', optionsDisplayTz).format(start)
@@ -280,7 +273,7 @@ function InquiryDetails (props) {
 
             <tr>
               <td className='font-weight-bold'>Time :</td>
-              <td>{new Intl.DateTimeFormat('en-GB', optionsDisplayTime).format(start) + ' - ' + 
+              <td>{new Intl.DateTimeFormat('en-GB', optionsDisplayTime).format(start) + ' - ' +
                       new Intl.DateTimeFormat('en-GB', optionsDisplayTime).format(end) +
                       tzText }</td>
             </tr>
