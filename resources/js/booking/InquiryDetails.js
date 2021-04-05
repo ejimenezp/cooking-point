@@ -31,7 +31,7 @@ function InquiryDetailsEdit (props) {
   const [showModal, setShowModal] = useState(false)
   const [isError, setIsError] = useState(false)
   const [rate, setRate] = useState({ adult: 0, child: 0, iva: 1 })
-  const [exchange, setExchange] = useState(0)
+  const [exchange, setExchange] = useState(JSON.parse(sessionStorage.getItem('exchange')))
 
   const bkg = props.bkg
   bkg.date = (typeof bkg.calendarevent !== 'undefined') ? bkg.calendarevent.startdateatom : bkg.date
@@ -45,11 +45,17 @@ function InquiryDetailsEdit (props) {
 
         const result = await axios.get('https://openexchangerates.org/api/latest.json?app_id=' + apiid)
         setExchange(result.data.rates.EUR)
+        sessionStorage.setItem('exchange', result.data.rates.EUR)
       } catch (error) {
         setIsError(true)
       }
     }
-    fetchExchange()
+    const savedExchange = JSON.parse(sessionStorage.getItem('exchange'))
+    if (savedExchange) {
+      setExchange(savedExchange)
+    } else {
+      fetchExchange()
+    }
   }, [bkg.locator])
 
   const optionsDisplayDate = {
@@ -148,13 +154,21 @@ function InquiryDetailsEdit (props) {
           }
         })
         setRate(result.data)
+        sessionStorage.setItem(bkg.type, JSON.stringify(result.data))
         updatePrice(result.data)
         props.liftUp(bkg)
       } catch (error) {
         setIsError(true)
       }
     }
-    fetchRate()
+    const storedPricePlan = JSON.parse(sessionStorage.getItem(bkg.type))
+    if (storedPricePlan) {
+      setRate(storedPricePlan)
+      updatePrice(storedPricePlan)
+      props.liftUp(bkg)
+    } else {
+      fetchRate()
+    }
   }, [bkg.type])
 
   return (
