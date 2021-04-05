@@ -22,8 +22,12 @@ function AvailabilityPage (props) {
   const [localbkg, setBkg] = useState(Object.assign({}, props.bkg))
   const now = new Date()
 
-  const savedData = JSON.parse(sessionStorage.getItem(createUrl(localbkg.date)))
-  const [data, setData] = useState(savedData || [])
+  const aux = sessionStorage.getItem(createUrl(localbkg.date))
+  var clearData
+  if (aux) {
+    clearData = JSON.parse(atob(aux.replace(/x06/g, '5')))
+  }
+  const [data, setData] = useState(clearData || [])
   const [url, setUrl] = useState(createUrl(localbkg.date))
   const [isError, setIsError] = useState(false)
   /** ddate: day selected on the datepicker */
@@ -135,15 +139,16 @@ function AvailabilityPage (props) {
         const clearData = JSON.parse(atob(aux))
         // const clearData = result.data
         setData(clearData)
-        sessionStorage.setItem(url, JSON.stringify(clearData))
+        sessionStorage.setItem(url, result.data)
       } catch (error) {
         setIsError(true)
       }
     }
     setUrl(createUrl(dday))
-    const savedData = JSON.parse(sessionStorage.getItem(createUrl(dday)))
-    if (savedData) {
-      setData(savedData)
+    const aux = sessionStorage.getItem(createUrl(dday))
+    if (aux) {
+      const clearData = JSON.parse(atob(aux.replace(/x06/g, '5')))
+      setData(clearData)
     } else {
       fetchAvailability()
     }
@@ -165,7 +170,7 @@ function AvailabilityPage (props) {
               <h1>Your Booking</h1>
               <p>You can change class and booking date:</p>
             </Fragment>
-            }
+          }
         </div>
       </div>
       <div className='row justify-content-center'>
