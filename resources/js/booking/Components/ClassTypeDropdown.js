@@ -10,13 +10,15 @@ export { ClassTypeDropdown }
 
 ClassTypeDropdown.propTypes = {
   liftUp: PropTypes.func,
+  onlineclass: PropTypes.number,
+  userTimeZone: PropTypes.string,
   default: PropTypes.string
 }
 
 function ClassTypeDropdown (props) {
   const [isError, setIsError] = useState(false)
-  const [selectOptions, setSelectOptions] = useState([])
-  const [defaultValue, setDefaultValue] = useState({})
+  const [selectOptions, setSelectOptions] = useState(JSON.parse(sessionStorage.getItem(props.onlineclass + props.userTimeZone + 'selectOptions')) || [])
+  const [defaultValue, setDefaultValue] = useState(JSON.parse(sessionStorage.getItem(props.onlineclass + props.userTimeZone + 'defaultValue')) || {})
 
   function localTime (hour) {
     const showTimeZone = props.onlineclass ? props.userTimeZone : 'Europe/Madrid'
@@ -42,22 +44,32 @@ function ClassTypeDropdown (props) {
       try {
         const result = await axios(`/api/eventtype/bookable_by_clients?online=${props.onlineclass}`)
         var sel = []
-        result.data.forEach( function (item) {
-          const copy = {value : item.type , label: localTime(item.time) + ' ' + item.short_description}
+        result.data.forEach(function (item) {
+          const copy = { value: item.type, label: localTime(item.time) + ' ' + item.short_description }
           sel.push(copy)
         })
         setSelectOptions(sel)
+        sessionStorage.setItem(props.onlineclass + props.userTimeZone + 'selectOptions', JSON.stringify(sel))
         var i = _.findIndex(sel, (el) => el.value === props.default)
-        if (i == -1) {
-          i = sel.length - 1 
+        if (i === -1) {
+          i = sel.length - 1
           props.liftUp(sel[i].value)
-        } 
+        }
         setDefaultValue(sel[i])
+        sessionStorage.setItem(props.onlineclass + props.userTimeZone + 'defaultValue', JSON.stringify(sel[i]))
       } catch (error) {
         setIsError(true)
       }
     }
-    fetchData()
+    const selectOptions = JSON.parse(sessionStorage.getItem(props.onlineclass + props.userTimeZone + 'selectOptions'))
+    const defaultValue = JSON.parse(sessionStorage.getItem(props.onlineclass + props.userTimeZone + 'defaultValue'))
+    if (selectOptions) {
+      setSelectOptions(selectOptions)
+      setDefaultValue(defaultValue)
+      props.liftUp(defaultValue.value)
+    } else {
+      fetchData()
+    }
   }, [props.onlineclass, props.userTimeZone])
 
   return (
