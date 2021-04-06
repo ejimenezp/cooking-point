@@ -14,17 +14,19 @@ UserTimeZone.propTypes = {
 
 function UserTimeZone (props) {
   const [displaySelect, setDisplaySelect] = useState(false)
-  const [selectTzOptions, setSelectTzOptions] = useState([])
-  const [defaultValue, setDefaultValue] = useState({})
+  const [selectTzOptions, setSelectTzOptions] = useState(JSON.parse(sessionStorage.getItem('selectTzOptions')))
+  const [defaultTz, setDefaultTz] = useState(JSON.parse(sessionStorage.getItem('defaultValue')))
   const [isError, setIsError] = useState(false)
   const browserTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
   let userTimeZone = props.timeZone
 
-  if (!userTimeZone)
+  if (!userTimeZone) {
     userTimeZone = browserTimeZone
+  }
 
   function handleSelectTz (option) {
-    setDefaultValue(option)
+    setDefaultTz(option)
+    sessionStorage.setItem('defaultTz', JSON.stringify(option))
     setDisplaySelect(false)
     props.liftUp(option.value)
   }
@@ -35,29 +37,36 @@ function UserTimeZone (props) {
       try {
         const result = await axios('/api/booking/timezones')
         var sel = []
-        result.data.forEach( function (item) {
-          const copy = {value : item.timezone , label: item.gmt}
+        result.data.forEach(function (item) {
+          const copy = { value: item.timezone, label: item.gmt }
           sel.push(copy)
         })
         setSelectTzOptions(sel)
+        sessionStorage.setItem('selectTzOptions', JSON.stringify(sel))
         var i = _.findIndex(sel, (el) => el.value === userTimeZone)
-        if (i == -1) {
-          i = 0 
-        } 
-        setDefaultValue(sel[i])
+        if (i === -1) {
+          i = 0
+        }
+        setDefaultTz(sel[i])
+        sessionStorage.setItem('defaultTz', JSON.stringify(sel[i]))
       } catch (error) {
         setIsError(true)
       }
     }
-    fetchData()
+    const selectTzOptions = JSON.parse(sessionStorage.getItem('selectTzOptions'))
+    const defaultTz = JSON.parse(sessionStorage.getItem('defaultTz'))
+    if (selectTzOptions) {
+      setSelectTzOptions(selectTzOptions)
+      setDefaultTz(defaultTz)
+    } else {
+      fetchData()
+    }
   }, [])
-
 
   return (
     <Fragment>
     <p><small>Times displayed in ({userTimeZone}) time <span className="badge btn-primary"><a onClick={ () => setDisplaySelect(!displaySelect) } >Change</a></span></small></p> 
-    { displaySelect && <Select isSearchable={false} className='tz-select' options={selectTzOptions} value={defaultValue} onChange={handleSelectTz} /> }
+    { displaySelect && <Select isSearchable={false} className='tz-select' options={selectTzOptions} value={defaultTz} onChange={handleSelectTz} /> }
     </Fragment>
   )
 }
-
