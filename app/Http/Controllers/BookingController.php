@@ -99,6 +99,7 @@ class BookingController extends Controller
         $bkg->tz = $request->tz;
         $bkg->onlineclass = (empty($request->onlineclass)) ? 0 : $request->onlineclass;
         $bkg->save();
+        Cookie::queue(Cookie::forever('cplocator', $bkg->locator));
         return $bkg;
 
     }
