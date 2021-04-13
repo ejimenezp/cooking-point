@@ -155,7 +155,7 @@
 
 
 		<h3>How it works</h3>
-		<p>We use <strong>Zoom app</strong> to stream the classes, so you'll need an account on this App (it's free).</p>
+		<p>We use <strong><a href="https://zoom.us/" target="_blank">Zoom</a></strong> to stream the classes, so you'll need an account on this App (it's free).</p>
 		<p>We have selected recipes that don't require rare ingredients, special set-up, or above-average culinary skills. Easy to find, easy to make, ready to eat.</p>
 
 		<div class="row justify-content-center">

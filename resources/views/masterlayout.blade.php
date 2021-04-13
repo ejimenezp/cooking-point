@@ -65,17 +65,26 @@
           <li>
             <a href="/">Home</a>
           </li>
-          <li>
+<!--           <li>
             <a lang="es" href="/actividades-team-building-online">Team-building Online <span class="badge badge-primary">En español</span></a> 
-          </li>
-          <li>
+          </li> -->
+<!--           <li>
             <a href="/in-person-classes-madrid">In-person Classes</a> 
-          </li>
+          </li> -->
           <!-- aquí un submenú
           paella
           tapas
           private events
           covid-19 -->
+          <li>
+            <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+          </li>
+          <li>
+            <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+          </li>
+          <li>
+            <a href="/private-events">Private Events</a>
+          </li>
           <li>
             <a href="/online-virtual-cooking-classes">Online Classes</a>
           </li>
@@ -113,17 +122,26 @@
       </div>
       <div class="menu clearfix">
         <ul>
-          <li>
+<!--           <li>
             <a lang="es" href="/actividades-team-building-online">Team-building Online <span class="badge badge-primary">En español</span></a> 
           </li>
           <li>
             <a href="/in-person-classes-madrid">In-person Classes</a> 
-          </li>
+          </li> -->
           <!-- aquí un submenú
           paella
           tapas
           private events
           covid-19 -->
+          <li>
+            <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+          </li>
+          <li>
+            <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+          </li>
+          <li>
+            <a href="/private-events">Private Events</a>
+          </li>
           <li>
             <a href="/online-virtual-cooking-classes">Online Classes</a>
           </li>

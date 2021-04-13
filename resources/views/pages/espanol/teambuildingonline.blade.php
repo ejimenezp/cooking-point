@@ -7,10 +7,10 @@
 @section('banner')
 <div class="section-banner">
 	<div class="d-block d-md-none">
-		<img class="img-fluid lazyload" data-src="/images/team-building-online-banner-sm.jpg" alt="team-building con cooking point" >		
+		<img class="img-fluid lazyload" data-src="/images/eventos-online-banner-sm.jpg" alt="team-building con cooking point" >		
 	</div>
 	<div class="d-none d-md-block">
-		<img class="img-fluid lazyload" data-src="/images/team-building-online-banner.jpg" alt="team-building con cooking point" >		
+		<img class="img-fluid lazyload" data-src="/images/eventos-online-banner.jpg" alt="team-building con cooking point" >		
 	</div>	
 </div>
 @stop
@@ -27,13 +27,13 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
-					<img data-src="/images/team-building-online-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="front view">
+					<img data-src="/images/eventos-online-details-01.jpg" class="lazyload img-fluid mx-auto d-block" alt="front view">
 					<figcaption class="figure-caption">Emitimos desde una cocina luminosa y sin distracciones</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-10 col-xl-6">
 				<figure class="text-center">
-					<img data-src="/images/team-building-online-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="close-up view">
+					<img data-src="/images/eventos-online-details-02.jpg" class="lazyload img-fluid mx-auto d-block" alt="close-up view">
 					<figcaption class="figure-caption">Tenemos dos cámaras para no perder ningún detalle</figcaption>
 				</figure>
 			</div>
@@ -53,7 +53,7 @@
 
 
 		<h2>Cómo funciona?</h2>
-		<p>Usamos <strong><a href="https://zoom.us/">Zoom</a></strong> para este team building virtual. No es necesario tener cuenta para acceder a la actividad, aunque es recomendable tener la aplicación instalada.</p>
+		<p>Usamos <strong><a href="https://zoom.us/" target="_blank">Zoom</a></strong> para este team building virtual. No es necesario tener cuenta para acceder a la actividad, aunque es recomendable tener la aplicación instalada.</p>
 
 		<p>Una vez confirmada la clase, os enviamos un correo con:</p>
 		<ul style="padding-left: 1rem;">
@@ -124,27 +124,6 @@
 				          </tr>
 				    </tbody>
 				</table>
-			</div>
-		</div>
-
-		<h1>Team building presencial</h1>
-
-		<div class="row justify-content-right">
-			<div class="col-12">
-				<p>También ofrecemos esta misma actividad en nuestra escuela de cocina en el centro de Madrid.</p>
-				<div class="row justify-content-center">
-				<div class="col-lg-10 col-xl-7">
-					<figure class="text-center">
-						<img data-src="/images/eventos-banner-sm.jpg" class="lazyload img-fluid mx-auto d-block" alt="Team-building">
-						<figcaption class="figure-caption">Team building en Cooking Point</figcaption>
-					</figure>
-				</div>
-			</div>
-				<div class="row justify-content-center">
-					<div class="col-sm-6">
-						<div class="xxl-button all-clickable"><a href="/actividades-team-building-empresas-madrid">Más info</a></div>
-					</div>
-				</div>
 			</div>
 		</div>
 

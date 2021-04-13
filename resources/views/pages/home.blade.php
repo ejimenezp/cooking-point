@@ -85,14 +85,37 @@
 <h3>Our Classes</h3>
 
 <div class="row">
+    
+    <div class="col-lg-4">
+        <div class="bottom-gutter">        
+            <div class="box all-clickable orange-on-hover">
+                <a href="/classes-paella-cooking-madrid-spain"></a>
+                <img class="img-fluid lazyload" alt="paella cooking class in Madrid" data-src="/images/home-paella.jpg" />
+                <h2>Paella Cooking Class</h2>
+                <p>Enjoy an unforgettable morning visiting a food market and cooking a delicious paella with the instructions of our local chef. Great start to know more about Spanish food while you make one of our most representative dishes.</p>
+                <table class="infogram">
+                    <tr>
+                        <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/clock.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/euro.png"></div></td>
+                  </tr>
+                     <tr>
+                        <td>Monday - Saturday</td>
+                        <td>10 AM - 2&nbsp;PM</td>
+                        <td>€70 (adult)<br>€35 (child)</td>
+                  </tr>
+                </table>                                  
+            </div>
+        </div>
+    </div>
 
-    <div lang="es" class="col-lg-4">
+    <div class="col-lg-4">
         <div class="bottom-gutter">
             <div class="box all-clickable orange-on-hover">
-                <a href="/actividades-team-building-online"></a>
-                <img class="img-fluid lazyload" title="team-building online" alt="live classes from madrid" data-src="/images/team-building-online-banner-sm.jpg" />    
-                <h2>Team-building Online <span class="badge badge-primary">En español</span></h2>
-                <p>Os proponemos una actividad online donde los participantes cocinan desde sus casas siguiendo las instrucciones de nuestro chef en un team building virtual, lleno de sabor, buen rollo y risas aseguradas.</p>
+                <a href="/classes-spanish-tapas-madrid-spain"></a>             
+                <img class="img-fluid lazyload" title="spanish cooking school in madrid" alt="tapas cooking class in madrid" data-src="/images/home-tapas.jpg" />
+                <h2>Tapas Cooking Class</h2>
+                <p>Spend a fun evening making tapas and sangria. Ranging from Spanish potato omelet to shrimps with garlic, all of them typical from different regions of Spain. The perfect introduction to Spanish food and culture!</p>
                 <table class="infogram">
                     <tr>
                         <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
@@ -100,11 +123,11 @@
                         <td><div class="icon"><img src="/images/icons/euro.png"></div></td>
                  </tr>
                      <tr>
-                        <td>Lunes - Viernes</td>
-                        <td>2 horas</td>
-                        <td>consultar</td>
-                    </tr>
-                </table> 
+                        <td>Monday - Saturday</td>
+                        <td>5:30 PM - 9:30 PM</td>
+                        <td>€70 (adult)<br>€35 (child)</td>
+                  </tr>
+                </table>  
             </div>            
         </div>
     </div>
@@ -131,53 +154,6 @@
             </div>            
         </div>
     </div>
-    
-<!--     <div class="col-lg-4">
-        <div class="bottom-gutter">        
-            <div class="box all-clickable orange-on-hover">
-                <a href="/classes-paella-cooking-madrid-spain"></a>
-                <img class="img-fluid lazyload" alt="paella cooking class in Madrid" data-src="/images/home-paella.jpg" />
-                <h2>Paella Cooking Class</h2>
-                <p>Enjoy an unforgettable morning visiting a food market and cooking a delicious paella with the instructions of our local chef. Great start to know more about Spanish food while you make one of our most representative dishes.</p>
-                <table class="infogram">
-                    <tr>
-                        <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
-                        <td><div class="icon"><img src="/images/icons/clock.png"></div></td>
-                        <td><div class="icon"><img src="/images/icons/euro.png"></div></td>
-                  </tr>
-                     <tr>
-                        <td>Monday - Saturday</td>
-                        <td>10 AM - 2&nbsp;PM</td>
-                        <td>€70 (adult)<br>€35 (child)</td>
-                  </tr>
-                </table>                                  
-            </div>
-        </div>
-    </div> -->
-
-    <div class="col-lg-4">
-        <div class="bottom-gutter">
-            <div class="box all-clickable orange-on-hover">
-                <a href="/classes-spanish-tapas-madrid-spain"></a>             
-                <img class="img-fluid lazyload" title="spanish cooking school in madrid" alt="tapas cooking class in madrid" data-src="/images/home-tapas.jpg" />
-                <h2>Tapas Cooking Class</h2>
-                <p>Spend a fun evening making tapas and sangria. Ranging from Spanish potato omelet to shrimps with garlic, all of them typical from different regions of Spain. The perfect introduction to Spanish food and culture!</p>
-                <table class="infogram">
-                    <tr>
-                        <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
-                        <td><div class="icon"><img src="/images/icons/clock.png"></div></td>
-                        <td><div class="icon"><img src="/images/icons/euro.png"></div></td>
-                 </tr>
-                     <tr>
-                        <td>Monday - Saturday</td>
-                        <td>5:30 PM - 9:30 PM</td>
-                        <td>€70 (adult)<br>€35 (child)</td>
-                  </tr>
-                </table>  
-            </div>            
-        </div>
-    </div>
-
 
 <!--     <div class="col-lg-4">
         <div class="bottom-gutter">

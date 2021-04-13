@@ -39,7 +39,9 @@ Route::get('/pay/{id}', env('APP_ENV') == 'production' ? 'TPVController@pay' : '
 Route::post('/callback', env('APP_ENV') == 'production' ? 'TPVController@callback' : 'TPVControllerStub@callback');
 Route::post('/tpv-stub-main', 'TPVStub@main');
 Route::post('/tpv-stub-reply', 'TPVStub@reply');
+Route::get('/private-events', function () { return view('pages.privateevents'); });
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
+Route::get('/private-online-events', function () { return view('pages.onlineevents'); });
 Route::get('/actividades-team-building-empresas-madrid', function () { return view('pages.espanol.actividadesempresas'); });
 Route::get('/oferta-para-agencias', function () { return view('pages.espanol.agencias'); });
 Route::get('/paymentrequest/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
@@ -48,7 +50,7 @@ Route::get('/best-cooking-classes-madrid', function () { return view('pages.best
 Route::get('/online-virtual-cooking-classes/spanish-classic-recipes', function () { return view('pages.onlineclasses.selection'); });
 Route::get('/online-virtual-cooking-classes/paella', function () { return view('pages.onlineclasses.paella'); });
 Route::get('/actividades-team-building-online', function () { return view('pages.espanol.teambuildingonline'); });
-Route::get('/in-person-classes-madrid', function () { return view('pages.inperson'); });
+// Route::get('/in-person-classes-madrid', function () { return view('pages.inperson'); });
 Route::get('/privacidad', function () { return view('pages.espanol.privacidad'); });
 
 //

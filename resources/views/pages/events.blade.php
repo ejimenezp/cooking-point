@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
 @section('title', 'Private Cooking Classes for Companies and Groups')
-@section('description', 'Private cooking parties for small groups, hen/stag parties, corporate team building events and tours visiting Madrid.')
+@section('description', 'Private cooking events for small groups, hen/stag parties, corporate team building events and tours visiting Madrid.')
 
 
 @section('banner')
@@ -63,31 +63,6 @@
 	</div>
 </div>
 
-
-
-<div class="divider"></div>
-	<p></p>
-
-<h1>Actividades para empresas</h1>
-
-<div class="row justify-content-right">
-	<div class="col-12">
-		<p>También ofrecemos actividades para empresas orientadas a equipos españoles que quieren realizar un team building de cocina en el centro de Madrid.</p>
-		<div class="row justify-content-center">
-		<div class="col-lg-10 col-xl-7">
-			<figure class="text-center">
-				<img data-src="/images/eventos-banner-sm.jpg" class="lazyload img-fluid mx-auto d-block" alt="Team-building">
-				<figcaption class="figure-caption">Team-building</figcaption>
-			</figure>
-		</div>
-	</div>
-		<div class="row justify-content-center">
-			<div class="col-sm-6">
-				<div class="xxl-button all-clickable"><a href="/actividades-team-building-empresas-madrid">Más info</a></div>
-			</div>
-		</div>
-	</div>
-</div>
 
 <div class="divider"></div>
 
