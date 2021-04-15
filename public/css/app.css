@@ -11383,7 +11383,6 @@ figure {
   font-size: 2.2rem;
   font-weight: bold;
   text-align: center;
-  margin-top: 1rem;
   padding: 0 0.5rem 0 0.5rem;
   color: #D34E24;
 }
@@ -11391,7 +11390,7 @@ figure {
 @media (min-width: 768px) {
   .home-headline {
     position: initial;
-    padding-top: 2rem;
+    padding-top: 1rem;
     font-size: 3rem;
   }
 }
