@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useMediaQuery } from 'react-responsive'
 
@@ -19,6 +19,10 @@ function CustomerDetailsEdit (props) {
     bkg[event.target.name] = event.target.value
     props.liftUp(bkg)
   }
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  })
 
   return (
     <div>

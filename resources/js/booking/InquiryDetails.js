@@ -229,7 +229,7 @@ function InquiryDetailsEdit (props) {
             </td>
           </tr>
           <tr>
-            <td className='font-weight-bold'>{isMobile ? 'Modality:' : 'Modality :'}</td>
+            <td className='font-weight-bold'>{isMobile ? 'Modality:' : 'Modlty :'}</td>
             <td>
               {bkg.status === 'PENDING' &&
                 <Select className = 'classtype-select' options = { optionsClassModalitySelect} value = { optionsClassModalitySelect[bkg.onlineclass] } onChange = { handleClassModality } isSearchable = { false } />}
