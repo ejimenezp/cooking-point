@@ -65,17 +65,6 @@
           <li>
             <a href="/">Home</a>
           </li>
-<!--           <li>
-            <a lang="es" href="/actividades-team-building-online">Team-building Online <span class="badge badge-primary">En español</span></a> 
-          </li> -->
-<!--           <li>
-            <a href="/in-person-classes-madrid">In-person Classes</a> 
-          </li> -->
-          <!-- aquí un submenú
-          paella
-          tapas
-          private events
-          covid-19 -->
           <li>
             <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
           </li>
@@ -122,17 +111,6 @@
       </div>
       <div class="menu clearfix">
         <ul>
-<!--           <li>
-            <a lang="es" href="/actividades-team-building-online">Team-building Online <span class="badge badge-primary">En español</span></a> 
-          </li>
-          <li>
-            <a href="/in-person-classes-madrid">In-person Classes</a> 
-          </li> -->
-          <!-- aquí un submenú
-          paella
-          tapas
-          private events
-          covid-19 -->
           <li>
             <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
           </li>
