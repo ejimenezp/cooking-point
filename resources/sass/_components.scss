@@ -239,9 +239,9 @@
         overflow: hidden;
         width: 100vw;
 
-        @include media-breakpoint-up(xl) {
-            width: 1440px;
-        }
+        // @include media-breakpoint-up(xl) {
+        //     width: 1440px;
+        // }
 
     }
 }

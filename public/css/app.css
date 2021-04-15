@@ -11241,13 +11241,6 @@ figure {
   width: 100vw;
 }
 
-@media (min-width: 1200px) {
-  #section-banner img,
-  #section-banner video {
-    width: 1440px;
-  }
-}
-
 .infogram {
   width: 100%;
 }
@@ -11409,7 +11402,7 @@ figure {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1441px) {
   .section-banner {
     height: 360px;
     width: 1440px;

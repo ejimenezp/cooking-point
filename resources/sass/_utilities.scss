@@ -23,7 +23,7 @@
 
 .section-banner {
   @include media-breakpoint-up(md) { height: 100vw / 1440 * 360}
-  @include media-breakpoint-up(xl) { height: 360px; width: 1440px; max-width: 100%;}
+  @media (min-width: 1441px) { height: 360px; width: 1440px; max-width: 100%;}
   // img {
   //   width: 100%;
   // }
