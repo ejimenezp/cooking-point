@@ -229,7 +229,7 @@ function InquiryDetailsEdit (props) {
             </td>
           </tr>
           <tr>
-            <td className='font-weight-bold'>{isMobile ? 'Modality:' : 'Modlty :'}</td>
+            <td className='font-weight-bold'>{isMobile ? 'Modlty :' : 'Modality :'}</td>
             <td>
               {bkg.status === 'PENDING' &&
                 <Select className = 'classtype-select' options = { optionsClassModalitySelect} value = { optionsClassModalitySelect[bkg.onlineclass] } onChange = { handleClassModality } isSearchable = { false } />}
@@ -293,7 +293,7 @@ function InquiryDetails (props) {
               <td>{bkg.calendarevent.short_description}</td>
             </tr>
             <tr>
-              <td className='font-weight-bold'>Modality :</td>
+              <td className='font-weight-bold'>{isMobile ? 'Modlty :' : 'Modality :'}</td>
               <td>{bkg.onlineclass ? 'Online' : 'In-Person'}</td>
             </tr>
             <tr>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 import { isBefore, differenceInHours } from 'date-fns'
+import { useMediaQuery } from 'react-responsive'
 
 import { MyModal } from './Components/Modal'
 import { NavButtons } from './Components/NavButtons'
@@ -24,6 +25,11 @@ function BookingDetailsPage (props) {
   const [showModalTPVOK, setShowModalTPVOK] = useState(localbkg.tpv_result === 'OK')
   const [showModalTPVKO, setShowModalTPVKO] = useState(localbkg.tpv_result === 'KO')
   const [isError, setIsError] = useState(false)
+  const isMobile = useMediaQuery({ maxWidth: 575 })
+
+  useEffect(() => {
+    if (isMobile) window.scrollTo(0, 0)
+  }, [])
 
   function handleEmailVoucher () {
     if (localbkg.email) {

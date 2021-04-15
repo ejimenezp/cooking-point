@@ -1,7 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { format, parseISO, isSameDay, isBefore, differenceInHours, startOfMonth, endOfMonth, addDays, subDays } from 'date-fns'
-import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
+import { useMediaQuery } from 'react-responsive'
+import { utcToZonedTime } from 'date-fns-tz'
 import { navigate } from '@reach/router'
 import { InquiryDetailsEdit } from './InquiryDetails'
 import DatePicker from './Components/DatePicker/DatePicker'
@@ -21,6 +22,7 @@ AvailabilityPage.propTypes = {
 function AvailabilityPage (props) {
   const [localbkg, setBkg] = useState(Object.assign({}, props.bkg))
   const now = new Date()
+  const isMobile = useMediaQuery({ maxWidth: 575 })
 
   const aux = sessionStorage.getItem(createUrl(localbkg.date))
   var clearData
@@ -37,6 +39,10 @@ function AvailabilityPage (props) {
 
   const [modalContent, setModalContent] = useState('')
   const [showModal, setShowModal] = useState(false)
+
+  useEffect(() => {
+    if (isMobile) window.scrollTo(0, 0)
+  }, [])
 
   function handleChange (bkg) {
     let b = Object.assign({}, localbkg)

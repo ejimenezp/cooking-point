@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
+import { useMediaQuery } from 'react-responsive'
 import { InquiryDetails } from './InquiryDetails'
 import { CustomerDetailsEdit } from './CustomerDetails'
 import { MyModal } from './Components/Modal'
@@ -17,6 +18,11 @@ function CustomerDetailsPage (props) {
   const [localbkg, setBkg] = useState(Object.assign({}, props.bkg))
   const [modalContent, setModalContent] = useState('')
   const [showModal, setShowModal] = useState(false)
+  const isMobile = useMediaQuery({ maxWidth: 575 })
+
+  useEffect(() => {
+    if (isMobile) window.scrollTo(0, 0)
+  }, [])
 
   function handleChange (bkg) {
     let b = Object.assign({}, localbkg)
