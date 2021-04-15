@@ -23,8 +23,9 @@ function toggleVideo () {
 $(document).ready(function () {
   $('#section-banner').find('img:first').remove()
   if (!/iPhone/i.test(navigator.userAgent) && $(window).width() >= 768) {
+    var hgt = $(window).width() / 720 * 100
     $('#section-banner').prepend(' \
-      <div style="width: 100%; height: 200px; overflow: hidden;"> \
+      <div style="height: ' + hgt + 'px; overflow: hidden;"> \
 			<video id="video-home" poster="/images/home-banner.jpg" autoplay playsinline muted > \
 	     	<source src="images/home-video-banner-01.mp4" type="video/mp4"> \
 	   	 </video> \
