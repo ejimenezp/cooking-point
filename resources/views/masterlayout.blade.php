@@ -131,7 +131,7 @@
             <a href="/about-us">About Us</a>
           </li> -->
           <li>
-            <a href="/booking?onlineclass"><span class="font-weight-bold">Booking</span></a>
+            <a href="/booking"><span class="font-weight-bold">Booking</span></a>
           </li>
           <li>
             <a href="/gallery">Gallery</a>

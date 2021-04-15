@@ -152,7 +152,7 @@ function AvailabilityPage (props) {
     } else {
       fetchAvailability()
     }
-  }, [url])
+  }, [url, localbkg.onlineclass])
 
   return (
     <div>

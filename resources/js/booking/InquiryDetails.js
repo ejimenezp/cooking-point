@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { format, add, parseISO } from 'date-fns'
 import { useMediaQuery } from 'react-responsive'
+import Select from 'react-select'
 import { ClassTypeDropdown } from './Components/ClassTypeDropdown'
 import { UserTimeZone } from './Components/UserTimeZone'
 import { MyModal } from './Components/Modal'
@@ -27,6 +28,7 @@ function InquiryDetailsEdit (props) {
   const leftStyle = { width: '20%', textAlign: 'left' }
   const centerStyle = { width: '20%', textAlign: 'center' }
   const rightStyle = { width: '20%', textAlign: 'right' }
+  const isMobile = useMediaQuery({ maxWidth: 575 })
   const [modalContent, setModalContent] = useState('')
   const [showModal, setShowModal] = useState(false)
   const [isError, setIsError] = useState(false)
@@ -66,10 +68,7 @@ function InquiryDetailsEdit (props) {
     timeZone: bkg.tz
   }
 
-  const optionsDisplayTz = {
-    timeZoneName: 'long',
-    timeZone: bkg.tz
-  }
+  const optionsClassModalitySelect = [{ value: 0, label: 'In-Person' }, { value: 1, label: 'Online' }]
 
   function showExchange () {
     const modal = {}
@@ -133,6 +132,10 @@ function InquiryDetailsEdit (props) {
     }
   }
 
+  function handleClassModality (option) {
+    bkg.onlineclass = option.value
+    props.liftUp(bkg)
+  }
   function handleClassType (text) {
     bkg.type = text
     props.liftUp(bkg)
@@ -226,6 +229,15 @@ function InquiryDetailsEdit (props) {
             </td>
           </tr>
           <tr>
+            <td className='font-weight-bold'>{isMobile ? 'Modality:' : 'Modality :'}</td>
+            <td>
+              {bkg.status === 'PENDING' &&
+                <Select className = 'classtype-select' options = { optionsClassModalitySelect} value = { optionsClassModalitySelect[bkg.onlineclass] } onChange = { handleClassModality } isSearchable = { false } />}
+              {bkg.status !== 'PENDING' &&
+                      optionsClassModalitySelect[bkg.onlineclass].label}
+            </td>
+          </tr>
+          <tr>
             <td className='font-weight-bold'>Class :</td>
             <td>
               <ClassTypeDropdown liftUp={handleClassType} default={bkg.type} userTimeZone={bkg.tz} onlineclass={bkg.onlineclass}/>
@@ -281,6 +293,10 @@ function InquiryDetails (props) {
               <td>{bkg.calendarevent.short_description}</td>
             </tr>
             <tr>
+              <td className='font-weight-bold'>Modality :</td>
+              <td>{bkg.onlineclass ? 'Online' : 'In-Person'}</td>
+            </tr>
+            <tr>
               <td className='font-weight-bold'>Date :</td>
               <td>{new Intl.DateTimeFormat('en-GB', optionsDisplayDate).format(parseISO(bkg.calendarevent.startdateatom))}</td>
             </tr>
@@ -292,7 +308,7 @@ function InquiryDetails (props) {
                       tzText }</td>
             </tr>
             <tr>
-              <td className='font-weight-bold'>{isMobile ? 'Bkg # :' : 'Booking # :'}</td>
+              <td className='font-weight-bold'>{isMobile ? 'Bking # :' : 'Booking # :'}</td>
               <td>{bkg.locator || '--'}</td>
             </tr>
           </tbody>
