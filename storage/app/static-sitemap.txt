@@ -1,8 +1,6 @@
 https://cookingpoint.es/
 https://cookingpoint.es/classes-paella-cooking-madrid-spain
 https://cookingpoint.es/classes-spanish-tapas-madrid-spain
-https://cookingpoint.es/private-cooking-events-madrid-spain
-https://cookingpoint.es/actividades-team-building-empresas-madrid
 https://cookingpoint.es/location
 https://cookingpoint.es/about-us
 https://cookingpoint.es/booking
@@ -13,5 +11,8 @@ https://cookingpoint.es/best-cooking-classes-madrid
 https://cookingpoint.es/online-virtual-cooking-classes
 https://cookingpoint.es/online-virtual-cooking-classes/paella
 https://cookingpoint.es/online-virtual-cooking-classes/spanish-classic-recipes
+https://cookingpoint.es/private-events
+https://cookingpoint.es/private-cooking-events-madrid-spain
+https://cookingpoint.es/private-online-events
+https://cookingpoint.es/actividades-team-building-empresas-madrid
 https://cookingpoint.es/actividades-team-building-online
-https://cookingpoint.es/in-person-classes-madrid
