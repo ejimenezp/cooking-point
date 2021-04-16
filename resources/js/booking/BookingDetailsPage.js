@@ -142,10 +142,21 @@ function BookingDetailsPage (props) {
 
       <div className='row justify-content-center'>
         <div className='col-12'>
-          <h1>Booking Confirmation</h1>
-          {localbkg.status === 'PENDING' && <p>You are about to book the following class:</p>}
-          {(localbkg.status === 'CONFIRMED' || localbkg.status === 'PAY-ON-ARRIVAL') && <p>These are the details of your booking:</p>}
-          {localbkg.status === 'CANCELED' && <p>This booking is no longer valid.</p>}
+          {localbkg.status === 'PENDING' &&
+            <Fragment>
+              <h1>Checkout</h1>
+              <p>You are about to book the following class:</p>
+            </Fragment>}
+          {['CONFIRMED', 'PAY-ON-ARRIVAL', 'PAID'].includes(localbkg.status) &&
+            <Fragment>
+              <h1>Booking Confirmation</h1>
+              <p>These are the details of your booking:</p>
+            </Fragment>}
+          {localbkg.status === 'CANCELED' &&
+            <Fragment>
+              <h1>Booking Canceled</h1>
+              <p>This booking is no longer valid.</p>
+            </Fragment>}
         </div>
       </div>
 
