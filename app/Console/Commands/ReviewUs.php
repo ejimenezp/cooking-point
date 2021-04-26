@@ -40,6 +40,7 @@ class ReviewUs extends Job {
 	protected function action($bkg) {
 
 		// prio 0 is to force send out with associated template. They don't modify total_sent
+		// maximum_pct 100 makes that option default
 
 		$this->strategy->each(function ($item, $key) use ($bkg) {
    			if (eval("return " . $item->check_expression . ";")) {
