@@ -71,6 +71,14 @@
 	</div>
 </div>
 
+<div class="row justify-content-right">
+	<div class="col-12">
+		<h3>We are in Evendo</h3>
+		<p>Evendo is everything you need to arrange better events and celebrations. By combining the World&rsquo;s biggest marketplace for Event-related products with a suite of easy-to-use tools, you will be choosing between 100,000&rsquo;s of bookable activities, experiences, venues, restaurants, transportation...</p>
+    <table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"><a href="https://www.evendo.com"><img class="img-fluid lazyload" title="evendo" alt="eventdo" data-src="https://images.evendo.com/cdn-cgi/image/f=auto,width=1900,quality=75/images/b67dfef47dbd4eabb7cebcd6952d2b97.png" /></a></td></tr></table>
+	</div>
+</div>
+
 <div class="divider"></div>
 
 
