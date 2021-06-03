@@ -219,7 +219,7 @@ class BookingController extends Controller
             return ['status' => 'fail', 'reason' => 'OTHER', 'details' => 'Wrong Supplier Confirmation Number'];
         } else {
             // Log::debug('travel: ' . $bkg->calendarevent->date . ' cancel ' . $cdate);
-            $traveldate = new Carbon($bkg->calendarevent->date);
+            $traveldate = new DateTime($bkg->calendarevent->date);
             if ($canceldate->gt($traveldate)) {
                 return ['status' => 'fail', 'reason' => 'PAST_TOUR_DATE', 'details' => 'Tour Already Done'];
             } elseif ($canceldate->addDays(2)->gt($traveldate)) {
@@ -228,6 +228,7 @@ class BookingController extends Controller
                 $bkg->status = 'CANCELED';
                 $bkg->status_filter = 'DO_NOT_COUNT';
                 $bkg->save();
+                MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_cancel_request');
                 return ['status' => 'ok'];
             }
         }

@@ -333,6 +333,7 @@ class ViatorController extends Controller
                 $laravelrequest->crm = $laravelbkg->crm;
                 $laravelrequest->invoice = $laravelbkg->invoice;
                 $laravelrequest->hide_price = $laravelbkg->hide_price;
+                $laravelrequest->onlineclass = 0;
 
                 $controllerresponse = $bookingcontroller->update($laravelrequest);
 
