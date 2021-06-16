@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Cookie;
 use stdClass;
 use DateTime;
+use DateInterval;
 use DateTimeZone;
 
 use App\Booking;
@@ -220,9 +221,9 @@ class BookingController extends Controller
         } else {
             // Log::debug('travel: ' . $bkg->calendarevent->date . ' cancel ' . $cdate);
             $traveldate = new DateTime($bkg->calendarevent->date);
-            if ($canceldate->gt($traveldate)) {
+            if ($canceldate > $traveldate) {
                 return ['status' => 'fail', 'reason' => 'PAST_TOUR_DATE', 'details' => 'Tour Already Done'];
-            } elseif ($canceldate->addDays(2)->gt($traveldate)) {
+            } elseif ($canceldate->add(new DateInterval('P2D')) > $traveldate) {
                 return ['status' => 'fail', 'reason' => 'PAST_CANCEL_DATE', 'details' => 'Too Late to Cancel'];
             } else {
                 $bkg->status = 'CANCELED';
