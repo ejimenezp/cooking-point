@@ -1,0 +1,1 @@
+Viator amended this booking, now CP_TYPE on CP_RAWDATE for CP_ADULT+CP_CHILD

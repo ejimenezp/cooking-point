@@ -339,6 +339,8 @@ class ViatorController extends Controller
 
                 $this->resp->data->TransactionStatus['Status'] = 'CONFIRMED';
                 $this->resp->data->SupplierConfirmationNumber = $controllerresponse['locator'];
+                MailController::send_mail('info@cookingpoint.es', $laravelrequest, 'admin_viator_amendment');
+
 
             }
         } else {
