@@ -20,6 +20,7 @@ use Google_Service_Gmail;
 use Google_Service_Gmail_Message;
 use Illuminate\Support\Facades\Storage;
 use App\Timezone;
+use App\CalendarEvent;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Carbon\CarbonTimeZone;
@@ -133,6 +134,9 @@ class MailController {
 
 	static function set_booking_data($bkg, $filename, $message = null) {
 
+		if (!$bkg->calendarevent) {
+			$bkg->calendarevent = Calendarevent::find($bkg->calendarevent_id);
+		}
 		$activityDate = new Carbon($bkg->calendarevent->date);
 		$legibleDate = $activityDate->format('l, d F Y');
 
