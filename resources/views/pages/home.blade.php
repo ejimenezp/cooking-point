@@ -172,7 +172,7 @@
     <div class="col-10 col-sm-8">
         <div class="pill">
             <h3 class="text-center"><span class="bkg-status bkg-status-confirmed">COVID-19 Notice</span></h3>
-            <p>All our in-person classes are open for registration. We have reduced our class capacity to 6 people to maintain a social distancing of 1.5 meters. Click below for more details on COVID-19 measures.</p>           
+            <p>All our in-person classes are open for registration. We have reduced our class capacity to keep a social distancing of 1.5 meters among groups. Click below for more details on COVID-19 measures.</p>           
             <div class="text-center mt-2">
                 <div class="btn btn-primary"><a href="/blog/covid-free-classes">COVID-19 Measures</a></div>
             </div>      

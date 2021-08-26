@@ -107,17 +107,16 @@ class ViatorController extends Controller
             }
             $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
             if ($ce) {
-                if ($ce->registered >= $ce->capacity) {
+                if (!$ce->availablecovid) {
                     $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                     $availability->AvailabilityStatus->UnavailabilityReason = 'SOLD_OUT';
-                } elseif ($ce->registered + $travellers > $ce->capacity) {
+                } elseif ($travellers > $ce->availablecovid) {
                     $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                     $availability->AvailabilityStatus->UnavailabilityReason = 'TRAVELLER_MISMATCH';
                 } else {
                     $availability->AvailabilityStatus->Status = 'AVAILABLE';
                 }
-            }
-            else {
+            } else {
                 $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                 $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
             }
@@ -165,7 +164,7 @@ class ViatorController extends Controller
                 }
                 $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
                 if ($ce) {
-                    if ($ce->registered >= $ce->capacity) {
+                    if (!$ce->availablecovid) {
                         $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                         $availability->AvailabilityStatus->UnavailabilityReason = 'SOLD_OUT';
                     } else {
@@ -208,7 +207,7 @@ class ViatorController extends Controller
 
         if ($ce) {
 
-            if ($ce->registered + $travellers > $ce->capacity) {
+            if ($travellers > $ce->availablecovid) {
                 $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
                 $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
                 $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
@@ -302,7 +301,7 @@ class ViatorController extends Controller
             if ($ce->id == $laravelbkg->calendarevent_id) {
                 $registered = $registered - $laravelbkg->adult - $laravelbkg->child;
             }
-            if ($registered + $travellers > $ce->capacity) {
+            if ($travellers > $ce->availablecovid) {
                 $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
                 $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
                 $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';

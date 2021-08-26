@@ -3,16 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 use \DateTime;
 use \DateTimeZone;
 use \DateInterval;
+use Log;
 
 class Calendarevent extends Model
 {
     protected $table = 'calendarevents';
 	public $timestamps = false;
-    protected $appends = array('registered', 'startdateatom', 'enddateatom', 'validfromdateatom');
+    protected $appends = array('registered', 'availablecovid', 'startdateatom', 'enddateatom', 'validfromdateatom');
 
     public function bookings()
     {
@@ -39,6 +41,18 @@ class Calendarevent extends Model
         $adults = $this->bookings->where('status_filter', 'REGISTERED')->sum('adult');  
         $children = $this->bookings->where('status_filter', 'REGISTERED')->sum('child');  
         return $adults + $children;
+    }
+
+    public function getAvailablecovidAttribute()
+    {
+        $groups = $this->bookings->makehidden('calendarevent')->where('status_filter', 'REGISTERED')->map(function($item) {return $item->adult + $item->child;})->sortDesc()->all();
+        $groups = array_merge($groups, [0, 0]);
+        // Log::info($this->date . ' groups ' . json_encode($groups));
+        $filtered = CovidLayout::get()->first( function ($item) use ($groups) {
+            return ($item['group1'] == $groups[0]) && ($item['group2'] == $groups[1]); 
+        });
+        // Log::info($this->date . ' capacity ' . $this->capacity . ' available ' . (int) $filtered['available']);
+        return min($this->capacity, (int) $filtered['available']);
     }
 
     public function getStartdateatomAttribute()

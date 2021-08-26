@@ -121,7 +121,7 @@ class CalendareventController extends Controller
                             ->orderBy('type')
                             ->get();
 
-        $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'capacity', 'registered', 'online']);
+        $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'capacity', 'registered', 'availablecovid', 'online']);
 
         $obfuscate = base64_encode(json_encode($subset->toArray(), JSON_NUMERIC_CHECK));
         return str_replace("5", "x06", $obfuscate);
