@@ -46,8 +46,12 @@ class Calendarevent extends Model
     public function getAvailablecovidAttribute()
     {
         $groups = $this->bookings->makehidden('calendarevent')->where('status_filter', 'REGISTERED')->map(function($item) {return $item->adult + $item->child;})->sortDesc()->all();
+        
+        if (count($groups) > 2) return 0;
+
         $groups = array_merge($groups, [0, 0]);
         // Log::info($this->date . ' groups ' . json_encode($groups));
+
         $filtered = CovidLayout::get()->first( function ($item) use ($groups) {
             return ($item['group1'] == $groups[0]) && ($item['group2'] == $groups[1]); 
         });
