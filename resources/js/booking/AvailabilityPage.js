@@ -103,6 +103,7 @@ function AvailabilityPage (props) {
     const dstartdateatom = parseISO(event.startdateatom)
     const persons = localbkg.adult + localbkg.child
     if (isBefore(dstartdateatom, now)) return false
+    if (!event.availablecovid) return false
     if (persons > event.availablecovid) return false
     if (differenceInHours(dstartdateatom, now) < 24 && event.registered === 0 && persons === 1) return false
     if (event.online && event.registered === 0 && differenceInHours(dstartdateatom, now) < 36) return false
