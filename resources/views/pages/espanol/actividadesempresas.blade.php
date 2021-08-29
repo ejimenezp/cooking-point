@@ -24,22 +24,24 @@
 	<div class="col-12">
 		<p>Ponemos a vuestra disposición nuestra escuela de cocina y equipo de chefs para realizar actividades para empresas en el centro de Madrid.</p>
 
-		    <div class="row justify-content-center">
-
-        <div class="col-10 col-sm-8">
-            <div class="pill">
-                <h4 class="text-center"><span class="bkg-status bkg-status-confirmed">Medidas COVID-19</span></h4>
-                <p>Hemos reducido el aforo para garantizar la distancia mínima de 1,5 metros entre personas no convivientes o de diferentes burbujas. Además es necesario llevar máscarilla durante toda la actividad.</p>
-            </div>
-        </div>
-    </div>
-
 		<h2>Team building en la cocina: hoy cocina mi equipo</h2>
 		<p>Una cocina es un excelente marco para una actividad de team building para empresas. En nuestras actividades se comprueba el valor del trabajo en equipo, pues los resultados son tangibles en forma de una suculenta comida o cena de empresa.</p>
 
 		<p>Al modo de un Masterchef de la tele, el grupo se divide en equipos para elaborar un menú degustación siguiendo las instrucciones de nuestros chefs. Habrá momentos de aprendizaje, trabajo minucioso y creatividad, pero también situaciones divertidas y de relax. Todo con el fin de propiciar conoceros mejor entre vosotros en un ambiente distendido.</p>
 
 		<p>Nuestro team building de cocina os propone platos, técnicas e ingredientes habituales en el panorama de la restauración actual. Nos gusta la cocina sencilla, diversa y con rigor técnico, pero con aplicación también en tu vida personal.</p>
+
+		<div class="row justify-content-center">
+	        <div class="col-10 col-sm-8">
+	            <div class="pill">
+	                <h4 class="text-center"><span class="bkg-status bkg-status-confirmed">Medidas COVID-19</span></h4>
+	                <p>El tamaño máximo para este tipo de actividad es 12 personas. Asumimos que los participantes pertenecen a la misma burbuja de convivencia.</p>
+				    <div class="text-center mt-2">
+				    	<div class="btn btn-primary"><a href="/blog/covid-free-classes">COVID-19 Measures</a></div>
+				    </div>	
+	            </div>
+	        </div>
+	    </div>
 
 		<h2>Solicita Información</h2>
 

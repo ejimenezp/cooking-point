@@ -28,7 +28,7 @@
 		<div class="col-10 col-sm-8">
 			<div class="pill">
 			    <h4 class="text-center"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></h4>
-			    <p>We assume that yours is a social gathering of friends, family or co-workers. During the post-COVID era, until further notice, group size is limited to 18 people (75% of normal capacity).</p>			
+			    <p>Until further notice, the maximum size for private events is limited to 16 people. We assume yours is a small gathering of friends, family or co-workers that you socialize with regularly.</p>			
 			    <div class="text-center mt-2">
 			    	<div class="btn btn-primary"><a href="/blog/covid-free-classes">COVID-19 Measures</a></div>
 			    </div>		
