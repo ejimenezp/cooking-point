@@ -213,7 +213,7 @@
     </div>
     <div class="col-sm-6">
         <div class="home-pill">
-            <img class="img-fluid lazyload" alt="best rated school" data-src="/images/tripadvisorCE_2018.png" />
+            <img class="img-fluid lazyload" alt="best rated school" data-src="/images/tripadvisor-travelers-choice.png" />
             <h4>Top Rated School</h4>
             <p>Six years of excellent reviews in all major travel and business rating sites (TripAdvisor, Yelp, Google,...) back us as best in our category.</p>        
             </div>   

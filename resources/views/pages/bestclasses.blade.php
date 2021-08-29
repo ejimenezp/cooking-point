@@ -28,7 +28,7 @@
 
 	<div class="col-sm-4" style="max-width: 400px;">
 		<figure class="text-center">
-			<a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html"><img class="lazyload" alt="tripadvisor certificate of excellence" data-src="/images/tripadvisorCE_2018.png" /></a>		
+			<a href="https://www.tripadvisor.com/Attraction_Review-g187514-d4888426-Reviews-Cooking_Point-Madrid.html"><img class="lazyload" alt="tripadvisor certificate of excellence" data-src="/images/tripadvisor-travelers-choice.png" /></a>		
 
 			<div id="TA_selfserveprop381" class="TA_selfserveprop">
 			<ul id="vCEzxBpedu" class="TA_links fZ8H56xuWR">
