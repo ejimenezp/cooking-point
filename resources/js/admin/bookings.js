@@ -173,7 +173,7 @@ function bookingEditShow (i, j) {
     booking_moment = moment(booking_date)
     $('#booking_date_edit').val(booking_moment.format('dddd, D MMMM YYYY'))
     $('input[name=date]').val(booking_date)
-    populateSelect_dayeventlist()
+    // populateSelect_dayeventlist()
     $('#dayeventlist').val(bookings[j].calendarevent_id)
     $('input[name=id]').val(bookings[j].id)
     $('input[name=calendarevent_id]').val(bookings[j].calendarevent_id)
