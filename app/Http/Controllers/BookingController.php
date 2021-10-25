@@ -101,7 +101,7 @@ class BookingController extends Controller
         $bkg->onlineclass = (empty($request->onlineclass)) ? 0 : $request->onlineclass;
         $bkg->save();
         Cookie::queue(Cookie::forever('cplocator', $bkg->locator));
-        return $bkg;
+        return $bkg->makeHidden('calendarevent');
 
     }
     
@@ -144,7 +144,7 @@ class BookingController extends Controller
             $bkg->onlineclass = $request->onlineclass;
 
             $bkg->save();
-            return $bkg;
+            return $bkg->makeHidden('calendarevent');
         }
     }
 
@@ -169,7 +169,7 @@ class BookingController extends Controller
     {
         return Booking::where('calendarevent_id', $ce_id)
                         ->orderBy('created_at', 'ASC')
-                        ->get();
+                        ->get()->makeHidden('calendarevent');
     }
 
     function newLocator()
@@ -207,7 +207,7 @@ class BookingController extends Controller
         $bkg = $this->update($request);
         MailController::send_mail($bkg->email, $bkg, 'user_cancellation');
         MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_cancel_request');
-        return $bkg;
+        return $bkg->makeHidden('calendarevent');
     }
 
     function viatorCancel($locator, $cdate)
