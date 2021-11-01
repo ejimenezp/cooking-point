@@ -70,7 +70,7 @@
 @stop
 
 @section('js')
-<script async src="/js/fileuploader.js"></script>
+<script async src="/js/admin/fileuploader.js"></script>
 @stop
 
 @stop

@@ -1,5 +1,5 @@
-require('bootstrap')
-// require('jquery-serializejson')
+require('../bootstrap')
+const $ = require('jquery')
 require('@nobleclem/jquery-multiselect')
 
 //
