@@ -327,6 +327,7 @@ class ReportController extends Controller
                             ON ce.id = bkg.calendarevent_id 
                             AND bkg.status_filter = 'REGISTERED'
                         WHERE ce.date BETWEEN '$request->start_date' and '$request->end_date'
+                        AND type NOT IN ('LIMPIEZA-MAÑANA', 'LIMPIEZA-MEDIODIA', 'LIMPIEZA-NOCHE', 'PAYREQUEST')
                         GROUP BY date, time, type, capacity
                         ORDER BY date, time";
 
