@@ -16,7 +16,7 @@ function VoucherPrintOut (props) {
   return (
     <span>
       <ReactToPrint
-        trigger={() => <div className='btn btn-primary'>Print Booking</div>}
+        trigger={() => <div className='btn btn-primary'>Print Voucher</div>}
         content={() => componentRef.current}
       />
       <div style={{ display: 'none' }}>
