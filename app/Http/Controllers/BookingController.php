@@ -44,7 +44,7 @@ class BookingController extends Controller
             $bkg->date = $date->format('Y-m-d');
             return view('booking.index', ['param' => json_encode($bkg)]);
         } else {
-            $bkg = Booking::where('locator', $request->locator)->first();
+            $bkg = Booking::where('locator', $request->locator)->first()->makeVisible('calendarevent');
             if (!$bkg) {    
                 return view('errors.wrongLocator');          
             } else {
@@ -101,7 +101,7 @@ class BookingController extends Controller
         $bkg->onlineclass = (empty($request->onlineclass)) ? 0 : $request->onlineclass;
         $bkg->save();
         Cookie::queue(Cookie::forever('cplocator', $bkg->locator));
-        return $bkg->makeHidden('calendarevent');
+        return $bkg->makeVisible('calendarevent');
 
     }
     
@@ -144,7 +144,7 @@ class BookingController extends Controller
             $bkg->onlineclass = $request->onlineclass;
 
             $bkg->save();
-            return $bkg->makeHidden('calendarevent');
+            return $bkg->makeVisible('calendarevent');
         }
     }
 
@@ -169,7 +169,7 @@ class BookingController extends Controller
     {
         return Booking::where('calendarevent_id', $ce_id)
                         ->orderBy('created_at', 'ASC')
-                        ->get()->makeHidden('calendarevent');
+                        ->get();
     }
 
     function newLocator()
@@ -207,7 +207,7 @@ class BookingController extends Controller
         $bkg = $this->update($request);
         MailController::send_mail($bkg->email, $bkg, 'user_cancellation');
         MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_cancel_request');
-        return $bkg->makeHidden('calendarevent');
+        return $bkg;
     }
 
     function viatorCancel($locator, $cdate)

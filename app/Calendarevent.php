@@ -15,6 +15,7 @@ class Calendarevent extends Model
     protected $table = 'calendarevents';
 	public $timestamps = false;
     protected $appends = array('registered', 'availablecovid', 'startdateatom', 'enddateatom', 'validfromdateatom');
+    protected $hidden = ['bookings', 'registered', 'availablecovid'];
 
     public function bookings()
     {
@@ -45,7 +46,7 @@ class Calendarevent extends Model
 
     public function getAvailablecovidAttribute()
     {
-        $groups = $this->bookings->makehidden('calendarevent')->where('status_filter', 'REGISTERED')->map(function($item) {return $item->adult + $item->child;})->sortDesc()->all();
+        $groups = $this->bookings->where('status_filter', 'REGISTERED')->map(function($item) {return $item->adult + $item->child;})->sortDesc()->all();
         
         if (count($groups) > 2) return 0;
 

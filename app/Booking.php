@@ -11,6 +11,7 @@ class Booking extends Model
     protected $table = 'bookings';
 	public $timestamps = true;
     protected $appends = array('type', 'date');
+    protected $hidden = ['calendarevent'];
 
     function calendarevent()
     {
@@ -24,11 +25,11 @@ class Booking extends Model
 
     public function getDateAttribute()
     {
-        return $this->calendarevent->makeHidden('registered')->date;
+        return $this->calendarevent->date;
     }
 
         public function getTypeAttribute()
     {
-        return $this->calendarevent->makeHidden('registered')->type;
+        return $this->calendarevent->type;
     }
 }

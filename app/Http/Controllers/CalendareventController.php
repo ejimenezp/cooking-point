@@ -104,7 +104,7 @@ class CalendareventController extends Controller
                             ->orderBy('date')
                             ->orderBy('time')
                             ->orderBy('type')
-                            ->get()->makeHidden('bookings'));
+                            ->get()->makeVisible(['availablecovid', 'registered']));
     }
 
 
@@ -119,7 +119,7 @@ class CalendareventController extends Controller
                             ->orderBy('date')
                             ->orderBy('time')
                             ->orderBy('type')
-                            ->get();
+                            ->get()->makeVisible('registered');
 
         $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'capacity', 'registered', 'availablecovid', 'online']);
 
@@ -139,8 +139,7 @@ class CalendareventController extends Controller
                             ->orderBy('date')
                             ->orderBy('time')
                             ->orderBy('type')
-                            ->get()
-                            ->makeHidden('bookings');
+                            ->get();
     }
 
     function importStaffing (Request $request)
