@@ -4,6 +4,7 @@ import { format, addDays, subDays } from 'date-fns'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
 import { CalendareventRow } from './Components/CalendareventRow'
+import { EventDate } from './Components/EventDate'
 
 const axios = require('axios').default
 
@@ -50,7 +51,7 @@ function CalendareventIndex (props) {
         <button className="button_day_selector btn btn-primary" onClick={handleDateUp}>&gt;&gt;</button>
       </div>
       <h1>
-        <div className="dateshown"></div>
+        <EventDate className="dateshown" date={props.date}/>
       </h1>
 
       <table className="table table-hover" id="calendarevent_table">

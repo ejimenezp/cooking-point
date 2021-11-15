@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 import { format } from 'date-fns'
+import { CookName } from './Components/CookName'
 
 export { CalendareventRow }
 
@@ -31,7 +32,7 @@ function CalendareventRow (props) {
       <td>{row.time.substring(0, 5)} ({format(new Date('1970-01-01T' + row.duration), 'h:mm')} hrs)</td>
       <td>{row.type}</td>
       <td>{(options !== undefined) && (cookName(row.staff_id) + secondStaffName)}</td>
-      <td>{row.registered}</td>
+      <td><CookName calendarevent={row} /></td>
     </tr>
   )
 }
