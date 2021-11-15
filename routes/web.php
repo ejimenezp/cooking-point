@@ -70,6 +70,11 @@ Route::get('/admin/login', 'AuthController@login')->name('login');
 Route::post('/admin/checklogin', 'AuthController@checklogin');
 Route::get('/admin/logout', 'AuthController@logout');
 
+Route::group(['prefix' => 'adminbookings', 'middleware' => 'cp-auth'], function () {
+    Route::get('', function() {  $date = date('Y-m-d');   return view('admin.adminbookings', ['date' => $date]); });
+    Route::get('{date}', function($date) { return view('admin.adminbookings', ['date' => $date]); });
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('', function() {     return redirect('admin/bookings'); });
     Route::get('bookings', function() { return view('admin.bookings'); });

@@ -42,6 +42,7 @@ mix
   .js('resources/js/admin/report.js', 'public/js/admin')
   .js('resources/js/admin/fileuploader.js', 'public/js/admin')
   .js('resources/js/admin/classemails.js', 'public/js/admin')
+  .js('resources/js/adminbookings/adminbookings.js', 'public/js/admin')
 
 if (mix.inProduction()) {
   mix.version()
