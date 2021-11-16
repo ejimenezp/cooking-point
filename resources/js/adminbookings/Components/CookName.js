@@ -14,15 +14,23 @@ function CookName (props) {
   const calendarevent = props.calendarevent
 
   useEffect(() => {
-    const getStaff = async () => {
+    const fetchStaff = async () => {
       try {
         const result = await axios.get('/api/staff/get')
         setStaff(result.data)
+        sessionStorage.setItem('staff', result.data)
       } catch (error) {
         console.log(error)
       }
     }
-    getStaff()
+    const aux = sessionStorage.getItem('staff')
+    if (aux) {
+      setStaff(aux)
+    } else {
+      fetchStaff()
+    }
+
+    fetchStaff()
   }, [])
 
   const cookName = (id) => {

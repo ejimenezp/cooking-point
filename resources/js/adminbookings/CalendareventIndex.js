@@ -20,7 +20,7 @@ function CalendareventIndex (props) {
   const userRole = document.querySelector('meta[name="user_role"]').content
 
   useEffect(() => {
-    const getSchedule = async () => {
+    const fetchSchedule = async () => {
       try {
         const result = await axios.post('/api/calendarevent/getschedule', { start: props.date, end: props.date })
         setSchedule(result.data)
@@ -28,7 +28,7 @@ function CalendareventIndex (props) {
         console.log(error)
       }
     }
-    getSchedule()
+    fetchSchedule()
   }, [props.date])
 
   function handleDateUp () {

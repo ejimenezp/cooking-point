@@ -71,8 +71,8 @@ Route::post('/admin/checklogin', 'AuthController@checklogin');
 Route::get('/admin/logout', 'AuthController@logout');
 
 Route::group(['prefix' => 'adminbookings', 'middleware' => 'cp-auth'], function () {
-    Route::get('', function() {  $date = date('Y-m-d');   return view('admin.adminbookings', ['date' => $date]); });
-    Route::get('{date}', function($date) { return view('admin.adminbookings', ['date' => $date]); });
+    Route::get('/', function() {  $date = date('Y-m-d');   return view('admin.adminbookings', ['any' => $date]); });
+    Route::get('/{any}', function($any) {  return view('admin.adminbookings', ['any' => $any]); })->where('any', '.+');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {

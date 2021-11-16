@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="admin row justify-content-center">
-	<div id="AdminBookingsRoot" date="{{ $date }}"></div>
+	<div id="AdminBookingsRoot" any="{{ $any }}"></div>
 </div>
 @stop
 

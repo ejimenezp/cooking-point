@@ -8,6 +8,7 @@ import { Router, Redirect } from '@reach/router'
 import ErrorBoundary from '../booking/Components/ErrorBoundary'
 
 import CalendareventIndex from './CalendareventIndex'
+import BookingIndex from './BookingIndex'
 
 const axios = require('axios').default
 
@@ -24,7 +25,7 @@ const axios = require('axios').default
 // const CustomerDetailsPage = React.lazy(() => import('./CustomerDetailsPage.js'));
 
 function AdminBookingsRoot (props) {
-  const date = props.date
+  const any = props.any
   const [options, setOptions] = useState()
   // const data = JSON.parse(props.data)
   // data.fixed_date = parseInt(data.fixed_date)
@@ -49,29 +50,18 @@ function AdminBookingsRoot (props) {
   //   setBkg(updatedBkg)
   // }
 
-  useEffect(() => {
-    const getStaff = async () => {
-      try {
-        const result = await axios.get('/api/staff/get')
-        setOptions({ staff: result.data })
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getStaff()
-  }, [])
 
   return (
     <div className='col-12'>
       <ErrorBoundary>
         <Router>
-          <Redirect from='/adminbookings' to={'/adminbookings/' + date} noThrow />
+          <Redirect from='/adminbookings' to={'/adminbookings/' + any} noThrow />
 
-          <CalendareventIndex path='/adminbookings/:date' date={date} options={options} />
-          {/*          <BookingIndex path='/adminbookings/bookingindex/:id' id={id} />
-          <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
-          <BookingEdit path='/adminbookings/booking/:id' id={id} /> */}
-
+{/*          <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
+          <BookingEdit path='/adminbookings/booking/:id' id={id} /> 
+*/}
+          <BookingIndex path='/adminbookings/bookingindex/:id' id={any} />
+          <CalendareventIndex path='/adminbookings/:date' date={any} options={options} />
         </Router>
       </ErrorBoundary>
     </div>
@@ -84,5 +74,5 @@ AdminBookingsRoot.propTypes = {
 
 const element = document.getElementById('AdminBookingsRoot')
 ReactDOM.render(
-  <AdminBookingsRoot date={element.getAttribute('date')} />, element
+  <AdminBookingsRoot any={element.getAttribute('any')} />, element
 )
