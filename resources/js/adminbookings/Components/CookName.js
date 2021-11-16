@@ -18,18 +18,10 @@ function CookName (props) {
       try {
         const result = await axios.get('/api/staff/get')
         setStaff(result.data)
-        sessionStorage.setItem('staff', result.data)
       } catch (error) {
         console.log(error)
       }
     }
-    const aux = sessionStorage.getItem('staff')
-    if (aux) {
-      setStaff(aux)
-    } else {
-      fetchStaff()
-    }
-
     fetchStaff()
   }, [])
 
