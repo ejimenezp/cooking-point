@@ -9,6 +9,7 @@ import ErrorBoundary from '../booking/Components/ErrorBoundary'
 
 import CalendareventIndex from './CalendareventIndex'
 import BookingIndex from './BookingIndex'
+import BookingEdit from './BookingEdit'
 
 const axios = require('axios').default
 
@@ -58,8 +59,8 @@ function AdminBookingsRoot (props) {
           <Redirect from='/adminbookings' to={'/adminbookings/' + any} noThrow />
 
 {/*          <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
-          <BookingEdit path='/adminbookings/booking/:id' id={id} /> 
 */}
+          <BookingEdit path='/adminbookings/booking/:id' id={any} />
           <BookingIndex path='/adminbookings/bookingindex/:id' id={any} />
           <CalendareventIndex path='/adminbookings/:date' date={any} options={options} />
         </Router>

@@ -14,24 +14,9 @@ function BookingRow (props) {
   const userRole = document.querySelector('meta[name="user_role"]').content
   const calendareventTrClass = (userRole >= 2) ? 'calendarevent_line' : ''
 
-  function editButton () {
-    var button
-    if (userRole >= 3) {
-      const buttonColor = row.info === '' ? 'btn-secondary' : 'btn-primary'
-      button = '<button class="btn ' + buttonColor + ' btn-sm">Detalles</button>'
-    } else if (row.info !== '') {
-      button = '<button class="btn btn-primary btn-sm">+info</button>'
-    } else {
-      button = ''
-    }
-    return button
-  }
-
-  const registered = '' + row.adult + (row.child > 0) ? '+' + row.child : ''
-
   return (
-    <tr className={calendareventTrClass} onClick={() => navigate('/adminbookings/booking/:id' + row.id)}>
-      <td><span>{registered}</span></td>
+    <tr className={calendareventTrClass} onClick={() => navigate('/adminbookings/booking/' + row.id)}>
+      <td>{row.adult}{(row.child > 0) && <span>+{row.child} </span>}</td>
       <td>{row.name}</td>
       <td>{row.status}</td>
       <td>{row.alergies}</td>
