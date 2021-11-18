@@ -44,6 +44,13 @@ class Calendarevent extends Model
         return $adults + $children;
     }
 
+    public function groups()
+    {
+        $groups = $this->bookings->where('status_filter', 'REGISTERED')->map(function($item) {return $item->adult + $item->child;})->sortDesc()->all();        
+        $groups = array_merge($groups, [0, 0, 0]);
+        return $groups;
+               
+    }
     public function getAvailablecovidAttribute()
     {
         $groups = $this->bookings->where('status_filter', 'REGISTERED')->map(function($item) {return $item->adult + $item->child;})->sortDesc()->all();

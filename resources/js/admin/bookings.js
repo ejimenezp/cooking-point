@@ -359,6 +359,7 @@ function populateBookingList (i) {
     ' Disp ' + month_schedule[i].availablecovid + '</span>'
   $('.classshown').html(clase)
   //
+  $('input[name=calendarevent_id]').val(month_schedule[i].id)
   $('#booking_table > tbody').empty()
 
   var line_attributes

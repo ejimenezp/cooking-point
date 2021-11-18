@@ -214,6 +214,11 @@
 				</table>
 				<button class="btn btn-primary button_booking_edit" data-j="-1">Nueva Reserva</button>
 				<button class="btn btn-secondary toggle_datepicker">Ver Calendario</button>
+				<form style="display: inline;" id="layout" method="post" action="layout">
+					@csrf
+					<input type="hidden" type="text" name="calendarevent_id">
+					<button class="btn btn-primary">Colocación</button>
+				</form>
 				<div class="gutter"></div>
 			</div>
 			<div id="booking_edit" style="display:none;">

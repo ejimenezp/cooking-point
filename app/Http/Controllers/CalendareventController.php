@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Calendarevent;
 use App\Eventtype;
 use App\Staff;
+use App\CovidLayout;
 
 use Log;
 
@@ -178,4 +179,34 @@ class CalendareventController extends Controller
         }
     }
 
+    function layout (Request $request) {
+
+        $ce = Calendarevent::find($request->calendarevent_id);
+        $groups = $ce->groups();
+        if ($groups == [0, 0, 0]) {
+            return view('admin.layout', ['cooking' => [], 'eating' => [] ]);
+        } else {
+            $arrangement = CovidLayout::seats($groups);
+            return view('admin.layout', ['cooking' => $arrangement['cooking'], 'eating' => $arrangement['eating'] ]);
+        }
+    }
+
+    function layouttest (Request $request) {
+
+        $groups[0] = $request->group1;
+        $groups[1] = $request->group2;
+        $groups[2] = $request->group3;
+
+        Log::info('Groups:' , $groups);
+        if ($groups == [0, 0, 0]) {
+            return view('admin.layout', ['test' => 1, 'cooking' => [], 'eating' => [] ]);
+        } else {
+            $arrangement = CovidLayout::seats($groups);
+            Log::info($arrangement);
+            return view('admin.layout', [
+                'test' => 1, 
+                'group1' => $request->group1, 'group2' => $request->group2, 'group3' => $request->group3,
+                'cooking' => $arrangement['cooking'], 'eating' => $arrangement['eating'] ]);
+        }
+    }
 }
