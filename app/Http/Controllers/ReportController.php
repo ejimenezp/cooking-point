@@ -201,7 +201,8 @@ class ReportController extends Controller
                                 scnd.name as second,
                                 scnd.style as second_style
                         FROM calendarevents, staff as stf, staff as scnd
-                        WHERE calendarevents.date >= '$request->start_date' 
+                        WHERE calendarevents.date >= '$request->start_date'
+                            AND calendarevents.type IN ('PAELLA', 'TAPAS', 'GROUP')
                             AND calendarevents.date <= '$request->end_date'
                             AND calendarevents.staff_id = stf.id
                             AND calendarevents.secondstaff_id = scnd.id
