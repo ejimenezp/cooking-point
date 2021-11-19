@@ -33,7 +33,7 @@
 </script>
 
 <div class="row justify-content-center">
-  @if ($test || 0)
+  @if ($test ?? 0)
   <div class="col-xl-1">
     <form method="get" action="layouttest">
       @csrf
