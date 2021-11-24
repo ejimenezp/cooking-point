@@ -74,6 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('', function() {     return redirect('admin/bookings'); });
     Route::get('bookings', function() { return view('admin.bookings'); });
     Route::get('bookings/layouttest', 'CalendareventController@layouttest');
+    Route::get('bookings/layouttest2', 'CalendareventController@layouttest2');
     Route::post('bookings/layout', 'CalendareventController@layout');
     Route::get('bookings/calendarevent', function() { return view('admin.bookings'); });
     Route::get('bookings/booking', function() { return view('admin.bookings'); });

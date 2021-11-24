@@ -209,4 +209,21 @@ class CalendareventController extends Controller
                 'cooking' => $arrangement['cooking'], 'eating' => $arrangement['eating'] ]);
         }
     }
+
+    function layouttest2 () {
+        $availabilities = CovidLayout::get();
+        $seatsCollection = collect(CovidLayout::seatsArray);
+
+        $availabilities->each(function ($item) use ($seatsCollection) {
+            $sortedItem = array_values(collect([$item['group1'], $item['group2'], $item['available']])->sortDesc()->toArray());
+            if (!$seatsCollection->search( function ($item) use ($sortedItem) {
+                $pattern = $item['pattern'];
+                return $pattern[0] == $sortedItem[0] && $pattern[1] == $sortedItem[1] && $pattern[2] == $sortedItem[2];
+                    }))
+            {
+                    Log::info('Combinación ' . implode(",", $sortedItem) . ' no encontrada');
+            }
+
+        });
+    }
 }

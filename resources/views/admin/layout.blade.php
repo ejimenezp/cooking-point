@@ -2,35 +2,38 @@
 @section('title', 'Class Layout')
 @section('description', 'Cooking Point Admin Main Page')
 @section('content')
-
 <script type="text/javascript">
+function show_cooking_layout () {
+  var x;
+  x = document.getElementsByClassName("tg-white")
+  for (var i = 0; i < x.length; i++) {
+    x[i].style.backgroundColor = "white"
+  }
+  @foreach($cooking as $position)
+  x = document.getElementById("tg-{{$position}}")
+  x.style.backgroundColor = "orange"
+  @endforeach
+};
 
-
-    function show_cooking_layout() {
-      var x;
-      x = document.getElementsByClassName("tg-white")
-      for (var i = 0; i < x.length; i++) {
-        x[i].style.backgroundColor = "white"
-      }
-      @foreach($cooking as $position)
-        x = document.getElementById("tg-{{$position}}")
-        x.style.backgroundColor = "orange"
-      @endforeach
-    };
-
-    function show_eating_layout() {
-      var x;
-      x = document.getElementsByClassName("tg-white")
-      for (var i = 0; i < x.length; i++) {
-        x[i].style.backgroundColor = "white"
-      }
-      @foreach($eating as $position)
-        x = document.getElementById("tg-{{$position}}")
-        x.style.backgroundColor = "DarkKhaki"
-      @endforeach
-    };
-
+function show_eating_layout () {
+  var x;
+  x = document.getElementsByClassName("tg-white")
+  for (var i = 0; i < x.length; i++) {
+    x[i].style.backgroundColor = "white"
+  }
+  @foreach($eating as $position)
+  x = document.getElementById("tg-{{$position}}")
+  x.style.backgroundColor = "DarkKhaki"
+  @endforeach
+};
 </script>
+
+<div class="row justify-content-center">
+  <div class="col-md-6 text-center">
+    <button onclick="show_cooking_layout()" class="btn btn-primary btn-sm mb-1 mr-1">Cocinando</button>
+    <button onclick="show_eating_layout()" class="btn btn-secondary btn-sm">Comiendo</button>
+  </div>
+</div>
 
 <div class="row justify-content-center">
   @if ($test ?? 0)
@@ -46,14 +49,13 @@
   @endif
   <div class="col-md-6 col-xl-4">
     <div style="height: 5px; background-color: orange;"></div>
-
     <style type="text/css">
+    @foreach($cooking as $position) #tg-{{ $position }}
+    {
+      background-color: orange;
+    }
 
-    @foreach($cooking as $position)
-      #tg-{{$position}} { background-color: orange; }
-    @endforeach
-
-    .tg {
+    @endforeach .tg {
       border-collapse: collapse;
       border-spacing: 0;
       width: 100%;
@@ -177,20 +179,12 @@
         </tr>
         <tr>
           <td id="tg-51" class="tg-white">51</td>
-          <td id="tg-91" class="tg-white"></td>
-          <td id="tg-90" class="tg-white"></td>
-          <td id="tg-92" class="tg-white"></td>
+          <td id="tg-45" class="tg-white"></td>
+          <td id="tg-44" class="tg-white"></td>
+          <td id="tg-43" class="tg-white"></td>
           <td id="tg-42" class="tg-white">42</td>
         </tr>
       </tbody>
     </table>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-          <form>
-            <input type="button" onclick="show_cooking_layout()" class="btn btn-primary btn-sm" value="Cocinando" />
-            <input type="button" onclick="show_eating_layout()" class="btn btn-secondary btn-sm" value="Comiendo" />     
-          </form >        
-      </div>
   </div>
-</div>
-@stop
+  @stop
