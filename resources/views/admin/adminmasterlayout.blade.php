@@ -21,7 +21,7 @@
 			<div class=" float-left">
 				<a class='menu-strips' href='javascript:void(0);'><img src="/images/icons/menu-strips.png" height="50px" /></a>
 			</div>
-			<div id="dropdown-content">
+			<div id="dropdown-content" class="dropdown-content-slide-out">
 				<ul>
 					<li>
 						<a href="/admin/bookings">Bookings</a>

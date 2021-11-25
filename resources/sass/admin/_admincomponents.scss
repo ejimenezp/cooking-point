@@ -29,12 +29,22 @@ h1 {
 
 
   #dropdown-content {
-    display:none;
     background-color: $brand-grey;
     position:absolute;
     left: 0;
     top: 2.5rem;
     z-index: 1;
+  }
+
+  .dropdown-content-slide-out {
+      visibility: visible;
+      transform: translate(-100%, 0);
+      -webkit-transform: translate(-100%, 0);
+ }
+
+  .dropdown-content-slide-in {
+      visibility: visible;
+      transform: translate(0, 0);
   }
 
   ul {
