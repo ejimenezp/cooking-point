@@ -217,7 +217,7 @@
 				<form style="display: inline;" id="layout" method="post" action="layout">
 					@csrf
 					<input type="hidden" type="text" name="calendarevent_id">
-					<button class="btn btn-primary">Colocación</button>
+					<button type="submit" class="btn btn-primary">Colocación</button>
 				</form>
 				<div class="gutter"></div>
 			</div>
