@@ -31,7 +31,7 @@ function show_eating_layout () {
 <div class="row justify-content-center">
   <div class="col-md-6 text-center">
     <button onclick="show_cooking_layout()" class="btn btn-primary btn-sm mb-1 mr-1">Cocinando</button>
-    <button onclick="show_eating_layout()" class="btn btn-secondary btn-sm">Comiendo</button>
+    <button onclick="show_eating_layout()" class="btn btn-secondary btn-sm mb-1">Comiendo</button>
   </div>
 </div>
 
@@ -59,7 +59,7 @@ function show_eating_layout () {
       border-collapse: collapse;
       border-spacing: 0;
       width: 100%;
-      height: 80vh;
+      height: 70vh;
     }
 
     .tg td {
