@@ -67,7 +67,7 @@ class BookingController extends Controller
             $bkg->onlineclass = $request->onlineclass;
 
             $bkg->save();
-            return view('admin.bookings.bookingindex', ['ce' => $bkg->calendarevent]);
+            return redirect('/admin/adminbookings/calendarevent/' . $bkg->calendarevent_id);
         }
     }
 
