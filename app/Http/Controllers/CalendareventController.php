@@ -16,6 +16,29 @@ use Log;
 
 class CalendareventController extends Controller
 {
+
+    function schedule(String $date) 
+    {
+        list($year, $month, $day) = sscanf($date, "%d-%d-%d");
+        if (!checkdate($month, $day, $year)) {
+            return view('admin.errors.generic', ['message' => 'Date Not Valid (' . $date .')']);
+        }
+
+        $index = Calendarevent::whereDate('date', '>=', $date)
+                            ->whereDate('date', '<=', $date)
+                            ->orderBy('date')
+                            ->orderBy('time')
+                            ->orderBy('type')
+                            ->get()->makeVisible('registered');
+        return view('admin.bookings.calendareventindex', ['date' => $date, 'calendarevents' => $index]);
+    }
+
+    function index ($id)
+    {
+        return view('admin.bookings.bookingindex', ['ce' => Calendarevent::findOrFail($id)]);
+    }
+
+
     function add(Request $request)
     {
     	// check event does not exist already

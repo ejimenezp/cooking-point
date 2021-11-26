@@ -22,6 +22,56 @@ use Log;
 class BookingController extends Controller
 {
 
+    function view($id)
+    {
+        $sources = Source::orderBy('type')->orderBy('name')->get();
+        return view('admin.bookings.bookingedit', ['bkg' => Booking::findOrFail($id), 'sources' => $sources]);
+    }
+
+
+    function new_update(Request $request)
+    {
+        $bkg = Booking::find($request->id);
+        if (!$bkg) {
+            return response()->json('Esta reserva ya no existe', 350);;
+        } else {
+            $bkg->calendarevent_id = $request->calendarevent_id;
+            $bkg->source_id = $request->source_id;
+            $bkg->status = $request->status;
+            switch ($bkg->status) {
+                case 'PENDING':
+                case 'CANCELED':
+                    $bkg->status_filter = 'DO_NOT_COUNT';
+                    break;          
+                default:
+                    $bkg->status_filter = 'REGISTERED';
+                    break;
+            }
+            $bkg->locator = $request->locator;
+            $bkg->name = $request->name;
+            $bkg->email = $request->email;
+            $bkg->phone = $request->phone;
+            $bkg->adult = $request->adult;
+            $bkg->child = $request->child;
+            $bkg->pay_method = $request->pay_method;                    
+            $bkg->payment_date = (empty($request->payment_date)) ? null : $request->payment_date;
+            $bkg->food_requirements = $request->food_requirements;
+            $bkg->comments = $request->comments;
+            $bkg->crm = $request->crm;
+            $bkg->iva = !empty($request->iva);
+            $bkg->price = $request->price;
+            $bkg->hide_price = !empty($request->hide_price);
+            $bkg->fixed_date = !empty($request->fixed_date);
+            $bkg->invoice = $request->invoice;
+            $bkg->tz = empty($request->tz) ? null : $request->tz;
+            $bkg->onlineclass = $request->onlineclass;
+
+            $bkg->save();
+            return view('admin.bookings.bookingindex', ['ce' => $bkg->calendarevent]);
+        }
+    }
+
+
     function get(Request $request)
     {
         if (!$request->locator) {
@@ -165,12 +215,12 @@ class BookingController extends Controller
         return Booking::where('locator', $locator)->first();
     }
     
-    function index($ce_id)
-    {
-        return Booking::where('calendarevent_id', $ce_id)
-                        ->orderBy('created_at', 'ASC')
-                        ->get();
-    }
+    // function index($ce_id)
+    // {
+    //     return Booking::where('calendarevent_id', $ce_id)
+    //                     ->orderBy('created_at', 'ASC')
+    //                     ->get();
+    // }
 
     function newLocator()
     {
