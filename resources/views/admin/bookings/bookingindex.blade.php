@@ -18,6 +18,8 @@
 			</button>
 			<button class="button_calendarevent_selector btn btn-primary" data-d="next">>></button>
 		</form>
+
+
 		<h4>
 			{{ substr($ce->time, 0, 5) . ' ' . $ce->type . ' (' . $ce->staff->name . ') Conf ' . $ce->registered . ' Disp ' . $ce->availablecovid }}
 		</h4>

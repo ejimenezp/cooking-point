@@ -24,7 +24,7 @@
 			<div id="dropdown-content" class="dropdown-content-slide-out">
 				<ul>
 					<li>
-						<a href="/admin/bookings">Bookings</a>
+						<a href="/admin/adminbookings">Bookings</a>
 					</li>
 					@if (app('request')->input('user_role') >= 2)
 					<li>
@@ -59,7 +59,7 @@
 			<div class="menu clearfix">
 				<ul>
 					<li>
-						<a href="/admin/bookings">Bookings</a>
+						<a href="/admin/adminbookings">Bookings</a>
 					</li>
 					@if (app('request')->input('user_role') >= 2)
 					<li>

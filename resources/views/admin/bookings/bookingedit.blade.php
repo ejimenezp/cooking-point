@@ -36,10 +36,6 @@
 							<td>
 								Fuente:
 							</td>
-							<select>
-								<option value="a">A</option>
-								<option value="b" selected>B</option>
-							</select>
 							<td>
 								<select id="sourcelist" name="source_id">
 								@foreach($sources as $source)
