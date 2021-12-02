@@ -71,7 +71,7 @@ Route::post('/admin/checklogin', 'AuthController@checklogin');
 Route::get('/admin/logout', 'AuthController@logout');
 
 Route::group(['prefix' => 'adminbookings', 'middleware' => 'cp-auth'], function () {
-    Route::get('/', 'CalendareventController@adminSchedule');
+    Route::get('', function() {     return redirect('adminbookings/'. date("Y-m-d") ); });
     Route::get('/{date}', 'CalendareventController@adminSchedule')->where('date', '^([0-9]{4}-[0-9]{2}-[0-9]{2})$');    
     Route::get('/{date2}/{ceId}', 'CalendareventController@adminSchedule')->where('ceId', '[0-9]+');    
     // Route::get('/{date}/{ceId?}/edit', 'CalendareventController@adminSchedule')->whereNumber('ceId');    
