@@ -12,24 +12,24 @@ export default CalendareventIndex
 
 CalendareventIndex.propTypes = {
   date: PropTypes.string,
-  options: PropTypes.object
+  schedule: PropTypes.array
 }
 
 function CalendareventIndex (props) {
-  const [schedule, setSchedule] = useState([])
+  const [schedule, setSchedule] = useState(props.schedule)
   const userRole = document.querySelector('meta[name="user_role"]').content
 
   useEffect(() => {
     const fetchSchedule = async () => {
       try {
-        const result = await axios.post('/api/calendarevent/getschedule', { start: props.date, end: props.date })
+        const result = await axios.get('/api/calendarevent/getschedule/' + props.date)
         setSchedule(result.data)
       } catch (error) {
         console.log(error)
       }
     }
-    fetchSchedule()
-  }, [props.date])
+    // fetchSchedule()
+  }, [props.schedule])
 
   function handleDateUp () {
     navigate('/adminbookings/' + format(addDays(new Date(props.date), 1), 'yyyy-MM-dd'))

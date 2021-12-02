@@ -24,7 +24,7 @@ Route::get('calendarevent/get/{id}', 'CalendareventController@get');
 Route::post('calendarevent/update', 'CalendareventController@update');
 Route::get('calendarevent/delete/{id}', 'CalendareventController@delete');
 Route::get('calendarevent/getavailability', 'CalendareventController@getAvailability');
-Route::post('calendarevent/getschedule', 'CalendareventController@getSchedule');
+Route::get('calendarevent/getschedule/{date}', 'CalendareventController@getSchedule');
 
 Route::get('booking/find/{id}', 'BookingController@find');
 Route::post('booking/add', 'BookingController@add');

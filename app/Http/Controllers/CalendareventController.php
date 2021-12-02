@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use App\Http\Requests;
+use App\Booking;
 use App\Calendarevent;
 use App\Eventtype;
 use App\Staff;
@@ -15,6 +16,45 @@ use Log;
 
 class CalendareventController extends Controller
 {
+    function adminSchedule (Request $request)
+    {
+        Log::info('date: '. $request->date);
+        Log::info('ceId:  ' . $request->ceId);
+        Log::info('any: ' . $request->any);
+
+
+        if ($request->bkgId) {
+            if ($bkg = Booking::find($request->bkgId)) {
+                return view('admin.adminbookings', ['param' => json_encode($this->getScheduleForReactRoot($bkg->calendarevent->date), JSON_NUMERIC_CHECK)]);
+            } else {
+                return view('admin.errors.generic', ['message' => 'No existe reserva (' . $request->bkgId .')']);
+  
+            }
+        }
+        if ($request->ceId) {
+            if ($ceId = Calendarevent::find($request->ceId)) {
+                return view('admin.adminbookings', ['param' => json_encode($this->getScheduleForReactRoot($ceId->date), JSON_NUMERIC_CHECK)]);
+            } else {
+                return view('admin.errors.generic', ['message' => 'No existe evento (' . $request->ceId .')']);
+  
+            }        }
+        if ($request->date) {
+            list($year, $month, $day) = sscanf($request->date, "%d-%d-%d");
+                if (checkdate($month, $day, $year)) {
+                        return view('admin.adminbookings', ['param' => json_encode($this->getScheduleForReactRoot($request->date), JSON_NUMERIC_CHECK)]);
+                } else {
+                    return view('admin.errors.generic', ['message' => 'Fecha no válida (' . $request->date .')']);
+                }        
+        }
+        if ($request->any) {
+            return view('admin.errors.generic', ['message' => 'No existe (' . $request->any .')']);
+        }
+        return view('admin.errors.generic', ['message' => 'No encue (' . $request->any .')']);
+ 
+    }
+
+
+
     function add(Request $request)
     {
     	// check event does not exist already
@@ -97,14 +137,20 @@ class CalendareventController extends Controller
     }
 
 
-    function getSchedule(Request $request)
+    function getScheduleForReactRoot($date)
     {
-        return response()->json(Calendarevent::whereDate('date', '>=', $request->start)
-                            ->whereDate('date', '<=', $request->end)
+        return Calendarevent::whereDate('date', '>=', $date)
+                            ->whereDate('date', '<=', $date)
                             ->orderBy('date')
                             ->orderBy('time')
                             ->orderBy('type')
-                            ->get()->makeVisible(['availablecovid', 'registered']));
+                            ->get()->makeVisible(['bookings','availablecovid', 'registered']);
+    }
+
+
+    function getSchedule($date)
+    {
+        return response()->json($this->getScheduleForReactRoot($date));
     }
 
 

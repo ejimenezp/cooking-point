@@ -26,8 +26,7 @@ const axios = require('axios').default
 // const CustomerDetailsPage = React.lazy(() => import('./CustomerDetailsPage.js'));
 
 function AdminBookingsRoot (props) {
-  const any = props.any
-  const [options, setOptions] = useState()
+  const [schedule, setSchedule] = useState(JSON.parse(props.param))
   // const data = JSON.parse(props.data)
   // data.fixed_date = parseInt(data.fixed_date)
   // data.hide_price = parseInt(data.hide_price)
@@ -51,18 +50,17 @@ function AdminBookingsRoot (props) {
   //   setBkg(updatedBkg)
   // }
 
-
   return (
     <div className='col-12'>
       <ErrorBoundary>
         <Router>
-          <Redirect from='/adminbookings' to={'/adminbookings/' + any} noThrow />
+{/*          <Redirect from='/adminbookings/:d' to={'/adminbookings/' + schedule[0].date} noThrow />
 
-{/*          <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
-*/}
+          <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
           <BookingEdit path='/adminbookings/booking/:id' id={any} />
           <BookingIndex path='/adminbookings/bookingindex/:id' id={any} />
-          <CalendareventIndex path='/adminbookings/:date' date={any} options={options} />
+*/}
+          <CalendareventIndex path='/adminbookings/:date' schedule={schedule} date={schedule[0].date} />
         </Router>
       </ErrorBoundary>
     </div>
@@ -70,10 +68,10 @@ function AdminBookingsRoot (props) {
 }
 
 AdminBookingsRoot.propTypes = {
-  date: PropTypes.string
+  param: PropTypes.string
 }
 
 const element = document.getElementById('AdminBookingsRoot')
 ReactDOM.render(
-  <AdminBookingsRoot any={element.getAttribute('any')} />, element
+  <AdminBookingsRoot param={element.getAttribute('param')} />, element
 )
