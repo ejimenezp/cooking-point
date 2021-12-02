@@ -13,6 +13,6 @@ function EventDate (props) {
   const ddate = new Date(props.date)
 
   return (
-    <span>{format(ddate, 'PPPP', { locale: es })}</span>
+    <span>{format(ddate, 'EEEE, d MMMM', { locale: es })}</span>
   )
 }

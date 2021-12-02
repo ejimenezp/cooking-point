@@ -16,6 +16,7 @@ use App\Source;
 use App\Priceplan;
 use App\CalendarEvent;
 use App\Timezone;
+use App\Http\Controllers\CalendareventController;
 
 use Log;
 
@@ -106,7 +107,7 @@ class BookingController extends Controller
     }
     
 
-    function update(Request $request)
+    private function privateUpdate(Request $request)
     {
         $bkg = Booking::find($request->id);
         if (!$bkg) {
@@ -144,8 +145,23 @@ class BookingController extends Controller
             $bkg->onlineclass = $request->onlineclass;
 
             $bkg->save();
-            return $bkg->makeVisible('calendarevent');
+            return $bkg;
         }
+    }
+
+
+    function adminUpdate(Request $request)
+    {
+        $bkg = $this->privateUpdate($request);
+        $controller = new CalendareventController;
+        return response()->json($controller->getScheduleForReactRoot($bkg->date));
+    }
+
+
+    function update(Request $request)
+    {
+        $bkg = $this->privateUpdate($request);
+        return $bkg->makeVisible('calendarevent');
     }
 
 

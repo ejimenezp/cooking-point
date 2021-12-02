@@ -1,45 +1,38 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { format, addDays, subDays } from 'date-fns'
+import { es } from 'date-fns/locale'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
 import { BookingRow } from './Components/BookingRow'
 import { EventDate } from './Components/EventDate'
 
-const axios = require('axios').default
-
 export default BookingIndex
 
 BookingIndex.propTypes = {
-  id: PropTypes.string,
-  options: PropTypes.object
+  ceId: PropTypes.string,
+  schedule: PropTypes.array
 }
 
 function BookingIndex (props) {
-  const [bookings, setBookings] = useState()
   const userRole = document.querySelector('meta[name="user_role"]').content
+  const calendarevent = props.schedule.find((calendarevent) => calendarevent.id === parseInt(props.ceId))
+  const bookings = calendarevent.bookings
 
-  useEffect(() => {
-    const fetchBookings = async () => {
-      try {
-        const result = await axios.get('/api/booking/index/' + props.id)
-        setBookings(result.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchBookings()
-  }, [props.id])
+
+  function handleShowDay () {
+    navigate('/adminbookings/' + calendarevent.date)
+  }
 
   return (
     <Fragment>
       <div className="text-center">
-        <button className="button_day_selector btn btn-primary" onClick={''}>&lt;&lt;</button>
-        <button className="button_day_selector btn btn-primary" onClick={''}>Ahora</button>
-        <button className="button_day_selector btn btn-primary" onClick={''}>&gt;&gt;</button>
+        <button className="button_day_selector btn btn-primary mr-1" >&lt;&lt;</button>
+        <button className="button_day_selector btn btn-primary mr-1" onClick={handleShowDay}>{format(new Date(calendarevent.date), 'EEEE', { locale: es })}</button>
+        <button className="button_day_selector btn btn-primary" >&gt;&gt;</button>
       </div>
       <h1>
-        <EventDate className="dateshown" date={'1979-02-28'}/>
+        <EventDate className="dateshown" date={calendarevent.date}/>
       </h1>
 
       <table className="table table-hover" id="calendarevent_table">
@@ -54,9 +47,9 @@ function BookingIndex (props) {
         </thead>
         {bookings !== undefined &&
         <tbody>
-          {bookings.map((row, index) => {
+          {bookings.map((row) => {
             return (
-              <BookingRow key={index} row={row} options={props.options}/>
+              <BookingRow key={row.id} row={row} />
             )
           })
           }

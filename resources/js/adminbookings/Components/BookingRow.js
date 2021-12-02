@@ -15,7 +15,7 @@ function BookingRow (props) {
   const calendareventTrClass = (userRole >= 2) ? 'calendarevent_line' : ''
 
   return (
-    <tr className={calendareventTrClass} onClick={() => navigate('/adminbookings/booking/' + row.id)}>
+    <tr className={calendareventTrClass} onClick={() => navigate('/adminbookings/' + row.date + '/' + row.calendarevent_id + '/' + row.id)}>
       <td>{row.adult}{(row.child > 0) && <span>+{row.child} </span>}</td>
       <td>{row.name}</td>
       <td>{row.status}</td>

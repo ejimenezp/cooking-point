@@ -29,7 +29,7 @@ function CalendareventRow (props) {
   }
 
   return (
-    <tr className={calendareventTrClass} onClick={() => navigate('/adminbookings/bookingindex/' + row.id)}>
+    <tr className={calendareventTrClass} onClick={() => navigate('/adminbookings/' + row.date + '/' + row.id)}>
       <td>{row.time.substring(0, 5)} ({format(new Date('1970-01-01T' + row.duration), 'h:mm')} hrs)</td>
       <td>{row.type}</td>
       <td><CookName calendarevent={row} /></td>

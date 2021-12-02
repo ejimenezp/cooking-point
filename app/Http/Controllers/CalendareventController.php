@@ -18,14 +18,9 @@ class CalendareventController extends Controller
 {
     function adminSchedule (Request $request)
     {
-        Log::info('date: '. $request->date);
-        Log::info('ceId:  ' . $request->ceId);
-        Log::info('any: ' . $request->any);
-
-
         if ($request->bkgId) {
             if ($bkg = Booking::find($request->bkgId)) {
-                return view('admin.adminbookings', ['param' => json_encode($this->getScheduleForReactRoot($bkg->calendarevent->date), JSON_NUMERIC_CHECK)]);
+                return view('admin.adminbookings', ['param' => json_encode($this->getScheduleForReactRoot($bkg->calendarevent->date), JSON_NUMERIC_CHECK), 'date' => $bkg->calendarevent->date]);
             } else {
                 return view('admin.errors.generic', ['message' => 'No existe reserva (' . $request->bkgId .')']);
   
@@ -33,7 +28,7 @@ class CalendareventController extends Controller
         }
         if ($request->ceId) {
             if ($ceId = Calendarevent::find($request->ceId)) {
-                return view('admin.adminbookings', ['param' => json_encode($this->getScheduleForReactRoot($ceId->date), JSON_NUMERIC_CHECK)]);
+                return view('admin.adminbookings', ['param' => json_encode($this->getScheduleForReactRoot($ceId->date), JSON_NUMERIC_CHECK), 'date' => $ceId->date]);
             } else {
                 return view('admin.errors.generic', ['message' => 'No existe evento (' . $request->ceId .')']);
   
@@ -41,7 +36,7 @@ class CalendareventController extends Controller
         if ($request->date) {
             list($year, $month, $day) = sscanf($request->date, "%d-%d-%d");
                 if (checkdate($month, $day, $year)) {
-                        return view('admin.adminbookings', ['param' => json_encode($this->getScheduleForReactRoot($request->date), JSON_NUMERIC_CHECK)]);
+                        return view('admin.adminbookings', ['param' => json_encode($this->getScheduleForReactRoot($request->date), JSON_NUMERIC_CHECK), 'date' => $request->date]);
                 } else {
                     return view('admin.errors.generic', ['message' => 'Fecha no válida (' . $request->date .')']);
                 }        

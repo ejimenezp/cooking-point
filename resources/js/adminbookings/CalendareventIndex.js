@@ -12,7 +12,8 @@ export default CalendareventIndex
 
 CalendareventIndex.propTypes = {
   date: PropTypes.string,
-  schedule: PropTypes.array
+  schedule: PropTypes.array,
+  propagateFn: PropTypes.func
 }
 
 function CalendareventIndex (props) {
@@ -24,12 +25,13 @@ function CalendareventIndex (props) {
       try {
         const result = await axios.get('/api/calendarevent/getschedule/' + props.date)
         setSchedule(result.data)
+        props.propagateFn(result.data)
       } catch (error) {
         console.log(error)
       }
     }
-    // fetchSchedule()
-  }, [props.schedule])
+    fetchSchedule()
+  }, [props.date])
 
   function handleDateUp () {
     navigate('/adminbookings/' + format(addDays(new Date(props.date), 1), 'yyyy-MM-dd'))
@@ -46,8 +48,8 @@ function CalendareventIndex (props) {
   return (
     <Fragment>
       <div className="text-center">
-        <button className="button_day_selector btn btn-primary" onClick={handleDateDown}>&lt;&lt;</button>
-        <button className="button_day_selector btn btn-primary" onClick={handleDateToday}>Hoy</button>
+        <button className="button_day_selector btn btn-primary mr-1" onClick={handleDateDown}>&lt;&lt;</button>
+        <button className="button_day_selector btn btn-primary mr-1" onClick={handleDateToday}>Hoy</button>
         <button className="button_day_selector btn btn-primary" onClick={handleDateUp}>&gt;&gt;</button>
       </div>
       <h1>
@@ -65,9 +67,9 @@ function CalendareventIndex (props) {
           </tr>
         </thead>
         <tbody>
-          {schedule.map((row, index) => {
+          {schedule.map((row) => {
             return (
-              <CalendareventRow key={index} row={row} options={props.options}/>
+              <CalendareventRow key={row.id} row={row} />
             )
           })
           }

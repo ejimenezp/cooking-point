@@ -27,51 +27,33 @@ const axios = require('axios').default
 
 function AdminBookingsRoot (props) {
   const [schedule, setSchedule] = useState(JSON.parse(props.param))
-  // const data = JSON.parse(props.data)
-  // data.fixed_date = parseInt(data.fixed_date)
-  // data.hide_price = parseInt(data.hide_price)
-  // data.price = parseFloat(data.price)
-  // if (data.onlineclass) {
-  //   data.tz = (typeof data.tz === 'undefined') ? Intl.DateTimeFormat().resolvedOptions().timeZone : data.tz
-  //   if (data.type === 'PAELLA') {
-  //     data.type = 'ONLINE-EVENING-PAELLA'
-  //   }
-  // } else {
-  //   data.tz = 'Europe/Madrid'
-  // }
+  const date = props.date
 
-  // const [bkg, setBkg] = useState(data)
-
-  // function handleUpdateBkg (bkg) {
-  //   const updatedBkg = Object.assign({}, bkg)
-  //   updatedBkg.fixed_date = parseInt(updatedBkg.fixed_date)
-  //   updatedBkg.hide_price = parseInt(updatedBkg.hide_price)
-  //   updatedBkg.price = parseFloat(updatedBkg.price)
-  //   setBkg(updatedBkg)
-  // }
+  function handleUpdateSchedule (schedule) {
+    setSchedule(schedule)
+  }
 
   return (
     <div className='col-12'>
-      <ErrorBoundary>
         <Router>
 {/*          <Redirect from='/adminbookings/:d' to={'/adminbookings/' + schedule[0].date} noThrow />
 
           <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
-          <BookingEdit path='/adminbookings/booking/:id' id={any} />
-          <BookingIndex path='/adminbookings/bookingindex/:id' id={any} />
-*/}
-          <CalendareventIndex path='/adminbookings/:date' schedule={schedule} date={schedule[0].date} />
+*/}       
+          <BookingEdit path='/adminbookings/:daaa/:ceId/:bkgId' schedule={schedule} propagateFn={handleUpdateSchedule}/>
+          <BookingIndex path='/adminbookings/:daaa/:ceId' schedule={schedule} />
+          <CalendareventIndex path='/adminbookings/:date' schedule={schedule} propagateFn={handleUpdateSchedule} />
         </Router>
-      </ErrorBoundary>
     </div>
   )
 }
 
 AdminBookingsRoot.propTypes = {
-  param: PropTypes.string
+  param: PropTypes.string,
+  date: PropTypes.string
 }
 
 const element = document.getElementById('AdminBookingsRoot')
 ReactDOM.render(
-  <AdminBookingsRoot param={element.getAttribute('param')} />, element
+  <AdminBookingsRoot param={element.getAttribute('param')} date={element.getAttribute('date')} />, element
 )

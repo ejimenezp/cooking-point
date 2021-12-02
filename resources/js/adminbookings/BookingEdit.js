@@ -11,27 +11,18 @@ const axios = require('axios').default
 export default BookingEdit
 
 BookingEdit.propTypes = {
-  id: PropTypes.string,
-  options: PropTypes.object
+  ceId: PropTypes.string,
+  bkgId: PropTypes.string,
+  schedule: PropTypes.array,
+  propagateFn: PropTypes.func
 }
 
 function BookingEdit (props) {
-  // const bkg = { name: 'eduardo', email: 'ejimenezp', phone: '610342344' }
+  const calendarevent = props.schedule.find((calendarevent) => calendarevent.id === parseInt(props.ceId))
+  const bookings = calendarevent.bookings
+  const [bkg, setBkg] = useState(bookings.find((b) => b.id === parseInt(props.bkgId)))
 
-  const [bkg, setBkg] = useState([])
   const userRole = document.querySelector('meta[name="user_role"]').content
-
-  useEffect(() => {
-    const fetchBkg = async () => {
-      try {
-        const result = await axios.get('/api/booking/find/' + props.id)
-        setBkg(result.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchBkg()
-  }, [props.id])
 
   function handleChange (event) {
     setBkg({
@@ -45,13 +36,14 @@ function BookingEdit (props) {
     if (bkg.changed) {
       (async () => {
         try {
-          const result = await axios.post('/api/booking/update', bkg)
+          const result = await axios.post('/api/booking/adminUpdate', bkg)
+          props.propagateFn(result.data)
         } catch (error) {
           console.log(error)
         }
       })()
     }
-    navigate('/adminbookings/bookingindex/' + bkg.calendarevent_id)
+    navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)
   }
 
   const adults = []
