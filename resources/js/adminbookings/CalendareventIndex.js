@@ -13,6 +13,7 @@ export default CalendareventIndex
 CalendareventIndex.propTypes = {
   date: PropTypes.string,
   schedule: PropTypes.array,
+  staff: PropTypes.array,
   propagateFn: PropTypes.func
 }
 
@@ -69,7 +70,7 @@ function CalendareventIndex (props) {
         <tbody>
           {schedule.map((row) => {
             return (
-              <CalendareventRow key={row.id} row={row} />
+              <CalendareventRow key={row.id} row={row} staff={props.staff} />
             )
           })
           }

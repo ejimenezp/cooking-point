@@ -27,11 +27,24 @@ const axios = require('axios').default
 
 function AdminBookingsRoot (props) {
   const [schedule, setSchedule] = useState(JSON.parse(props.param))
+  const [staff, setStaff] = useState()
   const date = props.date
 
   function handleUpdateSchedule (schedule) {
     setSchedule(schedule)
   }
+
+  useEffect(() => {
+    const fetchStaff = async () => {
+      try {
+        const result = await axios.get('/api/staff/get')
+        setStaff(result.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchStaff()
+  }, [])
 
   return (
     <div className='col-12'>
@@ -42,7 +55,7 @@ function AdminBookingsRoot (props) {
 */}       
           <BookingEdit path='/adminbookings/:daaa/:ceId/:bkgId' schedule={schedule} propagateFn={handleUpdateSchedule}/>
           <BookingIndex path='/adminbookings/:daaa/:ceId' schedule={schedule} />
-          <CalendareventIndex path='/adminbookings/:date' schedule={schedule} propagateFn={handleUpdateSchedule} />
+          <CalendareventIndex path='/adminbookings/:date' schedule={schedule} staff={staff} propagateFn={handleUpdateSchedule} />
         </Router>
     </div>
   )

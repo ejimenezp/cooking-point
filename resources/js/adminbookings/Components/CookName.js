@@ -1,29 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-
-const axios = require('axios').default
 
 export { CookName }
 
 CookName.propTypes = {
-  calendarevent: PropTypes.object
+  staff: PropTypes.array,
+  staff_id: PropTypes.number,
+  secondstaff_id: PropTypes.number
 }
 
 function CookName (props) {
-  const [staff, setStaff] = useState()
-  const calendarevent = props.calendarevent
-
-  useEffect(() => {
-    const fetchStaff = async () => {
-      try {
-        const result = await axios.get('/api/staff/get')
-        setStaff(result.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchStaff()
-  }, [])
+  const staff = props.staff
 
   const cookName = (id) => {
     if (staff === undefined) return ''
@@ -33,10 +20,9 @@ function CookName (props) {
       }
     }
   }
-  const secondStaffName = (calendarevent.secondstaff_id === 2 ? '' : ', ' + cookName(calendarevent.secondstaff_id))
-
+  const secondStaffName = (props.secondstaff_id === 2 ? '' : ', ' + cookName(props.secondstaff_id))
 
   return (
-    <span>{cookName(calendarevent.staff_id) + secondStaffName}</span>
+    <span>{cookName(props.staff_id) + secondStaffName}</span>
   )
 }

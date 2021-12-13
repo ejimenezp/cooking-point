@@ -7,6 +7,7 @@ import { CookName } from './CookName'
 export { CalendareventRow }
 
 CalendareventRow.propTypes = {
+  staff: PropTypes.array,
   row: PropTypes.object
 }
 
@@ -32,7 +33,7 @@ function CalendareventRow (props) {
     <tr className={calendareventTrClass} onClick={() => navigate('/adminbookings/' + row.date + '/' + row.id)}>
       <td>{row.time.substring(0, 5)} ({format(new Date('1970-01-01T' + row.duration), 'h:mm')} hrs)</td>
       <td>{row.type}</td>
-      <td><CookName calendarevent={row} /></td>
+      <td><CookName staff={props.staff} staff_id={row.staff_id} secondstaff_id={row.secondstaff_id}/></td>
       <td>{row.registered}</td>
       <td dangerouslySetInnerHTML={ { __html: editButton() } }/>
     </tr>
