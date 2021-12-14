@@ -1,10 +1,7 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { format, addDays, subDays } from 'date-fns'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
-import { BookingRow } from './Components/BookingRow'
-import { EventDate } from './Components/EventDate'
 
 const axios = require('axios').default
 
@@ -23,6 +20,26 @@ function BookingEdit (props) {
   const [bkg, setBkg] = useState(bookings.find((b) => b.id === parseInt(props.bkgId)))
 
   const userRole = document.querySelector('meta[name="user_role"]').content
+
+  function handleShowEvent () {
+    navigate('/adminbookings/' + calendarevent.date + '/' + calendarevent.id)
+  }
+
+  function handlePrevBkg () {
+    const bkgIndex = bookings.indexOf(bkg)
+    if (bkgIndex > 0) {
+      setBkg(bookings[bkgIndex - 1])
+      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id + '/' + bookings[bkgIndex - 1].id)
+    }
+  }
+
+  function handleNextBkg () {
+    const bkgIndex = bookings.indexOf(bkg)
+    if (bkgIndex < bookings.length - 1) {
+      setBkg(bookings[bkgIndex + 1])
+      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id + '/' + bookings[bkgIndex + 1].id)
+    }
+  }
 
   function handleChange (event) {
     setBkg({
@@ -53,6 +70,14 @@ function BookingEdit (props) {
 
   return (
     <Fragment>
+      <div className="text-center">
+        <button className="button_day_selector btn btn-primary " onClick={handlePrevBkg}>&lt;&lt;</button>
+        <button className="button_day_selector btn btn-primary mx-1" onClick={handleShowEvent}>{calendarevent.type}</button>
+        <button className="button_day_selector btn btn-primary" onClick={handleNextBkg}>&gt;&gt;</button>
+      </div>
+      <h1>
+        {calendarevent.time.substring(0, 5)} {calendarevent.type}
+      </h1>
       <table id="booking" className="table">
         <tbody>
           <tr>

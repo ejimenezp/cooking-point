@@ -11748,8 +11748,7 @@ textarea {
 #sesion-page .table td,
 #csv_form .table th,
 #csv_form .table td {
-  font-size: 0.8rem;
-  padding: 0.2rem;
+  padding: 0.3rem;
   vertical-align: middle !important;
 }
 

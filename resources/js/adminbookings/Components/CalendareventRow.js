@@ -20,9 +20,9 @@ function CalendareventRow (props) {
     var button
     if (userRole >= 3) {
       const buttonColor = row.info === '' ? 'btn-secondary' : 'btn-primary'
-      button = '<button class="btn ' + buttonColor + ' btn-sm">Detalles</button>'
+      button = '<button class="btn ' + buttonColor + ' btn-sm">+</button>'
     } else if (row.info !== '') {
-      button = '<button class="btn btn-primary btn-sm">+info</button>'
+      button = '<button class="btn btn-primary btn-sm">+</button>'
     } else {
       button = ''
     }
@@ -31,7 +31,7 @@ function CalendareventRow (props) {
 
   return (
     <tr className={calendareventTrClass} onClick={() => navigate('/adminbookings/' + row.date + '/' + row.id)}>
-      <td>{row.time.substring(0, 5)} ({format(new Date('1970-01-01T' + row.duration), 'h:mm')} hrs)</td>
+      <td>{row.time.substring(0, 5)}<br/>({parseInt(row.duration)}{row.duration.substring(3, 4) > '0' ? ',5' : ''} hrs)</td>
       <td>{row.type}</td>
       <td><CookName staff={props.staff} staff_id={row.staff_id} secondstaff_id={row.secondstaff_id}/></td>
       <td>{row.registered}</td>

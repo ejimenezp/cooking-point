@@ -19,20 +19,33 @@ function BookingIndex (props) {
   const calendarevent = props.schedule.find((calendarevent) => calendarevent.id === parseInt(props.ceId))
   const bookings = calendarevent.bookings
 
-
   function handleShowDay () {
     navigate('/adminbookings/' + calendarevent.date)
+  }
+
+  function handlePrevEvent () {
+    const ceIndex = props.schedule.indexOf(calendarevent)
+    if (ceIndex > 0) {
+      navigate('/adminbookings/' + calendarevent.date + '/' + props.schedule[ceIndex - 1].id)
+    }
+  }
+
+  function handleNextEvent () {
+    const ceIndex = props.schedule.indexOf(calendarevent)
+    if (ceIndex < props.schedule.length - 1) {
+      navigate('/adminbookings/' + calendarevent.date + '/' + props.schedule[ceIndex + 1].id)
+    }
   }
 
   return (
     <Fragment>
       <div className="text-center">
-        <button className="button_day_selector btn btn-primary mr-1" >&lt;&lt;</button>
-        <button className="button_day_selector btn btn-primary mr-1" onClick={handleShowDay}>{format(new Date(calendarevent.date), 'EEEE', { locale: es })}</button>
-        <button className="button_day_selector btn btn-primary" >&gt;&gt;</button>
+        <button className="button_day_selector btn btn-primary " onClick={handlePrevEvent}>&lt;&lt;</button>
+        <button className="button_day_selector btn btn-primary mx-1" onClick={handleShowDay}>{format(new Date(calendarevent.date), 'EEEE', { locale: es })}</button>
+        <button className="button_day_selector btn btn-primary" onClick={handleNextEvent}>&gt;&gt;</button>
       </div>
       <h1>
-        <EventDate className="dateshown" date={calendarevent.date}/>
+        {calendarevent.time.substring(0, 5)} {calendarevent.type} Reg {calendarevent.registered} Avail {calendarevent.availablecovid}
       </h1>
 
       <table className="table table-hover" id="calendarevent_table">

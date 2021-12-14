@@ -81,7 +81,7 @@ function CalendareventIndex (props) {
         <EventDate className="dateshown" date={props.date}/>
       </h1>
 
-      <table className="table table-hover" id="calendarevent_table">
+      <table className="table table-hover" id="calendarevent_table" style={{ minWidth: '80vw' }}>
         <thead>
           <tr>
             <th>Hora</th>
