@@ -65,10 +65,10 @@ class MovimientoController extends Controller
     function getTickets ($id)
     {
         $sesion = Sesion::find($id);
-    	$hoy = new Carbon($sesion->fecha);
+    	$fecha_sesion = new Carbon($sesion->fecha);
     	$meses_atras = Carbon::now()->addWeeks(-40);
     	$tickets_usados = Movimiento::where('ticket_tienda', '!=', 0)->pluck('ticket_tienda')->toArray();
-        return TiendaVentas::whereBetween('created_at', [$meses_atras->toDateString(), $hoy->toDateString()])->where('anulado', false)->where('pago', 'cash')->whereNotIn('id', $tickets_usados)->get();
+        return TiendaVentas::whereBetween('fecha', [$meses_atras->toDateString(), $fecha_sesion->toDateString()])->where('anulado', false)->where('pago', 'cash')->whereNotIn('id', $tickets_usados)->get();
     }
 
 
