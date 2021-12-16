@@ -114,14 +114,14 @@ class ReportController extends Controller
                     FROM tienda_ventas
                         WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
                         AND NOT anulado
-                        AND NOT (linea0 is null OR linea0 = 3 OR linea0 = 4))");
+                        AND linea0 IS NOT null)" );
 
         for ($i = 1; $i <= 9; $i++) { 
             DB::statement("INSERT INTO tienda_report_1 SELECT id as ticket_id, fecha, linea{$i} as producto, staff_id, pago
                     FROM tienda_ventas
                         WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
                         AND NOT anulado
-                        AND NOT (linea{$i} is null OR linea{$i} = 3 OR linea{$i} = 4)");                     
+                        AND linea{$i} IS NOT null" );                     
          }
    
     }
