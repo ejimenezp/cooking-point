@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
+import { trackPromise } from 'react-promise-tracker'
 
 const axios = require('axios').default
 
@@ -51,14 +52,16 @@ function BookingView (props) {
 
   function handleButtonSave () {
     if (bkg.changed) {
-      (async () => {
-        try {
-          const result = await axios.post('/api/booking/adminUpdate', bkg)
-          props.propagateFn(result.data)
-        } catch (error) {
-          console.log(error)
-        }
-      })()
+      trackPromise(
+        (async () => {
+          try {
+            const result = await axios.post('/api/booking/adminUpdate', bkg)
+            props.propagateFn(result.data)
+          } catch (error) {
+            console.log(error)
+          }
+        })()
+      )
     }
     navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)
   }

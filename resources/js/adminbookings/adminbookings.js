@@ -11,6 +11,7 @@ import LoadingIndicator from './Components/LoadingIndicator'
 import CalendareventIndex from './CalendareventIndex'
 import BookingIndex from './BookingIndex'
 import BookingView from './BookingView'
+import BookingEdit from './BookingEdit'
 
 const axios = require('axios').default
 
@@ -54,7 +55,8 @@ function AdminBookingsRoot (props) {
 
           <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
 */}       
-          <BookingView path='/adminbookings/:daaa/:ceId/:bkgId' schedule={schedule} propagateFn={handleUpdateSchedule}/>
+          <BookingView path='/adminbookings/:daaa/:ceId/:bkgId' schedule={schedule}/>
+          <BookingEdit path='/adminbookings/:daaa/:ceId/:bkgId/edit' schedule={schedule} propagateFn={handleUpdateSchedule}/>
           <BookingIndex path='/adminbookings/:daaa/:ceId' schedule={schedule} />
           <CalendareventIndex path='/adminbookings/:date' schedule={schedule} staff={staff} propagateFn={handleUpdateSchedule} />
         </Router>

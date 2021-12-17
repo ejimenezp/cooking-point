@@ -3,15 +3,13 @@ import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
 
-const axios = require('axios').default
-
 export default BookingView
 
 BookingView.propTypes = {
   ceId: PropTypes.string,
   bkgId: PropTypes.string,
   schedule: PropTypes.array,
-  propagateFn: PropTypes.func
+  uri: PropTypes.string
 }
 
 function BookingView (props) {
@@ -205,7 +203,7 @@ function BookingView (props) {
           </tr>
         </tbody>
       </table>
-      <div className='btn btn-primary'> Edit</div>
+      <div className='btn btn-primary'onClick={() => navigate(props.uri + '/edit') }> Edit</div>
     </Fragment>
   )
 }

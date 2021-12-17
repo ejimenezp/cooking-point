@@ -5,7 +5,6 @@ import { es } from 'date-fns/locale'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
 import BookingRow from './Components/BookingRow'
-import { EventDate } from './Components/EventDate'
 
 export default BookingIndex
 
