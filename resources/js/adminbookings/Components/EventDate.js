@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 
-export { EventDate }
+export default EventDate
 
 EventDate.propTypes = {
   date: PropTypes.string

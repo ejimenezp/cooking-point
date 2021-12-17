@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 import { format } from 'date-fns'
 
-export { BookingRow }
+export default BookingRow
 
 BookingRow.propTypes = {
   row: PropTypes.object

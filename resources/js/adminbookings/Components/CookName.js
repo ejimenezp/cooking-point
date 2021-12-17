@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export { CookName }
+export default CookName 
 
 CookName.propTypes = {
   staff: PropTypes.array,

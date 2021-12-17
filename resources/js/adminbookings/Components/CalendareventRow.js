@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 import { format } from 'date-fns'
-import { CookName } from './CookName'
+import CookName from './CookName'
 
-export { CalendareventRow }
+export default CalendareventRow
 
 CalendareventRow.propTypes = {
   staff: PropTypes.array,

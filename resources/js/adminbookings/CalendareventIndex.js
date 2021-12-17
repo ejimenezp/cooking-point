@@ -5,8 +5,8 @@ import { navigate } from '@reach/router'
 import Modal from 'react-bootstrap/Modal'
 import DatePicker from './Components/DatePicker/DatePicker'
 // import { NavButtons } from './Components/NavButtons'
-import { CalendareventRow } from './Components/CalendareventRow'
-import { EventDate } from './Components/EventDate'
+import CalendareventRow from './Components/CalendareventRow'
+import EventDate from './Components/EventDate'
 import { trackPromise } from 'react-promise-tracker'
 
 const axios = require('axios').default
