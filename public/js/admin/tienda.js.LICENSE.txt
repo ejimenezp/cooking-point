@@ -24,7 +24,7 @@
  */
 
 /*!
- * jQuery UI Datepicker 1.12.1
+ * jQuery UI Datepicker 1.13.0
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -33,7 +33,7 @@
  */
 
 /*!
- * jQuery UI Keycode 1.12.1
+ * jQuery UI Keycode 1.13.0
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors

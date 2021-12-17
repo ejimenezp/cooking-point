@@ -7,6 +7,7 @@ import DatePicker from './Components/DatePicker/DatePicker'
 // import { NavButtons } from './Components/NavButtons'
 import { CalendareventRow } from './Components/CalendareventRow'
 import { EventDate } from './Components/EventDate'
+import { trackPromise } from 'react-promise-tracker'
 
 const axios = require('axios').default
 
@@ -37,7 +38,7 @@ function CalendareventIndex (props) {
         console.log(error)
       }
     }
-    fetchSchedule()
+    trackPromise(fetchSchedule())
   }, [props.date])
 
   function handleDateUp () {

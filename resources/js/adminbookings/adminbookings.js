@@ -6,10 +6,11 @@ import PropTypes from 'prop-types'
 import { Router, Redirect } from '@reach/router'
 
 import ErrorBoundary from '../booking/Components/ErrorBoundary'
+import LoadingIndicator from './Components/LoadingIndicator'
 
 import CalendareventIndex from './CalendareventIndex'
 import BookingIndex from './BookingIndex'
-import BookingEdit from './BookingEdit'
+import BookingView from './BookingView'
 
 const axios = require('axios').default
 
@@ -48,12 +49,12 @@ function AdminBookingsRoot (props) {
 
   return (
     <div className='col-12'>
-        <Router>
+      <Router>
 {/*          <Redirect from='/adminbookings/:d' to={'/adminbookings/' + schedule[0].date} noThrow />
 
           <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
 */}       
-          <BookingEdit path='/adminbookings/:daaa/:ceId/:bkgId' schedule={schedule} propagateFn={handleUpdateSchedule}/>
+          <BookingView path='/adminbookings/:daaa/:ceId/:bkgId' schedule={schedule} propagateFn={handleUpdateSchedule}/>
           <BookingIndex path='/adminbookings/:daaa/:ceId' schedule={schedule} />
           <CalendareventIndex path='/adminbookings/:date' schedule={schedule} staff={staff} propagateFn={handleUpdateSchedule} />
         </Router>
@@ -68,5 +69,8 @@ AdminBookingsRoot.propTypes = {
 
 const element = document.getElementById('AdminBookingsRoot')
 ReactDOM.render(
-  <AdminBookingsRoot param={element.getAttribute('param')} date={element.getAttribute('date')} />, element
+  <div>
+    <AdminBookingsRoot param={element.getAttribute('param')} date={element.getAttribute('date')} />
+    <LoadingIndicator />
+  </div>, element
 )

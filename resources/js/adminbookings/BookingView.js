@@ -49,25 +49,6 @@ function BookingView (props) {
     })
   }
 
-  function handleButtonSave () {
-    if (bkg.changed) {
-      (async () => {
-        try {
-          const result = await axios.post('/api/booking/adminUpdate', bkg)
-          props.propagateFn(result.data)
-        } catch (error) {
-          console.log(error)
-        }
-      })()
-    }
-    navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)
-  }
-
-  const adults = []
-  for (let i = 1; i < 25; i++) adults.push(i)
-  const children = []
-  for (let i = 0; i < 25; i++) children.push(i)
-
   return (
     <Fragment>
       <div className="text-center">
@@ -76,18 +57,10 @@ function BookingView (props) {
         <button className="button_day_selector btn btn-primary" onClick={handleNextBkg}>&gt;&gt;</button>
       </div>
       <h1>
-        {calendarevent.time.substring(0, 5)} {calendarevent.type}
+        {bkg.adult}{(bkg.child > 0) && <span>+{bkg.child} </span>} {bkg.name}
       </h1>
       <table id="booking" className="table">
         <tbody>
-          <tr>
-            <td>
-                Nombre:
-            </td>
-            <td>
-              <input name='name' type='text' value={bkg.name || ''} onChange={handleChange} />
-            </td>
-          </tr>
           <tr>
             <td>
                 Fuente:
@@ -102,13 +75,7 @@ function BookingView (props) {
                 Estado:
             </td>
             <td>
-              <select name="status" value={bkg.status} onChange={handleChange}>
-                <option value="PAID">PAID</option>
-                <option value="CONFIRMED">CONFIRMED</option>
-                <option value="PAY-ON-ARRIVAL">PAY-ON-ARRIVAL</option>
-                <option value="PENDING">PENDING</option>
-                <option value="CANCELED">CANCELED</option>
-              </select>
+              {bkg.status}
             </td>
           </tr>
           <tr>
@@ -116,7 +83,7 @@ function BookingView (props) {
                 Teléfono:
             </td>
             <td>
-              <input name='phone' type='text' value={bkg.phone || ''} onChange={handleChange} />
+              {bkg.phone}
             </td>
           </tr>
           <tr>
@@ -124,36 +91,7 @@ function BookingView (props) {
                 Email:
             </td>
             <td>
-              <input name='email' type='email' value={bkg.email || ''} onChange={handleChange} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-                Adultos:
-            </td>
-            <td>
-              <select name="adult" value={bkg.adult} onChange={handleChange}>
-                {adults.map(option => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-                <option value="0">0</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>
-                Niños:
-            </td>
-            <td>
-              <select name="child" value={bkg.child} onChange={handleChange}>
-                {children.map(option => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
+              {bkg.email}
             </td>
           </tr>
           <tr>
@@ -161,7 +99,7 @@ function BookingView (props) {
                 Alergias:
             </td>
             <td>
-              <textarea rows='3' name='food_requirements' value={bkg.food_requirements || ''} onChange={handleChange} />
+              {bkg.food_requirements}
             </td>
           </tr>
           <tr>
@@ -169,7 +107,7 @@ function BookingView (props) {
                 Comentarios:
             </td>
             <td>
-              <textarea rows='3' name='comments' value={bkg.comments || ''} onChange={handleChange} />
+              {bkg.comments}
             </td>
           </tr>
           <tr className='details'>
@@ -185,13 +123,7 @@ function BookingView (props) {
                 Seguimiento:
             </td>
             <td>
-              <select name="crm" value={bkg.crm} onChange={handleChange}>
-                <option value="YES">SÍ</option>
-                <option value="NO">NO MOLESTAR</option>
-                <option value="PAYMENT_KO">FALLO PAGO TARJETA</option>
-                <option value="REMINDED">ENVIADO RECORDATORIO</option>
-                <option value="REVIEW_ASKED">SOLICITADA REVIEW</option>
-              </select>
+              {bkg.crm}
             </td>
           </tr>
           <tr className='details'>
@@ -199,14 +131,7 @@ function BookingView (props) {
                 Forma de pago:
             </td>
             <td>
-              <select name="pay_method" value={bkg.pay_method} onChange={handleChange}>
-                <option value="ONLINE">ONLINE</option>
-                <option value="CARD">TARJETA</option>
-                <option value="CASH">EFECTIVO</option>
-                <option value="TRANSFER">TRANSFERENCIA</option>
-                <option value="PAYPAL">PAYPAL</option>
-                <option value="N/A">(no aplica)</option>
-              </select>
+              {bkg.pay_method}
             </td>
           </tr>
           <tr className='details'>
@@ -214,7 +139,7 @@ function BookingView (props) {
                 Fecha pago:
             </td>
             <td>
-              <input name="payment_date" type="text" value={bkg.payment_date} onChange={handleChange} />
+              {bkg.payment_date}
             </td>
           </tr>
           <tr className="price details ">
@@ -222,7 +147,7 @@ function BookingView (props) {
                 Precio:
             </td>
             <td>
-              <input type="text" name="price" value={bkg.price} onChange={handleChange} />
+              {bkg.price}
             </td>
           </tr>
           {userRole >= 3 && <Fragment>
@@ -280,7 +205,7 @@ function BookingView (props) {
           </tr>
         </tbody>
       </table>
-      <div className='btn btn-primary' onClick={handleButtonSave}>Save</div>
+      <div className='btn btn-primary'> Edit</div>
     </Fragment>
   )
 }
