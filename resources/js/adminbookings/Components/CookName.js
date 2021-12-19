@@ -20,7 +20,7 @@ function CookName (props) {
       }
     }
   }
-  const secondStaffName = (props.secondstaff_id === 2 ? '' : ', ' + cookName(props.secondstaff_id))
+  const secondStaffName = (parseInt(props.secondstaff_id) === 2 ? '' : ', ' + cookName(props.secondstaff_id))
 
   return (
     <span>{cookName(props.staff_id) + secondStaffName}</span>
