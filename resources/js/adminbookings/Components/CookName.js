@@ -15,7 +15,7 @@ function CookName (props) {
   const cookName = (id) => {
     if (staff === undefined) return ''
     for (var i = 0; i < staff.length; i++) {
-      if (staff[i].id === id) {
+      if (staff[i].id === parseInt(id)) {
         return staff[i].name
       }
     }
