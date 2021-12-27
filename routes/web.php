@@ -76,7 +76,7 @@ Route::group(['prefix' => 'adminbookings', 'middleware' => 'cp-auth'], function 
     Route::get('/{date2}/{ceId}', 'CalendareventController@adminSchedule')->where('ceId', '[0-9]+');    
     // Route::get('/{date}/{ceId?}/edit', 'CalendareventController@adminSchedule')->whereNumber('ceId');    
     Route::get('/{date3}/{ceId2}/{bkgId}', 'CalendareventController@adminSchedule')->where('bkgId', '[0-9]+');    
-    // Route::get('/{date}/{ceId?}/{bkgId?}/edit', 'CalendareventController@adminSchedule')->whereNumber('ceId')->whereNumber('bkgId');    
+    Route::get('/{date4}/{ceId3}/{bkgId}/edit', 'CalendareventController@adminSchedule')->where('bkgId', '[0-9]+');
     Route::get('/{any}', 'CalendareventController@adminSchedule')->where('any', '.+');
 });
 
