@@ -14,11 +14,16 @@ class PriceplanController extends Controller
     function get(Request $request)
     {
         $source = Source::find($request->source_id);
-        $priceplan = Priceplan::where('plan', $source->plan)->where('event_type', $request->type)->first();
+        $priceplan = Priceplan::where('plan', $source->plan)->where('event_type', $request->type)->firstOr(
+                            function () { return null;} );
 
-        return response()->json([	'adult' => $priceplan->adult_rate,
-        											'child' => $priceplan->child_rate,
-                									'iva' => $source->iva]);
+        if ($priceplan == null) {
+            return response()->json('No hay priceplan para esta combinacion', 403);
+        } else {
+            return response()->json([   'adult' => $priceplan->adult_rate,
+                                                        'child' => $priceplan->child_rate,
+                                                        'iva' => $source->iva]);         
+        }
     }
 
 

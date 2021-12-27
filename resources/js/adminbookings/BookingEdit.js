@@ -60,7 +60,8 @@ function BookingEdit (props) {
         setPricePlan({ ...pricePlan, ...result.data })
         setBkg({ ...bkg, iva: parseInt(result.data.iva) })
       } catch (error) {
-        console.log(error)
+        console.log('algo fue mal')
+        console.log(error.response.data.error)
       }
     }
     fetchPricePlan()
@@ -91,7 +92,7 @@ function BookingEdit (props) {
         [event.target.name]: value,
         changed: 1
       })
-    } else if (event.target.name === 'adult') {
+    } else if (event.target.name === 'adult' && typeof pricePlan.adult !== 'undefined') {
       const newPrice = pricePlan.adult * value + pricePlan.child * bkg.child
       setPrice(newPrice)
       setBkg({
@@ -100,7 +101,7 @@ function BookingEdit (props) {
         [event.target.name]: value,
         changed: 1
       })
-    } else if (event.target.name === 'child') {
+    } else if (event.target.name === 'child' && typeof pricePlan.adult !== 'undefined') {
       const newPrice = pricePlan.adult * bkg.adult + pricePlan.child * value
       setPrice(newPrice)
       setBkg({
