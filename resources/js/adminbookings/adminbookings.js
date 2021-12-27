@@ -31,7 +31,6 @@ function AdminBookingsRoot (props) {
   const [schedule, setSchedule] = useState(JSON.parse(props.param))
   const [staff, setStaff] = useState()
   const [sources, setSources] = useState()
-  const [priceplans, setPriceplans] = useState()
 
   function handleUpdateSchedule (schedule) {
     setSchedule(schedule)

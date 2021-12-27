@@ -41,7 +41,6 @@ function CalendareventIndex (props) {
       }
     }
     if (lastFetchedDate !== props.date) {
-      console.log(props.date)
       trackPromise(fetchSchedule())
     }
   }, [props.date])

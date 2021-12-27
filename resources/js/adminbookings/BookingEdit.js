@@ -13,6 +13,7 @@ BookingEdit.propTypes = {
   bkgId: PropTypes.string,
   schedule: PropTypes.array,
   sources: PropTypes.array,
+  pricePlan: PropTypes.object,
   location: PropTypes.object,
   propagateFn: PropTypes.func
 }
@@ -21,9 +22,10 @@ function BookingEdit (props) {
   const calendarevent = props.schedule.find((calendarevent) => calendarevent.id === parseInt(props.ceId))
   const bookings = calendarevent.bookings
   const isNewBooking = typeof props.bkgId === 'undefined'
-  const [bkg, setBkg] = useState({
+  const emptyBkg = {
     calendarevent_id: props.ceId,
     date: calendarevent.date,
+    type: calendarevent.type,
     source_id: 3,
     name: '',
     email: '',
@@ -40,15 +42,29 @@ function BookingEdit (props) {
     price: 0,
     hide_price: 0,
     fixed_date: 0
-  })
+  }
+  const [bkg, setBkg] = useState(isNewBooking ? emptyBkg : bookings.find((b) => b.id === parseInt(props.bkgId)))
+  const [price, setPrice] = useState(0)
+  const [pricePlan, setPricePlan] = useState({ source_id: bkg.source_id, type: bkg.type })
 
   const userRole = document.querySelector('meta[name="user_role"]').content
 
   useEffect(() => {
-    if (!isNewBooking) {
-      setBkg(bookings.find((b) => b.id === parseInt(props.bkgId)))
+    setPrice(bkg.price)
+  }, [bkg.price])
+
+  useEffect(() => {
+    const fetchPricePlan = async () => {
+      try {
+        const result = await axios.get('/api/priceplan/get', { params: { source_id: bkg.source_id, type: bkg.type } })
+        setPricePlan({ ...pricePlan, ...result.data })
+        setBkg({ ...bkg, iva: parseInt(result.data.iva) })
+      } catch (error) {
+        console.log(error)
+      }
     }
-  }, [])
+    fetchPricePlan()
+  }, [bkg.source_id])
 
   function handlePrevBkg () {
     const bkgIndex = bookings.indexOf(bkg)
@@ -70,12 +86,43 @@ function BookingEdit (props) {
     let value = event.target.value
     if (event.target.type === 'checkbox') {
       value = !parseInt(bkg[event.target.name]) * 1
+      setBkg({
+        ...bkg,
+        [event.target.name]: value,
+        changed: 1
+      })
+    } else if (event.target.name === 'adult') {
+      const newPrice = pricePlan.adult * value + pricePlan.child * bkg.child
+      setPrice(newPrice)
+      setBkg({
+        ...bkg,
+        price: newPrice,
+        [event.target.name]: value,
+        changed: 1
+      })
+    } else if (event.target.name === 'child') {
+      const newPrice = pricePlan.adult * bkg.adult + pricePlan.child * value
+      setPrice(newPrice)
+      setBkg({
+        ...bkg,
+        price: newPrice,
+        [event.target.name]: value,
+        changed: 1
+      })
+    } else if (event.target.name === 'price') {
+      setPrice(parseFloat(value))
+      setBkg({
+        ...bkg,
+        [event.target.name]: value,
+        changed: 1
+      })
+    } else {
+      setBkg({
+        ...bkg,
+        [event.target.name]: value,
+        changed: 1
+      })
     }
-    setBkg({
-      ...bkg,
-      [event.target.name]: value,
-      changed: 1
-    })
   }
 
   function handleButtonSave () {
@@ -276,7 +323,7 @@ function BookingEdit (props) {
                 Precio:
             </td>
             <td>
-              <input type="text" name="price" value={bkg.price || '0'} onChange={handleChange} />
+              <input type="text" name="price" value={price || '0'} onChange={handleChange} />
             </td>
           </tr>
           {userRole >= 3 && <Fragment>
