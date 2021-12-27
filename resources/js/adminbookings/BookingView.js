@@ -40,13 +40,26 @@ function BookingView (props) {
     }
   }
 
-  const sourceName = (id) => {
+  function sourceName (id) {
     if (props.sources === undefined) return ''
     for (var i = 0; i < props.sources.length; i++) {
       if (props.sources[i].id === parseInt(id)) {
         return props.sources[i].type + ' - ' + props.sources[i].name
       }
     }
+  }
+
+  function copyBookingLink () {
+    var textArea = document.createElement('textarea')
+    textArea.value = props.location.origin + '/booking/' + bkg.locator
+    document.body.appendChild(textArea)
+    textArea.select()
+    try {
+      document.execCommand('copy')
+    } catch (err) {
+      alert('Oops, unable to copy')
+    }
+    document.body.removeChild(textArea)
   }
 
   return (
@@ -114,7 +127,7 @@ function BookingView (props) {
                 Referencia:
             </td>
             <td>
-              {bkg.locator} <button id="button_booking_copy" className="btn btn-primary btn-sm">Copiar</button>
+              {bkg.locator} <button className="btn btn-primary btn-sm" onClick={copyBookingLink}>Copiar</button>
             </td>
           </tr>
           <tr className='details'>

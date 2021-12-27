@@ -71,6 +71,19 @@ function BookingEdit (props) {
     navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)
   }
 
+  function copyBookingLink () {
+    var textArea = document.createElement('textarea')
+    textArea.value = props.location.origin + '/booking/' + bkg.locator
+    document.body.appendChild(textArea)
+    textArea.select()
+    try {
+      document.execCommand('copy')
+    } catch (err) {
+      alert('Oops, unable to copy')
+    }
+    document.body.removeChild(textArea)
+  }
+
   const adults = []
   for (let i = 1; i < 25; i++) adults.push(i)
   const children = []
@@ -190,7 +203,7 @@ function BookingEdit (props) {
                 Referencia:
             </td>
             <td>
-              {bkg.locator} <button id="button_booking_copy" className="btn btn-primary btn-sm">Copiar</button>
+              {bkg.locator} <button className="btn btn-primary btn-sm" onClick={copyBookingLink}>Copiar</button>
             </td>
           </tr>
           <tr className='details'>
