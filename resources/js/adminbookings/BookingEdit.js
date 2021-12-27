@@ -30,7 +30,7 @@ function BookingEdit (props) {
     name: '',
     email: '',
     phone: '',
-    adult: 1,
+    adult: 0,
     child: 0,
     payment_date: '',
     food_requirements: '',
@@ -235,12 +235,12 @@ function BookingEdit (props) {
             </td>
             <td>
               <select name="adult" value={bkg.adult} onChange={handleChange}>
+                <option value="0">0</option>
                 {adults.map(option => (
                   <option key={option} value={option}>
                     {option}
                   </option>
                 ))}
-                <option value="0">0</option>
               </select>
             </td>
           </tr>

@@ -3,7 +3,7 @@
 @section('description', 'Cooking Point Admin Main Page')
 
 @section('content')
-<div class="admin row justify-content-center">
+<div class="admin row">
 	<div id="AdminBookingsRoot" param="{{ $param ?? '' }}" date="{{ $date ?? '' }}"></div>
 </div>
 @stop
