@@ -6,16 +6,16 @@ import { trackPromise } from 'react-promise-tracker'
 
 const axios = require('axios').default
 
-export default BookingView
+export default BookingEdit
 
-BookingView.propTypes = {
+BookingEdit.propTypes = {
   ceId: PropTypes.string,
   bkgId: PropTypes.string,
   schedule: PropTypes.array,
   propagateFn: PropTypes.func
 }
 
-function BookingView (props) {
+function BookingEdit (props) {
   const calendarevent = props.schedule.find((calendarevent) => calendarevent.id === parseInt(props.ceId))
   const bookings = calendarevent.bookings
   const [bkg, setBkg] = useState(bookings.find((b) => b.id === parseInt(props.bkgId)))
@@ -43,9 +43,13 @@ function BookingView (props) {
   }
 
   function handleChange (event) {
+    let value = event.target.value
+    if (event.target.type === 'checkbox') {
+      value = !parseInt(bkg[event.target.name]) * 1
+    }
     setBkg({
       ...bkg,
-      [event.target.name]: event.target.value,
+      [event.target.name]: value,
       changed: 1
     })
   }
@@ -96,7 +100,7 @@ function BookingView (props) {
                 Fuente:
             </td>
             <td>
-              <select id="sourcelist" name="source_id">
+              <select id="sourcelist" name="source_id" onChange={handleChange}>
               </select>
             </td>
           </tr>
@@ -217,7 +221,7 @@ function BookingView (props) {
                 Fecha pago:
             </td>
             <td>
-              <input name="payment_date" type="text" value={bkg.payment_date} onChange={handleChange} />
+              <input name="payment_date" type="text" value={bkg.payment_date || ''} onChange={handleChange} />
             </td>
           </tr>
           <tr className="price details ">
@@ -229,12 +233,12 @@ function BookingView (props) {
             </td>
           </tr>
           {userRole >= 3 && <Fragment>
-            <tr className='details d-none'>
+            <tr className='details'>
               <td>
                   IVA:
               </td>
               <td>
-                <input type="checkbox" name="iva" value={bkg.iva} onChange={handleChange} />
+                <input type="checkbox" name="iva" value="1" checked={bkg.iva} onChange={handleChange} />
               </td>
             </tr>
             <tr className='details'>
@@ -242,7 +246,7 @@ function BookingView (props) {
                   Ocultar precio:
               </td>
               <td>
-                <input type="checkbox" name="hide_price" value="1" onChange={handleChange} />
+                <input type="checkbox" name="hide_price" checked={parseInt(bkg.hide_price)} onChange={handleChange} />
               </td>
             </tr>
             <tr className='details'>
@@ -250,7 +254,7 @@ function BookingView (props) {
                   Fecha fija:
               </td>
               <td>
-                <input type="checkbox" name="fixed_date" value={bkg.fixed_date} onChange={handleChange} />
+                <input type="checkbox" name="fixed_date" checked={parseInt(bkg.fixed_date)} onChange={handleChange} />
               </td>
             </tr>
             <tr className='details'>
@@ -268,8 +272,8 @@ function BookingView (props) {
                 Fecha:
             </td>
             <td>
-              <input type="text" id="booking_date_edit" />
-              <input type="hidden" name="date" id="bookingNewDate" />
+              <input type="text" id="booking_date_edit" onChange={handleChange} />
+              <input type="hidden" name="date" id="bookingNewDate" onChange={handleChange} />
             </td>
           </tr>
           <tr className="booking_date_input details">

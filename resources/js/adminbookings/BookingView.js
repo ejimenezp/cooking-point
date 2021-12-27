@@ -149,12 +149,12 @@ function BookingView (props) {
             </td>
           </tr>
           {userRole >= 3 && <Fragment>
-            <tr className='details d-none'>
+            <tr className='details'>
               <td>
                   IVA:
               </td>
               <td>
-                <input type="checkbox" name="iva" value={bkg.iva} disabled />
+                <input type="checkbox" name="iva" checked={bkg.iva} disabled />
               </td>
             </tr>
             <tr className='details'>
