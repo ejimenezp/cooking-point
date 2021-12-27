@@ -154,7 +154,7 @@ function BookingView (props) {
                   IVA:
               </td>
               <td>
-                <input type="checkbox" name="iva" value={bkg.iva} onChange={handleChange} />
+                <input type="checkbox" name="iva" value={bkg.iva} disabled />
               </td>
             </tr>
             <tr className='details'>
@@ -162,7 +162,7 @@ function BookingView (props) {
                   Ocultar precio:
               </td>
               <td>
-                <input type="checkbox" name="hide_price" value="1" onChange={handleChange} />
+                <input type="checkbox" name="hide_price" checked={bkg.hide_price} disabled />
               </td>
             </tr>
             <tr className='details'>
@@ -170,7 +170,7 @@ function BookingView (props) {
                   Fecha fija:
               </td>
               <td>
-                <input type="checkbox" name="fixed_date" value={bkg.fixed_date} onChange={handleChange} />
+                <input type="checkbox" name="fixed_date" checked={bkg.fixed_date} disabled />
               </td>
             </tr>
             <tr className='details'>
@@ -178,29 +178,10 @@ function BookingView (props) {
                   Factura:
               </td>
               <td>
-                <input type="text" name="invoice" value={bkg.invoice} onChange={handleChange} />
+                {bkg.invoice}
               </td>
             </tr>
           </Fragment>}
-
-          <tr className="booking_date_input details">
-            <td>
-                Fecha:
-            </td>
-            <td>
-              <input type="text" id="booking_date_edit" />
-              <input type="hidden" name="date" id="bookingNewDate" />
-            </td>
-          </tr>
-          <tr className="booking_date_input details">
-            <td>
-                Evento:
-            </td>
-            <td>
-              <select id="dayeventlist" name="type">
-              </select>
-            </td>
-          </tr>
         </tbody>
       </table>
       <div className='btn btn-primary'onClick={() => navigate(props.uri + '/edit') }> Edit</div>
