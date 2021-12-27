@@ -30,6 +30,8 @@ const axios = require('axios').default
 function AdminBookingsRoot (props) {
   const [schedule, setSchedule] = useState(JSON.parse(props.param))
   const [staff, setStaff] = useState()
+  const [sources, setSources] = useState()
+  const [priceplans, setPriceplans] = useState()
 
   function handleUpdateSchedule (schedule) {
     setSchedule(schedule)
@@ -44,7 +46,16 @@ function AdminBookingsRoot (props) {
         console.log(error)
       }
     }
+    const fetchSources = async () => {
+      try {
+        const result = await axios.get('/api/source/get')
+        setSources(result.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
     fetchStaff()
+    fetchSources()
   }, [])
 
   return (
@@ -55,8 +66,12 @@ function AdminBookingsRoot (props) {
 
           <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
 */}
-          <BookingView path='/adminbookings/:daaa/:ceId/:bkgId' schedule={schedule}/>
-          <BookingEdit path='/adminbookings/:daaa/:ceId/:bkgId/edit' schedule={schedule} propagateFn={handleUpdateSchedule}/>
+          <BookingView path='/adminbookings/:daaa/:ceId/:bkgId' schedule={schedule} sources={sources} />
+          <BookingEdit path='/adminbookings/:daaa/:ceId/:bkgId/edit'
+            schedule={schedule}
+            sources={sources}
+            propagateFn={handleUpdateSchedule}
+          />
           <BookingIndex path='/adminbookings/:daaa/:ceId' schedule={schedule} />
           <CalendareventIndex path='/adminbookings/:date' schedule={schedule} staff={staff} propagateFn={handleUpdateSchedule} />
         </Router>

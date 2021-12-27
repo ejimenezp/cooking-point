@@ -8,6 +8,7 @@ export default BookingView
 BookingView.propTypes = {
   ceId: PropTypes.string,
   bkgId: PropTypes.string,
+  sources: PropTypes.array,
   schedule: PropTypes.array,
   uri: PropTypes.string
 }
@@ -39,12 +40,13 @@ function BookingView (props) {
     }
   }
 
-  function handleChange (event) {
-    setBkg({
-      ...bkg,
-      [event.target.name]: event.target.value,
-      changed: 1
-    })
+  const sourceName = (id) => {
+    if (props.sources === undefined) return ''
+    for (var i = 0; i < props.sources.length; i++) {
+      if (props.sources[i].id === parseInt(id)) {
+        return props.sources[i].type + ' - ' + props.sources[i].name
+      }
+    }
   }
 
   return (
@@ -64,8 +66,7 @@ function BookingView (props) {
                 Fuente:
             </td>
             <td>
-              <select id="sourcelist" name="source_id">
-              </select>
+              {sourceName(bkg.source_id)}
             </td>
           </tr>
           <tr>

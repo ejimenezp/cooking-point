@@ -12,6 +12,7 @@ BookingEdit.propTypes = {
   ceId: PropTypes.string,
   bkgId: PropTypes.string,
   schedule: PropTypes.array,
+  sources: PropTypes.array,
   propagateFn: PropTypes.func
 }
 
@@ -100,7 +101,12 @@ function BookingEdit (props) {
                 Fuente:
             </td>
             <td>
-              <select id="sourcelist" name="source_id" onChange={handleChange}>
+              <select name="source_id" value={bkg.source_id} onChange={handleChange}>
+                {props.sources && props.sources.map(source => (
+                  <option key={source.id} value={source.id}>
+                    {source.type + ' - ' + source.name}
+                  </option>
+                ))}
               </select>
             </td>
           </tr>
