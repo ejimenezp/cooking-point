@@ -13,6 +13,6 @@ function LoadingIndicator (props) {
   const { promiseInProgress } = usePromiseTracker()
   return (
     promiseInProgress &&
-    <div className='loadingIndicator'>Cargando!</div>
+    <div className='loadingIndicator'>Cargando</div>
   )
 }
