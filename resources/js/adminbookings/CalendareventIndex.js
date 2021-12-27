@@ -46,14 +46,6 @@ function CalendareventIndex (props) {
     }
   }, [props.date])
 
-  function handleDateUp () {
-    navigate('/adminbookings/' + format(addDays(new Date(props.date), 1), 'yyyy-MM-dd'))
-  }
-
-  function handleDateDown () {
-    navigate('/adminbookings/' + format(subDays(new Date(props.date), 1), 'yyyy-MM-dd'))
-  }
-
   function handleDateToday () {
     handleClose()
     navigate('/adminbookings/' + format(new Date(), 'yyyy-MM-dd'))
@@ -67,9 +59,9 @@ function CalendareventIndex (props) {
   return (
     <Fragment>
       <div className="text-center">
-        <button className="button_day_selector btn btn-primary" onClick={handleDateDown}>&lt;&lt;</button>
+        <button className="button_day_selector btn btn-primary" onClick={() => navigate('/adminbookings/' + format(subDays(new Date(props.date), 1), 'yyyy-MM-dd'))}>&lt;&lt;</button>
         <button className="button_day_selector btn btn-primary mx-1" onClick={handleShow}>calendario</button>
-        <button className="button_day_selector btn btn-primary" onClick={handleDateUp}>&gt;&gt;</button>
+        <button className="button_day_selector btn btn-primary" onClick={() => navigate('/adminbookings/' + format(addDays(new Date(props.date), 1), 'yyyy-MM-dd'))}>&gt;&gt;</button>
       </div>
       <Modal show={show} onHide={handleClose} animation={false}>
         <div className='text-center mb-1'>

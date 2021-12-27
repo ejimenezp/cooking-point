@@ -21,15 +21,11 @@ function BookingView (props) {
 
   const userRole = document.querySelector('meta[name="user_role"]').content
 
-  function handleShowEvent () {
-    navigate('/adminbookings/' + calendarevent.date + '/' + calendarevent.id)
-  }
-
   function handlePrevBkg () {
     const bkgIndex = bookings.indexOf(bkg)
     if (bkgIndex > 0) {
       const prev = bookings[bkgIndex - 1]
-      navigate('/adminbookings/' + prev.date + '/' + prev.calendarevent_id + '/' + bookings[bkgIndex - 1].id)
+      navigate('/adminbookings/' + prev.date + '/' + prev.calendarevent_id + '/' + prev.id)
     }
   }
 
@@ -37,7 +33,7 @@ function BookingView (props) {
     const bkgIndex = bookings.indexOf(bkg)
     if (bkgIndex < bookings.length - 1) {
       const next = bookings[bkgIndex + 1]
-      navigate('/adminbookings/' + next.date + '/' + next.calendarevent_id + '/' + bookings[bkgIndex + 1].id)
+      navigate('/adminbookings/' + next.date + '/' + next.calendarevent_id + '/' + next.id)
     }
   }
 
@@ -67,7 +63,7 @@ function BookingView (props) {
     <Fragment>
       <div className="text-center">
         <button className="button_day_selector btn btn-primary " onClick={handlePrevBkg}>&lt;&lt;</button>
-        <button className="button_day_selector btn btn-primary mx-1" onClick={handleShowEvent}>{calendarevent.type}</button>
+        <button className="button_day_selector btn btn-primary mx-1" onClick={() => navigate('/adminbookings/' + calendarevent.date + '/' + calendarevent.id)}>{calendarevent.type}</button>
         <button className="button_day_selector btn btn-primary" onClick={handleNextBkg}>&gt;&gt;</button>
       </div>
       <h1>

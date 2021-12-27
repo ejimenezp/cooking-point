@@ -18,10 +18,6 @@ function BookingIndex (props) {
   const calendarevent = props.schedule.find((calendarevent) => calendarevent.id === parseInt(props.ceId))
   const bookings = calendarevent.bookings
 
-  function handleShowDay () {
-    navigate('/adminbookings/' + calendarevent.date)
-  }
-
   function handlePrevEvent () {
     const ceIndex = props.schedule.indexOf(calendarevent)
     if (ceIndex > 0) {
@@ -40,7 +36,7 @@ function BookingIndex (props) {
     <Fragment>
       <div className="text-center">
         <button className="button_day_selector btn btn-primary " onClick={handlePrevEvent}>&lt;&lt;</button>
-        <button className="button_day_selector btn btn-primary mx-1" onClick={handleShowDay}>{format(new Date(calendarevent.date), 'EEEE', { locale: es })}</button>
+        <button className="button_day_selector btn btn-primary mx-1" onClick={() => navigate('/adminbookings/' + calendarevent.date)}>{format(new Date(calendarevent.date), 'EEEE', { locale: es })}</button>
         <button className="button_day_selector btn btn-primary" onClick={handleNextEvent}>&gt;&gt;</button>
       </div>
       <h1>
@@ -67,8 +63,7 @@ function BookingIndex (props) {
           }
         </tbody>}
       </table>
-      {userRole >= 3 && <button className="btn btn-primary">Nueva Reserva</button> }
+      {userRole >= 3 && <button className='btn btn-primary' onClick=''>Nueva Reserva</button> }
     </Fragment>
   )
-
 }

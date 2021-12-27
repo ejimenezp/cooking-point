@@ -24,10 +24,6 @@ function BookingEdit (props) {
 
   const userRole = document.querySelector('meta[name="user_role"]').content
 
-  function handleShowEvent () {
-    navigate('/adminbookings/' + calendarevent.date + '/' + calendarevent.id)
-  }
-
   function handlePrevBkg () {
     const bkgIndex = bookings.indexOf(bkg)
     if (bkgIndex > 0) {
@@ -95,7 +91,7 @@ function BookingEdit (props) {
     <Fragment>
       <div className="text-center">
         <button className="button_day_selector btn btn-primary " onClick={handlePrevBkg}>&lt;&lt;</button>
-        <button className="button_day_selector btn btn-primary mx-1" onClick={handleShowEvent}>{calendarevent.type}</button>
+        <button className="button_day_selector btn btn-primary mx-1" onClick={() => navigate('/adminbookings/' + calendarevent.date + '/' + calendarevent.id)}>{calendarevent.type}</button>
         <button className="button_day_selector btn btn-primary" onClick={handleNextBkg}>&gt;&gt;</button>
       </div>
       <h1>
