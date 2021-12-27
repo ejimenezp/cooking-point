@@ -30,7 +30,6 @@ const axios = require('axios').default
 function AdminBookingsRoot (props) {
   const [schedule, setSchedule] = useState(JSON.parse(props.param))
   const [staff, setStaff] = useState()
-  const date = props.date
 
   function handleUpdateSchedule (schedule) {
     setSchedule(schedule)
@@ -50,16 +49,18 @@ function AdminBookingsRoot (props) {
 
   return (
     <div className='col-12'>
-      <Router>
-{/*          <Redirect from='/adminbookings/:d' to={'/adminbookings/' + schedule[0].date} noThrow />
+      <React.StrictMode>
+        <Router>
+          {/*          <Redirect from='/adminbookings/:d' to={'/adminbookings/' + schedule[0].date} noThrow />
 
           <CalendareventEdit path='/adminbookings/calendarevent/:id' id={id} />
-*/}       
+*/}
           <BookingView path='/adminbookings/:daaa/:ceId/:bkgId' schedule={schedule}/>
           <BookingEdit path='/adminbookings/:daaa/:ceId/:bkgId/edit' schedule={schedule} propagateFn={handleUpdateSchedule}/>
           <BookingIndex path='/adminbookings/:daaa/:ceId' schedule={schedule} />
           <CalendareventIndex path='/adminbookings/:date' schedule={schedule} staff={staff} propagateFn={handleUpdateSchedule} />
         </Router>
+      </React.StrictMode>
     </div>
   )
 }
