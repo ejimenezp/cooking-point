@@ -19,7 +19,7 @@ function BookingRow (props) {
       <td>{row.adult}{(row.child > 0) && <span>+{row.child} </span>}</td>
       <td>{row.name}</td>
       <td>{row.status}</td>
-      <td>{row.alergies}</td>
+      <td>{row.food_requirements}</td>
       <td>{row.comments}</td>
     </tr>
   )
