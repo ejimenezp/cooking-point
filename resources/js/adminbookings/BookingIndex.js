@@ -1,6 +1,6 @@
-import React, { useState, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { format, addDays, subDays } from 'date-fns'
+import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
@@ -10,7 +10,8 @@ export default BookingIndex
 
 BookingIndex.propTypes = {
   ceId: PropTypes.string,
-  schedule: PropTypes.array
+  schedule: PropTypes.array,
+  uri: PropTypes.string
 }
 
 function BookingIndex (props) {
@@ -63,7 +64,7 @@ function BookingIndex (props) {
           }
         </tbody>}
       </table>
-      {userRole >= 3 && <button className='btn btn-primary' onClick=''>Nueva Reserva</button> }
+      {userRole >= 3 && <button className='btn btn-primary' onClick={() => navigate(props.uri + '/add')}>Nueva Reserva</button> }
     </Fragment>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
@@ -20,9 +20,35 @@ BookingEdit.propTypes = {
 function BookingEdit (props) {
   const calendarevent = props.schedule.find((calendarevent) => calendarevent.id === parseInt(props.ceId))
   const bookings = calendarevent.bookings
-  const [bkg, setBkg] = useState(bookings.find((b) => b.id === parseInt(props.bkgId)))
+  const isNewBooking = typeof props.bkgId === 'undefined'
+  const [bkg, setBkg] = useState({
+    calendarevent_id: props.ceId,
+    date: calendarevent.date,
+    source_id: 3,
+    name: '',
+    email: '',
+    phone: '',
+    adult: 1,
+    child: 0,
+    payment_date: '',
+    food_requirements: '',
+    comments: '',
+    status: 'PENDING',
+    pay_method: 'N/A',
+    crm: 'NO',
+    iva: 1,
+    price: 0,
+    hide_price: 0,
+    fixed_date: 0
+  })
 
   const userRole = document.querySelector('meta[name="user_role"]').content
+
+  useEffect(() => {
+    if (!isNewBooking) {
+      setBkg(bookings.find((b) => b.id === parseInt(props.bkgId)))
+    }
+  }, [])
 
   function handlePrevBkg () {
     const bkgIndex = bookings.indexOf(bkg)
@@ -57,7 +83,7 @@ function BookingEdit (props) {
       trackPromise(
         (async () => {
           try {
-            const result = await axios.post('/api/booking/adminUpdate', bkg)
+            const result = await axios.post(isNewBooking ? '/api/booking/adminAdd' : '/api/booking/adminUpdate', bkg)
             setBkg(bkg)
             props.propagateFn(result.data)
           } catch (error) {
@@ -66,7 +92,11 @@ function BookingEdit (props) {
         })()
       )
     }
-    navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id + '/' + bkg.id)
+    if (isNewBooking) {
+      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)
+    } else {
+      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id + '/' + bkg.id)
+    }
   }
 
   function copyBookingLink () {
@@ -246,7 +276,7 @@ function BookingEdit (props) {
                 Precio:
             </td>
             <td>
-              <input type="text" name="price" value={bkg.price} onChange={handleChange} />
+              <input type="text" name="price" value={bkg.price || '0'} onChange={handleChange} />
             </td>
           </tr>
           {userRole >= 3 && <Fragment>
@@ -279,7 +309,7 @@ function BookingEdit (props) {
                   Factura:
               </td>
               <td>
-                <input type="text" name="invoice" value={bkg.invoice} onChange={handleChange} />
+                <input type="text" name="invoice" value={bkg.invoice || ''} onChange={handleChange} />
               </td>
             </tr>
           </Fragment>}

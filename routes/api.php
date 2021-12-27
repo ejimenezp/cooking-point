@@ -31,6 +31,7 @@ Route::post('booking/add', 'BookingController@add');
 Route::get('booking/index/{ce_id}', 'BookingController@index');
 Route::post('booking/update', 'BookingController@update');
 Route::post('booking/adminUpdate', 'BookingController@adminUpdate');
+Route::post('booking/adminAdd', 'BookingController@adminAdd');
 Route::get('booking/delete/{id}', 'BookingController@delete');
 Route::post('booking/cancelIt', 'BookingController@cancelIt');
 Route::post('booking/emailIt', 'BookingController@emailIt');

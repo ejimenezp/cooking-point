@@ -58,7 +58,7 @@ class BookingController extends Controller
     }
 
 
-    function add(Request $request)
+    private function privateAdd(Request $request)
     {
 
         $bkg = new Booking();
@@ -102,10 +102,22 @@ class BookingController extends Controller
         $bkg->onlineclass = (empty($request->onlineclass)) ? 0 : $request->onlineclass;
         $bkg->save();
         Cookie::queue(Cookie::forever('cplocator', $bkg->locator));
-        return $bkg->makeVisible('calendarevent');
+        return $bkg;
 
     }
-    
+
+    function adminAdd(Request $request)
+    {
+        $bkg = $this->privateAdd($request);
+        $controller = new CalendareventController;
+        return response()->json($controller->getScheduleForReactRoot($bkg->date));
+    }
+
+    function add(Request $request)
+    {
+        $bkg = $this->privateAdd($request);
+        return $bkg->makeVisible('calendarevent');
+    }
 
     private function privateUpdate(Request $request)
     {

@@ -72,6 +72,11 @@ function AdminBookingsRoot (props) {
             sources={sources}
             propagateFn={handleUpdateSchedule}
           />
+          <BookingEdit path='/adminbookings/:daaa/:ceId/add'
+            schedule={schedule}
+            sources={sources}
+            propagateFn={handleUpdateSchedule}
+          />
           <BookingIndex path='/adminbookings/:daaa/:ceId' schedule={schedule} />
           <CalendareventIndex path='/adminbookings/:date' schedule={schedule} staff={staff} propagateFn={handleUpdateSchedule} />
         </Router>
