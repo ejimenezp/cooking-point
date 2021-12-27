@@ -13,6 +13,7 @@ BookingEdit.propTypes = {
   bkgId: PropTypes.string,
   schedule: PropTypes.array,
   sources: PropTypes.array,
+  location: PropTypes.object,
   propagateFn: PropTypes.func
 }
 
@@ -61,6 +62,7 @@ function BookingEdit (props) {
         (async () => {
           try {
             const result = await axios.post('/api/booking/adminUpdate', bkg)
+            setBkg(bkg)
             props.propagateFn(result.data)
           } catch (error) {
             console.log(error)
@@ -68,7 +70,7 @@ function BookingEdit (props) {
         })()
       )
     }
-    navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)
+    navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id + '/' + bkg.id)
   }
 
   function copyBookingLink () {

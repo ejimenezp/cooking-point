@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
@@ -10,13 +10,14 @@ BookingView.propTypes = {
   bkgId: PropTypes.string,
   sources: PropTypes.array,
   schedule: PropTypes.array,
+  location: PropTypes.object,
   uri: PropTypes.string
 }
 
 function BookingView (props) {
   const calendarevent = props.schedule.find((calendarevent) => calendarevent.id === parseInt(props.ceId))
   const bookings = calendarevent.bookings
-  const [bkg, setBkg] = useState(bookings.find((b) => b.id === parseInt(props.bkgId)))
+  const bkg = bookings.find((b) => b.id === parseInt(props.bkgId))
 
   const userRole = document.querySelector('meta[name="user_role"]').content
 
@@ -27,16 +28,16 @@ function BookingView (props) {
   function handlePrevBkg () {
     const bkgIndex = bookings.indexOf(bkg)
     if (bkgIndex > 0) {
-      setBkg(bookings[bkgIndex - 1])
-      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id + '/' + bookings[bkgIndex - 1].id)
+      const prev = bookings[bkgIndex - 1]
+      navigate('/adminbookings/' + prev.date + '/' + prev.calendarevent_id + '/' + bookings[bkgIndex - 1].id)
     }
   }
 
   function handleNextBkg () {
     const bkgIndex = bookings.indexOf(bkg)
     if (bkgIndex < bookings.length - 1) {
-      setBkg(bookings[bkgIndex + 1])
-      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id + '/' + bookings[bkgIndex + 1].id)
+      const next = bookings[bkgIndex + 1]
+      navigate('/adminbookings/' + next.date + '/' + next.calendarevent_id + '/' + bookings[bkgIndex + 1].id)
     }
   }
 
