@@ -22,6 +22,7 @@ CalendareventIndex.propTypes = {
 
 function CalendareventIndex (props) {
   const [schedule, setSchedule] = useState(props.schedule)
+  const [lastFetchedDate, setLastFetchedDate] = useState(props.date)
   const userRole = document.querySelector('meta[name="user_role"]').content
 
   const [show, setShow] = useState(false)
@@ -33,12 +34,16 @@ function CalendareventIndex (props) {
       try {
         const result = await axios.get('/api/calendarevent/getschedule/' + props.date)
         setSchedule(result.data)
+        setLastFetchedDate(props.date)
         props.propagateFn(result.data)
       } catch (error) {
         console.log(error)
       }
     }
-    trackPromise(fetchSchedule())
+    if (lastFetchedDate !== props.date) {
+      console.log(props.date)
+      trackPromise(fetchSchedule())
+    }
   }, [props.date])
 
   function handleDateUp () {
