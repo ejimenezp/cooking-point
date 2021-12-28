@@ -15,18 +15,6 @@ import BookingEdit from './BookingEdit'
 
 const axios = require('axios').default
 
-// import AvailabilityPage from './AvailabilityPage'
-// import CustomerDetailsPage from './CustomerDetailsPage'
-// import BookingDetailsPage from './BookingDetailsPage'
-// import CancelBookingPage from './CancelBookingPage'
-
-//
-// Webpack generate empty css if dynamic import is used (expected to solve with 5.0)
-// https://stackoverflow.com/questions/57137438/webpack-generating-empty-css-files-in-laravel-app-when-using-vue-router
-//
-// const AvailabilityPage = React.lazy(() => import('./AvailabilityPage.js'));
-// const CustomerDetailsPage = React.lazy(() => import('./CustomerDetailsPage.js'));
-
 function AdminBookingsRoot (props) {
   const [schedule, setSchedule] = useState(JSON.parse(props.param))
   const [staff, setStaff] = useState()
