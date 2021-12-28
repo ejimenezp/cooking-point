@@ -25,9 +25,7 @@ function CalendareventIndex (props) {
   const [lastFetchedDate, setLastFetchedDate] = useState(props.date)
   const userRole = document.querySelector('meta[name="user_role"]').content
 
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
     const fetchSchedule = async () => {
@@ -46,23 +44,18 @@ function CalendareventIndex (props) {
   }, [props.date])
 
   function handleDateToday () {
-    handleClose()
+    setShowModal(false)
     navigate('/adminbookings/' + format(new Date(), 'yyyy-MM-dd'))
   }
 
   function handleDateChange (day) {
-    handleClose()
+    setShowModal(false)
     navigate('/adminbookings/' + format(new Date(day), 'yyyy-MM-dd'))
   }
 
   return (
     <Fragment>
-      <div className="text-center">
-        <button className="button_day_selector btn btn-primary" onClick={() => navigate('/adminbookings/' + format(subDays(new Date(props.date), 1), 'yyyy-MM-dd'))}>&lt;&lt;</button>
-        <button className="button_day_selector btn btn-primary mx-1" onClick={handleShow}>calendario</button>
-        <button className="button_day_selector btn btn-primary" onClick={() => navigate('/adminbookings/' + format(addDays(new Date(props.date), 1), 'yyyy-MM-dd'))}>&gt;&gt;</button>
-      </div>
-      <Modal show={show} onHide={handleClose} animation={false}>
+      <Modal show={showModal} onHide={() => setShowModal(false)} animation={false}>
         <div className='text-center mb-1'>
           <br/>
           <DatePicker
@@ -74,6 +67,11 @@ function CalendareventIndex (props) {
           <br/>
         </div>
       </Modal>
+      <div className="text-center">
+        <button className="button_day_selector btn btn-primary" onClick={() => navigate('/adminbookings/' + format(subDays(new Date(props.date), 1), 'yyyy-MM-dd'))}>&lt;&lt;</button>
+        <button className="button_day_selector btn btn-primary mx-1" onClick={() => setShowModal(true)}>calendario</button>
+        <button className="button_day_selector btn btn-primary" onClick={() => navigate('/adminbookings/' + format(addDays(new Date(props.date), 1), 'yyyy-MM-dd'))}>&gt;&gt;</button>
+      </div>
       <h1>
         <EventDate className="dateshown" date={props.date}/>
       </h1>

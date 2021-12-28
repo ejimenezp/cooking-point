@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
 // import { NavButtons } from './Components/NavButtons'
 import { trackPromise } from 'react-promise-tracker'
+import Modal from 'react-bootstrap/Modal'
 
 const axios = require('axios').default
 
@@ -47,6 +48,8 @@ function BookingEdit (props) {
   const [price, setPrice] = useState(0)
   const [pricePlan, setPricePlan] = useState({ source_id: bkg.source_id, type: bkg.type })
 
+  const [showModal, setShowModal] = useState(false)
+  const [modalContent, setModalContent] = useState('')
   const userRole = document.querySelector('meta[name="user_role"]').content
 
   useEffect(() => {
@@ -126,8 +129,44 @@ function BookingEdit (props) {
     }
   }
 
+  function validatedBookingForm () {
+    let errorText = ''
+    let filter
+
+    if (bkg.name === '') {
+      errorText += 'Introduce un nombre<br/>'
+    }
+    filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
+    if (bkg.email !== '' && !filter.test(bkg.email)) {
+      errorText += 'Introduce un email válido<br/>'
+    }
+    filter = /^[A-Z]{0,2}[0-9 ()\-+]+$/
+    if (bkg.phone !== '' && !filter.test(bkg.phone)) {
+      errorText += 'Introduce un teléfono válido<br/>'
+    }
+    filter = /^(\d+\.\d+)$|^(\d+)$/
+    if (bkg.price === '' || (bkg.price !== '' && !filter.test(bkg.price))) {
+      errorText += 'Precio con . decimal<br/>'
+    }
+    filter = /^(20\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])) *( +(0?[0-9]|1[0-9]|(2[0-3])):([0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?)?$/
+    if (bkg.payment_date !== null && bkg.payment_date !== '' && !filter.test(bkg.payment_date)) {
+      errorText += 'Fecha pago incorrecta. Usa aaaa-mm-dd [hh:mm:ss] []=opcional<br/>'
+    }
+
+    if (bkg.status === 'PAID' && bkg.pay_method === 'N/A') {
+      errorText += 'Selecciona Forma de Pago<br/>'
+    }
+    return errorText
+  }
+
   function handleButtonSave () {
     if (bkg.changed) {
+      const errorText = validatedBookingForm()
+      if (errorText !== '') {
+        setModalContent(errorText)
+        setShowModal(true)
+        return
+      }
       trackPromise(
         (async () => {
           try {
@@ -140,6 +179,7 @@ function BookingEdit (props) {
         })()
       )
     }
+
     if (isNewBooking) {
       navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)
     } else {
@@ -167,6 +207,11 @@ function BookingEdit (props) {
 
   return (
     <Fragment>
+      <Modal show={showModal} onHide={() => setShowModal(false)} animation={false}>
+        <div className='text-center mb-1'>
+          <div dangerouslySetInnerHTML={{ __html: modalContent }} />
+        </div>
+      </Modal>
       <div className="text-center">
         <button className="button_day_selector btn btn-primary " onClick={handlePrevBkg}>&lt;&lt;</button>
         <button className="button_day_selector btn btn-primary mx-1" onClick={() => navigate('/adminbookings/' + calendarevent.date + '/' + calendarevent.id)}>{calendarevent.type}</button>
