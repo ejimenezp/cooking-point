@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { navigate } from '@reach/router'
-// import { NavButtons } from './Components/NavButtons'
+import { NavButtons } from './Components/NavButtons'
 import BookingRow from './Components/BookingRow'
 
 export default BookingIndex
@@ -64,7 +64,12 @@ function BookingIndex (props) {
           }
         </tbody>}
       </table>
-      {userRole >= 3 && <button className='btn btn-primary' onClick={() => navigate(props.uri + '/add')}>Nueva Reserva</button> }
+      {userRole >= 3 &&
+        <NavButtons id='foo'>
+          <></>
+          <div className='btn btn-primary' onClick={() => navigate(props.uri + '/add')}>Nueva Reserva</div>
+        </NavButtons>
+      }
     </Fragment>
   )
 }

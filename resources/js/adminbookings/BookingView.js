@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
-// import { NavButtons } from './Components/NavButtons'
+import { NavButtons } from './Components/NavButtons'
 
 export default BookingView
 
@@ -195,7 +195,13 @@ function BookingView (props) {
           </Fragment>}
         </tbody>
       </table>
-      <div className='btn btn-primary'onClick={() => navigate(props.uri + '/edit') }> Edit</div>
+      <NavButtons id='foo'>
+        <></>
+        <div className='btn btn-secondary' onClick={() => navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)}>Atrás</div>
+        <div className='btn btn-primary' onClick={() => navigate(props.uri + '/edit')}>Editar</div>
+        <div className='btn btn-secondary' onClick={() => navigate(props.uri + '/delete')}>Eliminar</div>
+        <div className='btn btn-secondary' onClick={() => navigate(props.uri + '/edit')}>Email</div>
+      </NavButtons>
     </Fragment>
   )
 }

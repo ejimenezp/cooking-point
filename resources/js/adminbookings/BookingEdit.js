@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from '@reach/router'
-// import { NavButtons } from './Components/NavButtons'
+import { NavButtons } from './Components/NavButtons'
 import { trackPromise } from 'react-promise-tracker'
 import Modal from 'react-bootstrap/Modal'
 
@@ -159,6 +159,14 @@ function BookingEdit (props) {
     return errorText
   }
 
+  function handleButtonCancel () {
+    if (isNewBooking) {
+      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)
+    } else {
+      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id + '/' + bkg.id)
+    }
+  }
+
   function handleButtonSave () {
     if (bkg.changed) {
       const errorText = validatedBookingForm()
@@ -179,12 +187,7 @@ function BookingEdit (props) {
         })()
       )
     }
-
-    if (isNewBooking) {
-      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)
-    } else {
-      navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id + '/' + bkg.id)
-    }
+    handleButtonCancel()
   }
 
   function copyBookingLink () {
@@ -427,7 +430,11 @@ function BookingEdit (props) {
           </tr>
         </tbody>
       </table>
-      <div className='btn btn-primary' onClick={handleButtonSave}>Save</div>
+      <NavButtons id='foo'>
+        <></>
+        <div className='btn btn-secondary' onClick={handleButtonCancel}>Cancelar</div>
+        <div className='btn btn-primary' onClick={handleButtonSave}>Guardar</div>
+      </NavButtons>
     </Fragment>
   )
 }
