@@ -11909,6 +11909,22 @@ textarea {
   background-color: transparent;
 }
 
+.navbuttons-modal {
+  list-style-type: none;
+  position: absolute;
+  bottom: 4rem;
+  right: 1rem;
+}
+
+.navbuttons-modal li {
+  text-align: right;
+  margin-block: 0.5rem;
+}
+
+.navbuttons-modal div {
+  border: none;
+}
+
 .react-datepicker-day {
   color: inherit;
   background-color: inherit;

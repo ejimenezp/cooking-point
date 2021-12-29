@@ -90,6 +90,20 @@
    background-color: transparent;
 }
 
+.navbuttons-modal {
+	list-style-type: none;
+	position: absolute;
+	bottom: 4rem;
+	right: 1rem;
+	li {
+		text-align: right;
+		margin-block: 0.5rem;
+	}
+	div {
+		border: none;
+	}
+}
+
 .react-datepicker-day {
 	color: inherit;
 	background-color: inherit;
