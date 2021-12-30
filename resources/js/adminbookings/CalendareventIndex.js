@@ -4,7 +4,7 @@ import { format, addDays, subDays } from 'date-fns'
 import { navigate } from '@reach/router'
 import Modal from 'react-bootstrap/Modal'
 import DatePicker from './Components/DatePicker/DatePicker'
-// import { NavButtons } from './Components/NavButtons'
+import { NavButtons } from './Components/NavButtons'
 import CalendareventRow from './Components/CalendareventRow'
 import EventDate from './Components/EventDate'
 import { trackPromise } from 'react-promise-tracker'
@@ -95,8 +95,13 @@ function CalendareventIndex (props) {
           }
         </tbody>
       </table>
-      {userRole >= 3 && <button className="btn btn-primary button_calendarevent_edit" data-i="-1">Nuevo Evento</button> }
-      <div className="gutter"></div>
+      <div className='gutter'></div>
+      {userRole >= 3 &&
+        <NavButtons id='foo'>
+          <></>
+          <div className='btn btn-primary' onClick={() => navigate(props.uri + '/add')}>Nuevo Evento</div>
+        </NavButtons>
+      }
     </Fragment>
   )
 }

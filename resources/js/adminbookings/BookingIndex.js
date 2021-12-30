@@ -64,6 +64,7 @@ function BookingIndex (props) {
           }
         </tbody>}
       </table>
+      <div className='gutter'></div>
       {userRole >= 3 &&
         <NavButtons id='foo'>
           <></>

@@ -195,6 +195,7 @@ function BookingView (props) {
           </Fragment>}
         </tbody>
       </table>
+      <div className='gutter'></div>
       <NavButtons id='foo'>
         <></>
         <div className='btn btn-secondary' onClick={() => navigate('/adminbookings/' + bkg.date + '/' + bkg.calendarevent_id)}>Atrás</div>

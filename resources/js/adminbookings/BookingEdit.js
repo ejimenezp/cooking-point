@@ -168,6 +168,7 @@ function BookingEdit (props) {
   }
 
   function handleButtonSave () {
+    console.log(bkg.changed)
     if (bkg.changed) {
       const errorText = validatedBookingForm()
       if (errorText !== '') {
@@ -430,6 +431,7 @@ function BookingEdit (props) {
           </tr>
         </tbody>
       </table>
+      <div className='gutter'></div>
       <NavButtons id='foo'>
         <></>
         <div className='btn btn-secondary' onClick={handleButtonCancel}>Cancelar</div>
