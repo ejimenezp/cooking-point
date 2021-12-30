@@ -211,10 +211,8 @@ function BookingEdit (props) {
 
   return (
     <Fragment>
-      <Modal show={showModal} onHide={() => setShowModal(false)} animation={false}>
-        <div className='text-center mb-1'>
-          <div dangerouslySetInnerHTML={{ __html: modalContent }} />
-        </div>
+      <Modal show={showModal} dialogClassName='errors-modal' onHide={() => setShowModal(false)} animation={false}>
+        <div dangerouslySetInnerHTML={{ __html: modalContent }} />
       </Modal>
       <div className="text-center">
         <button className="button_day_selector btn btn-primary " onClick={handlePrevBkg}>&lt;&lt;</button>

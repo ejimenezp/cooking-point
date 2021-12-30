@@ -104,6 +104,19 @@
 	}
 }
 
+.errors-modal {
+	list-style-type: none;
+	position: absolute;
+	left: 15%;
+	bottom: 4.5rem;
+	div {
+		padding: 10px;
+		background-color: $brand-primary;
+		color: white;
+		border: none;
+		text-align: left;
+	}
+}
 .react-datepicker-day {
 	color: inherit;
 	background-color: inherit;

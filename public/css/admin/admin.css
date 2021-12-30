@@ -11925,6 +11925,21 @@ textarea {
   border: none;
 }
 
+.errors-modal {
+  list-style-type: none;
+  position: absolute;
+  left: 15%;
+  bottom: 4.5rem;
+}
+
+.errors-modal div {
+  padding: 10px;
+  background-color: #D34E24;
+  color: white;
+  border: none;
+  text-align: left;
+}
+
 .react-datepicker-day {
   color: inherit;
   background-color: inherit;
