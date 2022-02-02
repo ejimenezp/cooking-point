@@ -58,13 +58,18 @@ class Calendarevent extends Model
         if (count($groups) > 2) return 0;
 
         $groups = array_merge($groups, [0, 0]);
-        // Log::info($this->date . ' groups ' . json_encode($groups));
+        Log::info($this->date . ' groups ' . json_encode($groups));
 
         $filtered = CovidLayout::get()->first( function ($item) use ($groups) {
             return ($item['group1'] == $groups[0]) && ($item['group2'] == $groups[1]); 
         });
-        // Log::info($this->date . ' capacity ' . $this->capacity . ' available ' . (int) $filtered['available']);
-        return min($this->capacity, (int) $filtered['available']);
+        Log::info($this->date . ' filtered ' . json_encode($filtered));
+        if (is_null($filtered)) {
+            return 0;
+        } else {
+            // Log::info($this->date . ' capacity ' . $this->capacity . ' available ' . (int) $filtered['available']);
+            return min($this->capacity, (int) $filtered['available']);
+        }
     }
 
     public function getStartdateatomAttribute()
