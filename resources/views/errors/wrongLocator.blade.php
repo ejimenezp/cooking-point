@@ -1,7 +1,7 @@
 @extends('masterlayout')
 
-@section('title', 'Spanish Cooking Classes &amp; Wine Tastings in Madrid, Spain')
-@section('description', 'Spanish cooking classes and wine tastings everyday in Madrid. Cooking classes on paella and tapas in English in select culinary school in Spain')
+@section('title', 'Spanish Cooking Classes in Madrid, Spain')
+@section('description', 'Spanish cooking classes everyday in Madrid. Cooking classes on paella and tapas in English in select culinary school in Spain')
 
 @section('content')
 

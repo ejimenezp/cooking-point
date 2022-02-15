@@ -44,10 +44,11 @@ class BookingController extends Controller
             $bkg->date = $date->format('Y-m-d');
             return view('booking.index', ['param' => json_encode($bkg)]);
         } else {
-            $bkg = Booking::where('locator', $request->locator)->first()->makeVisible('calendarevent');
+            $bkg = Booking::where('locator', $request->locator)->first()    ;
             if (!$bkg) {    
                 return view('errors.wrongLocator');          
             } else {
+                $bkg->makeVisible('calendarevent');
                 if (isset($request->tpv_result)) {
                     $bkg->tpv_result = $request->tpv_result;
                 }
