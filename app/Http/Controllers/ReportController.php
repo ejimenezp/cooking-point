@@ -53,7 +53,7 @@ class ReportController extends Controller
         $sqlString = "SELECT ses.fecha, mov.sesion_id, mov.tipo, mov.descripcion, mov.ticket_tienda, mov.importe, mov.ticket
                         FROM caja_movimientos as mov join caja_sesiones as ses
                         ON mov.sesion_id = ses.id
-                        WHERE ses.fecha >= '$request->start_date' and ses.fecha <= '$request->end_date'
+                        WHERE ses.fecha >= '$request->start_date' and ses.fecha <= '$request->end_date 23:59:00'
                         ORDER BY mov.sesion_id";
 
                                 
