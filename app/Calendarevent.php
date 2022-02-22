@@ -37,6 +37,75 @@ class Calendarevent extends Model
         return $this->belongsTo('App\Staff');
     }
 
+    public function checkAvailabilityFor($travellers) {
+
+        // calculate cutoff time based on travellers and previous bookings
+        $startTime = new DateTime($this->getStartdateatomAttribute());
+        $capacity = $this->getAvailablecovidAttribute();
+
+        switch ($this->type) {
+            case 'PAELLA':
+                switch ($this->getRegisteredAttribute()) {
+                    case 0:  // no bookings yet
+                        switch ($travellers) {
+                            case '1':
+                                $cutOff = $startTime->sub(new DateInterval("PT24H")); // 24 hours
+                                break;
+                            
+                            default:
+                                $cutOff = $startTime->sub(new DateInterval("PT12H")); // 12 hours
+                                break;
+                        }
+                        
+                        break;     
+                    default: // some bookings already
+                        $cutOff = $startTime->sub(new DateInterval("PT1H")); // 1 hour
+                        break;
+                }
+                break;
+
+            case 'TAPAS':
+                switch ($this->getRegisteredAttribute()) {
+                    case 0:  // sin reservas
+                        switch ($travellers) {
+                            case '1':
+                                $cutOff = $startTime->sub(new DateInterval("PT24H")); // 24 hours
+                                break;
+                            
+                            default:
+                                $cutOff = $startTime->sub(new DateInterval("PT24H")); // 6 hours
+                                break;
+                        }
+                        
+                        break;     
+                    default: // con reservas
+                        $cutOff = $startTime->sub(new DateInterval("PT90M")); // 1.5 hours
+                        break;
+                }
+                break;
+
+            default:
+                $cutOff = $startTime->sub(new DateInterval("PT24H")); // 24 hours
+                break;
+        }
+
+        if ($cutOff < new DateTime()) {
+            $status = 'UNAVAILABLE';
+            $reason = 'PAST_CUTOFF_DATE';
+        } else if (!$capacity) {
+            $status = 'UNAVAILABLE';
+            $reason = 'SOLD_OUT';
+        } else if ($travellers > $capacity) {
+            $status = 'UNAVAILABLE';
+            $reason = 'TRAVELLER_MISMATCH';
+        } else { // there is room and before cutoff
+            $status = 'AVAILABLE';
+            $reason = '';
+        }
+
+        return array($capacity, $status, $reason);
+    }
+
     public function getRegisteredAttribute()
     {
         $adults = $this->bookings->where('status_filter', 'REGISTERED')->sum('adult');  
