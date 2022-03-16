@@ -266,6 +266,7 @@ class ReportController extends Controller
                         FROM calendarevents, staff as stf, staff as scnd
                         WHERE calendarevents.date >= '$request->start_date' 
                             AND calendarevents.date <= '$request->end_date'
+                            AND calendarevents.type IN ('PAELLA', 'TAPAS', 'GROUP')
                             AND calendarevents.staff_id = stf.id
                             AND calendarevents.secondstaff_id = scnd.id
                         ORDER BY date, time ";
