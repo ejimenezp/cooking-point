@@ -103,7 +103,7 @@ class Calendarevent extends Model
             $reason = '';
         }
 
-        return array($capacity, $status, $reason);
+        return array($capacity, $cutOff, $status, $reason);
     }
 
     public function getRegisteredAttribute()

@@ -108,6 +108,7 @@ class ViatorController extends Controller
             $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
             if ($ce) {
                 list($availability->AvailabilityStatus->Capacity,
+                    $availability->AvailabilityStatus->BookingCutoff->ProductDateTime,
                     $availability->AvailabilityStatus->Status,
                     $availability->AvailabilityStatus->UnavailabilityReason) 
                 = $ce->checkAvailabilityFor($requestdata['TravellerMix']['Total']);
@@ -156,19 +157,11 @@ class ViatorController extends Controller
                 }
                 $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
                 if ($ce) {
-                    if (!$ce->availablecovid) {
-                        $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                        $availability->AvailabilityStatus->UnavailabilityReason = 'SOLD_OUT';
-                    } else {
-                        if ($requestdata['Mode'] == 'BLOCKOUTS') {
-                            continue;
-                        }
-                        $availability->AvailabilityStatus->Status = 'AVAILABLE';
-                    }
-                }
-                else {
-                    $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                    $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
+                    list($availability->AvailabilityStatus->Capacity,
+                        $availability->AvailabilityStatus->BookingCutoff->ProductDateTime,
+                        $availability->AvailabilityStatus->Status,
+                        $availability->AvailabilityStatus->UnavailabilityReason) 
+                    = $ce->checkAvailabilityFor($requestdata['TravellerMix']['Total']);
                 }
                 $this->resp->data->BatchTourAvailability[] = $availability;
             }
