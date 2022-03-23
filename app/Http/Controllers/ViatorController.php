@@ -99,12 +99,6 @@ class ViatorController extends Controller
             $availability = new ViatorTourAvailability;
             $availability->Date = $date->toDateString();
             // Log::debug('fecha ' . $date . ' type ' . $ce_type);
-            if ($date->lt($hoy)) {
-                $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                $availability->AvailabilityStatus->UnavailabilityReason = 'PAST_CUTOFF_DATE';
-                $this->resp->data->TourAvailability[] = $availability;
-                continue;
-            }
             $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
             if ($ce) {
                 list($availability->AvailabilityStatus->Capacity,
