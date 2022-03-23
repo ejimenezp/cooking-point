@@ -107,8 +107,8 @@ class ViatorController extends Controller
             }
             $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
             if ($ce) {
-                list($availability->AvailabilityStatus->Capacity,
-                    $availability->AvailabilityStatus->BookingCutoff->ProductDateTime,
+                list($availability->BookingCutoff['DateTime'],
+                    $availability->AvailabilityStatus->Capacity,
                     $availability->AvailabilityStatus->Status,
                     $availability->AvailabilityStatus->UnavailabilityReason) 
                 = $ce->checkAvailabilityFor($requestdata['TravellerMix']['Total']);
@@ -157,8 +157,8 @@ class ViatorController extends Controller
                 }
                 $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
                 if ($ce) {
-                    list($availability->AvailabilityStatus->Capacity,
-                        $availability->AvailabilityStatus->BookingCutoff->ProductDateTime,
+                    list($availability->BookingCutoff['DateTime'],
+                        $availability->AvailabilityStatus->Capacity,
                         $availability->AvailabilityStatus->Status,
                         $availability->AvailabilityStatus->UnavailabilityReason) 
                     = $ce->checkAvailabilityFor($requestdata['TravellerMix']['Total']);

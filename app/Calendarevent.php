@@ -73,7 +73,7 @@ class Calendarevent extends Model
                                 break;
                             
                             default:
-                                $cutOff = $startTime->sub(new DateInterval("PT24H")); // 6 hours
+                                $cutOff = $startTime->sub(new DateInterval("PT6H")); // 6 hours
                                 break;
                         }
                         
@@ -102,8 +102,7 @@ class Calendarevent extends Model
             $status = 'AVAILABLE';
             $reason = '';
         }
-
-        return array($capacity, $cutOff, $status, $reason);
+        return array($cutOff->format(DATE_ATOM), $capacity , $status, $reason);
     }
 
     public function getRegisteredAttribute()
