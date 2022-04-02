@@ -151,7 +151,7 @@ function bookingEditShow (i, j) {
     $('input[name=locator]').val('')
     $('select[name=adult]').val(1)
     $('select[name=child]').val(0)
-    $('input[name=price]').val($('select[name=adult]').val() * 70 + $('select[name=child]').val() * 35)
+    $('input[name=price]').val($('select[name=adult]').val() * 75 + $('select[name=child]').val() * 37.50)
     $('input[name=iva]').prop('checked', 1)
     $('input[name=hide_price]').prop('checked', 0)
     $('input[name=fixed_date]').prop('checked', 0)
