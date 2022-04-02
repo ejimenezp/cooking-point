@@ -44,7 +44,7 @@
                      <tr>
                         <td>Monday - Saturday</td>
                         <td>10 AM - 2&nbsp;PM</td>
-                        <td>€70 (adult)<br>€35 (child)</td>
+                        <td>€75 (adult)<br>€37.50 (child)</td>
                   </tr>
                 </table>                                  
             </div>
@@ -67,7 +67,7 @@
                      <tr>
                         <td>Monday - Saturday</td>
                         <td>5:30 PM - 9:30 PM</td>
-                        <td>€70 (adult)<br>€35 (child)</td>
+                        <td>€75 (adult)<br>€37.50 (child)</td>
                   </tr>
                 </table>  
             </div>            

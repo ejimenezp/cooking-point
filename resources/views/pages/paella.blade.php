@@ -29,7 +29,7 @@
 				    "name": "Adult",
 				    "availability": "http://schema.org/InStock",
             "validFrom": "{{ $event->validfromdateatom }}",
-				    "price": "70.00",
+				    "price": "75.00",
 				    "priceCurrency": "EUR",
 				    "url": "https://cookingpoint.es/classes-paella-cooking-madrid-spain"
 				  }
@@ -68,7 +68,7 @@
 		    	<li>Make your own paella, gazpacho and sangria.</li>
 		    	<li>Buy ingredients at local market nearby.</li>
 		    	<li>Class in English.</li>
-		    	<li>€70 adult / €35 children (5-12 year old). Includes market tour, ingredients, recipes, lunch and drinks.</li>
+		    	<li>€75 adult / €37.50 children (5-12 year old). Includes market tour, ingredients, recipes, lunch and drinks.</li>
 		    </ul>				
 		</div>
 	</div>

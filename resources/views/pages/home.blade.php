@@ -41,7 +41,7 @@
                     "name": "Adult",
                     "availability": "http://schema.org/InStock",
                     "validFrom": "{{ $event->validfromdateatom }}",
-                    "price": "70.00",
+                    "price": "75.00",
                     "priceCurrency": "EUR",
                     "url": "https://cookingpoint.es/classes-paella-cooking-madrid-spain"
                   }
@@ -68,7 +68,7 @@
                     "name": "Adult",
                     "availability": "http://schema.org/InStock",
                     "validFrom": "{{ $event->validfromdateatom }}",
-                    "price": "70.00",
+                    "price": "75.00",
                     "priceCurrency": "EUR",
                     "url": "http://cookingpoint.es/classes-spanish-tapas-madrid-spain"
                   }
@@ -102,7 +102,7 @@
                      <tr>
                         <td>Monday - Saturday</td>
                         <td>10 AM - 2&nbsp;PM</td>
-                        <td>€70 (adult)<br>€35 (child)</td>
+                        <td>€75 (adult)<br>€37.50 (child)</td>
                   </tr>
                 </table>                                  
             </div>
@@ -125,7 +125,7 @@
                      <tr>
                         <td>Monday - Saturday</td>
                         <td>5:30 PM - 9:30 PM</td>
-                        <td>€70 (adult)<br>€35 (child)</td>
+                        <td>€75 (adult)<br>€37.50 (child)</td>
                   </tr>
                 </table>  
             </div>            

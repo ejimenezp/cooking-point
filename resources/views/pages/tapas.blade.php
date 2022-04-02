@@ -30,7 +30,7 @@
 				    "name": "Adult",
 				    "availability": "http://schema.org/InStock",
             "validFrom": "{{ $event->validfromdateatom }}",
-				    "price": "70.00",
+				    "price": "75.00",
 				    "priceCurrency": "EUR",
 				    "url": "http://test.cookingpoint.es/classes-spanish-tapas-madrid-spain"
 				  }
@@ -69,7 +69,7 @@
 		    	<li>Cook your own dinner of tapas and sangria.</li>
 		    	<li>Get inmersed in the tapas culture by hand of local chefs.</li>
 		    	<li>Class in English.</li>
-		    	<li>€70 adult / €35 children (5-12 year old). Includes ingredients, recipes, lunch and drinks.</li>
+		    	<li>€75 adult / €37.50 children (5-12 year old). Includes ingredients, recipes, lunch and drinks.</li>
 		    </ul>				
 		</div>
 	</div>
