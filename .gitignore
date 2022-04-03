@@ -20,5 +20,7 @@ public/images/facebook-icon-orange.png
 public/sandbox
 
 .env
+settestingenvironment
+setproductionenvironment
 *.sublime-workspace
 *.sublime-workspace
