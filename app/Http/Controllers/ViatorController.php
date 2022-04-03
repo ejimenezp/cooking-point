@@ -69,6 +69,7 @@ class ViatorController extends Controller
                 $error->Error->ErrorMessage = 'Function Not Supported (' . $request->requestType . ')';
                 $this->resp->data->RequestStatus = $error;
         }
+        Log::debug(json_encode($this->resp));
         return response()->json($this->resp);
     }
 
@@ -336,6 +337,7 @@ class ViatorController extends Controller
 
     private function bookingcancellationrequest ($requestdata)
     {
+        Log::debug($requestdata);
         $this->resp->responseType = 'BookingCancellationResponse';
 
         $bookingcontroller = new BookingController;
