@@ -58,7 +58,7 @@ $.datepicker.setDefaults($.datepicker.regional.es)
 // refresh all selectors with the new date's data
 //
 function refreshDateShown (month_schedule, date_shown) {
-  var date_shown_locale = date_shown.format('dddd, D MMMM YYYY')
+  var date_shown_locale = date_shown.format('dddd, D MMMM')
   $('.dateshown').html(date_shown_locale)
 
   // aqui, refrescar el index del día
