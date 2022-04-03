@@ -136,7 +136,9 @@ class Calendarevent extends Model
             return 0;
         } else {
             // Log::info($this->date . ' capacity ' . ($this->capacity - $this->registered) . ' available ' . (int) $filtered['available']);
-            return min($this->capacity - $this->registered, (int) $filtered['available']);
+            $reallyAvailable = $this->capacity - $this->registered;
+            $reallyAvailable = $reallyAvailable < 0 ? 0 : $reallyAvailable;
+            return min($reallyAvailable, (int) $filtered['available']);
         }
     }
 
