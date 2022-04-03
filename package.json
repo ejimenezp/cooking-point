@@ -2,12 +2,12 @@
     "private": true,
     "scripts": {
         "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "production": "mix --production"
     },
     "devDependencies": {
         "@babel/core": "^7.9.0",
@@ -30,7 +30,7 @@
         "eslint-plugin-react-hooks": "^3.0.0",
         "eslint-plugin-standard": "^4.0.1",
         "jquery": "^3.5.1",
-        "laravel-mix": "^5.0.1",
+        "laravel-mix": "^6.0.41",
         "laravel-mix-polyfill": "^2.0.0",
         "lodash": "^4.17.13",
         "popper.js": "^1.12",
@@ -63,6 +63,7 @@
         "react-router-dom": "^5.1.2",
         "react-select": "^3.1.0",
         "react-to-print": "^2.6.3",
-        "regenerator-runtime": "^0.13.5"
+        "regenerator-runtime": "^0.13.5",
+        "webpack": "^5.68.0"
     }
 }
