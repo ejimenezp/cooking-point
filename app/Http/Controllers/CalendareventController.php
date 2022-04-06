@@ -122,7 +122,6 @@ class CalendareventController extends Controller
                             ->orderBy('type')
                             ->get();
 
-        // $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'online']);
         $subset = $ces->map(function ($item, $key) use ($request) {
             $subset['id'] = $item->id;
             $subset['type'] = $item->type;
@@ -136,7 +135,6 @@ class CalendareventController extends Controller
             $subset['available'] = ($status == 'AVAILABLE');
             return $subset;
         });
-        // Log::debug($subset);
         $obfuscate = base64_encode(json_encode($subset, JSON_NUMERIC_CHECK));
         return str_replace("5", "x06", $obfuscate);
         // return $subset;
