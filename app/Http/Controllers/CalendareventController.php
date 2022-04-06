@@ -120,11 +120,24 @@ class CalendareventController extends Controller
                             ->orderBy('date')
                             ->orderBy('time')
                             ->orderBy('type')
-                            ->get()->makeVisible('registered');
+                            ->get();
 
-        $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'capacity', 'registered', 'availablecovid', 'online']);
-
-        $obfuscate = base64_encode(json_encode($subset->toArray(), JSON_NUMERIC_CHECK));
+        // $subset = $ces->map->only(['id', 'type', 'short_description', 'date', 'time', 'startdateatom', 'duration', 'online']);
+        $subset = $ces->map(function ($item, $key) use ($request) {
+            $subset['id'] = $item->id;
+            $subset['type'] = $item->type;
+            $subset['short_description'] = $item->short_description;
+            $subset['date'] = $item->date;
+            $subset['time'] = $item->time;
+            $subset['startdateatom'] = $item->startdateatom;
+            $subset['duration'] = $item->duration;
+            $subset['online'] = $item->online;
+            list ($cutoff, $capacity, $status, $reason) = $item->checkAvailabilityFor($request->persons);
+            $subset['available'] = ($status == 'AVAILABLE');
+            return $subset;
+        });
+        // Log::debug($subset);
+        $obfuscate = base64_encode(json_encode($subset, JSON_NUMERIC_CHECK));
         return str_replace("5", "x06", $obfuscate);
         // return $subset;
     }

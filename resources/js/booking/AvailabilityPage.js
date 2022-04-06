@@ -47,6 +47,7 @@ function AvailabilityPage (props) {
   function handleChange (bkg) {
     let b = Object.assign({}, localbkg)
     handleDateChange(utcToZonedTime(parseISO(bkg.date), bkg.tz))
+    setUrl(createUrl(dday))
     b = { ...b, ...bkg }
     b.store = true
     setBkg(b)
@@ -99,26 +100,14 @@ function AvailabilityPage (props) {
     if (i === -1) {
       return false
     }
-    const event = data[i]
-    const dstartdateatom = parseISO(event.startdateatom)
-    const persons = localbkg.adult + localbkg.child
-    if (isBefore(dstartdateatom, now)) return false
-    if (!event.availablecovid) return false
-    if (persons > event.availablecovid) return false
-    if (differenceInHours(dstartdateatom, now) < 24 && event.registered === 0 && persons === 1) return false
-    if (event.online && event.registered === 0 && differenceInHours(dstartdateatom, now) < 36) return false
-    if (event.online && differenceInHours(dstartdateatom, now) < 12) return false
-    if (event.type === 'TAPAS' && event.registered === 0 && differenceInHours(dstartdateatom, now) < 8) return false
-    if (event.type === 'PAELLA' && event.registered === 0 && differenceInHours(dstartdateatom, now) < 12) return false
-    if (differenceInHours(dstartdateatom, now) < 2) return false
-    return true
+    return data[i].available
   }
 
   function createUrl (date) {
     const ldate = new Date(date)
     const intervalStart = format(subDays(startOfMonth(ldate), 6), 'yyyy-MM-dd')
     const intervalEnd = format(addDays(endOfMonth(ldate), 6), 'yyyy-MM-dd')
-    return `/api/calendarevent/getavailability?online=${localbkg.onlineclass}&start=${intervalStart}&end=${intervalEnd}`
+    return `/api/calendarevent/getavailability?online=${localbkg.onlineclass}&start=${intervalStart}&end=${intervalEnd}&persons=${localbkg.adult + localbkg.child}`
   }
 
   function handleDateChange (day) {
