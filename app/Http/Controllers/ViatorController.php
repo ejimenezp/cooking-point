@@ -112,7 +112,10 @@ class ViatorController extends Controller
                     $availability->AvailabilityStatus->Capacity,
                     $availability->AvailabilityStatus->Status,
                     $availability->AvailabilityStatus->UnavailabilityReason) 
-                = $ce->checkAvailabilityFor($requestdata['TravellerMix']['Total']);
+                = $ce->checkAvailabilityFor($travellers);
+            } else {
+                $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
+                $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
             }
             $this->resp->data->TourAvailability[] = $availability;
         }
@@ -125,6 +128,7 @@ class ViatorController extends Controller
 
         $start = new Carbon($requestdata['StartDate']);
         $end = new Carbon($requestdata['EndDate']);
+        $travellers = isset($requestdata['TravellerMix']['Total']) ? $requestdata['TravellerMix']['Total'] : 0;
         $calendareventcontroller = new CalendareventController;
         $hoy = Carbon::now('Europe/Madrid');
 
@@ -162,7 +166,10 @@ class ViatorController extends Controller
                         $availability->AvailabilityStatus->Capacity,
                         $availability->AvailabilityStatus->Status,
                         $availability->AvailabilityStatus->UnavailabilityReason) 
-                    = $ce->checkAvailabilityFor($requestdata['TravellerMix']['Total']);
+                    = $ce->checkAvailabilityFor($travellers);
+                } else {
+                    $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
+                    $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
                 }
                 $this->resp->data->BatchTourAvailability[] = $availability;
             }
