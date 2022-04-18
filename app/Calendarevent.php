@@ -95,6 +95,10 @@ class Calendarevent extends Model
         } else if (!$capacity) {
             $status = 'UNAVAILABLE';
             $reason = 'SOLD_OUT';
+        } else if ($capacity == -1) {
+            $status = 'UNAVAILABLE';
+            $reason = 'TRAVELLER_MISMATCH';
+            $capacity = $this->getAvailableCovid(0);
         } else if ($travellers > $capacity) {
             $status = 'UNAVAILABLE';
             $reason = 'TRAVELLER_MISMATCH';
@@ -125,7 +129,7 @@ class Calendarevent extends Model
 
         // don't leave too many half stoves
         if ($travellers == 1 && ($singleBookings >= 2 || $oddBookings >= 3)) {
-            return 0;
+            return -1;
         }
 
         // use one more stove if there are too many odd bookings and it is to occupy it fully
