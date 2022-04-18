@@ -117,6 +117,9 @@ class ViatorController extends Controller
                 $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                 $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
             }
+            if ($availability->AvailabilityStatus->UnavailabilityReason == '') {
+                unset($availability->AvailabilityStatus->UnavailabilityReason);
+            }
             $this->resp->data->TourAvailability[] = $availability;
         }
 
@@ -170,6 +173,9 @@ class ViatorController extends Controller
                 } else {
                     $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                     $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
+                }
+                if ($availability->AvailabilityStatus->UnavailabilityReason == '') {
+                    unset($availability->AvailabilityStatus->UnavailabilityReason);
                 }
                 $this->resp->data->BatchTourAvailability[] = $availability;
             }
