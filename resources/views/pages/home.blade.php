@@ -167,18 +167,18 @@
     </div> -->
 </div> 
 
-<div class="row justify-content-center">
+<!-- <div class="row justify-content-center">
 
     <div class="col-10 col-sm-8">
         <div class="pill">
-            <h3 class="text-center"><span class="bkg-status bkg-status-confirmed">COVID-19 Notice</span></h3>
-            <p>All our in-person classes are open for registration. We have reduced our class capacity to keep a social distancing of 1.5 meters among groups. Click below for more details on COVID-19 measures.</p>           
+            <h3 class="text-center"><span class="bkg-status bkg-status-confirmed">COVID-19 Update</span></h3>
+            <p>Check out the COVID-19 prepareness  applied in.</p>           
             <div class="text-center mt-2">
-                <div class="btn btn-primary"><a href="/blog/covid-free-classes">COVID-19 Measures</a></div>
+                <div class="btn btn-primary"><a href="/blog/covid-free-classes">More info</a></div>
             </div>      
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="divider"></div>
 

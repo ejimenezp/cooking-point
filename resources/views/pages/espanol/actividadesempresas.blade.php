@@ -31,7 +31,7 @@
 
 		<p>Nuestro team building de cocina os propone platos, técnicas e ingredientes habituales en el panorama de la restauración actual. Nos gusta la cocina sencilla, diversa y con rigor técnico, pero con aplicación también en tu vida personal.</p>
 
-		<div class="row justify-content-center">
+<!-- 		<div class="row justify-content-center">
 	        <div class="col-10 col-sm-8">
 	            <div class="pill">
 	                <h4 class="text-center"><span class="bkg-status bkg-status-confirmed">Medidas COVID-19</span></h4>
@@ -41,7 +41,7 @@
 				    </div>	
 	            </div>
 	        </div>
-	    </div>
+	    </div> -->
 
 		<h2>Solicita Información</h2>
 

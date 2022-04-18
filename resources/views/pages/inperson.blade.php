@@ -10,7 +10,7 @@
 <h1>In-person Classes</h1>
 
 
-    <div class="row justify-content-center">
+<!--     <div class="row justify-content-center">
 
         <div class="col-10 col-sm-8">
             <div class="pill">
@@ -21,7 +21,7 @@
                 </div>      
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 

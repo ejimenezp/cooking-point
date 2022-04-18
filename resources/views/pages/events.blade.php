@@ -23,7 +23,7 @@
 	<div class="col-12">
 		<p>Here at Cooking Point, flexibility is something we value. We know that our class schedules may not fit with yours, especially if you are a large group. So we can tailor our classes to fit around you. We can host events for groups of 8-24 people to deliver a Madrid experience like no other. </p>
 
-	<div class="row justify-content-center">
+<!-- 	<div class="row justify-content-center">
 
 		<div class="col-10 col-sm-8">
 			<div class="pill">
@@ -34,7 +34,7 @@
 			    </div>		
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 		<p>In our classes, participants prepare in small teams their own meal, which is enjoyed at the end of the class. All cooking is done under the guidance of our experienced chef. Instructions are in English and no cooking experience is required. Recipes are provided at the end of the class.</p>
 

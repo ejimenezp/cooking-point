@@ -140,7 +140,7 @@
 
 		<p>All lessons are <strong>in English</strong> and no cooking experience is required. Recipes are <strong>prepared in pairs</strong>. If you come alone or you are an odd number we will match you with a cooking partner.</p>
 
-	<div class="row justify-content-center">
+<!-- 	<div class="row justify-content-center">
 
 		<div class="col-10 col-sm-8">
 			<div class="pill">
@@ -151,7 +151,7 @@
 			    </div>		
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 		<p>Besides, you get a <strong>recipe booklet</strong> with all the recipes you prepare.</p>
 
