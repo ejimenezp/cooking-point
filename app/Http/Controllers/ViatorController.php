@@ -112,7 +112,7 @@ class ViatorController extends Controller
                     $availability->AvailabilityStatus->Capacity,
                     $availability->AvailabilityStatus->Status,
                     $availability->AvailabilityStatus->UnavailabilityReason) 
-                = $ce->checkAvailabilityFor($travellers);
+                = $ce->checkAvailabilityAsOfNow($travellers);
             } else {
                 $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                 $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
@@ -166,7 +166,7 @@ class ViatorController extends Controller
                         $availability->AvailabilityStatus->Capacity,
                         $availability->AvailabilityStatus->Status,
                         $availability->AvailabilityStatus->UnavailabilityReason) 
-                    = $ce->checkAvailabilityFor($travellers);
+                    = $ce->checkAvailabilityAsOfNow($travellers);
                 } else {
                     $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                     $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
@@ -200,7 +200,7 @@ class ViatorController extends Controller
 
         if ($ce) {
 
-            if ($travellers > $ce->availablecovid) {
+            if ($travellers > $ce->getAvailableCovid($travellers)) {
                 $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
                 $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
                 $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
@@ -294,7 +294,7 @@ class ViatorController extends Controller
             if ($ce->id == $laravelbkg->calendarevent_id) {
                 $registered = $registered - $laravelbkg->adult - $laravelbkg->child;
             }
-            if ($travellers > $ce->availablecovid) {
+            if ($travellers > $ce->getAvailableCovid($travellers)) {
                 $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
                 $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
                 $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';

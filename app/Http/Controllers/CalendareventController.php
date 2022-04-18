@@ -131,7 +131,7 @@ class CalendareventController extends Controller
             $subset['startdateatom'] = $item->startdateatom;
             $subset['duration'] = $item->duration;
             $subset['online'] = $item->online;
-            list ($cutoff, $capacity, $status, $reason) = $item->checkAvailabilityFor($request->persons);
+            list ($cutoff, $capacity, $status, $reason) = $item->checkAvailabilityAsOfNow($request->persons);
             $subset['available'] = ($status == 'AVAILABLE');
             return $subset;
         });

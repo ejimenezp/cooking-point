@@ -37,11 +37,11 @@ class Calendarevent extends Model
         return $this->belongsTo('App\Staff');
     }
 
-    public function checkAvailabilityFor($travellers) {
+    public function checkAvailabilityAsOfNow($travellers) {
 
         // calculate cutoff time based on travellers and previous bookings
         $startTime = new DateTime($this->getStartdateatomAttribute());
-        $capacity = $this->getAvailablecovidAttribute();
+        $capacity = $this->getAvailableCovid($travellers);
 
         switch ($this->type) {
             case 'PAELLA':
@@ -112,34 +112,28 @@ class Calendarevent extends Model
         return $adults + $children;
     }
 
-    public function groups()
-    {
-        $groups = $this->bookings->where('status_filter', 'REGISTERED')->map(function($item) {return $item->adult + $item->child;})->sortDesc()->all();        
-        $groups = array_merge($groups, [0, 0, 0]);
-        return $groups;
-               
-    }
     public function getAvailablecovidAttribute()
     {
-        $groups = $this->bookings->where('status_filter', 'REGISTERED')->map(function($item) {return $item->adult + $item->child;})->sortDesc()->all();
-        
-        if (count($groups) > 2) return 0;
+        return $this->getAvailableCovid(0);
+    }
 
-        $groups = array_merge($groups, [0, 0]);
-        // Log::info($this->date . ' groups ' . json_encode($groups));
+    public function getAvailableCovid($travellers)
+    {
+        $usedStoves = $this->bookings->where('status_filter', 'REGISTERED')->reduce(function($carry, $item) {return $carry + ceil(($item->adult + $item->child)/2);});
+        $oddBookings = $this->bookings->where('status_filter', 'REGISTERED')->reduce(function($carry, $item) {return $carry + ($item->adult + $item->child) % 2;});
+        $singleBookings = $this->bookings->where('status_filter', 'REGISTERED')->reduce(function($carry, $item) {return $carry + (($item->adult + $item->child) == 1);});
 
-        $filtered = CovidLayout::get()->first( function ($item) use ($groups) {
-            return ($item['group1'] == $groups[0]) && ($item['group2'] == $groups[1]); 
-        });
-        // Log::info($this->date . ' filtered ' . json_encode($filtered));
-        if (is_null($filtered)) {
+        // don't leave too many half stoves
+        if ($travellers == 1 && ($singleBookings >= 2 || $oddBookings >= 3)) {
             return 0;
-        } else {
-            // Log::info($this->date . ' capacity ' . ($this->capacity - $this->registered) . ' available ' . (int) $filtered['available']);
-            $reallyAvailable = $this->capacity - $this->registered;
-            $reallyAvailable = $reallyAvailable < 0 ? 0 : $reallyAvailable;
-            return min($reallyAvailable, (int) $filtered['available']);
         }
+
+        // use one more stove if there are too many odd bookings and it is to occupy it fully
+        $availableStoves = 6 + ($oddBookings >= 3 && $travellers != 1);
+
+        $available = $this->capacity - $this->registered;
+        $available = $available < 0 ? 0 : $available;
+        return min($available, ($availableStoves - $usedStoves) * 2);
     }
 
     public function getStartdateatomAttribute()
