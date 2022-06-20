@@ -45,5 +45,8 @@ class CookingPointCron extends Command
         $a = new ReviewUs;
         if ($a->query()) { $a->exec(); }
 
+        // Send Online Class link
+        $a = new SendZoomInvitation;
+        if ($a->query()) { $a->exec(); }
     }
 }

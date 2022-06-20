@@ -6,7 +6,7 @@
 @section('content')
  
 
-<h1 class="header1">Page Not Found</h1>
+<h1>Page Not Found</h1>
 
 <p>Sorry, but this page does not exist. Please select any option from the above menu.
 </p>

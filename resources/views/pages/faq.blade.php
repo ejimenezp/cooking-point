@@ -6,7 +6,9 @@
 @section('content')
 
 
-<h1 class="header1">Frequently Asked Questions</h1>
+<h1>Frequently Asked Questions</h1>
+
+<h3>In-person Classes</h3>
 
 <dl>
 	<dt><strong>I have some dietary requirements, can I book?</strong></dt>
@@ -36,6 +38,43 @@
 <dl>
 	<dt><strong>I’m travelling alone, can I book?</strong></dt>
 	<dd>Of course, but please note we will try and pair you with a cooking buddy. All recipes are written and prepared for two people. Besides, we need a minimum group of 2 people to hold the class.</dd>
+</dl>
+
+<h3 id="onlineclass">Online Classes</h3>
+
+<dl>
+	<dt><strong>How can I recover my booking?</strong></dt>
+	<dd>Try find it in your mailbox (search by sender info@cookingpoint.es). Alternatively, go to the <a href="{{ url('/booking') }}">Booking</a> section with the same browser you used to book. Your data should show up, unless you clicked on "New booking" to clear the form.</dd>
+</dl>
+
+<dl>
+	<dt><strong>Where can I find my Class Handbook?</strong></dt>
+	<dd>It comes attached to the booking confirmation email. If you can't locate the email, go to your booking and email it again.</dd>
+</dl>
+
+<dl>
+	<dt><strong>Can I book for just one person?</strong></dt>
+	<dd>Yes, sure, but keep in mind it will be harder, as you have to do all the tasks.</dd>
+</dl>
+
+<dl>
+	<dt><strong>What is the cancellation policy?</strong></dt>
+	<dd>We refund 100% if you cancel up to 48 hours before the class.</dd>
+</dl>
+
+<dl>
+	<dt><strong>What's included in the price</strong></dt>
+	<dd>Price includes attending a live class streamed through a Zoom video call. Ingredients are not included.</dd>
+</dl>
+
+<dl>
+	<dt><strong>What's the maximum number of participants</strong></dt>
+	<dd>For the moment, our classes are really small, with 3-4 parties at the most.</dd>
+</dl>
+
+<dl>
+	<dt><strong>What kind of pan is suitable for paella cooking?</strong></dt>
+	<dd>Regarding the form, you can use any flat, wide pan (paella pan, skillet, frying pan), as the rice should be as shallow as possible. Regarding the size, we recommend a pan around 11" for 2 servings, and around 13" for 4. We advise against using cast iron, as these pans keep the heat too long, making it hard to change their temperature. Non-stick pans are advisable for beginners.</dd>
 </dl>
 
 @stop

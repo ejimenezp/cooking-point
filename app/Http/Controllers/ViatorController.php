@@ -69,6 +69,7 @@ class ViatorController extends Controller
                 $error->Error->ErrorMessage = 'Function Not Supported (' . $request->requestType . ')';
                 $this->resp->data->RequestStatus = $error;
         }
+        Log::debug(json_encode($this->resp));
         return response()->json($this->resp);
     }
 
@@ -107,19 +108,17 @@ class ViatorController extends Controller
             }
             $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
             if ($ce) {
-                if ($ce->registered >= $ce->capacity) {
-                    $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                    $availability->AvailabilityStatus->UnavailabilityReason = 'SOLD_OUT';
-                } elseif ($ce->registered + $travellers > $ce->capacity) {
-                    $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                    $availability->AvailabilityStatus->UnavailabilityReason = 'TRAVELLER_MISMATCH';
-                } else {
-                    $availability->AvailabilityStatus->Status = 'AVAILABLE';
-                }
-            }
-            else {
+                list($availability->BookingCutoff['DateTime'],
+                    $availability->AvailabilityStatus->Capacity,
+                    $availability->AvailabilityStatus->Status,
+                    $availability->AvailabilityStatus->UnavailabilityReason) 
+                = $ce->checkAvailabilityAsOfNow($travellers);
+            } else {
                 $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                 $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
+            }
+            if ($availability->AvailabilityStatus->UnavailabilityReason == '') {
+                unset($availability->AvailabilityStatus->UnavailabilityReason);
             }
             $this->resp->data->TourAvailability[] = $availability;
         }
@@ -132,6 +131,7 @@ class ViatorController extends Controller
 
         $start = new Carbon($requestdata['StartDate']);
         $end = new Carbon($requestdata['EndDate']);
+        $travellers = isset($requestdata['TravellerMix']['Total']) ? $requestdata['TravellerMix']['Total'] : 0;
         $calendareventcontroller = new CalendareventController;
         $hoy = Carbon::now('Europe/Madrid');
 
@@ -165,19 +165,17 @@ class ViatorController extends Controller
                 }
                 $ce = $calendareventcontroller->findByDateAndType($date, $ce_type);
                 if ($ce) {
-                    if ($ce->registered >= $ce->capacity) {
-                        $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
-                        $availability->AvailabilityStatus->UnavailabilityReason = 'SOLD_OUT';
-                    } else {
-                        if ($requestdata['Mode'] == 'BLOCKOUTS') {
-                            continue;
-                        }
-                        $availability->AvailabilityStatus->Status = 'AVAILABLE';
-                    }
-                }
-                else {
+                    list($availability->BookingCutoff['DateTime'],
+                        $availability->AvailabilityStatus->Capacity,
+                        $availability->AvailabilityStatus->Status,
+                        $availability->AvailabilityStatus->UnavailabilityReason) 
+                    = $ce->checkAvailabilityAsOfNow($travellers);
+                } else {
                     $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                     $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
+                }
+                if ($availability->AvailabilityStatus->UnavailabilityReason == '') {
+                    unset($availability->AvailabilityStatus->UnavailabilityReason);
                 }
                 $this->resp->data->BatchTourAvailability[] = $availability;
             }
@@ -208,7 +206,7 @@ class ViatorController extends Controller
 
         if ($ce) {
 
-            if ($ce->registered + $travellers > $ce->capacity) {
+            if ($travellers > $ce->getAvailableCovid($travellers)) {
                 $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
                 $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
                 $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
@@ -231,6 +229,7 @@ class ViatorController extends Controller
                 $laravelrequest->phone = $requestdata['ContactDetail']['ContactType'] == 'ALTERNATE' ? $requestdata['ContactDetail']['ContactValue'] : '';
                 $laravelrequest->adult = $requestdata['TravellerMix']['Adult'];
                 $laravelrequest->child = $requestdata['TravellerMix']['Child'];
+                $laravelrequest->price = $requestdata['Amount'];
                 $laravelrequest->pay_method = 'N/A';
                 $laravelrequest->food_requirements = isset($requestdata['SpecialRequirement']) ? $requestdata['SpecialRequirement'] : '';
                 $laravelrequest->comments = 'BR-' . $requestdata['BookingReference'];
@@ -301,7 +300,7 @@ class ViatorController extends Controller
             if ($ce->id == $laravelbkg->calendarevent_id) {
                 $registered = $registered - $laravelbkg->adult - $laravelbkg->child;
             }
-            if ($registered + $travellers > $ce->capacity) {
+            if ($travellers > $ce->getAvailableCovid($travellers)) {
                 $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
                 $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
                 $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
@@ -332,11 +331,14 @@ class ViatorController extends Controller
                 $laravelrequest->crm = $laravelbkg->crm;
                 $laravelrequest->invoice = $laravelbkg->invoice;
                 $laravelrequest->hide_price = $laravelbkg->hide_price;
+                $laravelrequest->onlineclass = 0;
 
                 $controllerresponse = $bookingcontroller->update($laravelrequest);
 
                 $this->resp->data->TransactionStatus['Status'] = 'CONFIRMED';
                 $this->resp->data->SupplierConfirmationNumber = $controllerresponse['locator'];
+                MailController::send_mail('info@cookingpoint.es', $laravelrequest, 'admin_viator_amendment');
+
 
             }
         } else {
@@ -348,6 +350,7 @@ class ViatorController extends Controller
 
     private function bookingcancellationrequest ($requestdata)
     {
+        Log::debug($requestdata);
         $this->resp->responseType = 'BookingCancellationResponse';
 
         $bookingcontroller = new BookingController;

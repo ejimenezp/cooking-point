@@ -1,0 +1,20 @@
+//
+// some libraries
+//
+@import '~bootstrap/scss/bootstrap';
+@import "node_modules/jquery-ui/themes/base/datepicker";
+@import "node_modules/@nobleclem/jquery-multiselect/jquery.multiselect";
+
+//
+// share css with website
+//
+
+@import "../variables";
+@import "../tools";
+@import "../elements";
+
+//
+// only for admin pages
+//
+@import "admincomponents";
+@import "adminutilities";

@@ -1,0 +1,87 @@
+//
+//
+// HTML elements
+//
+//
+
+html {
+
+  font-size: $mobile-font-size !important;
+  @include media-breakpoint-up(md) { font-size: $desktop-font-size !important; }
+}
+
+body {
+    background-color: $brand-background;
+    color: $brand-text;
+}
+
+h1 {
+	@extend .decorated;
+	font-size: 1.5rem;
+  font-weight: bold;
+	color: $brand-red;
+	margin-top: 1.5rem;
+}
+h2 {
+	@extend .decorated;
+	color: $brand-primary;
+	margin-top: 0.5rem;
+	font-size: 1.25rem;
+}
+
+h3 {
+  @extend .decorated;
+  color: $brand-orange;
+  letter-spacing: 0.05rem;
+  border-top: 0.25rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  @include media-breakpoint-up(md) { font-size: 1.25rem; }
+}
+
+h4 {
+	@extend .decorated;
+	font-weight: bold;
+	font-size: 1rem;
+  color: $brand-primary;
+}
+
+input, .fake-input, select, textarea {
+  width: 100%;
+  font-family: $font-body;
+  border: 1px solid #e1e1e1;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  background-color: transparent;
+}
+
+figure {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+//
+// bootstrap components
+//
+
+
+.btn {
+	font-family: $font-alter;
+}
+
+.btn-primary {
+  color: white;
+  background-color: $brand-orange;
+  border-color: $brand-orange;
+}
+
+.btn:hover, .btn:focus {
+  background-color: $brand-primary;
+  border-color: $brand-primary;  
+}
+
+.btn-secondary {
+  color: $brand-text;
+  background-color: $brand-grey;
+  border-color: $brand-grey;
+}
+

@@ -1,0 +1,15 @@
+
+Dear CP_FIRSTNAME,
+
+Our cooking class is coming soon. Find below the link to join the Zoom meeting.
+
+Class: CP_CLASS
+Date: CP_TZED_DATE
+Time: CP_TZED_TIME
+Zoom Meeting: CP_INVITATION
+
+Don't hesitate to contact us if you have any issues with the ingredients or kitchenware. Also, check out your Class Handbook for Zoom tips.
+
+See you soon,
+CP_COOK
+

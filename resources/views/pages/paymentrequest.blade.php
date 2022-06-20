@@ -9,8 +9,6 @@
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
  
       <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
-      <script src="https://use.fontawesome.com/c502308363.js"></script>
-
 
    		<meta name="robots" content="noindex,nofollow">
 
@@ -22,7 +20,7 @@
 	<div class="row justify-content-center">
 		<div class="col-2">
 			<p></p>
-			<img class="home-logo" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'">			
+			<img class="home-logo" style="width:75px" alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'">			
 		</div>
 	</div>
 
@@ -32,13 +30,13 @@
 				<div class="col-12">
 
 				@if ($tpv_result === 'OK' || $bkg->status === 'PAID')
-					<h1 class="header1">Thank You</h1>
+					<h1>Thank You</h1>
 					<p>The payment has been processed. You can print this page as a receipt.<br/></p>
 				@elseif ($tpv_result === 'KO')
-					<h1 class="header1">3rd Party Payment Page</h1>
+					<h1>3rd Party Payment Page</h1>
 					<p class="bg-warning">Sorry, it seems something went wrong, please try it again.<br/></p>
 				@else
-					<h1 class="header1">3rd Party Payment Page</h1>
+					<h1>3rd Party Payment Page</h1>
 					<p>According to our agreement, you are required to pay the following services:<br/></p>
 				@endif
 				</div>
@@ -49,7 +47,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Your Company:
 									</td>
 									<td>
@@ -57,7 +55,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Subject:
 									</td>
 									<td>
@@ -66,7 +64,7 @@
 								</tr>
 
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Details:
 									</td>
 									<td>
@@ -74,7 +72,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Invoice #:
 									</td>
 									<td>
@@ -82,7 +80,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Amount:
 									</td>
 									<td>
@@ -90,7 +88,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="bold">
+									<td class="font-weight-bold">
 										Status:
 									</td>
 									<td>
@@ -121,9 +119,6 @@
 
 	</div>
 
-
-	<!-- javascripts specific for this page  -->
-	@yield('js')
 
 </body>
 

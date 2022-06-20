@@ -1,0 +1,35 @@
+//
+// header stuff
+//
+
+
+.home-headline {
+  font-family: $font-alter;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 0.5rem 0 0.5rem;
+  color: $brand-primary;
+
+  @include media-breakpoint-up(md) {
+      position:   initial;
+      padding-top: 1rem;
+      font-size: 3rem;
+  }
+
+}
+
+
+.section-banner {
+  @include media-breakpoint-up(md) { height: 100vw / 1440 * 360}
+  @media (min-width: 1441px) { height: 360px; width: 1440px; max-width: 100%;}
+  // img {
+  //   width: 100%;
+  // }
+}
+
+.tz-select, .classtype-select > div:nth-child(3) {
+  font-size: 0.8rem;
+}
+
+

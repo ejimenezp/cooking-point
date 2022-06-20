@@ -10,13 +10,20 @@
 namespace App\Http\Controllers;
 
 use Log;
+use Swift_Message;
+use Swift_Image;
+use Swift_Attachment;
+use Swift_SmtpTransport;
+use Swift_Mailer;
 use Google_Client;
 use Google_Service_Gmail;
 use Google_Service_Gmail_Message;
 use Illuminate\Support\Facades\Storage;
-use Booking;
+use App\Timezone;
+use App\CalendarEvent;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
+use Carbon\CarbonTimeZone;
 
 class MailController {
 
@@ -88,37 +95,22 @@ class MailController {
 
 	static function send_mail($to, $bkg, $mail_template) {
 		
-		$html_body = self::set_booking_data($bkg, $mail_template . "/body.html");
-		$txt_body = self::set_booking_data($bkg, $mail_template . "/body.txt");
-		
-		// building mime message
-		$envelope["from"]= self::set_booking_data($bkg, $mail_template . "/from.txt");;
-		$envelope["to"]  = $to;
-		$envelope["subject"]  = self::set_booking_data($bkg, $mail_template . "/subject.txt");
-		
-		$part1["type"] = TYPEMULTIPART;
-		$part1["subtype"] = "alternative";
-		
-		$part2["type"] = TYPETEXT;
-		$part2["subtype"] = "plain";
-		$part2["charset"] ="utf-8";
-		$part2["contents.data"] = $txt_body;
-		
-		$part3["type"] = TYPETEXT;
-		$part3["subtype"] = "html";
-		$part3["charset"] ="utf-8";
-		$part3["contents.data"] = $html_body;
-		
-		$body[1] = $part1;
-		$body[2] = $part2;
-		$body[3] = $part3;
-		
-		$mime_message = imap_mail_compose($envelope, $body);
-		
-		// localhost version
-		Log::info("mail sent to $to. Subject: {$envelope["subject"]}. Text:");
-		Log::info($html_body);
-		return;
+		$message = new Swift_Message();
+		$message->setFrom(['info@cookingpoint.es' => Storage::get('templates/' . $mail_template . "/from.txt")])
+						->setTo([$to])
+						->setSubject(self::set_booking_data($bkg, $mail_template . "/subject.txt"))
+						->setBody(self::set_booking_data($bkg, $mail_template . "/body.html", $message), 'text/html')
+						->addPart(self::set_booking_data($bkg, $mail_template . "/body.txt"), 'text/plain');
+
+		// testing version
+		if (env('APP_ENV') != 'production') {
+			$transport = (new Swift_SmtpTransport(env('MAIL_HOST'), env('MAIL_PORT')))
+			  ->setUsername(env('MAIL_USERNAME'))
+			  ->setPassword(env('MAIL_PASSWORD'));
+			$mailer = new Swift_Mailer($transport);
+			$result = $mailer->send($message);		
+			return;		
+		}
 
 		// Make the call to the gmail API
 		
@@ -127,15 +119,11 @@ class MailController {
 			$client = self::getClient();
 			$service = new Google_Service_Gmail($client);
 
-			$encoded = rtrim(strtr(base64_encode($mime_message), '+/', '-_'), '=');
+			$encoded = rtrim(strtr(base64_encode($message->toString()), '+/', '-_'), '=');
 			$userId = 'me';
 			$message = new Google_Service_Gmail_Message();
 			$message->setRaw($encoded);
-			$result = $service->users_messages->send($userId, $message);
-			// Log::info($mime_message);
-
-			// LegacyModel::to_bookings_log($bkg->hash,'EMAIL', $details);
-							
+			$result = $service->users_messages->send($userId, $message);	
 		} 
 		catch (Exception $e) 
 		{
@@ -144,8 +132,11 @@ class MailController {
 	}
 
 
-	static function set_booking_data($bkg, $filename) {
+	static function set_booking_data($bkg, $filename, $message = null) {
 
+		if (!$bkg->calendarevent) {
+			$bkg->calendarevent = Calendarevent::find($bkg->calendarevent_id);
+		}
 		$activityDate = new Carbon($bkg->calendarevent->date);
 		$legibleDate = $activityDate->format('l, d F Y');
 
@@ -154,7 +145,23 @@ class MailController {
 		$duration = CarbonInterval::hours($bits[0])->minutes($bits[1]);
 		$end_time = (new Carbon($start_time))->add($duration);
 		$legibleTime = $start_time->format('g:i A') . ' - ' . $end_time->format('g:i A');
-		
+
+		$TzedActivityDate = new Carbon($bkg->calendarevent->startdateatom);
+		$TzedActivityDate->tz(new CarbonTimeZone($bkg->tz));
+		$TzedDate = $TzedActivityDate->format('l, d F Y');
+
+		$bits = explode(':', $bkg->calendarevent->duration);
+		$duration = CarbonInterval::hours($bits[0])->minutes($bits[1]);
+		$end_time = (new Carbon($TzedActivityDate))->add($duration);
+		$a = Timezone::where('timezone', $bkg->tz)->first();
+		if ($a) {
+			$tzName = $a->gmt;
+		}else {
+			$tzName = '(' . $bkg->tz . ' time)';
+		}
+		$gmt = ($bkg->onlineclass) ? $tzName : '';
+		$TzedTime = $TzedActivityDate->format('g:i A') . ' - ' . $end_time->format('g:i A') . ' ' . $gmt;
+
 		$arr = explode(' ',trim($bkg->name));
 		
 		switch ($bkg->status) {
@@ -164,8 +171,8 @@ class MailController {
 			case 'PAID':
 				$status = "Paid";
 				break;
-			case 'CANCELLED':
-				$status = "Cancelled";
+			case 'CANCELED':
+				$status = "Canceled";
 				break;
 			default:
 				$status = "Contact Us";
@@ -193,17 +200,37 @@ class MailController {
 		$html = str_replace('CP_REGISTERED', $bkg->calendarevent->registered, $html);
 		$html = str_replace('CP_DATE', $legibleDate, $html);
 		$html = str_replace('CP_TIME', $legibleTime, $html);
+		$html = str_replace('CP_TZED_DATE', $TzedDate, $html);
+		$html = str_replace('CP_TZED_TIME', $TzedTime, $html);
 		$html = str_replace('CP_ADULT', $bkg->adult, $html);
 		$html = str_replace('CP_CHILD', $bkg->child, $html);
 		$html = str_replace('CP_PRICE', ($bkg->hide_price ? '--.--' : $bkg->price), $html);
 		$html = str_replace('CP_STATUS', $status, $html);
+		$html = str_replace('CP_PAYMENTDATE', ($bkg->payment_date ? $bkg->payment_date : '-'), $html);
 		$html = str_replace('CP_SOURCE', $source, $html);
 		$html = str_replace('CP_COOK', $bkg->calendarevent->staff->name, $html);
 		$html = str_replace('CP_LOCATOR', $bkg->locator, $html);
 		$html = str_replace('CP_FOODREQUIREMENTS', nl2br(stripslashes($bkg->food_requirements)), $html);
 		$html = str_replace('CP_COMMENTS', nl2br(stripslashes($bkg->comments)), $html);
 		$html = str_replace('APP_URL', config('app.url'), $html);
-		
+		$html = str_replace('CP_INVITATION', $bkg->calendarevent->invitation_link, $html);
+
+		if ($message && strpos($html, 'CP_ATTACHMENT') !== false && $bkg->calendarevent->eventtype->attachments) {
+			$attachments = explode(',', $bkg->calendarevent->eventtype->attachments);
+			$mimetype_set = ['image/jpeg', 'image/png','image/gif','image/svg+xml'];
+
+			for ($i = 0; $i < sizeof($attachments); $i++) {
+
+				$filefullpath = base_path() . $attachments[$i];
+
+				if (in_array(mime_content_type($filefullpath), $mimetype_set)) {
+					$html = str_replace('CP_ATTACHMENT['.$i.']', $message->embed(Swift_Image::fromPath(base_path() . $attachments[$i])), $html);					
+				} else {
+					$html = str_replace('CP_ATTACHMENT['.$i.']', $message->attach(Swift_Attachment::fromPath(base_path() . $attachments[$i])), $html);
+				}
+			}
+		}
+
 		return $html;		
 	}
 

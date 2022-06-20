@@ -2,9 +2,10 @@
 /vendor
 /public/legacy/admin/vendor
 /public/images/blog/*
-
+.env
 *.map
 *.log
+*.sublime-workspace
 storage/app/legacy_bookings.php
 database/migrations/2016_11_23_104525_a.php
 database/migrations/temp/2016_11_23_104525_a.php
@@ -16,4 +17,7 @@ public/images/home-events-2.jpg
 public/images/home-events-old.jpg
 public/images/home-events-3.jpg
 public/images/facebook-icon-orange.png
-.env
+settestingenvironment
+setproductionenvironment
+*.sublime-workspace
+*.sublime-workspace

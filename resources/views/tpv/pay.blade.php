@@ -13,8 +13,9 @@
 
 <?php
 
-use App\Booking;
 use App\Http\Controllers\RedsysAPI;
+use Carbon\Carbon;
+use Carbon\CarbonTimeZone;
 
 	function random_order()
 	{
@@ -30,7 +31,15 @@ use App\Http\Controllers\RedsysAPI;
 
 	$Secret = config('cookingpoint.redsys.firma');
 
-	$Ds_Merchant_ProductDescription = $bkg->calendarevent->short_description . " on {$bkg->date}";
+	if ($bkg->onlineclass) {
+		$TzedActivityDate = new Carbon($bkg->calendarevent->startdateatom);
+		$TzedActivityDate->tz(new CarbonTimeZone($bkg->tz));
+		$ddate = $TzedActivityDate->toDateString();
+	} else {
+		$ddate = $bkg->date;
+	}
+
+	$Ds_Merchant_ProductDescription = $bkg->calendarevent->short_description . " on {$ddate}";
 	$Ds_Merchant_ProductDescription .= ($bkg->adult > 1) ? " for {$bkg->adult} adults" : " for {$bkg->adult} adult";
 	switch ($bkg->child) {
 		case '0':
@@ -47,8 +56,8 @@ use App\Http\Controllers\RedsysAPI;
 	$Ds_Merchant_Currency = '978';
 	$Ds_Merchant_Order = random_order();
 	$Ds_Merchant_MerchantURL = config('cookingpoint.redsys.merchanturl');
-	$Ds_Merchant_UrlOK = config('app.url') . "/booking/" . $bkg->locator . '/OK';
-	$Ds_Merchant_UrlKO = config('app.url') . "/booking/" . $bkg->locator . '/KO';
+	$Ds_Merchant_UrlOK = config('app.url') . "/booking/" . $bkg->locator . '?tpv_result=OK';
+	$Ds_Merchant_UrlKO = config('app.url') . "/booking/" . $bkg->locator . '?tpv_result=KO';
 	$Ds_Merchant_MerchantName = config('cookingpoint.redsys.nombrecomercio');
 	$Ds_Merchant_ConsumerLanguage = '002';
 	$Ds_Merchant_MerchantCode = config('cookingpoint.redsys.fuc');;

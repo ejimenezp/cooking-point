@@ -101,7 +101,7 @@ class RedsysAPI {
 		// Se transforma el array de datos en un objeto Json
 		$json = $this->arrayToJson();
 		// Se codifican los datos Base64
-		return $this->encodeBase64($json);
+		return (env('APP_ENV') == 'production') ? $this->encodeBase64($json) : $json;
 	}
 	function createMerchantSignature($key){
 		// Se decodifica la clave Base64

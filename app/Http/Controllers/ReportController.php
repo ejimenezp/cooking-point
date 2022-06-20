@@ -53,7 +53,7 @@ class ReportController extends Controller
         $sqlString = "SELECT ses.fecha, mov.sesion_id, mov.tipo, mov.descripcion, mov.ticket_tienda, mov.importe, mov.ticket
                         FROM caja_movimientos as mov join caja_sesiones as ses
                         ON mov.sesion_id = ses.id
-                        WHERE ses.fecha >= '$request->start_date' and ses.fecha <= '$request->end_date'
+                        WHERE ses.fecha >= '$request->start_date' and ses.fecha <= '$request->end_date 23:59:00'
                         ORDER BY mov.sesion_id";
 
                                 
@@ -114,14 +114,14 @@ class ReportController extends Controller
                     FROM tienda_ventas
                         WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
                         AND NOT anulado
-                        AND NOT (linea0 is null OR linea0 = 3 OR linea0 = 4))");
+                        AND linea0 IS NOT null)" );
 
         for ($i = 1; $i <= 9; $i++) { 
             DB::statement("INSERT INTO tienda_report_1 SELECT id as ticket_id, fecha, linea{$i} as producto, staff_id, pago
                     FROM tienda_ventas
                         WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
                         AND NOT anulado
-                        AND NOT (linea{$i} is null OR linea{$i} = 3 OR linea{$i} = 4)");                     
+                        AND linea{$i} IS NOT null" );                     
          }
    
     }
@@ -201,7 +201,8 @@ class ReportController extends Controller
                                 scnd.name as second,
                                 scnd.style as second_style
                         FROM calendarevents, staff as stf, staff as scnd
-                        WHERE calendarevents.date >= '$request->start_date' 
+                        WHERE calendarevents.date >= '$request->start_date'
+                            AND calendarevents.type IN ('PAELLA', 'TAPAS', 'GROUP')
                             AND calendarevents.date <= '$request->end_date'
                             AND calendarevents.staff_id = stf.id
                             AND calendarevents.secondstaff_id = scnd.id
@@ -265,6 +266,7 @@ class ReportController extends Controller
                         FROM calendarevents, staff as stf, staff as scnd
                         WHERE calendarevents.date >= '$request->start_date' 
                             AND calendarevents.date <= '$request->end_date'
+                            AND calendarevents.type IN ('PAELLA', 'TAPAS', 'GROUP')
                             AND calendarevents.staff_id = stf.id
                             AND calendarevents.secondstaff_id = scnd.id
                         ORDER BY date, time ";
@@ -327,6 +329,7 @@ class ReportController extends Controller
                             ON ce.id = bkg.calendarevent_id 
                             AND bkg.status_filter = 'REGISTERED'
                         WHERE ce.date BETWEEN '$request->start_date' and '$request->end_date'
+                        AND type NOT IN ('LIMPIEZA-MAÑANA', 'LIMPIEZA-MEDIODIA', 'LIMPIEZA-NOCHE', 'PAYREQUEST')
                         GROUP BY date, time, type, capacity
                         ORDER BY date, time";
 

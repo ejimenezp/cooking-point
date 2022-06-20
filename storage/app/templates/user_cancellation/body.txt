@@ -3,7 +3,7 @@ Dear CP_FIRSTNAME,
 We have received your request to cancel your booking detailed below.
 
 Class: CP_CLASS
-Date: CP_DATE
+Date: CP_TZED_DATE
 Adults: CP_ADULT
 Children: CP_CHILD
 Price: €CP_PRICE

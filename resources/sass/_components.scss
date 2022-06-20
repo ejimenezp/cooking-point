@@ -1,0 +1,387 @@
+//
+// navigation bar
+//
+
+//
+// smartphones
+//
+.cp-smartphone-navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background-color: $brand-background;
+
+
+
+    .logo {
+        float: left;
+        height: 4rem;
+        padding: 0.5rem;
+
+        img {
+            height: 3rem;
+        }
+    }
+
+    #dropdown-content {
+        background-color: $brand-grey;
+        color: $brand-text;
+        position: absolute;
+        top: 70px;
+        width: 65vw;
+        z-index: 2;
+        right: 0;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+    }
+
+    .dropdown-content-slide-out {
+        visibility: visible;
+        transform: translate(100%, 0);
+        -webkit-transform: translate(100%, 0);
+   }
+
+    .dropdown-content-slide-in {
+        visibility: visible;
+        transform: translate(0, 0);
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        font-size: 1.1rem;
+        font-family: $font-alter;
+        color: $brand-text;
+        border-style: none none solid solid;
+        border-color: $brand-light-orange;
+        border-width: 1px;
+        line-height: 2.2rem;
+
+        a {
+            display: block;
+            padding: 0.25rem 0.5rem;
+            // text-align: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a::before {
+            margin: 0 0.5rem 0 0.5rem;
+            content: '>';
+        }
+    }
+}
+
+.menu-strips {
+    width: 3rem;
+    display: inline-block;
+    float: right;
+    padding: 0.5rem;
+    margin: 0.5rem;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.navbar-offset {
+    height: 4rem;
+
+    @include media-breakpoint-up(xl) {
+        display: none;
+    }
+}
+
+
+// 
+// ipad landscape & desktops
+// 
+.cp-navbar {
+    .logo {
+        float: left;
+        padding: 0.5rem;
+        margin: 0rem 0 0 0rem;
+        @media (min-width: 1537px) {
+            margin:0 0 0 0.5rem;
+        }
+        img {
+            @include media-breakpoint-up(md) {
+                height: 4rem;
+                width:  4rem * 104/120;
+            }
+
+            @media (min-width: 1281px) {
+                height: 5rem;
+                width:  5rem * 104/120;
+            }
+            @media (min-width: 1537px) {
+                height: 6rem;
+                width:  6rem * 104/120;
+            }
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 1.5rem 1rem 0 0rem;
+
+        @media (min-width: 1537px) {
+            padding: 2rem 1rem 0 0rem;
+        }
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    li {
+        float: left;
+        font-size: 1.1rem;
+
+        @media (min-width: 1281px) {
+            font-size: 1.25rem;
+        }
+        @media (min-width: 1537px) {
+            font-size: 1.5rem;
+        }
+        font-family: $font-alter;
+        color: $brand-primary;
+
+        a {
+            display: block;
+            padding: 0.25rem;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover {
+            background-color: $brand-light-orange;
+        }
+    }
+}
+
+
+//
+// boxes
+//
+
+.box {
+    background-color: $brand-background;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid $brand-grey;
+    border-radius: 0.25rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+    a,
+    a:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+
+.pill {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid $brand-grey;
+    border-radius: 0.25rem;
+    width: 100%;
+
+    a,
+    a:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+        margin-block-end: 0;
+    }
+}
+
+
+.home-pill {
+    @extend .pill;
+
+    img {
+        display: none;
+
+        @include media-breakpoint-up(md) {
+            display: block;
+            float: left;
+            width: 8rem;
+            margin-right: 1rem;
+
+        }
+    }
+}
+
+#section-banner {
+
+    img,
+    video {
+        overflow: hidden;
+        width: 100vw;
+
+        // @include media-breakpoint-up(xl) {
+        //     width: 1440px;
+        // }
+
+    }
+}
+
+.infogram {
+    width: 100%;
+
+    tbody td,
+    tbody tr {
+        width: 33%;
+        text-align: center;
+        vertical-align: text-bottom;
+    }
+}
+
+.icon {
+    width: 3rem;
+    padding: 0.5rem;
+    margin: auto;
+
+    img {
+        width: 100%;
+    }
+}
+
+
+.book-now-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+    line-height: 4rem;
+    z-index: 1;
+    border: 0.5rem solid $brand-background;
+    border-radius: 0.8rem;
+
+
+    font-family: $font-alter;
+    font-size: 1.25rem;
+    background-color: $brand-orange;
+    color: white;
+    text-align: center;
+
+    a,
+    a:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.xxl-button {
+    height: 4rem;
+    max-width: 80vw;
+    margin: auto;
+    font-family: $font-alter;
+    font-size: 1.25rem;
+    background-color: $brand-orange;
+    color: white;
+    border-radius: 0.25rem;
+    text-align: center;
+    padding: 1rem;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $brand-primary;
+        border-color: $brand-primary;
+    }
+}
+
+.book-now-right {
+    position: fixed;
+    right: 0;
+    top: 40%;
+    width: 4rem;
+    height: 10rem;
+    line-height: 4rem;
+    z-index: 1;
+
+    font-family: $font-alter;
+    font-size: 1.25rem;
+    background-color: $brand-orange;
+    color: white;
+    text-align: center;
+    writing-mode: vertical-lr;
+
+    a,
+    a:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $brand-primary;
+        border-color: $brand-primary;
+    }
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    display: block;
+    /* for use on default inline elements like span */
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: $brand-grey;
+}
+
+.bkg-status {
+    padding: 0.1rem 0.2rem 0.2rem 0.2rem;
+    border-radius: 0.2rem;
+}
+
+.bkg-status-pending {
+    font-family: $font-alter;
+    color: white;
+    background-color: $brand-red;
+}
+
+.bkg-status-canceled {
+    font-family: $font-alter;
+    color: white;
+    background-color: $brand-text;
+}
+
+.bkg-status-confirmed,
+.bkg-status-paid {
+    font-family: $font-alter;
+    color: $brand-text;
+    background-color: $brand-green;
+}
+
+.bkg-status-pay-on-arrival {
+    font-family: $font-alter;
+    color: $brand-background;
+    background-color: $brand-purple;
+}

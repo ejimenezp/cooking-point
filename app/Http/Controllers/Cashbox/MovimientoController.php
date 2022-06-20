@@ -58,17 +58,17 @@ class MovimientoController extends Controller
 
     //
     //
-    // devuelve los tickets (ids) de la semana pasada que todavía no aparezcan en ninguna 
+    // devuelve los tickets (ids) de los últimos meses que todavía no aparezcan en ninguna 
     // sesión
     // 
     //
     function getTickets ($id)
     {
         $sesion = Sesion::find($id);
-    	$hoy = new Carbon($sesion->fecha);
-    	$semana_pasada = Carbon::now()->addWeeks(-1);
+    	$fecha_sesion = new Carbon($sesion->fecha);
+    	$meses_atras = Carbon::now()->addWeeks(-40);
     	$tickets_usados = Movimiento::where('ticket_tienda', '!=', 0)->pluck('ticket_tienda')->toArray();
-        return TiendaVentas::whereBetween('created_at', [$semana_pasada->toDateString(), $hoy->toDateString()])->where('anulado', false)->where('pago', 'cash')->whereNotIn('id', $tickets_usados)->get();
+        return TiendaVentas::whereBetween('fecha', [$meses_atras->toDateString(), $fecha_sesion->toDateString()])->where('anulado', false)->where('pago', 'cash')->whereNotIn('id', $tickets_usados)->get();
     }
 
 

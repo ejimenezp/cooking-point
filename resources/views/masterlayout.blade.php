@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="@yield('page-lang','en')">
   <head>
       <title>@yield('title')</title>
       <meta name="description" content="@yield('description')" >
       <meta name="csrf-token" content="{{ csrf_token() }}">
-      <meta name="page" content="@yield('banner-name')" caption="@yield('banner-caption', 'cooking point')">
       
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <meta property="og:title" content="@yield('title')">
+      <meta property="og:description" content="@yield('description')">
+      <meta property="og:image" content="/images/blog/@yield('page-thumbnail')">
+      <meta property="og:url" content="{{ strtok(url()->current(), '?') }}">
+
       <link rel="icon" href="{{ config('cookingpoint.favicon') }}">
       <link rel="canonical" href="{{ strtok(url()->current(), '?') }}">
 
-      <style type="text/css">
-            body { color: white; }
-            a {color: white;}
-      </style>
+      <link defer href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
 
       @if (App::environment() == 'production')
 
-        <!-- Google Tag Manager -->
         @yield('analytics-ecommerce-tracking')
 
+        <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-K5H7TCB');</script>
+
         <!-- End Google Tag Manager -->
 
       @else
@@ -39,35 +42,29 @@
     
   <body>
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5H7TCB"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    @if (App::environment() == 'production')
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5H7TCB"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    @endif
 
-@section('footer')
-
-    <div class="primary-color">
-      <div class="float-left">© Cooking Point, SL</div>
-      <div class="float-right">Follow us on:
-        <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><i class="fab fa-2x fa-facebook-square"></i></a>
-        &nbsp;
-        <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><i class="fab fa-2x fa-instagram"></i></a>        
-      </div>      
-    </div>
-@endsection
-
-
-<div class="d-block d-lg-none">
-<div id="cabecera">
-  <nav class="navbar fixed-top">
-      <div class="navbar-brand">
-        <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox50.png'"></a>
+<!-- smartphone -->
+<div class="d-block d-xl-none">
+  <div class="cp-smartphone-navbar clearfix">
+      <div class="logo">
+        <a href="/"><img alt="Cooking Point" src="/images/icons/cookingpoint-logo-landscape.png"></a>        
       </div>
-      <a class="menu-header-xs" data-toggle="collapse" data-target="#myNavbar" href="#">
-          Menu <i class="fa fa-bars" aria-hidden="true"></i>
-      </a>
-      <div id="myNavbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
+      <div class=" float-right">
+        <a class='menu-strips' href='javascript:void(0);' ><img src="/images/icons/menu-strips.png" />
+        </a>        
+      </div>
+
+      <div id="dropdown-content" class="dropdown-content-slide-out">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
           <li>
             <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
           </li>
@@ -75,16 +72,19 @@
             <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
           </li>
           <li>
-            <a href="/private-cooking-events-madrid-spain">Private Events</a>
+            <a href="/online-virtual-cooking-classes">Online Classes</a>
+          </li>
+          <li>
+            <a href="/private-events">Private Events</a>
           </li>
           <li>
             <a href="/location">Location</a>
-          </li>
+          </li>            
           <li>
             <a href="/about-us">About Us</a>
           </li>
           <li>
-            <a class="cp-class-details" href="/booking">Booking</a>
+            <a href="/booking"><span class="font-weight-bold">Booking</span></a>
           </li>
           <li>
             <a href="/gallery">Gallery</a>
@@ -94,113 +94,119 @@
           </li>
           <li>
             <a href="/faq">FAQ</a>
-          </li>
-        </ul> 
+         </li>
+        </ul>        
+      </div>           
+  </div>
+
+  <div class="navbar-offset"></div>
+</div>
+
+<!-- ipad landscape & desktop -->
+
+<div lang="en" class="d-none d-xl-block">
+  <div class="cp-navbar">
+      <div class="logo">
+        <a href="/"><img alt="Cooking Point" src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>        
       </div>
-  </nav>
-</div>
-</div>
+      <div class="menu clearfix">
+        <ul>
+          <li>
+            <a href="/classes-paella-cooking-madrid-spain">Paella Class</a>
+          </li>
+          <li>
+            <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
+          </li>
+          <li>
+            <a href="/online-virtual-cooking-classes">Online Classes</a>
+          </li>
+          <li>
+            <a href="/private-events">Private Events</a>
+          </li>
 
-
-<div class="d-none d-lg-block d-xl-none">
-  <nav class="navbar navbar-expand-md nav-fill"> 
-      <div class="navbar-brand">
-        <a href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
-      </div> 
-
-      <ul class="navbar-nav justify-content-center w-100">
-        <li class="nav-item">
-          <a class="nav-link" href="/classes-paella-cooking-madrid-spain">Paella Class</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/private-cooking-events-madrid-spain">Private Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/location">Location</a>
-        </li>            
-        <li class="nav-item">
-          <a class="nav-link" href="/about-us">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link cp-class-details" href="/booking">Booking</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="themes" href="#">More <span class="caret"></span></a>
-            <div class="dropdown-menu" aria-labelledby="themes">
-              <a class="dropdown-item" href="/gallery">Gallery</a>
-              <a class="dropdown-item" href="/blog">Blog</a>
-              <a class="dropdown-item" href="/faq">FAQ</a>
-            </div>
-        </li>
-      </ul>      
-  </nav>
+          <li>
+            <a href="/location">Location</a>
+          </li>            
+<!--           <li>
+            <a href="/about-us">About Us</a>
+          </li> -->
+          <li>
+            <a href="/booking"><span class="font-weight-bold">Booking</span></a>
+          </li>
+          <li>
+            <a href="/gallery">Gallery</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+          <li>
+            <a href="/faq">FAQ</a>
+         </li>
+        </ul>        
+      </div>           
+  </div>
 </div>
 
-<div class="d-none d-xl-block">
-  <nav class="navbar navbar-expand-xl">
-      <a class="navbar-brand"href="/"><img class="home-logo lazyload" alt="Cooking Point" data-src="/images/cookingpoint_MIC.svg" onerror="this.onerror=null; this.src='/images/cookingpoint_logox75.png'"></a>
-      <ul class="navbar-nav nav-fill justify-content-center w-100">
-        <li class="nav-item">
-          <a class="nav-link" href="/classes-paella-cooking-madrid-spain">Paella Class</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/private-cooking-events-madrid-spain">Private Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/location">Location</a>
-        </li>            
-        <li class="nav-item">
-          <a class="nav-link" href="/about-us">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link cp-class-details" href="/booking">Booking</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/gallery">Gallery</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/faq">FAQ</a>
-       </li>
-      </ul>            
-  </nav>
-</div>
+
 
 <div class="container-fluid">
-  @if (isset($page) && ($page == 'home'))
-    @yield('banner')
-  @else
-    <div class="header-offset"></div>
-    <div class="row justify-content-center">
-      <div id="section-banner"></div>
-    </div>
-  @endif
+
+<!-- banner -->
+
   <div class="row justify-content-center">
-    <div class="col col-md-11 col-lg-10">
+      @yield('banner')
+  </div>
+
+  <!-- contents -->
+
+  <div class="row justify-content-center">
+    <div class="col-md-11 col-lg-10">
       @yield('content')                  
     </div>  
   </div>
+
+  <!-- footer -->
+
   <div class="row">
     <div class="divider"></div>
-    <div class="col">
-      @yield('footer')
-    </div> 
+    <div class="col-12">
+        <div class="float-left">
+          <table>
+            <tr><td>
+                  <div class="icon" style="padding-bottom:0;">
+                    <a href="mailto:info@cookingpoint.es"><img title="Email" src="/images/icons/email.png"></a>
+                  </div>
+            </td></tr>
+            <tr><td>
+                   <a class="unstyled" href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>
+            </td></tr>
+          </table>
+        
+
+        </div>
+        <div class="float-right">
+          <table>
+            <tr><td colspan="2">Follow us on:</td></tr>
+            <tr><td>
+                  <div class="icon">
+                    <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><img title="facebook" src="/images/icons/facebook.png"></a>
+                  </div>
+            </td><td>
+                  <div class="icon">
+                    <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><img title="instagram" src="/images/icons/instagram.png"></a>
+                  </div>
+            </td></tr>
+          </table>
+        </div>      
+    </div>
+    <!-- only for pages paella & tapas, with a "Pay Now" button -->
+    @yield('bottom-filler') 
   </div>
+  
 </div>
 
 <!-- modals specific for this page  -->
 @yield('modals')
-
-      <link defer href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css">     
-      <link defer rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 <!-- javascripts specific for this page  -->
 <script defer type='text/javascript' src="{{ mix('/js/app.js') }}"></script>
