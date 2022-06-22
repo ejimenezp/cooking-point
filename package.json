@@ -51,7 +51,7 @@
         "http-agent": "^0.1.2",
         "jquery-ui": "^1.12.1",
         "js-cookie": "^2.2.1",
-        "lazysizes": "^5.2.0",
+        "lazysizes": "^5.2.1",
         "moment": "^2.29.2",
         "print-this": "^1.15.1",
         "prop-types": "^15.7.2",
