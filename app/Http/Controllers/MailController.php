@@ -174,6 +174,12 @@ class MailController {
 			case 'CANCELED':
 				$status = "Canceled";
 				break;
+			case 'PAY-ON-ARRIVAL':
+				$status = "To Pay on Arrival";
+				break;
+			case 'CONFIRMED':
+				$status = "Confirmed";
+				break;
 			default:
 				$status = "Contact Us";
 			}
