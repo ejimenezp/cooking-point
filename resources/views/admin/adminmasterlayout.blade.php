@@ -10,7 +10,7 @@
 	<meta name="staff_id" content="{{ app('request')->input('cpuser') }}">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="/images/favicon-admin.ico">
+  <link rel="icon" href="{{ config('cookingpoint.adminfavicon') }}">
 	<link rel="canonical" href="{{ url()->current() }}">
 	<link defer href="{{ mix('/css/admin/admin.css') }}" rel="stylesheet" type="text/css">
 </head>

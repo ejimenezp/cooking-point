@@ -8,6 +8,7 @@
 return [
 
 	'favicon' => env('APP_FAVICON' , 'rubbish-icon'),
+	'adminfavicon' => env('APP_ADMIN_FAVICON' , 'rubbish-icon'),
 
 	'redsys' => [
 	    'firma' => 'TioXuMyEcpN34V4kO2hS36ru/4pl3rzv',
