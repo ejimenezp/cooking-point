@@ -68,7 +68,7 @@ function InquiryDetailsEdit (props) {
     timeZone: bkg.tz
   }
 
-  const optionsClassModalitySelect = [{ value: 0, label: 'In-Person' }, { value: 1, label: 'Online' }]
+  // const optionsClassModalitySelect = [{ value: 0, label: 'In-Person' }, { value: 1, label: 'Online' }]
 
   function showExchange () {
     const modal = {}
@@ -132,10 +132,10 @@ function InquiryDetailsEdit (props) {
     }
   }
 
-  function handleClassModality (option) {
-    bkg.onlineclass = option.value
-    props.liftUp(bkg)
-  }
+  // function handleClassModality (option) {
+  //   bkg.onlineclass = option.value
+  //   props.liftUp(bkg)
+  // }
   function handleClassType (text) {
     bkg.type = text
     props.liftUp(bkg)
@@ -228,7 +228,7 @@ function InquiryDetailsEdit (props) {
               </table>
             </td>
           </tr>
-          <tr>
+{/*          <tr>
             <td className='font-weight-bold'>{isMobile ? 'Modlty :' : 'Modality :'}</td>
             <td>
               {bkg.status === 'PENDING' &&
@@ -236,7 +236,7 @@ function InquiryDetailsEdit (props) {
               {bkg.status !== 'PENDING' &&
                       optionsClassModalitySelect[bkg.onlineclass].label}
             </td>
-          </tr>
+          </tr>*/}
           <tr>
             <td className='font-weight-bold'>Class :</td>
             <td>
@@ -292,10 +292,10 @@ function InquiryDetails (props) {
               <td className='font-weight-bold'>Class :</td>
               <td>{bkg.calendarevent.short_description}</td>
             </tr>
-            <tr>
+{/*            <tr>
               <td className='font-weight-bold'>{isMobile ? 'Modlty :' : 'Modality :'}</td>
               <td>{bkg.onlineclass ? 'Online' : 'In-Person'}</td>
-            </tr>
+            </tr>*/}
             <tr>
               <td className='font-weight-bold'>Date :</td>
               <td>{new Intl.DateTimeFormat('en-GB', optionsDisplayDate).format(parseISO(bkg.calendarevent.startdateatom))}</td>

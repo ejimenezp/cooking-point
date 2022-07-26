@@ -1,6 +1,6 @@
 @extends('masterlayout')
-@section('title', 'In-person & Online Private Events')
-@section('description', 'We offer private cooking events for team building or private groups, either in-person or online, from our cooking school in Madrid')
+@section('title', 'In-person Private Events')
+@section('description', 'We offer private cooking events for team building or private groups from our cooking school in Madrid')
 
 @section('banner')
 <div class="section-banner">
@@ -17,33 +17,40 @@
 <h1>Private Events</h1>
 <div class="row justify-content-right">
 	<div class="col-12">
-		<h3>In English</h3>
 		<p>We offer you our facilities and experience to organize a corporate event or friends meeting, with our kitchen as the central point.</p>
-
+		<p>También tenemos actividades para público español. El menú y la dinámica cambia un poco, para hacerla más atractiva a las preferencias locales.</p>
 		<div class="row justify-content-center">
 
 	    <div class="col-sm-6">
 	            <div class="box all-clickable orange-on-hover">
 	                <a href="/private-cooking-events-madrid-spain"></a>
 	                <img class="img-fluid lazyload" title="cooking events" alt="private cooking events in Madrid" data-src="/images/events-banner-sm.jpg" />    
-	                <h2>In-person Events</h2>
+	                <h2>In English</h2>
 	                <p>We can customize our classes as private events for corporate groups, team buildings, hen or stag parties, school trips or just group of friend that want to have a different lunch or dinner in Madrid.</p>
 	            </div>            
 	    </div>
 
 	    <div class="col-sm-6">
 	            <div class="box all-clickable orange-on-hover">
+	                <a href="/actividades-team-building-empresas-madrid"></a>
+	                <img class="img-fluid lazyload" title="team building empresas" alt="team bulding empresas in Madrid" data-src="/images/eventos-banner-sm.jpg" />    
+	                <h2>En español</h2>
+	                <p>Ofrecemos actividades para empresas orientadas a equipos españoles que quieren realizar un team building de cocina en el centro de Madrid.</p>
+	            </div>            
+	    </div>
+<!-- 	    <div class="col-sm-6">
+	            <div class="box all-clickable orange-on-hover">
 	                <a href="/private-online-events"></a>
 	                <img class="img-fluid lazyload" title="cooking events" alt="private cooking events in Madrid" data-src="/images/team-building-online-banner-sm.jpg" />    
 	                <h2>Online Events</h2>
 	                <p>As a mirror of our in-person events we offer live online classes where participants follow from home our chef directions to prepare a Spanish menu.</p>
 	            </div>            
-	    </div>
+	    </div> -->
 		</div>
 	</div>
 </div>
 
-<div class="row justify-content-right">
+<!-- <div class="row justify-content-right">
 	<div class="col-12">
 		<h3>En español</h3>
 		<p>También tenemos actividades para público español. El menú y la dinámica cambia un poco, para hacerla más atractiva a las preferencias locales.</p>
@@ -69,7 +76,7 @@
 	    </div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <div class="row justify-content-right">
 	<div class="col-12">

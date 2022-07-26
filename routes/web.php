@@ -30,7 +30,7 @@ Route::get('/booking/{locator?}/{more?}', 'BookingController@get')->middleware('
 Route::get('/', 'CalendareventControllerOnline@home');
 Route::get('/classes-paella-cooking-madrid-spain', 'CalendareventControllerOnline@paella');
 Route::get('/classes-spanish-tapas-madrid-spain', 'CalendareventControllerOnline@tapas');
-Route::get('/online-virtual-cooking-classes', 'CalendareventControllerOnline@online');
+// Route::get('/online-virtual-cooking-classes', 'CalendareventControllerOnline@online');
 
 Route::get('/location', function () { return view('pages.location'); });
 Route::get('/faq', function () { return view('pages.faq'); });
@@ -41,15 +41,15 @@ Route::post('/tpv-stub-main', 'TPVStub@main');
 Route::post('/tpv-stub-reply', 'TPVStub@reply');
 Route::get('/private-events', function () { return view('pages.privateevents'); });
 Route::get('/private-cooking-events-madrid-spain', function () { return view('pages.events'); });
-Route::get('/private-online-events', function () { return view('pages.onlineevents'); });
+// Route::get('/private-online-events', function () { return view('pages.onlineevents'); });
 Route::get('/actividades-team-building-empresas-madrid', function () { return view('pages.espanol.actividadesempresas'); });
 Route::get('/oferta-para-agencias', function () { return view('pages.espanol.agencias'); });
 Route::get('/paymentrequest/{locator?}/{tpv_result?}', 'BookingControllerOnline@thirdpartypaymentget');
 Route::get('/about-us', function () { return view('pages.aboutus'); });
 Route::get('/best-cooking-classes-madrid', function () { return view('pages.bestclasses'); });
-Route::get('/online-virtual-cooking-classes/spanish-classic-recipes', function () { return view('pages.onlineclasses.selection'); });
-Route::get('/online-virtual-cooking-classes/paella', function () { return view('pages.onlineclasses.paella'); });
-Route::get('/actividades-team-building-online', function () { return view('pages.espanol.teambuildingonline'); });
+// Route::get('/online-virtual-cooking-classes/spanish-classic-recipes', function () { return view('pages.onlineclasses.selection'); });
+// Route::get('/online-virtual-cooking-classes/paella', function () { return view('pages.onlineclasses.paella'); });
+// Route::get('/actividades-team-building-online', function () { return view('pages.espanol.teambuildingonline'); });
 // Route::get('/in-person-classes-madrid', function () { return view('pages.inperson'); });
 Route::get('/privacidad', function () { return view('pages.espanol.privacidad'); });
 

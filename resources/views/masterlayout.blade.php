@@ -72,17 +72,14 @@
             <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
           </li>
           <li>
-            <a href="/online-virtual-cooking-classes">Online Classes</a>
-          </li>
-          <li>
             <a href="/private-events">Private Events</a>
           </li>
           <li>
             <a href="/location">Location</a>
           </li>            
-          <li>
+<!--           <li>
             <a href="/about-us">About Us</a>
-          </li>
+          </li> -->
           <li>
             <a href="/booking"><span class="font-weight-bold">Booking</span></a>
           </li>
@@ -116,9 +113,6 @@
           </li>
           <li>
             <a href="/classes-spanish-tapas-madrid-spain">Tapas Class</a>
-          </li>
-          <li>
-            <a href="/online-virtual-cooking-classes">Online Classes</a>
           </li>
           <li>
             <a href="/private-events">Private Events</a>

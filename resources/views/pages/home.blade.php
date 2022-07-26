@@ -132,7 +132,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4">
+<!--     <div class="col-lg-4">
         <div class="bottom-gutter">
             <div class="box all-clickable orange-on-hover">
                 <a href="/online-virtual-cooking-classes"></a>
@@ -153,18 +153,30 @@
                 </table> 
             </div>            
         </div>
-    </div>
+    </div> -->
 
-<!--     <div class="col-lg-4">
+    <div class="col-lg-4">
         <div class="bottom-gutter">
             <div class="box all-clickable orange-on-hover">
-                <a href="/private-cooking-events-madrid-spain"></a>
+                <a href="/private-events"></a>
                 <img class="img-fluid lazyload" title="cooking events" alt="private cooking events in Madrid" data-src="/images/events-banner-sm.jpg" />    
                 <h2>Private Events</h2>
                 <p>We can customize our classes as private events for corporate groups, team buildings, hen or stag parties, school trips or just group of friend that want to have a different lunch or dinner in Madrid.</p>
+                <table class="infogram">
+                    <tr>
+                        <td><div class="icon"><img src="/images/icons/calendar.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/clock.png"></div></td>
+                        <td><div class="icon"><img src="/images/icons/euro.png"></div></td>
+                 </tr>
+                     <tr>
+                        <td>Monday - Saturday</td>
+                        <td>3 hours</td>
+                        <td>Upon request</td>
+                  </tr>
+                </table>  
             </div>            
         </div>
-    </div> -->
+    </div>
 </div> 
 
 <!-- <div class="row justify-content-center">
