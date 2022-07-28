@@ -249,14 +249,14 @@
                             if ($event->registered < $event->capacity && $i < 5) {
                                 $date = new DateTime($event->startdateatom);
                                 echo '<tr>';
-                                echo '<td>' . $date->format("D, d M") . '</td>';
+                                echo '<td>' . $date->format("D, M d") . '</td>';
                                 switch ($event->type) {
                                     case 'PAELLA' :
-                                        echo '<td>10:00 AM</td><td> Paella Cooking Class</td>';
+                                        echo '<td>' . $date->format("g:i A") . '</td><td> Paella Cooking Class</td>';
                                         echo '<td><a href="classes-paella-cooking-madrid-spain" class="btn btn-primary">Details</a></td>';
                                         break;
                                     case 'TAPAS' :
-                                        echo '<td>5:30 PM</td><td>Tapas Cooking Class</td>';
+                                        echo '<td>' . $date->format("g:i A"). '</td><td>Tapas Cooking Class</td>';
                                         echo '<td><a href="classes-spanish-tapas-madrid-spain" class="btn btn-primary">Details</a></td>';
                                         break;
                                     default :

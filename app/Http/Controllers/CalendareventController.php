@@ -141,17 +141,25 @@ class CalendareventController extends Controller
     }
 
 
-    static function getIntervalSchedule($start_date, $end_date, $bookable_only = 0)
+    static function getIntervalSchedule($start_date, $end_date)
     {
         // no es del API. Devuelve colección de CE para añadir Coming classes en las views
         
-        return Calendarevent::whereDate('date', '>=', $start_date)
+        $ces = Calendarevent::whereDate('date', '>=', $start_date)
                             ->whereDate('date', '<=', $end_date)
-                            ->where('capacity', '>=', $bookable_only)
+                            ->where('online', false)
+                            ->where('bookable_by_clients', true)
                             ->orderBy('date')
                             ->orderBy('time')
                             ->orderBy('type')
                             ->get();
+
+        $subset = $ces->filter(function ($item, $key) {
+            list ($cutoff, $capacity, $status, $reason) = $item->checkAvailabilityAsOfNow(0);
+            return $status == 'AVAILABLE';
+        });
+        return $subset;
+
     }
 
     function importStaffing (Request $request)

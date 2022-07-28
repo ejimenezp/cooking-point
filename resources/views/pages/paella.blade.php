@@ -189,9 +189,9 @@
 					if ($event->registered < $event->capacity && $i < 3) {
 						$date = new DateTime($event->startdateatom);
 						echo '<tr><td>';
-						echo $date->format("l, d M");
-						// echo '</td><td>';
-						// echo $date->format("g:i a");
+						echo $date->format("D, M d");
+						echo '</td><td>';
+						echo $date->format("g:i A");
 						echo '</td>';	
 						echo '<td><a href="booking?class=PAELLA&date=' . $event->date . '" class="btn btn-primary">Book</a></td>';
 						echo '</tr>';

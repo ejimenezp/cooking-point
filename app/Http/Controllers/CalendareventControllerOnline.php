@@ -19,7 +19,7 @@ class CalendareventControllerOnline extends CalendareventController
         $today = $now->format('Y-m-d');
         $in15days = $now->modify('+15 days')->format('Y-m-d');
 
-        $events = $this->getIntervalSchedule($today, $in15days, true)->where('type', 'PAELLA');
+        $events = $this->getIntervalSchedule($today, $in15days)->where('type', 'PAELLA');
 
         return view('pages.paella', ['events' => $events] );
     }
@@ -41,7 +41,7 @@ class CalendareventControllerOnline extends CalendareventController
         $today = $now->format('Y-m-d');
         $in15days = $now->modify('+15 days')->format('Y-m-d');
 
-        $events = $this->getIntervalSchedule($today, $in15days, true)->whereIn('type', ['PAELLA', 'TAPAS']);
+        $events = $this->getIntervalSchedule($today, $in15days)->whereIn('type', ['PAELLA', 'TAPAS']);
 
         return view('pages.home', ['events' => $events, 'page' => 'home'] );
     }
@@ -52,7 +52,7 @@ class CalendareventControllerOnline extends CalendareventController
         $today = $now->format('Y-m-d');
         $in15days = $now->modify('+15 days')->format('Y-m-d');
 
-        $events = $this->getIntervalSchedule($today, $in15days, true)->whereIn('type', ['ONLINE-EVENING-SELECTION', 'ONLINE-EVENING-PAELLA', 'ONLINE-LATENIGHT-SELECTION', 'ONLINE-LATENIGHT-PAELLA']);
+        $events = $this->getIntervalSchedule($today, $in15days)->whereIn('type', ['ONLINE-EVENING-SELECTION', 'ONLINE-EVENING-PAELLA', 'ONLINE-LATENIGHT-SELECTION', 'ONLINE-LATENIGHT-PAELLA']);
 
         return view('pages.online', ['events' => $events] );
     }
