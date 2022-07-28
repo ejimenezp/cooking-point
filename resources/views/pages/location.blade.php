@@ -33,8 +33,8 @@
                                     <td><div class="icon"><img title="Opening hours" src="/images/icons/clock.png"></div></td>
                                 </tr>
                                    <tr>
-                                      <td>Calle de Moratín, 11</td>
-                                      <td>Anton Martin (Line 1)</td>
+                                      <td>Moratín, 11</td>
+                                      <td>Anton Martin <br/>(Line 1)</td>
                                       <td>9:30 AM - 9:30 PM</td>
                                 </tr>
                               </table>  
@@ -45,12 +45,21 @@
                             <h4>Contact</h4>
                               <table class="infogram">
                                   <tr>
-                                    <td><div class="icon"><img title="Email" src="/images/icons/email.png"></div></td>
-                                    <td><div class="icon"><img title="Phone" src="/images/icons/phone.png"></div></td>
+                                    <td class="w-50"><a href="mailto:info@cookingpoint.es" class="d-flex justify-content-center"><img class="icon" title="Email" src="/images/icons/email.png"></a></td>
+                                    <td class="w-50" id="here" data-toggle="modal" data-target="#contactPhone">
+                                      <div class="d-flex justify-content-center">
+                                        <img class="icon" title="Phone" src="/images/icons/phone.png">
+                                        <img class="icon" title="WhatsApp" src="/images/icons/whatsapp.png">
+                                      </div>
+                                    </td>
                                 </tr>
                                    <tr>
-                                      <td><a href="mailto:info@cookingpoint.es">info@cookingpoint.es</a></td>
-                                      <td><a href="tel:(+34)910115154">+34 910 115 154</a></td>
+                                      <td><a class="d-flex justify-content-center" href="mailto:info@cookingpoint.es">
+                                        <div class="d-none d-sm-block">info@cookingpoint.es</div>
+                                        <div class="d-block d-sm-none">info<br/>@cookingpoint.es</div>
+                                      </a></td>
+                                      <!-- <td><a href="tel:(+34)910115154">+34 910 115 154</a></td> -->
+                                      <td><a class="d-flex d-block justify-content-center" id="here" data-toggle="modal" data-target="#contactPhone" href="#here">+34 910 115 154</a></td>
                                 </tr>
                               </table>  
                         </div>

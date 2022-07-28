@@ -163,34 +163,34 @@
 
   <div class="row">
     <div class="divider"></div>
-    <div class="col-12">
-        <div class="float-left">
-          <table>
-            <tr><td>
-                  <div class="icon" style="padding-bottom:0;">
-                    <a href="mailto:info@cookingpoint.es"><img title="Email" src="/images/icons/email.png"></a>
-                  </div>
-            </td></tr>
-            <tr><td>
-                   <a class="unstyled" href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>
-            </td></tr>
-          </table>
-        
-
+    <div class="col col-sm-6">
+      <div class="d-flex flex-row">
+        <div class="d-flex flex-column mr-2">
+            <a href="mailto:info@cookingpoint.es"><img class="d-flex justify-content-center icon" title="Email" src="/images/icons/email.png"></a>
+            <a class="text-dark" href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>
         </div>
-        <div class="float-right">
-          <table>
-            <tr><td colspan="2">Follow us on:</td></tr>
-            <tr><td>
-                  <div class="icon">
-                    <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><img title="facebook" src="/images/icons/facebook.png"></a>
-                  </div>
-            </td><td>
-                  <div class="icon">
-                    <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><img title="instagram" src="/images/icons/instagram.png"></a>
-                  </div>
-            </td></tr>
-          </table>
+        <div class="ml-2" id="here" data-toggle="modal" data-target="#contactPhone">
+          <div class="d-flex flex-column">
+            <a class="d-flex flex-row" href="#here">
+              <img class="d-flex justify-content-around icon" title="phone" src="/images/icons/phone.png">
+              <img class="d-flex justify-content-around icon" title="whatsapp" src="/images/icons/whatsapp.png">
+            </a>
+            <a class="text-dark" href="#here">(+34) 910 115 154</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col mt-3 col-sm-6 mt-sm-0">
+      <div class="d-flex flex-row justify-content-center justify-content-sm-end">      
+      <div class="d-flex justify-content-center justify-content-sm-end">      
+        <div class="d-flex align-self-center">Follow us on:</div>
+          <div class="icon">
+            <a href="https://www.facebook.com/CookingPointSpain" title="facebook" target="_blank"><img title="facebook" src="/images/icons/facebook.png"></a>
+          </div>
+          <div class="icon">
+            <a href="https://www.instagram.com/cookingpoint/" title="instagram" target="_blank"><img title="instagram" src="/images/icons/instagram.png"></a>
+          </div>
+        </div>
         </div>      
     </div>
     <!-- only for pages paella & tapas, with a "Pay Now" button -->
@@ -199,6 +199,28 @@
   
 </div>
 
+<div class="modal fade" tabindex="-1" id="contactPhone" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="h3">Call or Chat?</div>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>        
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-row justify-content-around">
+          <div class="d-flex flex-column mr-2">
+              <a href="tel:+34910115154"><img class="d-flex justify-content-center icon" title="phone" src="/images/icons/phone.png"></a>
+              <a class="text-dark" href="tel:+34910115154">Phone Call</a>
+          </div>
+          <div class="d-flex flex-column ml-2">
+              <a href="https://wa.me/message/OZF6UKVAAR6GB1"><img class="d-flex justify-content-center icon" title="whatsapp" src="/images/icons/whatsapp.png"></a>
+              <a class="text-dark" href="https://wa.me/message/OZF6UKVAAR6GB1">WhatsApp Chat</a>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- modals specific for this page  -->
 @yield('modals')
 
