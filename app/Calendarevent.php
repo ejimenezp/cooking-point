@@ -123,6 +123,9 @@ class Calendarevent extends Model
 
     public function getAvailableCovid($travellers)
     {
+        $available = $this->capacity - $this->registered;
+        return $available < 0 ? 0 : $available;
+
         $usedStoves = $this->bookings->where('status_filter', 'REGISTERED')->reduce(function($carry, $item) {return $carry + ceil(($item->adult + $item->child)/2);});
         $oddBookings = $this->bookings->where('status_filter', 'REGISTERED')->reduce(function($carry, $item) {return $carry + ($item->adult + $item->child) % 2;});
         $singleBookings = $this->bookings->where('status_filter', 'REGISTERED')->reduce(function($carry, $item) {return $carry + (($item->adult + $item->child) == 1);});
