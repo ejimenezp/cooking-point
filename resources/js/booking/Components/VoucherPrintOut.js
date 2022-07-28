@@ -40,7 +40,7 @@ class Voucher extends React.Component {
             <div className='text-center'>
               <img alt='Cooking Point logo' src='/images/cookingpoint_logox75.png' />
               <div className='divider' />
-              <h1>Booking Confirmation</h1>
+              <h1 className='mt-0'>Booking Confirmation</h1>
             </div>
 
             <h2 className='mt-5'>Details</h2>

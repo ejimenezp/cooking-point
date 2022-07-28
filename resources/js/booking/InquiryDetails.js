@@ -249,8 +249,8 @@ function InquiryDetailsEdit (props) {
             { (bkg.onlineclass === 0 || bkg.onlineclass > 0 && bkg.status !== 'PENDING') && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : bkg.price}</td>}
             { bkg.onlineclass > 0 && bkg.status === 'PENDING' && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : <Fragment>{bkg.price} ($ {(parseFloat(bkg.price) * 1.02 / exchange).toFixed(2)} approx. <span className="small badge btn-primary"><a onClick={showExchange}>Why?</a></span>)</Fragment>}</td>}
           </tr>
-          <tr style={{ height: '2rem' }} />
-        </tbody>
+{/*          <tr style={{ height: '2rem' }} />
+*/}        </tbody>
       </table>
     </Fragment>
   )

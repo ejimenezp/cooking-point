@@ -47,7 +47,7 @@ function CancelBookingPage (props) {
       {isError && alert('Error communicating with server, please reload page')}
       <div className='row'>
         <div className='col-12'>
-          <h1>Booking</h1>
+          <h1 className='mt-0'>Your Booking</h1>
           {cancelable() && <p>You are about to cancel the following booking:</p>}
           {!cancelable() && <p>Your booking&apos;s details:</p>}
         </div>

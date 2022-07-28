@@ -144,17 +144,17 @@ function BookingDetailsPage (props) {
         <div className='col-12'>
           {localbkg.status === 'PENDING' &&
             <Fragment>
-              <h1>Checkout</h1>
+              <h1 className='mt-0'>Checkout</h1>
               <p>You are about to book the following class:</p>
             </Fragment>}
           {['CONFIRMED', 'PAY-ON-ARRIVAL', 'PAID'].includes(localbkg.status) &&
             <Fragment>
-              <h1>Booking Confirmation</h1>
+              <h1 className='mt-0'>Booking Confirmation</h1>
               <p>These are the details of your booking:</p>
             </Fragment>}
           {localbkg.status === 'CANCELED' &&
             <Fragment>
-              <h1>Booking Canceled</h1>
+              <h1 className='mt-0'>Booking Canceled</h1>
               <p>This booking is no longer valid.</p>
             </Fragment>}
         </div>

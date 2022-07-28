@@ -180,7 +180,7 @@
 					foreach ($events as $event) {
 						if ($event->registered < $event->capacity && $i < 3) {
 							$date = new DateTime($event->startdateatom);
-							echo '<tr><td>';
+							echo '<tr class="all-clickable orange-on-hover"><td>';
 							echo $date->format("D, M d");
 							echo '</td><td>';
 							echo $date->format("g:i A");

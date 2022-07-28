@@ -74,7 +74,7 @@ function CustomerDetailsPage (props) {
     <div>
       <div className='row justify-content-center'>
         <div className='col-12'>
-          <h1>Customer Details</h1>
+          <h1 className='mt-0'>Customer Details</h1>
           {localbkg.status === 'PENDING' && <p>You are about to book the following class:</p>}
           {(localbkg.status === 'CONFIRMED' || localbkg.status === 'PAY-ON-ARRIVAL') && <p>You can change any customer details.</p>}
         </div>

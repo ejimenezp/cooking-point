@@ -210,7 +210,7 @@
 
 <div class="row">
     <div class="col-sm-6">
-        <div class="home-pill all-clickable orange-on-hover">
+        <div class="home-pill box all-clickable orange-on-hover">
             <img class="img-fluid lazyload" alt="best class in Madrid" data-src="/images/bestintown_logo.png" />
             <h4>10 Reasons to Choose Us</h4>
             <p>We give you 10 reasons why we think ours are the best lessons in town if you want to learn to cook Spanish food. <strong>Click to know more</strong>.</p>
@@ -248,7 +248,7 @@
                         foreach ($events as $event) {
                             if ($event->registered < $event->capacity && $i < 5) {
                                 $date = new DateTime($event->startdateatom);
-                                echo '<tr>';
+                                echo '<tr class="all-clickable orange-on-hover">';
                                 echo '<td>' . $date->format("D, M d") . '</td>';
                                 switch ($event->type) {
                                     case 'PAELLA' :

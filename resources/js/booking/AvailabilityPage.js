@@ -157,13 +157,13 @@ function AvailabilityPage (props) {
         <div className='col-12'>
           {localbkg.status === 'PENDING' && 
             <Fragment>
-              <h1>New Booking</h1>
-              <p>Select number of guests and class to check availability.</p>
+              <h1 className='mt-0'>New Booking</h1>
+              <p className='mb-0'>Select number of guests and class to check availability.</p>
             </Fragment>
           }
           { ['CONFIRMED', 'PAY-ON-ARRIVAL', 'PAID'].includes(localbkg.status) && 
             <Fragment>
-              <h1>Your Booking</h1>
+              <h1 className='mt-0'>Your Booking</h1>
               <p>You can change class and booking date:</p>
             </Fragment>
           }
