@@ -36,8 +36,8 @@
 </dl>
 
 <dl>
-	<dt><strong>I’m travelling alone, can I book?</strong></dt>
-	<dd>Of course, but please note we will try and pair you with a cooking buddy. All recipes are written and prepared for two people. Besides, we need a minimum group of 2 people to hold the class.</dd>
+	<dt><strong>I’m traveling alone, can I book?</strong></dt>
+	<dd>Of course, but keep in mind that we will probably pair you with a fellow cook. All recipes are written and prepared for two people.</dd>
 </dl>
 
 <h3 id="onlineclass">Online Classes</h3>
