@@ -163,7 +163,7 @@
 
   <div class="row">
     <div class="divider"></div>
-    <div class="col col-sm-6">
+    <div class="col col-sm-7">
       <div class="d-flex flex-row">
         <div class="d-flex flex-column mr-2">
             <a href="mailto:info@cookingpoint.es"><img class="d-flex justify-content-center icon" title="Email" src="/images/icons/email.png"></a>
@@ -171,7 +171,7 @@
         </div>
         <div class="ml-2" id="here" data-toggle="modal" data-target="#contactPhone">
           <div class="d-flex flex-column">
-            <a class="d-flex flex-row" href="#here">
+            <a class="d-flex flex-row align-items-start" href="#here">
               <img class="d-flex justify-content-around icon" title="phone" src="/images/icons/phone.png">
               <img class="d-flex justify-content-around icon" title="whatsapp" src="/images/icons/whatsapp.png">
             </a>
@@ -180,7 +180,7 @@
         </div>
       </div>
     </div>
-    <div class="col mt-3 col-sm-6 mt-sm-0">
+    <div class="col mt-3 col-sm-5 mt-sm-0">
       <div class="d-flex flex-row justify-content-center justify-content-sm-end">      
       <div class="d-flex justify-content-center justify-content-sm-end">      
         <div class="d-flex align-self-center">Follow us on:</div>
