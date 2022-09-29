@@ -113,16 +113,16 @@
         img {
             @include media-breakpoint-up(md) {
                 height: 4rem;
-                width:  4rem * 104/120;
+                width:  calc(4rem * 104 / 120);
             }
 
             @media (min-width: 1281px) {
                 height: 5rem;
-                width:  5rem * 104/120;
+                width:  calc(5rem * 104 / 120);
             }
             @media (min-width: 1537px) {
                 height: 6rem;
-                width:  6rem * 104/120;
+                width:  calc(6rem * 104 / 120);
             }
         }
     }
@@ -234,6 +234,8 @@
 
 #section-banner {
 
+    padding: 0;
+    
     img,
     video {
         overflow: hidden;

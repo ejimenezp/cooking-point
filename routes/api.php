@@ -1,6 +1,7 @@
 <?php
 
 /*
+| en repo newadmin
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
@@ -54,9 +55,6 @@ Route::get('eventtype/bookable_by_clients', 'EventtypeController@bookable_by_cli
 Route::get('priceplan/get', 'PriceplanController@get');
 Route::get('priceplan/exchangeratesapiid', 'PriceplanController@exchangeratesapiid');
 
-Route::get('tienda/getTickets', 'TicketsController@getTickets');
-Route::post('tienda/addticket', 'TicketsController@addticket');
-
 Route::post('viator', 'ViatorController@main');
 
 Route::post('contact/contactoeventos', 'ContactControllerApi@contactoeventos');
@@ -71,23 +69,18 @@ Route::post('upload/previewfile', 'UploadController@previewfile');
 Route::post('upload/importstaffing', 'CalendareventController@importStaffing');
 
 //
-//	API de cashbox
+// API for react new admin calls
 //
-Route::post('sesion/crear', 'Cashbox\SesionController@crear');
-Route::post('sesion/recalcularcaja/{id}', 'Cashbox\SesionController@recalcularCaja');
-Route::get('sesion/getultimaabierta', 'Cashbox\SesionController@getUltimaAbierta');
-Route::get('sesion/get/{id}', 'Cashbox\SesionController@get');
-Route::get('sesion/detalles/{id}', 'Cashbox\SesionController@detalles');
-Route::post('sesion/getlista', 'Cashbox\SesionController@getLista');
-Route::post('sesion/setefectivoinicial', 'Cashbox\SesionController@setefectivoinicial');
-Route::post('sesion/setefectivofinal', 'Cashbox\SesionController@setefectivofinal');
-Route::post('sesion/cerrar/{id}', 'Cashbox\SesionController@cerrar');
-Route::post('sesion/eliminar/{id}', 'Cashbox\SesionController@eliminar');
-Route::post('sesion/reabrir/{id}', 'Cashbox\SesionController@reabrir');
+Route::get('wallet', 'WalletController@retrieveLast20');
+Route::post('wallet', 'WalletController@create');
+Route::put('wallet/{id}', 'WalletController@update');
+Route::delete('wallet/{id}', 'WalletController@destroy');
+Route::get('wallet/master', 'WalletController@retrieveMaster');
 
-Route::post('movimiento/crear', 'Cashbox\MovimientoController@crear');
-Route::post('movimiento/eliminar/{id}', 'Cashbox\MovimientoController@eliminar');
-Route::get('movimiento/gettickets/{date}', 'Cashbox\MovimientoController@getTickets');
-Route::get('movimiento/getconceptos', 'Cashbox\MovimientoController@getConceptos');
+Route::get('product', 'ShopController@retrieveMaster');
 
-
+Route::get('shop/{date}', 'ShopController@retrieveTicketList');
+Route::post('shop/ticket', 'ShopController@create');
+Route::get('shop/ticket/{id}', 'ShopController@retrieve');
+Route::put('shop/ticket/{id}', 'ShopController@update');
+Route::delete('shop/ticket/{id}', 'ShopController@destroy');

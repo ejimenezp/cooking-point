@@ -50,11 +50,10 @@ class ReportController extends Controller
     function R_movimientoscaja($request)
     {
         
-        $sqlString = "SELECT ses.fecha, mov.sesion_id, mov.tipo, mov.descripcion, mov.ticket_tienda, mov.importe, mov.ticket
-                        FROM caja_movimientos as mov join caja_sesiones as ses
-                        ON mov.sesion_id = ses.id
-                        WHERE ses.fecha >= '$request->start_date' and ses.fecha <= '$request->end_date 23:59:00'
-                        ORDER BY mov.sesion_id";
+        $sqlString = "SELECT created_at, id, type, description, sale_id, amount, receipt, staff
+                        FROM wallet
+                        WHERE created_at >= '$request->start_date' and created_at <= '$request->end_date'
+                        ORDER BY id";
 
                                 
         if(!$result = DB::select($sqlString))
@@ -66,7 +65,7 @@ class ReportController extends Controller
         } else {
             return [
                 'title' =>'Movimientos caja, ' . $request->start_date . ' a '. $request->end_date ,
-                'headers' => ['Fecha', 'Sesión','Tipo', 'Descripción', 'Tkt_tienda', 'Importe', 'Ticket'],
+                'headers' => ['Fecha', 'Sesión','Tipo', 'Descripción', 'Tkt_tienda', 'Importe', 'Ticket', 'Staff'],
                 'lines' => $result ];
         }
     }
@@ -109,17 +108,17 @@ class ReportController extends Controller
     function create_temporary_table($request)
     {
 
-        DB::statement("DROP TEMPORARY TABLE IF EXISTS tienda_report_1");
-        DB::statement("CREATE TEMPORARY TABLE tienda_report_1 (ticket_id int, fecha date, producto int, staff_id int, pago varchar(255)) AS (
-                SELECT id as ticket_id, fecha, linea0 as producto, staff_id, pago
-                    FROM tienda_ventas
+        DB::statement("DROP TEMPORARY TABLE IF EXISTS sales_report_1");
+        DB::statement("CREATE TEMPORARY TABLE sales_report_1 (ticket_id int, fecha date, producto varchar(255), staff varchar(255), pago varchar(255)) AS (
+                SELECT id as ticket_id, fecha, linea0 as producto, staff, pago
+                    FROM sales
                         WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
                         AND NOT anulado
                         AND linea0 IS NOT null)" );
 
         for ($i = 1; $i <= 9; $i++) { 
-            DB::statement("INSERT INTO tienda_report_1 SELECT id as ticket_id, fecha, linea{$i} as producto, staff_id, pago
-                    FROM tienda_ventas
+            DB::statement("INSERT INTO sales_report_1 SELECT id as ticket_id, fecha, linea{$i} as producto, staff, pago
+                    FROM sales
                         WHERE fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
                         AND NOT anulado
                         AND linea{$i} IS NOT null" );                     
@@ -133,13 +132,11 @@ class ReportController extends Controller
         // first, normalize tiendas_ventas
         self::create_temporary_table($request);
 
-        $sqlString = "SELECT fecha, ticket_id, art.nombre, count(producto), art.pvp, art.iva, round(sum(art.pvp/(1+art.iva/100)), 2), round(sum(art.pvp)-sum(art.pvp/(1+art.iva/100)), 2), sum(art.pvp), pago, staff.name
-                        FROM tienda_report_1, staff, tienda_articulos as art
-                        WHERE producto = art.id AND
-                            staff_id = staff.id
-                            AND fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
-                        GROUP BY fecha, ticket_id, producto, art.nombre, art.pvp, art.iva, pago, staff.name
-                        ORDER BY fecha, ticket_id, pago";
+        $sqlString = "SELECT fecha, ticket_id, producto, count(producto), pm.price, pm.iva, round(sum(pm.price/(1+pm.iva/100)), 2), round(sum(pm.price)-sum(pm.price/(1+pm.iva/100)), 2), sum(pm.price), pago, staff
+                        FROM sales_report_1, productmaster as pm
+                        WHERE producto = pm.description AND
+                            fecha >= '$request->start_date' AND fecha <= '$request->end_date' 
+                        GROUP BY fecha, ticket_id, producto, producto, pm.price, pm.iva, pago, staff";
     							
 		if(!$result = DB::select($sqlString))
 		{

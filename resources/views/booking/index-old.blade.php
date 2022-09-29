@@ -67,7 +67,7 @@
 					<table class="availability-table">
 
 						<tr>
-							<td class="font-weight-bold">
+							<td class="fw-bold">
 								Date:
 							</td>
 							<td>
@@ -75,7 +75,7 @@
 							</td>
 						</tr>
 						<tr>					
-							<td class="font-weight-bold">
+							<td class="fw-bold">
 								Adults:
 							</td>
 							<td>
@@ -95,7 +95,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="font-weight-bold">
+							<td class="fw-bold">
 								Children:&nbsp;
 							</td>
 							<td>
@@ -113,7 +113,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="font-weight-bold">
+							<td class="fw-bold">
 								Class:
 							</td>
 							<td>
@@ -131,7 +131,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="font-weight-bold">
+							<td class="fw-bold">
 								Price:
 							</td>
 							<td>
@@ -172,7 +172,7 @@
 							<table class="voucher-table">
 								<tbody>
 									<tr>
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											Class:
 										</td>
 										<td>
@@ -180,7 +180,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											Date:
 										</td>
 										<td>
@@ -189,7 +189,7 @@
 									</tr>
 
 									<tr>
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											Time:
 										</td>
 										<td>
@@ -203,7 +203,7 @@
 							<table class="voucher-table">
 								<tbody>
 									<tr>					
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											Adults:
 										</td>
 										<td>
@@ -211,7 +211,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											Children:&nbsp;
 										</td>
 										<td>
@@ -220,7 +220,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											Price:
 										</td>
 										<td>
@@ -243,7 +243,7 @@
 							<table class="availability-table">
 								<tbody>
 									<tr>
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											Name <span class="text-danger">*</span> :
 										</td>
 										<td>
@@ -251,7 +251,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											E-mail <span class="text-danger">*</span> :
 										</td>
 										<td>
@@ -259,7 +259,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											Phone:
 										</td>
 										<td>
@@ -275,7 +275,7 @@
 							<table class="availability-table">
 								<tbody>
 									<tr>
-										<td class="font-weight-bold" style="width: 30%">
+										<td class="fw-bold" style="width: 30%">
 											Food Restrictions:
 										</td>
 										<td>
@@ -283,7 +283,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td class="font-weight-bold">
+										<td class="fw-bold">
 											Comments:
 										</td>
 										<td>
@@ -324,7 +324,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Class:
 									</td>
 									<td>
@@ -332,7 +332,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Date:
 									</td>
 									<td>
@@ -341,7 +341,7 @@
 								</tr>
 
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Time:
 									</td>
 									<td>
@@ -349,7 +349,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Booking #:
 									</td>
 									<td>
@@ -363,7 +363,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>					
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Adults:
 									</td>
 									<td>
@@ -371,7 +371,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Children:
 									</td>
 									<td>
@@ -380,7 +380,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Price:
 									</td>
 									<td>
@@ -388,7 +388,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Status:
 									</td>
 									<td>
@@ -405,7 +405,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Name:
 									</td>
 									<td>
@@ -413,7 +413,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										E-mail:
 									</td>
 									<td>
@@ -421,7 +421,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Phone:
 									</td>
 									<td>
@@ -435,7 +435,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>
-									<td class="font-weight-bold align-top">
+									<td class="fw-bold align-top">
 										Food Restrictions:
 									</td>
 									<td>
@@ -443,7 +443,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold align-top">
+									<td class="fw-bold align-top">
 										Comments:
 									</td>
 									<td>

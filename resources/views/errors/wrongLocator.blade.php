@@ -11,7 +11,7 @@
 <div class="row justify-content-center">
 	<div class="col-sm-8">
 		<form id="retrieve-form" action="/booking">
-        <p class='font-weight-bold mb-0'>Booking # :</p>
+        <p class='fw-bold mb-0'>Booking # :</p>
 		    <input name="locator" type="text" value="" >
 		    <div class="text-center mt-3">
 					<button type="submit" class="btn btn-primary">Send</button>	

@@ -46,7 +46,7 @@
                               <table class="infogram">
                                   <tr>
                                     <td class="w-50"><a href="mailto:info@cookingpoint.es" class="d-flex justify-content-center"><img class="icon" title="Email" src="/images/icons/email.png"></a></td>
-                                    <td class="w-50" id="here" data-toggle="modal" data-target="#contactPhone">
+                                    <td class="w-50" id="here" data-bs-toggle="modal" data-bs-target="#contactPhone">
                                       <div class="d-flex justify-content-center">
                                         <img class="icon" title="Phone" src="/images/icons/phone.png">
                                         <img class="icon" title="WhatsApp" src="/images/icons/whatsapp.png">
@@ -59,7 +59,7 @@
                                         <div class="d-block d-sm-none">info<br/>@cookingpoint.es</div>
                                       </a></td>
                                       <!-- <td><a href="tel:(+34)910115154">+34 910 115 154</a></td> -->
-                                      <td><a class="d-flex d-block justify-content-center" id="here" data-toggle="modal" data-target="#contactPhone" href="#here">+34 910 115 154</a></td>
+                                      <td><a class="d-flex d-block justify-content-center" id="here" data-bs-toggle="modal" data-bs-target="#contactPhone" href="#here">+34 910 115 154</a></td>
                                 </tr>
                               </table>  
                         </div>

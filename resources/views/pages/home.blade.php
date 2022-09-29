@@ -198,7 +198,7 @@
 
 <div class="row justify-content-center">
     <div class="col-sm-10 col-lg-8">
-        <div class="embed-responsive embed-responsive-16by9"> 
+        <div class="ratio ratio-16x9"> 
             <iframe class="lazyload" data-src="https://www.youtube.com/embed/qsQVbrSjBow?rel=0" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>

@@ -97,7 +97,7 @@
 	<div class="col-12">
 		<p>Originally from Seville, tapas started out almost by accident. In order to keep the flies off a glass of wine, a tapa (meaning lid) of cheese or ham was used to cover the glass. Since then, tapas have embarked on a remarkable journey of social mobility and are among the most popular and fashionable cuisines in the world. Of course the classic tapas remain and if you’ve ever wondered how to make traditional Spanish tapas, this is the class for you.</p>
 
-		<p>In this practical lesson you’ll prepare your own dinner with <strong>7 recipes</strong>: 5 traditional tapas, one dessert and sangría.</p>
+		<p>In this practical lesson <strong>you’ll prepare your own dinner of 7 recipes</strong>: 5 traditional tapas, one dessert and sangría.</p>
 
 		<p>Along the preparation, our chef will tell stories about the origin and customs around this way of enjoying food. There will be also time to talk about cured ham, olive oil and other produce paradigm of Spanish food culture.</p>
 

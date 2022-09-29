@@ -72,23 +72,15 @@ Route::get('/admin/logout', 'AuthController@logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'cp-auth'], function () {
     Route::get('', function() {     return redirect('admin/bookings'); });
-    Route::get('bookings', function() { return view('admin.bookings'); });
-    Route::get('bookings/layouttest', 'CalendareventController@layouttest');
-    Route::get('bookings/layouttest2', 'CalendareventController@layouttest2');
-    Route::post('bookings/layout', 'CalendareventController@layout');
-    Route::get('bookings/calendarevent', function() { return view('admin.bookings'); });
-    Route::get('bookings/booking', function() { return view('admin.bookings'); });
+    Route::get('bookings/{any?}', function() { return view('admin.bookings'); })->where('any', '.*');
+    Route::get('shop/{any?}', function() { return view('admin.adminreactlayout'); })->where('any', '.*');
+    Route::get('wallet/{any?}', function() { return view('admin.adminreactlayout'); })->where('any', '.*');
     Route::post('report/{id}', 'ReportController@report');
     Route::get('blogtool', function() { return view('admin.postindex'); });
     Route::get('blogtool/sandbox', function () { return view('admin.blogsandbox'); });
     Route::get('blogtool/{id}', function($id) { return view('admin.post',['id' => $id]); });
     Route::get('blogtool/preview/{id}', 'BlogtoolController@preview' );
     Route::get('report', function() { return view('admin.reportindex'); });
-    Route::get('cashbox', function() { return view('admin.cashbox.index'); });
-    Route::get('cashbox/{id}', function($id) { return view('admin.cashbox.sesion',['id' => $id]); });
-    Route::get('tienda', 'TicketsController@front');
-    Route::get('tienda/tickets', function() { return view('admin.tienda.sales'); });
-    Route::get('tienda/deleteticket', 'TicketsController@deleteticket');
     Route::get('classemails', function() { return view('admin.classemails'); });
     Route::get('fileuploader', function() { return view('admin.fileuploader'); });
 });

@@ -1,3 +1,5 @@
+
+
 @extends('masterlayout')
 
 @section('title', 'Blog')
