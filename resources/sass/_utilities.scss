@@ -5,7 +5,7 @@
 
 .home-headline {
   font-family: $font-alter;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
   padding: 0 0.5rem 0 0.5rem;
@@ -21,7 +21,8 @@
 
 
 .section-banner {
-  @include media-breakpoint-up(md) { height: 100vw / 1440 * 360}
+  padding: 0;
+  @include media-breakpoint-up(md) { height: calc(100vw / 1440 * 360) }
   @media (min-width: 1441px) { height: 360px; width: 1440px; max-width: 100%;}
   // img {
   //   width: 100%;

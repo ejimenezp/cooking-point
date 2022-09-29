@@ -19,8 +19,6 @@ var month_changed = false
 var user_name = $('meta[name=user_name]').attr('content')
 var user_role = $('meta[name=user_role]').attr('content')
 
-var user_role
-
 var stateObj = { foo: 'bar' }
 var current_url = window.location.href
 var parts = url.parse(current_url, true)
@@ -71,7 +69,7 @@ function refreshDateShown (month_schedule, date_shown) {
     if (user_role >= 3) {
       var button_color = month_schedule[i].info == '' ? 'btn-secondary' : 'btn-primary'
       edit_button = '<button class="btn ' + button_color + ' btn-sm button_calendarevent_edit" data-i="' +
-        i + '">Detalles</button>'
+        i + '">+Info</button>'
     } else if (month_schedule[i].info != '') {
       edit_button = '<button class="btn btn-primary btn-sm button_calendarevent_info" data-i="' +
         i + '">+info</button>'
@@ -355,8 +353,7 @@ function populateBookingList (i) {
   var secondstaff_name = (month_schedule[i].secondstaff_id == 2 ? '' : ', ' + cookName(month_schedule[i].secondstaff_id))
   var clase = month_schedule[i].time.substring(0, 5) + '&nbsp;' + month_schedule[i].type +
     ' (' + cookName(month_schedule[i].staff_id) + secondstaff_name + ') ' +
-    '<span class="float-right">Conf ' + month_schedule[i].registered +
-    ' Disp ' + month_schedule[i].availablecovid + '</span>'
+    '<span class="float-right">Confirm. ' + month_schedule[i].registered + '</span>'
   $('.classshown').html(clase)
   //
   $('input[name=calendarevent_id]').val(month_schedule[i].id)

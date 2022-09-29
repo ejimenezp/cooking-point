@@ -47,7 +47,7 @@
 						<table class="voucher-table">
 							<tbody>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Your Company:
 									</td>
 									<td>
@@ -55,7 +55,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Subject:
 									</td>
 									<td>
@@ -64,7 +64,7 @@
 								</tr>
 
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Details:
 									</td>
 									<td>
@@ -72,7 +72,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Invoice #:
 									</td>
 									<td>
@@ -80,7 +80,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Amount:
 									</td>
 									<td>
@@ -88,7 +88,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="font-weight-bold">
+									<td class="fw-bold">
 										Status:
 									</td>
 									<td>

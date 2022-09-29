@@ -35,7 +35,7 @@ function CustomerDetailsEdit (props) {
             <table className='availability-table'>
               <tbody>
                 <tr>
-                  <td className='font-weight-bold'>
+                  <td className='fw-bold'>
                     Name <span className='text-danger'>*</span> :
                   </td>
                   <td>
@@ -43,7 +43,7 @@ function CustomerDetailsEdit (props) {
                   </td>
                 </tr>
                 <tr>
-                  <td className='font-weight-bold'>
+                  <td className='fw-bold'>
                     E-mail <span className='text-danger'>*</span> :
                   </td>
                   <td>
@@ -51,7 +51,7 @@ function CustomerDetailsEdit (props) {
                   </td>
                 </tr>
                 <tr>
-                  <td className='font-weight-bold'>
+                  <td className='fw-bold'>
                     Phone :
                   </td>
                   <td>
@@ -67,7 +67,7 @@ function CustomerDetailsEdit (props) {
             <table className='availability-table'>
               <tbody>
                 <tr>
-                  <td className='font-weight-bold' style={{ width: '30%' }}>
+                  <td className='fw-bold' style={{ width: '30%' }}>
                     Food Restrictions :
                   </td>
                   <td>
@@ -75,7 +75,7 @@ function CustomerDetailsEdit (props) {
                   </td>
                 </tr>
                 <tr>
-                  <td className='font-weight-bold'>
+                  <td className='fw-bold'>
                     Comments :
                   </td>
                   <td>
@@ -90,15 +90,15 @@ function CustomerDetailsEdit (props) {
       {isMobile &&
         <div className='row justify-content-center'>
           <div className='col-12'>
-            <p className='font-weight-bold mb-0'>Name <span className='text-danger'>*</span> :</p>
+            <p className='fw-bold mb-0'>Name <span className='text-danger'>*</span> :</p>
             <input name='name' type='text' value={bkg.name || ''} onChange={handleChange} />
-            <p className='font-weight-bold mb-0 mt-3'>E-mail <span className='text-danger'>*</span> :</p>
+            <p className='fw-bold mb-0 mt-3'>E-mail <span className='text-danger'>*</span> :</p>
             <input name='email' type='email' value={bkg.email || ''} onChange={handleChange} />
-            <p className='font-weight-bold mb-0 mt-3'>Phone :</p>
+            <p className='fw-bold mb-0 mt-3'>Phone :</p>
             <input name='phone' type='text' value={bkg.phone || ''} onChange={handleChange} />
-            <p className='font-weight-bold mb-0 mt-3'>Food Restrictions :</p>
+            <p className='fw-bold mb-0 mt-3'>Food Restrictions :</p>
             <textarea rows='3' name='food_requirements' value={bkg.food_requirements || ''} onChange={handleChange} />
-            <p className='font-weight-bold mb-0 mt-3'>Comments :</p>
+            <p className='fw-bold mb-0 mt-3'>Comments :</p>
             <textarea rows='3' name='comments' value={bkg.comments || ''} onChange={handleChange} />
           </div>
         </div>}
@@ -124,7 +124,7 @@ function CustomerDetails (props) {
           <table className='voucher-table'>
             <tbody>
               <tr>
-                <td className='font-weight-bold'>
+                <td className='fw-bold'>
                   Name :
                 </td>
                 <td>
@@ -132,7 +132,7 @@ function CustomerDetails (props) {
                 </td>
               </tr>
               <tr>
-                <td className='font-weight-bold'>
+                <td className='fw-bold'>
                   E-mail :
                 </td>
                 <td>
@@ -140,7 +140,7 @@ function CustomerDetails (props) {
                 </td>
               </tr>
               <tr>
-                <td className='font-weight-bold'>
+                <td className='fw-bold'>
                   Phone :
                 </td>
                 <td>
@@ -156,7 +156,7 @@ function CustomerDetails (props) {
             <table className='voucher-table'>
               <tbody>
                 <tr>
-                  <td className='font-weight-bold'>
+                  <td className='fw-bold'>
                     Food Restrictions :
                   </td>
                   <td>
@@ -164,7 +164,7 @@ function CustomerDetails (props) {
                   </td>
                 </tr>
                 <tr>
-                  <td className='font-weight-bold'>
+                  <td className='fw-bold'>
                     Comments :
                   </td>
                   <td>
@@ -179,11 +179,11 @@ function CustomerDetails (props) {
 
         {isMobile &&
           <div className='col-12'>
-            <p className='font-weight-bold mb-0 d-inline'>Food Restrictions :</p>
+            <p className='fw-bold mb-0 d-inline'>Food Restrictions :</p>
             {!bkg.food_requirements && <p className='mb-0 d-inline-block'>&nbsp;--</p>}
             {!bkg.food_requirements && <p className='m-0' />}
             {bkg.food_requirements && <p className='mb-0'>{bkg.food_requirements}</p>}
-            <p className='font-weight-bold mb-0 d-inline'>Comments :</p>
+            <p className='fw-bold mb-0 d-inline'>Comments :</p>
             {!bkg.comments && <p className='d-inline-block'>&nbsp;--</p>}
             {bkg.comments && <p>{bkg.comments}</p>}
           </div>}

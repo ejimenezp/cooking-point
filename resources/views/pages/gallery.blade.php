@@ -7,7 +7,7 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<h1>Gallery</h1>
+		<h1 class="mt-0">Gallery</h1>
 		<p>See other clients' pictures posted on social media.<br/><br/></p>
 	</div>
 </div>

@@ -1,18 +1,4 @@
-/*
-  Para compilar usar:
-    npm run dev
-*/
-
 const mix = require('laravel-mix')
-require('laravel-mix-polyfill')
-
-mix.webpackConfig({
-  module: {
-    rules: [
-      { test: /booking.js/, loader: 'babel-loader' }
-    ]
-  }
-})
 
 /*
  |--------------------------------------------------------------------------
@@ -25,6 +11,9 @@ mix.webpackConfig({
  |
  */
 
+mix.react()
+  .js('resources/js/admin/adminbookingsreactroot.js', 'public/js/admin')
+
 mix
   .sass('resources/sass/app.scss', 'public/css')
   .sass('resources/sass/booking.scss', 'public/css')
@@ -35,8 +24,8 @@ mix
   .js('resources/js/contactonlineclasses.js', 'public/js')
   .js('resources/js/booking/booking.js', 'public/js')
   .js('resources/js/admin/bookings.js', 'public/js/admin')
-  .js('resources/js/admin/tienda.js', 'public/js/admin')
-  .js('resources/js/admin/cashbox.js', 'public/js/admin')
+  // .js('resources/js/admin/tienda.js', 'public/js/admin')
+  // .js('resources/js/admin/cashbox.js', 'public/js/admin')
   .js('resources/js/admin/admin.js', 'public/js/admin')
   .js('resources/js/admin/blogtool.js', 'public/js/admin')
   .js('resources/js/admin/report.js', 'public/js/admin')

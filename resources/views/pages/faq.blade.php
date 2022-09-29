@@ -6,7 +6,7 @@
 @section('content')
 
 
-<h1>Frequently Asked Questions</h1>
+<h1 class="mt-0">Frequently Asked Questions</h1>
 
 <h3>In-person Classes</h3>
 

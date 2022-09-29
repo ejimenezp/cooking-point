@@ -81,7 +81,7 @@
             <a href="/about-us">About Us</a>
           </li> -->
           <li>
-            <a href="/booking"><span class="font-weight-bold">Booking</span></a>
+            <a href="/booking"><span class="fw-bold">Booking</span></a>
           </li>
           <li>
             <a href="/gallery">Gallery</a>
@@ -125,7 +125,7 @@
             <a href="/about-us">About Us</a>
           </li> -->
           <li>
-            <a href="/booking"><span class="font-weight-bold">Booking</span></a>
+            <a href="/booking"><span class="fw-bold">Booking</span></a>
           </li>
           <li>
             <a href="/gallery">Gallery</a>
@@ -154,7 +154,7 @@
   <!-- contents -->
 
   <div class="row justify-content-center">
-    <div class="col-md-11 col-lg-10">
+    <div class="col-sm-11 col-lg-10">
       @yield('content')                  
     </div>  
   </div>
@@ -164,18 +164,18 @@
   <div class="row">
     <div class="divider"></div>
     <div class="col col-sm-7">
-      <div class="d-flex flex-row">
-        <div class="d-flex flex-column mr-2">
+      <div class="d-flex flex-row justify-content-evenly justify-content-sm-start">
+        <div class="d-flex flex-column me-sm-2">
             <a href="mailto:info@cookingpoint.es"><img class="d-flex justify-content-center icon" title="Email" src="/images/icons/email.png"></a>
-            <a class="text-dark" href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>
+            <a class="text-decoration-none text-dark" href="mailto:info@cookingpoint.es">info@cookingpoint.es</a>
         </div>
-        <div class="ml-2" id="here" data-toggle="modal" data-target="#contactPhone">
+        <div class="ms-sm-2" id="here" data-bs-toggle="modal" data-bs-target="#contactPhone">
           <div class="d-flex flex-column">
             <a class="d-flex flex-row align-items-start" href="#here">
               <img class="d-flex justify-content-around icon" title="phone" src="/images/icons/phone.png">
               <img class="d-flex justify-content-around icon" title="whatsapp" src="/images/icons/whatsapp.png">
             </a>
-            <a class="text-dark" href="#here">(+34) 910 115 154</a>
+            <a class="text-decoration-none text-dark" href="#here">(+34) 910 115 154</a>
           </div>
         </div>
       </div>
@@ -204,17 +204,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <div class="h3">Call or Chat?</div>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>        
       </div>
       <div class="modal-body">
         <div class="d-flex flex-row justify-content-around">
-          <div class="d-flex flex-column mr-2">
+          <div class="d-flex flex-column me-sm-2">
               <a href="tel:+34910115154"><img class="d-flex justify-content-center icon" title="phone" src="/images/icons/phone.png"></a>
-              <a class="text-dark" href="tel:+34910115154">Phone Call</a>
+              <a class="text-decoration-none text-dark" href="tel:+34910115154">Phone Call</a>
           </div>
-          <div class="d-flex flex-column ml-2">
+          <div class="d-flex flex-column ms-sm-2">
               <a href="https://wa.me/message/OZF6UKVAAR6GB1"><img class="d-flex justify-content-center icon" title="whatsapp" src="/images/icons/whatsapp.png"></a>
-              <a class="text-dark" href="https://wa.me/message/OZF6UKVAAR6GB1">WhatsApp Chat</a>
+              <a class="text-decoration-none text-dark" href="https://wa.me/message/OZF6UKVAAR6GB1">WhatsApp Chat</a>
           </div> 
         </div>
       </div>

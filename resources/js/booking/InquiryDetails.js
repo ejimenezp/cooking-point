@@ -180,13 +180,13 @@ function InquiryDetailsEdit (props) {
       <table className='availability-table'>
         <tbody>
           <tr>
-            <td className='font-weight-bold'>Date :</td>
+            <td className='fw-bold'>Date :</td>
             <td style={{ width: '75%' }}>
               <div>{new Intl.DateTimeFormat('en-GB', optionsDisplayDate).format(parseISO(bkg.date))}</div>
             </td>
           </tr>
           <tr>
-            <td className='font-weight-bold'>Adults :</td>
+            <td className='fw-bold'>Adults :</td>
             <td>
               <table>
                 <tbody>
@@ -207,7 +207,7 @@ function InquiryDetailsEdit (props) {
             </td>
           </tr>
           <tr>
-            <td className='font-weight-bold'>Children :</td>
+            <td className='fw-bold'>Children :</td>
             <td>
               <table>
                 <tbody>
@@ -229,7 +229,7 @@ function InquiryDetailsEdit (props) {
             </td>
           </tr>
 {/*          <tr>
-            <td className='font-weight-bold'>{isMobile ? 'Modlty :' : 'Modality :'}</td>
+            <td className='fw-bold'>{isMobile ? 'Modlty :' : 'Modality :'}</td>
             <td>
               {bkg.status === 'PENDING' &&
                 <Select className = 'classtype-select' options = { optionsClassModalitySelect} value = { optionsClassModalitySelect[bkg.onlineclass] } onChange = { handleClassModality } isSearchable = { false } />}
@@ -238,14 +238,14 @@ function InquiryDetailsEdit (props) {
             </td>
           </tr>*/}
           <tr>
-            <td className='font-weight-bold'>Class :</td>
+            <td className='fw-bold'>Class :</td>
             <td>
               <ClassTypeDropdown liftUp={handleClassType} default={bkg.type} userTimeZone={bkg.tz} onlineclass={bkg.onlineclass}/>
               { bkg.onlineclass > 0 && <UserTimeZone liftUp={handleUserTimeZone} timeZone={bkg.tz} /> }
             </td>
           </tr>
           <tr>
-            <td className='font-weight-bold'>Price :</td>
+            <td className='fw-bold'>Price :</td>
             { (bkg.onlineclass === 0 || bkg.onlineclass > 0 && bkg.status !== 'PENDING') && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : bkg.price}</td>}
             { bkg.onlineclass > 0 && bkg.status === 'PENDING' && <td>€ {(bkg.hide_price || !bkg.price) ? '--' : <Fragment>{bkg.price} ($ {(parseFloat(bkg.price) * 1.02 / exchange).toFixed(2)} approx. <span className="small badge btn-primary"><a onClick={showExchange}>Why?</a></span>)</Fragment>}</td>}
           </tr>
@@ -289,26 +289,26 @@ function InquiryDetails (props) {
         <table className='voucher-table'>
           <tbody>
             <tr>
-              <td className='font-weight-bold'>Class :</td>
+              <td className='fw-bold'>Class :</td>
               <td>{bkg.calendarevent.short_description}</td>
             </tr>
 {/*            <tr>
-              <td className='font-weight-bold'>{isMobile ? 'Modlty :' : 'Modality :'}</td>
+              <td className='fw-bold'>{isMobile ? 'Modlty :' : 'Modality :'}</td>
               <td>{bkg.onlineclass ? 'Online' : 'In-Person'}</td>
             </tr>*/}
             <tr>
-              <td className='font-weight-bold'>Date :</td>
+              <td className='fw-bold'>Date :</td>
               <td>{new Intl.DateTimeFormat('en-GB', optionsDisplayDate).format(parseISO(bkg.calendarevent.startdateatom))}</td>
             </tr>
 
             <tr>
-              <td className='font-weight-bold'>Time :</td>
+              <td className='fw-bold'>Time :</td>
               <td>{new Intl.DateTimeFormat('en-GB', optionsDisplayTime).format(start) + ' - ' +
                       new Intl.DateTimeFormat('en-GB', optionsDisplayTime).format(end) +
                       tzText }</td>
             </tr>
             <tr>
-              <td className='font-weight-bold'>{isMobile ? 'Bking # :' : 'Booking # :'}</td>
+              <td className='fw-bold'>{isMobile ? 'Bking # :' : 'Booking # :'}</td>
               <td>{bkg.locator || '--'}</td>
             </tr>
           </tbody>
@@ -318,19 +318,19 @@ function InquiryDetails (props) {
         <table className='voucher-table'>
           <tbody>
             <tr>
-              <td className='font-weight-bold'>Adults :</td>
+              <td className='fw-bold'>Adults :</td>
               <td>{bkg.adult}</td>
             </tr>
             <tr>
-              <td className='font-weight-bold'>{isMobile ? 'Children:' : 'Children :'}</td>
+              <td className='fw-bold'>{isMobile ? 'Children:' : 'Children :'}</td>
               <td>{bkg.child}</td>
             </tr>
             <tr>
-              <td className='font-weight-bold'>Price :</td>
+              <td className='fw-bold'>Price :</td>
               <td>€ {bkg.hide_price ? '--' : bkg.price}</td>
             </tr>
             <tr>
-              <td className='font-weight-bold'>Status :</td>
+              <td className='fw-bold'>Status :</td>
               <td><BkgStatus status={bkg.status} /></td>
             </tr>
           </tbody>

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TiendaArticulo extends Model
+class WalletEntry extends Model
 {
-
+	protected $table = 'wallet';
 }

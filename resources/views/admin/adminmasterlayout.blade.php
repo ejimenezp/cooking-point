@@ -17,9 +17,9 @@
 
 <body>
 	<div class="d-block d-md-none">
-		<div class="cp-smartphone-navbar clearfix">
-			<div class=" float-left">
-				<a class='menu-strips' href='javascript:void(0);'><img src="/images/icons/menu-strips.png" height="50px" /></a>
+		<div class="cp-smartphone-navbar">
+			<div class="d-flex flex-column align-items-start">
+				<img class='menu-strips' src="/images/icons/menu-strips.png"/>
 			</div>
 			<div id="dropdown-content" class="dropdown-content-slide-out">
 				<ul>
@@ -31,10 +31,10 @@
 						<a href="/admin/report">Reports</a>
 					</li>
 					<li>
-						<a href="/admin/tienda">Tienda</a>
+						<a href="/admin/shop">Tienda</a>
 					</li>
 					<li>
-						<a href="/admin/cashbox">Caja</a>
+						<a href="/admin/wallet">Caja</a>
 					</li>
 					@endif
 					@if (app('request')->input('user_role') >= 3)
@@ -66,10 +66,10 @@
 						<a href="/admin/report">Reports</a>
 					</li>
 					<li>
-						<a href="/admin/tienda">Tienda</a>
+						<a href="/admin/shop">Tienda</a>
 					</li>
 					<li>
-						<a href="/admin/cashbox">Caja</a>
+						<a href="/admin/wallet">Caja</a>
 					</li>
 					@endif
 					@if (app('request')->input('user_role') >= 3)
@@ -90,7 +90,7 @@
 	<div class="container-fluid">
 		<div class="divider"></div>
 		<div class="row justify-content-center">
-			<div class="col-12 col-xl-10">
+			<div class="col-12 col-xxl-10">
 				@yield('content')
 			</div>
 		</div>

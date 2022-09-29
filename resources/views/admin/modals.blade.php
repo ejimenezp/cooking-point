@@ -8,14 +8,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Eliminar Evento</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <p>Confirmar</p>
         </div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" id="modal_button_calendarevent_delete" class="btn btn-primary" >Eliminar</button>
             </form>
        </div>
@@ -31,7 +31,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Cerrar</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <p>Los cambios se perderán</p>
@@ -39,7 +39,7 @@
         <div class="modal-footer">
             <form >
                 <button type="button" id="modal_button_calendarevent_close" class="btn btn-secondary">Cerrar sin guardar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Seguir editando</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Seguir editando</button>
                 <button type="button" id="modal_button_calendarevent_save" class="btn btn-primary" >Guardar</button>
             </form>
        </div>
@@ -56,7 +56,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title"><div id="modal_calendarevent_title"></div></h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body" id="modal_calendarevent_body"></div>
         <div class="modal-footer">
@@ -78,14 +78,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Eliminar Reserva</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <p>Confirmar</p>
         </div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" id="modal_button_booking_delete" class="btn btn-primary" >Eliminar</button>
             </form>
        </div>
@@ -101,7 +101,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Cerrar</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <p>Los cambios se perderán</p>
@@ -109,7 +109,7 @@
         <div class="modal-footer">
             <form >
                 <button type="button" id="modal_button_booking_close" class="btn btn-secondary">Cerrar sin guardar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Seguir editando</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Seguir editando</button>
                 <button type="button" id="modal_button_booking_save" class="btn btn-primary" >Guardar</button>
             </form>
        </div>
@@ -124,14 +124,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Atención</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <p>Debes guardar los cambios antes de enviar email.</p>
         </div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
             </form>
        </div>
       </div>
@@ -146,13 +146,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Atención</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body modal_admin_body"></div>
 
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" id="modal_button_booking_emailit" class="btn btn-primary" >Continuar</button>
             </form>
        </div>
@@ -170,14 +170,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Delete Post</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <p>Post and associated images will be removed. Please confirm</p>
         </div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" id="modal_button_post_delete" class="btn btn-primary" >Delete</button>
             </form>
        </div>
@@ -194,12 +194,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title modal_admin_title"></h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body modal_admin_body"></div>
         <div class="modal-footer">
             <form >
-                <button type="button" class="btn btn-primary btn-ok" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-primary btn-ok" data-bs-dismiss="modal">OK</button>
             </form>
        </div>
       </div>

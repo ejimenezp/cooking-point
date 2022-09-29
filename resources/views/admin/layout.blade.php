@@ -30,7 +30,7 @@ function show_eating_layout () {
 
 <div class="row justify-content-center">
   <div class="col-md-6 text-center">
-    <button onclick="show_cooking_layout()" class="btn btn-primary btn-sm mb-1 mr-1">Cocinando</button>
+    <button onclick="show_cooking_layout()" class="btn btn-primary btn-sm mb-1 me-1">Cocinando</button>
     <button onclick="show_eating_layout()" class="btn btn-secondary btn-sm mb-1">Comiendo</button>
   </div>
 </div>
