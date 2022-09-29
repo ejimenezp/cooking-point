@@ -475,7 +475,7 @@ function validBookingForm () {
     modal_body += 'Introduce un email válido<br/>'
     show_it = true
   }
-  filter = /^[0-9 \(\)\-\+]+$/
+  filter = /^([A-Z]{2}\+)*[0-9 \(\)\-\+]+$/
   var phone = $('input[name=phone]').val()
   if (phone != '' && !filter.test(phone)) {
     modal_body += 'Introduce un teléfono válido<br/>'
