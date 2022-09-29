@@ -41,7 +41,7 @@
         "formik": "^2.2.9",
         "http-agent": "^0.1.2",
         "jquery": "^3.5.1",
-        "jquery-ui": "^1.13.0",
+        "jquery-ui": "^1.13.2",
         "js-cookie": "^2.2.1",
         "laravel-mix": "^6.0.41",
         "lazysizes": "^5.3.2",
