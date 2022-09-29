@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-	<title>(react) Main - Admin Cooking Point</title>
+	<title>Main - Admin Cooking Point</title>
 	<meta name="description" content="Cooking Point Admin Main Page">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="user_name" content="{{ app('request')->input('user_name') }}">

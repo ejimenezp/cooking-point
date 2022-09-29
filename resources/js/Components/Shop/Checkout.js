@@ -6,7 +6,7 @@ import MyButtonGroup from '../MyButtonGroup'
 import myPost from '../myPost'
 
 const Checkout = (props) => {
-  const mutation = useMutation((ticket) => myPost('/api/shop/ticket/', ticket),
+  const mutation = useMutation((ticket) => myPost('/api/shop/ticket', ticket),
     { onSuccess: (result) => props.liftUp({ ...props.ticket, ...result.data }) })
 
   const checkout = (formaPago) => {
