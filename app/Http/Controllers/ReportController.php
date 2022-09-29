@@ -50,11 +50,10 @@ class ReportController extends Controller
     function R_movimientoscaja($request)
     {
         
-        $sqlString = "SELECT ses.fecha, mov.sesion_id, mov.tipo, mov.descripcion, mov.ticket_tienda, mov.importe, mov.ticket
-                        FROM caja_movimientos as mov join caja_sesiones as ses
-                        ON mov.sesion_id = ses.id
-                        WHERE ses.fecha >= '$request->start_date' and ses.fecha <= '$request->end_date 23:59:00'
-                        ORDER BY mov.sesion_id";
+        $sqlString = "SELECT created_at, id, type, description, sale_id, amount, receipt, staff
+                        FROM wallet
+                        WHERE created_at >= '$request->start_date' and created_at <= '$request->end_date'
+                        ORDER BY id";
 
                                 
         if(!$result = DB::select($sqlString))
@@ -66,7 +65,7 @@ class ReportController extends Controller
         } else {
             return [
                 'title' =>'Movimientos caja, ' . $request->start_date . ' a '. $request->end_date ,
-                'headers' => ['Fecha', 'Sesión','Tipo', 'Descripción', 'Tkt_tienda', 'Importe', 'Ticket'],
+                'headers' => ['Fecha', 'Sesión','Tipo', 'Descripción', 'Tkt_tienda', 'Importe', 'Ticket', 'Staff'],
                 'lines' => $result ];
         }
     }
