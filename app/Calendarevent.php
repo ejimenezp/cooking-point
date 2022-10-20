@@ -9,6 +9,7 @@ use \DateTime;
 use \DateTimeZone;
 use \DateInterval;
 use Log;
+use AvailabilityHold;
 
 class Calendarevent extends Model
 {
@@ -20,6 +21,11 @@ class Calendarevent extends Model
     public function bookings()
     {
         return $this->hasMany('App\Booking');
+    }
+
+    public function availabilityholds()
+    {
+        return $this->hasMany('App\AvailabilityHold');
     }
 
     public function eventtype()
@@ -123,7 +129,8 @@ class Calendarevent extends Model
 
     public function getAvailableCovid($travellers)
     {
-        $available = $this->capacity - $this->registered;
+        $holds = $this->availabilityholds->where('expiry', '>=', date('Y-m-d H:i:s'))->sum('travellers');
+        $available = $this->capacity - $this->registered - $holds;
         return $available < 0 ? 0 : $available;
 
         $usedStoves = $this->bookings->where('status_filter', 'REGISTERED')->reduce(function($carry, $item) {return $carry + ceil(($item->adult + $item->child)/2);});

@@ -22,7 +22,7 @@
 //
 Route::get('/booking/forget', 'BookingController@forget');
 Route::get('/booking/new/availability', 'BookingController@get')->middleware('cp-locator');
-Route::get('/booking/{locator?}/{more?}', 'BookingController@get')->middleware('cp-locator');
+Route::get('/booking/{locator?}/{more?}', 'BookingController@get')->middleware('cp-locator')->name('booking');
 
 //
 // FRONT-END

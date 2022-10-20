@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
+use App\Http\Controllers\AvailabilityHoldController;
 use App\Booking;
+use App\Calendarevent;
+
 use Cookie;
 use Log;
 
@@ -33,10 +36,20 @@ class TPVControllerStub extends Controller
 				if ($bkg->calendarevent->type == 'PAYREQUEST') {
 					return view('pages.paymentrequest', ['bkg'=> $bkg, 'tpv_result' =>'']);
 				} else {
-					return view('booking.index', ['page' => 'booking', 'tpv_result' =>'']);
+					return redirect()->route('booking', ['param' => json_encode($bkg, JSON_NUMERIC_CHECK)]);
 				}
 			} else {
-				return view('tpv.pay-stub')->with('bkg', $bkg);
+				// comprobar disponibilidad una última vez antes de pagar
+				$travellers = $bkg->adult + $bkg->child;
+				if (AvailabilityHoldController::isValid($bkg->locator, $bkg->calendarevent_id, $travellers)) {
+						return view('tpv.pay-stub')->with('bkg', $bkg);
+				} else if (Calendarevent::find($bkg->calendarevent_id)->availablecovid >= $travellers) {
+					AvailabilityHoldController::add($bkg->calendarevent_id, $bkg->locator, $travellers, 'PT300S');
+					return view('tpv.pay-stub')->with('bkg', $bkg);
+				} else {
+					AvailabilityHoldController::remove($bkg->locator);
+					return redirect()->route('booking', ['param' => json_encode($bkg, JSON_NUMERIC_CHECK)]);
+				}
 			}
     	}
     }
@@ -73,6 +86,7 @@ class TPVControllerStub extends Controller
             	$bkg->crm = 'YES';
             }
 	        $bkg->save();
+			AvailabilityHoldController::remove($bkg->locator);
 	        if ($bkg->calendarevent->type == 'PAYREQUEST') {
 							MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_3rdpartypayment');
 	        } else if ($bkg->onlineclass) {
