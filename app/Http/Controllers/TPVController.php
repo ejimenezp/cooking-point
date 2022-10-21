@@ -38,11 +38,12 @@ class TPVController extends Controller
 			} else {
 				// comprobar disponibilidad una última vez antes de pagar
 				$travellers = $bkg->adult + $bkg->child;
-				if (AvailabilityHoldController::isValid($bkg->locator, $bkg->calendarevent_id, $travellers)) {
-						return view('tpv.pay')->with('bkg', $bkg);
-				} else if (Calendarevent::find($bkg->calendarevent_id)->availablecovid >= $travellers) {
-					AvailabilityHoldController::add($bkg->calendarevent_id, $bkg->locator, $travellers, 'PT300S');
-					return view('tpv.pay')->with('bkg', $bkg);
+				if (AvailabilityHoldController::isValid($bkg->calendarevent_id, $bkg->locator, $travellers) ||
+					Calendarevent::find($bkg->calendarevent_id)->availablecovid >= $travellers)
+				{
+					AvailabilityHoldController::addOrRefresh($bkg->calendarevent_id, $bkg->locator, $travellers, 'PT300S');
+					return view('tpv.pay-stub')->with('bkg', $bkg);
+
 				} else {
 					AvailabilityHoldController::remove($bkg->locator);
 					return redirect()->route('booking', ['param' => json_encode($bkg, JSON_NUMERIC_CHECK), 'tpv_result' =>'NOAVAILABILITY']);

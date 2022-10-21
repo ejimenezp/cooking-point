@@ -119,7 +119,10 @@ class ViatorController extends Controller
             }
             if ($availability->AvailabilityStatus->Status == 'AVAILABLE') {
                 unset($availability->AvailabilityStatus->UnavailabilityReason);
-                AvailabilityHoldController::add(
+                $availability->AvailabilityHold->Expiry = $requestdata['AvailabilityHold']['Expiry']) ? $requestdata['AvailabilityHold']['Expiry'] : 'PT300S';
+                $availability->AvailabilityHold->Reference = $requestdata['AvailabilityHold']['Expiry']) ? $requestdata['AvailabilityHold']['Expiry'] : 'PT300S';
+
+                AvailabilityHoldController::addOrRefresh(
                     $ce->id,
                     sprintf("%d_%03d", $ce->id, mt_rand(0, 999)),
                     $travellers,

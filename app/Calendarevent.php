@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Cookie;
 
 use \DateTime;
 use \DateTimeZone;
@@ -129,8 +130,9 @@ class Calendarevent extends Model
 
     public function getAvailableCovid($travellers)
     {
+        $thisHold = $this->availabilityholds->where('reference', Cookie::get('cplocator'))->where('expiry', '>=', date('Y-m-d H:i:s'))->sum('travellers');
         $holds = $this->availabilityholds->where('expiry', '>=', date('Y-m-d H:i:s'))->sum('travellers');
-        $available = $this->capacity - $this->registered - $holds;
+        $available = $this->capacity - $this->registered - $holds + $thisHold;
         return $available < 0 ? 0 : $available;
 
         $usedStoves = $this->bookings->where('status_filter', 'REGISTERED')->reduce(function($carry, $item) {return $carry + ceil(($item->adult + $item->child)/2);});

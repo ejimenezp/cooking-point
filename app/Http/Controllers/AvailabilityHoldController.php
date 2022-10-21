@@ -8,16 +8,20 @@ use DateInterval;
 
 class AvailabilityHoldController extends Controller
 {
-    public function add($calendarevent_id, $reference, $travellers, $duration)
+    public function addOrRefresh($calendarevent_id, $reference, $travellers, $duration)
     {
-        $hold = new AvailabilityHold;
-        $hold->calendarevent_id = $calendarevent_id;
-        $hold->reference = $reference;
-        $hold->travellers = $travellers;
         $interval = new DateInterval($duration);
         $expiry = (new DateTime())->add($interval);
-        $hold->expiry = $expiry->format('Y-m-d H:i:s');
-        $hold->save();
+        $hold = AvailabilityHold::where('calendarevent_id', $calendarevent_id)
+                                ->where('reference', $reference)
+                                ->where('travellers', '<=', $travellers)->first();
+        if (!$hold) {
+            AvailabilityHold::create(
+                ['calendarevent_id' => $calendarevent_id, 'reference' => $reference, 'travellers' => $travellers, 'expiry' => $expiry->format('Y-m-d H:i:s')]);
+        } else {
+            $hold->expiry = $expiry->format('Y-m-d H:i:s');
+            $hold->save();
+        }
     }
 
     public function remove($reference)
@@ -25,7 +29,7 @@ class AvailabilityHoldController extends Controller
         AvailabilityHold::where('reference', $reference)->delete();
     }
 
-    public function isValid($reference, $calendarevent_id = null, $travellers = 1000)
+    public function isValid($calendarevent_id, $reference, $travellers)
     {
         return AvailabilityHold::where('calendarevent_id', $calendarevent_id)
                                 ->where('expiry', '>=', date('Y-m-d H:i:s'))
