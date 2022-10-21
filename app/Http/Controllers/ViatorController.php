@@ -119,12 +119,12 @@ class ViatorController extends Controller
             }
             if ($availability->AvailabilityStatus->Status == 'AVAILABLE') {
                 unset($availability->AvailabilityStatus->UnavailabilityReason);
-                $availability->AvailabilityHold->Expiry = $requestdata['AvailabilityHold']['Expiry']) ? $requestdata['AvailabilityHold']['Expiry'] : 'PT300S';
-                $availability->AvailabilityHold->Reference = $requestdata['AvailabilityHold']['Expiry']) ? $requestdata['AvailabilityHold']['Expiry'] : 'PT300S';
+                $availability->AvailabilityHold->Expiry = isset($requestdata['AvailabilityHold']['Expiry']) ? $requestdata['AvailabilityHold']['Expiry'] : 'PT300S';
+                $availability->AvailabilityHold->Reference = $requestdata['ExternalReference'];
 
                 AvailabilityHoldController::addOrRefresh(
                     $ce->id,
-                    sprintf("%d_%03d", $ce->id, mt_rand(0, 999)),
+                    $requestdata['ExternalReference'],
                     $travellers,
                     isset($requestdata['AvailabilityHold']['Expiry']) ? $requestdata['AvailabilityHold']['Expiry'] : 'PT300S');
             }
