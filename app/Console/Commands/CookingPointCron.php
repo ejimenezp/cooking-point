@@ -48,5 +48,9 @@ class CookingPointCron extends Command
         // Send Online Class link
         $a = new SendZoomInvitation;
         if ($a->query()) { $a->exec(); }
+
+        // Purge availability holds
+        $a = new PurgeAvailabilityHolds;
+        $a->query();
     }
 }

@@ -25,7 +25,6 @@ class Job {
 	{	
 		$this->result = $this->run_query();
 		if($this->result->isEmpty()) {
-			Log::info('No rows for ' . $this->jobname);
 			return false;
 		}
 		return true;
