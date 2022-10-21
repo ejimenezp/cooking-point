@@ -1,12 +1,14 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { format, parseISO, isSameDay, isBefore, differenceInHours, startOfMonth, endOfMonth, addDays, subDays } from 'date-fns'
+import { format, parseISO, isSameDay, startOfMonth, endOfMonth, addDays, subDays } from 'date-fns'
 import { useMediaQuery } from 'react-responsive'
 import { utcToZonedTime } from 'date-fns-tz'
 import { navigate } from '@reach/router'
+import { useQuery } from 'react-query'
 import { InquiryDetailsEdit } from './InquiryDetails'
 import DatePicker from './Components/DatePicker/DatePicker'
 import { MyModal } from './Components/Modal'
+import myFetch from '../Components/myFetch'
 import { NavButtons } from './Components/NavButtons'
 
 const _ = require('lodash')
@@ -21,17 +23,10 @@ AvailabilityPage.propTypes = {
 
 function AvailabilityPage (props) {
   const [localbkg, setBkg] = useState(Object.assign({}, props.bkg))
-  const now = new Date()
   const isMobile = useMediaQuery({ maxWidth: 575 })
 
-  const aux = sessionStorage.getItem(createUrl(localbkg.date))
-  var clearData
-  if (aux) {
-    clearData = JSON.parse(atob(aux.replace(/x06/g, '5')))
-  }
-  const [data, setData] = useState(clearData || [])
+  const [data, setData] = useState([])
   const [url, setUrl] = useState(createUrl(localbkg.date))
-  const [isError, setIsError] = useState(false)
   /** ddate: day selected on the datepicker */
   const [ddate, setDate] = useState(utcToZonedTime(parseISO(props.bkg.date), props.bkg.tz))
   /** dday: pivot to navigate through months */
@@ -126,42 +121,39 @@ function AvailabilityPage (props) {
     setDay(day)
   }
 
-  useEffect(() => {
-    const fetchAvailability = async () => {
-      setIsError(false)
-      try {
-        const result = await axios(url)
-        const aux = result.data.replace(/x06/g, '5')
+  const { result, isLoading, isError } = useQuery(url,
+    () => myFetch(url),
+    {
+      onSuccess: (result) => {
+        const aux = result.replace(/x06/g, '5')
         const clearData = JSON.parse(atob(aux))
         // const clearData = result.data
         setData(clearData)
-        sessionStorage.setItem(url, result.data)
-      } catch (error) {
-        setIsError(true)
       }
     }
-    setUrl(createUrl(dday))
-    const aux = sessionStorage.getItem(createUrl(dday))
-    if (aux) {
-      const clearData = JSON.parse(atob(aux.replace(/x06/g, '5')))
-      setData(clearData)
-    } else {
-      fetchAvailability()
-    }
-  }, [url, localbkg.onlineclass])
+  )
+
+  // useEffect(() => {
+  //   if (typeof result !== 'undefined') {
+  //     const aux = result.replace(/x06/g, '5')
+  //     const clearData = JSON.parse(atob(aux))
+  //     // const clearData = result.data
+  //     setData(clearData)
+  //   }
+  // }, [result])
 
   return (
     <div>
       {showModal && <MyModal text={modalContent} liftUp={() => setShowModal(false)} />}
       <div className='row'>
         <div className='col-12'>
-          {localbkg.status === 'PENDING' && 
+          {localbkg.status === 'PENDING' &&
             <Fragment>
               <h1 className='mt-0'>New Booking</h1>
               <p className='mb-0'>Select number of guests and class to check availability.</p>
             </Fragment>
           }
-          { ['CONFIRMED', 'PAY-ON-ARRIVAL', 'PAID'].includes(localbkg.status) && 
+          { ['CONFIRMED', 'PAY-ON-ARRIVAL', 'PAID'].includes(localbkg.status) &&
             <Fragment>
               <h1 className='mt-0'>Your Booking</h1>
               <p>You can change class and booking date:</p>

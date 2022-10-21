@@ -136,7 +136,7 @@ class CalendareventController extends Controller
             return $subset;
         });
         $obfuscate = base64_encode(json_encode($subset, JSON_NUMERIC_CHECK));
-        return str_replace("5", "x06", $obfuscate);
+        return json_encode(str_replace("5", "x06", $obfuscate), JSON_NUMERIC_CHECK);
         // return $subset;
     }
 

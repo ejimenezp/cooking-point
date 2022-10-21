@@ -3,6 +3,8 @@ import 'regenerator-runtime/runtime'
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import { QueryClient, QueryClientProvider } from 'react-query'
+// import { ReactQueryDevtools } from 'react-query/devtools'
 import { Router, Redirect } from '@reach/router'
 
 import ErrorBoundary from './Components/ErrorBoundary'
@@ -19,6 +21,8 @@ import CancelBookingPage from './CancelBookingPage'
 // const AvailabilityPage = React.lazy(() => import('./AvailabilityPage.js'));
 // const CustomerDetailsPage = React.lazy(() => import('./CustomerDetailsPage.js'));
 
+const queryClient = new QueryClient()
+
 function BookingRoot (props) {
   const data = JSON.parse(props.data)
   data.fixed_date = parseInt(data.fixed_date)
@@ -27,12 +31,12 @@ function BookingRoot (props) {
   if (data.onlineclass) {
     data.tz = (typeof data.tz === 'undefined') ? Intl.DateTimeFormat().resolvedOptions().timeZone : data.tz
     if (data.type === 'PAELLA') {
-      data.type ='ONLINE-EVENING-PAELLA'
+      data.type = 'ONLINE-EVENING-PAELLA'
     }
   } else {
     data.tz = 'Europe/Madrid'
   }
-    
+
   const [bkg, setBkg] = useState(data)
 
   function handleUpdateBkg (bkg) {
@@ -44,22 +48,26 @@ function BookingRoot (props) {
   }
 
   return (
-    <div className='col-12'>
-      <ErrorBoundary>
-        <Router>
-          {bkg.locator === '' && <Redirect from='/booking' to='/booking/new/availability' noThrow />}
-          {bkg.locator !== '' && <Redirect from='/booking' to={'/booking/' + bkg.locator} noThrow />}
+    <QueryClientProvider client={queryClient}>
+    {/*<ReactQueryDevtools initialIsOpen={false} />*/}
+      <div className='col-12'>
+        <ErrorBoundary>
+          <Router>
+            {bkg.locator === '' && <Redirect from='/booking' to='/booking/new/availability' noThrow />}
+            {bkg.locator !== '' && <Redirect from='/booking' to={'/booking/' + bkg.locator} noThrow />}
 
-          <AvailabilityPage path='/booking/new/availability' liftUp={handleUpdateBkg} bkg={bkg} />
-          <AvailabilityPage path='/booking/:locator/availability' liftUp={handleUpdateBkg} bkg={bkg} />
-          <CustomerDetailsPage path='/booking/new/customerdetails' liftUp={handleUpdateBkg} bkg={bkg} />
-          <CustomerDetailsPage path='/booking/:locator/customerdetails' liftUp={handleUpdateBkg} bkg={bkg} />
-          <BookingDetailsPage path='/booking/new/booking' liftUp={handleUpdateBkg} bkg={bkg} />
-          <BookingDetailsPage path='/booking/:locator' liftUp={handleUpdateBkg} bkg={bkg} />
-          <CancelBookingPage path='/booking/:locator/cancelbooking' liftUp={handleUpdateBkg} bkg={bkg} />
-        </Router>
-      </ErrorBoundary>
-    </div>
+            <AvailabilityPage path='/booking/new/availability' liftUp={handleUpdateBkg} bkg={bkg} />
+            <AvailabilityPage path='/booking/:locator/availability' liftUp={handleUpdateBkg} bkg={bkg} />
+            <CustomerDetailsPage path='/booking/new/customerdetails' liftUp={handleUpdateBkg} bkg={bkg} />
+            <CustomerDetailsPage path='/booking/:locator/customerdetails' liftUp={handleUpdateBkg} bkg={bkg} />
+            <BookingDetailsPage path='/booking/new/booking' liftUp={handleUpdateBkg} bkg={bkg} />
+            <BookingDetailsPage path='/booking/:locator' liftUp={handleUpdateBkg} bkg={bkg} />
+            <CancelBookingPage path='/booking/:locator/cancelbooking' liftUp={handleUpdateBkg} bkg={bkg} />
+          </Router>
+        </ErrorBoundary>
+      </div>
+    </QueryClientProvider>
+
   )
 }
 

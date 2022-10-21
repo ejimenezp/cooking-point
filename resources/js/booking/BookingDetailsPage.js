@@ -24,6 +24,7 @@ function BookingDetailsPage (props) {
   const [modalContent, setModalContent] = useState('')
   const [showModalTPVOK, setShowModalTPVOK] = useState(localbkg.tpv_result === 'OK')
   const [showModalTPVKO, setShowModalTPVKO] = useState(localbkg.tpv_result === 'KO')
+  const [showModalNOAVAILABILITY, setShowModalNOAVAILABILITY] = useState(localbkg.tpv_result === 'NOAVAILABILITY')
   const [isError, setIsError] = useState(false)
   const isMobile = useMediaQuery({ maxWidth: 575 })
 
@@ -117,6 +118,19 @@ function BookingDetailsPage (props) {
     )
   }
 
+  function modalNOAVAILABILITY () {
+    if (!showModalNOAVAILABILITY) {
+      localbkg.tpv_result = ''
+      return
+    }
+    const modal = {}
+    modal.header = '<h4>Seats No Longer Available</h4>'
+    modal.body = '<p>It seems that it took you a long time to pay for the seats and now they are not available because someone else bought them.</p><p>Please choose "Change Class/Date" to find alternative classes.</p>'
+    return (
+      <MyModal text={modal} liftUp={() => setShowModalNOAVAILABILITY(false)} />
+    )
+  }
+
   function cancelable () {
     return ['CONFIRMED', 'PAID', 'PAY-ON-ARRIVAL'].includes(localbkg.status) &&
      isBefore(new Date(), new Date(localbkg.calendarevent.startdateatom))
@@ -138,6 +152,7 @@ function BookingDetailsPage (props) {
     <Fragment>
       {modalTPVOK()}
       {modalTPVKO()}
+      {modalNOAVAILABILITY()}
       {showModal && <MyModal text={modalContent} liftUp={() => setShowModal(false)} />}
 
       <div className='row justify-content-center'>

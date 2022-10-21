@@ -1,4 +1,186 @@
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700);
-#BookingRoot{width:100%}.type-dropdown-input{cursor:pointer;display:inline-block;position:relative;width:100%}.type-dropdown-content{background-color:#dfe0df;box-shadow:0 8px 16px 0 rgba(0,0,0,.2);cursor:pointer;display:none;overflow:auto;padding:0;position:absolute;width:100%;z-index:1}.type-dropdown-content li{color:#333232;display:block;padding:.5rem;text-decoration:none}.type-dropdown-triangule{border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid #dfe0df;height:0;position:absolute;right:10px;top:20px;width:0;z-index:-1}.react-datepicker{background-color:#fff;border:1px solid #dfe0df;border-radius:7px;font-family:Segoe UI,Oxygen-Sans,Helvetica,Arial,sans-serif;margin:auto auto 5%}.react-datepicker button:focus,.react-datepicker div:focus{outline:none}.react-datepicker-header{background-color:#dfe0df;border-bottom:1px solid #333232;border-top-left-radius:.3rem;border-top-right-radius:.3rem;padding-top:8px;position:relative;text-align:center}.react-datepicker-day-name{border-radius:7px;display:inline-block;margin-right:5px;margin-top:.2rem;padding:.2rem;text-align:center;width:2.2rem}.react-datepicker-day-names,.react-datepicker-week{margin-top:.2rem;white-space:nowrap}.react-datepicker-current-month{color:#333232;font-weight:700;margin-top:0}.react-datepicker-day{background-color:#ef8401;border:3px solid #fff;border-radius:7px;color:#fff;cursor:pointer;display:inline-block;line-height:1.7rem;margin-right:5px;padding:.2rem;text-align:right;width:2.2rem}.react-datepicker-day-disabled{background-color:#fff!important;border:3px solid #fff;color:#dfe0df!important;cursor:auto}.react-datepicker-day-selected{background-color:#016cef;border:3px solid #dfe0df;color:#fff}.react-datepicker-navigation{background:none;border:1rem solid transparent;cursor:pointer;height:10px;line-height:1.7rem;overflow:hidden;padding:0;position:absolute;text-align:center;text-indent:-999em;top:10px;width:0;width:10px}.react-datepicker-navigation-previous{border-right-color:#333232;left:.5rem}.react-datepicker-navigation-next{border-left-color:#333232;right:.5rem}.react-datepicker-month{margin-bottom:.5rem;text-align:center}.availability-table{width:100%}.availability-table tr{height:3.75rem}.voucher-table{width:100%}.voucher-table td:first-child{width:25%}.nav-buttons-mobile ul{list-style-type:none;margin:1rem -15px -9px;padding:0}.nav-buttons-mobile li{background-color:#ffd9a2;border:1px #dfe0df;border-top-style:solid}.nav-buttons-mobile .btn:before{content:">";margin:0 .5rem}.nav-buttons-mobile .btn{background-color:inherit;border:none;color:inherit;display:block;height:100%;padding:.5rem;text-align:left;width:100%}.nav-buttons-mobile .btn-primary{font-weight:bolder}
+#BookingRoot {
+  width: 100%;
+}
 
-/*# sourceMappingURL=booking.css.map*/
+.type-dropdown-input {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.type-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #DFE0DF;
+  width: 100%;
+  padding: 0;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  cursor: pointer;
+}
+.type-dropdown-content li {
+  padding: 0.5rem 0.5rem;
+  color: #333232;
+  text-decoration: none;
+  display: block;
+}
+
+.type-dropdown-triangule {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #DFE0DF;
+  z-index: -1;
+}
+
+.react-datepicker {
+  background-color: white;
+  border: 1px solid #DFE0DF;
+  border-radius: 7px;
+  margin: auto auto 5%;
+  font-family: "Segoe UI", Oxygen-Sans, Helvetica, Arial, sans-serif;
+}
+.react-datepicker div:focus,
+.react-datepicker button:focus {
+  outline: none;
+}
+
+.react-datepicker-header {
+  text-align: center;
+  background-color: #DFE0DF;
+  border-bottom: 1px solid #333232;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+  padding-top: 8px;
+  position: relative;
+}
+
+.react-datepicker-day-name {
+  border-radius: 7px;
+  display: inline-block;
+  width: 2.2rem;
+  text-align: center;
+  padding: 0.2rem;
+  margin-right: 5px;
+  margin-top: 0.2rem;
+}
+
+.react-datepicker-day-names,
+.react-datepicker-week {
+  white-space: nowrap;
+  margin-top: 0.2rem;
+}
+
+.react-datepicker-current-month {
+  margin-top: 0;
+  color: #333232;
+  font-weight: bold;
+}
+
+.react-datepicker-day {
+  color: white;
+  background-color: #EF8401;
+  border: 3px solid white;
+  display: inline-block;
+  line-height: 1.7rem;
+  border-radius: 7px;
+  width: 2.2rem;
+  text-align: right;
+  padding: 0.2rem;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.react-datepicker-day-disabled {
+  color: #DFE0DF !important;
+  border: 3px solid white;
+  background-color: white !important;
+  cursor: initial;
+}
+
+.react-datepicker-day-selected {
+  border: 3px solid #DFE0DF;
+  background-color: #016CEF;
+  color: white;
+}
+
+.react-datepicker-navigation {
+  background: none;
+  line-height: 1.7rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  width: 0;
+  padding: 0;
+  height: 10px;
+  width: 10px;
+  text-indent: -999em;
+  overflow: hidden;
+  border: 1rem solid transparent;
+}
+
+.react-datepicker-navigation-previous {
+  border-right-color: #333232;
+  left: 0.5rem;
+}
+
+.react-datepicker-navigation-next {
+  border-left-color: #333232;
+  right: 0.5rem;
+}
+
+.react-datepicker-month {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.availability-table {
+  width: 100%;
+}
+.availability-table tr {
+  height: 3.75rem;
+}
+
+.voucher-table {
+  width: 100%;
+}
+.voucher-table td:nth-child(1) {
+  width: 25%;
+}
+
+.nav-buttons-mobile ul {
+  list-style-type: none;
+  margin: 1rem -15px -9px -15px;
+  padding: 0;
+}
+.nav-buttons-mobile li {
+  border-style: solid none none none;
+  border-color: #DFE0DF;
+  border-width: 1px;
+  background-color: #FFD9A2;
+}
+.nav-buttons-mobile .btn::before {
+  margin: 0 0.5rem 0 0.5rem;
+  content: ">";
+}
+.nav-buttons-mobile .btn {
+  display: block;
+  text-align: left;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  color: inherit;
+}
+.nav-buttons-mobile .btn-primary {
+  font-weight: bolder;
+}

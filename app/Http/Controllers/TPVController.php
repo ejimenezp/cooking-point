@@ -45,7 +45,7 @@ class TPVController extends Controller
 					return view('tpv.pay')->with('bkg', $bkg);
 				} else {
 					AvailabilityHoldController::remove($bkg->locator);
-					return redirect()->route('booking', ['param' => json_encode($bkg, JSON_NUMERIC_CHECK)]);
+					return redirect()->route('booking', ['param' => json_encode($bkg, JSON_NUMERIC_CHECK), 'tpv_result' =>'NOAVAILABILITY']);
 				}
 			}
     	}
