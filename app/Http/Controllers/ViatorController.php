@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Carbon\Carbon;
 
 use App\Http\Controllers\CalendareventController;
+use App\Http\Controllers\AvailabilityHoldController;
 
 use App\Viator\ViatorRequestStatus;
 use App\Viator\ViatorTourAvailability;
@@ -98,7 +99,6 @@ class ViatorController extends Controller
         for ($date = $start; $date->diffInDays($end, false) >= 0; $date->addDay())
         {
             $availability = new ViatorTourAvailability;
-            $availability->Date = $date->toDateString();
             // Log::debug('fecha ' . $date . ' type ' . $ce_type);
             if ($date->lt($hoy)) {
                 $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
@@ -117,9 +117,15 @@ class ViatorController extends Controller
                 $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                 $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
             }
-            if ($availability->AvailabilityStatus->UnavailabilityReason == '') {
+            if ($availability->AvailabilityStatus->Status == 'AVAILABLE') {
                 unset($availability->AvailabilityStatus->UnavailabilityReason);
+                AvailabilityHoldController::add(
+                    $ce->id,
+                    sprintf("%d_%03d", $ce->id, mt_rand(0, 999)),
+                    $travellers,
+                    isset($requestdata['AvailabilityHold']['Expiry']) ? $requestdata['AvailabilityHold']['Expiry'] : 'PT300S');
             }
+            $availability->Date = $date->toDateString();
             $this->resp->data->TourAvailability[] = $availability;
         }
 
