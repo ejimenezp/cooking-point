@@ -255,7 +255,8 @@ class ViatorController extends Controller
                 $laravelrequest->hide_price = 'YES';
 
                 $controllerresponse = $bookingcontroller->add($laravelrequest);
-                
+
+                AvailabilityHoldController::remove($reference);
                 $bkg = $bookingcontroller->findBy($controllerresponse['locator']);
                 if ($bkg) {
                     MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_new_booking');

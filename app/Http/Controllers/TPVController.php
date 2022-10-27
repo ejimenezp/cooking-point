@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
+use App\Http\Controllers\AvailabilityHoldController;
 use App\Booking;
+use App\Calendarevent;
+
 use Cookie;
 use Log;
 
@@ -96,7 +99,7 @@ class TPVController extends Controller
             	$bkg->crm = 'YES';
             }
 	        $bkg->save();
-			AvailabilityHoldController::remove($bkg->locator);
+			AvailabilityHoldController::remove(Cookie::get('laravel_session'));
 	        if ($bkg->calendarevent->type == 'PAYREQUEST') {
 							MailController::send_mail('info@cookingpoint.es', $bkg, 'admin_3rdpartypayment');
 	        } else if ($bkg->onlineclass) {
