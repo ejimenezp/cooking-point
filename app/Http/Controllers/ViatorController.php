@@ -20,8 +20,6 @@ class ViatorController extends Controller
 
     function main(Request $request)
     {
-
-        Log::info($request);
         $this->resp = (object) array();
         $this->resp->data = (object) array();
         $requestdata = $request->data;

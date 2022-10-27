@@ -86,8 +86,6 @@ class TPVController extends Controller
 		$madridTz = new DateTimeZone("Europe/Madrid");
 		$timestamp = DateTime::createFromFormat("d/m/Y H:i", $a, $madridTz);
 
-		// LegacyModel::to_tpv_log ( $Ds_Order, '', $Ds_MerchantData, $Ds_Amount, $Ds_Response, $Ds_AuthorisationCode, $tpvDate );
-
         $bkg = $bookingcontroller->findBy($Ds_MerchantData);
         if ($Ds_Response < 100) {
             $bkg->status = 'PAID';

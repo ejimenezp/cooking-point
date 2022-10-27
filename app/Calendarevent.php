@@ -125,7 +125,6 @@ class Calendarevent extends Model
     public function getAvailableCovid($travellers, $reference)
     {
         $thisHold = $this->availabilityholds->where('reference', $reference)->where('expiry', '>=', date('Y-m-d H:i:s'))->sum('travellers');
-        Log::info('thisHold es ' . $thisHold);
         $holds = $this->availabilityholds->where('expiry', '>=', date('Y-m-d H:i:s'))->sum('travellers');
         $available = $this->capacity - $this->registered - $holds + $thisHold;
         return $available < 0 ? 0 : $available;
