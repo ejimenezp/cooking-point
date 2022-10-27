@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use Cookie;
 
 use \DateTime;
 use \DateTimeZone;
@@ -44,11 +43,11 @@ class Calendarevent extends Model
         return $this->belongsTo('App\Staff');
     }
 
-    public function checkAvailabilityAsOfNow($travellers) {
+    public function checkAvailabilityAsOfNow($travellers, $reference) {
 
         // calculate cutoff time based on travellers and previous bookings
         $startTime = new DateTime($this->getStartdateatomAttribute());
-        $capacity = $this->getAvailableCovid($travellers);
+        $capacity = $this->getAvailableCovid($travellers, $reference);
 
         switch ($this->type) {
             case 'PAELLA':
@@ -123,14 +122,10 @@ class Calendarevent extends Model
         return $adults + $children;
     }
 
-    public function getAvailablecovidAttribute()
+    public function getAvailableCovid($travellers, $reference)
     {
-        return $this->getAvailableCovid(0);
-    }
-
-    public function getAvailableCovid($travellers)
-    {
-        $thisHold = $this->availabilityholds->where('reference', Cookie::get('cplocator'))->where('expiry', '>=', date('Y-m-d H:i:s'))->sum('travellers');
+        $thisHold = $this->availabilityholds->where('reference', $reference)->where('expiry', '>=', date('Y-m-d H:i:s'))->sum('travellers');
+        Log::info('thisHold es ' . $thisHold);
         $holds = $this->availabilityholds->where('expiry', '>=', date('Y-m-d H:i:s'))->sum('travellers');
         $available = $this->capacity - $this->registered - $holds + $thisHold;
         return $available < 0 ? 0 : $available;

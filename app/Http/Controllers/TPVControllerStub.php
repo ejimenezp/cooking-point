@@ -43,10 +43,10 @@ class TPVControllerStub extends Controller
 			} else {
 				// comprobar disponibilidad una última vez antes de pagar
 				$travellers = $bkg->adult + $bkg->child;
-				if (AvailabilityHoldController::isValid($bkg->calendarevent_id, $bkg->locator, $travellers) ||
-					Calendarevent::find($bkg->calendarevent_id)->availablecovid >= $travellers)
+				$reference = Cookie::get('laravel_session');
+				if (Calendarevent::find($bkg->calendarevent_id)->getAvailableCovid($travellers, $reference) >= $travellers)
 				{
-					AvailabilityHoldController::addOrRefresh($bkg->calendarevent_id, $bkg->locator, $travellers, 'PT300S');
+					AvailabilityHoldController::addOrRefresh($bkg->calendarevent_id, $reference, $travellers, 'PT300S');
 					return view('tpv.pay-stub')->with('bkg', $bkg);
 				} else {
 					AvailabilityHoldController::remove($bkg->locator);

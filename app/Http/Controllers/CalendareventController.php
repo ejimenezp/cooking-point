@@ -13,6 +13,7 @@ use App\Staff;
 use App\CovidLayout;
 
 use Log;
+use Cookie;
 
 class CalendareventController extends Controller
 {
@@ -105,7 +106,7 @@ class CalendareventController extends Controller
                             ->orderBy('date')
                             ->orderBy('time')
                             ->orderBy('type')
-                            ->get()->makeVisible(['availablecovid', 'registered']));
+                            ->get()->makeVisible(['registered']));
     }
 
 
@@ -131,7 +132,7 @@ class CalendareventController extends Controller
             $subset['startdateatom'] = $item->startdateatom;
             $subset['duration'] = $item->duration;
             $subset['online'] = $item->online;
-            list ($cutoff, $capacity, $status, $reason) = $item->checkAvailabilityAsOfNow($request->persons);
+            list ($cutoff, $capacity, $status, $reason) = $item->checkAvailabilityAsOfNow($request->persons, $request->cookie('laravel_session'));
             $subset['available'] = ($status == 'AVAILABLE');
             return $subset;
         });
@@ -155,7 +156,7 @@ class CalendareventController extends Controller
                             ->get();
 
         $subset = $ces->filter(function ($item, $key) {
-            list ($cutoff, $capacity, $status, $reason) = $item->checkAvailabilityAsOfNow(0);
+            list ($cutoff, $capacity, $status, $reason) = $item->checkAvailabilityAsOfNow(0, Cookie::get('laravel_session'));
             return $status == 'AVAILABLE';
         });
         return $subset;

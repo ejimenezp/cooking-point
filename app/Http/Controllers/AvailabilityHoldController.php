@@ -12,13 +12,13 @@ class AvailabilityHoldController extends Controller
     {
         $interval = new DateInterval($duration);
         $expiry = (new DateTime())->add($interval);
-        $hold = AvailabilityHold::where('calendarevent_id', $calendarevent_id)
-                                ->where('reference', $reference)
-                                ->where('travellers', '<=', $travellers)->first();
+        $hold = AvailabilityHold::where('reference', $reference)->first();
         if (!$hold) {
             AvailabilityHold::create(
                 ['calendarevent_id' => $calendarevent_id, 'reference' => $reference, 'travellers' => $travellers, 'expiry' => $expiry->format('Y-m-d H:i:s')]);
         } else {
+            $hold->calendarevent_id = $calendarevent_id;
+            $hold->travellers = $travellers;
             $hold->expiry = $expiry->format('Y-m-d H:i:s');
             $hold->save();
         }
@@ -28,20 +28,4 @@ class AvailabilityHoldController extends Controller
     {
         AvailabilityHold::where('reference', $reference)->delete();
     }
-
-    public function isValid($calendarevent_id, $reference, $travellers)
-    {
-        return AvailabilityHold::where('calendarevent_id', $calendarevent_id)
-                                ->where('expiry', '>=', date('Y-m-d H:i:s'))
-                                ->where('reference', $reference)
-                                ->where('travellers', '<=', $travellers)
-                                ->exists();
-    }
-
-    // public function onHold($calendarevent_id)
-    // {
-    //     return AvailabilityHold::where('calendarevent_id', $calendarevent_id)
-    //                             ->where('expiry', '>=', date('Y-m-d H:i:s'))
-    //                             ->sum('travellers');
-    // }
 }

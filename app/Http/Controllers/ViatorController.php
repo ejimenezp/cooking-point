@@ -21,6 +21,7 @@ class ViatorController extends Controller
     function main(Request $request)
     {
 
+        Log::info($request);
         $this->resp = (object) array();
         $this->resp->data = (object) array();
         $requestdata = $request->data;
@@ -70,7 +71,7 @@ class ViatorController extends Controller
                 $error->Error->ErrorMessage = 'Function Not Supported (' . $request->requestType . ')';
                 $this->resp->data->RequestStatus = $error;
         }
-        Log::debug(json_encode($this->resp));
+        // Log::debug(json_encode($this->resp));
         return response()->json($this->resp);
     }
 
@@ -81,6 +82,7 @@ class ViatorController extends Controller
         $start = new Carbon($requestdata['StartDate']);
         $end = new Carbon($requestdata['EndDate']);
         $travellers = isset($requestdata['TravellerMix']['Total']) ? $requestdata['TravellerMix']['Total'] : 0;
+        $reference = isset($requestdata['ExternalReference']) ? $requestdata['ExternalReference'] : $requestdata['ApiKey'];
         $calendareventcontroller = new CalendareventController;
         $hoy = Carbon::now('Europe/Madrid');
 
@@ -103,6 +105,7 @@ class ViatorController extends Controller
             if ($date->lt($hoy)) {
                 $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                 $availability->AvailabilityStatus->UnavailabilityReason = 'PAST_CUTOFF_DATE';
+                unset($availability->AvailabilityHold);
                 $this->resp->data->TourAvailability[] = $availability;
                 continue;
             }
@@ -112,26 +115,27 @@ class ViatorController extends Controller
                     $availability->AvailabilityStatus->Capacity,
                     $availability->AvailabilityStatus->Status,
                     $availability->AvailabilityStatus->UnavailabilityReason) 
-                = $ce->checkAvailabilityAsOfNow($travellers);
+                = $ce->checkAvailabilityAsOfNow($travellers, $reference);
+                if ($availability->AvailabilityStatus->Status == 'AVAILABLE') {
+                    unset($availability->AvailabilityStatus->UnavailabilityReason);
+                    if (isset($requestdata['AvailabilityHold']['Expiry'])) {
+                        $availability->AvailabilityHold->Expiry = $requestdata['AvailabilityHold']['Expiry'];
+                        $availability->AvailabilityHold->Reference = $reference;
+                        AvailabilityHoldController::addOrRefresh(
+                            $ce->id,
+                            $reference,
+                            $travellers,
+                            $requestdata['AvailabilityHold']['Expiry']);
+                    }
+                }
             } else {
                 $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                 $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
-            }
-            if ($availability->AvailabilityStatus->Status == 'AVAILABLE') {
-                unset($availability->AvailabilityStatus->UnavailabilityReason);
-                $availability->AvailabilityHold->Expiry = isset($requestdata['AvailabilityHold']['Expiry']) ? $requestdata['AvailabilityHold']['Expiry'] : 'PT300S';
-                $availability->AvailabilityHold->Reference = $requestdata['ExternalReference'];
-
-                AvailabilityHoldController::addOrRefresh(
-                    $ce->id,
-                    $requestdata['ExternalReference'],
-                    $travellers,
-                    isset($requestdata['AvailabilityHold']['Expiry']) ? $requestdata['AvailabilityHold']['Expiry'] : 'PT300S');
+                unset($availability->AvailabilityHold);
             }
             $availability->Date = $date->toDateString();
             $this->resp->data->TourAvailability[] = $availability;
         }
-
     }
 
     private function batchavailabilityrequest ($requestdata)
@@ -141,6 +145,7 @@ class ViatorController extends Controller
         $start = new Carbon($requestdata['StartDate']);
         $end = new Carbon($requestdata['EndDate']);
         $travellers = isset($requestdata['TravellerMix']['Total']) ? $requestdata['TravellerMix']['Total'] : 0;
+        $reference = isset($requestdata['ExternalReference']) ? $requestdata['ExternalReference'] : $requestdata['ApiKey'];
         $calendareventcontroller = new CalendareventController;
         $hoy = Carbon::now('Europe/Madrid');
 
@@ -178,7 +183,7 @@ class ViatorController extends Controller
                         $availability->AvailabilityStatus->Capacity,
                         $availability->AvailabilityStatus->Status,
                         $availability->AvailabilityStatus->UnavailabilityReason) 
-                    = $ce->checkAvailabilityAsOfNow($travellers);
+                    = $ce->checkAvailabilityAsOfNow($travellers, $reference);
                 } else {
                     $availability->AvailabilityStatus->Status = 'UNAVAILABLE';
                     $availability->AvailabilityStatus->UnavailabilityReason = 'BLOCKED_OUT';
@@ -201,6 +206,7 @@ class ViatorController extends Controller
 
         $traveldate = new Carbon($requestdata['TravelDate']);
         $travellers = $requestdata['TravellerMix']['Total'];
+        $reference = isset($requestdata['ExternalReference']) ? $requestdata['ExternalReference'] : $requestdata['ApiKey'];
 
         if (!in_array($requestdata['SupplierProductCode'], ['PAELLA', 'TAPAS'])) {
             $error = new ViatorRequestStatus;
@@ -215,7 +221,7 @@ class ViatorController extends Controller
 
         if ($ce) {
 
-            if ($travellers > $ce->getAvailableCovid($travellers)) {
+            if ($travellers > $ce->getAvailableCovid($travellers, $reference)) {
                 $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
                 $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
                 $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
@@ -279,6 +285,7 @@ class ViatorController extends Controller
 
         $traveldate = new Carbon($requestdata['TravelDate']);
         $travellers = $requestdata['TravellerMix']['Total'];
+        $reference = isset($requestdata['ExternalReference']) ? $requestdata['ExternalReference'] : $requestdata['ApiKey'];
 
         if (!in_array($requestdata['SupplierProductCode'], ['PAELLA', 'TAPAS'])) {
             $error = new ViatorRequestStatus;
@@ -309,7 +316,7 @@ class ViatorController extends Controller
             if ($ce->id == $laravelbkg->calendarevent_id) {
                 $registered = $registered - $laravelbkg->adult - $laravelbkg->child;
             }
-            if ($travellers > $ce->getAvailableCovid($travellers)) {
+            if ($travellers > $ce->getAvailableCovid($travellers, $reference)) {
                 $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
                 $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
                 $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
