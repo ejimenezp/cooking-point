@@ -47,7 +47,7 @@ class TPVControllerStub extends Controller
 					AvailabilityHoldController::addOrRefresh($bkg->calendarevent_id, $reference, $travellers, 'PT300S');
 					return view('tpv.pay-stub')->with('bkg', $bkg);
 				} else {
-					AvailabilityHoldController::remove($bkg->locator);
+					AvailabilityHoldController::remove($reference);
 					return redirect()->route('booking', ['param' => json_encode($bkg, JSON_NUMERIC_CHECK), 'tpv_result' =>'NOAVAILABILITY']);
 				}
 			}
