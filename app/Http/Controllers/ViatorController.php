@@ -23,6 +23,7 @@ class ViatorController extends Controller
         $this->resp = (object) array();
         $this->resp->data = (object) array();
         $requestdata = $request->data;
+        Log::info($request);
 
         // Basic error checking
 
@@ -69,7 +70,7 @@ class ViatorController extends Controller
                 $error->Error->ErrorMessage = 'Function Not Supported (' . $request->requestType . ')';
                 $this->resp->data->RequestStatus = $error;
         }
-        // Log::debug(json_encode($this->resp));
+        Log::debug(json_encode($this->resp));
         return response()->json($this->resp);
     }
 
@@ -80,7 +81,7 @@ class ViatorController extends Controller
         $start = new Carbon($requestdata['StartDate']);
         $end = new Carbon($requestdata['EndDate']);
         $travellers = isset($requestdata['TravellerMix']['Total']) ? $requestdata['TravellerMix']['Total'] : 0;
-        $reference = isset($requestdata['ExternalReference']) ? $requestdata['ExternalReference'] : $requestdata['ApiKey'];
+        $reference = isset($requestdata['AvailabiltyHoldReference']) ? $requestdata['AvailabiltyHoldReference'] : $requestdata['ExternalReference'];
         $calendareventcontroller = new CalendareventController;
         $hoy = Carbon::now('Europe/Madrid');
 
@@ -124,6 +125,8 @@ class ViatorController extends Controller
                             $reference,
                             $travellers,
                             $requestdata['AvailabilityHold']['Expiry']);
+                    } else {
+                        unset($availability->AvailabilityHold);
                     }
                 }
             } else {
@@ -204,7 +207,7 @@ class ViatorController extends Controller
 
         $traveldate = new Carbon($requestdata['TravelDate']);
         $travellers = $requestdata['TravellerMix']['Total'];
-        $reference = isset($requestdata['ExternalReference']) ? $requestdata['ExternalReference'] : $requestdata['ApiKey'];
+        $reference = isset($requestdata['AvailabilityHoldReference']) ? $requestdata['AvailabilityHoldReference'] : $requestdata['ExternalReference'];
 
         if (!in_array($requestdata['SupplierProductCode'], ['PAELLA', 'TAPAS'])) {
             $error = new ViatorRequestStatus;
@@ -220,6 +223,7 @@ class ViatorController extends Controller
         if ($ce) {
 
             if ($travellers > $ce->getAvailableCovid($travellers, $reference)) {
+                Log::info('no existe reference ' . $reference);
                 $this->resp->data->TransactionStatus['Status'] = 'REJECTED';
                 $this->resp->data->TransactionStatus['RejectedReason'] = 'BOOKED_OUT_ALT_DATES';
                 $this->resp->data->TransactionStatus['RejectedReasonDetails'] = 'Please, check other dates';
@@ -284,7 +288,7 @@ class ViatorController extends Controller
 
         $traveldate = new Carbon($requestdata['TravelDate']);
         $travellers = $requestdata['TravellerMix']['Total'];
-        $reference = isset($requestdata['ExternalReference']) ? $requestdata['ExternalReference'] : $requestdata['ApiKey'];
+        $reference = isset($requestdata['AvailabilityHoldReference']) ? $requestdata['AvailabilityHoldReference'] : $requestdata['ExternalReference'];
 
         if (!in_array($requestdata['SupplierProductCode'], ['PAELLA', 'TAPAS'])) {
             $error = new ViatorRequestStatus;
