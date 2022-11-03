@@ -53,7 +53,7 @@ class ReportController extends Controller
         $sqlString = "SELECT created_at, id, type, description, sale_id, amount, receipt, staff
                         FROM wallet
                         WHERE created_at >= '$request->start_date' and created_at <= '$request->end_date'
-                        ORDER BY id";
+                        ORDER BY created_at, id";
 
                                 
         if(!$result = DB::select($sqlString))

@@ -24,7 +24,7 @@ class WalletController extends Controller
 
     function retrieveLast20()
     {
-        return WalletEntry::orderBy('id', 'desc')->take(20)->get();
+        return WalletEntry::orderBy('created_at', 'desc')->orderBy('id', 'desc')->take(20)->get();
     }
 
     function retrieveMaster()
